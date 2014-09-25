@@ -2,32 +2,23 @@
 
 module.exports = function(grunt) {
 
-grunt.loadNpmTasks('grunt-contrib-clean');
-grunt.loadNpmTasks('grunt-contrib-uglify');
-grunt.loadNpmTasks('grunt-contrib-concat');
-grunt.loadNpmTasks('grunt-contrib-cssmin');
-grunt.loadNpmTasks('grunt-contrib-jshint');
-grunt.loadNpmTasks('grunt-contrib-copy');
-grunt.loadNpmTasks('grunt-jsonlint');
-grunt.loadNpmTasks('grunt-jsdoc');
-grunt.loadNpmTasks('grunt-exec');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-jsonlint');
+	grunt.loadNpmTasks('grunt-jsdoc');
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         meta: {
             banner:
             '/* \n'+
-            ' * <%= pkg.name %> v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %> \n'+
+            ' * <%= pkg.name %> v<%= pkg.version %> - <%= grunt.template.today("yyyy-mm-dd") %>\n'+
             ' * \n'+
-            ' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %> \n'+
-            ' * \n'+
-            ' * Licensed under the <%= pkg.license %> license. \n'+
-            ' * \n'+
-            ' * Homepage: \n'+
-            ' * <%= pkg.homepage %> \n'+
-            ' * \n'+
-            ' * Source: \n'+
-            ' * <%= pkg.repository.url %> \n'+
+            ' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n'+
+            ' * License: <%= pkg.license %>\n'+
+            ' * Homepage: <%= pkg.homepage %>\n'+
+            ' * Source: <%= pkg.repository.url %>\n'+
             ' * \n'+
             ' */\n'
         },
@@ -48,23 +39,14 @@ grunt.loadNpmTasks('grunt-exec');
                 "-W099": true, //ignora tabs e space warning
                 "-W033": true
             },
-            files: ['src/*']//, '!src/file-excluded.js']
+            files: ['src/*.js']//, '!src/file-excluded.js']
         },
         jsonlint: {
-            sample: {
+            i18n: {
                 src: ['i18n/*.json']
             }
         },
         copy: {
-            i18n: {
-                nonull: true,
-                expand: true,
-                cwd: 'i18n/',
-                src: '*.json',
-                dest: 'dist/i18n/',
-                flatten: true,
-                filter: 'isFile',
-            },
             jquery: {
                 nonull: true,
                 src: 'node_modules/jquery/dist/jquery.min.js',
@@ -88,7 +70,7 @@ grunt.loadNpmTasks('grunt-exec');
             bootstrap_css: {
                 nonull: true,
                 src: "node_modules/bootstrap/dist/css/bootstrap.min.css",
-                dest: "src/css/lib/bootstrap.css"
+                dest: "src/lib/bootstrap.css"
             },
             nprogress_js: {
                 nonull: true,
@@ -98,7 +80,7 @@ grunt.loadNpmTasks('grunt-exec');
             nprogress_css: {
                 nonull: true,
                 src: "node_modules/nprogress/nprogress.css",
-                dest: "src/css/lib/nprogress.css"
+                dest: "src/lib/nprogress.css"
             },
             requirejs: {
                 nonull: true,
@@ -109,42 +91,6 @@ grunt.loadNpmTasks('grunt-exec');
                 nonull: true,
                 src: "node_modules/underscore/underscore-min.js",
                 dest: "src/lib/underscore.js"
-            }            
-        },
-        concat: {
-            options: {
-                separator: ';\n',
-                stripBanners: {
-                    block: true
-                }
-            },
-            lib: {
-
-            }
-        },
-        uglify: {
-            options: {
-                banner: '<%= meta.banner %>'
-            },
-            mix: {
-                files: {
-                    'dist/mix.min.js': ['<%= concat.mix.dest %>']
-                }
-            }
-        },
-        cssmin: {
-            combine: {
-                src: [
-                    'src/css/lib/bootstrap.css',
-                    /* ... */
-                    ],
-                dest: 'dist/css/main.css'
-            },
-            minify: {
-                expand: true,
-                cwd: 'dist/css/',
-                src: '<%= cssmin.combine.dest %>'
-                //,dest: 'dist/<%= pkg.name %>-<%= pkg.version %>.min.css'
             }
         },
         jsdoc: {
@@ -165,10 +111,7 @@ grunt.loadNpmTasks('grunt-exec');
     grunt.registerTask('default', [
         'clean',
         'jsonlint',
-        'copy',
         //'jshint',
-        'concat',
-        //'cssmin',        
-        //'uglify'
+        'copy'
     ]);
 };

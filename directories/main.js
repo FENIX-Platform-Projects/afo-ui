@@ -6,8 +6,10 @@ var fx_controller = (function() {
 
 //TODO MAKE SELECT BOX FROM fertilizers.js
 
+var fert = 'DAP';
+
     var data = {},
-        q = "SELECT * FROM countries WHERE name";
+        q = "SELECT * FROM countries WHERE name = '"+ fert +"'";
 
     data.datasource = 'africanfertilizers';
     data.thousandSeparator = ',';

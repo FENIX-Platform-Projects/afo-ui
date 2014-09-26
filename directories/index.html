@@ -14,39 +14,6 @@
   </head>
   <body>
 
-    <!-- Modal -->
-    <div id="loginmodal"  class="modal fade">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <h4 class="modal-title">Modal title</h4>
-          </div>
-          <div class="modal-body">
-            <form  role="form">
-                <div class="form-group">
-                  <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                  <label class="sr-only" for="exampleInputPassword2">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox"> Remember me
-                  </label>
-                </div>
-              </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-success btn-login" data-dismiss="modal">Sign in</button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
     <!-- Top menu -->
     <div role="navigation" class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -90,65 +57,7 @@
 
     <div class="container">
       <div class="col-xs-12">
-        <h2>Directories</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id consequat leo. In vestibulum arcu ac enim accumsan, nec scelerisque eros porta. Phasellus euismod risus ac dapibus convallis. Nulla facilisi. Nulla blandit magna luctus, varius ipsum in, aliquam nulla. Maecenas nisi ligula, vulputate vel rhoncus at, ullamcorper ut nisl. In sollicitudin suscipit tortor, nec ultrices risus vehicula sit amet. Nulla aliquet bibendum consequat. Quisque vehicula lectus sem. Suspendisse potenti. Maecenas blandit nunc a dolor fermentum laoreet. Ut non tristique dui, et pharetra tortor.</p>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="alert alert-warning fade in" role="alert">
-        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-        <strong>Attention!</strong> Web application under construction.
-      </div>
-    </div>
-        
-    <!-- Content -->
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3" role="navigation">
-        <ul class="nav nav-pills nav-stacked">
-          <li><a href="#">Item</a></li>
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-              Dropdown <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Item</a></li>
-              <li><a href="#">Item</a></li>
-              <li><a href="#">Item</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Item</a></li>
-          <li><a href="#">Item</a></li>
-          <li><a href="#">Item</a></li>
-          <li><a href="#">Item</a></li>
-          <li><a href="#">Item</a></li>
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-              Dropdown <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Item</a></li>
-              <li><a href="#">Item</a></li>
-              <li><a href="#">Item</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Item</a></li>
-        </ul>
-        
-        </div>
-        <div class="col-md-9">
-          <h2>Heading</h2>
-          <h4>This is subtitle.</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id consequat leo. In vestibulum arcu ac enim accumsan, nec scelerisque eros porta. Phasellus euismod risus ac dapibus convallis. Nulla facilisi. Nulla blandit magna luctus, varius ipsum in, aliquam nulla. Maecenas nisi ligula, vulputate vel rhoncus at, ullamcorper ut nisl. In sollicitudin suscipit tortor, nec ultrices risus vehicula sit amet. Nulla aliquet bibendum consequat. Quisque vehicula lectus sem. Suspendisse potenti. Maecenas blandit nunc a dolor fermentum laoreet. Ut non tristique dui, et pharetra tortor.</p>
-          <h2>Heading</h2>
-          <h4>This is subtitle.</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id consequat leo. In vestibulum arcu ac enim accumsan, nec scelerisque eros porta. Phasellus euismod risus ac dapibus convallis. Nulla facilisi. Nulla blandit magna luctus, varius ipsum in, aliquam nulla. Maecenas nisi ligula, vulputate vel rhoncus at, ullamcorper ut nisl. In sollicitudin suscipit tortor, nec ultrices risus vehicula sit amet. Nulla aliquet bibendum consequat. Quisque vehicula lectus sem. Suspendisse potenti. Maecenas blandit nunc a dolor fermentum laoreet. Ut non tristique dui, et pharetra tortor.</p>
-          <div id="chart"></div>
-          <h2>Heading</h2>
-          <h4>This is subtitle.</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id consequat leo. In vestibulum arcu ac enim accumsan, nec scelerisque eros porta. Phasellus euismod risus ac dapibus convallis. Nulla facilisi. Nulla blandit magna luctus, varius ipsum in, aliquam nulla. Maecenas nisi ligula, vulputate vel rhoncus at, ullamcorper ut nisl. In sollicitudin suscipit tortor, nec ultrices risus vehicula sit amet. Nulla aliquet bibendum consequat. Quisque vehicula lectus sem. Suspendisse potenti. Maecenas blandit nunc a dolor fermentum laoreet. Ut non tristique dui, et pharetra tortor.</p>    
-        </div>
+        <iframe id="mapFrame" width="713px" height="590px" frameborder="0" src=""></iframe>
       </div>
     </div>
 
@@ -159,8 +68,8 @@
       </div>
     </div>
     
-    <script src="src/lib/jquery.js"></script>
-    <script src="src/lib/bootstrap.js"></script> 
+    <script src="../src/lib/jquery.js"></script>
+    <script src="../src/lib/bootstrap.js"></script> 
     <script src="main.js"></script>
 
   </body>

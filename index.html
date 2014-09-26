@@ -5,10 +5,11 @@
     <title>AfricaFeritilizer.org - AF Skeleton web application by FENIX</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+   
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="src/css/lib/bootstrap.css">
+    <link rel="stylesheet" href="src/css/main.css">
    
   </head>
   <body>
@@ -61,10 +62,10 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="index.html">Home</a></li>
-            <li><a href="prices.html">Prices</a></li>
-            <li><a href="directories.html">Directories</a></li>
-            <li><a href="catalogue.html">Catalogue</a></li>
-            <li><a href="analysis.html">Analysis</a></li>
+            <li><a href="prices/">Prices</a></li>
+            <li><a href="directories/">Directories</a></li>
+            <li><a href="catalogue/">Catalogue</a></li>
+            <li><a href="analysis/">Analysis</a></li>
             <li class="protected"><a href="#">Administration</a></li>
           </ul>
 
@@ -114,9 +115,9 @@
           <div id="chart"></div>
         </div>
         <div class="col-md-3">
-          <img src="images/twitter-timeline.png" class="img-responsive" alt="Responsive image">
+          <img src="src/images/twitter-timeline.png" class="img-responsive" alt="Responsive image">
           <br/>
-          <img src="images/facebook-timeline.png" class="img-responsive" alt="Responsive image">
+          <img src="src/images/facebook-timeline.png" class="img-responsive" alt="Responsive image">
           <h2><span class="glyphicon glyphicon-calendar"></span> Events</h2>
           <h4>This is subtitle.</h4>
           <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
@@ -136,16 +137,10 @@
       </div>
     </div>
     
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> 
-    <!-- Highcharts-->
-    <script src="//code.highcharts.com/highcharts.js"></script> 
+    <script src="src/lib/jquery.js"></script>
+    <script src="src/lib/bootstrap.js"></script> 
 
-    <script src="scripts/home.js"></script> 
+    <script src="main.js"></script> 
 
   </body>
 </html>

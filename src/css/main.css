@@ -1,0 +1,88 @@
+body { 
+	padding-top: 50px;
+  background-color: #ffffff;
+  color: #666666;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.navbar .container{
+  position: relative;
+}
+
+.navbar-default { 
+  background-color: #ffffff;
+}
+
+.nav-pills li a {
+  color: #336601;
+}
+
+.navbar-brand{
+  display: block;
+  width: 55px;
+  height: 50px;
+  background-image: url('../images/logo.png');
+  padding: 0;
+  background-repeat: no-repeat;
+}
+
+h1, h2 {
+  font-family: 'Roboto Condensed';
+  color: #336601 ;
+}
+
+.jumbotron, .jumbotron h1, .jumbotron h2 {
+  color: white;
+}
+
+.container .jumbotron {
+  padding: 48px 0;
+}
+
+.jumbotron, .jumbotron-wrapper {
+  background-color: #336601; 
+}
+
+.white-inverted{
+  background-color: transparent;
+  border-color: white;
+  color: white;
+}
+
+
+#lang_picker{
+  background-color: #336601;
+  height: 18px;
+  color:#FFFFFF;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  margin-top: 16px;
+  margin-left: 16px;
+}
+
+#lang_picker li{
+  border-right: 1px solid #FFFFFF;
+  height: 18px;
+  padding: 0 4px 0 4px;
+  cursor: pointer;
+}
+
+#lang_picker li a{
+	padding: 0 5px;
+	color: white;
+  line-height: 18px;
+}
+
+
+#lang_picker li:last-child{
+  border-right: none;
+}
+
+.footer {
+    border-top: 1px solid #EEEEEE;
+    margin-top: 40px;
+    padding-bottom: 40px;
+    padding-top: 40px;
+}

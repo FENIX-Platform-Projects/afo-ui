@@ -1,8 +1,36 @@
 var fx_controller = (function() {
 
-  function init(){
+  function init() {
 
     initLogin();
+
+//TODO MAKE SELECT BOX FROM fertilizers.js
+
+    var data = {},
+        q = "SELECT * FROM countries WHERE name";
+
+    data.datasource = 'africanfertilizers';
+    data.thousandSeparator = ',';
+    data.decimalSeparator = '.';
+    data.decimalNumbers = 2;
+    
+    //CREATE TABLE countries (s varchar(60), name varchar(60), country varchar(3), value INT);
+    
+    data.json = JSON.stringify({query: q});
+    data.cssFilename = '';
+    data.nowrap = false;
+    data.valuesIndex = 0;
+
+    $.ajax({
+        type    :   'POST',
+        url     :   'http://faostat3.fao.org/wds/rest/table/json',
+        data    :   data,
+        success: function (resp) {
+            console.log(resp);
+        },
+        error: function (e, b, c) {
+        }
+    });
   
     var frameUrl = "http://fenixapps.fao.org/maps/api?"+
       "baselayers=mapquest&layers=gaul0_faostat_3857&styles=join&joincolumn=iso3_code"+
@@ -13,7 +41,7 @@ var fx_controller = (function() {
     $('#mapFrame').attr({src: frameUrl});
   };
 
-  function initLogin(){
+  function initLogin() {
 
     $('.protected').hide();
 

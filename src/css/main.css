@@ -90,7 +90,7 @@ h1, h2 {
 /*************************************/
 
 .navbar-fixed-top {
-  background-color: #DDF3C2
+  background-color: #DDF3C2;
 }
 
 .navbar-default .navbar-nav > .active > a,
@@ -105,3 +105,28 @@ h1, h2 {
   height: 700px;
 }
 
+#listCountries .btn {
+  color: #B4D180
+}
+
+#listCountries .btn.active {
+  color: #fff
+}
+
+#listCompanies .tabCompany {
+  clear: both;
+  margin: 10px 0 40px 0;
+  background-color: #fff;
+  border: none;
+  box-shadow: 0 0 4px #ccc;
+  display: none;
+}
+
+
+#listCompanies .tabCompany td {
+    padding: 5px;
+}
+
+#listCompanies .companyName {
+  font-weight: bold;
+}

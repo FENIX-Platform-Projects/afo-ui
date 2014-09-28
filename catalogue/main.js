@@ -7,15 +7,18 @@ var fx_controller = (function() {
   function init() {
 
     initLogin();
-    initMap();
-    initFertilizers();
+    initMap('CAN');
+    initList();
 
   };
 
-  function initFertilizers() {
+  function initList() {
 
-    for(var i in Fertilizers)
-     $listFertilizers.append('<option value="'+Fertilizers[i]+'">'+Fertilizers[i]+'</option>');
+    var sel = false;
+    for(var i in Fertilizers) {
+      sel = Fertilizers[i]==='CAN' ? 'selected="selected"':'';
+      $listFertilizers.append('<option '+sel+' value="'+Fertilizers[i]+'">'+Fertilizers[i]+'</option>');
+    }
 
     $listFertilizers.on('change', function() {
         var fert = this.value;
@@ -60,7 +63,7 @@ var fx_controller = (function() {
               "baselayers=mapquest&layers=gaul0_faostat_3857&styles=join&joincolumn=iso3_code"+
               "&lat=0&lon=20&zoom=4"+
               "&joindata=["+ccodes+"]"+  //[(EGY,1),(GHA,0),(NGR,1),(MOZ,1)]
-              "&enablejoingfi=true&legendtitle=fertilizers&mu=fertilizers&lang=E&colors=238B45,ffffff&ranges=1&classification=custom";
+              "&enablejoingfi=true&legendtitle=Fertilizer Distribution&mu="+fert+"&lang=E&colors=238B45,ffffff&ranges=1&classification=custom";
             
             $('#frameMap').attr({src: frameUrl });
 

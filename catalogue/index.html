@@ -63,10 +63,12 @@
           <ul class="nav navbar-nav">
             <li><a href="../">Home</a></li>
             <li><a href="../prices/">Prices</a></li>
-            <li><a href="../directories/">Directories</a></li>
-            <li class="active"><a href="../catalogue/">Catalogue</a></li>
-            <li><a href="../analysis/">Analysis</a></li>
-            <li class="protected"><a href="#">Administration</a></li>
+            <li class="active"><a href="#">Catalogue</a></li>
+            <li><a href="../directories/">Directories</a></li>            
+            <li><a href="../publications/">Publications</a></li>
+            <li><a href="../policies/">Policies</a></li>
+            <li><a href="../market_news/">Market news</a></li>
+            <li><a href="../events/">Events</a></li>
           </ul>
           
           <form class="navbar-form navbar-left" role="search">
@@ -89,13 +91,18 @@
     </div>
 
     <div class="container">
+      <div class="alert alert-warning fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <strong>Attention!</strong> Web application under construction.
+      </div>
+    </div>
+    
+    <div class="container">
       <div class="col-xs-12">
         <h2>Catalogue</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id consequat leo. In vestibulum arcu ac enim accumsan, nec scelerisque eros porta. Phasellus euismod risus ac dapibus convallis.</p>
       </div>
-    </div>
 
-    <div class="container">
         <div class="col-xs-4">
 
           <form class="form" role="form">
@@ -110,46 +117,62 @@
     </div>
 
     <div class="container">
-      <div class="alert alert-warning fade in" role="alert">
-        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-        <strong>Attention!</strong> Web application under construction.
-      </div>
-    </div>
-        
-    <!-- Content -->
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3" role="navigation">
-        <ul class="nav nav-pills nav-stacked">
-          <li><a href="#">Item</a></li>
-          <li><a href="#">Item</a></li>
-          <li><a href="#">Item</a></li>
-          <li><a href="#">Item</a></li>
-          <li><a href="#">Item</a></li>
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-              Dropdown <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Item</a></li>
-              <li><a href="#">Item</a></li>
-              <li><a href="#">Item</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Item</a></li>
-        </ul>
-        
-        </div>
-        <div class="col-md-9">
-          <h2>Heading</h2>
-          <h4>This is subtitle.</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id consequat leo. In vestibulum arcu ac enim accumsan, nec scelerisque eros porta. Phasellus euismod risus ac dapibus convallis. Nulla facilisi. Nulla blandit magna luctus, varius ipsum in, aliquam nulla. Maecenas nisi ligula, vulputate vel rhoncus at, ullamcorper ut nisl. In sollicitudin suscipit tortor, nec ultrices risus vehicula sit amet. Nulla aliquet bibendum consequat. Quisque vehicula lectus sem. Suspendisse potenti. Maecenas blandit nunc a dolor fermentum laoreet. Ut non tristique dui, et pharetra tortor.</p>
-          <div id="chart"></div>
-          <h2>Heading</h2>
-          <h4>This is subtitle.</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id consequat leo. In vestibulum arcu ac enim accumsan, nec scelerisque eros porta. Phasellus euismod risus ac dapibus convallis. Nulla facilisi. Nulla blandit magna luctus, varius ipsum in, aliquam nulla. Maecenas nisi ligula, vulputate vel rhoncus at, ullamcorper ut nisl. In sollicitudin suscipit tortor, nec ultrices risus vehicula sit amet. Nulla aliquet bibendum consequat. Quisque vehicula lectus sem. Suspendisse potenti. Maecenas blandit nunc a dolor fermentum laoreet. Ut non tristique dui, et pharetra tortor.</p>
-          
-        </div>
+        <div class="col-xs-12">
+            <a class="btn btn-lg" href="#Algeria">Algeria</a>
+            <a class="btn btn-lg" href="#Angola">Angola</a>
+            <a class="btn btn-lg" href="#Benin">Benin</a>
+            <a class="btn btn-lg" href="#Botswana">Botswana</a>
+            <a class="btn btn-lg" href="#Burkina-Faso">Burkina Faso</a>
+            <a class="btn btn-lg" href="#Burundi">Burundi</a>
+            <a class="btn btn-lg" href="#Cameroon">Cameroon</a>
+            <a class="btn btn-lg" href="#Cape-Verde">Cape Verde</a>
+            <a class="btn btn-lg" href="#Central-African-Republic">Central African Republic</a>
+            <a class="btn btn-lg" href="#Chad">Chad</a>
+            <a class="btn btn-lg" href="#Comoros">Comoros</a>
+            <a class="btn btn-lg" href="#Congo">Congo</a>
+            <a class="btn btn-lg" href="#Congo-Democratic-Republic">Congo Democratic Republic</a>
+            <a class="btn btn-lg" href="#Cote-d-Ivoire">Côte d'Ivoire</a>
+            <a class="btn btn-lg" href="#Djibouti">Djibouti</a>
+            <a class="btn btn-lg" href="#Egypt">Egypt</a>
+            <a class="btn btn-lg" href="#Equatorial-Guinea">Equatorial Guinea</a>
+            <a class="btn btn-lg" href="#Eritrea">Eritrea</a>
+            <a class="btn btn-lg" href="#Ethiopia">Ethiopia</a>
+            <a class="btn btn-lg" href="#Gabon">Gabon</a>
+            <a class="btn btn-lg" href="#Gambia">Gambia</a>
+            <a class="btn btn-lg" href="#Ghana">Ghana</a>
+            <a class="btn btn-lg" href="#Guinea">Guinea</a>
+            <a class="btn btn-lg" href="#Guinea-Bissau">Guinea-Bissau</a>
+            <a class="btn btn-lg" href="#Kenya">Kenya</a>
+            <a class="btn btn-lg" href="#Lesotho">Lesotho</a>
+            <a class="btn btn-lg" href="#Liberia">Liberia</a>
+            <a class="btn btn-lg" href="#Libya">Libya</a>
+            <a class="btn btn-lg" href="#Madagascar">Madagascar</a>
+            <a class="btn btn-lg" href="#Malawi">Malawi</a>
+            <a class="btn btn-lg" href="#Mali">Mali</a>
+            <a class="btn btn-lg" href="#Mauritania">Mauritania</a>
+            <a class="btn btn-lg" href="#Mauritius">Mauritius</a>
+            <a class="btn btn-lg" href="#Morocco">Morocco</a>
+            <a class="btn btn-lg" href="#Mozambique">Mozambique</a>
+            <a class="btn btn-lg" href="#Namibia">Namibia</a>
+            <a class="btn btn-lg" href="#Niger">Niger</a>
+            <a class="btn btn-lg" href="#Nigeria">Nigeria</a>
+            <a class="btn btn-lg" href="#Reunion">Réunion</a>
+            <a class="btn btn-lg" href="#Rwanda">Rwanda</a>
+            <a class="btn btn-lg" href="#Sao-Tome-and-Principe">São Tomé and Príncipe</a>
+            <a class="btn btn-lg" href="#Senegal">Senegal</a>
+            <a class="btn btn-lg" href="#Seychelles">Seychelles</a>
+            <a class="btn btn-lg" href="#Sierra-Leone">Sierra Leone</a>
+            <a class="btn btn-lg" href="#Somalia">Somalia</a>
+            <a class="btn btn-lg" href="#South-Africa">South Africa</a>
+            <a class="btn btn-lg" href="#Sudan">Sudan</a>
+            <a class="btn btn-lg" href="#Swaziland">Swaziland</a>
+            <a class="btn btn-lg" href="#Tanzania">Tanzania</a>
+            <a class="btn btn-lg" href="#Togo">Togo</a>
+            <a class="btn btn-lg" href="#Tunisia">Tunisia</a>
+            <a class="btn btn-lg" href="#Uganda">Uganda</a>
+            <a class="btn btn-lg" href="#Zambia">Zambia</a>
+            <a class="btn btn-lg" href="#Zimbabwe">Zimbabwe</a>
+          </select>
       </div>
     </div>
 

@@ -91,8 +91,22 @@
     <div class="container">
       <div class="col-xs-12">
         <h2>Catalogue</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id consequat leo. In vestibulum arcu ac enim accumsan, nec scelerisque eros porta. Phasellus euismod risus ac dapibus convallis. Nulla facilisi. Nulla blandit magna luctus, varius ipsum in, aliquam nulla. Maecenas nisi ligula, vulputate vel rhoncus at, ullamcorper ut nisl. In sollicitudin suscipit tortor, nec ultrices risus vehicula sit amet. Nulla aliquet bibendum consequat. Quisque vehicula lectus sem. Suspendisse potenti. Maecenas blandit nunc a dolor fermentum laoreet. Ut non tristique dui, et pharetra tortor.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id consequat leo. In vestibulum arcu ac enim accumsan, nec scelerisque eros porta. Phasellus euismod risus ac dapibus convallis.</p>
       </div>
+    </div>
+
+    <div class="container">
+        <div class="col-xs-4">
+
+          <form class="form" role="form">
+          <div class="form-group">
+              <select class="form-control" id="listFertilizers" multiple="multiple"></select>
+          </div>
+        </div>
+        <div class="col-xs-8">
+          <iframe class="clearfix" id="frameMap" width="90%" height="700px" frameborder="0" src="">
+          </iframe>
+        </div>          
     </div>
 
     <div class="container">
@@ -145,9 +159,15 @@
         <p>AfricaFeritilizer.org - AF Skeleton web application by FENIX</p>
       </div>
     </div>
-        
+
     <script src="../src/lib/jquery.js"></script>
-    <script src="../src/lib/bootstrap.js"></script> 
+    <script src="../src/lib/bootstrap.js"></script>
+    <script src="../src/lib/underscore.js"></script>
+    
+    <script src="../config/fertilizers.js"></script>
+    <script src="../config/countries.js"></script>
+
+
     <script src="main.js"></script>
 
   </body>

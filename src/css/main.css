@@ -86,3 +86,10 @@ h1, h2 {
     padding-bottom: 40px;
     padding-top: 40px;
 }
+
+/*************************************/
+
+#listFertilizers,
+#frameMap {
+  height: 700px;
+}

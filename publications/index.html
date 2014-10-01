@@ -63,15 +63,14 @@
           <ul class="nav navbar-nav">
             <li><a href="../">Home</a></li>
             <li><a href="../prices/">Prices</a></li>
-            <li><a href="../analysis/">Analysis</a></li>
-            <li class="active"><a href="#">Catalogue</a></li>
+            <li><a href="../catalogue/">Catalogue</a></li>
             <li><a href="../directories/">Directories</a></li>            
-            <li><a href="../publications/">Publications</a></li>
+            <li class="active"><a href="#">Publications</a></li>
             <li><a href="../policies/">Policies</a></li>
             <li><a href="../market_news/">Market news</a></li>
             <li><a href="../events/">Events</a></li>
           </ul>
-          
+
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
               <input type="text" class="form-control" placeholder="Search">
@@ -100,23 +99,48 @@
     
     <div class="container">
       <div class="col-xs-12">
-        <h2>Catalogue</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id consequat leo. In vestibulum arcu ac enim accumsan, nec scelerisque eros porta. Phasellus euismod risus ac dapibus convallis.</p>
+        <h2>Publications</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id consequat leo. In vestibulum arcu ac enim accumsan, nec scelerisque eros porta. Phasellus euismod risus ac dapibus convallis. Nulla facilisi. Nulla blandit magna luctus, varius ipsum in, aliquam nulla. Maecenas nisi ligula, vulputate vel rhoncus at, ullamcorper ut nisl. In sollicitudin suscipit tortor, nec ultrices risus vehicula sit amet. Nulla aliquet bibendum consequat. Quisque vehicula lectus sem. Suspendisse potenti. Maecenas blandit nunc a dolor fermentum laoreet. Ut non tristique dui, et pharetra tortor.</p>
       </div>
-
-        <div class="col-xs-4">
-
-          <form class="form" role="form">
-          <div class="form-group">
-              <select class="form-control" id="listFertilizers" multiple="multiple"></select>
-          </div>
-        </div>
-        <div class="col-xs-8">
-          <iframe class="clearfix" id="frameMap" width="90%" height="700px" frameborder="0" src="">
-          </iframe>
-        </div>          
     </div>
 
+        
+    <!-- Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3" role="navigation">
+        <ul class="nav nav-pills nav-stacked">
+          <li><a href="#">Item</a></li>
+          <li><a href="#">Item</a></li>
+          <li><a href="#">Item</a></li>
+          <li><a href="#">Item</a></li>
+          <li><a href="#">Item</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              Dropdown <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Item</a></li>
+              <li><a href="#">Item</a></li>
+              <li><a href="#">Item</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Item</a></li>
+        </ul>
+        
+        </div>
+        <div class="col-md-9">
+          <h2>Heading</h2>
+          <h4>This is subtitle.</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id consequat leo. In vestibulum arcu ac enim accumsan, nec scelerisque eros porta. Phasellus euismod risus ac dapibus convallis. Nulla facilisi. Nulla blandit magna luctus, varius ipsum in, aliquam nulla. Maecenas nisi ligula, vulputate vel rhoncus at, ullamcorper ut nisl. In sollicitudin suscipit tortor, nec ultrices risus vehicula sit amet. Nulla aliquet bibendum consequat. Quisque vehicula lectus sem. Suspendisse potenti. Maecenas blandit nunc a dolor fermentum laoreet. Ut non tristique dui, et pharetra tortor.</p>
+          <div id="chart"></div>
+          <h2>Heading</h2>
+          <h4>This is subtitle.</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id consequat leo. In vestibulum arcu ac enim accumsan, nec scelerisque eros porta. Phasellus euismod risus ac dapibus convallis. Nulla facilisi. Nulla blandit magna luctus, varius ipsum in, aliquam nulla. Maecenas nisi ligula, vulputate vel rhoncus at, ullamcorper ut nisl. In sollicitudin suscipit tortor, nec ultrices risus vehicula sit amet. Nulla aliquet bibendum consequat. Quisque vehicula lectus sem. Suspendisse potenti. Maecenas blandit nunc a dolor fermentum laoreet. Ut non tristique dui, et pharetra tortor.</p>
+          
+        </div>
+      </div>
+    </div>
 
     <!-- Footer --> 
     <div class="container">
@@ -126,13 +150,7 @@
     </div>
 
     <script src="../src/lib/jquery.js"></script>
-    <script src="../src/lib/bootstrap.js"></script>
-    <script src="../src/lib/underscore.js"></script>
-    
-    <script src="../config/fertilizers.js"></script>
-    <script src="../config/countries.js"></script>
-
-
+    <script src="../src/lib/bootstrap.js"></script> 
     <script src="main.js"></script>
 
   </body>

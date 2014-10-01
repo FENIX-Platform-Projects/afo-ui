@@ -36,7 +36,7 @@ var fx_controller = (function() {
 
       //CREATE TABLE countries (s varchar(60), name varchar(60), country varchar(3), value INT);
 
-      data.datasource = 'africanfertilizers';
+      data.datasource = 'africafertilizer';
       data.thousandSeparator = ',';
       data.decimalSeparator = '.';
       data.decimalNumbers = 2;

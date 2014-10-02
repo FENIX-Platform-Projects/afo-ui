@@ -14,17 +14,19 @@ var fx_controller = (function() {
 
   function initList() {
 
-    var sel = false;
-    for(var i in Fertilizers) {
-      sel = Fertilizers[i]==='CAN' ? 'selected="selected"':'';
-      $listFertilizers.append('<option '+sel+' value="'+Fertilizers[i]+'">'+Fertilizers[i]+'</option>');
-    }
+    $.getJSON('../config/sampleData.json', function(sampleData) {
 
-    $listFertilizers.on('change', function() {
-        var fert = this.value;
-        console.log(fert);
-        initMap(fert);
-    });
+      var sel = false;
+      for(var i in sampleData.fertilizers) {
+        sel = sampleData.fertilizers[i]==='CAN' ? 'selected="selected"':'';
+        $listFertilizers.append('<option '+sel+' value="'+sampleData.fertilizers[i]+'">'+sampleData.fertilizers[i]+'</option>');
+      }
+
+      $listFertilizers.on('change', function() {
+          var fert = this.value;
+          initMap(fert);
+      });
+    });      
   }
 
   function initMap(fert) {

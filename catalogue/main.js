@@ -1,94 +1,35 @@
 
-var fx_controller = (function() {
+requirejs.config({
 
-  var $frameMap = $('#frameMap'),
-      $listFertilizers = $('#listFertilizers');
+    baseUrl: "../src/",
 
-  function init() {
+    paths : {
+        domReady: "lib/domReady",
+        jquery: "lib/jquery",
+        bootstrap : "lib/bootstrap",
+        jqwidgets: "//fenixapps.fao.org/repository/js/jqwidgets/3.1/jqx-all",
+        //fenix modules
+        'fenix-ui-topmenu': "fenix_modules/fenix-ui-topmenu/main"
+    },
 
-    initLogin();
-    initMap('CAN');
-    initList();
+    shim: {
+        bootstrap: {
+            deps: ['jquery']
+        },
+        jqwidgets: {
+            deps: ['jquery']
+        },
+        'fenix-ui-topmenu': {
+            deps: ['jquery','bootstrap']
+        }
+    }
+});
 
-  };
+require(['fenix-ui-topmenu', 'domready!'], function( TopMenu ) {
 
-  function initList() {
-
-    $.getJSON('../config/sampleData.json', function(sampleData) {
-
-      var sel = false;
-      for(var i in sampleData.fertilizers) {
-        sel = sampleData.fertilizers[i]==='CAN' ? 'selected="selected"':'';
-        $listFertilizers.append('<option '+sel+' value="'+sampleData.fertilizers[i]+'">'+sampleData.fertilizers[i]+'</option>');
-      }
-
-      $listFertilizers.on('change', function() {
-          var fert = this.value;
-          initMap(fert);
-      });
-    });      
-  }
-
-  function initMap(fert) {
-
-    //fert: DAP,MKP,MOP,MRP
-
-      var query = "SELECT country FROM countries WHERE name = '"+ fert +"' AND value=1",
-          data = {};
-
-      //CREATE TABLE countries (s varchar(60), name varchar(60), country varchar(3), value INT);
-
-      data.datasource = 'africafertilizer';
-      data.thousandSeparator = ',';
-      data.decimalSeparator = '.';
-      data.decimalNumbers = 2;
-      data.json = JSON.stringify({query: query});
-      data.cssFilename = '';
-      data.nowrap = false;
-      data.valuesIndex = 0;
-
-      $.ajax({
-          type    :   'POST',
-          url     :   'http://faostat3.fao.org/wds/rest/table/json',
-          data    :   data,
-          success: function (resp) {
-
-            console.log(resp);
-
-            var ccodes = _.map(resp, function(val) {
-              return "("+val[0]+",1)";
-            }).join(',');
-
-            console.log(ccodes);
-
-            var frameUrl = "http://fenixapps.fao.org/maps/api?"+
-              "baselayers=mapquest&layers=gaul0_faostat_3857&styles=join&joincolumn=iso3_code"+
-              "&lat=0&lon=20&zoom=4"+
-              "&joindata=["+ccodes+"]"+  //[(EGY,1),(GHA,0),(NGR,1),(MOZ,1)]
-              "&enablejoingfi=true&legendtitle=Fertilizer Distribution&mu="+fert+"&lang=E&colors=238B45,ffffff&ranges=1&classification=custom";
-            
-            $('#frameMap').attr({src: frameUrl });
-
-          },
-          error: function (e, b, c) {
-          }
-      });
-    
-  }
-
-  function initLogin(){
-
-    $('.protected').hide();
-
-    $('.btn-login').on('click', function(){
-        $('.protected').show();
+    new TopMenu({
+        url: "../config/fenix-ui-topmenu.json",
+        active: "home"
     });
 
-  }
-
-  return { init : init }
-
-})();
-
-window.addEventListener('load', fx_controller.init, false);
-
+});

@@ -1,374 +1,374 @@
-name,usage,crop,problem,problem_notes,faostat_name,faostat_definition
-Organic Fertilizers,Fertilizers,,,,,
-Anhydrous Ammonia,,,,,,
-Ammonium Hydroxide,,,,,,
-Urea,Fertilizers,Maize,,,Maize,"Zea mays Corn, Indian corn, mealies. A grain with a high germ content. At the national level, hybrid and ordinary maize should be reported separately owing to widely different yields and uses. Used largely for animal feed and commercial starch production."
-Urea,,Sugarcane,,,Sugar cane,"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
-Urea,,Flowers,1,,,
-Urea,,Potato,,,Potatoes,"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
-Urea,,Pineapple,1,A. sativ. Trade figures may include dried pineapples.,Pineapples,Ananas comosus
-Urea,,Pea,1,"dry, green??",,
-Urea,,Rice,1,,"Rice, paddy","Oryza spp., mainly oryza sativa. Rice grain after threshing and winnowing. Also known as rice in the husk and rough rice. Used mainly for human food."
-Urea,,Oil-Palm,1,,"Oil, palm fruit","Elaeis guineensis. The oil palm produces bunches containing a large number of fruits with the fleshy mesocarp enclosing a kernel that is covered by a very hard shell. FAO considers palm oil (coming from the pulp) and palm kernels to be primary products. The oil extraction rate from a bunch varies from 17 to 27% for palm oil, and from 4 to 10% for palm kernels."
-Urea,,Cotton,1,"seed cotton, cotton lint??",,
-Urea,,Tobacco,,,"Tobacco, unmanufactured","Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
-Urea,,Wheat,,,Wheat,"Triticum spp.: common (T. aestivum) durum (T. durum) spelt (T. spelta). Common and durum wheat are the main types. Among common wheat, the main varieties are spring and winter, hard and soft, and red and white. At the national level, different varieties should be reported separately, reflecting their different uses. Used mainly for human food."
-Ammonium sulphate,,Flowers,1,,,
-Ammonium sulphate,,Rice,1,,"Rice, paddy","Oryza spp., mainly oryza sativa. Rice grain after threshing and winnowing. Also known as rice in the husk and rough rice. Used mainly for human food."
-Ammonium sulphate,,Cotton,1,"seed cotton, cotton lint??",,
-Ammonium sulphate,,Cassava,,,Cassava,"Manioc, mandioca, yuca (Manihot esculenta, syn. M. utilissima); yuca dulce (M. palmata, syn. M. dulcis). A semi-permanent crop grown in tropical and subtropical regions. Sometimes bitter and sweet cassavas are referred to as separate species, the former being M. esculenta and the latter M. palmata, but this is incorrect since the toxicity varies according to location. Cassava is the staple food in many tropical countries. It is not traded internationally in its fresh state because tubers deteriorate very rapidly."
-Ammonium sulphate,,Groundnut,,,"Groundnuts, with shell","Arachis hypogaea. For trade data, groundnuts in shell are converted at 70% and reported on a shelled basis."
-Ammonium sulphate,,Wheat,,,Wheat,"Triticum spp.: common (T. aestivum) durum (T. durum) spelt (T. spelta). Common and durum wheat are the main types. Among common wheat, the main varieties are spring and winter, hard and soft, and red and white. At the national level, different varieties should be reported separately, reflecting their different uses. Used mainly for human food."
-Ammonium sulphate,,,,,,
-Ammonium sulphate,,,,,,
-Double Salts of AS or AN,,Wheat,,,Wheat,"Triticum spp.: common (T. aestivum) durum (T. durum) spelt (T. spelta). Common and durum wheat are the main types. Among common wheat, the main varieties are spring and winter, hard and soft, and red and white. At the national level, different varieties should be reported separately, reflecting their different uses. Used mainly for human food."
-Double Salts of AS or AN,,Potatoes and Vegetables,1,,,
-Double Salts of AS or AN,,Coffee,1,,"Coffee, green","Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
-Ammonium nitrate,Mostly Industrial,Horticulture,1,,,
-CAN,,Maize,,,Maize,"Zea mays Corn, Indian corn, mealies. A grain with a high germ content. At the national level, hybrid and ordinary maize should be reported separately owing to widely different yields and uses. Used largely for animal feed and commercial starch production."
-CAN,,Wheat + Barley,,,Barley,"Hordeum spp.: two-row barley (H. disticum) six-row barley (H. hexasticum) four-row barley (H. vulgare). Tolerates poorer soils and lower temperatures better than does wheat. Varieties include with husk and without (naked). Used as a livestock feed, for malt and for preparing foods. The roasted grains are a coffee substitute."
-CAN,,Sugarcane,,,Sugar cane,"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
-CAN,,Flowers,1,,,
-CAN,,Coffee,1,,"Coffee, green","Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
-CAN,,Tobacco,,,"Tobacco, unmanufactured","Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
-CAN,,Potato,,,Potatoes,"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
-CAN,,Pineapple,1,A. sativ. Trade figures may include dried pineapples.,Pineapples,Ananas comosus
-CAN,,Pea,1,,,
-Sodium Nitrate,,,,,,
-Calcium Nitrate ,,Flowers,1,,,
-Calcium Cyanamides,,,,,,
-UAN,,,,,,
-Other Nitrogenous Fertilizers,,,,,,
-SSP,,Tea,,,Tea,"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
-SSP,,Beans,1,,,
-SSP,,Coffee,1,,"Coffee, green","Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
-SSP,,Potato,,,Potatoes,"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
-SSP,,Pea,1,,,
-SSP,,Pinapple,1,A. sativ. Trade figures may include dried pineapples.,Pineapples,Ananas comosus
-SSP,,Cassava,,,Cassava,"Manioc, mandioca, yuca (Manihot esculenta, syn. M. utilissima); yuca dulce (M. palmata, syn. M. dulcis). A semi-permanent crop grown in tropical and subtropical regions. Sometimes bitter and sweet cassavas are referred to as separate species, the former being M. esculenta and the latter M. palmata, but this is incorrect since the toxicity varies according to location. Cassava is the staple food in many tropical countries. It is not traded internationally in its fresh state because tubers deteriorate very rapidly."
-SSP,,Groundnut,,,"Groundnuts, with shell","Arachis hypogaea. For trade data, groundnuts in shell are converted at 70% and reported on a shelled basis."
-SSP,,Legumes,1,,,
-TSP,,Tea,,,Tea,"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
-TSP,,Flowers,1,,,
-TSP,,Coffee,1,,"Coffee, green","Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
-TSP,,Potato,,,Potatoes,"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
-TSP,,Pea,1,,,
-TSP,,Pinapple,1,A. sativ. Trade figures may include dried pineapples.,Pineapples,Ananas comosus
-Basic slag ,,,,,,
-Phosphate Rock,,,,,,
-Other Phosphatic Fertilizers,,,,,,
-Crude potash salts,,,,,,
-MOP,,Tea,,,Tea,"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
-MOP,,Sugarcane,,,Sugar cane,"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
-MOP,,Coffee,1,,"Coffee, green","Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
-MOP,,Rice,1,,"Rice, paddy","Oryza spp., mainly oryza sativa. Rice grain after threshing and winnowing. Also known as rice in the husk and rough rice. Used mainly for human food."
-MOP,,Oil-Palm,1,,"Oil, palm fruit","Elaeis guineensis. The oil palm produces bunches containing a large number of fruits with the fleshy mesocarp enclosing a kernel that is covered by a very hard shell. FAO considers palm oil (coming from the pulp) and palm kernels to be primary products. The oil extraction rate from a bunch varies from 17 to 27% for palm oil, and from 4 to 10% for palm kernels."
-MOP,,Pineapple,1,A. sativ. Trade figures may include dried pineapples.,Pineapples,Ananas comosus
-MOP,,Cassava,,,Cassava,"Manioc, mandioca, yuca (Manihot esculenta, syn. M. utilissima); yuca dulce (M. palmata, syn. M. dulcis). A semi-permanent crop grown in tropical and subtropical regions. Sometimes bitter and sweet cassavas are referred to as separate species, the former being M. esculenta and the latter M. palmata, but this is incorrect since the toxicity varies according to location. Cassava is the staple food in many tropical countries. It is not traded internationally in its fresh state because tubers deteriorate very rapidly."
-MOP,,Groundnut,,,"Groundnuts, with shell","Arachis hypogaea. For trade data, groundnuts in shell are converted at 70% and reported on a shelled basis."
-SOP,,Cereals,1,,"Cereals, nes","Including inter alia: canagua or coaihua (Chenopodium pallidicaule); quihuicha or Inca wheat (Amaranthus caudatus); adlay or Job's tears (Coix lacryma-jobi); wild rice (Zizania aquatica). Other cereal crops that are not identified separately because of their minor relevance at the international level. Because of their limited local importance, some countries report cereals under this commodity heading that are classified individually by FAO."
-SOP,,Sugarcane,,,Sugar cane,"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
-Other Potassic Fertilizers,,,,,,
-DAP,Fertilizers,Maize,,,Maize,"Zea mays Corn, Indian corn, mealies. A grain with a high germ content. At the national level, hybrid and ordinary maize should be reported separately owing to widely different yields and uses. Used largely for animal feed and commercial starch production."
-DAP,,Beans,1,,,
-DAP,,Tea,,,Tea,"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
-DAP,,Wheat + Barley,,,Barley,"Hordeum spp.: two-row barley (H. disticum) six-row barley (H. hexasticum) four-row barley (H. vulgare). Tolerates poorer soils and lower temperatures better than does wheat. Varieties include with husk and without (naked). Used as a livestock feed, for malt and for preparing foods. The roasted grains are a coffee substitute."
-DAP,,Sugarcane,,,Sugar cane,"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
-DAP,,flowers and Rice,1,,,
-MAP,,Sugarcane,,,Sugar cane,"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
-MAP,,Flowers,1,,,
-NPK (Known Grades),,,,,,
-NP,,,,,,
-Potassium Nitrate,,Tobacco,,,"Tobacco, unmanufactured","Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
-PK Compounds,,,,,,
-NPK (Unknown Grade),,,,,,
-Kieserite,Soil enhancers,,,,,
-Agric Lime,Soil enhancer,,,,,
-Calcium chloride,,,,,,
-Borax,,,,,,
-Dolimite,,,,,,
-Copper Sulphate,,,,,,
-Magnesium Nitrate,Soil enhancer,Flowers,1,,,
-Magnesium Sulphate,,Flowers,1,,,
-MKP,,,,,,
-Zinc Sulphate,,,,,,
-Organic Fertilizers,,,,,,
-NPK,,,,,,
-Organic Fertilizers,,,,,,
-MOP,,,,,,
-MRP,,food / cash crops,1,,,
-Nitrogenous Fertilizers,,Tomato,,,Tomatoes,Lycopersicon esculentum.
-Nitrogenous Fertilizers,,Potato,,,Potatoes,"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
-Nitrogenous Fertilizers,,Horticulture,1,,,
-Nitrogenous Fertilizers,,ornamentals,1,,,
-Calcium Nitrate,,,,,,
-Nitrogenous Fertilizers,,,,,,
-SOP,,,,,,
-Organic Fertilizers,,,,,,
-Nitrogenous Fertilizers,,,,,,
-CAN,,,,,,
-Calcium Nitrate,,Cocoa,1,,"Cocoa, beans","Theobroma cacao. The seeds contained in the fruit of the cacao- tree, including whole or broken, raw or roasted."
-Ammonium sulphate,,,,,,
-Nitrogenous Fertilizers,,,,,,
-PK 0 23 15 + 4S +1MgO + 10CaO + Z,,Legumes,1,,,
-PK 0 23 19,,,,,,
-PK 0 60 20,,,,,,
-PK 0 32 25,,,,,,
-PK 0 42 28,,Flowers,1,,,
-PK 0 42 28,,Fruits,1,,,
-PK 0 42 28,,Vegetables,1,,"Vegetables, fresh nes","Including inter alia: bamboo shoots (Bambusa spp.); beets, chards (Beta vulgaris); capers (Capparis spinosa); cardoons (Cynara cardunculus); celery (Apium graveolens); chervil (Anthriscus cerefolium); cress (Lepidium sativum); fennel (Foeniculum vulgare); horseradish (Cochlearia armoracia); marjoram, sweet (Majorana hortensis); oyster plant (Tragopogon porrifolius); parsley (Petroselinum crispum); parsnips (Pastinaca sativa); radish (Raphanus sativus); rhubarb (Rheum spp.); rutabagas, swedes (Brassica napus); savory (Satureja hortensis); scorzonera (Scorzonera hispanica); sorrel (Rumex acetosa); soybean sprouts tarragon (Artemisia dracunculus); watercress (Nasturtium officinale). Other vegetables that are not identified separately because of their minor relevance at the international level. Because of their limited local importance, some countries report vegetables under this heading that are classified individually by FAO."
-PK 0 42 28,,Potato,,,Potatoes,"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
-PK 0 42 28,,Cucumber,1,,Cucumbers and gherkins,Cucumis sativus.
-PK 0 42 28,,Watermelon,,,Watermelons,Citrullus vulgaris.
-PK 0 42 28,,Tomato,,,Tomatoes,Lycopersicon esculentum.
-PK 0 42 28,,Eggplant,,,Eggplants (aubergines),Solanum melongena. Also called aubergines.
-PK 0 42 28,,Ornamentals,1,,,
-PK 0 73 8.3,,Horticulture,1,,,
-PK 0 73 8.3,,Grapes and Fruits,1,,,
-NPK 1 1 15,,,,,,
-NPK 1 21 19 + TE,,Cocao,1,,,
-NPK 3 2 13,,,,,,
-NPK 4 17 15,,,,,,
-NPK 4 18 15,,Tobacco,,,"Tobacco, unmanufactured","Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
-NPK 4 18 15,,Horticulture,1,,,
-NPK 4 25 15,,,,,,
-NPK 5 7.5 5 + 5S+5CaO,,,,,,
-NPK 5 10 27 ,,,,,,
-NPK 5 27 20 6S + 6CaO,,,,,,
-NPK 5 7.5 5 + 5S + 5MgO + TE,,,,,,
-NPK 5.9  18 30 ,,,,,,
-NK 6 0 3.5,,,,,,
-NK 6 0 20 + TE,,,,,,
-NPK 6 13 3 + 3.3S + 2MgO + 2.9Mn + 2Zn,,,,,,
-NPK 6 20 18,,,,,,
-NPK 6 24 20,,Tobacco,,,"Tobacco, unmanufactured","Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
-NPK 6 24 21,,,,,,
-NP 7 20 0 + 2S + 2MgO,,,,,,
-NPK 7 6 44 + 2Mg0,,,,,,
-NPK 7 12 30 + 2MgO + TE,,,,,,
-NPK 7 14 7,,Maize,,,Maize,"Zea mays Corn, Indian corn, mealies. A grain with a high germ content. At the national level, hybrid and ordinary maize should be reported separately owing to widely different yields and uses. Used largely for animal feed and commercial starch production."
-NPK 7 20 13 + (Lime),,Soya - beans,,,Soybeans,"Glycine soja. The most important oil crop. Also widely consumed as a bean and in the form of various derived products because of its high protein content, e.g. soya milk, meat, etc."
-NPK 8 16 24 + 1MgO + 1B,,Tobacco,,,"Tobacco, unmanufactured","Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
-NPK 8 18 9,,,,,,
-NPK 8 18 15 + 6S +0.1B,,,,,,
-NPK 8 21 7,,Tobacco,,,"Tobacco, unmanufactured","Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
-NPK 8 32 4 + TE,,,,,,
-NPK 9 18 36,,,,,,
-NPK 9 23 4 ,,,,,,
-NPK 9 23 4 + 1S + 2MgO + 0.1Zn,,,,,,
-NPK 9 45 15,,,,,,
-NPK 9.4 25 5.1 ,,,,,,
-NPK 10 50 20 + 2MgO,,,,,,
-NP 10 5 0,,,,,,
-NPK 10 5 14,,,,,,
-NPK 10 5 20 + 6CaO + 11S + MgO + 0.7Zn,,,,,,
-NPK 10 5 20 + 8CaO + 5S + 2.5MgO + 1Zn,,,,,,
-NPK 10 5 30 + TE,,,,,,
-NPK 10 10 7.5,,,,,,
-NPK 10 10 10 + TE,,,,,,
-NPK 10 10 20,,Tomato,,,Tomatoes,Lycopersicon esculentum.
-NPK 10 10 20,,Eggplant,,,Eggplants (aubergines),Solanum melongena. Also called aubergines.
-NPK 10 10 20,,okra,1,Hibiscus esculentus. Also called gombo.,Okra,Abelmoschus esculentus
-NPK 10 10 20,,Pumkins,1,,"Pumpkins, squash and gourds",Cucurbita spp. Includes marrows.
-NPK 10 10 20,,Impwa,1,,,
-NPK 10 10 30,,,,,,
-NPK 10 10 35 + 3MgO + TE,,,,,,
-NPK 10 15 15 ,,Onion,1,"Onions dry -Onions, shallots, green?",,
-NPK 10 15 15 ,,Carrot,1,,Carrots and turnips,Daucus carota. Trade data may include turnips (Brassica rapa var. rapifera).
-NPK 10 15 15 ,,Potato,,,Potatoes,"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
-NPK 10 15 15 ,,Tubers,1,,"Roots and tubers, nes","Including inter alia: arracacha (Arracacoa xanthorrhiza); arrowroot (Maranta arundinacea); chufa (Cyperus esculentus); sago palm (Metroxylon spp.); oca and ullucu (Oxalis tuberosa and Ullucus tuberosus); yam bean, jicama (Pachyrxhizus erosus, P. angulatus); mashua (Tropaeolum tuberosum); Jerusalem artichoke, topinambur (Helianthus tuberosus). Other tubers, roots or rhizomes, fresh, that are not identified separately because of their minor relevance at the international level. Because of their limited local importance, some countries report roots and tubers under this commodity heading that are classified individually by FAO."
-NPK 10 18 20 + 6S + 0.8MgO,,,,,,
-NPK 10 18 24 + 7S + 0.1B,,,,,,
-NPS 10 20 0 + 5S  + 1.5MgO + 20 CaO,,food crops,1,,,
-NPK 10 20 16 + 6S + 2B,,,,,,
-NPK 10 20 10 + 6S,,Maize,,,Maize,"Zea mays Corn, Indian corn, mealies. A grain with a high germ content. At the national level, hybrid and ordinary maize should be reported separately owing to widely different yields and uses. Used largely for animal feed and commercial starch production."
-NPK 10 20 10 + 6S,,Cotton,1,"seed cotton, cotton lint??",,
-NPK 10 20 40 + TE,,,,,,
-NPK 10 26 10 + CaO + Mg + B + Zn,,Maize,,,Maize,"Zea mays Corn, Indian corn, mealies. A grain with a high germ content. At the national level, hybrid and ordinary maize should be reported separately owing to widely different yields and uses. Used largely for animal feed and commercial starch production."
-NPK 10 26 10 + CaO + Mg + B + Zn,,Sugarcane,,,Sugar cane,"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
-NPK 10 26 10 + CaO + Mg + B + Zn,,Wheat,,,Wheat,"Triticum spp.: common (T. aestivum) durum (T. durum) spelt (T. spelta). Common and durum wheat are the main types. Among common wheat, the main varieties are spring and winter, hard and soft, and red and white. At the national level, different varieties should be reported separately, reflecting their different uses. Used mainly for human food."
-NP 10 30 0,,,,,,
-NPK 10 40 20 + TE,,,,,,
-NPK 10 50 10 + TE,,,,,,
-NPK 10 52 10 + 1MgO + TE,,,,,,
-NPK 10 54 10 + TE,,,,,,
-NPK 11 11 17 + 2MGO + TE,,,,,,
-NPK 12 10 8 + TE,,,,,,
-NK 12 0 32,,Tomato,,,Tomatoes,Lycopersicon esculentum.
-NPK 12 3 22,,,,,,
-NPK 12 5 30,,Horticulture,1,,,
-NPK 12 6 28 + 7MgO + TE,,,,,,
-NPK 12 7 24 + 2Mg0 + 7CaO + TE,,,,,,
-NPK 12 9 8 + TE,,,,,,
-NPK 12 10 10,,,,,,
-NPK 12 10 18 ,,,,,,
-NPK 12 12 12,,Cabbage,1,,Cabbages and other brassicas,"Chinese, mustard cabbage, pak-choi (Brassica chinensis); white, red, savoy cabbage, Brussels sprouts, collards, kale and kohlrabi (Brassica oleracea all var. except botrytis)."
-NPK 12 12 12,,Grape,,,Grapes,Vitis vinifera. Includes both table and wine grapes.
-NPK 12 12 12,,Spinach,,,Spinach,Spinacia oleracea. Trade figures may include New Zealand spinach (Tetragonia espansa) and orache (garden) spinach (Atriplex hortensis).
-NPK 12 12 12,,Broccoli,1,,Cauliflowers and broccoli,"Brassica oleracea var. botrytis, subvariety cauliflora and cymosa. Includes headed broccoli."
-NPK 12 12 12,,Leaf vegetables,1,,,
-NPK 12 12 17 + 2MgO,,Oil-Palm,1,,"Oil, palm fruit","Elaeis guineensis. The oil palm produces bunches containing a large number of fruits with the fleshy mesocarp enclosing a kernel that is covered by a very hard shell. FAO considers palm oil (coming from the pulp) and palm kernels to be primary products. The oil extraction rate from a bunch varies from 17 to 27% for palm oil, and from 4 to 10% for palm kernels."
-NPK 12 12 17 + 2MgO,,Cassava,,,Cassava,"Manioc, mandioca, yuca (Manihot esculenta, syn. M. utilissima); yuca dulce (M. palmata, syn. M. dulcis). A semi-permanent crop grown in tropical and subtropical regions. Sometimes bitter and sweet cassavas are referred to as separate species, the former being M. esculenta and the latter M. palmata, but this is incorrect since the toxicity varies according to location. Cassava is the staple food in many tropical countries. It is not traded internationally in its fresh state because tubers deteriorate very rapidly."
-NPK 12 12 36 + TE,,,,,,
-NPK 12 22 12,,Sugarcane,,,Sugar cane,"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
-NPK 12 22 22 + 0.6 S,,,,,,
-NPK 12 24 12,,,,,,
-NPK 12 30 7 + S+ MgO + CaO + TE,,,,,,
-NPK 12 32 6 + 0.1S + 2MgO + 4CaO + 0.4Zn,,,,,,
-NP 12 37 0 + 3S + 7CaO,,,,,,
-NP 12 46 0 + 7S,,,,,,
-NPK 12 52 5 + TE ,,,,,,
-NPK 12.5 4 8,,,,,,
-NK 13 0 46,,,,,,
-NPK 13 7 32 + 3MgO,,,,,,
-NPK 13 11 11 + TE,,,,,,
-NPK 13 13 13 + 3MgO,,,,,,
-NK 14 0 46,,,,,,
-NPK 14 7 10 + 1MgO,,,,,,
-NPK 14 13 9 +14S,,,,,,
-NPK 14 14 14 + 1MgO,,,,,,
-NPK 14 14 20 + 1.5MgO + TE,,Tobacco,,,"Tobacco, unmanufactured","Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
-NPK 14 26 9 + 3S + 0.5Zn + 0.2B,,,,,,
-NPK 14 28 18 + TE,,,,,,
-NPK  15 9 20 + 9.5 S,,Pineapple,1,A. sativ. Trade figures may include dried pineapples.,Pineapples,Ananas comosus
-NPK  15 9 20 + 9.5 S,,Mango,1,,"Mangoes, mangosteens, guavas","Mangifera indica. Trade figures may include dried mangoes, guavas and mangosteens, including both fresh and dried."
-NPK  15 9 20 + 9.5 S,,Onions,1,"Onions dry -Onions, shallots, green?",,
-NPK  15 9 20 + 9.5 S,,Tomatoes,,,Tomatoes,Lycopersicon esculentum.
-NPK  15 9 20 + 9.5 S,,Cassava,,,Cassava,"Manioc, mandioca, yuca (Manihot esculenta, syn. M. utilissima); yuca dulce (M. palmata, syn. M. dulcis). A semi-permanent crop grown in tropical and subtropical regions. Sometimes bitter and sweet cassavas are referred to as separate species, the former being M. esculenta and the latter M. palmata, but this is incorrect since the toxicity varies according to location. Cassava is the staple food in many tropical countries. It is not traded internationally in its fresh state because tubers deteriorate very rapidly."
-NPK  15 9 20 + 9.5 S,,Yam,,,Yams,"Dioscorea spp.. The principal edible yams are widely grown throughout the tropics. A starchy staple foodstuff, normally eaten as a vegetable, boiled, baked or fried. In West Africa they are consumed mainly as ""fufu"", a stiff glutinous dough. Trade data cover both fresh and dried yams."
-NPK  15 9 20 + 9.5 S,,Orange,,,Oranges,"Common, sweet orange (Citrus sinensis); bitter orange (C. aurantium). Bitter oranges are used primarily in the preparation of marmalade."
-NPK  15 9 20 + 9.5 S,,Pepper,,,Pepper (piper spp.),"Black, white pepper (Piper nigrum); long pepper (P. longum). Perennial climbing vines. Includes whole, crushed or ground berries. Black pepper is produced from partially ripe berries, while white pepper is from fully ripe berries which have had the outer hull removed."
-NPK  15 9 20 + 9.5 S,,Okro,1,,,
-NPK  15 9 20 + 9.5 S,,Cucumber,1,,Cucumbers and gherkins,Cucumis sativus.
-NK 15 0 26,,,,,,
-NPK 15 6 12 + 2MgO + TE,,,,,,
-NPK 15 7 25 ,,,,,,
-NPK 15 9 9 + 3MgO,,,,,,
-NPK 15 9 20 + TE,,Pineapple,1,A. sativ. Trade figures may include dried pineapples.,Pineapples,Ananas comosus
-NPK 15 9 20 + TE,,Mango,1,,"Mangoes, mangosteens, guavas","Mangifera indica. Trade figures may include dried mangoes, guavas and mangosteens, including both fresh and dried."
-NPK 15 10 18,,Beans,1,,,
-NPK 15 10 13 + 4MgO + TE,,,,,,
-NPK 15 10 14 + 12CaO + TE,,,,,,
-NPK 15 10 30 + 5S + TE,,,,,,
-NPK 15 15 6 + 4MgO,,,,,,
-NPK 15 15 15 ,,Cereals,1,,"Cereals, nes","Including inter alia: canagua or coaihua (Chenopodium pallidicaule); quihuicha or Inca wheat (Amaranthus caudatus); adlay or Job's tears (Coix lacryma-jobi); wild rice (Zizania aquatica). Other cereal crops that are not identified separately because of their minor relevance at the international level. Because of their limited local importance, some countries report cereals under this commodity heading that are classified individually by FAO."
-NPK 15 22 10 + 4MgO,,,,,,
-NPK 15 24 10 + 3MgO,,,,,,
-NPK 15 25 8,,,,,,
-NPK 15 28 6,,,,,,
-NPK 15 28 10 + 6S + 0.3B,,,,,,
-NPK 15 30 15 + TE,,,,,,
-NPK 16 16 12,,,,,,
-NK 16 0 24,,Vegetables,1,,"Vegetables, fresh nes","Including inter alia: bamboo shoots (Bambusa spp.); beets, chards (Beta vulgaris); capers (Capparis spinosa); cardoons (Cynara cardunculus); celery (Apium graveolens); chervil (Anthriscus cerefolium); cress (Lepidium sativum); fennel (Foeniculum vulgare); horseradish (Cochlearia armoracia); marjoram, sweet (Majorana hortensis); oyster plant (Tragopogon porrifolius); parsley (Petroselinum crispum); parsnips (Pastinaca sativa); radish (Raphanus sativus); rhubarb (Rheum spp.); rutabagas, swedes (Brassica napus); savory (Satureja hortensis); scorzonera (Scorzonera hispanica); sorrel (Rumex acetosa); soybean sprouts tarragon (Artemisia dracunculus); watercress (Nasturtium officinale). Other vegetables that are not identified separately because of their minor relevance at the international level. Because of their limited local importance, some countries report vegetables under this heading that are classified individually by FAO."
-NPK 16 6 12 + 2MgO + TE,,,,,,
-NPK 16 6 17 + TE,,,,,,
-NPK 16 6 21 + 6S + Zn + B,,Coffee,1,,"Coffee, green","Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
-NPK 16 7 15 + 2S,,,,,,
-NPK 16 8 16 + TE,,,,,,
-NPK 16 8.5 23 + 5S,,,,,,
-NPK 16 16 16,,Coffee,1,,"Coffee, green","Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
-NPK 16 16 16,,Horticulture,1,,,
-NPK 16 18 12,,Tobacco,,,"Tobacco, unmanufactured","Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
-NPK 16 18 12,,Cotton,1,"seed cotton, cotton lint??",,
-NPK 16 21 10 + 4MgO,,,,,,
-NPK 17 7 17,,,,,,
-NPK 17 7 16 + 2MgO + TE,,,,,,
-NPK 17 8 25 ,,,,,,
-NPK 17 10 9 + 5MgO + TE,,,,,,
-NPK 17 12 11 +3MgO + TE,,,,,,
-NPK 17 17 14,,Wheat,,,Wheat,"Triticum spp.: common (T. aestivum) durum (T. durum) spelt (T. spelta). Common and durum wheat are the main types. Among common wheat, the main varieties are spring and winter, hard and soft, and red and white. At the national level, different varieties should be reported separately, reflecting their different uses. Used mainly for human food."
-NPK 17 17 17,,Sugarcane,,,Sugar cane,"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
-NPK 17 17 17,,Coffee,1,,"Coffee, green","Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
-NPK 17 17 17,,Potato,,,Potatoes,"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
-NPK 17 17 17,,Pea,1,,,
-NPK 17 17 17,,Pinapple,1,A. sativ. Trade figures may include dried pineapples.,Pineapples,Ananas comosus
-NPK 18 4 12,,Coffee,1,,"Coffee, green","Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
-NPK 18 5 14,,,,,,
-NPK 18 5 18 + 2MgO,,,,,,
-NPK 18 6 12 ,,,,,,
-NPK 18 9 27 + 2MgO + TE,,,,,,
-NPK 18 12 22 + TE,,,,,,
-NPK 18 18 18 + 3MgO,,,,,,
-NPK 18 18 18 + TE,,,,,,
-NPK 18 22 5,,,,,,
-NPK 18 24 10 + 1MgO,,,,,,
-NP 18 44 0 ,,,,,,
-NPK 18.5 9 24 + 2.2S + 2MgO,,,,,,
-NPK 19 19 19 + 1MgO + TE,,,,,,
-NPK 19 4 19 + 2S + 3MgO + TE,,,,,,
-NPK 19 9 19,,,,,,
-NPK 19 19 19,,Flowers,1,,,
-NP 19 38 0 + 7S,,,,,,
-NPK 20 20 20 + TE,,,,,,
-NPK 20 3.5 11.6 + 5S + 1.2MgO + TE,,,,,,
-NPK 20 10 10 + 1MgO,,,,,,
-NPK 20 6 18 + 2MgO,,,,,,
-NPK 20 10 10,,Coffee,1,,"Coffee, green","Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
-NPK 20 10 10,,Cereals,1,,"Cereals, nes","Including inter alia: canagua or coaihua (Chenopodium pallidicaule); quihuicha or Inca wheat (Amaranthus caudatus); adlay or Job's tears (Coix lacryma-jobi); wild rice (Zizania aquatica). Other cereal crops that are not identified separately because of their minor relevance at the international level. Because of their limited local importance, some countries report cereals under this commodity heading that are classified individually by FAO."
-NPK 20 10 5,,,,,,
-NPK 20 10 17,,,,,,
-NPK 20 10 20,,,,,,
-NP 20 20 0,,Maize and Sugarcane,,,Sugar cane,"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
-NPK 20 20 4 + TE,,,,,,
-NPK 20 20 8,,,,,,
-NPK 20 20 20,,,,,,
-NPK 20 20 20 + 1MgO + TE,,,,,,
-NPK 20 50 10,,,,,,
-NPK 21 6 12 + 4S +6MgO + 15B + 1.5Zn ,,,,,,
-NPK 21 7 14,,Cereals,1,,"Cereals, nes","Including inter alia: canagua or coaihua (Chenopodium pallidicaule); quihuicha or Inca wheat (Amaranthus caudatus); adlay or Job's tears (Coix lacryma-jobi); wild rice (Zizania aquatica). Other cereal crops that are not identified separately because of their minor relevance at the international level. Because of their limited local importance, some countries report cereals under this commodity heading that are classified individually by FAO."
-NPK 21 7 21 + TE,,,,,,
-NPK 21 10 8 + 3MgO + TE,,,,,,
-NPK 21 5 8 + 8.5MgO,,,,,,
-NPK 22 6 12,,,,,,
-NPK 22 6 12 + 3S + 1MgO + 2CaO + TE,,,,,,
-NPK 22 16 18 + TE,,,,,,
-NPK 22 21 17 + TE,,Tea,,,Tea,"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
-NPK 23 10 10 5 + 5S + 2MgO,,,,,,
-NPK 23 5 5 + TE,,,,,,
-NPK 23 5 12 + 2MgO,,,,,,
-NPK 23 10 5,,Maize,,,Maize,"Zea mays Corn, Indian corn, mealies. A grain with a high germ content. At the national level, hybrid and ordinary maize should be reported separately owing to widely different yields and uses. Used largely for animal feed and commercial starch production."
-NPK 23 10 5,,Wheat + Barley,,,Barley,"Hordeum spp.: two-row barley (H. disticum) six-row barley (H. hexasticum) four-row barley (H. vulgare). Tolerates poorer soils and lower temperatures better than does wheat. Varieties include with husk and without (naked). Used as a livestock feed, for malt and for preparing foods. The roasted grains are a coffee substitute."
-NPK 23 10 5 +3S + Zn,,,,,,
-NPK 23 10 5 +3S + 3MgO + Zn,,,,,,
-NPK 23 10 5 + 3S + 2MgO + 0.3Zn,,,,,,
-NPK 23 12 12 + TE,,,,,,
-NP 23 21 0 + 4S,,,,,,
-NP 23 23 0,,Maize and Sugarcane,,,Sugar cane,"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
-NPK 23 23 11 + TE,,,,,,
-NPK 24 24 18,,,,,,
-NPK 24 18 18,,,,,,
-NP 25 5 0 + 5S (MOP BASED),,Tea,,,Tea,"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
-NPK 25 5 5 +3.95S+ 2.6MgO,,Tea,,,Tea,"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
-NPK 25 5 5,,,,,,
-NPK 25 5 5 + 3S,,,,,,
-NPK 25 5 5 + 5S,,Tea,,,Tea,"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
-NPK 25 5 5 + 5S + 3MgO,,,,,,
-NPK 25 5 5 + 7S + 3MgO,,,,,,
-NPK 25 5 5 + 3MgO (SOP BASED),,,,,,
-NPK 25 5 10,,,,,,
-NPK 25 13 5 + 5MgO + TE,,,,,,
-NK 26 0 20 + S + MgO + CaO + TE,,,,,,
-NPK 26 5 5 ,,Tea,,,Tea,"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
-NPK 26 12 12 + 2MgO,,,,,,
-NPK 27 5 11 + 2MgO,,,,,,
-NPK 27 6 6 + 2S,,,,,,
-NPK 27 13 13,,Maize,,,Maize,"Zea mays Corn, Indian corn, mealies. A grain with a high germ content. At the national level, hybrid and ordinary maize should be reported separately owing to widely different yields and uses. Used largely for animal feed and commercial starch production."
-NPK 27 13 13,,Rice,1,,"Rice, paddy","Oryza spp., mainly oryza sativa. Rice grain after threshing and winnowing. Also known as rice in the husk and rough rice. Used mainly for human food."
-NPK 27 15 12 + 1MgO + TE,,,,,,
-NP 27 14 0 + 6MgO + TE,,,,,,
-NPK 27 24 15,,,,,,
-NK 28 0 24,,,,,,
-NPK 28 10 10 + 10S + TE,,,,,,
-NPK 28 14 14 + TE,,,,,,
-NP 28 28 0,,Flowers,1,,,
-NP 28 28 0,,Potato,,,Potatoes,"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
-NP 28 28 0,,Pea,1,,,
-NP 28 28 0,,Pinapple,1,A. sativ. Trade figures may include dried pineapples.,Pineapples,Ananas comosus
-NPK29 10 10 + 3MgO + TE,,,,,,
-NPK29 20 20 + 3MgO,,,,,,
-NPK 30 10 10,,,,,,
-NPK 30 11 11 + TE,,,,,,
-NPK 31 8 8 ,,,,,,
-NPK 35 5 7 + 2MgO,,,,,,
-NPK 39 5 5 ,,,,,,
-NPK 30 10 10 + 1MgO + TE,,,,,,
+name,usage,crop,problem,problem_notes,faostat_code,faostat_crop,faostat_definition
+Organic Fertilizers,Fertilizers,,,,,,
+Anhydrous Ammonia,,,,,,,
+Ammonium Hydroxide,,,,,,,
+Urea,Fertilizers,Maize,,,56,Maize,"Zea mays Corn, Indian corn, mealies. A grain with a high germ content. At the national level, hybrid and ordinary maize should be reported separately owing to widely different yields and uses. Used largely for animal feed and commercial starch production."
+Urea,,Sugarcane,,,156,Sugar cane,"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
+Urea,,Flowers,1,,,,
+Urea,,Potato,,,116,Potatoes,"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
+Urea,,Pineapple,1,A. sativ. Trade figures may include dried pineapples.,574,Pineapples,Ananas comosus
+Urea,,Pea,1,"dry, green??",,,
+Urea,,Rice,1,,27,"Rice, paddy","Oryza spp., mainly oryza sativa. Rice grain after threshing and winnowing. Also known as rice in the husk and rough rice. Used mainly for human food."
+Urea,,Oil-Palm,1,,254,"Oil, palm fruit","Elaeis guineensis. The oil palm produces bunches containing a large number of fruits with the fleshy mesocarp enclosing a kernel that is covered by a very hard shell. FAO considers palm oil (coming from the pulp) and palm kernels to be primary products. The oil extraction rate from a bunch varies from 17 to 27% for palm oil, and from 4 to 10% for palm kernels."
+Urea,,Cotton,1,"seed cotton, cotton lint??",,,
+Urea,,Tobacco,,,826,"Tobacco, unmanufactured","Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
+Urea,,Wheat,,,15,Wheat,"Triticum spp.: common (T. aestivum) durum (T. durum) spelt (T. spelta). Common and durum wheat are the main types. Among common wheat, the main varieties are spring and winter, hard and soft, and red and white. At the national level, different varieties should be reported separately, reflecting their different uses. Used mainly for human food."
+Ammonium sulphate,,Flowers,1,,,,
+Ammonium sulphate,,Rice,1,,27,"Rice, paddy","Oryza spp., mainly oryza sativa. Rice grain after threshing and winnowing. Also known as rice in the husk and rough rice. Used mainly for human food."
+Ammonium sulphate,,Cotton,1,"seed cotton, cotton lint??",,,
+Ammonium sulphate,,Cassava,,,125,Cassava,"Manioc, mandioca, yuca (Manihot esculenta, syn. M. utilissima); yuca dulce (M. palmata, syn. M. dulcis). A semi-permanent crop grown in tropical and subtropical regions. Sometimes bitter and sweet cassavas are referred to as separate species, the former being M. esculenta and the latter M. palmata, but this is incorrect since the toxicity varies according to location. Cassava is the staple food in many tropical countries. It is not traded internationally in its fresh state because tubers deteriorate very rapidly."
+Ammonium sulphate,,Groundnut,,,242,"Groundnuts, with shell","Arachis hypogaea. For trade data, groundnuts in shell are converted at 70% and reported on a shelled basis."
+Ammonium sulphate,,Wheat,,,15,Wheat,"Triticum spp.: common (T. aestivum) durum (T. durum) spelt (T. spelta). Common and durum wheat are the main types. Among common wheat, the main varieties are spring and winter, hard and soft, and red and white. At the national level, different varieties should be reported separately, reflecting their different uses. Used mainly for human food."
+Ammonium sulphate,,,,,,,
+Ammonium sulphate,,,,,,,
+Double Salts of AS or AN,,Wheat,,,15,Wheat,"Triticum spp.: common (T. aestivum) durum (T. durum) spelt (T. spelta). Common and durum wheat are the main types. Among common wheat, the main varieties are spring and winter, hard and soft, and red and white. At the national level, different varieties should be reported separately, reflecting their different uses. Used mainly for human food."
+Double Salts of AS or AN,,Potatoes and Vegetables,1,,,,
+Double Salts of AS or AN,,Coffee,1,,656,"Coffee, green","Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
+Ammonium nitrate,Mostly Industrial,Horticulture,1,,,,
+CAN,,Maize,,,56,Maize,"Zea mays Corn, Indian corn, mealies. A grain with a high germ content. At the national level, hybrid and ordinary maize should be reported separately owing to widely different yields and uses. Used largely for animal feed and commercial starch production."
+CAN,,Wheat + Barley,,,44,Barley,"Hordeum spp.: two-row barley (H. disticum) six-row barley (H. hexasticum) four-row barley (H. vulgare). Tolerates poorer soils and lower temperatures better than does wheat. Varieties include with husk and without (naked). Used as a livestock feed, for malt and for preparing foods. The roasted grains are a coffee substitute."
+CAN,,Sugarcane,,,156,Sugar cane,"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
+CAN,,Flowers,1,,,,
+CAN,,Coffee,1,,656,"Coffee, green","Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
+CAN,,Tobacco,,,826,"Tobacco, unmanufactured","Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
+CAN,,Potato,,,116,Potatoes,"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
+CAN,,Pineapple,1,A. sativ. Trade figures may include dried pineapples.,574,Pineapples,Ananas comosus
+CAN,,Pea,1,,,,
+Sodium Nitrate,,,,,,,
+Calcium Nitrate ,,Flowers,1,,,,
+Calcium Cyanamides,,,,,,,
+UAN,,,,,,,
+Other Nitrogenous Fertilizers,,,,,,,
+SSP,,Tea,,,667,Tea,"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
+SSP,,Beans,1,,,,
+SSP,,Coffee,1,,656,"Coffee, green","Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
+SSP,,Potato,,,116,Potatoes,"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
+SSP,,Pea,1,,,,
+SSP,,Pinapple,1,A. sativ. Trade figures may include dried pineapples.,574,Pineapples,Ananas comosus
+SSP,,Cassava,,,125,Cassava,"Manioc, mandioca, yuca (Manihot esculenta, syn. M. utilissima); yuca dulce (M. palmata, syn. M. dulcis). A semi-permanent crop grown in tropical and subtropical regions. Sometimes bitter and sweet cassavas are referred to as separate species, the former being M. esculenta and the latter M. palmata, but this is incorrect since the toxicity varies according to location. Cassava is the staple food in many tropical countries. It is not traded internationally in its fresh state because tubers deteriorate very rapidly."
+SSP,,Groundnut,,,242,"Groundnuts, with shell","Arachis hypogaea. For trade data, groundnuts in shell are converted at 70% and reported on a shelled basis."
+SSP,,Legumes,1,,,,
+TSP,,Tea,,,667,Tea,"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
+TSP,,Flowers,1,,,,
+TSP,,Coffee,1,,656,"Coffee, green","Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
+TSP,,Potato,,,116,Potatoes,"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
+TSP,,Pea,1,,,,
+TSP,,Pinapple,1,A. sativ. Trade figures may include dried pineapples.,574,Pineapples,Ananas comosus
+Basic slag ,,,,,,,
+Phosphate Rock,,,,,,,
+Other Phosphatic Fertilizers,,,,,,,
+Crude potash salts,,,,,,,
+MOP,,Tea,,,667,Tea,"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
+MOP,,Sugarcane,,,156,Sugar cane,"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
+MOP,,Coffee,1,,656,"Coffee, green","Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
+MOP,,Rice,1,,27,"Rice, paddy","Oryza spp., mainly oryza sativa. Rice grain after threshing and winnowing. Also known as rice in the husk and rough rice. Used mainly for human food."
+MOP,,Oil-Palm,1,,254,"Oil, palm fruit","Elaeis guineensis. The oil palm produces bunches containing a large number of fruits with the fleshy mesocarp enclosing a kernel that is covered by a very hard shell. FAO considers palm oil (coming from the pulp) and palm kernels to be primary products. The oil extraction rate from a bunch varies from 17 to 27% for palm oil, and from 4 to 10% for palm kernels."
+MOP,,Pineapple,1,A. sativ. Trade figures may include dried pineapples.,574,Pineapples,Ananas comosus
+MOP,, Cassava,,,125,Cassava,"Manioc, mandioca, yuca (Manihot esculenta, syn. M. utilissima); yuca dulce (M. palmata, syn. M. dulcis). A semi-permanent crop grown in tropical and subtropical regions. Sometimes bitter and sweet cassavas are referred to as separate species, the former being M. esculenta and the latter M. palmata, but this is incorrect since the toxicity varies according to location. Cassava is the staple food in many tropical countries. It is not traded internationally in its fresh state because tubers deteriorate very rapidly."
+MOP,,Groundnut,,,242,"Groundnuts, with shell","Arachis hypogaea. For trade data, groundnuts in shell are converted at 70% and reported on a shelled basis."
+SOP,,Cereals,1,,8,"Cereals, nes","Including inter alia: canagua or coaihua (Chenopodium pallidicaule); quihuicha or Inca wheat (Amaranthus caudatus); adlay or Job's tears (Coix lacryma-jobi); wild rice (Zizania aquatica). Other cereal crops that are not identified separately because of their minor relevance at the international level. Because of their limited local importance, some countries report cereals under this commodity heading that are classified individually by FAO."
+SOP,,Sugarcane,,,156,Sugar cane,"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
+Other Potassic Fertilizers,,,,,,,
+DAP,Fertilizers,Maize,,,56,Maize,"Zea mays Corn, Indian corn, mealies. A grain with a high germ content. At the national level, hybrid and ordinary maize should be reported separately owing to widely different yields and uses. Used largely for animal feed and commercial starch production."
+DAP,,Beans,1,,,,
+DAP,,Tea,,,667,Tea,"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
+DAP,,Wheat + Barley,,,44,Barley,"Hordeum spp.: two-row barley (H. disticum) six-row barley (H. hexasticum) four-row barley (H. vulgare). Tolerates poorer soils and lower temperatures better than does wheat. Varieties include with husk and without (naked). Used as a livestock feed, for malt and for preparing foods. The roasted grains are a coffee substitute."
+DAP,,Sugarcane,,,156,Sugar cane,"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
+DAP,,flowers and Rice,1,,,,
+MAP,,Sugarcane,,,156,Sugar cane,"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
+MAP,,Flowers,1,,,,
+NPK (Known Grades),,,,,,,
+NP,,,,,,,
+Potassium Nitrate,,Tobacco,,,826,"Tobacco, unmanufactured","Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
+PK Compounds,,,,,,,
+NPK (Unknown Grade),,,,,,,
+Kieserite,Soil enhancers,,,,,,
+Agric Lime,Soil enhancer,,,,,,
+Calcium chloride,,,,,,,
+Borax,,,,,,,
+Dolimite,,,,,,,
+Copper Sulphate,,,,,,,
+Magnesium Nitrate,Soil enhancer,Flowers,1,,,,
+Magnesium Sulphate,,Flowers,1,,,,
+MKP,,,,,,,
+Zinc Sulphate,,,,,,,
+Organic Fertilizers,,,,,,,
+NPK,,,,,,,
+Organic Fertilizers,,,,,,,
+MOP,,,,,,,
+MRP,,food / cash crops,1,,,,
+Nitrogenous Fertilizers,,Tomato,,,388,Tomatoes,Lycopersicon esculentum.
+Nitrogenous Fertilizers,,Potato,,,116,Potatoes,"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
+Nitrogenous Fertilizers,,Horticulture,1,,,,
+Nitrogenous Fertilizers,,ornamentals,1,,,,
+Calcium Nitrate,,,,,,,
+Nitrogenous Fertilizers,,,,,,,
+SOP,,,,,,,
+Organic Fertilizers,,,,,,,
+Nitrogenous Fertilizers,,,,,,,
+CAN,,,,,,,
+Calcium Nitrate,,Cocoa,1,,661,"Cocoa, beans","Theobroma cacao. The seeds contained in the fruit of the cacao- tree, including whole or broken, raw or roasted."
+Ammonium sulphate,,,,,,,
+Nitrogenous Fertilizers,,,,,,,
+PK 0 23 15 + 4S +1MgO + 10CaO + Z,,Legumes,1,,,,
+PK 0 23 19,,,,,,,
+PK 0 60 20,,,,,,,
+PK 0 32 25,,,,,,,
+PK 0 42 28,,Flowers,1,,,,
+PK 0 42 28,,Fruits,1,,,,
+PK 0 42 28,,Vegetables,1,,463,"Vegetables, fresh nes","Including inter alia: bamboo shoots (Bambusa spp.); beets, chards (Beta vulgaris); capers (Capparis spinosa); cardoons (Cynara cardunculus); celery (Apium graveolens); chervil (Anthriscus cerefolium); cress (Lepidium sativum); fennel (Foeniculum vulgare); horseradish (Cochlearia armoracia); marjoram, sweet (Majorana hortensis); oyster plant (Tragopogon porrifolius); parsley (Petroselinum crispum); parsnips (Pastinaca sativa); radish (Raphanus sativus); rhubarb (Rheum spp.); rutabagas, swedes (Brassica napus); savory (Satureja hortensis); scorzonera (Scorzonera hispanica); sorrel (Rumex acetosa); soybean sprouts tarragon (Artemisia dracunculus); watercress (Nasturtium officinale). Other vegetables that are not identified separately because of their minor relevance at the international level. Because of their limited local importance, some countries report vegetables under this heading that are classified individually by FAO."
+PK 0 42 28,,Potato,,,116,Potatoes,"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
+PK 0 42 28,,Cucumber,1,,397,Cucumbers and gherkins,Cucumis sativus.
+PK 0 42 28,,Watermelon,,,567,Watermelons,Citrullus vulgaris.
+PK 0 42 28,,Tomato,,,388,Tomatoes,Lycopersicon esculentum.
+PK 0 42 28,,Eggplant,,,399,Eggplants (aubergines),Solanum melongena. Also called aubergines.
+PK 0 42 28,,Ornamentals,1,,,,
+PK 0 73 8.3,,Horticulture,1,,,,
+PK 0 73 8.3,,Grapes and Fruits,1,,,,
+NPK 1 1 15,,,,,,,
+NPK 1 21 19 + TE,,Cocao,1,,,,
+NPK 3 2 13,,,,,,,
+NPK 4 17 15,,,,,,,
+NPK 4 18 15,,Tobacco,,,826,"Tobacco, unmanufactured","Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
+NPK 4 18 15,,Horticulture,1,,,,
+NPK 4 25 15,,,,,,,
+NPK 5 7.5 5 + 5S+5CaO,,,,,,,
+NPK 5 10 27 ,,,,,,,
+NPK 5 27 20 6S + 6CaO,,,,,,,
+NPK 5 7.5 5 + 5S + 5MgO + TE,,,,,,,
+NPK 5.9  18 30 ,,,,,,,
+NK 6 0 3.5,,,,,,,
+NK 6 0 20 + TE,,,,,,,
+NPK 6 13 3 + 3.3S + 2MgO + 2.9Mn + 2Zn,,,,,,,
+NPK 6 20 18,,,,,,,
+NPK 6 24 20,,Tobacco,,,826,"Tobacco, unmanufactured","Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
+NPK 6 24 21,,,,,,,
+NP 7 20 0 + 2S + 2MgO,,,,,,,
+NPK 7 6 44 + 2Mg0,,,,,,,
+NPK 7 12 30 + 2MgO + TE,,,,,,,
+NPK 7 14 7,,Maize,,,56,Maize,"Zea mays Corn, Indian corn, mealies. A grain with a high germ content. At the national level, hybrid and ordinary maize should be reported separately owing to widely different yields and uses. Used largely for animal feed and commercial starch production."
+NPK 7 20 13 + (Lime),,Soya - beans,,,236,Soybeans,"Glycine soja. The most important oil crop. Also widely consumed as a bean and in the form of various derived products because of its high protein content, e.g. soya milk, meat, etc."
+NPK 8 16 24 + 1MgO + 1B,,Tobacco,,,826,"Tobacco, unmanufactured","Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
+NPK 8 18 9,,,,,,,
+NPK 8 18 15 + 6S +0.1B,,,,,,,
+NPK 8 21 7,,Tobacco,,,826,"Tobacco, unmanufactured","Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
+NPK 8 32 4 + TE,,,,,,,
+NPK 9 18 36,,,,,,,
+NPK 9 23 4 ,,,,,,,
+NPK 9 23 4 + 1S + 2MgO + 0.1Zn,,,,,,,
+NPK 9 45 15,,,,,,,
+NPK 9.4 25 5.1 ,,,,,,,
+NPK 10 50 20 + 2MgO,,,,,,,
+NP 10 5 0,,,,,,,
+NPK 10 5 14,,,,,,,
+NPK 10 5 20 + 6CaO + 11S + MgO + 0.7Zn,,,,,,,
+NPK 10 5 20 + 8CaO + 5S + 2.5MgO + 1Zn,,,,,,,
+NPK 10 5 30 + TE,,,,,,,
+NPK 10 10 7.5,,,,,,,
+NPK 10 10 10 + TE,,,,,,,
+NPK 10 10 20,,Tomato,,,388,Tomatoes,Lycopersicon esculentum.
+NPK 10 10 20,,Eggplant,,,399,Eggplants (aubergines),Solanum melongena. Also called aubergines.
+NPK 10 10 20,,okra,1,Hibiscus esculentus. Also called gombo.,430,Okra,Abelmoschus esculentus
+NPK 10 10 20,,Pumkins,1,,394,"Pumpkins, squash and gourds",Cucurbita spp. Includes marrows.
+NPK 10 10 20,,Impwa,1,,,,
+NPK 10 10 30,,,,,,,
+NPK 10 10 35 + 3MgO + TE,,,,,,,
+NPK 10 15 15 ,,Onion,1,"Onions dry -Onions, shallots, green?",,,
+NPK 10 15 15 ,,Carrot,1,,426,Carrots and turnips,Daucus carota. Trade data may include turnips (Brassica rapa var. rapifera).
+NPK 10 15 15 ,,Potato,,,116,Potatoes,"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
+NPK 10 15 15 ,,Tubers,1,,149,"Roots and tubers, nes","Including inter alia: arracacha (Arracacoa xanthorrhiza); arrowroot (Maranta arundinacea); chufa (Cyperus esculentus); sago palm (Metroxylon spp.); oca and ullucu (Oxalis tuberosa and Ullucus tuberosus); yam bean, jicama (Pachyrxhizus erosus, P. angulatus); mashua (Tropaeolum tuberosum); Jerusalem artichoke, topinambur (Helianthus tuberosus). Other tubers, roots or rhizomes, fresh, that are not identified separately because of their minor relevance at the international level. Because of their limited local importance, some countries report roots and tubers under this commodity heading that are classified individually by FAO."
+NPK 10 18 20 + 6S + 0.8MgO,,,,,,,
+NPK 10 18 24 + 7S + 0.1B,,,,,,,
+NPS 10 20 0 + 5S  + 1.5MgO + 20 CaO,,food crops,1,,,,
+NPK 10 20 16 + 6S + 2B,,,,,,,
+NPK 10 20 10 + 6S,,Maize,,,56,Maize,"Zea mays Corn, Indian corn, mealies. A grain with a high germ content. At the national level, hybrid and ordinary maize should be reported separately owing to widely different yields and uses. Used largely for animal feed and commercial starch production."
+NPK 10 20 10 + 6S,,Cotton,1,"seed cotton, cotton lint??",,,
+NPK 10 20 40 + TE,,,,,,,
+NPK 10 26 10 + CaO + Mg + B + Zn,,Maize,,,56,Maize,"Zea mays Corn, Indian corn, mealies. A grain with a high germ content. At the national level, hybrid and ordinary maize should be reported separately owing to widely different yields and uses. Used largely for animal feed and commercial starch production."
+NPK 10 26 10 + CaO + Mg + B + Zn,,Sugarcane,,,156,Sugar cane,"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
+NPK 10 26 10 + CaO + Mg + B + Zn,,Wheat,,,15,Wheat,"Triticum spp.: common (T. aestivum) durum (T. durum) spelt (T. spelta). Common and durum wheat are the main types. Among common wheat, the main varieties are spring and winter, hard and soft, and red and white. At the national level, different varieties should be reported separately, reflecting their different uses. Used mainly for human food."
+NP 10 30 0,,,,,,,
+NPK 10 40 20 + TE,,,,,,,
+NPK 10 50 10 + TE,,,,,,,
+NPK 10 52 10 + 1MgO + TE,,,,,,,
+NPK 10 54 10 + TE,,,,,,,
+NPK 11 11 17 + 2MGO + TE,,,,,,,
+NPK 12 10 8 + TE,,,,,,,
+NK 12 0 32,,Tomato,,,388,Tomatoes,Lycopersicon esculentum.
+NPK 12 3 22,,,,,,,
+NPK 12 5 30,,Horticulture,1,,,,
+NPK 12 6 28 + 7MgO + TE,,,,,,,
+NPK 12 7 24 + 2Mg0 + 7CaO + TE,,,,,,,
+NPK 12 9 8 + TE,,,,,,,
+NPK 12 10 10,,,,,,,
+NPK 12 10 18 ,,,,,,,
+NPK 12 12 12,,Cabbage,1,,358,Cabbages and other brassicas,"Chinese, mustard cabbage, pak-choi (Brassica chinensis); white, red, savoy cabbage, Brussels sprouts, collards, kale and kohlrabi (Brassica oleracea all var. except botrytis)."
+NPK 12 12 12,,Grape,,,560,Grapes,Vitis vinifera. Includes both table and wine grapes.
+NPK 12 12 12,,Spinach,,,373,Spinach,Spinacia oleracea. Trade figures may include New Zealand spinach (Tetragonia espansa) and orache (garden) spinach (Atriplex hortensis).
+NPK 12 12 12,,Broccoli,1,,393,Cauliflowers and broccoli,"Brassica oleracea var. botrytis, subvariety cauliflora and cymosa. Includes headed broccoli."
+NPK 12 12 12,,Leaf vegetables,1,,,,
+NPK 12 12 17 + 2MgO,,Oil-Palm,1,,254,"Oil, palm fruit","Elaeis guineensis. The oil palm produces bunches containing a large number of fruits with the fleshy mesocarp enclosing a kernel that is covered by a very hard shell. FAO considers palm oil (coming from the pulp) and palm kernels to be primary products. The oil extraction rate from a bunch varies from 17 to 27% for palm oil, and from 4 to 10% for palm kernels."
+NPK 12 12 17 + 2MgO,,Cassava,,,125,Cassava,"Manioc, mandioca, yuca (Manihot esculenta, syn. M. utilissima); yuca dulce (M. palmata, syn. M. dulcis). A semi-permanent crop grown in tropical and subtropical regions. Sometimes bitter and sweet cassavas are referred to as separate species, the former being M. esculenta and the latter M. palmata, but this is incorrect since the toxicity varies according to location. Cassava is the staple food in many tropical countries. It is not traded internationally in its fresh state because tubers deteriorate very rapidly."
+NPK 12 12 36 + TE,,,,,,,
+NPK 12 22 12,,Sugarcane,,,156,Sugar cane,"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
+NPK 12 22 22 + 0.6 S,,,,,,,
+NPK 12 24 12,,,,,,,
+NPK 12 30 7 + S+ MgO + CaO + TE,,,,,,,
+NPK 12 32 6 + 0.1S + 2MgO + 4CaO + 0.4Zn,,,,,,,
+NP 12 37 0 + 3S + 7CaO,,,,,,,
+NP 12 46 0 + 7S,,,,,,,
+NPK 12 52 5 + TE ,,,,,,,
+NPK 12.5 4 8,,,,,,,
+NK 13 0 46,,,,,,,
+NPK 13 7 32 + 3MgO,,,,,,,
+NPK 13 11 11 + TE,,,,,,,
+NPK 13 13 13 + 3MgO,,,,,,,
+NK 14 0 46,,,,,,,
+NPK 14 7 10 + 1MgO,,,,,,,
+NPK 14 13 9 +14S,,,,,,,
+NPK 14 14 14 + 1MgO,,,,,,,
+NPK 14 14 20 + 1.5MgO + TE,,Tobacco,,,826,"Tobacco, unmanufactured","Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
+NPK 14 26 9 + 3S + 0.5Zn + 0.2B,,,,,,,
+NPK 14 28 18 + TE,,,,,,,
+NPK  15 9 20 + 9.5 S,,Pineapple,1,A. sativ. Trade figures may include dried pineapples.,574,Pineapples,Ananas comosus
+NPK  15 9 20 + 9.5 S,,Mango,1,,571,"Mangoes, mangosteens, guavas","Mangifera indica. Trade figures may include dried mangoes, guavas and mangosteens, including both fresh and dried."
+NPK  15 9 20 + 9.5 S,,Onions,1,"Onions dry -Onions, shallots, green?",,,
+NPK  15 9 20 + 9.5 S,,Tomatoes,,,388,Tomatoes,Lycopersicon esculentum.
+NPK  15 9 20 + 9.5 S,,Cassava,,,125,Cassava,"Manioc, mandioca, yuca (Manihot esculenta, syn. M. utilissima); yuca dulce (M. palmata, syn. M. dulcis). A semi-permanent crop grown in tropical and subtropical regions. Sometimes bitter and sweet cassavas are referred to as separate species, the former being M. esculenta and the latter M. palmata, but this is incorrect since the toxicity varies according to location. Cassava is the staple food in many tropical countries. It is not traded internationally in its fresh state because tubers deteriorate very rapidly."
+NPK  15 9 20 + 9.5 S,,Yam,,,137,Yams,"Dioscorea spp.. The principal edible yams are widely grown throughout the tropics. A starchy staple foodstuff, normally eaten as a vegetable, boiled, baked or fried. In West Africa they are consumed mainly as ""fufu"", a stiff glutinous dough. Trade data cover both fresh and dried yams."
+NPK  15 9 20 + 9.5 S,,Orange,,,490,Oranges,"Common, sweet orange (Citrus sinensis); bitter orange (C. aurantium). Bitter oranges are used primarily in the preparation of marmalade."
+NPK  15 9 20 + 9.5 S,,Pepper,,,687,Pepper (piper spp.),"Black, white pepper (Piper nigrum); long pepper (P. longum). Perennial climbing vines. Includes whole, crushed or ground berries. Black pepper is produced from partially ripe berries, while white pepper is from fully ripe berries which have had the outer hull removed."
+NPK  15 9 20 + 9.5 S,,Okro,1,,,,
+NPK  15 9 20 + 9.5 S,,Cucumber,1,,397,Cucumbers and gherkins,Cucumis sativus.
+NK 15 0 26,,,,,,,
+NPK 15 6 12 + 2MgO + TE,,,,,,,
+NPK 15 7 25 ,,,,,,,
+NPK 15 9 9 + 3MgO,,,,,,,
+NPK 15 9 20 + TE,,Pineapple,1,A. sativ. Trade figures may include dried pineapples.,574,Pineapples,Ananas comosus
+NPK 15 9 20 + TE,,Mango,1,,571,"Mangoes, mangosteens, guavas","Mangifera indica. Trade figures may include dried mangoes, guavas and mangosteens, including both fresh and dried."
+NPK 15 10 18,,Beans,1,,,,
+NPK 15 10 13 + 4MgO + TE,,,,,,,
+NPK 15 10 14 + 12CaO + TE,,,,,,,
+NPK 15 10 30 + 5S + TE,,,,,,,
+NPK 15 15 6 + 4MgO,,,,,,,
+NPK 15 15 15 ,,Cereals,1,,8,"Cereals, nes","Including inter alia: canagua or coaihua (Chenopodium pallidicaule); quihuicha or Inca wheat (Amaranthus caudatus); adlay or Job's tears (Coix lacryma-jobi); wild rice (Zizania aquatica). Other cereal crops that are not identified separately because of their minor relevance at the international level. Because of their limited local importance, some countries report cereals under this commodity heading that are classified individually by FAO."
+NPK 15 22 10 + 4MgO,,,,,,,
+NPK 15 24 10 + 3MgO,,,,,,,
+NPK 15 25 8,,,,,,,
+NPK 15 28 6,,,,,,,
+NPK 15 28 10 + 6S + 0.3B,,,,,,,
+NPK 15 30 15 + TE,,,,,,,
+NPK 16 16 12,,,,,,,
+NK 16 0 24,,Vegetables,1,,463,"Vegetables, fresh nes","Including inter alia: bamboo shoots (Bambusa spp.); beets, chards (Beta vulgaris); capers (Capparis spinosa); cardoons (Cynara cardunculus); celery (Apium graveolens); chervil (Anthriscus cerefolium); cress (Lepidium sativum); fennel (Foeniculum vulgare); horseradish (Cochlearia armoracia); marjoram, sweet (Majorana hortensis); oyster plant (Tragopogon porrifolius); parsley (Petroselinum crispum); parsnips (Pastinaca sativa); radish (Raphanus sativus); rhubarb (Rheum spp.); rutabagas, swedes (Brassica napus); savory (Satureja hortensis); scorzonera (Scorzonera hispanica); sorrel (Rumex acetosa); soybean sprouts tarragon (Artemisia dracunculus); watercress (Nasturtium officinale). Other vegetables that are not identified separately because of their minor relevance at the international level. Because of their limited local importance, some countries report vegetables under this heading that are classified individually by FAO."
+NPK 16 6 12 + 2MgO + TE,,,,,,,
+NPK 16 6 17 + TE,,,,,,,
+NPK 16 6 21 + 6S + Zn + B,,Coffee,1,,656,"Coffee, green","Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
+NPK 16 7 15 + 2S,,,,,,,
+NPK 16 8 16 + TE,,,,,,,
+NPK 16 8.5 23 + 5S,,,,,,,
+NPK 16 16 16,,Coffee,1,,656,"Coffee, green","Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
+NPK 16 16 16,,Horticulture,1,,,,
+NPK 16 18 12,,Tobacco,,,826,"Tobacco, unmanufactured","Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
+NPK 16 18 12,,Cotton,1,"seed cotton, cotton lint??",,,
+NPK 16 21 10 + 4MgO,,,,,,,
+NPK 17 7 17,,,,,,,
+NPK 17 7 16 + 2MgO + TE,,,,,,,
+NPK 17 8 25 ,,,,,,,
+NPK 17 10 9 + 5MgO + TE,,,,,,,
+NPK 17 12 11 +3MgO + TE,,,,,,,
+NPK 17 17 14,,Wheat,,,15,Wheat,"Triticum spp.: common (T. aestivum) durum (T. durum) spelt (T. spelta). Common and durum wheat are the main types. Among common wheat, the main varieties are spring and winter, hard and soft, and red and white. At the national level, different varieties should be reported separately, reflecting their different uses. Used mainly for human food."
+NPK 17 17 17,,Sugarcane,,,156,Sugar cane,"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
+NPK 17 17 17,,Coffee,1,,656,"Coffee, green","Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
+NPK 17 17 17,,Potato,,,116,Potatoes,"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
+NPK 17 17 17,,Pea,1,,,,
+NPK 17 17 17,,Pinapple,1,A. sativ. Trade figures may include dried pineapples.,574,Pineapples,Ananas comosus
+NPK 18 4 12,,Coffee,1,,656,"Coffee, green","Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
+NPK 18 5 14,,,,,,,
+NPK 18 5 18 + 2MgO,,,,,,,
+NPK 18 6 12 ,,,,,,,
+NPK 18 9 27 + 2MgO + TE,,,,,,,
+NPK 18 12 22 + TE,,,,,,,
+NPK 18 18 18 + 3MgO,,,,,,,
+NPK 18 18 18 + TE,,,,,,,
+NPK 18 22 5,,,,,,,
+NPK 18 24 10 + 1MgO,,,,,,,
+NP 18 44 0 ,,,,,,,
+NPK 18.5 9 24 + 2.2S + 2MgO,,,,,,,
+NPK 19 19 19 + 1MgO + TE,,,,,,,
+NPK 19 4 19 + 2S + 3MgO + TE,,,,,,,
+NPK 19 9 19,,,,,,,
+NPK 19 19 19,,Flowers,1,,,,
+NP 19 38 0 + 7S,,,,,,,
+NPK 20 20 20 + TE,,,,,,,
+NPK 20 3.5 11.6 + 5S + 1.2MgO + TE,,,,,,,
+NPK 20 10 10 + 1MgO,,,,,,,
+NPK 20 6 18 + 2MgO,,,,,,,
+NPK 20 10 10,,Coffee,1,,656,"Coffee, green","Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
+NPK 20 10 10,,Cereals,1,,8,"Cereals, nes","Including inter alia: canagua or coaihua (Chenopodium pallidicaule); quihuicha or Inca wheat (Amaranthus caudatus); adlay or Job's tears (Coix lacryma-jobi); wild rice (Zizania aquatica). Other cereal crops that are not identified separately because of their minor relevance at the international level. Because of their limited local importance, some countries report cereals under this commodity heading that are classified individually by FAO."
+NPK 20 10 5,,,,,,,
+NPK 20 10 17,,,,,,,
+NPK 20 10 20,,,,,,,
+NP 20 20 0,,Maize and Sugarcane,,,156,Sugar cane,"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
+NPK 20 20 4 + TE,,,,,,,
+NPK 20 20 8,,,,,,,
+NPK 20 20 20,,,,,,,
+NPK 20 20 20 + 1MgO + TE,,,,,,,
+NPK 20 50 10,,,,,,,
+NPK 21 6 12 + 4S +6MgO + 15B + 1.5Zn ,,,,,,,
+NPK 21 7 14,,Cereals,1,,8,"Cereals, nes","Including inter alia: canagua or coaihua (Chenopodium pallidicaule); quihuicha or Inca wheat (Amaranthus caudatus); adlay or Job's tears (Coix lacryma-jobi); wild rice (Zizania aquatica). Other cereal crops that are not identified separately because of their minor relevance at the international level. Because of their limited local importance, some countries report cereals under this commodity heading that are classified individually by FAO."
+NPK 21 7 21 + TE,,,,,,,
+NPK 21 10 8 + 3MgO + TE,,,,,,,
+NPK 21 5 8 + 8.5MgO,,,,,,,
+NPK 22 6 12,,,,,,,
+NPK 22 6 12 + 3S + 1MgO + 2CaO + TE,,,,,,,
+NPK 22 16 18 + TE,,,,,,,
+NPK 22 21 17 + TE,,Tea,,,667,Tea,"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
+NPK 23 10 10 5 + 5S + 2MgO,,,,,,,
+NPK 23 5 5 + TE,,,,,,,
+NPK 23 5 12 + 2MgO,,,,,,,
+NPK 23 10 5,,Maize,,,56,Maize,"Zea mays Corn, Indian corn, mealies. A grain with a high germ content. At the national level, hybrid and ordinary maize should be reported separately owing to widely different yields and uses. Used largely for animal feed and commercial starch production."
+NPK 23 10 5,,Wheat + Barley,,,44,Barley,"Hordeum spp.: two-row barley (H. disticum) six-row barley (H. hexasticum) four-row barley (H. vulgare). Tolerates poorer soils and lower temperatures better than does wheat. Varieties include with husk and without (naked). Used as a livestock feed, for malt and for preparing foods. The roasted grains are a coffee substitute."
+NPK 23 10 5 +3S + Zn,,,,,,,
+NPK 23 10 5 +3S + 3MgO + Zn,,,,,,,
+NPK 23 10 5 + 3S + 2MgO + 0.3Zn,,,,,,,
+NPK 23 12 12 + TE,,,,,,,
+NP 23 21 0 + 4S,,,,,,,
+NP 23 23 0,,Maize and Sugarcane,,,156,Sugar cane,"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
+NPK 23 23 11 + TE,,,,,,,
+NPK 24 24 18,,,,,,,
+NPK 24 18 18,,,,,,,
+NP 25 5 0 + 5S (MOP BASED),,Tea,,,667,Tea,"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
+NPK 25 5 5 +3.95S+ 2.6MgO,,Tea,,,667,Tea,"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
+NPK 25 5 5,,,,,,,
+NPK 25 5 5 + 3S,,,,,,,
+NPK 25 5 5 + 5S,,Tea,,,667,Tea,"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
+NPK 25 5 5 + 5S + 3MgO,,,,,,,
+NPK 25 5 5 + 7S + 3MgO,,,,,,,
+NPK 25 5 5 + 3MgO (SOP BASED),,,,,,,
+NPK 25 5 10,,,,,,,
+NPK 25 13 5 + 5MgO + TE,,,,,,,
+NK 26 0 20 + S + MgO + CaO + TE,,,,,,,
+NPK 26 5 5 ,,Tea,,,667,Tea,"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
+NPK 26 12 12 + 2MgO,,,,,,,
+NPK 27 5 11 + 2MgO,,,,,,,
+NPK 27 6 6 + 2S,,,,,,,
+NPK 27 13 13,,Maize,,,56,Maize,"Zea mays Corn, Indian corn, mealies. A grain with a high germ content. At the national level, hybrid and ordinary maize should be reported separately owing to widely different yields and uses. Used largely for animal feed and commercial starch production."
+NPK 27 13 13,,Rice,1,,27,"Rice, paddy","Oryza spp., mainly oryza sativa. Rice grain after threshing and winnowing. Also known as rice in the husk and rough rice. Used mainly for human food."
+NPK 27 15 12 + 1MgO + TE,,,,,,,
+NP 27 14 0 + 6MgO + TE,,,,,,,
+NPK 27 24 15,,,,,,,
+NK 28 0 24,,,,,,,
+NPK 28 10 10 + 10S + TE,,,,,,,
+NPK 28 14 14 + TE,,,,,,,
+NP 28 28 0,,Flowers,1,,,,
+NP 28 28 0,,Potato,,,116,Potatoes,"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
+NP 28 28 0,,Pea,1,,,,
+NP 28 28 0,,Pinapple,1,A. sativ. Trade figures may include dried pineapples.,574,Pineapples,Ananas comosus
+NPK29 10 10 + 3MgO + TE,,,,,,,
+NPK29 20 20 + 3MgO,,,,,,,
+NPK 30 10 10,,,,,,,
+NPK 30 11 11 + TE,,,,,,,
+NPK 31 8 8 ,,,,,,,
+NPK 35 5 7 + 2MgO,,,,,,,
+NPK 39 5 5 ,,,,,,,
+NPK 30 10 10 + 1MgO + TE,,,,,,,

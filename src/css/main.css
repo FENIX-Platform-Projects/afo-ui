@@ -130,3 +130,9 @@ h1, h2 {
 #listCompanies .companyName {
   font-weight: bold;
 }
+
+/* TABS  */
+
+.nav-tabs {
+  margin-bottom: 40px;
+}

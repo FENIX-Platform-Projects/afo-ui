@@ -652,7 +652,7 @@
   {
     "name":"MOP",
     "usage":"",
-    "crop":" Cassava",
+    "crop":"Cassava",
     "problem":"",
     "problem_notes":"",
     "faostat_code":125,

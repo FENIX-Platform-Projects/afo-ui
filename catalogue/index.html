@@ -99,41 +99,39 @@
     </div>
     
     <div class="container">
-      <div class="col-xs-12">
-        <h2>Catalogue</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id consequat leo. In vestibulum arcu ac enim accumsan, nec scelerisque eros porta. Phasellus euismod risus ac dapibus convallis.</p>
-      </div>
+		<div class="col-xs-12">
+			<h2>Catalogue</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id consequat leo. In vestibulum arcu ac enim accumsan, nec scelerisque eros porta. Phasellus euismod risus ac dapibus convallis.</p>
+		</div>
 
-      <!-- Nav tabs -->
-      <ul class="nav nav-tabs" role="tablist">
-        <li class="active"><a href="#fertilizers" role="tab" data-toggle="tab">Fertilizers</a></li>
-        <li><a href="#countries" role="tab" data-toggle="tab">Countries</a></li>
-        <li><a href="#crops" role="tab" data-toggle="tab">Crops</a></li>
-      </ul>
+		<!-- Nav tabs -->
+		<ul class="nav nav-tabs" role="tablist">
+			<li class="active"><a href="#families" role="tab" data-toggle="tab">Fertilizers</a></li>
+			<li><a href="#countries" role="tab" data-toggle="tab">Countries</a></li>
+			<li><a href="#crops" role="tab" data-toggle="tab">Crops</a></li>
+		</ul>
 
-      <!-- Tab panes -->
-      <div class="tab-content">
-        <div class="tab-pane active" id="fertilizers">
-            <div class="col-xs-4">
-              <form class="form" role="form">
-              <div class="form-group">
-                  <select id="listFertilizers" class="form-control" multiple="multiple">
-                  </select>
-              </div>
-              </form>
-            </div>
-            <div class="col-xs-8">
-              <iframe class="clearfix" id="frameMap" width="90%" height="700px" frameborder="0" src="">
-              </iframe>
-            </div>  
-        </div>
-        <div class="tab-pane" id="countries">
-          
-        </div>
-        <div class="tab-pane" id="crops">
-          
-        </div>
-      </div>
+		<!-- Tab panes -->
+		<div class="tab-content">
+			<div class="tab-pane active" id="families">
+				<div class="col-xs-4">
+					<form class="form" role="form">
+						<div class="form-group">
+							<select id="listFamilies" class="form-control" multiple="multiple"></select>
+						</div>
+					</form>
+				</div>
+				<div class="col-xs-8">
+					<iframe class="clearfix frameMap" id="familiesMap" width="90%" height="700px" frameborder="0" src=""></iframe>
+				</div>  
+			</div>
+			<div class="tab-pane" id="countries">
+
+			</div>
+			<div class="tab-pane" id="crops">
+
+			</div>
+		</div>
 
     </div>
 
@@ -148,10 +146,6 @@
     <script src="../src/lib/jquery.js"></script>
     <script src="../src/lib/bootstrap.js"></script>
     <script src="../src/lib/underscore.js"></script>
-    
-    <script src="../config/fertilizers.js"></script>
-    <script src="../config/countries.js"></script>
-
 
     <script src="main.js"></script>
 

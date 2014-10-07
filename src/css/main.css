@@ -100,8 +100,10 @@ h1, h2 {
   color: #fff;
 }
 
-#listFertilizers,
-#frameMap {
+/* Catalogue */
+
+iframe,
+#listFamilies {
   height: 700px;
 }
 
@@ -112,6 +114,8 @@ h1, h2 {
 #listCountries .btn.active {
   color: #fff
 }
+
+/* Directories */
 
 #listCompanies .tabCompany {
   clear: both;

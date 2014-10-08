@@ -104,7 +104,7 @@ h1, h2 {
 
 #page-catalogue iframe,
 #page-catalogue select {
-  height: 700px;
+  height: 500px;
 }
 
 #listCountries .btn {
@@ -139,4 +139,19 @@ h1, h2 {
 
 .nav-tabs {
   margin: 40px 15px;
+}
+
+optgroup {
+	text-align: center;
+	font-weight: normal;
+	background-color: #DDF3C2
+}
+
+#cropsResults dd,
+#countriesResults dd {
+	font-size: 1.2em;
+	float: left;
+	width: 48%;
+	padding: 10px;
+	border:1px solid #DDF3C2;
 }

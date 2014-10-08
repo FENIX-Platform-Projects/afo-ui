@@ -3,6 +3,7 @@ var fx_controller = (function() {
 
 	var conf = {
 			wdsUrl: 'http://faostat3.fao.org/wds/rest/table/json',
+			mapUrl: 'http://fenixapps.fao.org/maps-africaferilizers/api?',			
 			dbName: 'africafertilizer',
 			colorBounds: '298A08'
 		};
@@ -101,7 +102,7 @@ var fx_controller = (function() {
 				});
 
 				$('#familiesMap').attr({ src:
-					"http://fenixapps.fao.org/maps/api?"+
+					conf.mapUrl+
 					"baselayers=mapquest&layers=gaul0_faostat_3857&styles=join&joincolumn=iso3_code"+
 					"&lat=0&lon=20&zoom=4&lang=E&"+
 					"&joindata=["+ccodes.join(',')+"]"+  //[(EGY,1),(GHA,0),(NGR,1),(MOZ,1)]

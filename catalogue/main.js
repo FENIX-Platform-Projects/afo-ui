@@ -19,16 +19,16 @@ var fx_controller = (function() {
 					initListFamilies('Agric Lime');
 					initMapFamilies('Agric Lime');
 				break;
+				case '#countries':
+					initListCountries('BEN');
+					//initMapCountries();
+					initResultsCountries('BEN','Benin');
+				break;
 				case '#crops':
 					initListCrops('Beans');
 					//initMapCrops('Beans');
 					initResultsCrops('Beans');
 				break;
-				case '#countries':
-					initListCountries('DZA');
-					//initMapCountries();
-					initResultsCountries('DZA');
-				break;				
 			}
 		});
 

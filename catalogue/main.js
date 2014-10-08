@@ -1,11 +1,10 @@
 
 var fx_controller = (function() {
 
-	var $frameMap = $('#frameMap'),
-		$listFamilies = $('#listFamilies'),
-		conf = {
+	var conf = {
 			wdsUrl: 'http://faostat3.fao.org/wds/rest/table/json',
-			dbName: 'africafertilizer'
+			dbName: 'africafertilizer',
+			colorBounds: '298A08'
 		};
 
 	function init() {
@@ -17,54 +16,50 @@ var fx_controller = (function() {
 			switch($(e.target).attr('href'))
 			{
 				case '#families':
-					initListFamilies();
-					initMapFamilies();
+					initListFamilies('Agric Lime');
+					initMapFamilies('Agric Lime');
 				break;
-/*				case '#countries':
-					initListCountries();
-					initMapCountries();				
-				break;*/
 				case '#crops':
-					initListCrops();
-					initMapCrops();				
+					initListCrops('Beans');
+					initMapCrops('Beans');				
 				break;
+				case '#countries':
+					initListCountries();
+					//initMapCountries();				
+				break;				
 			}
 		});
 
-		initListFamilies();
-		initMapFamilies();
+		initListFamilies('Agric Lime');
+		initMapFamilies('Agric Lime');
 	};
 
-
-  function initLogin(){
-
-    $('.protected').hide();
-
-    $('.btn-login').on('click', function() {
-        $('.protected').show();
-    });
-
-  }
+	function initLogin() {
+		$('.protected').hide();
+		$('.btn-login').on('click', function() {
+			$('.protected').show();
+		});
+	}
 
 //FAMILIES
 
-	function initListFamilies() {
+	function initListFamilies(fert) {
 
-		$.getJSON('../scripts/fertilizers.json', function(families) {
+		$.getJSON('../data_tools/fertilizers.json', function(families) {
 
 			var sel = false;
 			for(var i in families) {
-				sel = families[i]==='CAN' ? 'selected="selected"':'';
-				$listFamilies.append('<option '+sel+' value="'+families[i]+'">'+families[i]+'</option>');
+				sel = families[i]===fert ? 'selected="selected"':'';
+				$('#listFamilies').append('<option '+sel+' value="'+families[i]+'">'+families[i]+'</option>');
 			}
 
-			$listFamilies.on('change', function() {
-				initMapFamilies( this.value );
+			$('#listFamilies').on('change', function() {
+				initMapFamilies( $(this).val() );
 			});
 		});
 	}
 
-	function initMapFamilies(fert) {
+	function initMapFamilies(ferts) {
 
 		var data = {
 			datasource: conf.dbName,
@@ -75,11 +70,13 @@ var fx_controller = (function() {
 			nowrap: false,
 			valuesIndex: 0,
 			json: JSON.stringify({
-				query: "SELECT country "+
+				query: "SELECT country,name "+
 					"FROM countries "+
-					"WHERE name = '"+ fert +"' AND value=1"
+					"WHERE name IN ('"+ ferts.join("','") +"') AND value=1"
 			})
 		};
+
+		console.log(data.json);
 
 		$.ajax({
 			type: 'POST',
@@ -87,33 +84,40 @@ var fx_controller = (function() {
 			data: data,
 			success: function (resp) {
 
-				var ccodes = _.map(resp, function(val) {
-					return "("+val[0]+",1)";
-				}).join(',');
+				console.log(resp);
 
-				$('#familiesMap').attr({src:
+				//val[1]
+
+				var ccodes = _.map(resp, function(val) {
+					return "("+val[0]+","+1+")";
+				});
+
+				$('#familiesMap').attr({ src:
 					"http://fenixapps.fao.org/maps/api?"+
 					"baselayers=mapquest&layers=gaul0_faostat_3857&styles=join&joincolumn=iso3_code"+
-					"&lat=0&lon=20&zoom=4"+
-					"&joindata=["+ccodes+"]"+  //[(EGY,1),(GHA,0),(NGR,1),(MOZ,1)]
-					"&enablejoingfi=true&legendtitle=Fertilizer Distribution&mu="+fert+"&lang=E&colors=238B45,ffffff&ranges=1&classification=custom"
+					"&lat=0&lon=20&zoom=4&lang=E&"+
+					"&joindata=["+ccodes.join(',')+"]"+  //[(EGY,1),(GHA,0),(NGR,1),(MOZ,1)]
+					"&enablejoingfi=true&legendtitle=Fertilizers Distribution&mu=<b>"+ferts.join('</b><br><b>')+"</b>&"+
+					"colors="+conf.colorBounds+",ffffff&ranges=1&classification=custom"
 				});
 			}
 		});
 	}
 
 //CROPS
-	function initListCrops() {
 
-		$.getJSON('../scripts/crops.json', function(families) {
+	function initListCrops(crop) {
+
+		$.getJSON('../data_tools/crops.json', function(crops) {
 
 			var sel = false;
-			for(var i in families) {
-				sel = families[i]==='CAN' ? 'selected="selected"':'';
-				$listFamilies.append('<option '+sel+' value="'+families[i]+'">'+families[i]+'</option>');
+			for(var i in crops) {
+				sel = crops[i]===crop ? 'selected="selected"':'';
+				$('#listCrops').append('<option '+sel+' value="'+crops[i]+'">'+crops[i]+'</option>');
 			}
 
-			$listFamilies.on('change', function() {
+			$('#listCrops').on('change', function(e) {
+				e.preventDefault();
 				initMapFamilies( this.value );
 			});
 		});
@@ -130,9 +134,9 @@ var fx_controller = (function() {
 				nowrap: false,
 				valuesIndex: 0,
 				json: JSON.stringify({
-					query: "SELECT DISTINCT crop "+
-						"FROM fertilizers_crops_faostatcodes "+
-						"WHERE crop IS NOT NULL ORDER BY crop"
+					query: "SELECT countries.country "+
+						"FROM fertilizers_crops_faostatcodes ferts, countries "+
+						"WHERE countries.name = ferts.name AND ferts.crop = '"+crop+"'"
 				})			
 			};
 
@@ -142,6 +146,7 @@ var fx_controller = (function() {
 				data:   data,
 				success: function (resp) {
 
+
 					var ccodes = _.map(resp, function(val) {
 					  return "("+val[0]+",1)";
 					}).join(',');
@@ -150,10 +155,37 @@ var fx_controller = (function() {
 						"baselayers=mapquest&layers=gaul0_faostat_3857&styles=join&joincolumn=iso3_code"+
 						"&lat=0&lon=20&zoom=4"+
 						"&joindata=["+ccodes+"]"+  //[(EGY,1),(GHA,0),(NGR,1),(MOZ,1)]
-						"&enablejoingfi=true&legendtitle=Fertilizer Distribution&mu="+fert+"&lang=E&colors=238B45,ffffff&ranges=1&classification=custom"
+						"&enablejoingfi=true&legendtitle=Fertilizer Distribution&mu="+crop+"&lang=E&colors=238B45,ffffff&ranges=1&classification=custom"
 					});
 				}
 			});
+	}
+
+	function initListCountries(country) {
+
+		$.getJSON('../data_tools/countries_iso3.json', function(countries) {
+
+			var sel = false;
+			for(var i in countries) {
+				sel = countries[i].iso3===country ? 'selected="selected"':'';
+				$('#listCountries').append('<option '+sel+' value="'+countries[i].iso3+'">'+countries[i].name+'</option>');
+			}
+			$('#listCountries').on('change', function() {
+				initMapCountries( this.value );
+			});
+		});
+	}
+
+	function initMapCountries(country) {
+
+
+		$('#familiesMap').attr({src:
+			"http://fenixapps.fao.org/maps/api?"+
+			"baselayers=mapquest&layers=gaul0_faostat_3857&styles=join&joincolumn=iso3_code"+
+			"&lat=0&lon=20&zoom=4"+
+			"&joindata=["+ccodes+"]"+  //[(EGY,1),(GHA,0),(NGR,1),(MOZ,1)]
+			"&enablejoingfi=true&legendtitle=Fertilizer Distribution&mu="+fert+"&lang=E&colors=238B45,ffffff&ranges=1&classification=custom"
+		});
 	}
 
   return { init : init }

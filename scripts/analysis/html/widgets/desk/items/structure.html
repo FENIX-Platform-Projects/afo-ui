@@ -1,0 +1,83 @@
+<div class='fx-widget'>
+    <ul class="nav nav-tabs" role="tablist">
+        <li data-tab="metadata">
+            <a data-toggle="tab" href="#metadata_REPLACE">
+                <span class="fx-icon fx-icon-metadata"></span>
+            </a>
+        </li>
+        <li data-tab="map">
+            <a data-toggle="tab" href="#map_REPLACE">
+                <span class="fx-icon fx-icon-map"></span>
+            </a>
+        </li>
+        <li class="active" data-tab="table">
+            <a data-toggle="tab" href="#table_REPLACE">
+                <span class="fx-icon fx-icon-table"></span>
+            </a>
+        </li>
+        <li class="dropdown" data-tab="charts">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <span class="fx-icon fx-icon-chart"></span> <b class="caret"></b>
+            </a>
+            <ul aria-labelledby="charts-drop" role="menu" class="dropdown-menu">
+                <li><a data-chart='area' data-toggle="tab" tabindex="-1" href="#areachart_REPLACE">Area Chart
+                </a></li>
+                <li><a data-chart='line' data-toggle="tab" tabindex="-1" href="#linechart_REPLACE">Lines Chart</a>
+                </li>
+                <!-- <li data-charttype='pie'><a data-toggle="tab" tabindex="-1" href="#piechart_REPLACE">Pie Chart</a></li> -->
+            </ul>
+        </li>
+        <li class="dropdown" data-tab="download">
+            <a data-toggle="dropdown"><span class="fx-icon fx-icon-download"></span></a>
+            <ul aria-labelledby="download-drop" role="menu" class="dropdown-menu">
+                <li><a tabindex="-1">CSV</a></li>
+                <li><a tabindex="-1">JSON</a></li>
+                <li><a tabindex="-1">XML</a></li>
+            </ul>
+        </li>
+        <!-- <li class="pull-right"><a id='fx-viewwidget-btn-pin-REPLACE'><span class="glyphicon glyphicon-pushpin"></span></a></li> -->
+        <li class="pull-right"><a id='btn-remove-REPLACE'><span class="fx-icon fx-icon-remove"></span></a>
+        </li>
+        <li class="pull-right"><a id='btn-clone-REPLACE'><span class="fx-icon fx-icon-clone"></span></a>
+        </li>
+        <li class="pull-right"><a id='btn-resize-REPLACE'><span class="fx-icon fx-icon-resize"></span></a>
+        </li>
+        <li class="pull-right"><a id='btn-minimize-REPLACE'><span
+                class="fx-icon fx-icon-movetosession"></span></a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="metadata_REPLACE" class="tab-pane fade in">
+            <div class="tab-metadata-container">
+
+                <dt>Uid</dt>
+                <dd class="meta-uid">undefined</dd>
+                <dt>Title</dt>
+                <dd class="meta-title">undefined</dd>
+                <dt>Language</dt>
+                <dd class="meta-language">undefined</dd>
+                <dt>Datatype</dt>
+                <dd class="meta-datatype">undefined</dd>
+                <dt>Geographic Extent</dt>
+                <dd class="meta-geo">undefined</dd>
+
+            </div>
+        </div>
+        <div id="map_REPLACE" class="tab-pane fade in">
+            <div class="tab-map-container"></div>
+        </div>
+        <div id="table_REPLACE" class="tab-pane fade in active">
+            <div class="tab-table-container"></div>
+        </div>
+        <div id="areachart_REPLACE" class="tab-pane fade">
+            <div class="tab-areachart-container"></div>
+        </div>
+        <div id="linechart_REPLACE" class="tab-pane fade">
+            <div class="tab-linechart-container"></div>
+        </div>
+        <div id="piechart_REPLACE" class="tab-pane fade">
+            <div class="tab-piechart-container"></div>
+        </div>
+    </div>
+</div>
+

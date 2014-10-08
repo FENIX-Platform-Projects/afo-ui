@@ -102,8 +102,8 @@ h1, h2 {
 
 /* Catalogue */
 
-iframe,
-#listFamilies {
+#page-catalogue iframe,
+#page-catalogue select {
   height: 700px;
 }
 
@@ -138,5 +138,5 @@ iframe,
 /* TABS  */
 
 .nav-tabs {
-  margin-bottom: 40px;
+  margin: 40px 15px;
 }

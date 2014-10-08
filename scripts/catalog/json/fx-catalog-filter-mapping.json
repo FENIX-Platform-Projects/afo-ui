@@ -1,0 +1,46 @@
+{
+    "resourceType": {
+        "path" : "filter.types"
+    },
+    "uid": {
+        "path" : "filter.metadata.uid"
+    },
+    "region": {
+        "path" : "filter.metadata.region"
+    },
+    "referencePeriod": {
+        "path" : "filter.metadata.referencePeriod",
+        "conversion" : {
+            "min" : "from",
+            "max" : "to"
+        }
+    },
+    "basePeriod": {
+        "path" : "filter.metadata.basePeriod" ,
+        "conversion" : {
+            "min" : "from",
+            "max" : "to"
+        }
+    },
+    "unitOfMeasure": {
+        "path" : "filter.metadata.unitOfMeasure"
+    },
+    "indicator": {
+        "path" : "filter.data.INDICATOR"
+    },
+    "item": {
+        "path" : "filter.data.ITEM"
+    },
+    "updatePeriodicity": {
+        "path" : "filter.metadata.updatePeriodicity"
+    },
+    "source": {
+        "path" : "filter.metadata.source"
+    },
+    "owner": {
+        "path" : "filter.metadata.owner"
+    },
+    "provider": {
+        "path" : "filter.metadata.provider"
+    }
+}

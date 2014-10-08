@@ -1,0 +1,391 @@
+{
+    "yearrange": {
+        "id": "fx-time-series-id",
+        "type": "yearrange",
+        "cssclass": "fx-catalog-mod-timerseries",
+        "container": "time-series-container",
+        "label": {
+            "EN": "Year Range",
+            "ES": "Intervalo de tiempo",
+            "DE": "Zeitbereich",
+            "FR": "Intervalle de temps"
+        },
+        "component": {
+            "source": {
+                "step": 1,
+                "bounds": {
+                    "min": 1980,
+                    "max": 2014
+                }
+            },
+            "rendering": {
+                "arrows": true,
+                "defaultValues": {
+                    "min": 1980,
+                    "max": 2014
+                }
+            }
+        }
+    },
+    "resourcestype": {
+        "type": "freetext",
+        "container": "geo-container",
+        "cssclass": "geocss",
+        "label": {
+            "EN": "Search",
+            "DE": "Suche",
+            "ES": "Búsqueda",
+            "FR": "Recherchet"
+        },
+        "component": {
+            "rendering": {
+                "placeholder": {
+                    "EN": "Search",
+                    "DE": "Suche",
+                    "ES": "Búsqueda",
+                    "FR": "Recherchet"
+                },
+                "htmlattributes": {
+                    "className": "form-control"
+                }
+            }
+        }
+    },
+    "FREE_FORM": {
+        "type": "freetext",
+        "container": "free-form-container",
+        "cssclass": "freetextclass",
+        "label": {
+            "EN": "Search",
+            "DE": "Suche",
+            "ES": "Búsqueda",
+            "FR": "Recherchet"
+        },
+        "component": {
+            "rendering": {
+                "placeholder": {
+                    "EN": "Search",
+                    "DE": "Suche",
+                    "ES": "Búsqueda",
+                    "FR": "Recherchet"
+                },
+                "htmlattributes": {
+                    "className": "form-control"
+                }
+            }
+        }
+    },
+    "LIST": {
+        "type": "list",
+        "cssclass": "listcssclass",
+        "container": "list-container",
+        "label": {
+            "EN": "EN List",
+            "ES": "ES List",
+            "FR": "FR List"
+        },
+        "component": {
+            "source": {
+                "datafields": [
+                    {
+                        "name": "label"
+                    },
+                    {
+                        "name": "value"
+                    }
+                ],
+                "localdata": [
+                    {
+                        "label": "Peppermint Hot Chocolate",
+                        "value": "Ivano"
+                    },
+                    {
+                        "label": "Peppermint Hot Chocolate",
+                        "value": "Daniele"
+                    },
+                    {
+                        "label": "Salted Caramel Hot Chocolate",
+                        "value": "Pinolo"
+                    }
+
+                ]
+            },
+            "rendering": {
+                "displayMember": "label",
+                "valueMember": "value",
+                "multiple": true,
+                "width": "100%",
+                "autoHeight": true
+            }
+        }
+    },
+    "TREE": {
+        "type": "tree",
+        "container": "tree-container",
+        "cssclass": "treetcssclass",
+        "label": {
+            "EN": "EN tree",
+            "ES": "ES tree",
+            "FR": "FR tree"
+        },
+        "component": {
+            "source": {
+                "datafields": [
+                    {
+                        "name": "id"
+                    },
+                    {
+                        "name": "parentid"
+                    },
+                    {
+                        "name": "text"
+                    },
+                    {
+                        "name": "value"
+                    }
+                ],
+                "localdata": [
+                    {
+                        "id": "2",
+                        "parentid": "1",
+                        "text": "Hot Chocolate",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "3",
+                        "parentid": "1",
+                        "text": "Peppermint Hot Chocolate",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "4",
+                        "parentid": "1",
+                        "text": "Salted Caramel Hot Chocolate",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "5",
+                        "parentid": "1",
+                        "text": "White Hot Chocolate",
+                        "value": "$2.3"
+                    },
+                    {
+                        "text": "Chocolate Beverage",
+                        "id": "1",
+                        "parentid": "-1",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "6",
+                        "text": "Espresso Beverage",
+                        "parentid": "-1",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "7",
+                        "parentid": "6",
+                        "text": "Caffe Americano",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "8",
+                        "text": "Caffe Latte",
+                        "parentid": "6",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "9",
+                        "text": "Caffe Mocha",
+                        "parentid": "6",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "10",
+                        "text": "Cappuccino",
+                        "parentid": "6",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "11",
+                        "text": "Pumpkin Spice Latte",
+                        "parentid": "6",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "12",
+                        "text": "Frappuccino",
+                        "parentid": "-1"
+                    },
+                    {
+                        "id": "13",
+                        "text": "Caffe Vanilla Frappuccino",
+                        "parentid": "12",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "15",
+                        "text": "450 calories",
+                        "parentid": "13",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "16",
+                        "text": "16g fat",
+                        "parentid": "13",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "17",
+                        "text": "13g protein",
+                        "parentid": "13",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "14",
+                        "text": "Caffe Vanilla Frappuccino Light",
+                        "parentid": "12",
+                        "value": "$2.3"
+                    }
+                ],
+                "id": "id"
+            },
+            "rendering": {
+                "allowDrag": false,
+                "allowDrop": false,
+                "width": "100%"
+            }
+        }
+    },
+    "DROPDOWN": {
+        "type": "dropdown",
+        "container": "dropdown-container",
+        "cssclass": "dropdowncssclass",
+        "label": {
+            "EN": "EN dropdown",
+            "ES": "ES dropdown",
+            "FR": "FR dropdown"
+        },
+        "component": {
+            "source": {
+                "datafields": [
+                    {
+                        "name": "text"
+                    },
+                    {
+                        "name": "value"
+                    }
+                ],
+                "localdata": [
+                    {
+                        "id": "2",
+                        "parentid": "1",
+                        "text": "Hot Chocolate",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "3",
+                        "parentid": "1",
+                        "text": "Peppermint Hot Chocolate",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "4",
+                        "parentid": "1",
+                        "text": "Salted Caramel Hot Chocolate",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "5",
+                        "parentid": "1",
+                        "text": "White Hot Chocolate",
+                        "value": "$2.3"
+                    },
+                    {
+                        "text": "Chocolate Beverage",
+                        "id": "1",
+                        "parentid": "-1",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "6",
+                        "text": "Espresso Beverage",
+                        "parentid": "-1",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "7",
+                        "parentid": "6",
+                        "text": "Caffe Americano",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "8",
+                        "text": "Caffe Latte",
+                        "parentid": "6",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "9",
+                        "text": "Caffe Mocha",
+                        "parentid": "6",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "10",
+                        "text": "Cappuccino",
+                        "parentid": "6",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "11",
+                        "text": "Pumpkin Spice Latte",
+                        "parentid": "6",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "12",
+                        "text": "Frappuccino",
+                        "parentid": "-1"
+                    },
+                    {
+                        "id": "13",
+                        "text": "Caffe Vanilla Frappuccino",
+                        "parentid": "12",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "15",
+                        "text": "450 calories",
+                        "parentid": "13",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "16",
+                        "text": "16g fat",
+                        "parentid": "13",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "17",
+                        "text": "13g protein",
+                        "parentid": "13",
+                        "value": "$2.3"
+                    },
+                    {
+                        "id": "14",
+                        "text": "Caffe Vanilla Frappuccino Light",
+                        "parentid": "12",
+                        "value": "$2.3"
+                    }
+                ],
+                "id": "id"
+            },
+            "rendering": {
+                "displayMember": "text",
+                "valueMember": "value",
+                "width": "100%"
+            }
+        }
+    }
+
+}

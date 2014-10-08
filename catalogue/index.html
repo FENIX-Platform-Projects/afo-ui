@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../src/css/main.css">
    
   </head>
-  <body>
+  <body id="page-catalogue">
 
     <!-- Modal -->
     <div id="loginmodal" class="modal fade">
@@ -91,24 +91,27 @@
       </div>
     </div>
 
-    <div class="container"> 
+<!--     <div class="container"> 
       <div class="alert alert-warning fade in" role="alert">
         <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
         <strong>Attention!</strong> Web application under construction.
       </div>
-    </div>
+    </div> -->
     
     <div class="container">
 		<div class="col-xs-12">
 			<h2>Catalogue</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id consequat leo. In vestibulum arcu ac enim accumsan, nec scelerisque eros porta. Phasellus euismod risus ac dapibus convallis.</p>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id consequat leo. In vestibulum arcu ac enim accumsan, nec scelerisque eros porta. Phasellus euismod risus ac dapibus convallis.
+				<br /><br />
+			</p>
 		</div>
 
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" role="tablist">
 			<li class="active"><a href="#families" role="tab" data-toggle="tab">Fertilizers</a></li>
-			<li><a href="#countries" role="tab" data-toggle="tab">Countries</a></li>
 			<li><a href="#crops" role="tab" data-toggle="tab">Crops</a></li>
+			<li><a href="#countries" role="tab" data-toggle="tab">Countries</a></li>
 		</ul>
 
 		<!-- Tab panes -->
@@ -125,12 +128,30 @@
 					<iframe class="clearfix frameMap" id="familiesMap" width="90%" height="700px" frameborder="0" src=""></iframe>
 				</div>  
 			</div>
-			<div class="tab-pane" id="countries">
-
-			</div>
 			<div class="tab-pane" id="crops">
-
+				<div class="col-xs-4">
+					<form class="form" role="form">
+						<div class="form-group">
+							<select id="listCrops" class="form-control" multiple="multiple"></select>
+						</div>
+					</form>
+				</div>
+				<div class="col-xs-8">
+					<iframe class="clearfix frameMap" id="familiesMap" width="90%" height="700px" frameborder="0" src=""></iframe>
+				</div>  
 			</div>
+			<div class="tab-pane" id="countries">
+				<div class="col-xs-4">
+					<form class="form" role="form">
+						<div class="form-group">
+							<select id="listCountries" class="form-control" multiple="multiple"></select>
+						</div>
+					</form>
+				</div>
+				<div class="col-xs-8">
+					<iframe class="clearfix frameMap" id="countriesMap" width="90%" height="700px" frameborder="0" src=""></iframe>
+				</div>  
+			</div>			
 		</div>
 
     </div>

@@ -209,11 +209,11 @@ var fx_controller = (function() {
 		$.getJSON('../data_tools/countries_iso3.json', function(countries) {
 
 			var AFO_country = [
-			"BDI","BEN","BFA","CIV","CMR","COD",
-			"DZA","EGY","ETH","GHA","GNB","GNQ",
-			"KEN","LBR","MDG","MLI","MOZ","MRT",
-			"MWI","NER","NGA","RWA","SDN","SEN",
-			"SYC","TGO","TZA","UGA","ZMB","ZWE"];
+			"BDI","BEN","BFA","CIV","CMR","COD","ETH",
+			"GHA","GNB","KEN","MDG","MLI","MOZ","UGA",
+			"MWI","NER","NGA","RWA","SEN","TGO","TZA","ZMB"
+			//"EGY","MRT","DZA","GNQ","LBR","SYC","ZWE","SDN"
+			];
 
 			var sel = false;
 			for(var i in countries) {
@@ -255,8 +255,8 @@ var fx_controller = (function() {
 				json: JSON.stringify({
 					query: "SELECT name "+
 						"FROM countries "+
-						"WHERE country = '"+country+"' AND value=1 GROUP BY name ORDER BY name"
-				})			
+						"WHERE country = '"+country+"' AND value=1 GROUP BY name"
+				})
 			};
 
 			$.ajax({

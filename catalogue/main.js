@@ -136,7 +136,7 @@ var fx_controller = (function() {
 					$('#listCountries').append('<option '+sel+' value="'+countries[i].iso3+'">'+countries[i].name+'</option>');
 			}
 
-			$('#listCountries').on('click', 'option', function(e) {
+			$('#listCountries').on('click', 'option', _.debounce(function(e) {
 
 				console.log('click');
 
@@ -147,7 +147,7 @@ var fx_controller = (function() {
 
 				//var label = $('#listCountries option:selected').text();
 				//initResultsCountries( $(this).val()[0], label);
-			});
+			},100) );
 
 			$('#resultsCountries').on('click','.close', function(e) {
 				e.preventDefault();
@@ -206,7 +206,7 @@ var fx_controller = (function() {
 				initResultsCrops( $(this).val()[0] );
 			});*/
 
-			$('#listCrops').on('click', 'option', function(e) {
+			$('#listCrops').on('click', 'option', _.debounce(function(e) {
 
 				console.log('click');
 
@@ -217,7 +217,7 @@ var fx_controller = (function() {
 
 				//var label = $('#listCrops option:selected').text();
 				//initResultsCountries( $(this).val()[0], label);
-			});
+			},100) );
 
 			$('#resultsCrops').on('click','.close', function(e) {
 				e.preventDefault();

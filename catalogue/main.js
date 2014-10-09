@@ -253,9 +253,9 @@ var fx_controller = (function() {
 				nowrap: false,
 				valuesIndex: 0,
 				json: JSON.stringify({
-					query: "SELECT DISTINCT name "+
+					query: "SELECT name "+
 						"FROM countries "+
-						"WHERE country = '"+country+"' AND value=1"
+						"WHERE country = '"+country+"' AND value=1 GROUP BY name ORDER BY name"
 				})			
 			};
 

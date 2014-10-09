@@ -152,6 +152,13 @@ optgroup {
 	font-size: 1.2em;
 	float: left;
 	width: 48%;
-	padding: 10px;
+	padding: 5px 10px;
 	border:1px solid #DDF3C2;
+}
+
+#cropsResults dt,
+#countriesResults dt {
+	display: block;
+	clear: both;
+	padding-top: 5px;
 }

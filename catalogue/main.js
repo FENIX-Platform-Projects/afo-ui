@@ -208,12 +208,12 @@ var fx_controller = (function() {
 
 		$.getJSON('../data_tools/countries_iso3.json', function(countries) {
 
-var AFO_country = [
-"BDI","BEN","BFA","CIV","CMR","COD",
-"DZA","EGY","ETH","GHA","GNB","GNQ",
-"KEN","LBR","MDG","MLI","MOZ","MRT",
-"MWI","NER","NGA","RWA","SDN","SEN",
-"SYC","TGO","TZA","UGA","ZMB","ZWE"];
+			var AFO_country = [
+			"BDI","BEN","BFA","CIV","CMR","COD",
+			"DZA","EGY","ETH","GHA","GNB","GNQ",
+			"KEN","LBR","MDG","MLI","MOZ","MRT",
+			"MWI","NER","NGA","RWA","SDN","SEN",
+			"SYC","TGO","TZA","UGA","ZMB","ZWE"];
 
 			var sel = false;
 			for(var i in countries) {
@@ -221,17 +221,28 @@ var AFO_country = [
 				if(_.contains(AFO_country, countries[i].iso3))
 					$('#listCountries').append('<option '+sel+' value="'+countries[i].iso3+'">'+countries[i].name+'</option>');
 			}
-			$('#listCountries').on('change', function(e) {
-				e.preventDefault();
 
-				var label = $('#listCountries option:selected').text();
+			$('#listCountries').on('click', 'option', function(e) {
+				//e.preventDefault();
 
-				initResultsCountries( $(this).val()[0], label);
+				console.log('click');
+
+				$('#countriesResults').empty();
+				$('#listCountries option:selected').each(function(i) {
+					initResultsCountries( $(this).val(), $(this).text() );
+				});
+
+				//var label = $('#listCountries option:selected').text();
+
+				//initResultsCountries( $(this).val()[0], label);
+				//console.log('change');
 			});
 		});
 	}
 
-	function initResultsCountries(country,countryName) {
+	function initResultsCountries(country, countryName) {
+
+		console.log(country, countryName);
 
 		var data = {
 				datasource: conf.dbName,
@@ -253,11 +264,11 @@ var AFO_country = [
 				type: 'POST',
 				url: conf.wdsUrl,				
 				success: function (resp) {
-					$('#countriesResults').empty().append('<dt><h2>Fertilizers in <b>'+countryName+'</b></h2></dt>');
+
+					$('#countriesResults').append('<dt><h2>Fertilizers in <b>'+countryName+'</b></h2></dt>');
 					_.each(resp, function(val) {
 						$('#countriesResults').append('<dd>&bull; '+val+'</dd>');
 					});
-					
 				}
 			});
 	}

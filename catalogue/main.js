@@ -116,6 +116,80 @@ var fx_controller = (function() {
 		});
 	}
 
+//COUNTRIES
+
+	function initListCountries(country) {
+
+		$.getJSON('../data_tools/countries_iso3.json', function(countries) {
+
+			var AFO_country = [
+			"BDI","BEN","BFA","CIV","CMR","COD","ETH",
+			"GHA","GNB","KEN","MDG","MLI","MOZ","UGA",
+			"MWI","NER","NGA","RWA","SEN","TGO","TZA","ZMB"
+			//"EGY","MRT","DZA","GNQ","LBR","SYC","ZWE","SDN"
+			];
+
+			var sel = false;
+			for(var i in countries) {
+				sel = countries[i].iso3===country ? 'selected="selected"':'';
+				if(_.contains(AFO_country, countries[i].iso3))
+					$('#listCountries').append('<option '+sel+' value="'+countries[i].iso3+'">'+countries[i].name+'</option>');
+			}
+
+			$('#listCountries').on('click', 'option', function(e) {
+
+				console.log('click');
+
+				$('#resultsCountries').empty().append('<a class="close pull-right" href="#">&#x274C;</a>');
+				$('#listCountries').find(':selected').each(function(i) {
+					initResultsCountries( $(this).val(), $(this).text() );
+				});
+
+				//var label = $('#listCountries option:selected').text();
+				//initResultsCountries( $(this).val()[0], label);
+			});
+
+			$('#resultsCountries').on('click','.close', function(e) {
+				e.preventDefault();
+				$('#listCountries').removeAttr('selected');
+				$('#resultsCountries').empty();
+			});
+		});
+	}
+
+	function initResultsCountries(countryIso3, countryName) {
+
+		console.log(countryIso3, countryName);
+
+		var data = {
+				datasource: conf.dbName,
+				thousandSeparator: ',',
+				decimalSeparator: '.',
+				decimalNumbers: 2,
+				cssFilename: '',
+				nowrap: false,
+				valuesIndex: 0,
+				json: JSON.stringify({
+					query: "SELECT name "+
+						"FROM countries "+
+						"WHERE country = '"+countryIso3+"' AND value=1 GROUP BY name"
+				})
+			};
+
+			$.ajax({
+				data: data,
+				type: 'POST',
+				url: conf.wdsUrl,				
+				success: function (resp) {
+
+					$('#resultsCountries').append('<dt><h2>Fertilizers in <b>'+countryName+'</b></h2></dt>');
+					_.each(resp, function(val) {
+						$('#resultsCountries').append('<dd>&bull; '+val+'</dd>');
+					});
+				}
+			});
+	}
+
 //CROPS
 
 	function initListCrops(crop) {
@@ -128,9 +202,27 @@ var fx_controller = (function() {
 				$('#listCrops').append('<option '+sel+' value="'+crops[i]+'">'+crops[i]+'</option>');
 			}
 
-			$('#listCrops').on('change', function(e) {
-				e.preventDefault();
+/*			$('#listCrops').on('change', function(e) {
 				initResultsCrops( $(this).val()[0] );
+			});*/
+
+			$('#listCrops').on('click', 'option', function(e) {
+
+				console.log('click');
+
+				$('#resultsCrops').empty().append('<a class="close pull-right" href="#">&#x274C;</a>');
+				$('#listCrops').find(':selected').each(function(i) {
+					initResultsCrops( $(this).val(), $(this).text() );
+				});
+
+				//var label = $('#listCrops option:selected').text();
+				//initResultsCountries( $(this).val()[0], label);
+			});
+
+			$('#resultsCrops').on('click','.close', function(e) {
+				e.preventDefault();
+				$('#listCrops').removeAttr('selected');
+				$('#resultsCrops').empty();
 			});
 		});
 	}
@@ -148,8 +240,8 @@ var fx_controller = (function() {
 				json: JSON.stringify({
 					query: "SELECT DISTINCT name "+
 						"FROM fertilizers_crops_faostatcodes "+
-						"WHERE crop = '"+crop+"'"
-				})			
+						"WHERE crop = '"+crop+"' "
+				})
 			};
 
 			$.ajax({
@@ -157,9 +249,9 @@ var fx_controller = (function() {
 				type: 'POST',
 				url: conf.wdsUrl,
 				success: function (resp) {
-					$('#cropsResults').empty().append('<dt><h2>Fertilizers for <b>'+crop+'</b></h2></dt>');
+					$('#resultsCrops').append('<dt><h2>Fertilizers for <b>'+crop+'</b></h2></dt>');
 					_.each(resp, function(val) {
-						$('#cropsResults').append('<dd>&bull; '+val+'</dd>');
+						$('#resultsCrops').append('<dd>&bull; '+val+'</dd>');
 						//TODO add countries
 					});
 					
@@ -202,76 +294,7 @@ var fx_controller = (function() {
 					});
 				}
 			});
-	}
-
-	function initListCountries(country) {
-
-		$.getJSON('../data_tools/countries_iso3.json', function(countries) {
-
-			var AFO_country = [
-			"BDI","BEN","BFA","CIV","CMR","COD","ETH",
-			"GHA","GNB","KEN","MDG","MLI","MOZ","UGA",
-			"MWI","NER","NGA","RWA","SEN","TGO","TZA","ZMB"
-			//"EGY","MRT","DZA","GNQ","LBR","SYC","ZWE","SDN"
-			];
-
-			var sel = false;
-			for(var i in countries) {
-				sel = countries[i].iso3===country ? 'selected="selected"':'';
-				if(_.contains(AFO_country, countries[i].iso3))
-					$('#listCountries').append('<option '+sel+' value="'+countries[i].iso3+'">'+countries[i].name+'</option>');
-			}
-
-			$('#listCountries').on('click', 'option', function(e) {
-				//e.preventDefault();
-
-				console.log('click');
-
-				$('#countriesResults').empty();
-				$('#listCountries option:selected').each(function(i) {
-					initResultsCountries( $(this).val(), $(this).text() );
-				});
-
-				//var label = $('#listCountries option:selected').text();
-
-				//initResultsCountries( $(this).val()[0], label);
-				//console.log('change');
-			});
-		});
-	}
-
-	function initResultsCountries(country, countryName) {
-
-		console.log(country, countryName);
-
-		var data = {
-				datasource: conf.dbName,
-				thousandSeparator: ',',
-				decimalSeparator: '.',
-				decimalNumbers: 2,
-				cssFilename: '',
-				nowrap: false,
-				valuesIndex: 0,
-				json: JSON.stringify({
-					query: "SELECT name "+
-						"FROM countries "+
-						"WHERE country = '"+country+"' AND value=1 GROUP BY name"
-				})
-			};
-
-			$.ajax({
-				data: data,
-				type: 'POST',
-				url: conf.wdsUrl,				
-				success: function (resp) {
-
-					$('#countriesResults').append('<dt><h2>Fertilizers in <b>'+countryName+'</b></h2></dt>');
-					_.each(resp, function(val) {
-						$('#countriesResults').append('<dd>&bull; '+val+'</dd>');
-					});
-				}
-			});
-	}
+	}	
 
   return { init : init }
 

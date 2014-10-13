@@ -79,6 +79,16 @@
             "EN":"Market news",
             "FR":""
          }
+      },
+      {
+         "attrs": {
+            "id":"events"
+         },
+         "target":"../events/",
+         "label": {
+            "EN":"Events",
+            "FR":""
+         }
       }
    ],
    "brand": {

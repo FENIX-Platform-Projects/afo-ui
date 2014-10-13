@@ -21,20 +21,12 @@
       "backbone" : "~1.1.2",
       "backbone.layoutmanager" : "~0.9.5",
       "bootstrap" :  "~3.2.0",
-      "requirejs" : "~2.1.14",
       "underscore" : "~1.7.0",
-      "nprogress" : "~0.1.6",
+      "nprogress" : "~0.1.6",      
+      "requirejs" : "~2.1.14",
       "domready": "https://github.com/requirejs/domReady/tarball/master",
+      "text": "https://github.com/requirejs/text/tarball/master",
       "jqwidgets": "http://fenixapps.fao.org/repository/js/jqwidgets/3.1.tgz"
-  },
-  "cdnDependencies" : {
-      "jqwidgets": {
-        "js": "<URL>",
-        "css": "<URL>",
-        "fonts": "<URL>",
-        "icons": "<URL>",
-        "images": "<URL>"
-      }
   },
   "devDependencies": {
     "grunt": "~0.4.2",

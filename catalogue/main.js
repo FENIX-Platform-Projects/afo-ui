@@ -4,7 +4,8 @@ requirejs.config({
     baseUrl: "../src/",
 
     paths : {
-        domReady: "lib/domReady",
+        domready: "lib/domready",
+        text: "lib/text",
         jquery: "lib/jquery",
         bootstrap : "lib/bootstrap",
         jqwidgets: "//fenixapps.fao.org/repository/js/jqwidgets/3.1/jqx-all",
@@ -27,9 +28,12 @@ requirejs.config({
 
 require(['fenix-ui-topmenu', 'domready!'], function( TopMenu ) {
 
-    new TopMenu({
+console.log('domready');
+
+/*    new TopMenu({
         url: "../config/fenix-ui-topmenu.json",
         active: "home"
-    });
+    });*/
 
 });
+

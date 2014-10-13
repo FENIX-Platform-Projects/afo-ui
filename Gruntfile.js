@@ -26,9 +26,12 @@ module.exports = function(grunt) {
             dist: {
                 src: ['dist/*']
             },
+            lib: {
+                src: ['src/lib/*']
+            },
             docs: {
                 src: ['docs/*']
-            }     
+            }
         },
         jshint: {
             options: {
@@ -92,6 +95,11 @@ module.exports = function(grunt) {
                 src: "node_modules/domReady/domReady.js",
                 dest: "src/lib/domready.js"
             },
+            text: {
+                nonull: true,
+                src: "node_modules/text/text.js",
+                dest: "src/lib/text.js"
+            },  
             underscore: {
                 nonull: true,
                 src: "node_modules/underscore/underscore-min.js",

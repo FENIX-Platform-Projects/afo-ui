@@ -1,0 +1,195 @@
+{
+    "panels": [
+        {
+            "title": {
+                "EN": "DEMO"
+            },
+            "popover": {
+                "data-container": "body",
+                "data-toggle": "popover",
+                "data-placement": "left",
+                "data-content": "Vivamus sagittis lacus vel augue laoreet rutrum faucibus.",
+                "data-trigger": "hover"
+
+            },
+            "modules": [
+                {
+                    "module": "resourceType",
+                    "label": {
+                        "EN": "Resource Type"
+                    },
+                    "icon": "fa fa-globe fa-lg fa-fw"
+                },
+                {
+                    "module": "uid",
+                    "label": {
+                        "EN": "Uid"
+                    },
+                    "icon": "fa fa-clock-o fa-lg fa-fw"
+                },
+                {
+                    "module": "geographicExtent",
+                    "label": {
+                        "EN": "Geo Extent"
+                    },
+                    "icon": "fa fa-clock-o fa-lg fa-fw"
+                },
+                {
+                    "module": "referencePeriod",
+                    "label": {
+                        "EN": "Reference Period"
+                    },
+                    "icon": "fa fa-clock-o fa-lg fa-fw"
+                },
+                {
+                    "module": "basePeriod",
+                    "label": {
+                        "EN": "Base Period"
+                    },
+                    "icon": "fa fa-clock-o fa-lg fa-fw"
+                },
+                {
+                    "module": "unitOfMeasure",
+                    "label": {
+                        "EN": "Unit of Measure"
+                    },
+                    "icon": "fa fa-clock-o fa-lg fa-fw"
+                },
+                {
+                    "module": "updatePeriodicity",
+                    "label": {
+                        "EN": "Update Periodicity"
+                    },
+                    "icon": "fa fa-clock-o fa-lg fa-fw"
+                },
+                {
+                    "module": "sources",
+                    "label": {
+                        "EN": "Source"
+                    },
+                    "icon": "fa fa-clock-o fa-lg fa-fw"
+                },
+                {
+                    "module": "owner",
+                    "label": {
+                        "EN": "Owner"
+                    },
+                    "icon": "fa fa-clock-o fa-lg fa-fw"
+                },
+                {
+                    "module": "provider",
+                    "label": {
+                        "EN": "Provider"
+                    },
+                    "icon": "fa fa-clock-o fa-lg fa-fw"
+                }
+            ]
+        },
+        {
+            "title": {
+                "EN": "Sources"
+            },
+            "modules": [
+                {
+                    "module": "FREE_FORM",
+                    "label": {
+                        "EN": "Free text"
+                    },
+                    "icon": "fa fa-search fa-lg fa-fw"
+
+                },
+                {
+                    "module": "LIST",
+                    "label": {
+                        "EN": "List"
+                    },
+                    "icon": "fa fa-list-alt fa-lg fa-fw"
+                },
+                {
+                    "module": "TREE",
+                    "label": {
+                        "EN": "Tree"
+                    },
+                    "icon": "fa fa-code-fork fa-lg fa-fw"
+                },
+                {
+                    "module": "DROPDOWN",
+                    "label": {
+                        "EN": "Dropdown"
+                    },
+                    "icon": "fa fa-chevron-circle-down fa-lg fa-fw"
+                }
+            ]
+        },
+        {
+            "title": {
+                "EN": "Resources Type"
+            },
+            "modules": [
+                {
+                    "module": "FREE_FORM",
+                    "label": {
+                        "EN": "FREE_FORM"
+                    },
+                    "icon": "fa fa-code-fork fa-lg fa-fw"
+                },
+                {
+                    "module": "LIST",
+                    "label": {
+                        "EN": "LIST"
+                    },
+                    "icon": "fa fa-code-fork fa-lg fa-fw"
+                },
+                {
+                    "module": "TREE",
+                    "label": {
+                        "EN": "TREE"
+                    },
+                    "icon": "fa fa-code-fork fa-lg fa-fw"
+                },
+                {
+                    "module": "DROPDOWN",
+                    "label": {
+                        "EN": "DROPDOWN"
+                    },
+                    "icon": "fa fa-code-fork fa-lg fa-fw"
+                }
+            ]
+        },
+        {
+            "title": {
+                "EN": "Presets"
+            },
+            "modules": [
+                {
+                    "module": "FREE_FORM",
+                    "label": {
+                        "EN": "FREE_FORM"
+                    },
+                    "icon": "fa fa-code-fork fa-lg fa-fw"
+                },
+                {
+                    "module": "LIST",
+                    "label": {
+                        "EN": "LIST"
+                    },
+                    "icon": "fa fa-code-fork fa-lg fa-fw"
+                },
+                {
+                    "module": "TREE",
+                    "label": {
+                        "EN": "TREE"
+                    },
+                    "icon": "fa fa-code-fork fa-lg fa-fw"
+                },
+                {
+                    "module": "DROPDOWN",
+                    "label": {
+                        "EN": "DROPDOWN"
+                    },
+                    "icon": "fa fa-code-fork fa-lg fa-fw"
+                }
+            ]
+        }
+    ]
+}

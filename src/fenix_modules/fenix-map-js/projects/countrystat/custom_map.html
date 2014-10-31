@@ -1,0 +1,422 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <link rel='icon' type='image/png' href='http://fenixapps.fao.org/repository/favicon/faostat.png'>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+    <!-- Google fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700,400italic|Roboto+Condensed' rel='stylesheet' type='text/css'>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/0.7.2/leaflet.css" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/css/jquery.power.tip/1.1.0/jquery.powertip.css" type="text/css" />
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min.css" />
+    <link href='http://fenixapps.fao.org/repository/js/chosen/1.0.0/chosen.min.css' rel='stylesheet'>
+
+    <!-- JAVASCRIPT -->
+
+    <!-- FENIX Map-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type='text/javascript' src="http://fenixapps.fao.org/repository/js/leaflet/0.7.2/leaflet.js"></script>
+    <script src="http://fenixapps.fao.org/repository/js/jquery.power.tip/1.1.0/jquery.powertip.min.js"></script>
+    <script type='text/javascript' src='http://fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min.js'></script>
+    <script type='text/javascript' src='http://fenixapps.fao.org/repository/js/jquery/1.0.9/jquery.i18n.properties-min.js'></script>
+    <script type='text/javascript' src='http://fenixapps.fao.org/repository/js/jquery.hoverIntent/1.0/jquery.hoverIntent.js'></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script type='text/javascript' src='http://fenixapps.fao.org/repository/js/chosen/1.0.0/chosen.jquery.min.js'></script>
+
+    <script src='http://fenixapps.fao.org/repository/js/FENIX/utils/import-dependencies-1.0.js'></script>
+
+    <!-- fenix map -->
+    <link rel="stylesheet" href="../../fenix-map-js.css" />
+    <link rel="stylesheet" href="../../leaflet-custom.css" />
+    <script type='text/javascript' src='../../fenix-map-config.js'></script>
+    <script type='text/javascript' src='../../fenix-map-min.js'></script>
+
+
+</head>
+
+<body onload="initialize();">
+
+<div style='height: 25px;'></div>
+
+<div style='height: 15px; clear:both;'></div>
+<div class="container">
+
+    <!-- TITLE -->
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="input-group">
+                <span class="input-group-addon"></span>
+                <input id='INPUT-TITLE' type="text" class="form-control" placeholder="Map Title">
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="input-group">
+                <span class="input-group-addon"></span>
+                <input id='INPUT-MEASUREMENTUNIT' type="text" class="form-control" placeholder="Measurement Unit">
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="btn-group">
+                <a class='btn btn-primary' href='javascript:;'>
+                    Choose a File...
+                    <input type="file" id="files" name="files[]" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
+                </a>
+                &nbsp;
+                <span class='label label-info' id="upload-file-info"></span>
+            </div>
+        </div>
+        <!-- <div class="col-lg-3">
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default">
+                    <input type="radio" name="type" value="GEOCODE">GEOCODE
+                </label>
+                <label class="btn btn-default">
+                    <input type="radio" name="type" value="LATLON" >LATLON
+                </label>
+            </div>
+        </div>-->
+        <div class="col-lg-3" >
+        </div>
+        <div style='height: 15px; clear:both;'></div>
+        <div class="row" id="JOIN-GEOCODE">
+            <div class="col-lg-2" >
+                <div class='fm-title'>GAUL TYPE</div>
+                <select id='GAUL-TYPE' style='width: 100%;' data-placeholder="Select a type of GAUL" class="chosen-select-no-single">
+                    <option value='GAUL0' selected>GAUL0</option>
+                    <option value='GAUL0_FAOSTAT'>GAUL0 - FAOSTAT</option>
+                    <option value='GAUL0_ISO2' >GAUL0 - ISO2</option>
+                    <option value='GAUL0_ISO3' >GAUL0 - ISO3</option>
+                    <option value='GAUL1' >GAUL1</option>
+                    <option value='GAUL2'>GAUL2</option>
+                </select>
+            </div>
+            <div class="col-lg-2" >
+                <div class='fm-title'>Color</div>
+                <select id='colorramp' style='width: 100%;' data-placeholder="Select a color ramp" class="chosen-select-no-single">
+                    <option value='YlOrBr' selected>YlOrBr</option>
+                    <option value='Reds' selected>Reds</option>
+                    <option value='Blues' selected>Blues</option>
+                    <option value='RdYlGn' selected>RdYlGn</option>
+                    <option value='RdBu' selected>RdBu</option>
+                </select>
+            </div>
+            <div class="col-lg-1" >
+                <div class='fm-title'>Intervals</div>
+                <select id='intervals' style='width: 100%;' data-placeholder="Select join intervals"  class="chosen-select-no-single">
+                    <option value='2' selected>2</option>
+                    <option value='3'>3</option>
+                    <option value='4'>4</option>
+                    <option value='5'>5</option>
+                    <option value='6'>6</option>
+                    <option value='7'>7</option>
+                    <option value='8'>8</option>
+                    <option value='9'>9</option>
+                </select>
+            </div>
+        </div>
+
+        <div style='height: 15px; clear:both;'></div>
+        <div id="exportimage"></div>
+        <div style='height: 15px; clear:both;'></div>
+
+        <div id="container-charts"></div>
+    </div>
+
+    <div style='height: 25px;'></div>
+
+    <div style='height: 25px;'></div>
+
+    <div id="output"></div>
+
+    <div id="gfiid"></div>
+
+
+</body>
+
+</html>
+
+<script type="text/javascript">
+    var config = {
+        '.chosen-select-deselect'  : {allow_single_deselect:true},
+        '.chosen-select-no-single' : {disable_search_threshold:10}
+    }
+    for (var selector in config) {
+        $(selector).chosen(config[selector]);
+    }
+</script>
+
+<script>
+
+function initialize() {
+    $('input[name=type]:checked').parent('label').addClass('active');
+}
+
+function parsejsoncsv(json) {
+    var headers = [];
+    var joindata = new Array();
+
+    for(var i = 0; i < json.headers.length; i++)
+        headers.push(json.rows[i]);
+
+    for(i = 0; i < json.rows.length; i++) {
+        var geocode = json.rows[i][json.headers[0]];
+        var value = parseFloat(json.rows[i][json.headers[1]]);
+        var s = { }
+        s[geocode] = value;
+        joindata.push(s);
+    }
+
+    var data = {
+        headers: json.headers,
+        joindata: joindata
+    }
+    return data;
+}
+
+function handleselectedfiles(e) {
+    var files = e.target.files; // FileList object
+    console.log(files)
+    // Loop through the FileList and populate the 'outputTable' with the data
+    for (var i = 0, f; f = files[i]; i++) {
+        var type = files[i].type;
+        var reader = new FileReader();
+        // Closure to capture the file information.
+        reader.onload = (function(theFile) {
+            return function(e) {
+                init(e.target.result, type);
+            };
+        })(f);
+        reader.readAsText(f);
+    }
+}
+
+function init(obj, filetype) {
+    var json = '';
+    var data = '';
+    switch (filetype) {
+        case 'text/csv' :
+            json = csvjson.csv2json(obj, { delim : "," });
+            data = parsejsoncsv(json);
+            createFromCSV(data)
+            break;
+        default:
+            if (typeof obj == 'string') json = $.parseJSON(obj);
+            createFromJSON(json)
+            break;
+    }
+}
+
+function createFromCSV(data) {
+    createGUI('Map', data, createFromCSVCallback);
+}
+
+function createFromCSVCallback(ids, data) {
+    console.log(ids);
+    console.log(data);
+
+    var layertitle = data.headers[1];
+    console.log(data.joindata);
+    console.log(JSON.stringify(data.joindata));
+    var joindata = JSON.stringify(data.joindata)
+    var measurementunit = ( $("#INPUT-MEASUREMENTUNIT").val() )? $("#INPUT-MEASUREMENTUNIT").val(): '' ;
+
+
+
+
+    var fenixmap = createMap(ids.mapID, ids.widgetID );
+    var l = createLayer( { joindata: joindata, layertitle: layertitle, measurementunit: measurementunit });
+    fenixmap.addLayer(l);
+
+    addListeners(fenixmap, ids.mapID, ids.saveMapID, ids.exportImageID)
+}
+
+function createFromJSON(json) {
+     createGUI('Map', json, createFromJSONCallback);
+}
+
+function createFromJSONCallback(ids, json) {
+
+
+
+    var fenixmap = new FM.Map(ids.mapID, json.map.options, json.map.mapOptions);
+    fenixmap.createMap();
+    fenixmap.createMapFromJSON(json);
+    addListeners(fenixmap, ids.mapID, ids.saveMapID,  ids.exportImageID)
+}
+
+
+function createGUI(title, data, callback) {
+
+    var _data = data;
+    $.ajax({
+        type: "GET",
+        url: '../../plugins/gui/map-bs.html',
+        success: function(data) {
+            var id = FM.Util.randomID();
+            var widget = FM.Util.replaceAll(data, '_REPLACE', id)
+            $('#container-charts').append(widget);
+
+            var widgetID = 'widget' + id;
+            var mapID = 'm' + id;
+            var descriptionID = 'description' + id;
+            var saveMapID = 'save_widget' + id;
+            var removeWidgetID = 'remove_widget' + id;
+            var title = ( title )? title: 'Map' ;
+            var exportImageID = 'export_image' + id;
+
+            $( "#" + widgetID ).resizable();
+
+            // delete the current object
+            $('#' + removeWidgetID).click({ widgetID: widgetID}, function(event) {
+                $('#' + event.data.widgetID).remove();
+            });
+
+
+            var ids = {
+                id: id,
+                mapID: mapID,
+                saveMapID: saveMapID,
+                exportImageID: exportImageID,
+                widgetID: widgetID
+            }
+
+            console.log(callback)
+            console.log(ids)
+            console.log(_data)
+            callback(ids, _data);
+        }
+    });
+}
+
+function addListeners(fenixmap, mapID, saveMapID, exportImageID) {
+
+    $('#' + saveMapID).click({fenixmap: fenixmap}, function(event) {
+        event.data.fenixmap.exportMapToJSONFile();
+    });
+    console.log("addListeners" + exportImageID)
+
+    $('#' + exportImageID).click({fenixmap: fenixmap}, function(event) {
+        L_PREFER_CANVAS = true;
+        // i'm deleting the master chart -> send aler
+        //leafletImage(fenixMap.map, doImage('', canvas, fenixMap.map));
+        console.log( event.data.fenixmap);
+        leafletImage( event.data.fenixmap.map, null, doImage);
+    });
+
+    // example thing to do with that canvas
+    function doImage(err, options, canvas) {
+        console.log(err);
+        console.log(canvas);
+        var img = document.createElement('img');
+        var dimensions = fenixmap.map.getSize();
+        img.width = dimensions.x;
+        img.height = dimensions.y;
+        img.src = canvas.toDataURL();
+        document.getElementById('exportimage').innerHTML = '';
+        document.getElementById('exportimage').appendChild(img);
+
+       // var image = img.toDataURL("image/png").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
+
+
+        //Canvas2Image.saveAsPNG(img);
+    }
+
+    // On Move
+    var _fenixmap = fenixmap;
+    var GFIchk = {};
+    GFIchk["lat-" + fenixmap.id] = 0;
+    GFIchk["lng-" + fenixmap.id] = 0;
+    GFIchk["globalID-" + fenixmap.id] = 0;
+    fenixmap.map.on('mousemove', function (e) {
+        var id = Date.now();
+        GFIchk["globalID-" + _fenixmap.id] = id;
+        var t = setTimeout(function() {
+            if ( id == GFIchk["globalID-" + _fenixmap.id]) {
+                //console.log(e);
+                if ((GFIchk["lat-" + _fenixmap.id] != e.latlng.lat) && (GFIchk["lng-" + _fenixmap.id] != e.latlng.lng)) {
+                    GFIchk["lat-" + _fenixmap.id] = e.latlng.lat;
+                    GFIchk["lng-" + _fenixmap.id] = e.latlng.lng;
+                    // call callback
+                    //_fenixmap.getFeatureInfo(e, mapID +'-gfioutput');
+                    _fenixmap.getFeatureInfo(e);
+                }
+            }
+        }, 100);
+    });
+    fenixmap.map.on('mouseout', function (e) {
+        GFIchk["lat-" + fenixmap.id] = 0;
+        GFIchk["lng-" + fenixmap.id] = 0;
+        GFIchk["globalID-" + fenixmap.id] = 0;
+        $('#' + mapID +'-gfioutput').empty();
+    });
+}
+
+function createMap(mapID, fullscreenID) {
+    var options = {
+        plugins: {
+            geosearch : false,
+            mouseposition: false,
+            controlloading : true,
+            zoomControl: 'bottomright'
+        },
+        guiController: {
+            overlay : true,
+            baselayer: true,
+            wmsLoader: true
+        },
+        gui: {
+            disclaimerfao: true,
+            fullscreenID: fullscreenID
+        }
+    }
+
+    var mapOptions = {
+        zoomControl:false,
+        attributionControl: false
+    };
+
+    console.log(mapID);
+    var m = new FM.Map(mapID, options, mapOptions);
+    m.createMap();
+
+    return m;
+}
+
+function createLayer(o) {
+
+    var layer = FMDEFAULTLAYER.getLayer($('#GAUL-TYPE').val(), true, 'asd')
+
+    layer.layertitle = ( o.layertitle)? o.layertitle: "Joined Layer"
+    layer.joindata = o.joindata;
+    layer.legendtitle = ( o.measurementunit)?  o.measurementunit: "";
+    layer.mu = o.measurementunit;
+
+    layer.addborders='true'
+    layer.borderscolor='FFFFFF'
+    layer.bordersstroke='0.7'
+    layer.bordersopacity='0.4'
+    layer.opacity='0.8';
+
+    layer.visibility=true;
+    layer.srs = 'EPSG:3857';
+    layer.layertype = 'JOIN';
+    layer.jointype='shaded';
+    layer.defaultgfi = true;
+    layer.openlegend = true;
+    layer.colorramp= $("#colorramp").val();
+    layer.intervals= $('#intervals').val();
+    layer.lang='en';
+
+
+    var l = new FM.layer(layer);
+    return l
+}
+
+document.getElementById('files').addEventListener('change', handleselectedfiles, false);
+
+
+</script>

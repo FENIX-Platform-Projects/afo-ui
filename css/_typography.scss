@@ -1,0 +1,15 @@
+/* Typography */
+
+
+
+$standard-text : normal normal 300 14px/normal 'Roboto Condensed';
+
+
+
+a {
+  color: $fenix-gray-text;
+  &:hover {
+    color: $fenix-standard-blue !important;
+    @include animate;
+  }
+}

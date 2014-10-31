@@ -1,0 +1,90 @@
+[
+	{
+		"id": "BEN",
+		"text": "Benin"
+	},
+	{
+		"id": "BFA",
+		"text": "Burkina Faso"
+	},
+	{
+		"id": "KEN",
+		"text": "Kenya"
+	},
+	{
+		"id": "BDI",
+		"text": "Burundi"
+	},
+	{
+		"id": "CMR",
+		"text": "Cameroon"
+	},
+	{
+		"id": "CIV",
+		"text": "Côte d'Ivoire"
+	},
+	{
+		"id": "COD",
+		"text": "Democratic Republic of the Congo"
+	},
+	{
+		"id": "ETH",
+		"text": "Ethiopia"
+	},
+	{
+		"id": "GHA",
+		"text": "Ghana"
+	},
+	{
+		"id": "GNB",
+		"text": "Guinea-Bissau"
+	},
+	{
+		"id": "MDG",
+		"text": "Madagascar"
+	},
+	{
+		"id": "MWI",
+		"text": "Malawi"
+	},
+	{
+		"id": "MLI",
+		"text": "Mali"
+	},
+	{
+		"id": "MOZ",
+		"text": "Mozambique"
+	},
+	{
+		"id": "NER",
+		"text": "Niger"
+	},
+	{
+		"id": "NGA",
+		"text": "Nigeria"
+	},
+	{
+		"id": "RWA",
+		"text": "Rwanda"
+	},
+	{
+		"id": "SEN",
+		"text": "Senegal"
+	},
+	{
+		"id": "TGO",
+		"text": "Togo"
+	},
+	{
+		"id": "TZA",
+		"text": "United Republic of Tanzania"
+	},
+	{
+		"id": "UGA",
+		"text": "Uganda"
+	},
+	{
+		"id": "ZMB",
+		"text": "Zambia"
+	}
+]

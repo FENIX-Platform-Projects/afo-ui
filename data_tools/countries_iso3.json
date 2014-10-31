@@ -1,0 +1,234 @@
+[
+	{
+		"id": "DZA",
+		"text": "Algeria"
+	},
+	{
+		"id": "AGO",
+		"text": "Angola"
+	},
+	{
+		"id": "BEN",
+		"text": "Benin"
+	},
+	{
+		"id": "BWA",
+		"text": "Botswana"
+	},
+	{
+		"id": "BFA",
+		"text": "Burkina Faso"
+	},
+	{
+		"id": "KEN",
+		"text": "Kenya"
+	},
+	{
+		"id": "MYT",
+		"text": "Mayotte"
+	},
+	{
+		"id": "BDI",
+		"text": "Burundi"
+	},
+	{
+		"id": "CMR",
+		"text": "Cameroon"
+	},
+	{
+		"id": "COM",
+		"text": "Comoros"
+	},
+	{
+		"id": "COG",
+		"text": "Congo"
+	},
+	{
+		"id": "CPV",
+		"text": "Cape Verde"
+	},
+	{
+		"id": "CAF",
+		"text": "Central African Republic"
+	},
+	{
+		"id": "TCD",
+		"text": "Chad"
+	},
+	{
+		"id": "GAB",
+		"text": "Gabon"
+	},
+	{
+		"id": "CIV",
+		"text": "Côte d'Ivoire"
+	},
+	{
+		"id": "COD",
+		"text": "Democratic Republic of the Congo"
+	},
+	{
+		"id": "DJI",
+		"text": "Djibouti"
+	},
+	{
+		"id": "GNQ",
+		"text": "Equatorial Guinea"
+	},
+	{
+		"id": "ERI",
+		"text": "Eritrea"
+	},
+	{
+		"id": "ETH",
+		"text": "Ethiopia"
+	},
+	{
+		"id": "GMB",
+		"text": "Gambia"
+	},
+	{
+		"id": "MRT",
+		"text": "Mauritania"
+	},
+	{
+		"id": "GHA",
+		"text": "Ghana"
+	},
+	{
+		"id": "GNB",
+		"text": "Guinea-Bissau"
+	},
+	{
+		"id": "GIN",
+		"text": "Guinea"
+	},
+	{
+		"id": "MUS",
+		"text": "Mauritius"
+	},
+	{
+		"id": "LSO",
+		"text": "Lesotho"
+	},
+	{
+		"id": "LBR",
+		"text": "Liberia"
+	},
+	{
+		"id": "LBY",
+		"text": "Libya"
+	},
+	{
+		"id": "MDG",
+		"text": "Madagascar"
+	},
+	{
+		"id": "MWI",
+		"text": "Malawi"
+	},
+	{
+		"id": "MLI",
+		"text": "Mali"
+	},
+	{
+		"id": "MAR",
+		"text": "Morocco"
+	},
+	{
+		"id": "MOZ",
+		"text": "Mozambique"
+	},
+	{
+		"id": "NAM",
+		"text": "Namibia"
+	},
+	{
+		"id": "NER",
+		"text": "Niger"
+	},
+	{
+		"id": "NGA",
+		"text": "Nigeria"
+	},
+	{
+		"id": "SHN",
+		"text": "Saint Helena, Ascension and Tristan da Cunha"
+	},
+	{
+		"id": "RWA",
+		"text": "Rwanda"
+	},
+	{
+		"id": "STP",
+		"text": "Sao Tome and Principe"
+	},
+	{
+		"id": "SEN",
+		"text": "Senegal"
+	},
+	{
+		"id": "SYC",
+		"text": "Seychelles"
+	},
+	{
+		"id": "SLE",
+		"text": "Sierra Leone"
+	},
+	{
+		"id": "SOM",
+		"text": "Somalia"
+	},
+	{
+		"id": "ZAF",
+		"text": "South Africa"
+	},
+	{
+		"id": "SWZ",
+		"text": "Swaziland"
+	},
+	{
+		"id": "TGO",
+		"text": "Togo"
+	},
+	{
+		"id": "TUN",
+		"text": "Tunisia"
+	},
+	{
+		"id": "TZA",
+		"text": "United Republic of Tanzania"
+	},
+	{
+		"id": "UGA",
+		"text": "Uganda"
+	},
+	{
+		"id": "ZMB",
+		"text": "Zambia"
+	},
+	{
+		"id": "ZWE",
+		"text": "Zimbabwe"
+	},
+	{
+		"id": "SDN",
+		"text": "Sudan (former)"
+	},
+	{
+		"id": "EGY",
+		"text": "Egypt"
+	},
+	{
+		"id": "IOT",
+		"text": "British Indian Ocean Territory"
+	},
+	{
+		"id": "REU",
+		"text": "Réunion"
+	},
+	{
+		"id": "ESH",
+		"text": "Western Sahara"
+	}
+]

@@ -1,0 +1,996 @@
+[
+	{
+		"id": "Agric Lime",
+		"text": "Agric Lime"
+	},
+	{
+		"id": "Ammonium",
+		"text": "Ammonium",
+		"children": [
+			{
+				"id": "Ammonium Hydroxide",
+				"text": "Ammonium Hydroxide"
+			},
+			{
+				"id": "Ammonium nitrate",
+				"text": "Ammonium nitrate"
+			},
+			{
+				"id": "Ammonium sulphate",
+				"text": "Ammonium sulphate"
+			}
+		]
+	},
+	{
+		"id": "Anhydrous Ammonia",
+		"text": "Anhydrous Ammonia"
+	},
+	{
+		"id": "Basic slag",
+		"text": "Basic slag"
+	},
+	{
+		"id": "Borax",
+		"text": "Borax"
+	},
+	{
+		"id": "Calcium",
+		"text": "Calcium",
+		"children": [
+			{
+				"id": "Calcium chloride",
+				"text": "Calcium chloride"
+			},
+			{
+				"id": "Calcium Cyanamides",
+				"text": "Calcium Cyanamides"
+			},
+			{
+				"id": "Calcium Nitrate",
+				"text": "Calcium Nitrate"
+			}
+		]
+	},
+	{
+		"id": "CAN",
+		"text": "CAN"
+	},
+	{
+		"id": "Crude potash salts",
+		"text": "Crude potash salts"
+	},
+	{
+		"id": "DAP",
+		"text": "DAP"
+	},
+	{
+		"id": "Dolimite",
+		"text": "Dolimite"
+	},
+	{
+		"id": "Double Salts of AS or AN",
+		"text": "Double Salts of AS or AN"
+	},
+	{
+		"id": "Kieserite",
+		"text": "Kieserite"
+	},
+	{
+		"id": "Magnesium",
+		"text": "Magnesium",
+		"children": [
+			{
+				"id": "Magnesium Nitrate",
+				"text": "Magnesium Nitrate"
+			},
+			{
+				"id": "Magnesium Sulphate",
+				"text": "Magnesium Sulphate"
+			}
+		]
+	},
+	{
+		"id": "MAP",
+		"text": "MAP"
+	},
+	{
+		"id": "MKP",
+		"text": "MKP"
+	},
+	{
+		"id": "MOP",
+		"text": "MOP"
+	},
+	{
+		"id": "MRP",
+		"text": "MRP"
+	},
+	{
+		"id": "Nitrogenous Fertilizers",
+		"text": "Nitrogenous Fertilizers"
+	},
+	{
+		"id": "NK",
+		"text": "NK",
+		"children": [
+			{
+				"id": "NK 12 0 32",
+				"text": "NK 12 0 32"
+			},
+			{
+				"id": "NK 14 0 46",
+				"text": "NK 14 0 46"
+			},
+			{
+				"id": "NK 15 0 26",
+				"text": "NK 15 0 26"
+			},
+			{
+				"id": "NK 16 0 24",
+				"text": "NK 16 0 24"
+			},
+			{
+				"id": "NK 26 0 20 + S + MgO + CaO + TE",
+				"text": "NK 26 0 20 + S + MgO + CaO + TE"
+			},
+			{
+				"id": "NK 28 0 24",
+				"text": "NK 28 0 24"
+			},
+			{
+				"id": "NK 6 0 20 + TE",
+				"text": "NK 6 0 20 + TE"
+			},
+			{
+				"id": "NK 6 0 3.5",
+				"text": "NK 6 0 3.5"
+			}
+		]
+	},
+	{
+		"id": "NP",
+		"text": "NP",
+		"children": [
+			{
+				"id": "NP 10 30 0",
+				"text": "NP 10 30 0"
+			},
+			{
+				"id": "NP 10 5 0",
+				"text": "NP 10 5 0"
+			},
+			{
+				"id": "NP 12 37 0 + 3S + 7CaO",
+				"text": "NP 12 37 0 + 3S + 7CaO"
+			},
+			{
+				"id": "NP 12 46 0 + 7S",
+				"text": "NP 12 46 0 + 7S"
+			},
+			{
+				"id": "NP 18 44 0 ",
+				"text": "NP 18 44 0 "
+			},
+			{
+				"id": "NP 19 38 0 + 7S",
+				"text": "NP 19 38 0 + 7S"
+			},
+			{
+				"id": "NP 20 20 0",
+				"text": "NP 20 20 0"
+			},
+			{
+				"id": "NP 23 21 0 + 4S",
+				"text": "NP 23 21 0 + 4S"
+			},
+			{
+				"id": "NP 23 23 0",
+				"text": "NP 23 23 0"
+			},
+			{
+				"id": "NP 25 5 0 + 5S (MOP BASED)",
+				"text": "NP 25 5 0 + 5S (MOP BASED)"
+			},
+			{
+				"id": "NP 27 14 0 + 6MgO + TE",
+				"text": "NP 27 14 0 + 6MgO + TE"
+			},
+			{
+				"id": "NP 28 28 0",
+				"text": "NP 28 28 0"
+			}
+		]
+	},
+	{
+		"id": "NPK",
+		"text": "NPK",
+		"children": [
+			{
+				"id": "NPK  15 9 20 + 9.5 S",
+				"text": "NPK  15 9 20 + 9.5 S"
+			},
+			{
+				"id": "NPK (Known Grades)",
+				"text": "NPK (Known Grades)"
+			},
+			{
+				"id": "NPK (Unknown Grade)",
+				"text": "NPK (Unknown Grade)"
+			},
+			{
+				"id": "NPK 1 1 15",
+				"text": "NPK 1 1 15"
+			},
+			{
+				"id": "NPK 1 21 19 + TE",
+				"text": "NPK 1 21 19 + TE"
+			},
+			{
+				"id": "NPK 10 10 10 + TE",
+				"text": "NPK 10 10 10 + TE"
+			},
+			{
+				"id": "NPK 10 10 20",
+				"text": "NPK 10 10 20"
+			},
+			{
+				"id": "NPK 10 10 30",
+				"text": "NPK 10 10 30"
+			},
+			{
+				"id": "NPK 10 10 35 + 3MgO + TE",
+				"text": "NPK 10 10 35 + 3MgO + TE"
+			},
+			{
+				"id": "NPK 10 10 7.5",
+				"text": "NPK 10 10 7.5"
+			},
+			{
+				"id": "NPK 10 15 15 ",
+				"text": "NPK 10 15 15 "
+			},
+			{
+				"id": "NPK 10 18 20 + 6S + 0.8MgO",
+				"text": "NPK 10 18 20 + 6S + 0.8MgO"
+			},
+			{
+				"id": "NPK 10 18 24 + 7S + 0.1B",
+				"text": "NPK 10 18 24 + 7S + 0.1B"
+			},
+			{
+				"id": "NPK 10 20 10 + 6S",
+				"text": "NPK 10 20 10 + 6S"
+			},
+			{
+				"id": "NPK 10 20 16 + 6S + 2B",
+				"text": "NPK 10 20 16 + 6S + 2B"
+			},
+			{
+				"id": "NPK 10 20 40 + TE",
+				"text": "NPK 10 20 40 + TE"
+			},
+			{
+				"id": "NPK 10 26 10 + CaO + Mg + B + Zn",
+				"text": "NPK 10 26 10 + CaO + Mg + B + Zn"
+			},
+			{
+				"id": "NPK 10 40 20 + TE",
+				"text": "NPK 10 40 20 + TE"
+			},
+			{
+				"id": "NPK 10 5 14",
+				"text": "NPK 10 5 14"
+			},
+			{
+				"id": "NPK 10 5 30 + TE",
+				"text": "NPK 10 5 30 + TE"
+			},
+			{
+				"id": "NPK 10 50 10 + TE",
+				"text": "NPK 10 50 10 + TE"
+			},
+			{
+				"id": "NPK 10 50 20 + 2MgO",
+				"text": "NPK 10 50 20 + 2MgO"
+			},
+			{
+				"id": "NPK 10 52 10 + 1MgO + TE",
+				"text": "NPK 10 52 10 + 1MgO + TE"
+			},
+			{
+				"id": "NPK 10 54 10 + TE",
+				"text": "NPK 10 54 10 + TE"
+			},
+			{
+				"id": "NPK 11 11 17 + 2MGO + TE",
+				"text": "NPK 11 11 17 + 2MGO + TE"
+			},
+			{
+				"id": "NPK 12 10 10",
+				"text": "NPK 12 10 10"
+			},
+			{
+				"id": "NPK 12 10 18 ",
+				"text": "NPK 12 10 18 "
+			},
+			{
+				"id": "NPK 12 10 8 + TE",
+				"text": "NPK 12 10 8 + TE"
+			},
+			{
+				"id": "NPK 12 12 12",
+				"text": "NPK 12 12 12"
+			},
+			{
+				"id": "NPK 12 12 17 + 2MgO",
+				"text": "NPK 12 12 17 + 2MgO"
+			},
+			{
+				"id": "NPK 12 12 36 + TE",
+				"text": "NPK 12 12 36 + TE"
+			},
+			{
+				"id": "NPK 12 22 12",
+				"text": "NPK 12 22 12"
+			},
+			{
+				"id": "NPK 12 22 22 + 0.6 S",
+				"text": "NPK 12 22 22 + 0.6 S"
+			},
+			{
+				"id": "NPK 12 24 12",
+				"text": "NPK 12 24 12"
+			},
+			{
+				"id": "NPK 12 30 7 + S+ MgO + CaO + TE",
+				"text": "NPK 12 30 7 + S+ MgO + CaO + TE"
+			},
+			{
+				"id": "NPK 12 32 6 + 0.1S + 2MgO + 4CaO + 0.4Zn",
+				"text": "NPK 12 32 6 + 0.1S + 2MgO + 4CaO + 0.4Zn"
+			},
+			{
+				"id": "NPK 12 5 30",
+				"text": "NPK 12 5 30"
+			},
+			{
+				"id": "NPK 12 52 5 + TE ",
+				"text": "NPK 12 52 5 + TE "
+			},
+			{
+				"id": "NPK 12 6 28 + 7MgO + TE",
+				"text": "NPK 12 6 28 + 7MgO + TE"
+			},
+			{
+				"id": "NPK 12 7 24 + 2Mg0 + 7CaO + TE",
+				"text": "NPK 12 7 24 + 2Mg0 + 7CaO + TE"
+			},
+			{
+				"id": "NPK 12 9 8 + TE",
+				"text": "NPK 12 9 8 + TE"
+			},
+			{
+				"id": "NPK 12.5 4 8",
+				"text": "NPK 12.5 4 8"
+			},
+			{
+				"id": "NPK 13 11 11 + TE",
+				"text": "NPK 13 11 11 + TE"
+			},
+			{
+				"id": "NPK 13 13 13 + 3MgO",
+				"text": "NPK 13 13 13 + 3MgO"
+			},
+			{
+				"id": "NPK 13 7 32 + 3MgO",
+				"text": "NPK 13 7 32 + 3MgO"
+			},
+			{
+				"id": "NPK 14 13 9 +14S",
+				"text": "NPK 14 13 9 +14S"
+			},
+			{
+				"id": "NPK 14 14 14 + 1MgO",
+				"text": "NPK 14 14 14 + 1MgO"
+			},
+			{
+				"id": "NPK 14 14 20 + 1.5MgO + TE",
+				"text": "NPK 14 14 20 + 1.5MgO + TE"
+			},
+			{
+				"id": "NPK 14 26 9 + 3S + 0.5Zn + 0.2B",
+				"text": "NPK 14 26 9 + 3S + 0.5Zn + 0.2B"
+			},
+			{
+				"id": "NPK 14 28 18 + TE",
+				"text": "NPK 14 28 18 + TE"
+			},
+			{
+				"id": "NPK 14 7 10 + 1MgO",
+				"text": "NPK 14 7 10 + 1MgO"
+			},
+			{
+				"id": "NPK 15 10 13 + 4MgO + TE",
+				"text": "NPK 15 10 13 + 4MgO + TE"
+			},
+			{
+				"id": "NPK 15 10 14 + 12CaO + TE",
+				"text": "NPK 15 10 14 + 12CaO + TE"
+			},
+			{
+				"id": "NPK 15 10 18",
+				"text": "NPK 15 10 18"
+			},
+			{
+				"id": "NPK 15 10 30 + 5S + TE",
+				"text": "NPK 15 10 30 + 5S + TE"
+			},
+			{
+				"id": "NPK 15 15 15 ",
+				"text": "NPK 15 15 15 "
+			},
+			{
+				"id": "NPK 15 22 10 + 4MgO",
+				"text": "NPK 15 22 10 + 4MgO"
+			},
+			{
+				"id": "NPK 15 24 10 + 3MgO",
+				"text": "NPK 15 24 10 + 3MgO"
+			},
+			{
+				"id": "NPK 15 25 8",
+				"text": "NPK 15 25 8"
+			},
+			{
+				"id": "NPK 15 28 10 + 6S + 0.3B",
+				"text": "NPK 15 28 10 + 6S + 0.3B"
+			},
+			{
+				"id": "NPK 15 28 6",
+				"text": "NPK 15 28 6"
+			},
+			{
+				"id": "NPK 15 30 15 + TE",
+				"text": "NPK 15 30 15 + TE"
+			},
+			{
+				"id": "NPK 15 6 12 + 2MgO + TE",
+				"text": "NPK 15 6 12 + 2MgO + TE"
+			},
+			{
+				"id": "NPK 15 7 25 ",
+				"text": "NPK 15 7 25 "
+			},
+			{
+				"id": "NPK 15 9 20 + TE",
+				"text": "NPK 15 9 20 + TE"
+			},
+			{
+				"id": "NPK 15 9 9 + 3MgO",
+				"text": "NPK 15 9 9 + 3MgO"
+			},
+			{
+				"id": "NPK 16 16 12",
+				"text": "NPK 16 16 12"
+			},
+			{
+				"id": "NPK 16 16 16",
+				"text": "NPK 16 16 16"
+			},
+			{
+				"id": "NPK 16 18 12",
+				"text": "NPK 16 18 12"
+			},
+			{
+				"id": "NPK 16 21 10 + 4MgO",
+				"text": "NPK 16 21 10 + 4MgO"
+			},
+			{
+				"id": "NPK 16 6 12 + 2MgO + TE",
+				"text": "NPK 16 6 12 + 2MgO + TE"
+			},
+			{
+				"id": "NPK 16 6 17 + TE",
+				"text": "NPK 16 6 17 + TE"
+			},
+			{
+				"id": "NPK 16 6 21 + 6S + Zn + B",
+				"text": "NPK 16 6 21 + 6S + Zn + B"
+			},
+			{
+				"id": "NPK 16 8 16 + TE",
+				"text": "NPK 16 8 16 + TE"
+			},
+			{
+				"id": "NPK 16 8.5 23 + 5S",
+				"text": "NPK 16 8.5 23 + 5S"
+			},
+			{
+				"id": "NPK 17 10 9 + 5MgO + TE",
+				"text": "NPK 17 10 9 + 5MgO + TE"
+			},
+			{
+				"id": "NPK 17 12 11 +3MgO + TE",
+				"text": "NPK 17 12 11 +3MgO + TE"
+			},
+			{
+				"id": "NPK 17 17 14",
+				"text": "NPK 17 17 14"
+			},
+			{
+				"id": "NPK 17 17 17",
+				"text": "NPK 17 17 17"
+			},
+			{
+				"id": "NPK 17 7 16 + 2MgO + TE",
+				"text": "NPK 17 7 16 + 2MgO + TE"
+			},
+			{
+				"id": "NPK 17 7 17",
+				"text": "NPK 17 7 17"
+			},
+			{
+				"id": "NPK 17 8 25 ",
+				"text": "NPK 17 8 25 "
+			},
+			{
+				"id": "NPK 18 12 22 + TE",
+				"text": "NPK 18 12 22 + TE"
+			},
+			{
+				"id": "NPK 18 18 18 + 3MgO",
+				"text": "NPK 18 18 18 + 3MgO"
+			},
+			{
+				"id": "NPK 18 18 18 + TE",
+				"text": "NPK 18 18 18 + TE"
+			},
+			{
+				"id": "NPK 18 22 5",
+				"text": "NPK 18 22 5"
+			},
+			{
+				"id": "NPK 18 24 10 + 1MgO",
+				"text": "NPK 18 24 10 + 1MgO"
+			},
+			{
+				"id": "NPK 18 4 12",
+				"text": "NPK 18 4 12"
+			},
+			{
+				"id": "NPK 18 5 18 + 2MgO",
+				"text": "NPK 18 5 18 + 2MgO"
+			},
+			{
+				"id": "NPK 18 6 12 ",
+				"text": "NPK 18 6 12 "
+			},
+			{
+				"id": "NPK 18 9 27 + 2MgO + TE",
+				"text": "NPK 18 9 27 + 2MgO + TE"
+			},
+			{
+				"id": "NPK 18.5 9 24 + 2.2S + 2MgO",
+				"text": "NPK 18.5 9 24 + 2.2S + 2MgO"
+			},
+			{
+				"id": "NPK 19 19 19",
+				"text": "NPK 19 19 19"
+			},
+			{
+				"id": "NPK 19 19 19 + 1MgO + TE",
+				"text": "NPK 19 19 19 + 1MgO + TE"
+			},
+			{
+				"id": "NPK 19 4 19 + 2S + 3MgO + TE",
+				"text": "NPK 19 4 19 + 2S + 3MgO + TE"
+			},
+			{
+				"id": "NPK 19 9 19",
+				"text": "NPK 19 9 19"
+			},
+			{
+				"id": "NPK 20 10 10",
+				"text": "NPK 20 10 10"
+			},
+			{
+				"id": "NPK 20 10 17",
+				"text": "NPK 20 10 17"
+			},
+			{
+				"id": "NPK 20 10 20",
+				"text": "NPK 20 10 20"
+			},
+			{
+				"id": "NPK 20 10 5",
+				"text": "NPK 20 10 5"
+			},
+			{
+				"id": "NPK 20 20 20",
+				"text": "NPK 20 20 20"
+			},
+			{
+				"id": "NPK 20 20 20 + 1MgO + TE",
+				"text": "NPK 20 20 20 + 1MgO + TE"
+			},
+			{
+				"id": "NPK 20 20 4 + TE",
+				"text": "NPK 20 20 4 + TE"
+			},
+			{
+				"id": "NPK 20 20 8",
+				"text": "NPK 20 20 8"
+			},
+			{
+				"id": "NPK 20 3.5 11.6 + 5S + 1.2MgO + TE",
+				"text": "NPK 20 3.5 11.6 + 5S + 1.2MgO + TE"
+			},
+			{
+				"id": "NPK 20 50 10",
+				"text": "NPK 20 50 10"
+			},
+			{
+				"id": "NPK 20 6 18 + 2MgO",
+				"text": "NPK 20 6 18 + 2MgO"
+			},
+			{
+				"id": "NPK 21 10 8 + 3MgO + TE",
+				"text": "NPK 21 10 8 + 3MgO + TE"
+			},
+			{
+				"id": "NPK 21 5 8 + 8.5MgO",
+				"text": "NPK 21 5 8 + 8.5MgO"
+			},
+			{
+				"id": "NPK 21 6 12 + 4S +6MgO + 15B + 1.5Zn ",
+				"text": "NPK 21 6 12 + 4S +6MgO + 15B + 1.5Zn "
+			},
+			{
+				"id": "NPK 21 7 14",
+				"text": "NPK 21 7 14"
+			},
+			{
+				"id": "NPK 21 7 21 + TE",
+				"text": "NPK 21 7 21 + TE"
+			},
+			{
+				"id": "NPK 22 16 18 + TE",
+				"text": "NPK 22 16 18 + TE"
+			},
+			{
+				"id": "NPK 22 21 17 + TE",
+				"text": "NPK 22 21 17 + TE"
+			},
+			{
+				"id": "NPK 22 6 12",
+				"text": "NPK 22 6 12"
+			},
+			{
+				"id": "NPK 22 6 12 + 3S + 1MgO + 2CaO + TE",
+				"text": "NPK 22 6 12 + 3S + 1MgO + 2CaO + TE"
+			},
+			{
+				"id": "NPK 23 10 10 5 + 5S + 2MgO",
+				"text": "NPK 23 10 10 5 + 5S + 2MgO"
+			},
+			{
+				"id": "NPK 23 10 5",
+				"text": "NPK 23 10 5"
+			},
+			{
+				"id": "NPK 23 10 5 + 3S + 2MgO + 0.3Zn",
+				"text": "NPK 23 10 5 + 3S + 2MgO + 0.3Zn"
+			},
+			{
+				"id": "NPK 23 10 5 +3S + 3MgO + Zn",
+				"text": "NPK 23 10 5 +3S + 3MgO + Zn"
+			},
+			{
+				"id": "NPK 23 10 5 +3S + Zn",
+				"text": "NPK 23 10 5 +3S + Zn"
+			},
+			{
+				"id": "NPK 23 12 12 + TE",
+				"text": "NPK 23 12 12 + TE"
+			},
+			{
+				"id": "NPK 23 23 11 + TE",
+				"text": "NPK 23 23 11 + TE"
+			},
+			{
+				"id": "NPK 23 5 12 + 2MgO",
+				"text": "NPK 23 5 12 + 2MgO"
+			},
+			{
+				"id": "NPK 23 5 5 + TE",
+				"text": "NPK 23 5 5 + TE"
+			},
+			{
+				"id": "NPK 24 18 18",
+				"text": "NPK 24 18 18"
+			},
+			{
+				"id": "NPK 24 24 18",
+				"text": "NPK 24 24 18"
+			},
+			{
+				"id": "NPK 25 13 5 + 5MgO + TE",
+				"text": "NPK 25 13 5 + 5MgO + TE"
+			},
+			{
+				"id": "NPK 25 5 10",
+				"text": "NPK 25 5 10"
+			},
+			{
+				"id": "NPK 25 5 5",
+				"text": "NPK 25 5 5"
+			},
+			{
+				"id": "NPK 25 5 5 + 3MgO (SOP BASED)",
+				"text": "NPK 25 5 5 + 3MgO (SOP BASED)"
+			},
+			{
+				"id": "NPK 25 5 5 + 3S",
+				"text": "NPK 25 5 5 + 3S"
+			},
+			{
+				"id": "NPK 25 5 5 + 5S",
+				"text": "NPK 25 5 5 + 5S"
+			},
+			{
+				"id": "NPK 25 5 5 + 5S + 3MgO",
+				"text": "NPK 25 5 5 + 5S + 3MgO"
+			},
+			{
+				"id": "NPK 25 5 5 + 7S + 3MgO",
+				"text": "NPK 25 5 5 + 7S + 3MgO"
+			},
+			{
+				"id": "NPK 25 5 5 +3.95S+ 2.6MgO",
+				"text": "NPK 25 5 5 +3.95S+ 2.6MgO"
+			},
+			{
+				"id": "NPK 26 12 12 + 2MgO",
+				"text": "NPK 26 12 12 + 2MgO"
+			},
+			{
+				"id": "NPK 26 5 5 ",
+				"text": "NPK 26 5 5 "
+			},
+			{
+				"id": "NPK 27 13 13",
+				"text": "NPK 27 13 13"
+			},
+			{
+				"id": "NPK 27 15 12 + 1MgO + TE",
+				"text": "NPK 27 15 12 + 1MgO + TE"
+			},
+			{
+				"id": "NPK 27 24 15",
+				"text": "NPK 27 24 15"
+			},
+			{
+				"id": "NPK 27 5 11 + 2MgO",
+				"text": "NPK 27 5 11 + 2MgO"
+			},
+			{
+				"id": "NPK 27 6 6 + 2S",
+				"text": "NPK 27 6 6 + 2S"
+			},
+			{
+				"id": "NPK 28 10 10 + 10S + TE",
+				"text": "NPK 28 10 10 + 10S + TE"
+			},
+			{
+				"id": "NPK 28 14 14 + TE",
+				"text": "NPK 28 14 14 + TE"
+			},
+			{
+				"id": "NPK 3 2 13",
+				"text": "NPK 3 2 13"
+			},
+			{
+				"id": "NPK 30 10 10",
+				"text": "NPK 30 10 10"
+			},
+			{
+				"id": "NPK 30 10 10 + 1MgO + TE",
+				"text": "NPK 30 10 10 + 1MgO + TE"
+			},
+			{
+				"id": "NPK 30 11 11 + TE",
+				"text": "NPK 30 11 11 + TE"
+			},
+			{
+				"id": "NPK 31 8 8 ",
+				"text": "NPK 31 8 8 "
+			},
+			{
+				"id": "NPK 35 5 7 + 2MgO",
+				"text": "NPK 35 5 7 + 2MgO"
+			},
+			{
+				"id": "NPK 39 5 5 ",
+				"text": "NPK 39 5 5 "
+			},
+			{
+				"id": "NPK 4 17 15",
+				"text": "NPK 4 17 15"
+			},
+			{
+				"id": "NPK 4 18 15",
+				"text": "NPK 4 18 15"
+			},
+			{
+				"id": "NPK 4 25 15",
+				"text": "NPK 4 25 15"
+			},
+			{
+				"id": "NPK 5 10 27 ",
+				"text": "NPK 5 10 27 "
+			},
+			{
+				"id": "NPK 5 7.5 5 + 5S + 5MgO + TE",
+				"text": "NPK 5 7.5 5 + 5S + 5MgO + TE"
+			},
+			{
+				"id": "NPK 5 7.5 5 + 5S+5CaO",
+				"text": "NPK 5 7.5 5 + 5S+5CaO"
+			},
+			{
+				"id": "NPK 5.9  18 30 ",
+				"text": "NPK 5.9  18 30 "
+			},
+			{
+				"id": "NPK 6 13 3 + 3.3S + 2MgO + 2.9Mn + 2Zn",
+				"text": "NPK 6 13 3 + 3.3S + 2MgO + 2.9Mn + 2Zn"
+			},
+			{
+				"id": "NPK 6 20 18",
+				"text": "NPK 6 20 18"
+			},
+			{
+				"id": "NPK 6 24 20",
+				"text": "NPK 6 24 20"
+			},
+			{
+				"id": "NPK 7 12 30 + 2MgO + TE",
+				"text": "NPK 7 12 30 + 2MgO + TE"
+			},
+			{
+				"id": "NPK 7 14 7",
+				"text": "NPK 7 14 7"
+			},
+			{
+				"id": "NPK 7 20 13 + (Lime)",
+				"text": "NPK 7 20 13 + (Lime)"
+			},
+			{
+				"id": "NPK 7 6 44 + 2Mg0",
+				"text": "NPK 7 6 44 + 2Mg0"
+			},
+			{
+				"id": "NPK 8 18 9",
+				"text": "NPK 8 18 9"
+			},
+			{
+				"id": "NPK 8 21 7",
+				"text": "NPK 8 21 7"
+			},
+			{
+				"id": "NPK 8 32 4 + TE",
+				"text": "NPK 8 32 4 + TE"
+			},
+			{
+				"id": "NPK 9 18 36",
+				"text": "NPK 9 18 36"
+			},
+			{
+				"id": "NPK 9 45 15",
+				"text": "NPK 9 45 15"
+			},
+			{
+				"id": "NPK 9.4 25 5.1 ",
+				"text": "NPK 9.4 25 5.1 "
+			},
+			{
+				"id": "NPK29 10 10 + 3MgO + TE",
+				"text": "NPK29 10 10 + 3MgO + TE"
+			},
+			{
+				"id": "NPK29 20 20 + 3MgO",
+				"text": "NPK29 20 20 + 3MgO"
+			}
+		]
+	},
+	{
+		"id": "NPS 10 20 0 + 5S  + 1.5MgO + 20 CaO",
+		"text": "NPS 10 20 0 + 5S  + 1.5MgO + 20 CaO"
+	},
+	{
+		"id": "Organic Fertilizers",
+		"text": "Organic Fertilizers"
+	},
+	{
+		"id": "Other Nitrogenous Fertilizers",
+		"text": "Other Nitrogenous Fertilizers"
+	},
+	{
+		"id": "Other Phosphatic Fertilizers",
+		"text": "Other Phosphatic Fertilizers"
+	},
+	{
+		"id": "Other Potassic Fertilizers",
+		"text": "Other Potassic Fertilizers"
+	},
+	{
+		"id": "Phosphate Rock",
+		"text": "Phosphate Rock"
+	},
+	{
+		"id": "PK",
+		"text": "PK",
+		"children": [
+			{
+				"id": "PK 0 23 15 + 4S +1MgO + 10CaO + Z",
+				"text": "PK 0 23 15 + 4S +1MgO + 10CaO + Z"
+			},
+			{
+				"id": "PK 0 23 19",
+				"text": "PK 0 23 19"
+			},
+			{
+				"id": "PK 0 32 25",
+				"text": "PK 0 32 25"
+			},
+			{
+				"id": "PK 0 42 28",
+				"text": "PK 0 42 28"
+			},
+			{
+				"id": "PK 0 60 20",
+				"text": "PK 0 60 20"
+			},
+			{
+				"id": "PK 0 73 8.3",
+				"text": "PK 0 73 8.3"
+			},
+			{
+				"id": "PK Compounds",
+				"text": "PK Compounds"
+			}
+		]
+	},
+	{
+		"id": "Potassium Nitrate",
+		"text": "Potassium Nitrate"
+	},
+	{
+		"id": "Sodium Nitrate",
+		"text": "Sodium Nitrate"
+	},
+	{
+		"id": "SOP",
+		"text": "SOP"
+	},
+	{
+		"id": "SSP",
+		"text": "SSP"
+	},
+	{
+		"id": "TSP",
+		"text": "TSP"
+	},
+	{
+		"id": "UAN",
+		"text": "UAN"
+	},
+	{
+		"id": "Urea",
+		"text": "Urea"
+	},
+ 	{
+		"id": "Zinc Sulphate",
+		"text": "Zinc Sulphate"
+	}
+]

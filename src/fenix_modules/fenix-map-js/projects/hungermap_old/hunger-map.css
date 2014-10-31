@@ -1,0 +1,294 @@
+em {
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'fontinregular';
+    src: url('fonts/fontin/fontin-regular-webfont.eot');
+    src: url('fonts/fontin/fontin-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('fonts/fontin/fontin-regular-webfont.woff') format('woff'),
+    url('fonts/fontin/fontin-regular-webfont.ttf') format('truetype'),
+    url('fonts/fontin/fontin-regular-webfont.svg#fontinregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Frutiger";
+    src: url('fonts/Frutiger/418914795-FrutigerLTStd_LightCn.eot');
+    src: url('fonts/Frutiger/418914795-FrutigerLTStd_LightCn.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Frutiger/418914795-FrutigerLTStd_LightCn.svg#Frutiger') format('svg'),
+    url('fonts/Frutiger/418914795-FrutigerLTStd_LightCn.woff') format('woff'),
+    url('fonts/Frutiger/418914795-FrutigerLTStd_LightCn.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#hm-container{
+    font-family: "Frutiger",Arial,Helvetica,Verdana,sans-serif;
+    font-size: 16px;
+    color: #999999;
+}
+
+#hm-title {
+    font-family: fontinregular;
+    color:#5191c8;
+    font-size: 28px;
+    height: 36px;
+    padding-top: 21px;
+    letter-spacing: 0;
+}
+
+.hm-proportion{
+    position: absolute;
+    font-size: 14px;
+    text-transform: uppercase;
+    color:#5191c8;
+    top: 8px;
+}
+
+.hm-logo {
+    position: absolute;
+    top:6px;
+    right: 2px;
+}
+
+
+.hm-logo-EN {
+    background-image: url('images/title.png');
+    width: 76px;
+    height: 47px ;
+}
+
+.hm-logo-FR {
+    background-image: url('images/title_FR.png');
+    width: 76px;
+    height: 47px ;
+}
+
+.hm-logo-ES {
+    background-image: url('images/title_ES.png');
+    width: 76px;
+    height: 47px ;
+}
+
+.hm-dashed{
+    border-top: 1px solid #FFFFFF;
+    border-bottom: 1px dashed #c0c0c0;
+}
+
+.hm-h2{
+    font-family: fontinregular;
+    color:#5191c8 ;
+    font-size: 20px;
+    margin: 15px 0 10px 0;
+    letter-spacing: 0;
+    font-weight: normal;
+}
+.hm-timeline{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    height: 45px;
+}
+
+.hm-timeline li{
+    float: left;
+    width: 78px;
+    text-align: center;
+    position: relative;
+    margin-left: 39px;
+    margin-right: 38px;
+}
+
+.hm-timeline li:first-child{
+    text-align: left;
+    margin-left: 0px;
+}
+
+
+.hm-timeline-selected {
+    color:#5191c8;
+    font-weight: bold;
+}
+
+.hm-timeline-selected:before {
+    content: url('images/arrow-year.png');
+    position: absolute;
+    top: 20px;
+    left: -3px;
+}
+
+
+.hm-timeline li:last-child{
+    text-align: right;
+    margin-right: 0px;
+}
+
+
+.hm-map {
+    position: absolute;
+    left:0px;
+    top:0px;
+    overflow: hidden;
+    margin: 0 auto;
+    text-align: left;
+    width:100%;
+    height: 100%;
+}
+
+.hm-box {
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3),0 -3px 8px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 5px solid #FFFFFF;
+    -webkit-transition: background-color 200ms cubic-bezier(0.52,0,0.48,1);
+    -moz-transition: background-color 200ms cubic-bezier(0.52,0,0.48,1);
+    -ms-transition: background-color 200ms cubic-bezier(0.52,0,0.48,1);
+    -o-transition: background-color 200ms cubic-bezier(0.52,0,0.48,1);
+    transition: background-color 200ms cubic-bezier(0.52,0,0.48,1);
+}
+
+
+.hm-resume-active {
+    position: absolute;
+    left: 0px;
+    border-right: 1px dashed #c0c0c0;
+    height: 160px;
+    width: 200px;
+    padding-right: 10px;
+}
+
+
+.hm-legend {
+    position: absolute;
+    right: 0px;
+    height: 160px;
+    width: 462px;
+}
+
+.hm-circle-perc{
+    margin-top: 21px;
+    position: relative;
+}
+
+.hm-circle {
+    width: 44px;
+    height: 44px;
+    /*background-color: #ac111c;*/
+    border-radius: 44px;
+}
+
+.no-margin{
+    margin: 0px;
+}
+
+.hm-percent{
+    position: absolute;
+    top:-13px;
+    left: 48px;
+}
+
+.percent{
+    font-family: fontinregular;
+    font-size: 28px;
+}
+
+#hm-value{
+    font-size: 57px;
+}
+
+#hm-elementname{
+    margin-top: 18px;
+}
+
+.hm-legend-list{
+    padding: 0px;
+    margin-top: 5px;
+}
+
+.hm-legend-list li{
+    width: 150px;
+    height: 60px;
+    float: left;
+    list-style: none;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    position: relative;
+}
+
+.hm-legend-list li:nth-child(3){
+    margin-right: 0;
+}
+
+.hm-legend-list li:nth-child(6){
+    margin-right: 0;
+}
+
+.hm-legend-number {
+    font-family: fontinregular;
+    color:#5191c8;
+    font-size: 18px;
+    position: absolute;
+    top:1px;
+    left: 36px;
+}
+
+.hm-legend-second-number{
+    font-family: fontinregular;
+    color:#5191c8;
+    font-size: 18px;
+    position: absolute;
+    top:1px;
+    left: 75px;
+}
+
+
+.hm-legend-second-number:before{
+    content: url('images/arrow.png');
+    position: absolute;
+    top: 9px;
+    left: -23px;
+}
+
+
+
+.hm-value-name{
+    position: absolute;
+    left: 0px;
+    bottom: 6px;
+}
+
+.hm-missing{
+    position: absolute;
+    left: 34px;
+    top:4px;
+}
+
+.hm-andover {
+    font-size: 14px;
+    top:4px;
+    left: 70px;
+}
+
+.hm-missingdata {
+    font-family: fontinregular;
+    font-size: 14px;
+}
+
+.hm-color-0 { color: #c4c8cb; }
+.hm-color-1 { color: #5191C8; }
+.hm-color-2 { color: #fbc0bf; }
+.hm-color-3 { color: #f69291; }
+.hm-color-4 { color: #ee5552; }
+.hm-color-5 { color: #ad2026; }
+
+.hm-bgcolor-0 { background-color: #c4c8cb; }
+.hm-bgcolor-1 { background-color: #ffffff; border: 1px solid #999999;  }
+.hm-bgcolor-2 { background-color: #fbc0bf; }
+.hm-bgcolor-3 { background-color: #f69291; }
+.hm-bgcolor-4 { background-color: #ee5552; }
+.hm-bgcolor-5 { background-color: #ad2026; }

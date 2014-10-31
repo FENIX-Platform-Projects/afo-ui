@@ -1,0 +1,196 @@
+{
+   "offset":70,
+   "affix":{
+      "offset":{
+         "top":[
+            "nav.navbar-fixed-top",
+            "div.fx-header"
+         ]
+      }
+   },
+   "views":{
+      "#container_1":{
+         "event_pg_1":{
+            "content":{
+               "EN":"html/view/page_1.html",
+               "FR":"http://url_FR"
+            },
+            "callback":{
+               "frequency":"once",
+               "function":"callback 1"
+            }
+         },
+         "event_pg_2":{
+            "content":{
+               "EN":"html/view/page_2.html",
+               "FR":"http://url_FR"
+            },
+            "callback":{
+               "frequency":"always",
+               "function":"callback 2"
+            }
+         },
+         "event_pg_3":{
+              "content":{
+                  "EN":"html/view/page_3.html",
+                  "FR":"http://url_FR"
+              },
+              "callback":{
+                  "frequency":"once",
+                  "function":"callback 3"
+              }
+          },
+         "event_pg_4":{
+              "content":{
+                  "EN":"html/view/page_4.html",
+                  "FR":"http://url_FR"
+              },
+              "callback":{
+                  "frequency":"once",
+                  "function":"callback 4"
+              }
+          },
+         "event_pg_5":{
+              "content":{
+                  "EN":"html/view/page_5.html",
+                  "FR":"http://url_FR"
+              },
+              "callback":{
+                  "frequency":"once",
+                  "function":"callback 5"
+              }
+          }
+      }
+   },
+   "menu":{
+      "container":"#menu",
+      "items":[
+         {
+            "id":"id",
+            "page":"event_pg_1",
+            "label":{
+               "EN":"Maps",
+               "IT":"Elemento 1"
+            },
+            "children":[
+               {
+                  "target":"#section_11",
+                  "label":{
+                     "EN":"Shaded Map",
+                     "IT":"Elemento 1.1"
+                  }
+               },
+               {
+                  "target":"#section_12",
+                  "label":{
+                     "EN":"Point Map",
+                     "IT":"Elemento 1.2"
+                  }
+               }
+            ]
+         },
+         {
+            "page":"event_pg_2",
+            "label":{
+               "EN":"Charts",
+               "IT":"Elemento 2"
+            },
+            "children":[
+               {
+                  "target":"#section_21",
+                  "label":{
+                     "EN":"Area Chart",
+                     "IT":"Elemento 2.1"
+                  }
+               },
+               {
+                  "target":"#section_22",
+                  "label":{
+                     "EN":"Pie Chart",
+                     "IT":"Elemento 2.2"
+                  }
+               },
+               {
+                  "target":"#section_23",
+                  "label":{
+                     "EN":"Line Chart",
+                     "IT":"Elemento 2.3"
+                  }
+               },
+               {
+                  "target":"#section_24",
+                  "label":{
+                     "EN":"Column Chart",
+                     "IT":"Elemento 2.4"
+                  }
+               },
+                {
+                    "target":"#section_25",
+                    "label":{
+                        "EN":"Area Chart",
+                        "IT":"Elemento 2.5"
+                    }
+                },
+                {
+                    "target":"#section_26",
+                    "label":{
+                        "EN":"Stock",
+                        "IT":"Elemento 2.5"
+                    }
+                }
+            ]
+         },
+         {
+              "page":"event_pg_3",
+              "label":{
+                  "EN":"Map & Chart",
+                  "IT":"Elemento 2"
+              },
+              "children":[
+
+              ]
+          },
+          {
+              "page":"event_pg_4",
+              "label":{
+                  "EN":"Grid",
+                  "IT":"Elemento 2"
+              },
+              "children":[
+                  {
+                      "target":"#section_41",
+                      "label":{
+                          "EN":"Default Functionality",
+                          "IT":"Elemento 1.1"
+                      }
+                  },
+                  {
+                      "target":"#section_42",
+                      "label":{
+                          "EN":"Export",
+                          "IT":"Elemento 1.1"
+                      }
+                  },
+                  {
+                      "target":"#section_43",
+                      "label":{
+                          "EN":"Spreadsheet",
+                          "IT":"Elemento 1.1"
+                      }
+                  }
+
+              ]
+          },
+          {
+              "page":"event_pg_5",
+              "label":{
+                  "EN":"OLAP",
+                  "IT":"Elemento 2"
+              },
+              "children":[
+
+              ]
+          }
+      ]
+   }
+}

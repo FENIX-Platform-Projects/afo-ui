@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <link rel='icon' type='image/png' href='http://fenixapps.fao.org/repository/favicon/faostat.png'>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>CountrySTAT View</title>
+
+    <!-- Bootstrap -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Fenix Map -->
+    <!-- leaflet -->
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/0.6.4/leaflet.css" />
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/0.6.4/leaflet.ie.css" />
+    <![endif]-->
+    <link rel="stylesheet" href='http://hqlprfenixapp2.hq.un.fao.org/repository/js/jqwidgets/3.0.2/styles/jqx.base.css'/>
+
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min.css" />
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/css/jquery.power.tip/1.1.0/jquery.powertip.css" type="text/css" />
+
+
+    <!-- Fenix Map CSS -->
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/FENIX/fenix-map-js/1.0/css/fenix-map-js.css" />
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/FENIX/fenix-map-js/1.0/css/leaflet-custom.css" />
+
+    <!--<link rel="stylesheet" href="../../css/fenix-map.css" />-->
+
+
+</head>
+
+<!--<body onload='fx_CountrySTAT_SCATTER.init();'>-->
+<body onload='fx_CountrySTAT_SCATTER.initDoubleMap();'>
+
+<div style='height: 25px;'></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class='fm-title'></div>
+            <div id='map1' class='fm-box' style='overflow: hidden; margin: 0 auto; text-align: left;height: 400px;'></div>
+        </div>
+    </div>
+    <div style='height: 15px; clear:both;'></div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div id='chart1'></div>
+        </div>
+        <div class="col-lg-6">
+            <div id='map2' class='fm-box' style='overflow: hidden; margin: 0 auto; text-align: left;height: 400px;'></div>
+        </div>
+    </div>
+</div>
+
+<div style='height: 25px;'></div>
+<div id='output'></div>
+
+</body>
+
+
+<!-- FENIX Map-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type='text/javascript' src="http://fenixapps.fao.org/repository/js/leaflet/0.6.4/leaflet.js"></script>
+<script src="http://fenixapps.fao.org/repository/js/jquery.power.tip/1.1.0/jquery.powertip.min.js"></script>
+<script type='text/javascript' src='http://fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min.js'></script>
+<script type='text/javascript' src='http://fenixapps.fao.org/repository/js/jquery/1.0.9/jquery.i18n.properties-min.js'></script>
+<script type='text/javascript' src='http://fenixapps.fao.org/repository/js/jqwidgets/3.0.2/jqx-all.js'></script>
+
+<!-- JSON Handler Old IE -->
+<script type='text/javascript' src='http://fenixapps.fao.org/repository/js/json2/1.0/json2.js'></script>
+
+<!-- Highchart -->
+<script src=" http://code.highcharts.com/highcharts.js"></script>
+<!-- FENIX HighChart Library -->
+<script type='text/javascript' src='http://fenixapps.fao.org/repository/js/FENIXChartsLibrary/0.2/FENIXChartsLibrary.js'></script>
+
+<script src='http://fenixapps.fao.org/repository/js/FENIX/utils/import-dependencies-1.0.js'></script>
+
+<!--<script type='text/javascript' src='http://fenixapps.fao.org/repository/js/FENIX/fenix-map-js/1.0/js/fenix-map-config.js'></script>-->
+<!--<script type='text/javascript' src='http://fenixapps.fao.org/repository/js/FENIX/fenix-map-js/1.0/js/fenix-map-config.js'></script>
+<script type='text/javascript' src='http://fenixapps.fao.org/repository/js/FENIX/fenix-map-js/1.0/js/fenix-map-js-min-1.0.js'></script>-->
+
+<script type='text/javascript' src='../../js/fenix-map-js-config.js'></script>
+<script type='text/javascript' src='countrystat-loader.js'></script>
+
+<script type='text/javascript' src='countrystat-scatter.js'></script>
+<script type='text/javascript' src='scatter-chart.js'></script>
+<script type='text/javascript' src='../../wkt.js'></script>
+
+<!--bootstrap-->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+<!-- CSV reader -->
+<script src="http://fenixapps.fao.org/repository/js/csvjson/1.0/csvjson.min.1.0.js"></script>
+
+</html>
+
+
+
+<script type="text/javascript">
+    function convert() {
+        $.get( "NGA_Population_Poverty.csv", function( data ) {
+            var input = data;
+            var output_json = csvjson.csv2json(input, { delim: ",", textdelim: "\"" });
+            console.log("Converted CSV to JSON:", output_json);
+            var output_csv = csvjson.json2csv(output_json, {delim: ",",textdelim: "\""});
+            console.log("Converted JSON to CSV:", output_csv);
+            document.getElementById("output").innerHTML = output_csv;
+        });
+    }
+</script>

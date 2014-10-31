@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+
+    <link rel='icon' type='image/png' href='http://fenixapps.fao.org/repository/favicon/faostat.png'>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>TOPOJSON</title>
+
+    <!-- Google fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700,400italic|Roboto+Condensed' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Fenix Map -->
+    <!-- leaflet -->
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/0.6.4/leaflet.css" />
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/0.6.4/leaflet.ie.css" />
+    <![endif]-->
+    <link rel="stylesheet" href='http://hqlprfenixapp2.hq.un.fao.org/repository/js/jqwidgets/3.0.2/styles/jqx.base.css'/>
+
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min.css" />
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/css/jquery.power.tip/1.1.0/jquery.powertip.css" type="text/css" />
+
+    <!-- Fenix Map CSS -->
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/FENIX/fenix-map-js/1.0/css/fenix-map-js.css" />
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/FENIX/fenix-map-js/1.0/css/leaflet-custom.css" />
+
+
+    <!-- FENIX Map-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type='text/javascript' src="http://fenixapps.fao.org/repository/js/leaflet/0.6.4/leaflet.js"></script>
+    <script src="http://fenixapps.fao.org/repository/js/jquery.power.tip/1.1.0/jquery.powertip.min.js"></script>
+    <script type='text/javascript' src='http://fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min.js'></script>
+    <script type='text/javascript' src='http://fenixapps.fao.org/repository/js/jquery/1.0.9/jquery.i18n.properties-min.js'></script>
+    <script type='text/javascript' src='http://fenixapps.fao.org/repository/js/jqwidgets/3.0.2/jqx-all.js'></script>
+
+    <script src='http://fenixapps.fao.org/repository/js/FENIX/utils/import-dependencies-1.0.js'></script>
+
+    <script type='text/javascript' src='http://fenixapps.fao.org/repository/js/FENIX/fenix-map-js/1.0/js/fenix-map-js-config.js'></script>
+    <script type='text/javascript' src='http://fenixapps.fao.org/repository/js/FENIX/fenix-map-js/1.0/js/fenix-map-js-min-1.0.js'></script>
+
+    <script type='text/javascript' src='../../js/map/layer/Layer.js'></script>
+
+    <!--bootstrap-->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+    <!-- topojson -->
+    <script src="https://raw.github.com/mbostock/topojson/master/topojson.js"></script>
+
+
+</head>
+
+<body>
+
+
+<div style='height: 25px;'></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class='fm-title'>TOPOJSON</div>
+        </div>
+    </div>
+    <div style='height: 15px; clear:both;'></div>
+    <div style='height: 15px; clear:both;'></div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div id='map' class='fm-box' style='overflow: hidden; margin: 0 auto; text-align: left; height: 400px;'></div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+</html>
+
+<script>
+    // map and layer
+    var m;
+    var geojson;
+
+    $( document ).ready(function() {
+        var options = {
+            plugins: { geosearch : false, mouseposition: false, controlloading : true,zoomControl: 'bottomright'},
+            guiController: { overlay : true,  baselayer: true,  wmsLoader: true },
+            gui: {disclaimerfao: true }
+        }
+        var mapOptions = { zoomControl:false,attributionControl: false };
+
+        m = new FM.Map('map', options, mapOptions);
+        m.createMap();
+
+        var layer = {};
+        layer.layername = 'fenix:gaul0_faostat'
+        layer.layertitle = 'Country Boundaries'
+        layer.urlWMS = 'http://fenixapps.fao.org/geoserver'
+        layer.opacity='0.7';
+        l = new FM.layer(layer);
+        m.addLayer(l);
+
+        $.getJSON('topojson-world.json', function (data) {
+            console.log(data)
+            //console.log(data.objects.counties)
+            console.log(topojson)
+            var county_geojson = topojson.feature(data, data.objects.test3);
+            console.log(county_geojson)
+
+
+            var style =  {
+                fillColor: 'red',
+                weight: 0.0,
+                opacity: 0,
+                color: 'blue',
+                fillOpacity: 0.0
+            }
+            //geojson = L.geoJson(county_geojson, {style: style}).addTo(m.map);
+
+            geojson = L.geoJson(county_geojson, {
+                style: style,
+                onEachFeature: onEachFeature
+            }).addTo(m.map);
+
+        });
+
+
+        function onEachFeature(feature, layer) {
+            layer.on({
+                mouseover: highlightFeature,
+                mouseout: resetHighlight
+            });
+        }
+
+
+        function highlightFeature(e) {
+            var layer = e.target;
+
+            console.log(layer.feature);
+
+            layer.setStyle({
+                weight: 5,
+                color: '#666',
+                dashArray: '',
+                fillOpacity: 0.7
+            });
+
+            if (!L.Browser.ie && !L.Browser.opera) {
+                layer.bringToFront();
+            }
+        }
+
+
+        function resetHighlight(e) {
+            geojson.resetStyle(e.target);
+        }
+
+
+    });
+
+
+</script>

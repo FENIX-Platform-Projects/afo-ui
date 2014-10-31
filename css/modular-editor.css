@@ -1,0 +1,484 @@
+﻿body {
+    background-color: #F1F1F1;
+    font-family: 'Roboto', sans-serif !important;
+}
+/*========= HEADER =========*/
+.fx-editor-header {
+    height: 20px;
+    background-color: #6e6e6e;
+    color: #f3f3f3;
+    padding-right: 30px;
+
+}
+
+.fx-editor-header em {
+    font-style: normal;
+}
+
+.fx-editor-header-btn {
+    cursor: pointer;
+}
+
+.fx-editor-header-btn-expand:after {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    background: url("../imgs/icons/fenix-editor-sprite-small.png") no-repeat -105px 0;
+    cursor: pointer;
+    top: 3px;
+}
+
+
+/*========= DATA ENTRY CONTAINER =========*/
+.fx-editor-data-entry-container {
+    background-color: #E3E3E3;
+    min-height: 250px;
+    overflow: hidden;
+}
+
+/*========= MENU =========*/
+.fx-editor-menu-container {
+    background-color: white;
+    padding: 0;
+    min-height: 250px;
+}
+
+.fx-editor-menu-container:after {
+    position: absolute;
+    content: "";
+    height: 900px;
+    width: 20px;
+    background-color: #f3f3f3;
+    top: 0;
+    right: -14px;
+}
+
+.fx-editor-menu-container .btn-default:hover {
+    background-color: #e1dfda;
+}
+
+.panel-default:last-child {
+    border-bottom-width: 0px !important;
+}
+
+#fx-editor-menu .panel {
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+#fx-editor-menu .panel-default {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: none;
+
+}
+/** tm **/
+.fx-menu-category-title {
+    position: relative;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+/** tm added  **/
+.panel-title a {
+    text-decoration: none;
+    outline:0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+/** tm added: references Glyphicons Halflings font, included in Bootstrap  **/
+.fx-editor-menu-glyphicon {
+    font-family: "Glyphicons Halflings";
+}
+
+/** tm added **/
+.fx-editor-menu-plus:after {
+    padding-right: 10px;
+    content: "\002B";
+}
+
+/** tm added **/
+.fx-editor-menu-minus:after {
+    padding-right: 10px;
+    content: "\2212";
+}
+
+/** tm added **/
+.fx-editor-sub-entity .fx-editor-menu-plus:after {
+    padding-right: 15px;
+}
+
+/** tm added **/
+.fx-editor-sub-entity .fx-editor-menu-minus:after {
+    padding-right: 15px;
+}
+
+/** tm added **/
+.fx-editor-menu-info:after {
+    padding:0;
+    content: "\E086";
+}
+
+
+/** tm added **/
+#fx-editor-menu .panel-heading {
+    background-color: #fff;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+#fx-editor-menu .panel-heading.fx-editor-active-panel, #fx-editor-form .panel-heading.fx-editor-active-panel {
+    background-color: #3276b1;
+    color: #fff;
+}
+
+#fx-editor-menu .panel-heading.fx-editor-sub-entity-active-panel {
+    background-color: #E1DFDA;
+}
+
+#fx-editor-menu .panel-heading.fx-editor-sub-entity  {
+     /** padding: 5px 5px;**/
+}
+
+#fx-editor-menu .panel-heading.fx-editor-entity  {
+   border-top: 1px solid #e5e5e5;
+   border-bottom: 1px solid #e5e5e5;
+}
+
+#fx-editor-menu .panel-default > .panel-heading + .panel-collapse .panel-body {
+    border-color: #fff;
+    padding: 5px 10px 10px 10px;
+}
+
+/** tm added **/
+#fx-editor-menu .panel-group .panel + .panel {
+    margin-top: 0;
+}
+
+
+/** tm added **/
+.fx-menu-entity-title {
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.fx-menu-sub-entity-title  {
+    color: #6e6e6e;
+    text-transform: none;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+
+#fx-editor-menu .panel-body, #fx-editor-menu button {
+    color: #6e6e6e;
+}
+
+/**tm**/
+#fx-editor-menu .panel-body button {
+   border-color: white;
+   text-align: left;
+   white-space: normal;
+   /*padding: 3px 12px;*/
+}
+
+
+/**tm**/
+#fx-editor-menu .panel-body button span {
+    margin-right: 9px;
+}
+
+#fx-editor-menu .panel-body .btn-xs span {
+   margin-right: 0;
+}
+
+
+/**tm avoid dotted lines when clicking on button**/
+input[type="button"]{
+    outline:none;
+}
+/**tm**/
+input[type="button"]::-moz-focus-inner{
+   border:0;
+}
+/*========= FORM ================*/
+/*tm **/
+
+/* remove x icon in IE 10+ */
+input[type=text]::-ms-clear { display: none; }
+
+#fx-editor-form .form-horizontal .control-label {
+    text-align: left;
+}
+
+
+/*
+  /* affects: select box on click box reduces size
+   overflow: hidden;
+ select:focus {
+     width: auto;
+     position: relative;
+ }*/
+
+#fx-editor-form .control-label, .form-control {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+#fx-editor-form .fnx-control-subtitle label {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+#fx-editor-form legend {
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+    border: 0;
+}
+
+#fx-editor-form fieldset {
+    border: 0;
+}
+
+
+
+/**#fx-editor-form fieldset > fieldset legend,  {
+   color: blue;
+   margin-left: 20px;
+}   **/
+
+#fx-editor-form fieldset > fieldset legend, #fx-editor-form fieldset .form-group {
+    color: #474752;
+    margin-left: 20px;
+}
+
+/**fieldset {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+legend {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 27px;
+    font-size: 19.5px;
+    line-height: 36px;
+    color: #333;
+    border: 0;
+    border-bottom: 1px solid #E5E5E5;
+}  **/
+
+
+
+#fx-editor-form .popover-title, #fx-editor-menu .popover-title {
+    color:#333333;
+    text-transform: none;
+    font-size: 15px;
+}
+#fx-editor-form .popover-content, #fx-editor-menu .popover-content {
+    color: #333333;
+    text-transform: none;
+    font-size: 11px;
+}
+
+
+
+/** tm**/
+/**#fx-editor-form .form-horizontal .has-feedback select > .form-control-feedback {
+    right: 35px;
+    top: 0;
+}  **/
+
+/** tm **/
+/* Adjust feedback icon position */
+#fx-editor-form .form-control-feedback {
+    top: 0px;
+    right: 15px;
+}
+#fx-editor-form .selectContainer .form-control-feedback {
+    top: 0px;
+    right: 25px;
+}
+
+/* tm: date picker */
+.datepicker { font-size: 11px; }
+
+/* tm: tags input picker */
+.bootstrap-tagsinput input {
+    font-size: 11px;
+}
+
+fx-editor-form-module {
+    width: 50%;
+    background-color: white;
+    border: 10px solid #E3E3E3;
+    border-radius: 4px;
+    /*margin-bottom: 20px;*/
+    min-height: 20px;
+    /*    padding: 19px;*/
+}
+
+.fx-editor-form-module.fit {
+    width: 100%;
+}
+
+.fx-editor-modular-filter-container {
+    background-color: #E3E3E3;
+    min-height: 250px;
+   overflow: hidden;
+}
+
+.fx-editor-modular-form-wrapper {
+    /* affects: FF select box display - right border missing
+     padding-right: 0; */
+   overflow: hidden;
+}
+
+.fx-editor-modular-form-container {
+    background-color: #E3E3E3;
+}
+
+.fx-editor-form-module {
+    /*padding: 7px;  */
+    /*border: 0;   */
+    height: 170px;
+}
+
+.fx-editor-modular-form-header {
+    position: relative;
+    background-color: #ffd865;
+    height: 30px;
+}
+
+.fx-editor-modular-form-handler {
+    position: absolute;
+    left: 7px;
+    top: 7px;
+    height: 15px;
+    width: 15px;
+    background: url("../imgs/icons/fenix-editor-sprite-small.png") no-repeat -15px 0;
+    cursor: pointer;
+}
+
+.fx-editor-modular-form-close-btn {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    height: 15px;
+    width: 15px;
+    background: url("../imgs/icons/fenix-editor-sprite-small.png") no-repeat -45px 0;
+    cursor: pointer;
+}
+
+.fx-editor-modular-form-resize-btn {
+    position: absolute;
+    top: 7px;
+    right: 28px;
+    height: 15px;
+    width: 15px;
+    background: url("../imgs/icons/fenix-editor-sprite-small.png") no-repeat -30px 0;
+    cursor: pointer;
+}
+
+.fx-editor-modular-form-label {
+    position: absolute;
+    top: 4px;
+    left: 30px;
+    font-weight: 300;
+}
+
+.fx-editor-modular-form-content {
+    padding: 10px 10px 10px 10px;
+    height: 100px;
+}
+
+.fx-editor-mod-timerseries {
+    top: 25px;
+}
+
+/*========= RESUME BAR =========*/
+.fx-editor-resume-bar {
+    background-color: #e1dfda;
+    min-height: 38px;
+}
+
+#fx-editor-resume {
+    margin-left: 300px;
+    margin-right: 80px;
+    padding-bottom: 5px;
+}
+
+#fx-editor-submit-btn {
+    color: #f3f3f3;
+    text-transform: uppercase;
+    background-color: #6e6e6e;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    -webkit-border-radius: 0;
+    -moz-border-radius:0;
+    border-radius:0;
+}
+
+.fx-editor-resume-bar-help {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    top: 7px;
+    background: url("../imgs/icons/fenix-editor-sprite.png") no-repeat -0px 0;
+}
+
+.fx-editor-resume-bar-text {
+    position: absolute;
+    top: 9px;
+    left: 215px; /* Sistemare questo */
+}
+
+.fx-editor-resume-bar-arrow {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    background: url("../imgs/icons/fenix-editor-sprite-small.png") no-repeat -135px 0;
+    top: 12px;
+    left: 288px; /* Sistemare questo */
+}
+
+.fx-resume-item-selected{
+    display: inline-block;
+    background-color: #f1f0ed;
+    min-height: 24px;
+    margin: 5px 5px 3px 5px;
+    padding: 0 10px 2px 30px;
+    border: 1px solid #6E6E6E;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    position: relative;
+}
+
+.fx-resume-item-selected i{
+    margin-right: 3px;
+    position: absolute;
+    left: 3px;
+    top: 4px;
+}
+
+
+/*========= COMMONS =========*/
+
+
+
+.fx-typo-black {
+    font-weight: 900;
+}
+
+.fx_horegon {
+  display: inline;
+}
+

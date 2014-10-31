@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+
+    <link rel='icon' type='image/png' href='http://fenixapps.fao.org/repository/favicon/faostat.png'>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>CSS to SLD</title>
+
+    <!-- Google fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700,400italic|Roboto+Condensed' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Fenix Map -->
+    <!-- leaflet -->
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/0.6.4/leaflet.css" />
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/0.6.4/leaflet.ie.css" />
+    <![endif]-->
+    <link rel="stylesheet" href='http://hqlprfenixapp2.hq.un.fao.org/repository/js/jqwidgets/3.0.2/styles/jqx.base.css'/>
+
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min.css" />
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/css/jquery.power.tip/1.1.0/jquery.powertip.css" type="text/css" />
+
+    <!-- Fenix Map CSS -->
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/FENIX/fenix-map-js/1.0/css/fenix-map-js.css" />
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/FENIX/fenix-map-js/1.0/css/leaflet-custom.css" />
+
+
+    <!-- FENIX Map-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type='text/javascript' src="http://fenixapps.fao.org/repository/js/leaflet/0.6.4/leaflet.js"></script>
+    <script src="http://fenixapps.fao.org/repository/js/jquery.power.tip/1.1.0/jquery.powertip.min.js"></script>
+    <script type='text/javascript' src='http://fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min.js'></script>
+    <script type='text/javascript' src='http://fenixapps.fao.org/repository/js/jquery/1.0.9/jquery.i18n.properties-min.js'></script>
+    <script type='text/javascript' src='http://fenixapps.fao.org/repository/js/jqwidgets/3.0.2/jqx-all.js'></script>
+
+    <script src='http://fenixapps.fao.org/repository/js/FENIX/utils/import-dependencies-1.0.js'></script>
+
+
+    <!-- fenix-map-js -->
+    <script type='text/javascript' src='../../dist/fenix-map-js-min-all.js'></script>
+    <script type='text/javascript' src='../../js/fenix-map-js-config.js'></script>
+
+    <script src="../../js/map/utils/LayerLegend.js"></script>
+
+    <script src="../../js/map/utils/SpatialQuery.js"></script>
+
+    <script src="../../js/map/gui/gui-controller.js"></script>
+    <script src="../../js/core/WMSUtils.js"></script>
+    <script src="../../js/core/Util.js"></script>
+
+    <script src="../../js/map/constants/DEFAULTLAYER.js"></script>
+
+    <!--bootstrap-->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+
+<div style='height: 25px;'></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class='fm-title'>CSS To SLD</div>
+        </div>
+    </div>
+    <div style='height: 15px; clear:both;'></div>
+    <div class="row">
+        <div class="col-lg-12">
+            <textarea id="sldTextArea" width="550px" height="200px">
+                * { stroke: #123123 }
+            </textarea>
+            <button type="button" onclick="getStyle()">Apply Style</button>
+        </div>
+    </div>
+    <div style='height: 15px; clear:both;'></div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div id='map' class='fm-box' style='overflow: hidden; margin: 0 auto; text-align: left; height: 400px;'></div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+</html>
+
+<script>
+    // map and layer
+    var m;
+    var l;
+
+    $( document ).ready(function() {
+        var options = {
+            plugins: { geosearch : false, mouseposition: false, controlloading : true,zoomControl: 'bottomright'},
+            guiController: { overlay : true,  baselayer: true,  wmsLoader: true },
+            gui: {disclaimerfao: true }
+        }
+        var mapOptions = { zoomControl:false,attributionControl: false };
+
+        m = new FM.Map('map', options, mapOptions);
+        m.createMap();
+
+        var layer = {};
+        layer.layers = 'fenix:gaul0_line'
+        layer.layertitle = 'Country Boundaries'
+        layer.urlWMS = 'http://fenixapps.fao.org/geoserver'
+        layer.styles = 'gaul0_line'
+        layer.opacity='0.7';
+        l = new FM.layer(layer);
+        m.addLayer(l);
+
+        var layer = {};
+        layer.layername  = 'fenix:ind_majorroads'
+        layer.layertitle = 'layer'
+        layer.urlWMS = 'http://fenixapps.fao.org/geoserver'
+        l = new FM.layer(layer);
+        m.addLayer(l);
+
+        m.zoomTo('GAUL0', '115');
+
+    });
+
+    function getStyle() {
+        var data = {};
+        data.stylename = 'fenix:ind_majorroads';
+        data.style = document.getElementById("sldTextArea").value;
+        //data.style = '* { stroke: #123123 }';
+
+        $.ajax({
+            type : 'POST',
+            url : 'http://hqlprfenixapp1.hq.un.fao.org:10090/geoserver/CSS2SLD',
+            data : data,
+            success : function(response) {
+                // this is to refresh the layer
+                // TODO use just one sld_body, the .leafletLayer.wmsParams.sld_body is the one actually used in leaflet
+                l.layer.sld_body = response;
+                l.leafletLayer.wmsParams.sld_body = response;
+                l.leafletLayer.redraw();
+            },
+            error : function(err, b, c) {}
+        });
+    }
+
+
+</script>
+
+<script>
+
+    // CSS Examples
+
+    /*
+
+     * {
+     raster-channels: auto;
+     raster-color-map-type: intervals;
+     raster-color-map:
+     color-map-entry(#008000, 70)
+     color-map-entry(#663333, 6000)
+     color-map-entry(yellow, 31767)
+     color-map-entry(#fff, 32767.0, 0);
+     }
+
+     */
+
+
+</script>

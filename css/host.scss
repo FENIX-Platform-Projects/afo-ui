@@ -1,0 +1,122 @@
+@import 'colors'; /* Imported by Analysis, should be deleted ASAP */
+@import 'mixins';
+
+html, body {
+  height: 100%;
+
+}
+
+$host-menu-height : 70px;
+
+body{
+  padding-top: $host-menu-height;
+}
+
+
+
+#overlay {
+  .closeOverlay{
+    height: 35px;
+    width: 35px;
+    background: url("img/icons-sprite.png") no-repeat -595px 0px;
+    border: none;
+  }
+}
+
+#fx-catalog-results{
+  margin-top: 20px;
+}
+
+.fx-analysis-page-title{
+  font-weight: 100;
+  color: $fenix-gray-text;
+}
+.fx-analysis-page-description{
+  color: $fenix-gray-text;
+}
+
+.well {
+  background-color: transparent;
+  border: none;
+  @include box-shadow(0, 0, 0, white);
+
+}
+
+.fx-catalog-toolbar{
+  color: $fenix-gray-text;
+  .fx-widget-stack-btns{
+    text-align: right;
+    em{
+      font-style: normal;
+      background-color: $fenix-gray-text;
+      width: 30px;
+      height: 20px;
+      display: inline-block;
+      color: white;
+      text-align: center;
+      @include border-radius(3px)
+    }
+    input {
+      margin-left: 33px;
+    }
+  }
+}
+
+.btn{
+  background-color: transparent;
+  color: $fenix-gray-text;
+  border-color: $fenix-gray-text;
+  &:hover{
+    background-color: transparent;
+    color: $fenix-gray-text;
+    border-color: $fenix-gray-text;
+  }
+  &:active{
+    background-color: $fenix-gray-text;
+    color: white;
+    border-color: $fenix-gray-text;
+    @include box-shadow(0, 0, 0, white);
+  }
+
+}
+
+/*================= Packry =================*/
+.fx-analysis-item {
+  width: 50%;
+  z-index: 200; /* Veify correct z.index */
+}
+
+.fx-analysis-item.fit {
+  width: 100%;
+}
+
+/*================= Overlay =================*/
+
+/* Please review */
+
+#overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  background-color: $white-alpha;
+
+  padding-top: $host-menu-height;
+  z-index: 500;
+  overflow-y: scroll;
+
+  .overlay-content{
+    height: 100%;
+   #catalogContainer{
+     height: 100%
+   }
+  }
+
+}
+
+.closeOverlay {
+  position: absolute;
+  right: 0;
+}

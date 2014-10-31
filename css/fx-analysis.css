@@ -1,0 +1,308 @@
+/* Fenix Analysis Module
+Produced By Fenix Team and Mentaltoy
+2014 All rights riserved */
+/* Animations */
+/* Shadow */
+/* Boreder Radius */
+/* Fenix Colors */
+/* Typography */
+a {
+  color: #666666; }
+  a:hover {
+    color: #35a6dc !important;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -ms-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s; }
+
+/* Fenix Menu */
+hr {
+  border-color: #666666; }
+
+/* Widgets container
+-------------------------------------------------- */
+.fx-widget {
+  background-color: #FFFFFF;
+  height: 100%;
+  padding: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #dddddd;
+  border-bottom: 3px solid #dddddd;
+  position: relative; }
+
+.fx-widget:before {
+  content: "";
+  height: 1px;
+  background-color: #dddddd;
+  width: 100%;
+  position: absolute;
+  top: 56px;
+  left: 0px; }
+
+.fx-widget-chart-container {
+  position: relative;
+  width: 500px;
+  height: 350px; }
+
+.fx-widget .nav > li > a {
+  padding: 3px; }
+
+.fx-icon {
+  width: 35px;
+  height: 35px;
+  display: inline-block; }
+
+.fx-handle {
+  cursor: move;
+  position: relative;
+  top: 4px;
+  height: 29px;
+  width: 128px;
+  background: url("img/drag.png"); }
+
+.fx-analysis-item {
+  padding-bottom: 20px; }
+
+.widget-grid-container {
+  padding: 8px 10px; }
+
+.fx-analysis-item {
+  padding: 10px; }
+
+.nav-tabs {
+  border-bottom: transparent; }
+  .nav-tabs li a {
+    cursor: pointer; }
+
+.tab-content {
+  padding-top: 10px; }
+
+/* Icons Standard state */
+.fx-icon-clone {
+  background: url("img/icons-sprite.png") no-repeat -350px 0px; }
+
+.fx-icon-remove {
+  background: url("img/icons-sprite.png") no-repeat -385px 0px; }
+
+.fx-icon-resize {
+  background: url("img/icons-sprite.png") no-repeat -210px 0px; }
+
+.fx-icon-movetosession {
+  background: url("img/icons-sprite.png") no-repeat -315px 0px; }
+
+.fx-icon-metadata {
+  background: url("img/icons-sprite.png") no-repeat 0px 0px; }
+
+.fx-icon-map {
+  background: url("img/icons-sprite.png") no-repeat -280px 0px; }
+
+.fx-icon-table {
+  background: url("img/icons-sprite.png") no-repeat -175px 0px; }
+
+.fx-icon-chart {
+  background: url("img/icons-sprite.png") no-repeat -35px 0px; }
+
+.fx-icon-download {
+  background: url("img/icons-sprite.png") no-repeat -245px 0px; }
+
+.fx-icon-add {
+  background: url("img/icons-sprite.png") no-repeat -455px 0px; }
+
+.fx-icon-data {
+  background: url("img/icons-sprite.png") no-repeat -490px 0px; }
+
+.fx-icon-metadata {
+  background: url("img/icons-sprite.png") no-repeat -525px 0px; }
+
+/* Icons Over state */
+.fx-icon-clone:hover {
+  background: url("img/icons-sprite.png") no-repeat -350px -35px; }
+
+.fx-icon-remove:hover {
+  background: url("img/icons-sprite.png") no-repeat -385px -35px; }
+
+.fx-icon-resize:hover {
+  background: url("img/icons-sprite.png") no-repeat -210px -35px; }
+
+.fx-icon-movetosession:hover {
+  background: url("img/icons-sprite.png") no-repeat -315px -35px; }
+
+.fx-icon-metadata:hover {
+  background: url("img/icons-sprite.png") no-repeat 0px -35px; }
+
+.fx-icon-map:hover {
+  background: url("img/icons-sprite.png") no-repeat -280px -35px; }
+
+.fx-icon-table:hover {
+  background: url("img/icons-sprite.png") no-repeat -175px -35px; }
+
+.fx-icon-chart:hover {
+  background: url("img/icons-sprite.png") no-repeat -35px -35px; }
+
+.fx-icon-download:hover {
+  background: url("img/icons-sprite.png") no-repeat -245px -35px; }
+
+.fx-icon-add:hover {
+  background: url("img/icons-sprite.png") no-repeat -455px -35px; }
+
+.fx-icon-data:hover {
+  background: url("img/icons-sprite.png") no-repeat -490px -35px; }
+
+.fx-icon-metadata:hover {
+  background: url("img/icons-sprite.png") no-repeat -525px -35px; }
+
+.fx-sessionstore-counter-ico {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  background: url("img/icons-sprite.png") no-repeat -105px -35px; }
+
+.fx-widgetstack-title-container {
+  height: 120px; }
+
+#fx-sessionstore-counter-value {
+  position: absolute;
+  top: 7px;
+  right: 0px;
+  width: 28px;
+  height: 21px;
+  text-align: center;
+  color: #FFFFFF;
+  background-color: #009966;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px; }
+
+/* Panel */
+.extruder {
+  position: fixed;
+  cursor: default;
+  color: #FFFFFF; }
+
+.extruder .content {
+  display: none;
+  /* Fallback for old browser (not RGBA)*/
+  background: black;
+  background: rgba(0, 0, 0, 0.8); }
+
+.extruder.right {
+  height: 100%; }
+  .extruder.right .text {
+    width: 100% !important;
+    overflow: visible !important; }
+
+.extruder-content {
+  border: 0 !important;
+  background-color: rgba(0, 0, 0, 0.85) !important; }
+
+.extruder.right .ext_wrapper {
+  height: 100%;
+  right: 0;
+  top: 51px;
+  position: fixed !important; }
+
+.flap {
+  display: none; }
+
+#fx-ws-close-btn {
+  text-transform: uppercase;
+  color: #35a6dc;
+  font-weight: 700;
+  width: 280px;
+  height: 45px;
+  padding: 12px 0 0 45px;
+  border-bottom: 1px solid #35a6dc;
+  cursor: pointer;
+  position: absolute;
+  top: 0px; }
+
+#fx-ws-close-btn:before {
+  background: url("img/icons-sprite.png") no-repeat -420px -35px;
+  content: " ";
+  position: absolute;
+  height: 35px;
+  width: 35px;
+  top: 5px;
+  left: 6px; }
+
+.ext_wrapper .content .text {
+  width: 100% !important; }
+
+#fx-sessionstore-title {
+  position: absolute;
+  left: 15px;
+  top: 50px;
+  font-weight: 100;
+  font-size: 35px;
+  width: 280px; }
+
+#fx-sessionstore-ul-container {
+  position: relative;
+  overflow-x: hidden; }
+
+#fx-ws-list {
+  width: 280px;
+  padding-left: 0px; }
+
+#fx-ws-list li {
+  list-style-type: none;
+  width: 280px;
+  padding: 16px 16px 35px 16px;
+  position: relative;
+  border-bottom: 1px solid #35a6dc; }
+
+/*.fx-sessionstore-item-icon {
+  width: 50px;
+  height: 50px;
+  background: url("img/stack-info.png");
+
+}*/
+.fx-sessionstore-item-title {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 12px; }
+
+.fx-sessionstore-item-info {
+  min-height: 50px;
+  background: url("img/stack-info.png") no-repeat;
+  padding-left: 70px; }
+
+.fx-sessionstore-item-movemetodesk {
+  float: left;
+  text-transform: uppercase;
+  font-size: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  position: relative; }
+
+.fx-sessionstore-item-removeme {
+  float: right;
+  text-transform: uppercase;
+  font-size: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  position: relative; }
+
+.fx-sessionstore-item-movemetodesk:before {
+  content: url("img/small-arrow.gif");
+  position: absolute;
+  top: -1px;
+  left: -9px; }
+
+.fx-sessionstore-item-removeme:before {
+  content: url("img/small-close.gif");
+  position: absolute;
+  top: -1px;
+  left: -9px; }
+
+/******************************************************* Menu **/
+/* Small devices (tablets, 768px and up) */
+/****************************************************************************************************************************************************************/
+/* Medium devices (desktops, 992px and up) */
+/****************************************************************************************************************************************************************/
+/* Large devices (large desktops, 1200px and up) */
+/****************************************************************************************************************************************************************/

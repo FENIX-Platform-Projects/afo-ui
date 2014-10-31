@@ -1,0 +1,348 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <link rel='icon' type='image/png' href='http://fenixapps.fao.org/repository/favicon/faostat.png'>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+
+    <!-- Google fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700,400italic|Roboto+Condensed' rel='stylesheet' type='text/css'>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/0.7.2/leaflet.css" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/css/jquery.power.tip/1.1.0/jquery.powertip.css" type="text/css" />
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min.css" />
+    <link href='http://fenixapps.fao.org/repository/js/chosen/1.0.0/chosen.min.css' rel='stylesheet'>
+
+    <!-- JAVASCRIPT -->
+
+    <!-- FENIX Map-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type='text/javascript' src="http://fenixapps.fao.org/repository/js/leaflet/0.7.2/leaflet.js"></script>
+    <script src="http://fenixapps.fao.org/repository/js/jquery.power.tip/1.1.0/jquery.powertip.min.js"></script>
+    <script type='text/javascript' src='http://fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min.js'></script>
+    <script type='text/javascript' src='http://fenixapps.fao.org/repository/js/jquery/1.0.9/jquery.i18n.properties-min.js'></script>
+    <script type='text/javascript' src='http://fenixapps.fao.org/repository/js/jquery.hoverIntent/1.0/jquery.hoverIntent.js'></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script type='text/javascript' src='http://fenixapps.fao.org/repository/js/chosen/1.0.0/chosen.jquery.min.js'></script>
+
+    <script src='http://fenixapps.fao.org/repository/js/FENIX/utils/import-dependencies-1.0.js'></script>
+
+    <!-- fenix map -->
+    <link rel="stylesheet" href="../../fenix-map-js.css" />
+    <link rel="stylesheet" href="../../leaflet-custom.css" />
+    <script type='text/javascript' src='../../fenix-map-config.js'></script>
+    <script type='text/javascript' src='../../fenix-map-min.js'></script>
+
+    <!-- JSON Handler Old IE -->
+    <script type='text/javascript' src='http://fenixapps.fao.org/repository/js/json2/1.0/json2.js'></script>
+
+    <!-- console log wrapper -->
+    <script src="http://fenixapps.fao.org/repository/js/console.log-wrapper/1.0/consolelog.min.js"></script>
+    <script src="http://fenixapps.fao.org/repository/js/console.log-wrapper/1.0/consolelog.detailprint.min.js"></script>
+
+    <!-- Highchart -->
+    <script src="http://fenixapps.fao.org/repository/js/highcharts/3.0.7/js/highcharts.js"></script>
+    <script src="http://fenixapps.fao.org/repository/js/highcharts/3.0.7/js/modules/exporting.js"></script>
+
+
+
+    <!-- CSV reader -->
+    <script src="http://fenixapps.fao.org/repository/js/csvjson/1.0/csvjson.min.1.0.js"></script>
+
+
+    <script type='text/javascript' src='http://fenixapps.fao.org/repository/js/FENIX/fenix-map-js/2.1/wkt.js'></script>
+
+    <!-- scatter chart -->
+    <!-- scatter chart -->
+    <script src="../../plugins/ChartLibrary.js"></script>
+    <script src="../../plugins/FMChartScatterRefactoring.js"></script>
+    <script src="http://fenixapps.fao.org/repository/js/highcharts/plugins/regression/1.0/regression.js"></script>
+
+
+</head>
+
+<body onload="initialize();">
+
+<div style='height: 15px;'></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Kenya Comparison of time-series</h1>
+            </div>
+        </div>
+    </div>
+
+<div style='height: 35px;'></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="container-charts"></div>
+        </div>
+    </div>
+</div>
+
+<div style='height: 25px;'></div>
+<div id="output"></div>
+
+</body>
+
+</html>
+
+<script>
+
+var charts =  new Array();
+var maps =  new Array()
+var slaveCharts = new Array();
+var slaveMaps = new Array();
+var files = [
+    {
+        url: 'csv/gaul2/KEN_NDVI_03_06_2014.csv',
+        title: 'NDVI time-series'
+    },
+    {
+        url: 'csv/gaul2/KEN_Rainfall_03_06_2014.csv',
+        title: 'Rainfall time-series'
+    },
+    {
+        url: 'csv/gaul2/KEN_Temperature_03_06_1950_2000.csv',
+        title: 'Temperature time-series'
+    }
+]
+
+function initialize() {
+    loadGUI();
+    /*FM.init( function() {
+     loadGUI();
+     } );*/
+}
+
+function loadGUI() {
+    var id = _generateRandomID()
+    var chartID = 'chart-' + id;
+    var mapID = 'map-' + id;
+    _createGUI(chartID, mapID);
+    files[0].mapID = mapID;
+    files[0].chartID = chartID;
+    $.get(files[0].url, files[0]).done(function( data ) {
+        createScatter(data, getJsonFromUrl(this.url));
+        for(var i=1; i < files.length; i++)
+            loadFile(files[i].url, files[i]);
+    });
+}
+
+function loadFile(url, obj) {
+    var id = _generateRandomID()
+    var chartID = 'chart-' + id;
+    var mapID = 'map-' + id;
+    _createGUI(chartID, mapID);
+    obj.mapID = mapID;
+    obj.chartID = chartID;
+    $.get(url, obj).done(function( data ) {
+        createScatter(data, getJsonFromUrl(this.url));
+    });
+}
+
+function _generateRandomID() {
+    var randLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
+    return randLetter + Date.now();
+}
+function _createGUI(chartID, mapID) {
+    var ui =
+            '<div class="row">' +
+            '<div class="col-lg-6">' +
+            '<div id="'+ chartID +'" ></div>'+
+            '</div>' +
+            '<div class="col-lg-6"> '+
+            '<div id='+ mapID +' class="fm-box" style="overflow: hidden; margin: 0 auto; text-align: left;height: 400px;"></div>'+
+            '<div id='+ mapID +'-gfioutput></div>' +
+
+            '</div>' +
+            '</div>';
+
+    ui += '<div style="height:25px;"></div>'
+    $('#container-charts').append(ui);
+}
+
+function createScatter(csv, obj) {
+
+    var c = new FMChartScatter();
+
+
+    var chartID = obj.chartID;
+    var mapID = obj.mapID;
+
+    // TODO: just use a master chart
+    if ( charts.length < 1  )
+        charts.push(c);
+    else {
+        slaveCharts.push(c)
+        var masterChart = charts[0];
+        masterChart.linkSlaveCharts(slaveCharts);
+    }
+
+
+    // to handle multiple maps
+    var mapsArray = [];
+
+    // single map
+    var map = {};
+    // to handle multiple layers
+
+    var fenixMap = createMap(mapID);
+    var l = createLayer();
+    var layerHighlight = createHighlightLayer(fenixMap);
+
+    map.id = mapID;
+    map.fenixMap = fenixMap;
+    map.layers = [];
+    map.layers.push({ l: l, layerHighlight: layerHighlight});
+    mapsArray.push(map);
+    maps.push(fenixMap);
+
+    c.init({
+        chart : { data : csv, id : chartID, datatype: 'csv',  chart_title: obj.title },
+        maps: mapsArray
+    });
+    maps[0].syncOnMove(fenixMap);
+
+}
+
+function createMap(mapID) {
+    var options = {
+        plugins: {
+            geosearch : false,
+            mouseposition: false,
+            controlloading : true,
+            zoomControl: 'bottomright'
+        },
+        guiController: {
+            overlay : true,
+            baselayer: true,
+            wmsLoader: true
+        },
+        gui: {
+            disclaimerfao: true
+        }
+    }
+
+    var mapOptions = {
+        zoomControl:false,
+        attributionControl: false
+    };
+
+    var m = new FM.Map(mapID, options, mapOptions);
+    m.createMap();
+    m.zoomTo('GAUL0', '133')
+
+    var layer = {};
+    layer.layers = 'fenix:gaul0_line_3857'
+    layer.layertitle = 'Country Boundaries'
+    layer.urlWMS = 'http://fenixapps.fao.org/geoserver'
+    layer.opacity='1';
+    var l = new FM.layer(layer);
+    //l.zindex = 124
+    m.addLayer(l);
+
+    return m;
+}
+
+function createLayer() {
+    var layer = FMDEFAULTLAYER.getLayer("GAUL2", true)
+//    var layer = {};
+//    layer.layers='gaul2_3857'
+    layer.layertitle="Comparison"
+//    layer.joincolumn='adm2_code'
+    layer.joindata=''
+    layer.addborders='true'
+    layer.borderscolor='FFFFFF'
+    layer.bordersstroke='0.8'
+    layer.bordersopacity='0.4'
+    layer.legendtitle='Value Y/ Value X'
+    //layer.cql_filter="adm0_code IN (182)";
+    layer.mu = 'Index';
+    //layer.layertype = 'JOIN';
+    //layer.lang='e';
+    layer.jointype='shaded';
+    layer.defaultgfi = true;
+    layer.openlegend = true;
+    //layer.geometrycolumn = 'the_geom'
+    layer.intervals='5';
+    //layer.colors='965a00,e88a00,f3ab2d';
+    layer.colors='d7191c,fdae61,ffffbf,a6d96a,1a9641';
+
+    //layer.colors='680000,D80000,FFFF00,00CC33,009900';
+    //layer.colors='FF0AFF,FF1EFF,D700D7,CD00CD';
+
+
+    layer.formula = 'series[i].data[j].y / series[i].data[j].x';
+    //layer.formula = '';
+    //layer.formula = '(series[i].data[j].x)';
+    layer.reclassify = false;
+
+    var l = new FM.layer(layer);
+    return l
+}
+
+function createHighlightLayer(m) {
+    var layer = {};
+    layer.urlWMS = 'http://fenixapps.fao.org/geoserver'
+    layer.layers='gaul2_3857_2'
+    layer.styles=''
+    layer.layertitle="Scatter Analysis (Highlight)"
+    layer.joincolumn='adm2_code'
+    layer.style = 'highlight_features';
+    layer.srs = 'EPSG:3857';
+    layer.opacity='0.9';
+    // layer.hideLayerInControllerList = true; // this to hide the layer from the controller list
+    layer.cql_filter="";
+    var layerHighlight = new FM.layer(layer, m);
+    layerHighlight.zindex = 104
+    //m.addLayerWMS(layerHighlight)
+    return layerHighlight;
+}
+
+function createLayerHover(m) {
+    var layer = {};
+    layer.urlWMS = 'http://fenixapps.fao.org/geoserver'
+    layer.layers='gaul2_3857'
+    layer.styles=''
+    layer.layertitle="GAUL2 (hover)"
+    layer.joincolumn='adm2_code'
+    layer.style = 'highlight_features';
+    layer.srs = 'EPSG:3857';
+    layer.opacity='0.9';
+    //layer.enabled= false;
+    layer.cql_filter="";
+    var l = new FM.layer(layer, m);
+    l.zindex = 106
+    return l;
+}
+
+function createBaseLayer(layername, lang) {
+    var layer = {};
+    layer.layername =layername;
+    layer.layertype ='TILE';
+    layer.lang = lang;
+    var l = new FM.TileLayer(layer);
+    l.leafletLayer = l.createTileLayer(layer.layername);
+    return l;
+}
+
+function getJsonFromUrl(url) {
+    // log(location.search);
+    var query = url.split('?');
+    var data = query[1].split("&");
+    var result = {};
+    for(var i=0; i<data.length; i++) {
+        var item = data[i].split("=");
+        result[decodeURI(item[0].replace(/\+/g, '%20'))] = decodeURI(item[1].replace(/\+/g, '%20'));
+    }
+    return result;
+}
+
+</script>

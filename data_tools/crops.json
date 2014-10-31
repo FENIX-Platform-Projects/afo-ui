@@ -1,0 +1,226 @@
+[
+	{
+		"id": "Beans",
+		"text": "Beans"
+	},
+	{
+		"id": "Broccoli",
+		"text": "Broccoli"
+	},
+	{
+		"id": "Cabbage",
+		"text": "Cabbage"
+	},
+	{
+		"id": "Carrot",
+		"text": "Carrot"
+	},
+	{
+		"id": "Cassava",
+		"text": "Cassava"
+	},
+	{
+		"id": "Cereals",
+		"text": "Cereals"
+	},
+	{
+		"id": "Cocao",
+		"text": "Cocao"
+	},
+	{
+		"id": "Cocoa",
+		"text": "Cocoa"
+	},
+	{
+		"id": "Coffee",
+		"text": "Coffee"
+	},
+	{
+		"id": "Cotton",
+		"text": "Cotton"
+	},
+	{
+		"id": "Cucumber",
+		"text": "Cucumber"
+	},
+	{
+		"id": "Eggplant",
+		"text": "Eggplant"
+	},
+	{
+		"id": "Flowers",
+		"text": "Flowers"
+	},
+	{
+		"id": "flowers and Rice",
+		"text": "flowers and Rice"
+	},
+	{
+		"id": "food cash crops",
+		"text": "food cash crops"
+	},
+	{
+		"id": "food crops",
+		"text": "food crops"
+	},
+	{
+		"id": "Fruits",
+		"text": "Fruits"
+	},
+	{
+		"id": "Grape",
+		"text": "Grape"
+	},
+	{
+		"id": "Grapes and Fruits",
+		"text": "Grapes and Fruits"
+	},
+	{
+		"id": "Groundnut",
+		"text": "Groundnut"
+	},
+	{
+		"id": "Horticulture",
+		"text": "Horticulture"
+	},
+	{
+		"id": "Impwa",
+		"text": "Impwa"
+	},
+	{
+		"id": "Leaf vegetables",
+		"text": "Leaf vegetables"
+	},
+	{
+		"id": "Legumes",
+		"text": "Legumes"
+	},
+	{
+		"id": "Maize",
+		"text": "Maize"
+	},
+	{
+		"id": "Maize and Sugarcane",
+		"text": "Maize and Sugarcane"
+	},
+	{
+		"id": "Mango",
+		"text": "Mango"
+	},
+	{
+		"id": "Oil-Palm",
+		"text": "Oil-Palm"
+	},
+	{
+		"id": "okra",
+		"text": "okra"
+	},
+	{
+		"id": "Okro",
+		"text": "Okro"
+	},
+	{
+		"id": "Onion",
+		"text": "Onion"
+	},
+	{
+		"id": "Onions",
+		"text": "Onions"
+	},
+	{
+		"id": "Orange",
+		"text": "Orange"
+	},
+	{
+		"id": "ornamentals",
+		"text": "ornamentals"
+	},
+	{
+		"id": "Ornamentals",
+		"text": "Ornamentals"
+	},
+	{
+		"id": "Pea",
+		"text": "Pea"
+	},
+	{
+		"id": "Pepper",
+		"text": "Pepper"
+	},
+	{
+		"id": "Pinapple",
+		"text": "Pinapple"
+	},
+	{
+		"id": "Pineapple",
+		"text": "Pineapple"
+	},
+	{
+		"id": "Potato",
+		"text": "Potato"
+	},
+	{
+		"id": "Potatoes and Vegetables",
+		"text": "Potatoes and Vegetables"
+	},
+	{
+		"id": "Pumkins",
+		"text": "Pumkins"
+	},
+	{
+		"id": "Rice",
+		"text": "Rice"
+	},
+	{
+		"id": "Soya - beans",
+		"text": "Soya - beans"
+	},
+	{
+		"id": "Spinach",
+		"text": "Spinach"
+	},
+	{
+		"id": "Sugarcane",
+		"text": "Sugarcane"
+	},
+	{
+		"id": "Tea",
+		"text": "Tea"
+	},
+	{
+		"id": "Tobacco",
+		"text": "Tobacco"
+	},
+	{
+		"id": "Tomato",
+		"text": "Tomato"
+	},
+	{
+		"id": "Tomatoes",
+		"text": "Tomatoes"
+	},
+	{
+		"id": "Tubers",
+		"text": "Tubers"
+	},
+	{
+		"id": "Vegetables",
+		"text": "Vegetables"
+	},
+	{
+		"id": "Watermelon",
+		"text": "Watermelon"
+	},
+	{
+		"id": "Wheat",
+		"text": "Wheat"
+	},
+	{
+		"id": "Wheat + Barley",
+		"text": "Wheat + Barley"
+	},
+	{
+		"id": "Yam",
+		"text": "Yam"
+	}
+]

@@ -1,0 +1,3732 @@
+[
+  {
+    "name":"Organic Fertilizers",
+    "usage":"Fertilizers",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Anhydrous Ammonia",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Ammonium Hydroxide",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Urea",
+    "usage":"Fertilizers",
+    "crop":"Maize",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":56,
+    "faostat_crop":"Maize",
+    "faostat_definition":"Zea mays Corn, Indian corn, mealies. A grain with a high germ content. At the national level, hybrid and ordinary maize should be reported separately owing to widely different yields and uses. Used largely for animal feed and commercial starch production."
+  },
+  {
+    "name":"Urea",
+    "usage":"",
+    "crop":"Sugarcane",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":156,
+    "faostat_crop":"Sugar cane",
+    "faostat_definition":"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
+  },
+  {
+    "name":"Urea",
+    "usage":"",
+    "crop":"Flowers",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Urea",
+    "usage":"",
+    "crop":"Potato",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":116,
+    "faostat_crop":"Potatoes",
+    "faostat_definition":"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
+  },
+  {
+    "name":"Urea",
+    "usage":"",
+    "crop":"Pineapple",
+    "problem":"1",
+    "problem_notes":"A. sativ. Trade figures may include dried pineapples.",
+    "faostat_code":574,
+    "faostat_crop":"Pineapples",
+    "faostat_definition":"Ananas comosus"
+  },
+  {
+    "name":"Urea",
+    "usage":"",
+    "crop":"Pea",
+    "problem":"1",
+    "problem_notes":"dry, green??",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Urea",
+    "usage":"",
+    "crop":"Rice",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":27,
+    "faostat_crop":"Rice, paddy",
+    "faostat_definition":"Oryza spp., mainly oryza sativa. Rice grain after threshing and winnowing. Also known as rice in the husk and rough rice. Used mainly for human food."
+  },
+  {
+    "name":"Urea",
+    "usage":"",
+    "crop":"Oil-Palm",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":254,
+    "faostat_crop":"Oil, palm fruit",
+    "faostat_definition":"Elaeis guineensis. The oil palm produces bunches containing a large number of fruits with the fleshy mesocarp enclosing a kernel that is covered by a very hard shell. FAO considers palm oil (coming from the pulp) and palm kernels to be primary products. The oil extraction rate from a bunch varies from 17 to 27% for palm oil, and from 4 to 10% for palm kernels."
+  },
+  {
+    "name":"Urea",
+    "usage":"",
+    "crop":"Cotton",
+    "problem":"1",
+    "problem_notes":"seed cotton, cotton lint??",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Urea",
+    "usage":"",
+    "crop":"Tobacco",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":826,
+    "faostat_crop":"Tobacco, unmanufactured",
+    "faostat_definition":"Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
+  },
+  {
+    "name":"Urea",
+    "usage":"",
+    "crop":"Wheat",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":15,
+    "faostat_crop":"Wheat",
+    "faostat_definition":"Triticum spp.: common (T. aestivum) durum (T. durum) spelt (T. spelta). Common and durum wheat are the main types. Among common wheat, the main varieties are spring and winter, hard and soft, and red and white. At the national level, different varieties should be reported separately, reflecting their different uses. Used mainly for human food."
+  },
+  {
+    "name":"Ammonium sulphate",
+    "usage":"",
+    "crop":"Flowers",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Ammonium sulphate",
+    "usage":"",
+    "crop":"Rice",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":27,
+    "faostat_crop":"Rice, paddy",
+    "faostat_definition":"Oryza spp., mainly oryza sativa. Rice grain after threshing and winnowing. Also known as rice in the husk and rough rice. Used mainly for human food."
+  },
+  {
+    "name":"Ammonium sulphate",
+    "usage":"",
+    "crop":"Cotton",
+    "problem":"1",
+    "problem_notes":"seed cotton, cotton lint??",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Ammonium sulphate",
+    "usage":"",
+    "crop":"Cassava",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":125,
+    "faostat_crop":"Cassava",
+    "faostat_definition":"Manioc, mandioca, yuca (Manihot esculenta, syn. M. utilissima); yuca dulce (M. palmata, syn. M. dulcis). A semi-permanent crop grown in tropical and subtropical regions. Sometimes bitter and sweet cassavas are referred to as separate species, the former being M. esculenta and the latter M. palmata, but this is incorrect since the toxicity varies according to location. Cassava is the staple food in many tropical countries. It is not traded internationally in its fresh state because tubers deteriorate very rapidly."
+  },
+  {
+    "name":"Ammonium sulphate",
+    "usage":"",
+    "crop":"Groundnut",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":242,
+    "faostat_crop":"Groundnuts, with shell",
+    "faostat_definition":"Arachis hypogaea. For trade data, groundnuts in shell are converted at 70% and reported on a shelled basis."
+  },
+  {
+    "name":"Ammonium sulphate",
+    "usage":"",
+    "crop":"Wheat",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":15,
+    "faostat_crop":"Wheat",
+    "faostat_definition":"Triticum spp.: common (T. aestivum) durum (T. durum) spelt (T. spelta). Common and durum wheat are the main types. Among common wheat, the main varieties are spring and winter, hard and soft, and red and white. At the national level, different varieties should be reported separately, reflecting their different uses. Used mainly for human food."
+  },
+  {
+    "name":"Ammonium sulphate",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Ammonium sulphate",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Double Salts of AS or AN",
+    "usage":"",
+    "crop":"Wheat",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":15,
+    "faostat_crop":"Wheat",
+    "faostat_definition":"Triticum spp.: common (T. aestivum) durum (T. durum) spelt (T. spelta). Common and durum wheat are the main types. Among common wheat, the main varieties are spring and winter, hard and soft, and red and white. At the national level, different varieties should be reported separately, reflecting their different uses. Used mainly for human food."
+  },
+  {
+    "name":"Double Salts of AS or AN",
+    "usage":"",
+    "crop":"Potatoes and Vegetables",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Double Salts of AS or AN",
+    "usage":"",
+    "crop":"Coffee",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":656,
+    "faostat_crop":"Coffee, green",
+    "faostat_definition":"Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
+  },
+  {
+    "name":"Ammonium nitrate",
+    "usage":"Mostly Industrial",
+    "crop":"Horticulture",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"CAN",
+    "usage":"",
+    "crop":"Maize",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":56,
+    "faostat_crop":"Maize",
+    "faostat_definition":"Zea mays Corn, Indian corn, mealies. A grain with a high germ content. At the national level, hybrid and ordinary maize should be reported separately owing to widely different yields and uses. Used largely for animal feed and commercial starch production."
+  },
+  {
+    "name":"CAN",
+    "usage":"",
+    "crop":"Wheat + Barley",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":44,
+    "faostat_crop":"Barley",
+    "faostat_definition":"Hordeum spp.: two-row barley (H. disticum) six-row barley (H. hexasticum) four-row barley (H. vulgare). Tolerates poorer soils and lower temperatures better than does wheat. Varieties include with husk and without (naked). Used as a livestock feed, for malt and for preparing foods. The roasted grains are a coffee substitute."
+  },
+  {
+    "name":"CAN",
+    "usage":"",
+    "crop":"Sugarcane",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":156,
+    "faostat_crop":"Sugar cane",
+    "faostat_definition":"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
+  },
+  {
+    "name":"CAN",
+    "usage":"",
+    "crop":"Flowers",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"CAN",
+    "usage":"",
+    "crop":"Coffee",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":656,
+    "faostat_crop":"Coffee, green",
+    "faostat_definition":"Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
+  },
+  {
+    "name":"CAN",
+    "usage":"",
+    "crop":"Tobacco",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":826,
+    "faostat_crop":"Tobacco, unmanufactured",
+    "faostat_definition":"Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
+  },
+  {
+    "name":"CAN",
+    "usage":"",
+    "crop":"Potato",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":116,
+    "faostat_crop":"Potatoes",
+    "faostat_definition":"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
+  },
+  {
+    "name":"CAN",
+    "usage":"",
+    "crop":"Pineapple",
+    "problem":"1",
+    "problem_notes":"A. sativ. Trade figures may include dried pineapples.",
+    "faostat_code":574,
+    "faostat_crop":"Pineapples",
+    "faostat_definition":"Ananas comosus"
+  },
+  {
+    "name":"CAN",
+    "usage":"",
+    "crop":"Pea",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Sodium Nitrate",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Calcium Nitrate ",
+    "usage":"",
+    "crop":"Flowers",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Calcium Cyanamides",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"UAN",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Other Nitrogenous Fertilizers",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"SSP",
+    "usage":"",
+    "crop":"Tea",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":667,
+    "faostat_crop":"Tea",
+    "faostat_definition":"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
+  },
+  {
+    "name":"SSP",
+    "usage":"",
+    "crop":"Beans",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"SSP",
+    "usage":"",
+    "crop":"Coffee",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":656,
+    "faostat_crop":"Coffee, green",
+    "faostat_definition":"Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
+  },
+  {
+    "name":"SSP",
+    "usage":"",
+    "crop":"Potato",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":116,
+    "faostat_crop":"Potatoes",
+    "faostat_definition":"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
+  },
+  {
+    "name":"SSP",
+    "usage":"",
+    "crop":"Pea",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"SSP",
+    "usage":"",
+    "crop":"Pinapple",
+    "problem":"1",
+    "problem_notes":"A. sativ. Trade figures may include dried pineapples.",
+    "faostat_code":574,
+    "faostat_crop":"Pineapples",
+    "faostat_definition":"Ananas comosus"
+  },
+  {
+    "name":"SSP",
+    "usage":"",
+    "crop":"Cassava",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":125,
+    "faostat_crop":"Cassava",
+    "faostat_definition":"Manioc, mandioca, yuca (Manihot esculenta, syn. M. utilissima); yuca dulce (M. palmata, syn. M. dulcis). A semi-permanent crop grown in tropical and subtropical regions. Sometimes bitter and sweet cassavas are referred to as separate species, the former being M. esculenta and the latter M. palmata, but this is incorrect since the toxicity varies according to location. Cassava is the staple food in many tropical countries. It is not traded internationally in its fresh state because tubers deteriorate very rapidly."
+  },
+  {
+    "name":"SSP",
+    "usage":"",
+    "crop":"Groundnut",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":242,
+    "faostat_crop":"Groundnuts, with shell",
+    "faostat_definition":"Arachis hypogaea. For trade data, groundnuts in shell are converted at 70% and reported on a shelled basis."
+  },
+  {
+    "name":"SSP",
+    "usage":"",
+    "crop":"Legumes",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"TSP",
+    "usage":"",
+    "crop":"Tea",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":667,
+    "faostat_crop":"Tea",
+    "faostat_definition":"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
+  },
+  {
+    "name":"TSP",
+    "usage":"",
+    "crop":"Flowers",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"TSP",
+    "usage":"",
+    "crop":"Coffee",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":656,
+    "faostat_crop":"Coffee, green",
+    "faostat_definition":"Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
+  },
+  {
+    "name":"TSP",
+    "usage":"",
+    "crop":"Potato",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":116,
+    "faostat_crop":"Potatoes",
+    "faostat_definition":"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
+  },
+  {
+    "name":"TSP",
+    "usage":"",
+    "crop":"Pea",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"TSP",
+    "usage":"",
+    "crop":"Pinapple",
+    "problem":"1",
+    "problem_notes":"A. sativ. Trade figures may include dried pineapples.",
+    "faostat_code":574,
+    "faostat_crop":"Pineapples",
+    "faostat_definition":"Ananas comosus"
+  },
+  {
+    "name":"Basic slag ",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Phosphate Rock",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Other Phosphatic Fertilizers",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Crude potash salts",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"MOP",
+    "usage":"",
+    "crop":"Tea",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":667,
+    "faostat_crop":"Tea",
+    "faostat_definition":"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
+  },
+  {
+    "name":"MOP",
+    "usage":"",
+    "crop":"Sugarcane",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":156,
+    "faostat_crop":"Sugar cane",
+    "faostat_definition":"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
+  },
+  {
+    "name":"MOP",
+    "usage":"",
+    "crop":"Coffee",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":656,
+    "faostat_crop":"Coffee, green",
+    "faostat_definition":"Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
+  },
+  {
+    "name":"MOP",
+    "usage":"",
+    "crop":"Rice",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":27,
+    "faostat_crop":"Rice, paddy",
+    "faostat_definition":"Oryza spp., mainly oryza sativa. Rice grain after threshing and winnowing. Also known as rice in the husk and rough rice. Used mainly for human food."
+  },
+  {
+    "name":"MOP",
+    "usage":"",
+    "crop":"Oil-Palm",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":254,
+    "faostat_crop":"Oil, palm fruit",
+    "faostat_definition":"Elaeis guineensis. The oil palm produces bunches containing a large number of fruits with the fleshy mesocarp enclosing a kernel that is covered by a very hard shell. FAO considers palm oil (coming from the pulp) and palm kernels to be primary products. The oil extraction rate from a bunch varies from 17 to 27% for palm oil, and from 4 to 10% for palm kernels."
+  },
+  {
+    "name":"MOP",
+    "usage":"",
+    "crop":"Pineapple",
+    "problem":"1",
+    "problem_notes":"A. sativ. Trade figures may include dried pineapples.",
+    "faostat_code":574,
+    "faostat_crop":"Pineapples",
+    "faostat_definition":"Ananas comosus"
+  },
+  {
+    "name":"MOP",
+    "usage":"",
+    "crop":"Cassava",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":125,
+    "faostat_crop":"Cassava",
+    "faostat_definition":"Manioc, mandioca, yuca (Manihot esculenta, syn. M. utilissima); yuca dulce (M. palmata, syn. M. dulcis). A semi-permanent crop grown in tropical and subtropical regions. Sometimes bitter and sweet cassavas are referred to as separate species, the former being M. esculenta and the latter M. palmata, but this is incorrect since the toxicity varies according to location. Cassava is the staple food in many tropical countries. It is not traded internationally in its fresh state because tubers deteriorate very rapidly."
+  },
+  {
+    "name":"MOP",
+    "usage":"",
+    "crop":"Groundnut",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":242,
+    "faostat_crop":"Groundnuts, with shell",
+    "faostat_definition":"Arachis hypogaea. For trade data, groundnuts in shell are converted at 70% and reported on a shelled basis."
+  },
+  {
+    "name":"SOP",
+    "usage":"",
+    "crop":"Cereals",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":8,
+    "faostat_crop":"Cereals, nes",
+    "faostat_definition":"Including inter alia: canagua or coaihua (Chenopodium pallidicaule); quihuicha or Inca wheat (Amaranthus caudatus); adlay or Job's tears (Coix lacryma-jobi); wild rice (Zizania aquatica). Other cereal crops that are not identified separately because of their minor relevance at the international level. Because of their limited local importance, some countries report cereals under this commodity heading that are classified individually by FAO."
+  },
+  {
+    "name":"SOP",
+    "usage":"",
+    "crop":"Sugarcane",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":156,
+    "faostat_crop":"Sugar cane",
+    "faostat_definition":"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
+  },
+  {
+    "name":"Other Potassic Fertilizers",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"DAP",
+    "usage":"Fertilizers",
+    "crop":"Maize",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":56,
+    "faostat_crop":"Maize",
+    "faostat_definition":"Zea mays Corn, Indian corn, mealies. A grain with a high germ content. At the national level, hybrid and ordinary maize should be reported separately owing to widely different yields and uses. Used largely for animal feed and commercial starch production."
+  },
+  {
+    "name":"DAP",
+    "usage":"",
+    "crop":"Beans",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"DAP",
+    "usage":"",
+    "crop":"Tea",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":667,
+    "faostat_crop":"Tea",
+    "faostat_definition":"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
+  },
+  {
+    "name":"DAP",
+    "usage":"",
+    "crop":"Wheat + Barley",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":44,
+    "faostat_crop":"Barley",
+    "faostat_definition":"Hordeum spp.: two-row barley (H. disticum) six-row barley (H. hexasticum) four-row barley (H. vulgare). Tolerates poorer soils and lower temperatures better than does wheat. Varieties include with husk and without (naked). Used as a livestock feed, for malt and for preparing foods. The roasted grains are a coffee substitute."
+  },
+  {
+    "name":"DAP",
+    "usage":"",
+    "crop":"Sugarcane",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":156,
+    "faostat_crop":"Sugar cane",
+    "faostat_definition":"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
+  },
+  {
+    "name":"DAP",
+    "usage":"",
+    "crop":"flowers and Rice",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"MAP",
+    "usage":"",
+    "crop":"Sugarcane",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":156,
+    "faostat_crop":"Sugar cane",
+    "faostat_definition":"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
+  },
+  {
+    "name":"MAP",
+    "usage":"",
+    "crop":"Flowers",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK (Known Grades)",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NP",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Potassium Nitrate",
+    "usage":"",
+    "crop":"Tobacco",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":826,
+    "faostat_crop":"Tobacco, unmanufactured",
+    "faostat_definition":"Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
+  },
+  {
+    "name":"PK Compounds",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK (Unknown Grade)",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Kieserite",
+    "usage":"Soil enhancers",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Agric Lime",
+    "usage":"Soil enhancer",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Calcium chloride",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Borax",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Dolimite",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Copper Sulphate",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Magnesium Nitrate",
+    "usage":"Soil enhancer",
+    "crop":"Flowers",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Magnesium Sulphate",
+    "usage":"",
+    "crop":"Flowers",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"MKP",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Zinc Sulphate",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Organic Fertilizers",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Organic Fertilizers",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"MOP",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"MRP",
+    "usage":"",
+    "crop":"food / cash crops",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Nitrogenous Fertilizers",
+    "usage":"",
+    "crop":"Tomato",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":388,
+    "faostat_crop":"Tomatoes",
+    "faostat_definition":"Lycopersicon esculentum."
+  },
+  {
+    "name":"Nitrogenous Fertilizers",
+    "usage":"",
+    "crop":"Potato",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":116,
+    "faostat_crop":"Potatoes",
+    "faostat_definition":"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
+  },
+  {
+    "name":"Nitrogenous Fertilizers",
+    "usage":"",
+    "crop":"Horticulture",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Nitrogenous Fertilizers",
+    "usage":"",
+    "crop":"ornamentals",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Calcium Nitrate",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Nitrogenous Fertilizers",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"SOP",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Organic Fertilizers",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Nitrogenous Fertilizers",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"CAN",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Calcium Nitrate",
+    "usage":"",
+    "crop":"Cocoa",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":661,
+    "faostat_crop":"Cocoa, beans",
+    "faostat_definition":"Theobroma cacao. The seeds contained in the fruit of the cacao- tree, including whole or broken, raw or roasted."
+  },
+  {
+    "name":"Ammonium sulphate",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"Nitrogenous Fertilizers",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"PK 0 23 15 + 4S +1MgO + 10CaO + Z",
+    "usage":"",
+    "crop":"Legumes",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"PK 0 23 19",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"PK 0 60 20",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"PK 0 32 25",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"PK 0 42 28",
+    "usage":"",
+    "crop":"Flowers",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"PK 0 42 28",
+    "usage":"",
+    "crop":"Fruits",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"PK 0 42 28",
+    "usage":"",
+    "crop":"Vegetables",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":463,
+    "faostat_crop":"Vegetables, fresh nes",
+    "faostat_definition":"Including inter alia: bamboo shoots (Bambusa spp.); beets, chards (Beta vulgaris); capers (Capparis spinosa); cardoons (Cynara cardunculus); celery (Apium graveolens); chervil (Anthriscus cerefolium); cress (Lepidium sativum); fennel (Foeniculum vulgare); horseradish (Cochlearia armoracia); marjoram, sweet (Majorana hortensis); oyster plant (Tragopogon porrifolius); parsley (Petroselinum crispum); parsnips (Pastinaca sativa); radish (Raphanus sativus); rhubarb (Rheum spp.); rutabagas, swedes (Brassica napus); savory (Satureja hortensis); scorzonera (Scorzonera hispanica); sorrel (Rumex acetosa); soybean sprouts tarragon (Artemisia dracunculus); watercress (Nasturtium officinale). Other vegetables that are not identified separately because of their minor relevance at the international level. Because of their limited local importance, some countries report vegetables under this heading that are classified individually by FAO."
+  },
+  {
+    "name":"PK 0 42 28",
+    "usage":"",
+    "crop":"Potato",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":116,
+    "faostat_crop":"Potatoes",
+    "faostat_definition":"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
+  },
+  {
+    "name":"PK 0 42 28",
+    "usage":"",
+    "crop":"Cucumber",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":397,
+    "faostat_crop":"Cucumbers and gherkins",
+    "faostat_definition":"Cucumis sativus."
+  },
+  {
+    "name":"PK 0 42 28",
+    "usage":"",
+    "crop":"Watermelon",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":567,
+    "faostat_crop":"Watermelons",
+    "faostat_definition":"Citrullus vulgaris."
+  },
+  {
+    "name":"PK 0 42 28",
+    "usage":"",
+    "crop":"Tomato",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":388,
+    "faostat_crop":"Tomatoes",
+    "faostat_definition":"Lycopersicon esculentum."
+  },
+  {
+    "name":"PK 0 42 28",
+    "usage":"",
+    "crop":"Eggplant",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":399,
+    "faostat_crop":"Eggplants (aubergines)",
+    "faostat_definition":"Solanum melongena. Also called aubergines."
+  },
+  {
+    "name":"PK 0 42 28",
+    "usage":"",
+    "crop":"Ornamentals",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"PK 0 73 8.3",
+    "usage":"",
+    "crop":"Horticulture",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"PK 0 73 8.3",
+    "usage":"",
+    "crop":"Grapes and Fruits",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 1 1 15",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 1 21 19 + TE",
+    "usage":"",
+    "crop":"Cocao",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 3 2 13",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 4 17 15",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 4 18 15",
+    "usage":"",
+    "crop":"Tobacco",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":826,
+    "faostat_crop":"Tobacco, unmanufactured",
+    "faostat_definition":"Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
+  },
+  {
+    "name":"NPK 4 18 15",
+    "usage":"",
+    "crop":"Horticulture",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 4 25 15",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 5 7.5 5 + 5S+5CaO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 5 10 27 ",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 5 27 20 6S + 6CaO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 5 7.5 5 + 5S + 5MgO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 5.9  18 30 ",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NK 6 0 3.5",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NK 6 0 20 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 6 13 3 + 3.3S + 2MgO + 2.9Mn + 2Zn",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 6 20 18",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 6 24 20",
+    "usage":"",
+    "crop":"Tobacco",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":826,
+    "faostat_crop":"Tobacco, unmanufactured",
+    "faostat_definition":"Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
+  },
+  {
+    "name":"NPK 6 24 21",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NP 7 20 0 + 2S + 2MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 7 6 44 + 2Mg0",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 7 12 30 + 2MgO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 7 14 7",
+    "usage":"",
+    "crop":"Maize",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":56,
+    "faostat_crop":"Maize",
+    "faostat_definition":"Zea mays Corn, Indian corn, mealies. A grain with a high germ content. At the national level, hybrid and ordinary maize should be reported separately owing to widely different yields and uses. Used largely for animal feed and commercial starch production."
+  },
+  {
+    "name":"NPK 7 20 13 + (Lime)",
+    "usage":"",
+    "crop":"Soya - beans",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":236,
+    "faostat_crop":"Soybeans",
+    "faostat_definition":"Glycine soja. The most important oil crop. Also widely consumed as a bean and in the form of various derived products because of its high protein content, e.g. soya milk, meat, etc."
+  },
+  {
+    "name":"NPK 8 16 24 + 1MgO + 1B",
+    "usage":"",
+    "crop":"Tobacco",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":826,
+    "faostat_crop":"Tobacco, unmanufactured",
+    "faostat_definition":"Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
+  },
+  {
+    "name":"NPK 8 18 9",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 8 18 15 + 6S +0.1B",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 8 21 7",
+    "usage":"",
+    "crop":"Tobacco",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":826,
+    "faostat_crop":"Tobacco, unmanufactured",
+    "faostat_definition":"Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
+  },
+  {
+    "name":"NPK 8 32 4 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 9 18 36",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 9 23 4 ",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 9 23 4 + 1S + 2MgO + 0.1Zn",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 9 45 15",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 9.4 25 5.1 ",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 10 50 20 + 2MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NP 10 5 0",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 10 5 14",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 10 5 20 + 6CaO + 11S + MgO + 0.7Zn",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 10 5 20 + 8CaO + 5S + 2.5MgO + 1Zn",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 10 5 30 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 10 10 7.5",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 10 10 10 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 10 10 20",
+    "usage":"",
+    "crop":"Tomato",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":388,
+    "faostat_crop":"Tomatoes",
+    "faostat_definition":"Lycopersicon esculentum."
+  },
+  {
+    "name":"NPK 10 10 20",
+    "usage":"",
+    "crop":"Eggplant",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":399,
+    "faostat_crop":"Eggplants (aubergines)",
+    "faostat_definition":"Solanum melongena. Also called aubergines."
+  },
+  {
+    "name":"NPK 10 10 20",
+    "usage":"",
+    "crop":"okra",
+    "problem":"1",
+    "problem_notes":"Hibiscus esculentus. Also called gombo.",
+    "faostat_code":430,
+    "faostat_crop":"Okra",
+    "faostat_definition":"Abelmoschus esculentus"
+  },
+  {
+    "name":"NPK 10 10 20",
+    "usage":"",
+    "crop":"Pumkins",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":394,
+    "faostat_crop":"Pumpkins, squash and gourds",
+    "faostat_definition":"Cucurbita spp. Includes marrows."
+  },
+  {
+    "name":"NPK 10 10 20",
+    "usage":"",
+    "crop":"Impwa",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 10 10 30",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 10 10 35 + 3MgO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 10 15 15 ",
+    "usage":"",
+    "crop":"Onion",
+    "problem":"1",
+    "problem_notes":"Onions dry -Onions, shallots, green?",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 10 15 15 ",
+    "usage":"",
+    "crop":"Carrot",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":426,
+    "faostat_crop":"Carrots and turnips",
+    "faostat_definition":"Daucus carota. Trade data may include turnips (Brassica rapa var. rapifera)."
+  },
+  {
+    "name":"NPK 10 15 15 ",
+    "usage":"",
+    "crop":"Potato",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":116,
+    "faostat_crop":"Potatoes",
+    "faostat_definition":"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
+  },
+  {
+    "name":"NPK 10 15 15 ",
+    "usage":"",
+    "crop":"Tubers",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":149,
+    "faostat_crop":"Roots and tubers, nes",
+    "faostat_definition":"Including inter alia: arracacha (Arracacoa xanthorrhiza); arrowroot (Maranta arundinacea); chufa (Cyperus esculentus); sago palm (Metroxylon spp.); oca and ullucu (Oxalis tuberosa and Ullucus tuberosus); yam bean, jicama (Pachyrxhizus erosus, P. angulatus); mashua (Tropaeolum tuberosum); Jerusalem artichoke, topinambur (Helianthus tuberosus). Other tubers, roots or rhizomes, fresh, that are not identified separately because of their minor relevance at the international level. Because of their limited local importance, some countries report roots and tubers under this commodity heading that are classified individually by FAO."
+  },
+  {
+    "name":"NPK 10 18 20 + 6S + 0.8MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 10 18 24 + 7S + 0.1B",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPS 10 20 0 + 5S  + 1.5MgO + 20 CaO",
+    "usage":"",
+    "crop":"food crops",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 10 20 16 + 6S + 2B",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 10 20 10 + 6S",
+    "usage":"",
+    "crop":"Maize",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":56,
+    "faostat_crop":"Maize",
+    "faostat_definition":"Zea mays Corn, Indian corn, mealies. A grain with a high germ content. At the national level, hybrid and ordinary maize should be reported separately owing to widely different yields and uses. Used largely for animal feed and commercial starch production."
+  },
+  {
+    "name":"NPK 10 20 10 + 6S",
+    "usage":"",
+    "crop":"Cotton",
+    "problem":"1",
+    "problem_notes":"seed cotton, cotton lint??",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 10 20 40 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 10 26 10 + CaO + Mg + B + Zn",
+    "usage":"",
+    "crop":"Maize",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":56,
+    "faostat_crop":"Maize",
+    "faostat_definition":"Zea mays Corn, Indian corn, mealies. A grain with a high germ content. At the national level, hybrid and ordinary maize should be reported separately owing to widely different yields and uses. Used largely for animal feed and commercial starch production."
+  },
+  {
+    "name":"NPK 10 26 10 + CaO + Mg + B + Zn",
+    "usage":"",
+    "crop":"Sugarcane",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":156,
+    "faostat_crop":"Sugar cane",
+    "faostat_definition":"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
+  },
+  {
+    "name":"NPK 10 26 10 + CaO + Mg + B + Zn",
+    "usage":"",
+    "crop":"Wheat",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":15,
+    "faostat_crop":"Wheat",
+    "faostat_definition":"Triticum spp.: common (T. aestivum) durum (T. durum) spelt (T. spelta). Common and durum wheat are the main types. Among common wheat, the main varieties are spring and winter, hard and soft, and red and white. At the national level, different varieties should be reported separately, reflecting their different uses. Used mainly for human food."
+  },
+  {
+    "name":"NP 10 30 0",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 10 40 20 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 10 50 10 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 10 52 10 + 1MgO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 10 54 10 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 11 11 17 + 2MGO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 12 10 8 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NK 12 0 32",
+    "usage":"",
+    "crop":"Tomato",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":388,
+    "faostat_crop":"Tomatoes",
+    "faostat_definition":"Lycopersicon esculentum."
+  },
+  {
+    "name":"NPK 12 3 22",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 12 5 30",
+    "usage":"",
+    "crop":"Horticulture",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 12 6 28 + 7MgO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 12 7 24 + 2Mg0 + 7CaO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 12 9 8 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 12 10 10",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 12 10 18 ",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 12 12 12",
+    "usage":"",
+    "crop":"Cabbage",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":358,
+    "faostat_crop":"Cabbages and other brassicas",
+    "faostat_definition":"Chinese, mustard cabbage, pak-choi (Brassica chinensis); white, red, savoy cabbage, Brussels sprouts, collards, kale and kohlrabi (Brassica oleracea all var. except botrytis)."
+  },
+  {
+    "name":"NPK 12 12 12",
+    "usage":"",
+    "crop":"Grape",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":560,
+    "faostat_crop":"Grapes",
+    "faostat_definition":"Vitis vinifera. Includes both table and wine grapes."
+  },
+  {
+    "name":"NPK 12 12 12",
+    "usage":"",
+    "crop":"Spinach",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":373,
+    "faostat_crop":"Spinach",
+    "faostat_definition":"Spinacia oleracea. Trade figures may include New Zealand spinach (Tetragonia espansa) and orache (garden) spinach (Atriplex hortensis)."
+  },
+  {
+    "name":"NPK 12 12 12",
+    "usage":"",
+    "crop":"Broccoli",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":393,
+    "faostat_crop":"Cauliflowers and broccoli",
+    "faostat_definition":"Brassica oleracea var. botrytis, subvariety cauliflora and cymosa. Includes headed broccoli."
+  },
+  {
+    "name":"NPK 12 12 12",
+    "usage":"",
+    "crop":"Leaf vegetables",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 12 12 17 + 2MgO",
+    "usage":"",
+    "crop":"Oil-Palm",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":254,
+    "faostat_crop":"Oil, palm fruit",
+    "faostat_definition":"Elaeis guineensis. The oil palm produces bunches containing a large number of fruits with the fleshy mesocarp enclosing a kernel that is covered by a very hard shell. FAO considers palm oil (coming from the pulp) and palm kernels to be primary products. The oil extraction rate from a bunch varies from 17 to 27% for palm oil, and from 4 to 10% for palm kernels."
+  },
+  {
+    "name":"NPK 12 12 17 + 2MgO",
+    "usage":"",
+    "crop":"Cassava",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":125,
+    "faostat_crop":"Cassava",
+    "faostat_definition":"Manioc, mandioca, yuca (Manihot esculenta, syn. M. utilissima); yuca dulce (M. palmata, syn. M. dulcis). A semi-permanent crop grown in tropical and subtropical regions. Sometimes bitter and sweet cassavas are referred to as separate species, the former being M. esculenta and the latter M. palmata, but this is incorrect since the toxicity varies according to location. Cassava is the staple food in many tropical countries. It is not traded internationally in its fresh state because tubers deteriorate very rapidly."
+  },
+  {
+    "name":"NPK 12 12 36 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 12 22 12",
+    "usage":"",
+    "crop":"Sugarcane",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":156,
+    "faostat_crop":"Sugar cane",
+    "faostat_definition":"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
+  },
+  {
+    "name":"NPK 12 22 22 + 0.6 S",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 12 24 12",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 12 30 7 + S+ MgO + CaO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 12 32 6 + 0.1S + 2MgO + 4CaO + 0.4Zn",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NP 12 37 0 + 3S + 7CaO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NP 12 46 0 + 7S",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 12 52 5 + TE ",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 12.5 4 8",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NK 13 0 46",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 13 7 32 + 3MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 13 11 11 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 13 13 13 + 3MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NK 14 0 46",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 14 7 10 + 1MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 14 13 9 +14S",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 14 14 14 + 1MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 14 14 20 + 1.5MgO + TE",
+    "usage":"",
+    "crop":"Tobacco",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":826,
+    "faostat_crop":"Tobacco, unmanufactured",
+    "faostat_definition":"Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
+  },
+  {
+    "name":"NPK 14 26 9 + 3S + 0.5Zn + 0.2B",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 14 28 18 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK  15 9 20 + 9.5 S",
+    "usage":"",
+    "crop":"Pineapple",
+    "problem":"1",
+    "problem_notes":"A. sativ. Trade figures may include dried pineapples.",
+    "faostat_code":574,
+    "faostat_crop":"Pineapples",
+    "faostat_definition":"Ananas comosus"
+  },
+  {
+    "name":"NPK  15 9 20 + 9.5 S",
+    "usage":"",
+    "crop":"Mango",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":571,
+    "faostat_crop":"Mangoes, mangosteens, guavas",
+    "faostat_definition":"Mangifera indica. Trade figures may include dried mangoes, guavas and mangosteens, including both fresh and dried."
+  },
+  {
+    "name":"NPK  15 9 20 + 9.5 S",
+    "usage":"",
+    "crop":"Onions",
+    "problem":"1",
+    "problem_notes":"Onions dry -Onions, shallots, green?",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK  15 9 20 + 9.5 S",
+    "usage":"",
+    "crop":"Tomatoes",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":388,
+    "faostat_crop":"Tomatoes",
+    "faostat_definition":"Lycopersicon esculentum."
+  },
+  {
+    "name":"NPK  15 9 20 + 9.5 S",
+    "usage":"",
+    "crop":"Cassava",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":125,
+    "faostat_crop":"Cassava",
+    "faostat_definition":"Manioc, mandioca, yuca (Manihot esculenta, syn. M. utilissima); yuca dulce (M. palmata, syn. M. dulcis). A semi-permanent crop grown in tropical and subtropical regions. Sometimes bitter and sweet cassavas are referred to as separate species, the former being M. esculenta and the latter M. palmata, but this is incorrect since the toxicity varies according to location. Cassava is the staple food in many tropical countries. It is not traded internationally in its fresh state because tubers deteriorate very rapidly."
+  },
+  {
+    "name":"NPK  15 9 20 + 9.5 S",
+    "usage":"",
+    "crop":"Yam",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":137,
+    "faostat_crop":"Yams",
+    "faostat_definition":"Dioscorea spp.. The principal edible yams are widely grown throughout the tropics. A starchy staple foodstuff, normally eaten as a vegetable, boiled, baked or fried. In West Africa they are consumed mainly as \"fufu\", a stiff glutinous dough. Trade data cover both fresh and dried yams."
+  },
+  {
+    "name":"NPK  15 9 20 + 9.5 S",
+    "usage":"",
+    "crop":"Orange",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":490,
+    "faostat_crop":"Oranges",
+    "faostat_definition":"Common, sweet orange (Citrus sinensis); bitter orange (C. aurantium). Bitter oranges are used primarily in the preparation of marmalade."
+  },
+  {
+    "name":"NPK  15 9 20 + 9.5 S",
+    "usage":"",
+    "crop":"Pepper",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":687,
+    "faostat_crop":"Pepper (piper spp.)",
+    "faostat_definition":"Black, white pepper (Piper nigrum); long pepper (P. longum). Perennial climbing vines. Includes whole, crushed or ground berries. Black pepper is produced from partially ripe berries, while white pepper is from fully ripe berries which have had the outer hull removed."
+  },
+  {
+    "name":"NPK  15 9 20 + 9.5 S",
+    "usage":"",
+    "crop":"Okro",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK  15 9 20 + 9.5 S",
+    "usage":"",
+    "crop":"Cucumber",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":397,
+    "faostat_crop":"Cucumbers and gherkins",
+    "faostat_definition":"Cucumis sativus."
+  },
+  {
+    "name":"NK 15 0 26",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 15 6 12 + 2MgO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 15 7 25 ",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 15 9 9 + 3MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 15 9 20 + TE",
+    "usage":"",
+    "crop":"Pineapple",
+    "problem":"1",
+    "problem_notes":"A. sativ. Trade figures may include dried pineapples.",
+    "faostat_code":574,
+    "faostat_crop":"Pineapples",
+    "faostat_definition":"Ananas comosus"
+  },
+  {
+    "name":"NPK 15 9 20 + TE",
+    "usage":"",
+    "crop":"Mango",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":571,
+    "faostat_crop":"Mangoes, mangosteens, guavas",
+    "faostat_definition":"Mangifera indica. Trade figures may include dried mangoes, guavas and mangosteens, including both fresh and dried."
+  },
+  {
+    "name":"NPK 15 10 18",
+    "usage":"",
+    "crop":"Beans",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 15 10 13 + 4MgO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 15 10 14 + 12CaO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 15 10 30 + 5S + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 15 15 6 + 4MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 15 15 15 ",
+    "usage":"",
+    "crop":"Cereals",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":8,
+    "faostat_crop":"Cereals, nes",
+    "faostat_definition":"Including inter alia: canagua or coaihua (Chenopodium pallidicaule); quihuicha or Inca wheat (Amaranthus caudatus); adlay or Job's tears (Coix lacryma-jobi); wild rice (Zizania aquatica). Other cereal crops that are not identified separately because of their minor relevance at the international level. Because of their limited local importance, some countries report cereals under this commodity heading that are classified individually by FAO."
+  },
+  {
+    "name":"NPK 15 22 10 + 4MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 15 24 10 + 3MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 15 25 8",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 15 28 6",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 15 28 10 + 6S + 0.3B",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 15 30 15 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 16 16 12",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NK 16 0 24",
+    "usage":"",
+    "crop":"Vegetables",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":463,
+    "faostat_crop":"Vegetables, fresh nes",
+    "faostat_definition":"Including inter alia: bamboo shoots (Bambusa spp.); beets, chards (Beta vulgaris); capers (Capparis spinosa); cardoons (Cynara cardunculus); celery (Apium graveolens); chervil (Anthriscus cerefolium); cress (Lepidium sativum); fennel (Foeniculum vulgare); horseradish (Cochlearia armoracia); marjoram, sweet (Majorana hortensis); oyster plant (Tragopogon porrifolius); parsley (Petroselinum crispum); parsnips (Pastinaca sativa); radish (Raphanus sativus); rhubarb (Rheum spp.); rutabagas, swedes (Brassica napus); savory (Satureja hortensis); scorzonera (Scorzonera hispanica); sorrel (Rumex acetosa); soybean sprouts tarragon (Artemisia dracunculus); watercress (Nasturtium officinale). Other vegetables that are not identified separately because of their minor relevance at the international level. Because of their limited local importance, some countries report vegetables under this heading that are classified individually by FAO."
+  },
+  {
+    "name":"NPK 16 6 12 + 2MgO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 16 6 17 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 16 6 21 + 6S + Zn + B",
+    "usage":"",
+    "crop":"Coffee",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":656,
+    "faostat_crop":"Coffee, green",
+    "faostat_definition":"Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
+  },
+  {
+    "name":"NPK 16 7 15 + 2S",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 16 8 16 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 16 8.5 23 + 5S",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 16 16 16",
+    "usage":"",
+    "crop":"Coffee",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":656,
+    "faostat_crop":"Coffee, green",
+    "faostat_definition":"Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
+  },
+  {
+    "name":"NPK 16 16 16",
+    "usage":"",
+    "crop":"Horticulture",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 16 18 12",
+    "usage":"",
+    "crop":"Tobacco",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":826,
+    "faostat_crop":"Tobacco, unmanufactured",
+    "faostat_definition":"Nicotiana tabacum. Unmanufactured dry tobacco, including refuse that is not stemmed or stripped, or is partly or wholly stemmed or stripped."
+  },
+  {
+    "name":"NPK 16 18 12",
+    "usage":"",
+    "crop":"Cotton",
+    "problem":"1",
+    "problem_notes":"seed cotton, cotton lint??",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 16 21 10 + 4MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 17 7 17",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 17 7 16 + 2MgO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 17 8 25 ",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 17 10 9 + 5MgO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 17 12 11 +3MgO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 17 17 14",
+    "usage":"",
+    "crop":"Wheat",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":15,
+    "faostat_crop":"Wheat",
+    "faostat_definition":"Triticum spp.: common (T. aestivum) durum (T. durum) spelt (T. spelta). Common and durum wheat are the main types. Among common wheat, the main varieties are spring and winter, hard and soft, and red and white. At the national level, different varieties should be reported separately, reflecting their different uses. Used mainly for human food."
+  },
+  {
+    "name":"NPK 17 17 17",
+    "usage":"",
+    "crop":"Sugarcane",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":156,
+    "faostat_crop":"Sugar cane",
+    "faostat_definition":"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
+  },
+  {
+    "name":"NPK 17 17 17",
+    "usage":"",
+    "crop":"Coffee",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":656,
+    "faostat_crop":"Coffee, green",
+    "faostat_definition":"Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
+  },
+  {
+    "name":"NPK 17 17 17",
+    "usage":"",
+    "crop":"Potato",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":116,
+    "faostat_crop":"Potatoes",
+    "faostat_definition":"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
+  },
+  {
+    "name":"NPK 17 17 17",
+    "usage":"",
+    "crop":"Pea",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 17 17 17",
+    "usage":"",
+    "crop":"Pinapple",
+    "problem":"1",
+    "problem_notes":"A. sativ. Trade figures may include dried pineapples.",
+    "faostat_code":574,
+    "faostat_crop":"Pineapples",
+    "faostat_definition":"Ananas comosus"
+  },
+  {
+    "name":"NPK 18 4 12",
+    "usage":"",
+    "crop":"Coffee",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":656,
+    "faostat_crop":"Coffee, green",
+    "faostat_definition":"Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
+  },
+  {
+    "name":"NPK 18 5 14",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 18 5 18 + 2MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 18 6 12 ",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 18 9 27 + 2MgO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 18 12 22 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 18 18 18 + 3MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 18 18 18 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 18 22 5",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 18 24 10 + 1MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NP 18 44 0 ",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 18.5 9 24 + 2.2S + 2MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 19 19 19 + 1MgO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 19 4 19 + 2S + 3MgO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 19 9 19",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 19 19 19",
+    "usage":"",
+    "crop":"Flowers",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NP 19 38 0 + 7S",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 20 20 20 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 20 3.5 11.6 + 5S + 1.2MgO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 20 10 10 + 1MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 20 6 18 + 2MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 20 10 10",
+    "usage":"",
+    "crop":"Coffee",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":656,
+    "faostat_crop":"Coffee, green",
+    "faostat_definition":"Coffea spp. (arabica, robusta, liberica). Raw coffee in all forms."
+  },
+  {
+    "name":"NPK 20 10 10",
+    "usage":"",
+    "crop":"Cereals",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":8,
+    "faostat_crop":"Cereals, nes",
+    "faostat_definition":"Including inter alia: canagua or coaihua (Chenopodium pallidicaule); quihuicha or Inca wheat (Amaranthus caudatus); adlay or Job's tears (Coix lacryma-jobi); wild rice (Zizania aquatica). Other cereal crops that are not identified separately because of their minor relevance at the international level. Because of their limited local importance, some countries report cereals under this commodity heading that are classified individually by FAO."
+  },
+  {
+    "name":"NPK 20 10 5",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 20 10 17",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 20 10 20",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NP 20 20 0",
+    "usage":"",
+    "crop":"Maize and Sugarcane",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":156,
+    "faostat_crop":"Sugar cane",
+    "faostat_definition":"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
+  },
+  {
+    "name":"NPK 20 20 4 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 20 20 8",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 20 20 20",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 20 20 20 + 1MgO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 20 50 10",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 21 6 12 + 4S +6MgO + 15B + 1.5Zn ",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 21 7 14",
+    "usage":"",
+    "crop":"Cereals",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":8,
+    "faostat_crop":"Cereals, nes",
+    "faostat_definition":"Including inter alia: canagua or coaihua (Chenopodium pallidicaule); quihuicha or Inca wheat (Amaranthus caudatus); adlay or Job's tears (Coix lacryma-jobi); wild rice (Zizania aquatica). Other cereal crops that are not identified separately because of their minor relevance at the international level. Because of their limited local importance, some countries report cereals under this commodity heading that are classified individually by FAO."
+  },
+  {
+    "name":"NPK 21 7 21 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 21 10 8 + 3MgO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 21 5 8 + 8.5MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 22 6 12",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 22 6 12 + 3S + 1MgO + 2CaO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 22 16 18 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 22 21 17 + TE",
+    "usage":"",
+    "crop":"Tea",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":667,
+    "faostat_crop":"Tea",
+    "faostat_definition":"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
+  },
+  {
+    "name":"NPK 23 10 10 5 + 5S + 2MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 23 5 5 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 23 5 12 + 2MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 23 10 5",
+    "usage":"",
+    "crop":"Maize",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":56,
+    "faostat_crop":"Maize",
+    "faostat_definition":"Zea mays Corn, Indian corn, mealies. A grain with a high germ content. At the national level, hybrid and ordinary maize should be reported separately owing to widely different yields and uses. Used largely for animal feed and commercial starch production."
+  },
+  {
+    "name":"NPK 23 10 5",
+    "usage":"",
+    "crop":"Wheat + Barley",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":44,
+    "faostat_crop":"Barley",
+    "faostat_definition":"Hordeum spp.: two-row barley (H. disticum) six-row barley (H. hexasticum) four-row barley (H. vulgare). Tolerates poorer soils and lower temperatures better than does wheat. Varieties include with husk and without (naked). Used as a livestock feed, for malt and for preparing foods. The roasted grains are a coffee substitute."
+  },
+  {
+    "name":"NPK 23 10 5 +3S + Zn",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 23 10 5 +3S + 3MgO + Zn",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 23 10 5 + 3S + 2MgO + 0.3Zn",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 23 12 12 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NP 23 21 0 + 4S",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NP 23 23 0",
+    "usage":"",
+    "crop":"Maize and Sugarcane",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":156,
+    "faostat_crop":"Sugar cane",
+    "faostat_definition":"Saccharum officinarum. In some producing countries, marginal quantities of sugar cane are consumed, either directly as food or in the form of juice."
+  },
+  {
+    "name":"NPK 23 23 11 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 24 24 18",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 24 18 18",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NP 25 5 0 + 5S (MOP BASED)",
+    "usage":"",
+    "crop":"Tea",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":667,
+    "faostat_crop":"Tea",
+    "faostat_definition":"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
+  },
+  {
+    "name":"NPK 25 5 5 +3.95S+ 2.6MgO",
+    "usage":"",
+    "crop":"Tea",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":667,
+    "faostat_crop":"Tea",
+    "faostat_definition":"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
+  },
+  {
+    "name":"NPK 25 5 5",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 25 5 5 + 3S",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 25 5 5 + 5S",
+    "usage":"",
+    "crop":"Tea",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":667,
+    "faostat_crop":"Tea",
+    "faostat_definition":"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
+  },
+  {
+    "name":"NPK 25 5 5 + 5S + 3MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 25 5 5 + 7S + 3MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 25 5 5 + 3MgO (SOP BASED)",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 25 5 10",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 25 13 5 + 5MgO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NK 26 0 20 + S + MgO + CaO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 26 5 5 ",
+    "usage":"",
+    "crop":"Tea",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":667,
+    "faostat_crop":"Tea",
+    "faostat_definition":"Camellia sinensis; Thea sinensis; Thea assaamica. Includes green tea (unfermented), black tea (fermented), and partially fermented tea. Excludes green tea eaten as a vegetable."
+  },
+  {
+    "name":"NPK 26 12 12 + 2MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 27 5 11 + 2MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 27 6 6 + 2S",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 27 13 13",
+    "usage":"",
+    "crop":"Maize",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":56,
+    "faostat_crop":"Maize",
+    "faostat_definition":"Zea mays Corn, Indian corn, mealies. A grain with a high germ content. At the national level, hybrid and ordinary maize should be reported separately owing to widely different yields and uses. Used largely for animal feed and commercial starch production."
+  },
+  {
+    "name":"NPK 27 13 13",
+    "usage":"",
+    "crop":"Rice",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":27,
+    "faostat_crop":"Rice, paddy",
+    "faostat_definition":"Oryza spp., mainly oryza sativa. Rice grain after threshing and winnowing. Also known as rice in the husk and rough rice. Used mainly for human food."
+  },
+  {
+    "name":"NPK 27 15 12 + 1MgO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NP 27 14 0 + 6MgO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 27 24 15",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NK 28 0 24",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 28 10 10 + 10S + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 28 14 14 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NP 28 28 0",
+    "usage":"",
+    "crop":"Flowers",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NP 28 28 0",
+    "usage":"",
+    "crop":"Potato",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":116,
+    "faostat_crop":"Potatoes",
+    "faostat_definition":"Solanum tuberosum Irish potato. A seasonal crop grown in temperate zones all over the world, but primarily in the northern hemisphere."
+  },
+  {
+    "name":"NP 28 28 0",
+    "usage":"",
+    "crop":"Pea",
+    "problem":"1",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NP 28 28 0",
+    "usage":"",
+    "crop":"Pinapple",
+    "problem":"1",
+    "problem_notes":"A. sativ. Trade figures may include dried pineapples.",
+    "faostat_code":574,
+    "faostat_crop":"Pineapples",
+    "faostat_definition":"Ananas comosus"
+  },
+  {
+    "name":"NPK29 10 10 + 3MgO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK29 20 20 + 3MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 30 10 10",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 30 11 11 + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 31 8 8 ",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 35 5 7 + 2MgO",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 39 5 5 ",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  },
+  {
+    "name":"NPK 30 10 10 + 1MgO + TE",
+    "usage":"",
+    "crop":"",
+    "problem":"",
+    "problem_notes":"",
+    "faostat_code":null,
+    "faostat_crop":"",
+    "faostat_definition":""
+  }
+]

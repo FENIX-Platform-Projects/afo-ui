@@ -1,0 +1,54 @@
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+    <title>JS Geo</title>
+
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,900,700|Roboto+Condensed:400,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Fenix-Map-Js -->
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/css/jquery.power.tip/1.1.0/jquery.powertip.css" type="text/css" />
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min.css" />
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet.css" />
+
+    <link rel='icon' type='image/png' href='http://fenixapps.fao.org/repository/favicon/faostat.png'>
+    <link href='http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' rel='stylesheet'>
+    <link href='http://fenixapps.fao.org/repository/js/chosen/1.0.0/chosen.min.css' rel='stylesheet'>
+
+    <!-- Fenix Map js -->
+    <link rel="stylesheet" href="http://168.202.28.214:7070/fenix-map-js/fenix-map-js.css" />
+    <link rel="stylesheet" href="http://168.202.28.214:7070/fenix-map-js/leaflet-custom.css" />
+
+
+    <link rel="stylesheet" href="http://168.202.28.214:7070/fenix-map-js/projects/hungermap/hungermap.css" type="text/css" />
+
+    <script src='../vendors/js/require.js'></script>
+
+
+</head>
+
+<body id="fm_projects_container">
+</body>
+
+<script>
+    //Load common code that includes config, then load the app
+    //logic for this page. Do the require calls here instead of
+    //a separate file so after a build there are only 2 HTTP
+    //requests instead of three.
+    require(["common/common"], function (common) {
+        require(["fm_projects_main" ], function () {
+
+        });
+    });
+</script>
+
+</html>

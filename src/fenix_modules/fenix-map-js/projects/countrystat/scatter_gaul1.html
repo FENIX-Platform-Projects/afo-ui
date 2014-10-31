@@ -1,0 +1,406 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <link rel='icon' type='image/png' href='http://fenixapps.fao.org/repository/favicon/faostat.png'>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>CountrySTAT View</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.2/css/bootstrap.min.css">
+
+    <!--Fenix Map -->
+    <!-- leaflet -->
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/0.6.4/leaflet.css" />
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/0.6.4/leaflet.ie.css" />
+    <![endif]-->
+    <link rel="stylesheet" href='http://fenixapps.fao.org/repository/js/jqwidgets/3.0.2/styles/jqx.base.css'/>
+
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min.css" />
+    <!-- <link rel="stylesheet" href="http://fenixapps.fao.org/repository/css/jquery.power.tip/1.1.0/jquery.powertip.css" type="text/css" /> -->
+
+
+    <!-- Fenix Map CSS -->
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/FENIX/fenix-map-js/1.0/css/fenix-map-js.css" />
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/FENIX/fenix-map-js/1.0/css/leaflet-custom.css" />
+
+
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.0/MarkerCluster.Default.css" />
+
+
+
+
+</head>
+
+<body onload="initialize();">
+
+<div style='height: 25px;'></div>
+
+
+
+
+<div style='height: 15px; clear:both;'></div>
+<div class="container">
+
+    <!-- TITLE -->
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="input-group">
+                <span class="input-group-addon">Title</span>
+                <input type="text" class="form-control" placeholder="Title">
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="btn-group">
+                <a class='btn btn-primary' href='javascript:;'>
+                    Choose a File...
+                    <input type="file" id="files" name="files[]" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
+                </a>
+                &nbsp;
+                <span class='label label-info' id="upload-file-info"></span>
+            </div>
+            <!--<input type="file" id="files" name="files[]" />-->
+        </div>
+        <div class="col-lg-3">
+            <!-- <label class="radio-inline">
+                <input name="radioGroup" id="GEOCODE" value="option1" type="radio">GEOCODE
+            </label>
+            <label class="radio-inline">
+                <input name="radioGroup" id="LATLON" value="option2" checked="checked" type="radio">LATLON
+            </label>-->
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default">
+                    <input type="radio" name="type" value="GEOCODE">GEOCODE
+                </label>
+                <label class="btn btn-default">
+                    <input type="radio" name="type" value="LATLON" >LATLON
+                </label>
+            </div>
+        </div>
+    </div>
+    <div style='height: 15px; clear:both;'></div>
+   <!--  <div class="row">
+        <div class="col-lg-3">
+            <div>codelist</div>
+        </div>
+        <div class="col-lg-3">
+            <div>formula</div>
+        </div>
+    </div>  -->
+
+
+
+    <div id="container-charts"></div>
+</div>
+
+<div style='height: 25px;'></div>
+<div id="output"></div>
+
+</body>
+
+
+<!-- FENIX Map-->
+<script type='text/javascript'  src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type='text/javascript' src="http://fenixapps.fao.org/repository/js/leaflet/0.6.4/leaflet.js"></script>
+<!--<script type='text/javascript' src="http://fenixapps.fao.org/repository/js/jquery.power.tip/1.1.0/jquery.powertip.min.js"></script>-->
+<script type='text/javascript' src='http://fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min.js'></script>
+<script type='text/javascript' src='http://fenixapps.fao.org/repository/js/jquery/1.0.9/jquery.i18n.properties-min.js'></script>
+<script type='text/javascript' src='http://fenixapps.fao.org/repository/js/jqwidgets/3.0.2/jqx-all.js'></script>
+
+<!-- JSON Handler Old IE -->
+<script type='text/javascript' src='http://fenixapps.fao.org/repository/js/json2/1.0/json2.js'></script>
+
+<!-- Highchart -->
+<script src=" http://code.highcharts.com/highcharts.js"></script>
+
+<script src='http://fenixapps.fao.org/repository/js/FENIX/utils/import-dependencies-1.0.js'></script>
+
+<script type='text/javascript' src='http://168.202.23.224:8085/fenix-map-js/js/fenix-map-js-config.js'></script>
+<script type='text/javascript' src='countrystat-loader.js'></script>
+
+<script type='text/javascript' src='countrystat-scatter.js'></script>
+<script type='text/javascript' src='scatter-chart.js'></script>
+<script type='text/javascript' src='http://168.202.23.224:8085/fenix-map-js/wkt.js'></script>
+
+<!--bootstrap-->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+<!-- CSV reader -->
+<script src="http://fenixapps.fao.org/repository/js/csvjson/1.0/csvjson.min.1.0.js"></script>
+
+
+<!-- console log wrapper -->
+<script src="http://fenixapps.fao.org/repository/js/console.log-wrapper/1.0/consolelog.min.js"></script>
+<script src="http://fenixapps.fao.org/repository/js/console.log-wrapper/1.0/consolelog.detailprint.min.js"></script>
+
+
+<script src="http://168.202.23.224:8085/fenix-map-js/js/plugins/ChartLibrary.js"></script>
+<!--<script src="http://168.202.23.224:8085/fenix-map-js/js/plugins/FMChartScatter.js"></script>-->
+
+<script src="http://168.202.23.224:8085/fenix-map-js/js/plugins/FMChartScatterRefactoring.js"></script>
+<script src="http://fenixapps.fao.org/repository/js/highcharts/plugins/regression/1.0/regression.js"></script>
+
+
+<script src="http://fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.0/leaflet.markercluster.js"></script>
+
+
+
+<script src="http://fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.tilelayer.grayscale/1.0/tilelayer.grayscale.min.js"></script>
+
+
+<script src="http://fenixapps.fao.org/repository/js/jquery.hoverIntent/1.0/jquery.hoverIntent.js"></script>
+
+
+
+</html>
+
+<script>
+
+
+    var charts =  new Array();
+    var maps =  new Array()
+    var slaveCharts = new Array();
+    var slaveMaps = new Array();
+
+    function initialize() {
+        //console.log($('input[name=type]:checked'));
+        $('input[name=type]:checked').parent('label').addClass('active');
+
+        FM.init(
+                function() {
+
+                }
+        );
+    }
+
+    function handleFileSelect(evt) {
+        var files = evt.target.files; // FileList object
+
+        // Loop through the FileList and populate the 'outputTable' with the data
+        for (var i = 0, f; f = files[i]; i++) {
+
+            var reader = new FileReader();
+
+            // Closure to capture the file information.
+            reader.onload = (function(theFile) {
+                return function(e) {
+                    createScatter(e.target.result);
+                };
+            })(f);
+            reader.readAsText(f);
+        }
+    }
+
+    function createScatter(csv) {
+
+        var randLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
+        var id = randLetter + Date.now();
+
+        var chartID = 'chart-' + id;
+        var mapID = 'map-' + id;
+        var widget =
+                '<div class="row">' +
+                        '<div class="col-lg-6">' +
+                        '<div id="'+ chartID +'" ></div>'+
+                        '</div>' +
+                        '<div class="col-lg-6"> '+
+                        '<div id="'+ mapID +'" class="fm-box" style="overflow: hidden; margin: 0 auto; text-align: left;height: 400px;"></div>'+
+                        '<div id='+ mapID + '-gfioutput></div>' +
+
+
+                        '</div>' +
+                        '</div>';
+
+        widget += '<div style="height:25px;"></div>'
+        $('#container-charts').append(widget);
+
+
+        // to handle multiple maps
+        var maps = [];
+
+        // single map
+        var map = {};
+        // to handle multiple layers
+
+        var fenixMap = createMap(mapID);
+        var l = createLayer();
+        var layerHighlight = createHighlightLayer(fenixMap);
+
+        map.id = mapID;
+        map.fenixMap = fenixMap;
+        map.layers = [];
+        map.layers.push({ l: l, layerHighlight: layerHighlight});
+        maps.push(map);
+
+        var c = new FMChartScatter();
+        c.init({
+            chart : {
+                data : csv,
+                id : chartID,
+                datatype: 'csv'
+
+            },
+            maps: maps
+           /* map : {
+                id : mapID,
+                fenixMap: fenixMap,
+                l : l,
+                layerHighlight : layerHighlight
+            } */
+            ,type:$('input[name=type]:checked')[0].value
+        });
+
+
+
+        log('CHART: ' + c);
+        console.log(c);
+        // TODO: just use a master chart
+        if ( charts.length < 1  ) {
+            charts.push(c);
+        }
+        else {
+            slaveCharts.push(c)
+            var masterChart = charts[0];
+            masterChart.linkSlaveCharts(slaveCharts);
+        }
+
+
+    }
+
+    function createMap(mapID) {
+        var options = {
+            plugins: {
+                geosearch : false,
+                mouseposition: false,
+                controlloading : true,
+                zoomControl: 'bottomright'
+            },
+            guiController: {
+                overlay : true,
+                baselayer: true,
+                wmsLoader: true
+            },
+            gui: {
+                disclaimerfao: true
+            }
+        }
+
+        var mapOptions = {
+            zoomControl:false,
+            attributionControl: false
+        };
+
+        console.log(mapID);
+        var m = new FM.Map(mapID, options, mapOptions);
+        m.createMap();
+        //m.zoomTo('GAUL0', '182')
+
+        var tile = createBaseLayer('OSM_GRAYSCALE','EN' );
+        m.addTileLayer(tile, true);
+
+        var tile = createBaseLayer('ESRI_WORLDSTREETMAP','EN' );
+        m.addTileLayer(tile, true);
+
+        // On Move
+        var _m = m;
+        var GFIchk = {};
+        GFIchk["lat-" + m.id] = 0;
+        GFIchk["lng-" + m.id] = 0;
+        GFIchk["globalID-" + m.id] = 0;
+        m.map.on('mousemove', function (e) {
+            var id = Date.now();
+            GFIchk["globalID-" + _m.id] = id;
+            var t = setTimeout(function() {
+                if ( id == GFIchk["globalID-" + _m.id]) {
+                    //console.log(e);
+                    if ((GFIchk["lat-" + _m.id] != e.latlng.lat) && (GFIchk["lng-" + _m.id] != e.latlng.lng)) {
+                        GFIchk["lat-" + _m.id] = e.latlng.lat;
+                        GFIchk["lng-" + _m.id] = e.latlng.lng;
+                        // call callback
+                         _m.getFeatureInfo(e, mapID +'-gfioutput');
+                        //_m.getFeatureInfo(e);
+                    }
+                }
+            }, 100);
+        });
+        m.map.on('mouseout', function (e) {
+            GFIchk["lat-" + m.id] = 0;
+            GFIchk["lng-" + m.id] = 0;
+            GFIchk["globalID-" + m.id] = 0;
+            $('#' + mapID +'-gfioutput').empty();
+        });
+
+
+        return m;
+    }
+
+    function createLayer() {
+        var layer = {};
+        layer.layers='gaul1_3857'
+        //layer.layers='gaul2_nga_3857'
+        layer.styles=''
+        layer.layertitle="Gaul1"
+        layer.joincolumn='adm1_code'
+        layer.joindata=''
+        layer.addborders='true'
+        layer.borderscolor='FFFFFF'
+        layer.bordersstroke='0.8'
+        layer.bordersopacity='0.4'
+        layer.legendtitle='Population/Poverty'
+        //layer.cql_filter="adm0_code IN (182)";
+        layer.mu = 'Index';
+        layer.srs = 'EPSG:3857';
+        layer.layertype = 'JOIN';
+        layer.lang='e';
+        layer.jointype='shaded';
+        layer.defaultgfi = true;
+        layer.openlegend = true;
+        layer.geometrycolumn = 'the_geom'
+        /*
+         layer.colorramp='Reds'
+         layer.intervals='4'
+         */
+        layer.intervals='3';
+
+        //layer.colors='680000,FFFF00,009900';
+        layer.colors='965a00,e88a00,f3ab2d';
+        //layer.colors='8b001d,d5002b,eb3660';
+
+        //layer.colors='680000,D80000,FFFF00,00CC33,009900';
+        //layer.colors='FF0AFF,FF1EFF,D700D7,CD00CD';
+
+        var l = new FM.layer(layer);
+        return l
+    }
+
+    function createHighlightLayer(m) {
+        var layer = {};
+        layer.urlWMS = 'http://fenixapps.fao.org/geoserver'
+        layer.layers='gaul1_3857'
+        layer.styles=''
+        layer.layertitle="GAUL1 (Highlighted)"
+        layer.joincolumn='adm1_code'
+        layer.style = 'highlight_features';
+        layer.srs = 'EPSG:3857';
+        layer.opacity='0.9';
+        // layer.hideLayerInControllerList = true; // this to hide the layer from the controller list
+        layer.cql_filter="";
+        var layerHighlight = new FM.layer(layer, m);
+        layerHighlight.zindex = 104
+        //m.addLayerWMS(layerHighlight)
+        return layerHighlight;
+    }
+
+    function createBaseLayer(layername, lang) {
+        var layer = {};
+        layer.layername =layername;
+        layer.layertype ='TILE';
+        layer.lang = lang;
+        var l = new FM.TileLayer(layer);
+        l.leafletLayer = l.createTileLayer(layer.layername);
+        return l;
+    }
+
+
+    document.getElementById('files').addEventListener('change', handleFileSelect, false);
+</script>

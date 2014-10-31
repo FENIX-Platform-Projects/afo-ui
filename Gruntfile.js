@@ -104,7 +104,17 @@ module.exports = function(grunt) {
                 nonull: true,
                 src: "node_modules/underscore/underscore-min.js",
                 dest: "src/lib/underscore.js"
-            }
+            },
+            jqwidgets_js: {
+				nonull: true,
+				src: "node_modules/jqwidgets/jqx-all.js",
+				dest: "src/lib/jqwidgets.js"
+			},
+			jqwidgets_css: {
+				nonull: true,
+				src: "node_modules/jqwidgets/styles/jqx.base.css",
+				dest: "src/lib/jqwidegts.css"
+			}
         },
         jsdoc: {
             dist: {

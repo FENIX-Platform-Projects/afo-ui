@@ -1,0 +1,107 @@
+{
+   "items":[
+      {
+         "attrs": {
+            "id":"home"
+         },
+         "target":"../",
+         "label": {
+            "EN": "Home",
+            "FR": ""
+         }
+      },
+      {
+         "attrs": {
+            "id":"prices"
+         },
+         "target":"../prices/",
+         "label": {
+            "EN": "Prices",
+            "FR": ""
+         }
+      },
+      {
+         "attrs": {
+            "id": "analysis"
+         },
+         "target": "../analysis/",
+         "label": {
+            "EN":"Analysis",
+            "FR":""
+         }
+      },
+      {
+         "attrs": {
+            "id":"catalogue"
+         },
+         "target":"../catalogue/",
+         "label": {
+            "EN":"Catalogue",
+            "FR":""
+         }
+      },
+      {
+         "attrs": {
+            "id":"directories"
+         },
+         "target":"../directories/",
+         "label": {
+            "EN":"Directories",
+            "FR":""
+         }
+      },
+      {
+         "attrs": {
+            "id":"publications"
+         },
+         "target":"../publications/",
+         "label": {
+            "EN":"Publications",
+            "FR":""
+         }
+      },
+      {
+         "attrs": {
+            "id":"policies"
+         },
+         "target":"../policies/",
+         "label": {
+            "EN":"Policies",
+            "FR":""
+         }
+      },
+      {
+         "attrs": {
+            "id":"market_news"
+         },
+         "target":"../market_news/",
+         "label": {
+            "EN":"Market news",
+            "FR":""
+         }
+      },
+      {
+         "attrs": {
+            "id":"events"
+         },
+         "target":"../events/",
+         "label": {
+            "EN":"Events",
+            "FR":""
+         }
+      }
+   ],
+   "brand": {
+      "target": "#"
+   },
+   "languages": [
+      {
+         "lang":"EN",
+         "label":"En"
+      },
+      {
+         "lang":"FR",
+         "label":"Fr"
+      }
+   ]
+}

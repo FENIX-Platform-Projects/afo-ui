@@ -129,6 +129,7 @@ h1, h2 {
   color: #fff;
 }
 
+<<<<<<< HEAD
 /* Page Catalogue */
 
 #page-catalogue .jstree,
@@ -137,6 +138,13 @@ h1, h2 {
 }
 #page-catalogue #fertMap {
 	margin-top: 10px;
+=======
+/* Catalogue */
+
+#page-catalogue iframe,
+#page-catalogue select {
+  height: 500px;
+>>>>>>> 321d7af2f574237d56f329de07daedf79dbe7d86
 }
 
 #page-catalogue #chartFamilies {
@@ -165,6 +173,8 @@ h1, h2 {
   color: #fff
 }
 
+/* Directories */
+
 #listCompanies .tabCompany {
 	clear: both;
 	margin: 10px 0 40px 0;
@@ -179,20 +189,43 @@ h1, h2 {
 }
 
 #listCompanies .companyName {
+<<<<<<< HEAD
 	font-weight: bold;
+=======
+  font-weight: bold;
+}
+
+/* TABS  */
+
+.nav-tabs {
+  margin: 40px 15px;
+}
+
+optgroup {
+	text-align: center;
+	font-weight: normal;
+	background-color: #DDF3C2
+>>>>>>> 321d7af2f574237d56f329de07daedf79dbe7d86
 }
 
 #resultsCrops dd,
 #resultsCountries dd {
 	font-size: 1em;
 	float: left;
+<<<<<<< HEAD
 	width: 33%;
 	padding: 2px 10px;
+=======
+	width: 48%;
+	padding: 5px 10px;
+	border:1px solid #DDF3C2;
+>>>>>>> 321d7af2f574237d56f329de07daedf79dbe7d86
 	margin: 0 -1px -1px 0;
 }
 
 #resultsCrops dt,
 #resultsCountries dt {
+<<<<<<< HEAD
 	font-size: 1.5em;
 	display: block;
 	clear: both;
@@ -284,3 +317,9 @@ h1, h2 {
 	height: 20px;
 	width: 40px;
 }
+=======
+	display: block;
+	clear: both;
+	padding-top: 5px;
+}
+>>>>>>> 321d7af2f574237d56f329de07daedf79dbe7d86

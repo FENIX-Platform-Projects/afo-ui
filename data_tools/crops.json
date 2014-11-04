@@ -1,4 +1,5 @@
 [
+<<<<<<< HEAD
 	{
 		"id": "Beans",
 		"text": "Beans"
@@ -224,3 +225,62 @@
 		"text": "Yam"
 	}
 ]
+=======
+	"Beans",
+	"Broccoli",
+	"Cabbage",
+	"Carrot",
+	"Cassava",
+	"Cereals",
+	"Cocao",
+	"Cocoa",
+	"Coffee",
+	"Cotton",
+	"Cucumber",
+	"Eggplant",
+	"Flowers",
+	"flowers and Rice",
+	"food / cash crops",
+	"food crops",
+	"Fruits",
+	"Grape",
+	"Grapes and Fruits",
+	"Groundnut",
+	"Horticulture",
+	"Impwa",
+	"Leaf vegetables",
+	"Legumes",
+	"Maize",
+	"Maize and Sugarcane",
+	"Mango",
+	"Oil-Palm",
+	"okra",
+	"Okro",
+	"Onion",
+	"Onions",
+	"Orange",
+	"ornamentals",
+	"Ornamentals",
+	"Pea",
+	"Pepper",
+	"Pinapple",
+	"Pineapple",
+	"Potato",
+	"Potatoes and Vegetables",
+	"Pumkins",
+	"Rice",
+	"Soya - beans",
+	"Spinach",
+	"Sugarcane",
+	"Tea",
+	"Tobacco",
+	"Tomato",
+	"Tomatoes",
+	"Tubers",
+	"Vegetables",
+	"Watermelon",
+	"Wheat",
+	"Wheat + Barley",
+	"Yam"
+]
+>>>>>>> 321d7af2f574237d56f329de07daedf79dbe7d86

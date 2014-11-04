@@ -5,8 +5,9 @@ require.config({
 
 	paths: {
 		'i18n'                  :'lib/i18n',
+		'text'                  :'lib/text',
 		'domready'              :'lib/domready',
-		'bootstrap' 			:'lib/bootstrap',	
+		'bootstrap'             :'lib/bootstrap',	
 		//'backbone'              :'//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min',
 		'highcharts'            :'//fenixapps.fao.org/repository/js/highcharts/4.0.4/js/highcharts',
 		//'highcharts_exporting'  :'//fenixapps.fao.org/repository/js/highcharts/4.0.4/js/modules/exporting',
@@ -14,19 +15,18 @@ require.config({
 		//'highcharts-data'       :'http://code.highcharts.com/maps/modules/data',
 		'jquery'                :'lib/jquery',
 		'underscore'            :'lib/underscore',
-		'jstree'				:'lib/jstree/jstree.min',
+		'jstree'                :'lib/jstree/jstree.min',
 
 		//fenix-map-js
+		'fenix-map'             :'fenix_modules/fenix-map-js/fenix-map-min',
+		'fenix-map-config'      :'fenix_modules/fenix-map-js/fenix-map-config',		
 		'chosen'                :'//fenixapps.fao.org/repository/js/chosen/1.0.0/chosen.jquery.min',		
 		'leaflet'               :'//fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet',	    
 		'import-dependencies'   :'//fenixapps.fao.org/repository/js/FENIX/utils/import-dependencies-1.0',
 		'jquery.power.tip'      :'//fenixapps.fao.org/repository/js/jquery.power.tip/1.1.0/jquery.powertip.min',
 		'jquery-ui'             :'//fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min',
 		'jquery.i18n.properties':'//fenixapps.fao.org/repository/js/jquery/1.0.9/jquery.i18n.properties-min',
-		'jquery.hoverIntent'    :'//fenixapps.fao.org/repository/js/jquery.hoverIntent/1.0/jquery.hoverIntent',
-
-		'fenix-map'             :'fenix_modules/fenix-map-js/fenix-map-min',
-		'fenix-map-config'      :'fenix_modules/fenix-map-js/fenix-map-config'
+		'jquery.hoverIntent'    :'//fenixapps.fao.org/repository/js/jquery.hoverIntent/1.0/jquery.hoverIntent'
 	},
 
 	shim: {
@@ -41,6 +41,9 @@ require.config({
 		'underscore': {
 		    exports: '_'
 		},
+//		'fenix-map-config': {
+//			exports: 'FMCONFIG'
+//		},
 		'fenix-map': {
 			deps: [
 				'i18n',
@@ -51,45 +54,26 @@ require.config({
 				'jquery.hoverIntent',
 				'jquery.power.tip',
 				'jquery.i18n.properties',
-				'fenix-map-config',
-				'import-dependencies'
+				'import-dependencies',
+				'fenix-map-config'
 			]
 		}
 	}
 });
 
 require([
-	'jquery','underscore','bootstrap','highcharts','jstree','fenix-map','domready!'
-	], function($,_,bts,highcharts, jstree, FenixMap) {
+	'jquery','underscore','bootstrap','highcharts','jstree',
+	'fenix-map','text!../config/catalogue-map.json',
+	'domready!'
+	], function($,_,bts,highcharts,jstree,
+	FenixMap, mapConf) {
+
+	mapConf = JSON.parse(mapConf);
 
 	_.extend(FMCONFIG, {
 		BASEURL: '../src/fenix_modules/fenix-map-js',
 		BASEURL_LANG: '../src/fenix_modules/fenix-map-js/I18N/'
 	});
-
-	var mapConf = {
-		wdsUrl: 'http://faostat3.fao.org/wds/rest/table/json',
-		mapUrl: 'http://fenixapps.fao.org/maps-africaferilizers/api?',
-		wmsUrl: 'http://fenixapps2.fao.org/geoserver-demo',
-		sldUrl: 'http://fenixapps2.fao.org/geoservices/CSS2SLD',
-		dbName: 'africafertilizer',
-
-		//from Playground-js/../early_warning.js
-	   url_geoserver_wms: "http://168.202.28.214:9090/geoserver/wms",
-url_search_layer_product_type: "http://168.202.28.214:5019/search/layer/product/{{PRODUCT}}/type/{{TYPE}}/",
-     url_search_layer_product: "http://168.202.28.214:5019/search/layer/product/",
-	        url_stats_rasters: "http://168.202.28.214:5019/stats/rasters/spatial_query",
-		     url_spatialquery: "http://168.202.28.214:5019/spatialquery/db/spatial/",
-		     url_stats_raster: "http://168.202.28.214:5019/stats/raster/spatial_query"
-		//TODO update wehn update
-	};
-
-	var AFO_countries = [
-		"BDI","BEN","BFA","CIV","CMR","COD","ETH",
-		"GHA","GNB","KEN","MDG","MLI","MOZ","UGA",
-		"MWI","NER","NGA","RWA","SEN","TGO","TZA","ZMB"
-	];
-//FAMILIES
 
 	function initListFamilies(fert) {
 

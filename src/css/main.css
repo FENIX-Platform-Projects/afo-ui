@@ -129,8 +129,6 @@ h1, h2 {
   color: #fff;
 }
 
-<<<<<<< HEAD
-/* Page Catalogue */
 
 #page-catalogue .jstree,
 #page-catalogue #fertMap {
@@ -138,13 +136,7 @@ h1, h2 {
 }
 #page-catalogue #fertMap {
 	margin-top: 10px;
-=======
-/* Catalogue */
-
-#page-catalogue iframe,
-#page-catalogue select {
-  height: 500px;
->>>>>>> 321d7af2f574237d56f329de07daedf79dbe7d86
+	height: 500px;
 }
 
 #page-catalogue #chartFamilies {
@@ -189,9 +181,6 @@ h1, h2 {
 }
 
 #listCompanies .companyName {
-<<<<<<< HEAD
-	font-weight: bold;
-=======
   font-weight: bold;
 }
 
@@ -201,31 +190,18 @@ h1, h2 {
   margin: 40px 15px;
 }
 
-optgroup {
-	text-align: center;
-	font-weight: normal;
-	background-color: #DDF3C2
->>>>>>> 321d7af2f574237d56f329de07daedf79dbe7d86
-}
 
 #resultsCrops dd,
 #resultsCountries dd {
 	font-size: 1em;
 	float: left;
-<<<<<<< HEAD
 	width: 33%;
 	padding: 2px 10px;
-=======
-	width: 48%;
-	padding: 5px 10px;
-	border:1px solid #DDF3C2;
->>>>>>> 321d7af2f574237d56f329de07daedf79dbe7d86
 	margin: 0 -1px -1px 0;
 }
 
 #resultsCrops dt,
 #resultsCountries dt {
-<<<<<<< HEAD
 	font-size: 1.5em;
 	display: block;
 	clear: both;
@@ -303,23 +279,3 @@ optgroup {
 	margin: 0;
 	list-style: none;
 }
-
-#legendFamilies li {
-	float: left;
-	font-size: 12px;
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	margin-right: 20px;
-	text-align: center;
-	border: 1px solid #999;
-	color: #000;
-	height: 20px;
-	width: 40px;
-}
-=======
-	display: block;
-	clear: both;
-	padding-top: 5px;
-}
->>>>>>> 321d7af2f574237d56f329de07daedf79dbe7d86

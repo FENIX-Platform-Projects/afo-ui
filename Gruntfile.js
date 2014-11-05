@@ -104,7 +104,7 @@ module.exports = function(grunt) {
 				nonull: true,
 				src: "node_modules/i18n/i18n.js",
 				dest: "src/lib/i18n.js"
-			},            
+			},
             underscore: {
                 nonull: true,
                 src: "node_modules/underscore/underscore-min.js",

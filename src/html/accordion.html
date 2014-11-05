@@ -1,0 +1,17 @@
+
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="headingOne">
+  <h4 class="panel-title">
+    <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{id}}" aria-expanded="true" aria-controls="collapseOne">
+    	{{#if caret}}<span class="caret"></span>{{/if}} {{title}}
+    </a>
+  </h4>
+</div>
+<div id="collapse{{id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+  <div class="panel-body">
+    {{#each items}}
+    	<span class="col-xs-4 text-nowrap">{{this}}</span> 
+	{{/each}}
+  </div>
+</div>
+</div>

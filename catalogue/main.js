@@ -63,13 +63,17 @@ require.config({
 });
 
 require([
-	'jquery','underscore','bootstrap','highcharts','jstree',
-	'fenix-map','text!../config/catalogue-map.json',
+	'jquery','underscore','bootstrap','highcharts','jstree','handlebars',
+	'fenix-map',
+	'text!../config/catalogue-map.json',
+	'text!html/accordion.html',
 	'domready!'
-	], function($,_,bts,highcharts,jstree,
-	FenixMap, mapConf) {
+], function($,_,bts,highcharts,jstree,Handlebars,
+	FenixMap,
+	mapConf, accordion) {
 
 	mapConf = JSON.parse(mapConf);
+	accordionTmpl = Handlebars.compile(accordion);
 
 	_.extend(FMCONFIG, {
 		BASEURL: '../src/fenix_modules/fenix-map-js',
@@ -233,6 +237,8 @@ require([
 			_.each(res, function(val) {
 				initResultsCountries( val.id, val.text );
 			});
+
+			$('#resultsCountries .collapse').collapse();
 		});
 	}
 
@@ -259,10 +265,12 @@ require([
 				url: mapConf.wdsUrl,				
 				success: function(resp) {
 
-					$('#resultsCountries').append('<dt>'+countryName+'</dt>');
-					_.each(resp, function(val) {
-						$('#resultsCountries').append('<dd>&bull; '+val+'</dd>');
-					});
+					$('#resultsCountries').append(accordionTmpl({
+						id: countryIso3,
+						title: countryName,
+						items: resp,
+						caret: resp.length > 9						
+					}));
 				}
 			});
 	}
@@ -438,7 +446,7 @@ require([
 		};
 
 		setLayerStyle(fmLayer, ccodes, opacities);
-		
+		resultsCountries
 		fmLayer.leafletLayer.redraw();
 
 		zoomToCountries(fmMap, _.keys(ccodes));

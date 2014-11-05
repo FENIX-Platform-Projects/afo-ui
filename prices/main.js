@@ -124,6 +124,10 @@ function myGetData()
 		alert("missing parameters");
 }
 
+var initPricesInternational = function() {
+	$('#prices_international_grid').load("prices_international.html");
+};
+
 var initPricesNational = _.once(function() {
 
 	//FAOSTATNEWOLAP.rendererV = 2;
@@ -167,7 +171,7 @@ window.addEventListener('load', function() {
 		switch($(e.target).attr('href'))
 		{
 			case '#prices_international':
-				//initPricesInternational();
+				initPricesInternational();
 			break;
 			case '#prices_national':
 				initPricesNational();
@@ -177,5 +181,7 @@ window.addEventListener('load', function() {
 			break;
 		}
 	});
+
+	initPricesInternational();
 
 }, false);

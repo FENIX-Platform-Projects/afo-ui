@@ -1,11 +1,11 @@
 
 var mydata;
 
-function init() {
+/*function init() {
 	$('#country').checkboxTree({initializeUnchecked: 'collapsed'});
 	$('#partner').checkboxTree({initializeUnchecked: 'collapsed'});
 	$('#commodity').checkboxTree({initializeUnchecked: 'collapsed'});
-}
+}*/
 
 function returnTreeview(id) {
 	var ret=[];
@@ -124,46 +124,58 @@ function myGetData()
 		alert("missing parameters");
 }
 
+var initPricesNational = _.once(function() {
 
-var fx_controller = (function() {
+	//FAOSTATNEWOLAP.rendererV = 2;
+	/*
+			var derivers = $.pivotUtilities.derivers;
+			var renderers = $.extend(
+				$.pivotUtilities.renderers
+			);
+	*/
+	console.log('initPricesNational');
 
-	function init() {
+	$.getJSON("../data/prices_national.json", function(data) {
 		
-		//FAOSTATNEWOLAP.rendererV = 2;
-		/*
-				var derivers = $.pivotUtilities.derivers;
-				var renderers = $.extend(
-					$.pivotUtilities.renderers
-				);
-		*/
-
-		$.getJSON("../data/prices_national.json", function(data) {
-			
-			var matchMonth = {"Jan":01,"Feb":02,"Mar":03,"Apr":04,"May":05,"Jun":06,"Jul":07,"Aug":08,"Sep":09,"Oct":10,"Nov":11,"Dec":12};
-			
-			$("#pivot").pivotUI(data, {
-				derivedAttributes: {
-					"Month": function(mp){
-						return "<span class=\"ordre\">" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
-					}
-				},
-				rows: ["Area", "Item"],
-				cols: ["Year", "Month"],
-				vals: ["Value", "Unit", "Flag"],
-				hiddenAttributes:[],
-				linkedAttributes:[]
-			});
-
-			setTimeout(function() {
-				$("#pivot_loader").hide();
-			},0);
-
+		var matchMonth = {"Jan":01,"Feb":02,"Mar":03,"Apr":04,"May":05,"Jun":06,"Jul":07,"Aug":08,"Sep":09,"Oct":10,"Nov":11,"Dec":12};
+		
+		$("#pivot").pivotUI(data, {
+			derivedAttributes: {
+				"Month": function(mp){
+					return "<span class=\"ordre\">" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
+				}
+			},
+			rows: ["Area", "Item"],
+			cols: ["Year", "Month"],
+			vals: ["Value", "Unit", "Flag"],
+			hiddenAttributes:[],
+			linkedAttributes:[]
 		});
-		
-	};
 
-	return { init : init }
+		setTimeout(function() {
+			$("#pivot_loader").hide();
+		},0);
 
-})();
+	});
 
-window.addEventListener('load', fx_controller.init, false);
+});
+
+window.addEventListener('load', function() {
+
+	$('#prices_tabs').find('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+
+		switch($(e.target).attr('href'))
+		{
+			case '#prices_international':
+				//initPricesInternational();
+			break;
+			case '#prices_national':
+				initPricesNational();
+			break;
+			case '#prices_retail':
+				//initPricesRetail();
+			break;
+		}
+	});
+
+}, false);

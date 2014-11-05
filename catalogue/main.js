@@ -269,7 +269,7 @@ require([
 						id: countryIso3,
 						title: countryName,
 						items: resp,
-						caret: resp.length > 9						
+						caret: resp.length > 9
 					}));
 				}
 			});
@@ -333,11 +333,17 @@ require([
 				url: mapConf.wdsUrl,
 				success: function(resp) {
 
-					$('#resultsCrops').append('<dt>'+cropName+'</dt>');
+/*					$('#resultsCrops').append('<dt>'+cropName+'</dt>');
 					_.each(resp, function(val) {
 						$('#resultsCrops').append('<dd>&bull; '+val+'</dd>');
 						//TODO add countries
-					});
+					});*/
+					$('#resultsCrops').append(accordionTmpl({
+						id: cropId,
+						title: cropName,
+						items: resp,
+						caret: resp.length > 9
+					}));			
 				}
 			});
 	}

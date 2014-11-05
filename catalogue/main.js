@@ -16,6 +16,7 @@ require.config({
 		'jquery'                :'lib/jquery',
 		'underscore'            :'lib/underscore',
 		'jstree'                :'lib/jstree/jstree.min',
+		'handlebars'            :'lib/handlebars',
 
 		//fenix-map-js
 		'fenix-map'             :'fenix_modules/fenix-map-js/fenix-map-min',

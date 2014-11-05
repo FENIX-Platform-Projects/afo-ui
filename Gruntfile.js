@@ -99,7 +99,12 @@ module.exports = function(grunt) {
                 nonull: true,
                 src: "node_modules/text/text.js",
                 dest: "src/lib/text.js"
-            },  
+            },
+			i18n: {
+				nonull: true,
+				src: "node_modules/i18n/i18n.js",
+				dest: "src/lib/i18n.js"
+			},            
             underscore: {
                 nonull: true,
                 src: "node_modules/underscore/underscore-min.js",
@@ -114,7 +119,20 @@ module.exports = function(grunt) {
 				nonull: true,
 				src: "node_modules/jqwidgets/styles/jqx.base.css",
 				dest: "src/lib/jqwidegts.css"
-			}
+			},
+			handlebars: {
+				nonull: true,
+				src: "node_modules/handlebars/dist/handlebars.js",
+				dest: "src/lib/handlebars.js"
+			},
+			jstree: {
+				nonull: true,
+				expand: true,
+				//guit sflatten: true,
+				cwd: "node_modules/jstree/dist/",
+				src: '**',
+				dest: "src/lib/jstree/"
+			}		
         },
         jsdoc: {
             dist: {

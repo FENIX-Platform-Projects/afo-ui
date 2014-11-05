@@ -275,7 +275,17 @@ h1, h2 {
 }
 
 #legendFamilies {
-	padding: 0;
+	padding: 5px 0;
 	margin: 0;
 	list-style: none;
+	text-align: right;
 }
+
+#legendFamilies li {
+	text-align: center;
+	margin: 0 2px 0 0;
+	font-size: 14px;
+	width: 10%;
+	display: inline-block;
+}
+

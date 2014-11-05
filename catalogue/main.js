@@ -85,7 +85,7 @@ require([
 		$('#listFamilies').jstree({
 			core: {
 				data: {
-					url: '../data_tools/fertilizers_families.json'
+					url: '../data/fertilizers_families.json'
 				},
 				themes: {
 					icons: false
@@ -209,7 +209,7 @@ require([
 		var countriesData = [];
 
 		$.ajax({
-			url: '../data_tools/countries_iso3_afo.json',
+			url: '../data/countries_iso3_afo.json',
 			dataType: "json",
 			async: false,
 			success: function(json) {
@@ -282,7 +282,7 @@ require([
 		var cropsData = [];
 
 		$.ajax({
-			url: '../data_tools/crops.json',
+			url: '../data/crops.json',
 			dataType: "json",
 			async: false,
 			success: function(json) {

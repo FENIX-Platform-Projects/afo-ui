@@ -128,61 +128,37 @@ function myGetData()
 var fx_controller = (function() {
 
 	function init() {
-
-		//FAOSTATNEWOLAP.rendererV = 2;
-/*
-		var derivers = $.pivotUtilities.derivers;
-
-		var renderers = $.extend(
-			$.pivotUtilities.renderers
-		);
-*/
-		var DATA = [];
 		
-		/*$.ajax({
-			url: 'http://fenixapps.fao.org/repository/skeletons/af2/prices/data2.js',
-			dataType: 'json',
-			async: false,
-			success: function(json) {
-				DATA = json;
-				alert(DATA);
-				
-	
-			}
-		});*/
+		//FAOSTATNEWOLAP.rendererV = 2;
+		/*
+				var derivers = $.pivotUtilities.derivers;
+				var renderers = $.extend(
+					$.pivotUtilities.renderers
+				);
+		*/
 
-$.get("http://fenixapps.fao.org/repository/skeletons/af2/prices/data2.js",function(data){
-   // alert("Data: " + data );
-	DATA=eval(data);
-	var matchMonth={"Jan":01,"Feb":02,"Mar":03,"Apr":04,"May":05,"Jun":06,"Jul":07,"Aug":08,"Sep":09,"Oct":10,"Nov":11,"Dec":12}
-	$("#pivot").pivotUI(DATA, {
-			derivedAttributes: {
-				 "Month": function(mp)
-                    {return "<span class=\"ordre\">" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"] ;}
-			},
-			rows: ["Area", "Item"],
-			cols: ["Year","Month"],
-			vals: ["Value", "Unit", "Flag"],
-			hiddenAttributes:[],
-			linkedAttributes:[]
+		$.getJSON("../data/prices_national.json", function(data) {
+			
+			var matchMonth = {"Jan":01,"Feb":02,"Mar":03,"Apr":04,"May":05,"Jun":06,"Jul":07,"Aug":08,"Sep":09,"Oct":10,"Nov":11,"Dec":12};
+			
+			$("#pivot").pivotUI(data, {
+				derivedAttributes: {
+					"Month": function(mp){
+						return "<span class=\"ordre\">" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
+					}
+				},
+				rows: ["Area", "Item"],
+				cols: ["Year", "Month"],
+				vals: ["Value", "Unit", "Flag"],
+				hiddenAttributes:[],
+				linkedAttributes:[]
+			});
+
+			setTimeout(function() {
+				$("#pivot_loader").hide();
+			},0);
+
 		});
-
-setTimeout(function() {
-	$("#pivot_loader").hide();
-},0);
-
-  });
-  /*
-		$.ajax({
-			url: 'data.json',
-			dataType: 'json',
-			async: false,
-			done: function(json) {
-				DATA = json;
-				alert(DATA);
-			}
-		});
-*/
 		
 	};
 

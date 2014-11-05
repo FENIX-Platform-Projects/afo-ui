@@ -110,7 +110,6 @@ h1, h2 {
 }
 
 .footer {
-	border-top: 1px solid #EEEEEE;
 	margin-top: 40px;
 	padding-bottom: 40px;
 	padding-top: 40px;
@@ -132,10 +131,9 @@ h1, h2 {
 
 #page-catalogue .jstree,
 #page-catalogue #fertMap {
-	height: 455px;
+	height: 500px;
 }
 #page-catalogue #fertMap {
-	margin-top: 10px;
 	height: 500px;
 }
 
@@ -249,11 +247,18 @@ h1, h2 {
 }
 
 .loader-default {
-	background: url('../images/ajax-loader.gif') no-repeat top left;
+	background: url('../images/ajax-loader-default.gif') no-repeat top left;
 	padding-left: 40px;
 	min-height: 40px;
+	line-height: 40px;	
 	vertical-align: middle;
-	line-height: 40px;
+}
+.loader-xs {
+	background: url('../images/ajax-loader-xs.gif') no-repeat top left;
+	padding-left: 16px;
+	min-height: 16px;
+	line-height: 16px;	
+	vertical-align: middle;
 }
 
 #legendFamilies {
@@ -276,6 +281,10 @@ h1, h2 {
 	height: 60px !important;
 	overflow: hidden;
 }
+
+/*.collapse .panel-body {
+		box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+}*/
 
 .panel-title a:hover {
 	text-decoration: none;

@@ -1,6 +1,14 @@
 
 var mydata;
-
+F3DWLD = {
+    CONFIG: {
+        wdsPayload: {
+            showCodes: false
+        }
+    }
+};
+FAOSTATNEWOLAP.showUnits = "false";
+FAOSTATNEWOLAP.showFlags = "false";
 /*function init() {
 	$('#country').checkboxTree({initializeUnchecked: 'collapsed'});
 	$('#partner').checkboxTree({initializeUnchecked: 'collapsed'});
@@ -124,45 +132,20 @@ function myGetData()
 		alert("missing parameters");
 }
 
-var initPricesNational = _.once(function() {
 
-	//FAOSTATNEWOLAP.rendererV = 2;
-	/*
-			var derivers = $.pivotUtilities.derivers;
-			var renderers = $.extend(
-				$.pivotUtilities.renderers
-			);
-	*/
-	console.log('initPricesNational');
+//TODO replace with require()
 
-	$.getJSON("../data/prices_national.json", function(data) {
-		
-		var matchMonth = {"Jan":01,"Feb":02,"Mar":03,"Apr":04,"May":05,"Jun":06,"Jul":07,"Aug":08,"Sep":09,"Oct":10,"Nov":11,"Dec":12};
-		
-		$("#pivot").pivotUI(data, {
-			derivedAttributes: {
-				"Month": function(mp){
-					return "<span class=\"ordre\">" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
-				}
-			},
-			rows: ["Area", "Item"],
-			cols: ["Year", "Month"],
-			vals: ["Value", "Unit", "Flag"],
-			hiddenAttributes:[],
-			linkedAttributes:[]
-		});
-
-		setTimeout(function() {
-			$("#pivot_loader").hide();
-		},0);
-
-	});
-
+var initPricesInternational = _.once(function() {
+	$.getScript('prices_international.js');
 });
 
-var initPricesInternational = function() {
-	$.getScript('prices_international.js');
-};
+var initPricesNational = _.once(function() {
+	$.getScript('prices_national.js');
+});
+
+var initPricesRetail = _.once(function() {
+	$.getScript('prices_retail.js');
+});
 
 window.addEventListener('load', function() {
 
@@ -179,7 +162,7 @@ window.addEventListener('load', function() {
 				initPricesNational();
 			break;
 			case '#prices_retail':
-				//initPricesRetail();
+				initPricesRetail();
 			break;
 		}
 	});

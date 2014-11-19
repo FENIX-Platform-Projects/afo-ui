@@ -5,11 +5,8 @@ define([
 ], function($,_,bts,highcharts, data) {
 */
 
-
-$('#prices_international_grid').load("html/prices_international.html");
-
 var chart_options = {
-    title: { text: 'Monthly Prices', x: -20 },
+    title: { text: '' },
     legend: {
         layout: 'vertical',
         align: 'right',
@@ -19,9 +16,6 @@ var chart_options = {
         enabled: false
     },
     plotOptions: {
-        pie: {
-            allowPointSelect: false
-        },
         line: {
 
             marker: {
@@ -47,7 +41,7 @@ $.get('../data/prices_international.csv', function(data) {
     $.each(lines, function(lineNo, line) {
         var items = line.split(';');
 
-        items = items.splice(1,items.length-3);
+        items = items.splice(1, items.length-3);
         
         // header line containes categories
         if (lineNo == 0) {
@@ -70,6 +64,8 @@ $.get('../data/prices_international.csv', function(data) {
     });
     $('#chart_prices_inter').highcharts(chart_options);
 });
+
+$('#prices_international_grid').load("html/prices_international.html");
 
 //});
 

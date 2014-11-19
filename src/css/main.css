@@ -57,10 +57,6 @@ h1, h2 {
 
 /* TABS  */
 
-.nav-tabs {
-	margin: 40px 15px;
-}
-
 .jumbotron, .jumbotron h1, .jumbotron h2 {
 	color: white;
 }
@@ -185,7 +181,7 @@ h1, h2 {
 /* TABS  */
 
 .nav-tabs {
-  margin: 40px 15px;
+  margin-bottom: 20px;
 }
 
 /* Page Prices */
@@ -298,8 +294,7 @@ h1, h2 {
 #chart_prices_inter {
 	float: left;
 	margin: 20px 0;
-	height:200px;
+	height: 280px;
 	width:100%;
-	border:1px solid #aaa;
 }
 

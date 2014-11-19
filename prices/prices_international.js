@@ -15,6 +15,21 @@ var chart_options = {
         align: 'right',
         verticalAlign: 'middle'
     },
+    tooltip: {
+        enabled: false
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: false
+        },
+        line: {
+
+            marker: {
+                allowPointSelect: false,
+                enabled: false
+            }
+        }
+    },    
     yAxis: {
         title: { text: 'US $ / ton' },
         plotLines: [{ value: 0, width: 1, color: '#808080' }]

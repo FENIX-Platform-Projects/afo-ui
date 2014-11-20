@@ -298,6 +298,7 @@ h1, h2 {
 	width:100%;
 }
 #prices_retail_map {
+	border: 1px solid #ccc;
 	float: left;
 	margin: 20px 0;
 	height: 280px;

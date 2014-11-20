@@ -297,4 +297,9 @@ h1, h2 {
 	height: 280px;
 	width:100%;
 }
-
+#prices_retail_map {
+	float: left;
+	margin: 20px 0;
+	height: 280px;
+	width: 480px;
+}

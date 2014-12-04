@@ -161,6 +161,7 @@ $.getJSON("../data/prices_national.json", function(data) {
 	$("#pivot_download").show();
 
 	$("#pivot_download").on('click', function(e) {
+	alert('ok')
 		my_exportNew();
 		//decolrowspanNEW();
 	});

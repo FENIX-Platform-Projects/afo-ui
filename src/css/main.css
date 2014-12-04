@@ -304,3 +304,11 @@ h1, h2 {
 	height: 280px;
 	width: 480px;
 }
+
+#prices_retail_grid {
+	user-select: none;
+	-moz-user-select: none; 
+	-khtml-user-select: none; 
+	-webkit-user-select: none; 
+	-o-user-select: none; 
+}

@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/MarkerCluster.css">
 	<link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/MarkerCluster.Default.css">
 
-	<link rel="stylesheet" type="text/css" href="http://faostat3.fao.org/faostat-download-js/pivotAgg/pivot.css">
+	<link rel="stylesheet" type="text/css" href="pivot.css">
 	<link rel="stylesheet" href="../src/css/main.css">
 
 </head>
@@ -94,6 +94,8 @@
 					<div class="row">
 						<div class="col-xs-12">
 							<div id="pivot"></div>
+							 <div id="myGrid1_div"></div><br />
+							<div id="mesFlags" style="clear:both"></div>
 							<div id="pivot_loader" class="text-center"><i class="icon loader-xs"></i> &nbsp;Loading data...</div>
 							<button id="pivot_download" style="display:none" class="btn btn-default" type="button">
 								<i class="glyphicon glyphicon-download"></i> Download XLS File
@@ -131,7 +133,7 @@
 	<script src="pivot.js"></script>
 	<script src="http://faostat3.fao.org/faostat-download-js/pivotAgg/countriesAgg.js"></script>
 	<!--script src="http://faostat3.fao.org/faostat-download-js/pivotAgg/chart_renderers.js"></script-->
-	<script src="http://faostat3.fao.org/faostat-download-js/pivotAgg/configuration.js"></script>
+	<script src="configuration.js"></script>
 	<script src='http://fenixapps.fao.org/repository/js/jquery/1.0.9/jquery.i18n.properties-min.js'></script>
 	<script src="https://www.google.com/jsapi"></script>
 
@@ -144,6 +146,17 @@
 
 	<script src="https://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false"></script>
 
+	
+	<!--LIB FOR GRID-->
+	
+<link rel="stylesheet" type="text/css" href="lib/grid/gt_grid_height.css" />
+
+<script type="text/javascript" src="lib/grid/gt_msg_en.js"></script>
+<!--script type="text/javascript" src="grid/gt_const.js"></script-->
+<script type="text/javascript" src="lib/grid/gt_grid_all.js"></script>
+<script type="text/javascript" src="lib/grid/flashchart/fusioncharts/FusionCharts.js"></script>
+	
+	
 	<script src="main.js"></script>
 
   </body>

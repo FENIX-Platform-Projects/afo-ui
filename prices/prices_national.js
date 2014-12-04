@@ -142,8 +142,8 @@ function myGetData()
 
 $.getJSON("../data/prices_national.json", function(data) {
 	
-	var matchMonth = {"Jan":01,"Feb":02,"Mar":03,"Apr":04,"May":05,"Jun":06,"Jul":07,"Aug":08,"Sep":09,"Oct":10,"Nov":11,"Dec":12};
 	
+	FAOSTATNEWOLAP.originalData=data;
 	$("#pivot").pivotUI(data, {
 		derivedAttributes: {
 			"Month": function(mp){
@@ -162,6 +162,7 @@ $.getJSON("../data/prices_national.json", function(data) {
 
 	$("#pivot_download").on('click', function(e) {
 		my_exportNew();
+		//decolrowspanNEW();
 	});
 
 });

@@ -343,7 +343,7 @@ body {
   font: normal normal 300 14px/normal "Roboto Condensed"; }
 
 a {
-  color: #ca1a33; }
+  color: magenta; }
   a:focus {
     outline: none; }
   a:active {
@@ -355,24 +355,24 @@ a {
 
 h1 {
   font: normal normal 100 36px/normal "fontinregular";
-  color: #ca1a33; }
+  color: magenta; }
 
 h2 {
   font: normal normal 100 26px/normal "fontinregular";
-  color: #a83c4b; }
+  color: #d926d9; }
 
 h3 {
   font: normal normal 300 28px/normal "Roboto";
-  color: #91535c; }
+  color: #bf40bf; }
 
 h4 {
   font: normal normal 500 14px/normal "Roboto Condensed";
-  color: #7a6a6c; }
+  color: #a659a6; }
 
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {
   font-family: Roboto;
   font-weight: 700;
-  color: #ca1a33;
+  color: magenta;
   text-transform: uppercase;
   font-size: 12px; }
 
@@ -399,18 +399,18 @@ input[type="button"]::-moz-focus-inner {
   border: 0; }
 
 .btn {
-  background-color: #ca1a33;
+  background-color: magenta;
   color: white;
   border-color: transparent;
   font: normal normal 300 14px/normal "Roboto Condensed"; }
   .btn:hover {
     background-color: transparent;
-    color: #ca1a33;
-    border-color: #ca1a33; }
+    color: magenta;
+    border-color: magenta; }
   .btn:active {
     background-color: transparent;
-    color: #ca1a33;
-    border-color: #ca1a33;
+    color: magenta;
+    border-color: magenta;
     -webkit-box-shadow: 0 0 0 white;
     -moz-box-shadow: 0 0 0 white;
     box-shadow: 0 0 0 white; }
@@ -447,8 +447,8 @@ input[type="button"]::-moz-focus-inner {
 , .btn-primary.disabled.active
 , .btn-primary[disabled].active
 , fieldset[disabled] .btn-primary.active {
-  background-color: #91535c;
-  border-color: #91535c; }
+  background-color: #bf40bf;
+  border-color: #bf40bf; }
 
 /* Fenix - Circle Number Component */
 .fx-circle-number {
@@ -459,7 +459,7 @@ input[type="button"]::-moz-focus-inner {
   width: 20px;
   line-height: 20px;
   text-align: center;
-  background-color: #ca1a33;
+  background-color: magenta;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   -ms-border-radius: 100%;
@@ -477,9 +477,9 @@ input[type="button"]::-moz-focus-inner {
     -ms-border-radius: 0;
     border-radius: 0; }
   .datepicker .datepicker-days .day.active {
-    background-color: #ca1a33; }
+    background-color: magenta; }
   .datepicker .datepicker-days .day.today:before {
-    border-bottom-color: #ca1a33; }
+    border-bottom-color: magenta; }
   .datepicker .datepicker-days .day.active.today:before {
     border-bottom-color: white; }
 
@@ -575,7 +575,7 @@ legend {
   top: 4px;
   left: 30px;
   font-weight: 300;
-  color: #91535c; }
+  color: #bf40bf; }
 
 .fx-catalog-modular-form-content {
   padding: 10px 10px 10px 10px;
@@ -590,7 +590,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   border-width: 0; }
 
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
-  border-color: #ca1a33; }
+  border-color: magenta; }
 
 .nav > li > a {
   padding: 15px 10px 14px 10px;
@@ -601,13 +601,13 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   border-bottom: 1px solid white; }
 
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
-  background-color: #ca1a33; }
+  background-color: magenta; }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-  color: #ca1a33; }
+  color: magenta; }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  border-bottom: 1px solid #ca1a33; }
+  border-bottom: 1px solid magenta; }
 
 /* Fenix - Object Box Component */
 .obj-box, .obj-box-radius10, .obj-box-title {
@@ -637,7 +637,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 .obj-box-title {
   padding-top: 5px; }
   .obj-box-title h4 {
-    color: #ca1a33;
+    color: magenta;
     font: normal normal 500 14px/normal "Roboto Condensed"; }
 
 /* Fenix - Panel Component */
@@ -676,7 +676,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
         .panel-group .panel-heading .panel-title a:focus {
           text-decoration: none; }
   .panel-group .panel-heading.fx-active-panel .panel-title a {
-    color: #ca1a33; }
+    color: magenta; }
   .panel-group .panel-body .btn {
     background-color: transparent;
     color: #666666;
@@ -761,7 +761,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   min-height: 60px; }
 
 .fx-resume-title {
-  color: #ca1a33;
+  color: magenta;
   padding-left: 15px;
   padding-top: 5px;
   font: normal normal 400 10px/normal "Roboto";
@@ -776,7 +776,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 #fx-catalog-submit-btn {
   color: white;
   text-transform: uppercase;
-  background-color: #ca1a33;
+  background-color: magenta;
   width: 150px;
   position: absolute;
   bottom: 0;
@@ -799,7 +799,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
     padding-left: 15px; }
     .fx-resume-item-selected .fx-resume-module-title em {
       font: normal normal 400 10px/normal "Roboto";
-      color: #ca1a33;
+      color: magenta;
       font-size: 12px;
       /* Not expected */
       position: absolute;
@@ -849,14 +849,14 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 
 .bs-docs-sidebar .nav > li > a:hover, .bs-docs-sidebar .nav > li > a:focus {
   background-color: transparent;
-  border-left: 1px solid #ca1a33;
-  color: #ca1a33;
+  border-left: 1px solid magenta;
+  color: magenta;
   text-decoration: none; }
 
 .bs-docs-sidebar .nav > .active > a, .bs-docs-sidebar .nav > .active:hover > a, .bs-docs-sidebar .nav > .active:focus > a {
   background-color: transparent;
-  border-left: 1px solid #ca1a33;
-  color: #ca1a33;
+  border-left: 1px solid magenta;
+  color: magenta;
   font-weight: 700; }
 
 .bs-docs-sidebar .nav .nav {
@@ -913,11 +913,11 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   position: relative; }
   .fx-widget .nav-tabs > li > a:hover, .fx-widget .nav-tabs > li > a:focus, .fx-widget .nav-tabs > li > a:active {
     background-color: transparent;
-    color: #ca1a33;
+    color: magenta;
     border-color: transparent; }
   .fx-widget .nav-tabs > li.active > a, .fx-widget .nav-tabs > li.active > a:hover, .fx-widget .nav-tabs > li.active > a:focus {
     background-color: white;
-    color: #ca1a33;
+    color: magenta;
     border-left-color: #d8d8d8;
     border-top-color: #d8d8d8;
     border-right-color: #d8d8d8;
@@ -1030,15 +1030,15 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   display: none; }
 
 .fx-closepanel-container {
-  border-bottom: 1px solid #ca1a33;
+  border-bottom: 1px solid magenta;
   padding: 5px 10px; }
   .fx-closepanel-container .fx-widget-icons {
-    color: #ca1a33;
+    color: magenta;
     margin-right: 5px;
     cursor: pointer; }
   .fx-closepanel-container #fx-ws-close-btn {
     text-transform: uppercase;
-    color: #ca1a33;
+    color: magenta;
     cursor: pointer;
     line-height: 1;
     display: inline-block;
@@ -1063,7 +1063,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   list-style-type: none;
   padding: 16px 16px 35px 16px;
   position: relative;
-  border-bottom: 1px solid #ca1a33; }
+  border-bottom: 1px solid magenta; }
 
 .fx-sessionstore-item-title {
   text-transform: uppercase;
@@ -1100,7 +1100,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   width: 20px;
   line-height: 20px;
   text-align: center;
-  background-color: #ca1a33;
+  background-color: magenta;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   -ms-border-radius: 100%;
@@ -1119,7 +1119,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 
 .introjs-button:hover, .introjs-button:active, .introjs-button:focus {
   text-shadow: none;
-  color: #ca1a33;
+  color: magenta;
   text-decoration: none; }
 
 /* Fenix - JQwidgets */
@@ -1136,14 +1136,14 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   color: #666666;
   text-shadow: none;
   border-color: transparent;
-  background-color: #f9d0d6;
-  background-image: -moz-linear-gradient(top, #f9d0d6, #f9d0d6);
-  background-image: -ms-linear-gradient(top, #f9d0d6, #f9d0d6);
-  background-image: -o-linear-gradient(top, #f9d0d6, #f9d0d6);
-  background-image: -webkit-gradient(linear, center top, center bottom, from(#f9d0d6), to(#f9d0d6));
-  background-image: -webkit-linear-gradient(top, #f9d0d6, #f9d0d6);
-  background-image: linear-gradient(top, #f9d0d6, #f9d0d6);
-  background-image: linear-gradient(to bottom, #f9d0d6, #f9d0d6);
+  background-color: #ffe5ff;
+  background-image: -moz-linear-gradient(top, #ffe5ff, #ffe5ff);
+  background-image: -ms-linear-gradient(top, #ffe5ff, #ffe5ff);
+  background-image: -o-linear-gradient(top, #ffe5ff, #ffe5ff);
+  background-image: -webkit-gradient(linear, center top, center bottom, from(#ffe5ff), to(#ffe5ff));
+  background-image: -webkit-linear-gradient(top, #ffe5ff, #ffe5ff);
+  background-image: linear-gradient(top, #ffe5ff, #ffe5ff);
+  background-image: linear-gradient(to bottom, #ffe5ff, #ffe5ff);
   -moz-background-clip: padding;
   background-clip: padding-box;
   -webkit-background-clip: padding-box;
@@ -1210,14 +1210,14 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   color: #666666;
   text-shadow: none;
   border-color: transparent;
-  background-color: #f9d0d6;
-  background-image: -moz-linear-gradient(top, #f9d0d6, #f9d0d6);
-  background-image: -ms-linear-gradient(top, #f9d0d6, #f9d0d6);
-  background-image: -o-linear-gradient(top, #f9d0d6, #f9d0d6);
-  background-image: -webkit-gradient(linear, center top, center bottom, from(#f9d0d6), to(#f9d0d6));
-  background-image: -webkit-linear-gradient(top, #f9d0d6, #f9d0d6);
-  background-image: linear-gradient(top, #f9d0d6, #f9d0d6);
-  background-image: linear-gradient(to bottom, #f9d0d6, #f9d0d6);
+  background-color: #ffe5ff;
+  background-image: -moz-linear-gradient(top, #ffe5ff, #ffe5ff);
+  background-image: -ms-linear-gradient(top, #ffe5ff, #ffe5ff);
+  background-image: -o-linear-gradient(top, #ffe5ff, #ffe5ff);
+  background-image: -webkit-gradient(linear, center top, center bottom, from(#ffe5ff), to(#ffe5ff));
+  background-image: -webkit-linear-gradient(top, #ffe5ff, #ffe5ff);
+  background-image: linear-gradient(top, #ffe5ff, #ffe5ff);
+  background-image: linear-gradient(to bottom, #ffe5ff, #ffe5ff);
   -moz-background-clip: padding;
   background-clip: padding-box;
   -webkit-background-clip: padding-box;
@@ -1226,15 +1226,15 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 .jqx-fill-state-pressed, .jqx-widget .jqx-grid-cell-selected {
   color: #666666;
   text-shadow: none;
-  border-color: #f6bac2;
-  background-color: #f6bac2;
-  background-image: -moz-linear-gradient(top, #f6bac2, #f6bac2);
-  background-image: -ms-linear-gradient(top, #f6bac2, #f6bac2);
-  background-image: -o-linear-gradient(top, #f6bac2, #f6bac2);
-  background-image: -webkit-gradient(linear, center top, center bottom, from(#f6bac2), to(#f6bac2));
-  background-image: -webkit-linear-gradient(top, #f6bac2, #f6bac2);
-  background-image: linear-gradient(top, #f6bac2, #f6bac2);
-  background-image: linear-gradient(to bottom, #f6bac2, #f6bac2);
+  border-color: #ffccff;
+  background-color: #ffccff;
+  background-image: -moz-linear-gradient(top, #ffccff, #ffccff);
+  background-image: -ms-linear-gradient(top, #ffccff, #ffccff);
+  background-image: -o-linear-gradient(top, #ffccff, #ffccff);
+  background-image: -webkit-gradient(linear, center top, center bottom, from(#ffccff), to(#ffccff));
+  background-image: -webkit-linear-gradient(top, #ffccff, #ffccff);
+  background-image: linear-gradient(top, #ffccff, #ffccff);
+  background-image: linear-gradient(to bottom, #ffccff, #ffccff);
   -moz-background-clip: padding;
   background-clip: padding-box;
   -webkit-background-clip: padding-box;
@@ -1538,11 +1538,11 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 
 .jstree-default .jstree-wholerow-clicked {
   background: none;
-  background-color: #f6bac2; }
+  background-color: #ffccff; }
 
 .jstree-default .jstree-wholerow-hovered {
   background: none;
-  background-color: #f9d0d6; }
+  background-color: #ffe5ff; }
 
 /* Pages */
 /* AFO - Home Style */
@@ -1619,6 +1619,21 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   background-size: 34px 44px !important; }
 
 /* Stefano's original CSS from main.css */
+#page-catalogue .jstree,
+#page-catalogue #fertMap {
+  min-height: 500px; }
+
+#page-catalogue #fertMap {
+  height: 500px;
+  position: relative; }
+
+#page-catalogue #chartFamilies {
+  height: 240px;
+  width: auto; }
+
+#page-catalogue #listFamilies {
+  min-height: 500px; }
+
 /* Page Directories */
 #page-directories #listCountries .btn {
   color: #b4d180; }
@@ -1642,9 +1657,6 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   font-weight: bold; }
 
 /* TABS  */
-.nav-tabs {
-  margin-bottom: 20px; }
-
 /* Page Prices */
 /*#aggregator ,*/
 #renderer {
@@ -1702,14 +1714,14 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   z-index: 1000; }
 
 .loader-default {
-  background: url("../images/ajax-loader-default.gif") no-repeat top left;
+  background: url("../img/ajax-loader-default.gif") no-repeat top left;
   padding-left: 40px;
   min-height: 40px;
   line-height: 40px;
   vertical-align: middle; }
 
 .loader-xs {
-  background: url("../images/ajax-loader-xs.gif") no-repeat top left;
+  background: url("../img/ajax-loader-xs.gif") no-repeat top left;
   padding-left: 16px;
   min-height: 16px;
   line-height: 16px;

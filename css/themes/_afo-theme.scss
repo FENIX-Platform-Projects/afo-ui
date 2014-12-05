@@ -8,6 +8,25 @@
 
 /* Stefano's original CSS from main.css */
 
+
+#page-catalogue .jstree,
+#page-catalogue #fertMap {
+min-height: 500px;
+}
+#page-catalogue #fertMap {
+height: 500px;
+  position: relative;
+}
+
+#page-catalogue #chartFamilies {
+height: 240px;
+width: auto;
+}
+
+#page-catalogue #listFamilies {
+ min-height: 500px;
+}
+
 /* Page Directories */
 
 #page-directories #listCountries .btn {
@@ -37,10 +56,6 @@
 }
 
 /* TABS  */
-
-.nav-tabs {
-  margin-bottom: 20px;
-}
 
 /* Page Prices */
 /*#aggregator ,*/
@@ -110,14 +125,14 @@
 }
 
 .loader-default {
-  background: url('../images/ajax-loader-default.gif') no-repeat top left;
+  background: url('../img/ajax-loader-default.gif') no-repeat top left;
   padding-left: 40px;
   min-height: 40px;
   line-height: 40px;
   vertical-align: middle;
 }
 .loader-xs {
-  background: url('../images/ajax-loader-xs.gif') no-repeat top left;
+  background: url('../img/ajax-loader-xs.gif') no-repeat top left;
   padding-left: 16px;
   min-height: 16px;
   line-height: 16px;

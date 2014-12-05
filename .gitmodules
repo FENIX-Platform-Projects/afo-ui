@@ -1,0 +1,12 @@
+[submodule "submodules/fenix-ui-common"]
+	path = submodules/fenix-ui-common
+	url = https://github.com/FENIX-Platform/fenix-ui-common.git
+[submodule "submodules/fenix-ui-olap"]
+	path = submodules/fenix-ui-olap
+	url = https://github.com/FENIX-Platform/fenix-ui-olap.git
+[submodule "submodules/fenix-ui-catalog"]
+	path = submodules/fenix-ui-catalog
+	url = https://github.com/FENIX-Platform/fenix-ui-catalog.git
+[submodule "submodules/fenix-ui-analysis"]
+	path = submodules/fenix-ui-analysis
+	url = https://github.com/FENIX-Platform/fenix-ui-analysis.git

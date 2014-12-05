@@ -22,11 +22,11 @@
       },
        {
          "attrs":{
-            "id":"analysis"
+            "id":"statistics"
          },
-         "target":"./analysis",
+         "target":"./statistics",
          "label":{
-            "EN":"Analysis",
+            "EN":"Statistics",
             "FR":"PI"
          }
       },

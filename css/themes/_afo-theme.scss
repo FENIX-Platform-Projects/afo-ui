@@ -1,0 +1,181 @@
+/* AFO Theme */
+
+.navbar-brand{
+  background-image: url("img/uae-ico.svg") !important; /* To be removed */
+  background-size: 34px 44px !important;
+}
+
+
+/* Stefano's original CSS from main.css */
+
+/* Page Directories */
+
+#page-directories #listCountries .btn {
+  color: #B4D180
+}
+#page-directories #listCountries .btn.active {
+  color: #fff
+}
+
+/* Directories */
+
+#listCompanies .tabCompany {
+  clear: both;
+  margin: 10px 0 40px 0;
+  background-color: #fff;
+  border: none;
+  box-shadow: 0 0 4px #ccc;
+  display: none;
+}
+
+#listCompanies .tabCompany td {
+  padding: 5px;
+}
+
+#listCompanies .companyName {
+  font-weight: bold;
+}
+
+/* TABS  */
+
+.nav-tabs {
+  margin-bottom: 20px;
+}
+
+/* Page Prices */
+/*#aggregator ,*/
+#renderer
+{
+  display: block;
+}
+
+#chaudgraph,
+#chaudagg {
+  display: none;
+}
+
+#pivot #finaltable {
+  overflow: auto;
+  width: 1000px;
+  height: 400px;
+}
+#pivot .pvtHorizList {
+  padding: 5px !important;
+}
+/*#pivot .ui-sortable-handle {
+	font-family: 'Roboto Condensed', sans-serif !important;
+	font-weight: normal;
+	text-transform: capitalize;
+	font-size: 14px;
+	background: #B4D180;
+	border:1px solid #A4C170;
+	padding: 2px 4px;
+}*/
+.fx-olap-holder * {
+  box-sizing: content-box;
+}
+.gt-row-over td {
+  cursor: default;
+  border-bottom: 1px solid transparent;
+  background-color: #DDF3C2;
+}
+
+#pivot .ui-sortable-handle:hover {
+  box-shadow: 1px 1px 4px rgba(80,80,80,0.3)
+}
+
+#pivot td,
+#pivot tr
+#pivot th {
+  padding: 2px !important;
+  margin: 0 !important;
+}
+
+#pivot .invi {
+  display: none;
+}
+
+/* Leaflet */
+
+.leaflet-popup-content {
+  margin: 8px 16px;
+}
+
+.fm-popup-join-content {
+  font-size: 14px;
+}
+
+#powerTip {
+  z-index: 1000;
+}
+
+.loader-default {
+  background: url('../images/ajax-loader-default.gif') no-repeat top left;
+  padding-left: 40px;
+  min-height: 40px;
+  line-height: 40px;
+  vertical-align: middle;
+}
+.loader-xs {
+  background: url('../images/ajax-loader-xs.gif') no-repeat top left;
+  padding-left: 16px;
+  min-height: 16px;
+  line-height: 16px;
+  vertical-align: middle;
+}
+
+#legendFamilies {
+  padding: 5px 0;
+  margin: 0;
+  list-style: none;
+  text-align: right;
+}
+
+#legendFamilies li {
+  text-align: center;
+  margin: 0 2px 0 0;
+  font-size: 14px;
+  width: 10%;
+  display: inline-block;
+}
+
+.collapse {
+  display: block;
+  height: 60px !important;
+  overflow: hidden;
+}
+
+.panel-title a:hover {
+  text-decoration: none;
+}
+
+.collapsing,
+.collapse.in {
+  height: auto !important;
+  overflow: hidden;
+  overflow-y: scroll;
+  max-height: 280px;
+  min-height: 60px;
+}
+
+#chart_prices_inter {
+  float: left;
+  margin: 20px 0;
+  height: 280px;
+  width:100%;
+}
+#prices_retail_map {
+  border: 1px solid #ccc;
+  float: left;
+  margin: 20px 0;
+  height: 280px;
+  width: 480px;
+}
+
+#prices_retail_grid {
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}

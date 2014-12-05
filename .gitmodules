@@ -10,3 +10,6 @@
 [submodule "submodules/fenix-ui-analysis"]
 	path = submodules/fenix-ui-analysis
 	url = https://github.com/FENIX-Platform/fenix-ui-analysis.git
+[submodule "submodules/fenix-ui-map"]
+	path = submodules/fenix-ui-map
+	url = https://github.com/FENIX-Platform/fenix-ui-map.git

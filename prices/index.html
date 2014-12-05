@@ -13,8 +13,14 @@
 	<link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/MarkerCluster.css">
 	<link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/MarkerCluster.Default.css">
 
-	<link rel="stylesheet" type="text/css" href="pivot.css">
+	<!--link rel="stylesheet" type="text/css" href="lib/grid/gt_grid_height.css" /-->
+
+	<link rel="stylesheet" type="text/css" href="../submodules/fenix-ui-olap/css/pivot.css">
+    <link rel="stylesheet" type="text/css" href="../submodules/fenix-ui-olap/lib/grid/gt_grid_height.css" />
+
+	
 	<link rel="stylesheet" href="../src/css/main.css">
+	<!--LIB FOR GRID-->
 
 </head>
 <body id="page-prices">
@@ -93,6 +99,8 @@
 				<div class="tab-pane" id="prices_national">
 					<div class="row">
 						<div class="col-xs-12">
+
+						<div class="fx-olap-holder">
 							<div id="pivot"></div>
 							 <div id="myGrid1_div"></div><br />
 							<div id="mesFlags" style="clear:both"></div>
@@ -101,13 +109,15 @@
 								<i class="glyphicon glyphicon-download"></i> Download XLS File
 							</button-->
 						</div>
+
+						</div>
 					</div>
 				</div>
 				<div class="tab-pane" id="prices_retail">
 					<div class="row">
 						<div class="col-xs-12" style="font-size:12px">
 							<div id="prices_retail_map"></div>
-							<div id="prices_retail_grid"></div>
+							<div id="prices_retail_grid" class="clearfix"></div>
 						</div>
 					</div>
 				</div>
@@ -145,11 +155,6 @@
 	<script src="http://fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/leaflet.markercluster.js"></script>
 
 	<script src="https://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false"></script>
-
-	
-	<!--LIB FOR GRID-->
-	
-<link rel="stylesheet" type="text/css" href="lib/grid/gt_grid_height.css" />
 
 <script type="text/javascript" src="lib/grid/gt_msg_en.js"></script>
 <!--script type="text/javascript" src="grid/gt_const.js"></script-->

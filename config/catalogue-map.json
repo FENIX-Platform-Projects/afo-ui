@@ -5,9 +5,9 @@
 	"sldUrl": "http://fenixapps2.fao.org/geoservices/CSS2SLD",
 	"dbName": "africafertilizer",
 	"url_geoserver_wms": "http://168.202.28.214:9090/geoserver/wms",
-	"url_search_layer_product_type": "http://168.202.28.214:5019/search/layer/product/{{PRODUCT}}/type/{{TYPE}}/",
-	"url_search_layer_product": "http://168.202.28.214:5019/search/layer/product/",
-	"url_stats_rasters": "http://168.202.28.214:5019/stats/rasters/spatial_query",
-	"url_spatialquery": "http://168.202.28.214:5019/spatialquery/db/spatial/",
-	"url_stats_raster": "http://168.202.28.214:5019/stats/raster/spatial_query"
+	"url_search_layer_product_type": "http://168.202.28.214:5020/search/layer/product/{{PRODUCT}}/type/{{TYPE}}/",
+	"url_search_layer_product": "http://168.202.28.214:5020/search/layer/product/",
+	"url_stats_rasters": "http://168.202.28.214:5020/stats/rasters/spatial_query",
+	"url_spatialquery": "http://168.202.28.214:5020/spatialquery/db/spatial/",
+	"url_stats_raster": "http://168.202.28.214:5020/stats/raster/spatial_query"
 }

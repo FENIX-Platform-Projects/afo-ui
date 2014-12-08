@@ -155,8 +155,8 @@ onMouseOver : function(value,  record,  cell,  row,  colNo, rowNo,  columnObj,  
   FAOSTATOLAPV3.mygrid.pageSizeSelect.onchange=function()
   {document.getElementById('page_after').innerHTML="/"+FAOSTATOLAPV3.mygrid.getPageInfo().totalPageNum;};
  
- if(FAOSTATOLAPV3.grouped){$("#mesFlags").append($("<label for=\"chkTreeview\">Treeview/sorting columns</label><input checked onchange=\"changechkTreeview()\" type=\"checkbox\" id=\"chkTreeview\">"));}
-else{$("#mesFlags").append($("<label for=\"chkTreeview\">Treeview/Sorting columns</label><input  onchange=\"changechkTreeview()\" type=\"checkbox\" id=\"chkTreeview\">"));}
+ if(FAOSTATOLAPV3.grouped){$("#mesFlags").append($("<br><br><input checked onchange=\"changechkTreeview()\" type=\"checkbox\" id=\"chkTreeview\"><label for=\"chkTreeview\">Treeview/sorting columns</label>"));}
+else{$("#mesFlags").append($("<br><br><input  onchange=\"changechkTreeview()\" type=\"checkbox\" id=\"chkTreeview\"><label for=\"chkTreeview\">Treeview/Sorting columns</label>"));}
 $("#nested_by").hide();
 }
 

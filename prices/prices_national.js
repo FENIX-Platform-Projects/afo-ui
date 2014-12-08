@@ -148,12 +148,12 @@ $.getJSON("data/prices_national.json", function(data) {
 		derivedAttributes: {
 			"Month": function(mp){
 				return "<span class=\"ordre\">" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
-			}
+			},"Indicator":function(mp){return mp["Item"]+" ("+mp["Unit"]+")";}
 		},
-		rows: ["Area", "Item"],
+		rows: ["Area", "Indicator"],
 		cols: ["Year", "Month"],
-		vals: ["Value", "Unit", "Flag"],
-		hiddenAttributes:[],
+		vals: ["Value", "Flag"],
+		hiddenAttributes:["Month2","Unit","Item"],
 		linkedAttributes:[]
 	});
 

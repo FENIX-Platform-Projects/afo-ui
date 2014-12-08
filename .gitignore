@@ -4,3 +4,5 @@ npm-debug.log
 *.iml
 .idea
 Web.config
+**/.DS_Store
+.DS_Store

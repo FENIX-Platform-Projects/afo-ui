@@ -1,9 +1,14 @@
-body { 
-	padding-top: 70px;
+/* Top Menu */
+
+.navbar ul {
+    list-style: none;
+    padding-left: 0;
 }
 
 .navbar .container{
   position: relative;
+
+
 }
 
 .navbar-default { 
@@ -18,35 +23,46 @@ body {
   display: block;
   width: 50px;
   height: 50px;
-  background-image: url(img/logo.png);
+  background-image: url(img/fenix-ico.svg);
+  background-size: 44px 44px;
+  background-position:0 3px;
   padding: 0;
   background-repeat: no-repeat;
 }
 
 .navbar .lang_picker{
-  background-color: #007aff;
-  height: 18px;
-  color:#FFFFFF;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  font-size: 12px;
-  margin-top: 16px;
-  margin-left: 16px;
+
+  height: 22px;
+  text-transform: uppercase;
+  margin-top: 13px;
+
 }
 
 .navbar .lang_picker li {
-  border-right: 1px solid #FFFFFF;
-  height: 18px;
-  padding: 0 4px 0 4px;
+
   cursor: pointer;
   float : right;
 }
 
-.navbar .lang_picker li a {
+.navbar .lang_picker li a, .navbar .lang_picker li a:hover {
 	padding: 0 5px;
-	color: white;
-  line-height: 18px;
+    color: #666666;
+    text-decoration: none;
+    font-size: 12px;
+    display: inline-block;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.navbar .lang_picker li a:hover, .navbar .lang_picker li a.selected{
+    background-color: #666666;
+    height: 22px;
+    width: 22px;
+    color: white;
+    -webkit-border-radius: 22px;
+    -moz-border-radius: 22px;
+    border-radius: 22px;
+
 }
 
 .navbar .lang_picker li:last-child{

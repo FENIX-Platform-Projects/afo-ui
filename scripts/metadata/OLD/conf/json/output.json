@@ -1,0 +1,159 @@
+{
+    "uid": "ss",
+    "version": "ss",
+    "creationDate": "2014-09-08T17:31:00+02:00",
+    "creationDateRange": {
+        "start": "2014-09-17T11:14:00+02:00",
+        "end": "2014-09-18T11:14:00+02:00"
+    },
+    "language": {
+        "codes": [
+            {
+                "code": "AR"
+            }
+        ],
+        "codeList": "FAO_Languages",
+        "version": "1.0"
+    },
+    "languageDetail": {
+        "EN": "ss"
+    },
+    "title": {
+        "EN": "ss"
+    },
+    "characterSet": {
+        "codes": [
+            {
+                "code": "AR"
+            }
+        ],
+        "codeList": "FAO_Languages",
+        "version": "1.0"
+    },
+    "parentIdentifier": "",
+    "metadataStandardName": {
+        "EN": "ss"
+    },
+    "metadataStandardVersion": {
+        "EN": "ss"
+    },
+    "metadataLanguage": {
+        "codes": [
+            {
+                "code": "AR"
+            },
+            {
+                "code": "ZH"
+            },
+            {
+                "code": "EN"
+            }
+        ],
+        "codeList": "FAO_Languages",
+        "version": "1.0"
+    },
+    "contacts": {
+        "name": "ss",
+        "organisation": {
+            "EN": "ss"
+        },
+        "organisationUnit": {
+            "EN": "ss"
+        },
+        "position": {
+            "EN": ""
+        },
+        "role": [
+            {
+                "code": ""
+            }
+        ],
+        "specify": {
+            "EN": ""
+        },
+        "contactInfo": {
+            "phone": "111",
+            "address": "",
+            "emailAddress": "",
+            "hoursOfService": {
+                "EN": ""
+            },
+            "contactInstruction": {
+                "EN": ""
+            }
+        }
+    },
+    "noDataValue": {
+        "EN": ""
+    },
+    "content": {
+        "resourceRepresentationType": [
+            {
+                "code": "dataset"
+            }
+        ],
+        "keyWords": {
+            "EN": "www,fff"
+        },
+        "description": {
+            "EN": "wwww"
+        },
+        "statisticalConceptsDefinition": {
+            "EN": "www"
+        },
+        "isRoot": false,
+        "referencePopulation": {
+            "statisticalPopulation": {
+                "EN": "www"
+            },
+            "statisticalUnit": {
+                "EN": "ww"
+            },
+            "referencePeriod": [
+                {
+                    "code": "day"
+                }
+            ],
+            "referenceArea": [
+                {
+                    "code": "adminlevel2"
+                }
+            ],
+            "entityPath": "content.referencePopulation",
+            "isRoot": false
+        },
+        "coverage": {
+            "coverageSectors": [
+                {
+                    "code": "agriculture"
+                }
+            ],
+            "coverageSectorsDetails": {
+                "EN": "sector1"
+            },
+            "coverageGeographic": [
+                {
+                    "code": "africa"
+                }
+            ],
+            "entityPath": "content.coverage",
+            "isRoot": false
+        }
+    },
+    "dataQuality": {
+        "relevance": {
+            "userNeeds": {
+                "EN": ""
+            },
+            "userSatisfaction": {
+                "EN": ""
+            },
+            "completeness": {
+                "EN": ""
+            },
+            "completenessPercentage": "10",
+            "isRoot": false,
+            "entityPath": "dataQuality.relevance"
+        }
+    }
+}

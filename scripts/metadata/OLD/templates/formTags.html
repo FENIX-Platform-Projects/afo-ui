@@ -1,0 +1,436 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+   <link href="../css/modular-editor.css-last.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css"/>
+    <link href="http://cdn.jsdelivr.net/bootstrap.tagsinput/0.4.2/bootstrap-tagsinput.css" rel="stylesheet"/>
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="../js/libs/jquery.js"></script>
+
+    <script src="../js/libs/bootstrap.js"></script>
+
+   <script src="../js/libs/bootstrapValidator.js"></script>
+    <script src="../conf/js/fx-form-validation-callback.js"></script>
+
+    <script src="../js/libs/jquery-serialize-object.js"></script>
+
+    <!-- Include Bootstrap-tagsinput JS -->
+    <script src="../js/libs/bootstrap-tagsinput.js"></script>
+
+
+
+    <title>Responsive Registration Form</title>
+   <script>
+      // IMPORTANT NOTICE: You have to declare the callback as a global function
+      // outside of $(document).ready()
+      function checkCaptcha(value, validator, $field) {
+          // Determine the numbers which are generated in captchaOperation
+
+
+          var items = $('#captchaOperation').html().split(' '),
+                  sum   = parseInt(items[0]) + parseInt(items[2]);
+
+
+          return value == sum;
+      }
+  </script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 fx-editor-header"/>
+    </div>
+    <div class="row fx-editor-data-entry-container">
+        <div class="col-xs-4"></div>
+        <div class="col-xs-8 fx-editor-modular-form-wrapper">
+
+            <div id="fx-editor-form" class="fx-editor-modular-form-container">
+                <div id="fx-form-panel0" class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Identification</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form id="fx-form-10" class="form-horizontal bv-form" method="" action="" role="form" data-bv-message="This value is not valid" novalidate="novalidate">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="uid">Resource identification code</label>
+                                <div class="col-sm-6"></div>
+                                <div class="col-sm-3">
+                                    <button class="btn btn-xs btn-info" type="button" data-original-title="" title="">
+                                        <span class="glyphicon fx-editor-menu-info"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="language">Language(s)</label>
+                                <div id="fnx-element-language" class="col-sm-6">
+                                    <select class="form-control" name="language" data-bv-notempty="true" data-bv-notempty-message="At least one language must be selected">
+                                        <option value="AR">Arabic</option>
+                                        <option value="ZH">Chinese</option>
+                                        <option value="EN">English</option>
+                                        <option value="FR">French</option>
+                                        <option value="RU">Russian</option>
+                                        <option value="ES">Spanish</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="metadataStandardName">Used metadata standards</label>
+                                <div class="col-sm-6"></div>
+                                <div class="col-sm-3"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="metadataStandardVersion">Version of the metadata standards</label>
+                                <div class="col-sm-6"></div>
+                                <div class="col-sm-3"></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="metadataLanguage">Language(s) used for metadata</label>
+                                <div class="col-sm-6">
+                                    <select class="form-control" name="metadataLanguage[]" multiple>
+                                        <option id="AR">Arabic</option>
+                                        <option id="ZH">Chinese</option>
+                                        <option id="EN">English</option>
+                                        <option id="FR">French</option>
+                                        <option id="RU">Russian</option>
+                                        <option id="ES">Spanish</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3"></div>
+                            </div>
+
+                            <div class="form-group has-feedback has-success">
+                                <label class="col-sm-3 control-label" for="keyWords">Keywords</label>
+                                <div id="fnx-element-keyWords" class="col-sm-6">
+                                    <input id="keyWords" class="form-control" type="text" name="keyWords.EN" data-role="tagsinput" placeholder="Type a keyword then press Enter" data-bv-notempty="true" data-bv-notempty-message="Please provide keywords" data-bv-field="keyWords.EN">
+                                    <i class="form-control-feedback glyphicon-ok glyphicon" style="display: block;" data-bv-icon-for="keyWords.EN"></i>
+                                    <small class="help-block" style="display: none;" data-bv-validator="notEmpty" data-bv-for="keyWords.EN" data-bv-result="VALID">Please provide keywords</small>
+                                </div>
+                                <div class="col-sm-3"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-default">Save</button>
+                            </div>
+
+                        </form>
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+
+    $(document).ready(function() {
+
+        function randomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        };
+
+        // Generate a sum of two random numbers
+        function generateCaptcha() {
+            $('#captchaOperation').html([randomNumber(1, 100), '+', randomNumber(1, 200), '='].join(' '));
+        };
+
+
+        var fieldMe =  {
+            "fields": {
+            "languages[]": {
+                "validators": {
+                    "choice": {
+                        "min": 2,
+                                "max": 4,
+                                "message": "Please choose 2 - 4 programming languages you are good at"
+                    }
+                }
+            },
+            "phone": {
+                "validators": {
+                    "digits": {
+                        "message": {"EN":"Please enter a valid phone number - digits only"}
+                    },
+                    "callback": {
+                        "message":{"EN": "Please fill at least one of these fields"},
+                        "callback": "function(value, validator, $field) {return checkAtLeastOnePhoneEmailAddress(value, validator, $field);}"
+                    }
+                }
+            }   ,
+            "emailAddress": {
+                "validators": {
+                    "emailAddress": {
+                        "message": {"EN":"Please enter a valid email address"}}
+                }
+            },
+            "address": {
+                "validators": {
+                    "stringLength": {
+                        "min": 10,
+                        "message": {"EN":"Please enter a valid email address"}
+                    },
+                    "callback": {
+                        "message":{"EN": "Please fill at least one of these fields"} ,
+                        "callback": "function(value, validator, $field) {return checkAtLeastOnePhoneEmailAddress(value, validator, $field);}"
+                    }
+                }
+            }
+        }};
+
+
+        //Prepare options for the Bootstrap Validator Object
+        var bValidatorOptions = new Object();
+
+        var feedbackIcons = {
+            required: 'glyphicon glyphicon-asterisk',
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        }
+
+        // Set feedback icons
+        bValidatorOptions.feedbackIcons = feedbackIcons;
+        bValidatorOptions.fields = {};
+
+             for(var field in fieldMe.fields){
+                var fieldObj = fieldMe.fields[field];
+                if(fieldObj.hasOwnProperty("validators")){
+                    if(fieldObj.validators.hasOwnProperty("callback")){
+                        if(fieldObj.validators.callback.hasOwnProperty("callback")){
+                            var fn = eval("var "+field+" = function(){ return "+fieldObj.validators.callback.callback+";}; "+field+"() ;") ;
+                            fieldObj.validators.callback.callback = fn;
+                        }
+                    }
+                }
+                 var name = field;
+                 var fieldDiv;
+                 if(!(/\[]/.test(field))){
+                     fieldDiv = $('#'+field)
+                 }
+
+                  if(fieldDiv){
+                   console.log(fieldDiv.attr('id'));
+                   if(name != fieldDiv.attr("name")){
+                      name =  fieldDiv.attr("name");
+                    }
+                }
+
+                 bValidatorOptions.fields[name] = fieldObj;
+
+            }
+
+        console.log(bValidatorOptions);
+
+
+
+      //  generateCaptcha();
+        $('#fx-editor-form form')
+            // IMPORTANT: You must declare .on('init.field.bv')
+            // before calling .bootstrapValidator(options)
+                .on('init.field.bv', function(e, data) {
+                    //Display Required Icons onLoad
+                    // data.bv      --> The BootstrapValidator instance
+                    // data.field   --> The field name
+                    // data.element --> The field element
+                    var $parent    = data.element.parents('.form-group'),
+                            $icon      = $parent.find('.form-control-feedback[data-bv-icon-for="' + data.field + '"]'),
+                            options    = data.bv.getOptions(),                      // Entire options
+                            validators = data.bv.getOptions(data.field).validators; // The field validators
+
+                    if (validators.notEmpty && options.feedbackIcons && options.feedbackIcons.required) {
+                        // The field uses notEmpty validator
+                        // Add required icon
+                        $icon.addClass(options.feedbackIcons.required).show();
+                    }
+                })
+            //Set Bootstrap Validator with the form specific options
+                .bootstrapValidator(bValidatorOptions)
+                .on('status.field.bv', function(e, data) {
+                    // Remove the required icon when the field updates its status
+                    var $parent    = data.element.parents('.form-group'),
+                            $icon      = $parent.find('.form-control-feedback[data-bv-icon-for="' + data.field + '"]'),
+                            options    = data.bv.getOptions(),                      // Entire options
+                            validators = data.bv.getOptions(data.field).validators; // The field validators
+
+                    if (validators.notEmpty && options.feedbackIcons && options.feedbackIcons.required) {
+                        $icon.removeClass('glyphicon-asterisk').addClass('glyphicon');
+                    }
+                })
+            //Set on Success Handling, when Save pressed
+                .on('success.form.bv', function(e) {
+                    // Prevent form submission
+                   e.preventDefault();
+
+                    // var $form     = $(e.target),
+                    //  validator = $form.data('bootstrapValidator');
+                    //   $form.find('.alert').html('Thanks for signing up. Now you can sign in as ' + validator.getFieldElements('username').val()).show();
+
+                    console.log('SUBMIT ME - VALIDATED ');
+                    // Get the form instance
+                   var $form1 = $(e.target);
+
+                    // Get the BootstrapValidator instance
+                   // var bv = $form1.data('bootstrapValidator');
+
+                    //console.log("form data =================== ");
+                    //console.log(bv);
+
+                    console.log("form serialize =================== ");
+                    console.log(JSON.stringify($form1.serializeObject()));
+
+
+                    // var config = {};
+                    // $($form1).serializeArray().map(function(item) {
+                    //    config[item.name] = item.value;
+                    // });
+
+                    // console.log("form serialize json =================== ");
+                    // console.log(config);
+
+                   // console.log("form serialize json =================== ");
+                    //var data = JSON.stringify(serializeObject($form1));
+                    //console.log(data);
+
+
+
+
+
+                    // Use Ajax to submit form data
+                    // $.post($form1.attr('action'), $form1.serialize(), function(result) {
+                    // ... Process the result ...
+                    // }, 'json');
+                });
+
+        /**$('#fx-editor-form form')
+            // IMPORTANT: You must declare .on('init.field.bv')
+            // before calling .bootstrapValidator(options)
+                .on('init.field.bv', function(e, data) {
+                    // data.bv      --> The BootstrapValidator instance
+                    // data.field   --> The field name
+                    // data.element --> The field element
+
+                    var $parent    = data.element.parents('.form-group'),
+                          //  $icon      = $parent.find('.form-control-feedback[data-bv-icon-for="' + data.field + '"]'),
+                            options    = data.bv.getOptions(),                      // Entire options
+                            validators = data.bv.getOptions(data.field).validators; // The field validators
+
+                   // console.log('data.field = '+data.field);
+                    //  var propValue;
+                    //   for(var propName in options.feedbackIcons) {
+                    //      propValue = options.feedbackIcons[propName]
+
+                    //      console.log(propName,propValue);
+                    //  }
+
+                    //if (validators.notEmpty && options.feedbackIcons && options.feedbackIcons.required) {
+                        // The field uses notEmpty validator
+                        // Add required icon
+                      //  console.log('here');
+                      //  $icon.addClass(options.feedbackIcons.required).show();
+                    //}
+                })
+                .bootstrapValidator( fieldMe)
+                .on('status.field.bv', function(e, data) {
+                    // Remove the required icon when the field updates its status
+                    var $parent    = data.element.parents('.form-group'),
+                            $icon      = $parent.find('.form-control-feedback[data-bv-icon-for="' + data.field + '"]'),
+                            options    = data.bv.getOptions(),                      // Entire options
+                            validators = data.bv.getOptions(data.field).validators; // The field validators
+
+                   // console.log(".form-control-feedback[data-bv-icon-for="+data.field+"]");
+
+                   if (validators.notEmpty && options.feedbackIcons && options.feedbackIcons.required) {
+                        $icon.removeClass(options.feedbackIcons.required).addClass(options.feedbackIcons.valid);
+                    }
+                })
+                .on('success.form.bv', function(e) {
+                    console.log('SUBMIT ME');
+                    // Prevent form submission
+                    e.preventDefault();
+                    console.log('SUBMIT ME');
+                    // Get the form instance
+                  //  var $form1 = $(e.target);
+
+                    // Get the BootstrapValidator instance
+                   // var bv = $form1.data('bootstrapValidator');
+
+
+                  //  console.log('SUBMIT ME - VALIDATED ');
+                    // Get the form instance
+                   // var $form1 = $(e.target);
+
+                    // Get the BootstrapValidator instance
+                    //var bv = $form1.data('bootstrapValidator');
+
+                    //console.log("form data =================== ");
+                    //console.log(bv);
+
+                   // console.log("form serialize =================== ");
+                    //console.log($form1.serialize());
+
+
+
+                    // Use Ajax to submit form data
+                   // $.post($form1.attr('action'), $form1.serialize(), function(result) {
+                        // ... Process the result ...
+                   // }, 'json');
+                })
+            // Add button click handler
+                .on('click', '.addButton', function() {
+                    var $template = $('#organizationTemplate'),
+                            $clone    = $template
+                                    .clone()
+                                    .removeClass('hide')
+                                    .removeAttr('id')
+                                    .insertBefore($template),
+                            $option   = $clone.find('[name="contacts[]"]');
+
+
+                    // Add new field
+                   $('#fx-editor-form form').bootstrapValidator('addField', $option);
+                })
+
+            // Remove button click handler
+                .on('click', '.removeButton', function() {
+                    var $row    = $(this).parents('.form-group'),
+                            $option = $row.find('[name="contacts[]"]');
+
+                    // Remove element containing the option
+                    $row.remove();
+
+                    // Remove field
+                    $('#fx-editor-form form').bootstrapValidator('removeField', $option);
+                })
+
+            // Called after adding new field
+                .on('added.field.bv', function(e, data) {
+                    // data.field   --> The field name
+                    // data.element --> The new field element
+                    // data.options --> The new field options
+
+                    if (data.field === 'option[]') {
+                        if ($('#fx-editor-form form').find(':visible[name="contacts[]"]').length >= MAX_OPTIONS) {
+                            $('#fx-editor-form form').find('.addButton').attr('disabled', 'disabled');
+                        }
+                    }
+                })
+
+            // Called after removing the field
+                .on('removed.field.bv', function(e, data) {
+                    if (data.field === 'contacts[]') {
+                        if ($('#fx-editor-form form').find(':visible[name="contacts[]"]').length < MAX_OPTIONS) {
+                            $('#fx-editor-form form').find('.addButton').removeAttr('disabled');
+                        }
+                    }
+                });   **/
+    });
+</script>
+</body>
+</html>

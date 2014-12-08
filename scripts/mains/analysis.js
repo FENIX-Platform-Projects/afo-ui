@@ -1,17 +1,26 @@
 // relative or absolute path of Components' main.js
 //risoluzione delle dipendenze relativa alla posizione del file questo
 require([
-    '../catalog/paths'
-    , '../analysis/paths'
+    '../../submodules/fenix-ui-catalog/js/paths',
+    '../../submodules/fenix-ui-analysis/js/paths'
 ], function (Catalog, Analysis) {
 
-    var override = { 
-        lib : '../lib'  
-        , pnotify: '../lib/pnotify' 
-        , "fenix-ui-topmenu" : '../components/fenix-ui-topmenu'
-        , bootstrap : "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min"
-
-    }; 
+    var override = {
+        lib: '../lib',
+        "fenix-ui-topmenu": '../components/fenix-ui-topmenu',
+        'jqwidgets': "http://fenixapps.fao.org/repository/js/jqwidgets/3.1/jqx-all",
+        'jqueryui': "http://code.jquery.com/ui/1.10.3/jquery-ui.min",
+        'jquery': '../../node_modules/jquery/dist/jquery.min',
+        'nprogress': '../../node_modules/nprogress/nprogress',
+        'intro': '../../node_modules/intro.js/minified/intro.min',
+        'bootstrap': '../../node_modules/bootstrap/dist/js/bootstrap.min',
+        'packery': '../../node_modules/packery/dist/packery.pkgd.min',
+        'draggabilly': '../../node_modules/draggabilly/dist/draggabilly.pkgd.min',
+        'jstree': '../../node_modules/jstree/dist/jstree.min',
+        'jqrangeslider': '../lib/jqrangeslider',
+        'isotope': "../lib/isotope",
+        'pnotify': '../lib/pnotify'
+    };
 
     /*
      @param: prefix of Components paths to reference them also in absolute mode
@@ -19,29 +28,36 @@ require([
      @param: callback function
      */
     //risoluzione delle dipendenze relativa alla posizione del file questo
-    Catalog.initialize('../catalog', null, function () {
+    Catalog.initialize('../../submodules/fenix-ui-catalog/js', null, function () {
 
-        Analysis.initialize('../analysis', override , function () {
+        Analysis.initialize('../../submodules/fenix-ui-analysis/js/', override, function () {
 
             require([
                 'fx-ana/start'
-                ,'fx-cat-br/start'
-                ,'fenix-ui-topmenu/main'
+                , 'fx-cat-br/start'
+                , 'fenix-ui-topmenu/main'
             ], function (Analysis, Catalog, TopMenu) {
-                
-                new TopMenu({ 
-                    url : 'json/fenix-ui-topmenu_config.json'
-                    , active: "analysis"
+
+                new TopMenu({
+                    url: 'json/fenix-ui-topmenu_config.json', active: "analysis"
                 });
-                
+
                 new Analysis().init({
-                    catalog: new Catalog()
+                    catalog: new Catalog({
+                        catalog: {
+                            BLANK_FILTER: 'config/submodules/catalog/uneca-catalog-blank-filter.json'
+                        },
+                        results: {
+                            actions: {
+                                EDIT_METADATA: { }
+                            }                        }
+                    })
                 });
 
             });
 
         });
-    
+
     });
 
 });

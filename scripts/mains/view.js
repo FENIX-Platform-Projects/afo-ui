@@ -14,18 +14,24 @@ requirejs.config({
         highstocks : '//code.highcharts.com/stock/highstock',
         "highcharts.export" : '//code.highcharts.com/modules/exporting',
         i18n : '//fenixapps.fao.org/repository/js/jquery/1.0.9/jquery.i18n.properties-min',
-        'pivot/configuration': 'http://hqlprfenixapp2.hq.un.fao.org:20300/faostat-download-js/pivotAgg/configuration',
-        'pivot/countriesAgg': 'http://hqlprfenixapp2.hq.un.fao.org:20300/faostat-download-js/pivotAgg/countriesAgg',
-        'pivot/gchart_renderers': 'http://hqlprfenixapp2.hq.un.fao.org:20300/faostat-download-js/pivotAgg/gchart_renderers',
-        'pivot/jquery-ui' : 'http://hqlprfenixapp2.hq.un.fao.org:20300/faostat-download-js/pivotAgg/jquery-ui-1.9.2.custom.min',
-        'pivot/pivot': 'http://hqlprfenixapp2.hq.un.fao.org:20300/faostat-download-js/pivotAgg/pivot'
+
+        //OLAP DEPENDENCIES
+		"pivot": "../../submodules/fenix-ui-olap/pivotNew",        
+		"jquery-i18n": "//fenixapps.fao.org/repository/js/jquery/1.0.9/jquery.i18n.properties-min",
+		"jquery-ui": "../../submodules/fenix-ui-olap/jquery-ui-1.9.2.custom.min",
+		"jssc3": "../../submodules/fenix-ui-olap/highlight/jssc3",
+		"grid_calendar": "../../submodules/fenix-ui-olap/grid/calendar/calendar",
+		"grid_calendar2": "../../submodules/fenix-ui-olap/grid/calendar/calendar-cn-utf8",
+		"grid_gt_msg": "../../submodules/fenix-ui-olap/grid/gt_msg_en",
+		"grid_gt_grid": "../../submodules/fenix-ui-olap/grid/gt_grid_all",
+		"grid_flashchart": "../../submodules/fenix-ui-olap/grid/flashchart/fusioncharts/FusionCharts"
     },
    
     shim: {
-        i18n : {
+        "i18n": {
             deps: ['jquery']
         },
-        bootstrap: {
+        "bootstrap": {
             deps: ['jquery']
         },
         "jquery.history": {
@@ -46,22 +52,40 @@ requirejs.config({
         'jqwidgets' : {
             deps: ['jquery']
         },
-        'pivot/pivot': {
-            deps: ['jquery']
-        },
-        'pivot/countriesAgg': {
-            deps: [ 'pivot/pivot']
-        },
-        'pivot/gchart_renderers': {
-            deps: ['pivot/countriesAgg']
-        },
-        'pivot/configuration': {
-            deps: ['pivot/gchart_renderers']
-        },
-        'pivot/jquery-ui' : {
-            deps: ['jquery']
-        }
 
+        //OLAP DEPENDENCIES
+        'jquery-ui' : {
+            deps: ['jquery']
+        },
+        'jquery-i18n' : {
+            deps: ['jquery']
+        },
+        'jssc3': {
+            deps: ['jquery']
+        },
+        'grid_calendar': {
+            deps: ['jquery']
+        },
+        'grid_calendar2': {
+            deps: ['grid_calendar']
+        },
+        'grid_gt_msg' : {
+            deps: ['grid_calendar']
+        },
+        'grid_gt_grid' : {
+            deps: ['grid_calendar','grid_gt_msg']
+        },
+        'grid_flashchart' : {
+            deps: ['grid_calendar','grid_gt_grid']
+        },
+        'pivot': {
+            deps: [
+				'jquery','jquery-i18n','jssc3',
+				'grid_calendar','grid_calendar2',
+				'grid_gt_msg','grid_gt_grid',
+				'grid_flashchart'
+            ]
+        }
     }
 });
 

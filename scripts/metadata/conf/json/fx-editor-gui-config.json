@@ -1,0 +1,3061 @@
+﻿{
+    "panels": [
+        {
+            "module": "meIdentification",
+            "type": {
+                "name": "label"
+            },
+            "label": {
+                "EN": "Identification"
+            },
+            "properties": {
+                "uid": {
+                    "type": {
+                        "name": "text",
+                        "disabled": true
+                    },
+                    "label": {
+                        "EN": "Resource identification code"
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "It is a code that identifies the resource the metadata is associated to."
+                        }
+                    }
+                },
+                "version": {
+                    "type": {
+                        "name": "text",
+                        "disabled": true
+                    },
+                    "label": {
+                        "EN": "Resource version"
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "For some kinds of resources the version may be necessary to uniquely identify it."
+                        }
+                    }
+                },
+                "language": {
+                    "type": {
+                        "name": "select"
+                    },
+                    "label": {
+                        "EN": "Language"
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Language used by the resource for textual information."
+                        }
+                    },
+                    "source": {
+                        "type": {
+                            "name": "CodeList",
+                            "object": "OJCodeList",
+                            "system": "ISO639-2",
+                            "version": "1998"
+                        },
+                        "url": "http://faostat3.fao.org:7799/v2/msd/resources/ISO639-2/1998",
+                        "dataroot": "data",
+                        "datafields": {
+                                "defaultCode" :"eng",
+                                "code": "code",
+                                "label": "title",
+                                "lang": "title[EN]"
+                         }
+                    }
+                },
+                "languageDetails": {
+                    "type": {
+                        "name": "textarea"
+                    },
+                    "value": {
+                        "multilingual": true
+                    },
+                    "label": {
+                        "EN": "Language details"
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Comments and additional details about the language used for the textual information of the resource."
+                        }
+                    }
+                },
+                "title": {
+                    "type": {
+                        "name": "text"
+                    },
+                    "value": {
+                        "multilingual": true
+                    },
+                    "label": {
+                        "EN": "Title"
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Label used as the resource title."
+                        }
+                    }
+                },
+                "creationDate": {
+                    "type": {
+                        "name": "date"
+                    },
+                    "label": {
+                        "EN": "Creation date"
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Creation date of the resource."
+                        }
+                    }
+                },
+                "characterSet": {
+                    "type": {
+                        "name": "select"
+                    },
+                    "label": {
+                        "EN": "Character-set"
+                    },
+                    "source": {
+                        "type": {
+                            "name": "CodeList",
+                            "object": "OJCodeList",
+                            "system": "IANAcharacterSet",
+                            "version": ""
+                        },
+                        "url": "http://faostat3.fao.org:7799/v2/msd/resources/uid/IANAcharacterSet",
+                        "dataroot": "data",
+                        "datafields": {
+                            "defaultCode": "106",
+                            "defaultCodeLabel":"UTF-8",
+                            "code": "code",
+                            "label": "title",
+                            "lang": "title[EN]"
+                        }
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Character encoding standard used by the resource."
+                        }
+                    }
+                },
+                "parentIdentifiers": {
+                    "type": {
+                        "name": "sequence"
+                    },
+                    "label": {
+                        "EN": "Parent metadata ID"
+                    },
+                    "placeholder": {
+                        "EN": "Type then press Enter"
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Identifier of the metadata record to which this metadata record is a subset (i.e. parent metadata of hierarchical metadata records). This identifier allows a set of metadata information to be inherited from the parent metadata record."
+                        }
+                    }
+                },
+                "metadataStandardName": {
+                    "type": {
+                        "name": "text"
+                    },
+                    "label": {
+                        "EN": "Used metadata standards"
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Name of the metadata standard specifications used."
+                        }
+                    }
+                },
+                "metadataStandardVersion": {
+                    "type": {
+                        "name": "text"
+                    },
+                    "label": {
+                        "EN": "Version of the metadata standards"
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Version of the metadata standard specifications used."
+                        }
+                    }
+                },
+                "metadataLanguage": {
+                    "type": {
+                        "name": "select",
+                        "multi": true
+                    },
+                    "label": {
+                        "EN": "Language(s) used for metadata"
+                    },
+                    "source": {
+                        "type": {
+                            "name": "CodeList",
+                            "object": "OJCodeList",
+                            "system": "ISO639-2",
+                            "version": "1998"
+                        },
+                        "url": "http://faostat3.fao.org:7799/v2/msd/resources/ISO639-2/1998",
+                        "dataroot": "data",
+                        "datafields": {
+                            "defaultCode" :"eng",
+                            "code": "code",
+                            "label": "title",
+                            "lang": "title[EN]"
+                        }
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Language(s) used to compile the metadata record."
+                        }
+                    }
+                },
+                "contacts": {
+                    "type": {
+                        "name": "label"
+                    },
+                    "type1": {
+                        "name": "clonebutton",
+                        "icon": "fa fa-plus fa-lg fa-fw",
+                        "clone": {
+                            "property": "responsibleParty"
+                        }
+                    },
+                    "label": {
+                        "EN": "Contact(s)"
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Party(ies) playing different roles in respect to the resource, and in particular the party responsible for the resource."
+                        }
+                    },
+                    "properties": {
+                        "responsibleParty": {
+                            "type": {
+                                "name": "fieldset",
+                                "multi": true
+                            },
+                            "label": {
+                                "EN": "Responsible party"
+                            },
+                            "properties": {
+                                "name": {
+                                    "type": {
+                                        "name": "text"
+                                    },
+                                    "placeholder": {
+                                        "EN": "Title forename and surname"
+                                    },
+                                    "label": {
+                                        "EN": "Name"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Responsible person - title, given name and surname"
+                                        }
+                                    }
+                                },
+                                "organization": {
+                                    "type": {
+                                        "name": "text"
+                                    },
+                                    "value": {
+                                        "multilingual": true
+                                    },
+                                    "label": {
+                                        "EN": "Organization"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Name of the responsible organization."
+                                        }
+                                    }
+                                },
+                                "organizationUnit": {
+                                    "type": {
+                                        "name": "text"
+                                    },
+                                    "value": {
+                                        "multilingual": true
+                                    },
+                                    "label": {
+                                        "EN": "Organization unit/division"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Addressable subdivision of an organization."
+                                        }
+                                    }
+                                },
+                                "position": {
+                                    "type": {
+                                        "name": "text"
+                                    },
+                                    "value": {
+                                        "multilingual": true
+                                    },
+                                    "label": {
+                                        "EN": "Position"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Role or position of the responsible person."
+                                        }
+                                    }
+                                },
+                                "role": {
+                                    "type": {
+                                        "name": "select",
+                                        "instruction": {
+                                            "EN": "Select a role"
+                                        }
+                                    },
+                                    "label": {
+                                        "EN": "Role"
+                                    },
+                                    "source": {
+                                        "type": {
+                                            "name": "MultipleChoice",
+                                            "multipleChoice": "ResponsiblePartyRole"
+                                        },
+                                        "url": "http://faostat3.fao.org:7799/v2/msd/choices/ResponsiblePartyRole",
+                                        "datafields":
+                                        {
+                                            "code": "code",
+                                            "label": "EN",
+                                            "lang": "EN"
+                                        }
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Function performed by the responsible party concerning the resource."
+                                        }
+                                    }
+                                },
+                                "specify": {
+                                    "type": {
+                                        "name": "text"
+                                    },
+                                    "value": {
+                                        "multilingual": true
+                                    },
+                                    "label": {
+                                        "EN": "Specify"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Specify the role performed by the responsible party."
+                                        }
+                                    }
+                                },
+                                "contactInfo": {
+                                    "type": {
+                                        "name":"fieldset",
+                                         "subtitle": {
+                                            "EN": "Must provide at least one of the following (phone, address, email)"
+                                        }
+                                    },
+                                    "label": {
+                                        "EN": "Contact information"
+                                    },
+                                    "properties": {
+                                               "phone": {
+                                                    "type": {
+                                                        "name": "text",
+                                                        "input-group": {
+                                                            "icon": "glyphicon glyphicon-phone-alt"
+                                                        }
+                                                    },
+                                                    "label": {
+                                                        "EN": "Telephone number"
+                                                    }
+                                                },
+                                                "address": {
+                                                    "type": {
+                                                        "name": "text",
+                                                        "input-group": {
+                                                            "icon": "glyphicon glyphicon-home"
+                                                        }
+                                                    },
+                                                    "label": {
+                                                        "EN": "Address"
+                                                    }
+                                                },
+                                                "emailAddress": {
+                                                    "type": {
+                                                        "name": "text",
+                                                        "input-group": {
+                                                            "text": "@"
+                                                        }
+                                                    },
+                                                    "label": {
+                                                        "EN": "Email address"
+                                                    }
+                                                },
+                                                "hoursOfService": {
+                                                    "type": {
+                                                        "name": "text"
+                                                    },
+                                                    "value": {
+                                                        "multilingual": true
+                                                    },
+                                                    "label": {
+                                                        "EN": "Hours of service"
+                                                    },
+                                                    "info": {
+                                                        "popover": {
+                                                            "EN": "Time period (including time zone) when the organization/individual can be contacted."
+                                                        }
+                                                    }
+                                                },
+                                                "contactInstruction": {
+                                                    "type": {
+                                                        "name": "text"
+                                                    },
+                                                    "value": {
+                                                        "multilingual": true
+                                                    },
+                                                    "label": {
+                                                        "EN": "Instruction"
+                                                    },
+                                                    "info": {
+                                                        "popover": {
+                                                            "EN": "Supplemental instructions on how or when to contact the individual or organization."
+                                                        }
+                                                    }
+                                                }
+                                      }
+                                }
+                            }
+                        }
+                    }
+                },
+                "noDataValue": {
+                    "type": {
+                        "name": "text"
+                    },
+                    "label": {
+                        "EN": "Value assigned to No-data"
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Value assigned to the cells to represent the absence of data."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "module": "meContent",
+            "type": {
+                "name": "label"
+            },
+            "label": {
+                "EN": "Content"
+            },
+            "properties": {
+                "resourceRepresentationType": {
+                    "type": {
+                        "name": "select"
+                    },
+                    "label": {
+                        "EN": "Type of resource"
+                    },
+                    "source": {
+                        "type": {
+                            "name": "MultipleChoice",
+                            "multipleChoice": "RepresentationType"
+                        },
+                        "url": "http://faostat3.fao.org:7799/v2/msd/choices/RepresentationType",
+                        "datafields":
+                        {
+                            "defaultCode": "dataset",
+                            "code": "code",
+                            "label": "EN",
+                            "lang": "EN"
+                        }
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Typology of the resource the metadata refers to."
+                        }
+                    }
+                },
+                "keywords": {
+                    "type": {
+                        "name": "sequence"
+                    },
+                    "placeholder": {
+                        "EN": "Type then press Enter"
+                    },
+                    "label": {
+                        "EN": "Keywords"
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Commonly used word(s), formalized word(s) or phrase(s) used to describe the resource."
+                        }
+                    }
+                },
+                "description": {
+                    "type": {
+                        "name": "textarea"
+                    },
+                    "value": {
+                        "multilingual": true
+                    },
+                    "label": {
+                        "EN": "Description"
+                    },
+                    "info": {
+                        "remote-html": {
+                            "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/info/contentDescription_EN.html"
+                        }
+                    }
+                },
+                "statisticalConceptsDefinition": {
+                    "type": {
+                        "name": "textarea"
+                    },
+                    "value": {
+                        "multilingual": true
+                    },
+                    "label": {
+                        "EN": "Statistical concepts/definitions"
+                    },
+                    "info": {
+                        "remote-html": {
+                            "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/info/contentStatisticalConcepts_EN.html"
+                        }
+                    }
+                }
+            },
+            "modules": [
+                {
+                    "module": "seReferencePopulation",
+                    "resourceType": ["dataset", "geographic"],
+                    "type": {
+                        "name": "label"
+                    },
+                    "label": {
+                        "EN": "Reference Population"
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Information on the statistical population the resource refers to."
+                        }
+                    },
+                    "icon": "fa fa-database fa-lg fa-fw",
+                    "properties": {
+                        "statisticalPopulation": {
+                            "type": {
+                                "name": "text"
+                            },
+                            "resourceType": ["dataset"],
+                            "value": {
+                                "multilingual": true
+                            },
+                            "label": {
+                                "EN": "Statistical population"
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Target statistical population (one or more) the resource refers to."
+                                }
+                            }
+                        },
+                        "statisticalUnit": {
+                            "type": {
+                                "name": "text"
+                            },
+                            "resourceType": ["dataset"],
+                            "value": {
+                                "multilingual": true
+                            },
+                            "label": {
+                                "EN": "Statistical unit"
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Simplest unit for which information is sought and for which statistics are ultimately compiled."
+                                }
+                            }
+                        },
+                        "referencePeriod": {
+                            "type": {
+                                "name": "select"
+                            },
+                            "label": {
+                                "EN": "Period of reference"
+                            },
+                            "source": {
+                                "type": {
+                                    "name": "CodeList",
+                                    "object": "OJCodeList",
+                                    "system": "FAO_Period",
+                                    "version": "1.0"
+                                },
+                                "url": "http://faostat3.fao.org:7799/v2/msd/resources/FAO_Period/1.0",
+                                "dataroot": "data",
+                                "datafields": {
+                                    "code": "code",
+                                    "label": "title",
+                                    "lang": "title[EN]"
+                                }
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Specific time periods the statistical variables refer to."
+                                }
+                            }
+                        },
+                        "referenceArea": {
+                            "type": {
+                                "name": "select"
+                            },
+                            "resourceType": ["dataset"],
+                            "label": {
+                                "EN": "Area of reference"
+                            },
+                            "source": {
+                                "type": {
+                                    "name": "CodeList",
+                                    "object": "OJCodeList",
+                                    "system": "GAUL_ReferenceArea",
+                                    "version": "1.0"
+                                },
+                                "url": "http://faostat3.fao.org:7799/v2/msd/resources/GAUL_ReferenceArea/1.0",
+                                "dataroot": "data",
+                                "datafields": {
+                                    "code": "code",
+                                    "label": "title",
+                                    "lang": "title[EN]"
+                                }
+                            },
+                            "info": {
+                                "remote-html": {
+                                    "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/info/contentReferenceArea_EN.html"
+                                }
+                            }
+
+                    }
+                }},
+                {
+                    "module": "seCoverage",
+                    "label": {
+                        "EN": "Coverage"
+                    },
+                    "icon": "fa fa-database fa-lg fa-fw",
+                    "info": {
+                        "remote-html": {
+                            "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/info/contentCoverage_EN.html"
+                        }
+                    },
+                    "properties": {
+                        "coverageSectors": {
+                            "type": {
+                                "name": "hierarchy",
+                                "multi": true
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "label": {
+                                "EN": "Main sector(s) (coded)"
+                            },
+                            "source": {
+                                "type": {
+                                    "name": "CodeList",
+                                    "object": "OJCodeList",
+                                    "system": "CRS_purpose_codes",
+                                    "version": ""
+                                },
+                                "url": "http://faostat3.fao.org:7799/v2/msd/resources/uid/CRS_purpose_codes",
+                                "dataroot": "data",
+
+                                "hierarchy" : {
+                                    "levels" : 2,
+                                    "data": [
+                                        {"level": {"value": "1", "parent": true}},
+                                        {"level": {"value": "1", "parent": "1", "children": true}}
+                                    ]
+                                },
+                                "datafields": {
+                                    "sort": false,
+                                    "level": "level",
+                                    "children" :"children",
+                                    "code" : "code",
+                                    "label": "title",
+                                    "lang": "title[EN]"
+                                }
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Sector(s) the resource refers to as specified in the selected codelist."
+                                }
+                            }
+                        },
+                        "coverageSectorsDetails": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "label": {
+                                "EN": "Main sector(s)"
+                            },
+                            "info": {
+                                "remote-html": {
+                                    "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/info/contentCoverageSectorDetails_EN.html"
+                                }
+                            }
+                        },
+                        "coverageTime": {
+                            "type": {
+                                "name": "period"
+                            },
+                            "label": {
+                                "EN": "Coverage period"
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Information about the time period for which data are available."
+                                }
+                            }
+                        },
+                        "coverageGeographic": {
+                            "type": {
+                                "name": "select"
+                            },
+                            "label": {
+                                "EN": "Geographic extent"
+                            },
+                            "source": {
+                                "type": {
+                                    "name": "CodeList",
+                                    "object": "OJCodeList",
+                                    "system": "GAUL0",
+                                    "version": "2014"
+                                },
+                            "url": "http://faostat3.fao.org:7799/v2/msd/resources/GAUL0/2014",
+                            "dataroot": "data",
+                            "datafields": {
+                                "code": "code",
+                                "label": "title",
+                                "lang": "title[EN]"
+                            }
+                            },
+
+                            "info": {
+                                "remote-html": {
+                                    "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/info/contentCoverageGeographic_EN.html"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "module": "seCodeList",
+                    "resourceType": ["codelist"],
+                    "type": {
+                        "name": "label"
+                    },
+                    "label": {
+                        "EN": "Codelist"
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Information related to the resource 'codelist'."
+                        }
+                    },
+                    "icon": "fa fa-database fa-lg fa-fw",
+                    "properties": {
+                        "numberOfLevels": {
+                            "type": {
+                                "name": "text"
+                            },
+                            "label": {
+                                "EN": "Number of levels"
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Hierarchical codelists may have several levels, information about the number of levels must be reported in order to describe the hierarchy of the codelist."
+                                }
+                            }
+                        },
+                        "typeOfCodeList": {
+                            "type": {
+                                "name": "select"
+                            },
+                            "label": {
+                                "EN": "Type of codelist"
+                            },
+                            "source": {
+                                "type": {
+                                    "name": "multipleChoice",
+                                    "multipleChoice": "CodeListType"
+                                },
+                                "url": "http://faostat3.fao.org:7799/v2/msd/choices/CodeListType",
+                                "datafields":
+                                {
+                                    "code": "code",
+                                    "label": "EN",
+                                    "lang": "EN"
+                                }
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Codelist typology."
+                                }
+                            }
+                        }
+                    }}
+            ]
+        },
+        {
+            "module": "meInstitutionalMandate",
+            "resourceType":["dataset", "geographic"],
+            "type": {
+                "name": "label"
+            },
+            "label": {
+                "EN": "Institutional Mandate"
+            },
+            "properties": {
+                "legalActsAgreements": {
+                    "type": {
+                        "name": "textarea"
+                    },
+                    "value": {
+                        "multilingual": true
+                    },
+                    "label": {
+                        "EN": "Legal acts/agreements"
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Legal acts or other formal or informal agreements that assign responsibility as well as authority to an agency for the collection, processing, and dissemination of the resource."
+                        }
+                    }
+                },
+                "institutionalMandateDataSharing": {
+                    "type": {
+                        "name": "textarea"
+                    },
+                    "value": {
+                        "multilingual": true
+                    },
+                    "label": {
+                        "EN": "Data sharing arrangements"
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Arrangements or procedures for data sharing and coordination."
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "module": "meStatisticalProcessing",
+            "resourceType":["dataset"],
+            "type": {
+                "name": "label"
+            },
+            "label": {
+                "EN": "Statistical Processing"
+            },
+            "intro": {
+                "remote-html": {
+                    "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/intro/statisticalProcessing_EN.html"
+                }
+            },
+            "modules": [
+                {
+                    "module": "sePrimaryDataCollection",
+                    "label": {
+                        "EN": "Primary Data Collection"
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Describes the procedures used to collect data obtained directly from first-hand sources by means of surveys, observation or experimentation."
+                        }
+                    },
+                    "icon": "fa fa-database fa-lg fa-fw",
+                    "properties": {
+                        "dataCollector": {
+                            "type": {
+                                "name": "label"
+                            },
+                            "type1": {
+                                "name": "clonebutton",
+                                "icon": "fa fa-plus fa-lg fa-fw",
+                                "clone": {
+                                    "property": "responsibleParty"
+                                }
+                            },
+                            "label": {
+                                "EN": "Data collector"
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "The entity (individual, agency or institution) responsible for administering the questionnaire or interview for compiling the data."
+                                }
+                            },
+                            "properties": {
+                                "responsibleParty": {
+                                    "type": {
+                                        "name": "fieldset",
+                                        "multi": true
+                                    },
+                                    "label": {
+                                        "EN": "Responsible party"
+                                    },
+                                    "properties": {
+                                        "name": {
+                                            "type": {
+                                                "name": "text"
+                                            },
+                                            "placeholder": {
+                                                "EN": "Title forename and surname"
+                                            },
+                                            "label": {
+                                                "EN": "Name"
+                                            },
+                                            "info": {
+                                                "popover": {
+                                                    "EN": "Responsible person - title, given name and surname"
+                                                }
+                                            }
+                                        },
+                                        "organization": {
+                                            "type": {
+                                                "name": "text"
+                                            },
+                                            "value": {
+                                                "multilingual": true
+                                            },
+                                            "label": {
+                                                "EN": "Organization"
+                                            },
+                                            "info": {
+                                                "popover": {
+                                                    "EN": "Name of the responsible organization."
+                                                }
+                                            }
+                                        },
+                                        "organizationUnit": {
+                                            "type": {
+                                                "name": "text"
+                                            },
+                                            "value": {
+                                                "multilingual": true
+                                            },
+                                            "label": {
+                                                "EN": "Organization unit/division"
+                                            },
+                                            "info": {
+                                                "popover": {
+                                                    "EN": "Addressable subdivision of an organization."
+                                                }
+                                            }
+                                        },
+                                        "position": {
+                                            "type": {
+                                                "name": "text"
+                                            },
+                                            "value": {
+                                                "multilingual": true
+                                            },
+                                            "label": {
+                                                "EN": "Position"
+                                            },
+                                            "info": {
+                                                "popover": {
+                                                    "EN": "Role or position of the responsible person."
+                                                }
+                                            }
+                                        },
+                                        "role": {
+                                            "type": {
+                                                "name": "select",
+                                                "instruction": {
+                                                    "EN": "Select a role"
+                                                }
+                                            },
+                                            "label": {
+                                                "EN": "Role"
+                                            },
+                                            "source": {
+                                                "type": {
+                                                    "name": "multipleChoice",
+                                                    "multipleChoice": "ResponsiblePartyRole"
+                                                },
+                                                "url": "http://faostat3.fao.org:7799/v2/msd/choices/ResponsiblePartyRole",
+                                                "datafields":
+                                                    {
+                                                        "code": "code",
+                                                        "label": "EN",
+                                                        "lang": "EN"
+                                                    }
+                                            },
+                                            "info": {
+                                                "popover": {
+                                                    "EN": "Function performed by the responsible party concerning the resource."
+                                                }
+                                            }
+                                        },
+                                        "specify": {
+                                            "type": {
+                                                "name": "text"
+                                            },
+                                            "value": {
+                                                "multilingual": true
+                                            },
+                                            "label": {
+                                                "EN": "Specify"
+                                            },
+                                            "info": {
+                                                "popover": {
+                                                    "EN": "Specify the role performed by the responsible party."
+                                                }
+                                            }
+                                        },
+                                        "contactInfo": {
+                                            "type": {
+                                                "name": "fieldset",
+                                                "subtitle": {
+                                                    "EN": "Must provide at least one of the following (phone, address, email)"
+                                                }
+                                            },
+                                            "label": {
+                                                "EN": "Contact information"
+                                            },
+                                            "properties": {
+                                                "phone": {
+                                                    "type": {
+                                                        "name": "text",
+                                                        "input-group": {
+                                                            "icon": "glyphicon glyphicon-phone-alt"
+                                                        }
+                                                    },
+                                                    "label": {
+                                                        "EN": "Telephone number"
+                                                    }
+                                                },
+                                                "address": {
+                                                    "type": {
+                                                        "name": "text",
+                                                        "input-group": {
+                                                            "icon": "glyphicon glyphicon-home"
+                                                        }
+                                                    },
+                                                    "label": {
+                                                        "EN": "Address"
+                                                    }
+                                                },
+                                                "emailAddress": {
+                                                    "type": {
+                                                        "name": "text",
+                                                        "input-group": {
+                                                            "text": "@"
+                                                        }
+                                                    },
+                                                    "label": {
+                                                        "EN": "Email address"
+                                                    }
+                                                },
+                                                "hoursOfService": {
+                                                    "type": {
+                                                        "name": "text"
+                                                    },
+                                                    "value": {
+                                                        "multilingual": true
+                                                    },
+                                                    "label": {
+                                                        "EN": "Hours of service"
+                                                    },
+                                                    "info": {
+                                                        "popover": {
+                                                            "EN": "Time period (including time zone) when the organization/individual can be contacted."
+                                                        }
+                                                    }
+                                                },
+                                                "contactInstruction": {
+                                                    "type": {
+                                                        "name": "text"
+                                                    },
+                                                    "value": {
+                                                        "multilingual": true
+                                                    },
+                                                    "label": {
+                                                        "EN": "Instruction"
+                                                    },
+                                                    "info": {
+                                                        "popover": {
+                                                            "EN": "Supplemental instructions on how or when to contact the individual or organization."
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "typeOfCollection": {
+                            "type": {
+                                "name": "select"
+                            },
+                            "label": {
+                                "EN": "Type of collection"
+                            },
+                            "source": {
+                                "type": {
+                                    "name": "CodeList",
+                                    "object": "OJCodeList",
+                                    "system": "FAOSTAT_Collection",
+                                    "version": "1.0"
+                                },
+                                "url": "http://faostat3.fao.org:7799/v2/msd/resources/FAOSTAT_Collection/1.0",
+                                "dataroot": "data",
+                                "datafields": {
+                                    "code": "code",
+                                    "label": "title",
+                                    "lang": "title[EN]"
+                                }
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Coded element which specifies the type of data collection method (e.g. census, random sampling, etc.)."
+                                }
+                            }
+                        },
+                        "samplingProcedure": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "label": {
+                                "EN": "Sampling procedure"
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "The type of sample design used to select the survey respondents to represent the population. It may refer to information on sample design, sample size, sample frame, sample updating etc."
+                                }
+                            }
+                        },
+                        "dataCollection": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "label": {
+                                "EN": "Data collection"
+                            },
+                            "info": {
+                                "remote-html": {
+                                    "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/info/statisticalProDataCollection_EN.html"
+                                }
+                            }
+                        },
+                        "collectionPeriodicity": {
+                            "type": {
+                                "name": "select"
+                            },
+                            "label": {
+                                "EN": "Periodicity of data collection"
+                            },
+                            "source": {
+                                "type": {
+                                    "name": "CodeList",
+                                    "object": "OJCodeList",
+                                    "system": "FAO_Period",
+                                    "version": "1.0"
+                                },
+                                "url": "http://faostat3.fao.org:7799/v2/msd/resources/FAO_Period/1.0",
+                                "dataroot": "data",
+                                "datafields": {
+                                    "code": "code",
+                                    "label": "title",
+                                    "lang": "title[EN]"
+                                }
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Frequency with which the data are collected from the sources."
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "module": "seSecondaryDataCollection",
+                    "label": {
+                        "EN": "Secondary Data Collection"
+                    },
+                    "icon": "fa fa-database fa-lg fa-fw",
+                    "info": {
+                        "popover": {
+                            "EN": "Is filled when the agency compiling and publishing data does not coincide with the entity (subject, agency or institution) who has conducted the procedure of collecting data. It reports information about the source that have already collected data."
+                        }
+                    },
+                    "properties": {
+                        "originOfCollectedData": {
+                            "type": {
+                                "name": "select"
+                            },
+                            "label": {
+                                "EN": "Origin of collected data"
+                            },
+                            "source": {
+                                "type": {
+                                    "name": "CodeList",
+                                    "object": "OJCodeList",
+                                    "system": "FAOSTAT_OriginData",
+                                    "version": "1.0"
+                                },
+                                "url": "http://faostat3.fao.org:7799/v2/msd/resources/FAOSTAT_OriginData/1.0",
+                                "dataroot": "data",
+                                "datafields": {
+                                    "code": "code",
+                                    "label": "title",
+                                    "lang": "title[EN]"
+                                }
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Coded element which allows to specify in a standard way the origin of the resource."
+                                }
+                            }
+                        },
+                        "organization": {
+                            "type": {
+                                "name": "text"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "label": {
+                                "EN": "Organization"
+                            },
+                            "disabled": true,
+                            "placeholder": {
+                                "EN": "Only required if 'Other IOs' selected above"
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Please specify the exact source of the resource."
+                                }
+                            }
+                        },
+                        "rawDataDescription": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "label": {
+                                "EN": "Description of raw data"
+                            },
+                            "info": {
+                                "remote-html": {
+                                    "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/info/statisticalProRawDataDesc_EN.html"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "module": "seDataCompilation",
+                    "label": {
+                        "EN": "Data Compilation"
+                    },
+                    "icon": "fa fa-database fa-lg fa-fw",
+                    "info": {
+                        "popover": {
+                            "EN": "includes many aspects (e.g. data editing, imputation, weighting, adjustment for non-response, calibration, model used etc.) concerning the operations on data."
+                        }
+                    },
+                    "properties": {
+                        "missingData": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "label": {
+                                "EN": "Missing data"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "It describes under which circumstances missing data are estimated or imputed and when the cells are left empty. It also describes the methodologies used to estimate/impute missing values."
+                                }
+                            }
+                        },
+                        "weights": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "label": {
+                                "EN": "Weights"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Description of weights applied to sampling procedures in order to produce accurate statistical results. This field reports the criteria for using weights in analysis of collection, the formulas and coefficients developed and how they are applied to data."
+                                }
+                            }
+                        },
+                        "aggregationProcessing": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "label": {
+                                "EN": "Process of aggregation"
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Information about the methodology used to aggregate data."
+                                }
+                            }
+                        },
+                        "aggregationFormula": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "label": {
+                                "EN": "Aggregation formula"
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Formula used to aggregate data."
+                                }
+                            }
+                        },
+                        "dataAdjustment": {
+                            "type": {
+                                "name": "select"
+                            },
+                            "label": {
+                                "EN": "Process of adjustment"
+                            },
+                            "source": {
+                                "type": {
+                                    "name": "CodeList",
+                                    "object": "OJCodeList",
+                                    "system": "CL_ADJUSTMENT",
+                                    "version": "1.1"
+                                },
+                                "url": "http://faostat3.fao.org:7799/v2/msd/resources/CL_ADJUSTMENT/1.1",
+                                "dataroot": "data",
+                                "datafields": {
+                                    "code": "code",
+                                    "label": "title",
+                                    "lang": "title[EN]"
+                                }
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Type of adjustment used represented by a code."
+                                }
+                            }
+                        },
+                        "dataAdjustmentDetails": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "label": {
+                                "EN": "Details on process of adjustment"
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Set of procedures employed to modify statistical data to enable it to conform with national or international standards (such as seasonal adjustment methods, time series decomposition, or other similar methods)."
+                                }
+                            }
+                        },
+                        "indexType": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "label": {
+                                "EN": "Type of index"
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Type of index number used in the statistical production process."
+                                }
+                            }
+                        },
+                        "basePeriod": {
+                            "type": {
+                                "name": "date"
+                            },
+                            "label": {
+                                "EN": "Base period"
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Period of time used as a base of an index number or to which a time series refers (e.g. base year 2000 for certain annual data)."
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "module": "seDataValidation",
+                    "label": {
+                        "EN": "Data Validation"
+                    },
+                    "icon": "fa fa-database fa-lg fa-fw",
+                    "info": {
+                        "popover": {
+                            "EN": "Methods and processes for assessing statistical data. It describes the process of monitoring data compilation progress and ensuring the quality of the statistical results."
+                        }
+                    },
+                    "properties": {
+                        "dataValidationIntermediate": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "label": {
+                                "EN": "Data validation - intermediate"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Assessment of the quality and correctness of intermediate calculations leading to statistical outputs."
+                                }
+                            }
+                        },
+                        "dataValidationOutput": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "label": {
+                                "EN": "Data validation - output"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Assessment of discrepancies and/or inaccuracies observed in the statistical outputs."
+                                }
+                            }
+                        },
+                        "dataValidationSource": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "label": {
+                                "EN": "Data Validation - source"
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Assessment of discrepancies and/or inaccuracies inherent to the data source."
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "module": "meDataQuality",
+            "resourceType":["dataset"],
+            "type": {
+                "name": "label"
+            },
+            "label": {
+                "EN": "Data Quality"
+            },
+            "properties": {
+                "qualityManagement": {
+                    "type": {
+                        "name": "textarea"
+                    },
+                    "label": {
+                        "EN": "Quality management"
+                    },
+                    "value": {
+                        "multilingual": true
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Structure, responsibilities and procedures established for guaranteeing the quality of the data."
+                        }
+                    }
+                },
+                "qualityAssessment": {
+                    "type": {
+                        "name": "textarea"
+                    },
+                    "label": {
+                        "EN": "Data quality assessment"
+                    },
+                    "value": {
+                        "multilingual": true
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Overall qualitative assessment of the quality of the statistical outputs."
+                        }
+                    }
+                },
+                "qualityAssurance": {
+                    "type": {
+                        "name": "textarea"
+                    },
+                    "label": {
+                        "EN": "Quality assurance"
+                    },
+                    "value": {
+                        "multilingual": true
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Description of the process assuring that the data production processes conforms to the statistical quality standards."
+                        }
+                    }
+                }
+            },
+            "modules": [
+                {
+                    "module": "seAccuracy",
+                    "label": {
+                        "EN": "Accuracy"
+                    },
+                    "icon": "fa fa-database fa-lg fa-fw",
+                    "info": {
+                        "remote-html": {
+                            "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/info/dataQualityAccuracy_EN.html"
+                        }
+                    },
+                    "properties": {
+                        "accuracyNonSampling": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "label": {
+                                "EN": "Accuracy - non sampling error"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "info": {
+                                "remote-html": {
+                                    "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/info/dataQualityAccuracyNonSampling_EN.html"
+                                }
+                            }
+                        },
+                        "accuracySampling": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "label": {
+                                "EN": "Accuracy - sampling error"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "info": {
+                                "remote-html": {
+                                    "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/info/dataQualityAccuracySampling_EN.html"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "module": "seDataRevision",
+                    "label": {
+                        "EN": "Data Revision"
+                    },
+                    "icon": "fa fa-database fa-lg fa-fw",
+                    "info": {
+                        "popover": {
+                            "EN": "Describes the policy and practice for identifying the revision status of the data, as well as the availability of revision studies and analysis."
+                        }
+                    },
+                    "properties": {
+                        "revisionPolicy": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "label": {
+                                "EN": "Revision policy"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Policy concerning the periodically revision of the resource and ensuring the transparency of disseminated data."
+                                }
+                            }
+                        },
+                        "revisionPractice": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "label": {
+                                "EN": "Revision practice"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "info": {
+                                "remote-html": {
+                                    "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/info/dataQualityRevisionPractice_EN.html"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "module": "seRelevance",
+                    "label": {
+                        "EN": "Relevance"
+                    },
+                    "icon": "fa fa-database fa-lg fa-fw",
+                    "info": {
+                        "popover": {
+                            "EN": "Evaluation of data-quality through user satisfaction involving also information about the resource-completeness."
+                        }
+                    },
+                    "properties": {
+                        "userNeeds": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "label": {
+                                "EN": "User needs"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Classification of user needs with some indication of their importance, the uses for which they want the statistical outputs and those given special consideration. Unmet user needs and the reasons for not meeting them should be included as well."
+                                }
+                            }
+                        },
+                        "userSatisfaction": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "label": {
+                                "EN": "User satisfaction"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "How the views and opinions of the users are collected. In addition, the main results regarding the user satisfaction should be shown (in the form of a user satisfaction index if available) and the date of the most recent user satisfaction survey."
+                                }
+                            }
+                        },
+                        "completeness": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "label": {
+                                "EN": "Completeness"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "State of completeness of the resource."
+                                }
+                            }
+                        },
+                        "completenessPercentage": {
+                            "type": {
+                                "name": "number",
+                                "input-group": {
+                                    "text": "%"
+                                }
+                            },
+                            "label": {
+                                "EN": "Percentage of completeness"
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Percentage of the state of completeness of the resource."
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "module": "seComparability",
+                    "label": {
+                        "EN": "Comparability Coherence"
+                    },
+                    "icon": "fa fa-database fa-lg fa-fw",
+                    "properties": {
+                        "comparabilityGeographical": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "label": {
+                                "EN": "Geographic comparability"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Degree of data comparability across the geographic areas or regions referenced by the resource. Data might be derived from surveys that in general are conducted by different statistical agencies. These surveys often refer to populations of different geographical areas, sometimes based on different methodologies."
+                                }
+                            }
+                        },
+                        "comparabilityTime": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "label": {
+                                "EN": "Time comparability"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Extent to which data are comparable or reconcilable over time. It refers to the degree of comparability between the measures of a time series (e.g. related to a country, a commodity and a variable) included in the resource."
+                                }
+                            }
+                        },
+                        "coherenceIntern": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "label": {
+                                "EN": "Internal coherence"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "General estimate of the extent to which data are consistent within the resource."
+                                }
+                            }
+                        }
+                    }
+                },
+
+                {
+                    "module": "seTimelinessPunctuality",
+                    "label": {
+                        "EN": "Timeliness and Punctuality"
+                    },
+                    "icon": "fa fa-database fa-lg fa-fw",
+                    "properties": {
+                        "timeliness": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "label": {
+                                "EN": "Timeliness"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "It refers to the speed of data availability, length of time between data availability and the event or phenomenon they describe."
+                                }
+                            }
+                        },
+                        "punctuality": {
+                            "type": {
+                                "name": "textarea"
+                            },
+                            "label": {
+                                "EN": "Punctuality"
+                            },
+                            "value": {
+                                "multilingual": true
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Time lag between the release date of data and the target date announced in some official release calendar."
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "module": "meAccessibility",
+            "type": {
+                "name": "label"
+            },
+            "label": {
+                "EN": "Accessibility"
+            },
+            "intro": {
+                "remote-html": {
+                    "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/intro/accessibility_EN.html"
+                }
+            },
+            "modules": [
+                {
+                    "module": "seDataDissemination",
+                    "label": {
+                        "EN": "Data Dissemination"
+                    },
+                    "intro": {
+                        "remote-html": {
+                            "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/intro/dataDissemination_EN.html"
+                        }
+                    },
+                    "icon": "fa fa-database fa-lg fa-fw",
+                    "modules": [
+                        {
+                            "module": "seDistribution",
+                            "label": {
+                                "EN": "Distribution"
+                            },
+                            "intro": {
+                                "EN": "Can be completed for non-restricted resources only"
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Provides information on how to access the resource and indicates the supported formats."
+                                }
+                            },
+                            "icon": "fa fa-database fa-lg fa-fw",
+                            "properties": {
+                                "onlineResource": {
+                                    "type": {
+                                        "name": "url"
+                                    },
+
+                                    "label": {
+                                        "EN": "Link to the on-line resource"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Link to the on-line resource."
+                                        }
+                                    }
+                                },
+                                "disseminationFormat": {
+                                    "type": {
+                                        "name": "sequence"
+                                    },
+                                    "label": {
+                                        "EN": "Dissemination formats"
+                                    },
+                                    "placeholder": {
+                                        "EN": "Type then press Enter"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Formats available for downloading the resources (e.g. excel, csv, pdf, etc.)."
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "module": "seReleasePolicy",
+                            "label": {
+                                "EN": "Release Policy"
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Regulations used to determine the mode of distribution of the resource."
+                                }
+                            },
+                            "icon": "fa fa-database fa-lg fa-fw",
+                            "properties": {
+                                "releaseCalendar": {
+                                    "type": {
+                                        "name": "textarea"
+                                    },
+                                    "label": {
+                                        "EN": "Release calendar"
+                                    },
+                                    "value": {
+                                        "multilingual": true
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Policy regarding the release of the resource in accordance with the pre-announced schedule. It also provides information on the availability of the release calendar."
+                                        }
+                                    }
+                                },
+                                "releaseCalendarAccess": {
+                                    "type": {
+                                        "name": "textarea"
+                                    },
+                                    "label": {
+                                        "EN": "Access to the release calendar"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Formats available for downloading the resources (e.g. excel, csv, pdf, etc.)."
+                                        }
+                                    }
+                                },
+                                "disseminationPeriodicity": {
+                                    "type": {
+                                        "name": "select"
+                                    },
+                                    "label": {
+                                        "EN": "Dissemination periodicity"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Frequency of data dissemination (e.g. daily, monthly, quarterly, yearly)."
+                                        }
+                                    },
+                                    "source": {
+                                        "type": {
+                                            "name": "CodeList",
+                                            "object": "OJCodeList",
+                                            "system": "FAO_Period",
+                                            "version": "1.0"
+                                        },
+                                        "url": "http://faostat3.fao.org:7799/v2/msd/resources/FAO_Period/1.0",
+                                        "dataroot": "data",
+                                        "datafields": {
+                                            "code": "code",
+                                            "label": "title",
+                                            "lang": "title[EN]"
+                                        }
+                                    }
+                                },
+                                "embargoTime": {
+                                    "type": {
+                                        "name": "period"
+                                    },
+                                    "placeholder": {
+                                        "EN": "Click to show calendar"
+                                    },
+                                    "label": {
+                                        "EN": "Embargo time"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Time span between the completion of the production process of statistical data and their publication."
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "module": "seClarity",
+                            "label": {
+                                "EN": "Clarity"
+                            },
+                            "icon": "fa fa-database fa-lg fa-fw",
+                            "info": {
+                                "popover": {
+                                    "EN": "Gives information about the availability of additional information (documentation, metadata ...) linked to the resource."
+                                }
+                            },
+                            "properties": {
+                                "clarity": {
+                                    "type": {
+                                        "name": "textarea"
+                                    },
+                                    "label": {
+                                        "EN": "Clarity"
+                                    },
+                                    "value": {
+                                        "multilingual": true
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Extent to which easily comprehensible metadata are available. It indicates whether a resource is accompanied by appropriate metadata and other relevant documentation."
+                                        }
+                                    }
+                                },
+                                "metadataCompletenessRate": {
+                                    "type": {
+                                        "name": "number",
+                                        "input-group": {
+                                            "text": "%"
+                                        }
+                                    },
+                                    "label": {
+                                        "EN": "Metadata completeness rate"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "The percentage of completeness of metadata offers a numerical evaluation of the extent to which the resource is documented."
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "module": "seConfidentiality",
+                            "label": {
+                                "EN": "Confidentiality"
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Information on the level of confidentiality and the applied policy for releasing the resource. This metadata sub-entity concerns legislation (or any other formal provision) related to statistical confidentiality applied to the resource as well as the actual confidentiality data treatment applied (also with regard to the aggregated data disseminated)."
+                                }
+                            },
+                            "icon": "fa fa-database fa-lg fa-fw",
+                            "properties": {
+                                "confidentialityPolicy": {
+                                    "type": {
+                                        "name": "textarea"
+                                    },
+                                    "label": {
+                                        "EN": "Confidentiality - Policy"
+                                    },
+                                    "value": {
+                                        "multilingual": true
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Legislative measures or other formal procedures which prevent unauthorized disclosure of data that identify a person or economic entity either directly or indirectly. It consists of a textual description and references to legislation or other rules related to statistical confidentiality."
+                                        }
+                                    }
+                                },
+                                "confidentialityDataTreatment": {
+                                    "type": {
+                                        "name": "textarea"
+                                    },
+                                    "label": {
+                                        "EN": "Confidentiality - Data Treatment"
+                                    },
+                                    "value": {
+                                        "multilingual": true
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Rules applied for treating the resource to ensure confidentiality and prevent unauthorized disclosure."
+                                        }
+                                    }
+                                },
+                                "confidentialityStatus": {
+                                    "type": {
+                                        "name": "select"
+                                    },
+                                    "label": {
+                                        "EN": "Status of confidentiality"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Coded information describing the degree of confidentiality of the resource."
+                                        }
+                                    },
+                                    "source": {
+                                        "type": {
+                                            "name": "CodeList",
+                                            "object": "OJCodeList",
+                                            "system": "CL_CONF_STATUS",
+                                            "version": "1.0"
+                                        },
+                                        "url": "http://faostat3.fao.org:7799/v2/msd/resources/CL_CONF_STATUS/1.0",
+                                        "dataroot": "data",
+                                        "datafields": {
+                                            "code": "code",
+                                            "label": "title",
+                                            "lang": "title[EN]"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+
+
+            ]
+        },
+        {
+            "module": "meMaintenance",
+            "resourceType":["dataset", "geographic"],
+            "type": {
+                "name": "label"
+            },
+            "label": {
+                "EN": "Maintenance"
+            },
+            "properties": {
+                "maintenanceAgency": {
+                    "type": {
+                        "name": "textarea"
+                    },
+                    "label": {
+                        "EN": "Maintenance agency"
+                    },
+                    "value": {
+                        "multilingual": true
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Organization or other expert body that maintains the resource."
+                        }
+                    }
+                }
+            },
+            "modules": [
+                {
+                    "module": "seUpdate",
+                    "label": {
+                        "EN": "Update"
+                    },
+                    "icon": "fa fa-database fa-lg fa-fw",
+                    "info": {
+                        "popover": {
+                            "EN": "Maintenance operations concern the periodic update of the resource."
+                        }
+                    },
+                    "properties": {
+                        "updateDate": {
+                            "type": {
+                                "name": "date"
+                            },
+                            "label": {
+                                "EN": "Last update date"
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Last physical update date."
+                                }
+                            }
+                        },
+                        "updatePeriodicity": {
+                            "type": {
+                                "name": "select"
+                            },
+                            "label": {
+                                "EN": "Frequency of update"
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Frequency of upgrade."
+                                }
+                            },
+                            "source": {
+                                "type": {
+                                    "name": "CodeList",
+                                    "object": "OJCodeList",
+                                    "system": "FAO_Period",
+                                    "version": "1.0"
+                                },
+                                "url": "http://faostat3.fao.org:7799/v2/msd/resources/FAO_Period/1.0",
+                                "dataroot": "data",
+                                "datafields": {
+                                    "code": "code",
+                                    "label": "title",
+                                    "lang": "title[EN]"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "module": "seMetadataMaintenance",
+                    "label": {
+                        "EN": "Metadata Maintenance"
+                    },
+                    "icon": "fa fa-database fa-lg fa-fw",
+                    "info": {
+                        "popover": {
+                            "EN": "Maintenance operations include the periodic update of metadata to ensure that the resource is properly described."
+                        }
+                    },
+                    "properties": {
+                        "metadataLastCertified": {
+                            "type": {
+                                "name": "date"
+                            },
+                            "label": {
+                                "EN": "Metadata last certified"
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Latest date of certification of the metadata."
+                                }
+                            }
+                        },
+                        "metadataLastPosted": {
+                            "type": {
+                                "name": "date"
+                            },
+                            "label": {
+                                "EN": "Metadata last posted"
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Latest date of publication of the metadata. It is usually automatically updated by the metadata production system."
+                                }
+                            }
+                        },
+                        "metadataLastUpdate": {
+                            "type": {
+                                "name": "date"
+                            },
+                            "label": {
+                                "EN": "Metadata last update"
+                            },
+                            "info": {
+                                "popover": {
+                                    "EN": "Most recent date of update of the metadata."
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "module": "meDocuments",
+            "multi": true,
+            "type": {
+                "name": "label"
+            },
+            "label": {
+                "EN": "Documents"
+            },
+            "properties": {
+                "document": {
+                    "type": {
+                        "name": "label"
+                    },
+                    "type1": {
+                        "name": "clonebutton",
+                        "icon": "fa fa-plus fa-lg fa-fw",
+                        "clone": {
+                            "property": "citation"
+                        }
+                    },
+                    "label": {
+                        "EN": "Documents linked to the data"
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Regular or ad-hoc publications linked to the resource."
+                        }
+                    },
+                    "properties": {
+                        "citationDoc": {
+                            "type": {
+                                "name": "fieldset"
+                            },
+                            "label": {
+                                "EN": "Citation"
+                            },
+                            "properties": {
+                                "documentKind": {
+                                    "type": {
+                                        "name": "select",
+                                        "instruction": {
+                                            "EN": "Select a kind of document"
+                                        }
+                                    },
+                                    "label": {
+                                        "EN": "Kind of document"
+                                    },
+                                    "source": {
+                                        "type": {
+                                            "name": "MultipleChoice",
+                                            "multipleChoice": "DocumentType"
+                                        },
+                                        "url": "http://faostat3.fao.org:7799/v2/msd/choices/DocumentType",
+                                        "datafields":
+                                        {
+                                            "code": "code",
+                                            "label": "EN",
+                                            "lang": "EN"
+                                        }
+                                    },
+                                      "info": {
+                                        "popover": {
+                                            "EN": "Function performed by the responsible party concerning the resource."
+                                        }
+                                    }
+                                },
+                                "title": {
+                                    "type": {
+                                        "name": "text"
+                                    },
+                                    "value": {
+                                        "multilingual": true
+                                    },
+                                    "label": {
+                                        "EN": "Title"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Title by which the cited resource is known which offers a quick information about its content."
+                                        }
+                                    }
+                                },
+                                "date": {
+                                    "type": {
+                                        "name": "date"
+                                    },
+                                    "label": {
+                                        "EN": "Date"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Reference date for the cited document."
+                                        }
+                                    }
+                                },
+                                "documentContact": {
+                                    "type": {
+                                        "name": "label"
+                                    },
+                                    "type1": {
+                                        "name": "clonebutton",
+                                        "icon": "fa fa-plus fa-lg fa-fw",
+                                        "clone": {
+                                            "property": "responsibleParty"
+                                        }
+                                    },
+                                    "label": {
+                                        "EN": "Contact"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Name and position information for an individual or organization that is responsible for the resource."
+                                        }
+                                    },
+                                    "properties": {
+                                        "responsiblePartyDoc": {
+                                            "type": {
+                                                "name": "fieldset"
+                                            },
+                                            "label": {
+                                                "EN": "Responsible party"
+                                            },
+                                            "properties": {
+                                                "name": {
+                                                    "type": {
+                                                        "name": "text"
+                                                    },
+                                                    "placeholder": {
+                                                        "EN": "Title forename and surname"
+                                                    },
+                                                    "label": {
+                                                        "EN": "Name"
+                                                    },
+                                                    "info": {
+                                                        "popover": {
+                                                            "EN": "Responsible person - title, given name and surname"
+                                                        }
+                                                    }
+                                                },
+                                                "organization": {
+                                                    "type": {
+                                                        "name": "text"
+                                                    },
+                                                    "value": {
+                                                        "multilingual": true
+                                                    },
+                                                    "label": {
+                                                        "EN": "Organization"
+                                                    },
+                                                    "info": {
+                                                        "popover": {
+                                                            "EN": "Name of the responsible organization."
+                                                        }
+                                                    }
+                                                },
+                                                "organizationUnit": {
+                                                    "type": {
+                                                        "name": "text"
+                                                    },
+                                                    "value": {
+                                                        "multilingual": true
+                                                    },
+                                                    "label": {
+                                                        "EN": "Organization unit/division"
+                                                    },
+                                                    "info": {
+                                                        "popover": {
+                                                            "EN": "Addressable subdivision of an organization."
+                                                        }
+                                                    }
+                                                },
+                                                "position": {
+                                                    "type": {
+                                                        "name": "text"
+                                                    },
+                                                    "value": {
+                                                        "multilingual": true
+                                                    },
+                                                    "label": {
+                                                        "EN": "Position"
+                                                    },
+                                                    "info": {
+                                                        "popover": {
+                                                            "EN": "Role or position of the responsible person."
+                                                        }
+                                                    }
+                                                },
+                                                "role": {
+                                                    "type": {
+                                                        "name": "select",
+                                                        "instruction": {
+                                                            "EN": "Select a role"
+                                                        }
+                                                    },
+                                                    "label": {
+                                                        "EN": "Role"
+                                                    },
+                                                    "source": {
+                                                        "type": {
+                                                            "name": "MultipleChoice",
+                                                            "multipleChoice": "ResponsiblePartyRole"
+                                                        },
+                                                        "url": "http://faostat3.fao.org:7799/v2/msd/choices/ResponsiblePartyRole",
+                                                        "datafields":
+                                                        {
+                                                            "code": "code",
+                                                            "label": "EN",
+                                                            "lang": "EN"
+                                                        }
+                                                    },
+                                                    "info": {
+                                                        "popover": {
+                                                            "EN": "Function performed by the responsible party concerning the resource."
+                                                        }
+                                                    }
+                                                },
+                                                "specify": {
+                                                    "type": {
+                                                        "name": "text"
+                                                    },
+                                                    "value": {
+                                                        "multilingual": true
+                                                    },
+                                                    "label": {
+                                                        "EN": "Specify"
+                                                    },
+                                                    "info": {
+                                                        "popover": {
+                                                            "EN": "Specify the role performed by the responsible party."
+                                                        }
+                                                    }
+                                                },
+                                                "contactInfoDoc": {
+                                                    "type": {
+                                                        "name": "fieldset",
+                                                        "subtitle": {
+                                                            "EN": "Must provide at least one of the following (phone, address, email)"
+                                                        }
+                                                    },
+                                                    "label": {
+                                                        "EN": "Contact information"
+                                                    },
+                                                    "properties": {
+                                                        "phone": {
+                                                            "type": {
+                                                                "name": "text",
+                                                                "input-group": {
+                                                                    "icon": "glyphicon glyphicon-phone-alt"
+                                                                }
+                                                            },
+                                                            "label": {
+                                                                "EN": "Telephone number"
+                                                            }
+                                                        },
+                                                        "address": {
+                                                            "type": {
+                                                                "name": "text",
+                                                                "input-group": {
+                                                                    "icon": "glyphicon glyphicon-home"
+                                                                }
+                                                            },
+                                                            "label": {
+                                                                "EN": "Address"
+                                                            }
+                                                        },
+                                                        "emailAddress": {
+                                                            "type": {
+                                                                "name": "text",
+                                                                "input-group": {
+                                                                    "text": "@"
+                                                                }
+                                                            },
+                                                            "label": {
+                                                                "EN": "Email address"
+                                                            }
+                                                        },
+                                                        "hoursOfService": {
+                                                            "type": {
+                                                                "name": "text"
+                                                            },
+                                                            "value": {
+                                                                "multilingual": true
+                                                            },
+                                                            "label": {
+                                                                "EN": "Hours of service"
+                                                            },
+                                                            "info": {
+                                                                "popover": {
+                                                                    "EN": "Time period (including time zone) when the organization/individual can be contacted."
+                                                                }
+                                                            }
+                                                        },
+                                                        "contactInstruction": {
+                                                            "type": {
+                                                                "name": "text"
+                                                            },
+                                                            "value": {
+                                                                "multilingual": true
+                                                            },
+                                                            "label": {
+                                                                "EN": "Instruction"
+                                                            },
+                                                            "info": {
+                                                                "popover": {
+                                                                    "EN": "Supplemental instructions on how or when to contact the individual or organization."
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "link": {
+                                    "type": {
+                                        "name": "url"
+                                    },
+                                    "label": {
+                                        "EN": "Resource hyperlink"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Web site link allowing the user access to the information resource."
+                                        }
+                                    }
+                                },
+                                "notes": {
+                                    "type": {
+                                        "name": "textarea"
+                                    },
+                                    "value": {
+                                        "multilingual": true
+                                    },
+                                    "label": {
+                                        "EN": "Notes"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Some additional details about the resource mainly concerning the domain to which the resource refers."
+                                        }
+                                    }
+                                },
+                                "isbn": {
+                                    "type": {
+                                        "name": "text"
+                                    },
+                                    "label": {
+                                        "EN": "ISBN code"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "If available, the International Standard Book Number can be reported in order to uniquely identify the resource cited."
+                                        }
+                                    }
+                                },
+                                "issn": {
+                                    "type": {
+                                        "name": "text"
+                                    },
+                                    "label": {
+                                        "EN": "ISSN code"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "If available, the International Standard Serial Number (used to identify periodical publications such as reviews and scientific journals) can be reported in order to uniquely identify the resource cited."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "attachments": {
+                    "type": {
+                        "name": "label"
+                    },
+                    "type1": {
+                        "name": "clonebutton",
+                        "icon": "fa fa-plus fa-lg fa-fw",
+                        "clone": {
+                            "property": "citation"
+                        }
+                    },
+                    "label": {
+                        "EN": "Other attachments"
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Other document related to the main resource already enclosed in 'document'. An example could be an annex or an other kind of resource that is meaningful only if linked to the main document."
+                        }
+                    },
+                    "properties": {
+                        "citationAttach": {
+                            "type": {
+                                "name": "fieldset",
+                                "multi": true
+                            },
+                            "label": {
+                                "EN": "Citation"
+                            },
+                            "properties": {
+                                "documentKind": {
+                                    "type": {
+                                        "name": "select",
+                                        "instruction": {
+                                            "EN": "Select a kind of document"
+                                        }
+                                    },
+                                    "label": {
+                                        "EN": "Kind of document"
+                                    },
+                                    "source": {
+                                        "type": {
+                                            "name": "MultipleChoice",
+                                            "multipleChoice": "DocumentType"
+                                        },
+                                        "url": "http://faostat3.fao.org:7799/v2/msd/choices/DocumentType",
+                                        "datafields":
+                                        {
+                                            "code": "code",
+                                            "label": "EN",
+                                            "lang": "EN"
+                                        }
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Function performed by the responsible party concerning the resource."
+                                        }
+                                    }
+                                },
+                                "title": {
+                                    "type": {
+                                        "name": "text"
+                                    },
+                                    "value": {
+                                        "multilingual": true
+                                    },
+                                    "label": {
+                                        "EN": "Title"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Title by which the cited resource is known which offers a quick information about its content."
+                                        }
+                                    }
+                                },
+                                "date": {
+                                    "type": {
+                                        "name": "date"
+                                    },
+                                    "label": {
+                                        "EN": "Date"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Reference date for the cited document."
+                                        }
+                                    }
+                                },
+                                "documentContact": {
+                                    "type": {
+                                        "name": "label"
+                                    },
+                                    "type1": {
+                                        "name": "clonebutton",
+                                        "icon": "fa fa-plus fa-lg fa-fw",
+                                        "clone": {
+                                            "property": "responsibleParty"
+                                        }
+                                    },
+                                    "label": {
+                                        "EN": "Contact"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Name and position information for an individual or organization that is responsible for the resource."
+                                        }
+                                    },
+                                    "properties": {
+                                        "responsiblePartyAttach": {
+                                            "type": {
+                                                "name": "fieldset"
+                                            },
+                                            "label": {
+                                                "EN": "Responsible party"
+                                            },
+                                            "properties": {
+                                                "name": {
+                                                    "type": {
+                                                        "name": "text"
+                                                    },
+                                                    "placeholder": {
+                                                        "EN": "Title forename and surname"
+                                                    },
+                                                    "label": {
+                                                        "EN": "Name"
+                                                    },
+                                                    "info": {
+                                                        "popover": {
+                                                            "EN": "Responsible person - title, given name and surname"
+                                                        }
+                                                    }
+                                                },
+                                                "organization": {
+                                                    "type": {
+                                                        "name": "text"
+                                                    },
+                                                    "value": {
+                                                        "multilingual": true
+                                                    },
+                                                    "label": {
+                                                        "EN": "Organization"
+                                                    },
+                                                    "info": {
+                                                        "popover": {
+                                                            "EN": "Name of the responsible organization."
+                                                        }
+                                                    }
+                                                },
+                                                "organizationUnit": {
+                                                    "type": {
+                                                        "name": "text"
+                                                    },
+                                                    "value": {
+                                                        "multilingual": true
+                                                    },
+                                                    "label": {
+                                                        "EN": "Organization unit/division"
+                                                    },
+                                                    "info": {
+                                                        "popover": {
+                                                            "EN": "Addressable subdivision of an organization."
+                                                        }
+                                                    }
+                                                },
+                                                "position": {
+                                                    "type": {
+                                                        "name": "text"
+                                                    },
+                                                    "value": {
+                                                        "multilingual": true
+                                                    },
+                                                    "label": {
+                                                        "EN": "Position"
+                                                    },
+                                                    "info": {
+                                                        "popover": {
+                                                            "EN": "Role or position of the responsible person."
+                                                        }
+                                                    }
+                                                },
+                                                "role": {
+                                                    "type": {
+                                                        "name": "select",
+                                                        "instruction": {
+                                                            "EN": "Select a role"
+                                                        }
+                                                    },
+                                                    "label": {
+                                                        "EN": "Role"
+                                                    },
+                                                    "source": {
+                                                        "type": {
+                                                            "name": "MultipleChoice",
+                                                            "multipleChoice": "ResponsiblePartyRole"
+                                                        },
+                                                        "url": "http://faostat3.fao.org:7799/v2/msd/choices/ResponsiblePartyRole",
+                                                        "datafields":
+                                                        {
+                                                            "code": "code",
+                                                            "label": "EN",
+                                                            "lang": "EN"
+                                                        }
+                                                    },
+                                                    "info": {
+                                                        "popover": {
+                                                            "EN": "Function performed by the responsible party concerning the resource."
+                                                        }
+                                                    }
+                                                },
+                                                "specify": {
+                                                    "type": {
+                                                        "name": "text"
+                                                    },
+                                                    "value": {
+                                                        "multilingual": true
+                                                    },
+                                                    "label": {
+                                                        "EN": "Specify"
+                                                    },
+                                                    "info": {
+                                                        "popover": {
+                                                            "EN": "Specify the role performed by the responsible party."
+                                                        }
+                                                    }
+                                                },
+                                                "contactInfoAttach": {
+                                                    "type": {
+                                                        "name": "fieldset",
+                                                        "subtitle": {
+                                                            "EN": "Must provide at least one of the following (phone, address, email)"
+                                                        }
+                                                    },
+                                                    "label": {
+                                                        "EN": "Contact information"
+                                                    },
+                                                    "properties": {
+                                                        "phone": {
+                                                            "type": {
+                                                                "name": "text",
+                                                                "input-group": {
+                                                                    "icon": "glyphicon glyphicon-phone-alt"
+                                                                }
+                                                            },
+                                                            "label": {
+                                                                "EN": "Telephone number"
+                                                            }
+                                                        },
+                                                        "address": {
+                                                            "type": {
+                                                                "name": "text",
+                                                                "input-group": {
+                                                                    "icon": "glyphicon glyphicon-home"
+                                                                }
+                                                            },
+                                                            "label": {
+                                                                "EN": "Address"
+                                                            }
+                                                        },
+                                                        "emailAddress": {
+                                                            "type": {
+                                                                "name": "text",
+                                                                "input-group": {
+                                                                    "text": "@"
+                                                                }
+                                                            },
+                                                            "label": {
+                                                                "EN": "Email address"
+                                                            }
+                                                        },
+                                                        "hoursOfService": {
+                                                            "type": {
+                                                                "name": "text"
+                                                            },
+                                                            "value": {
+                                                                "multilingual": true
+                                                            },
+                                                            "label": {
+                                                                "EN": "Hours of service"
+                                                            },
+                                                            "info": {
+                                                                "popover": {
+                                                                    "EN": "Time period (including time zone) when the organization/individual can be contacted."
+                                                                }
+                                                            }
+                                                        },
+                                                        "contactInstruction": {
+                                                            "type": {
+                                                                "name": "text"
+                                                            },
+                                                            "value": {
+                                                                "multilingual": true
+                                                            },
+                                                            "label": {
+                                                                "EN": "Instruction"
+                                                            },
+                                                            "info": {
+                                                                "popover": {
+                                                                    "EN": "Supplemental instructions on how or when to contact the individual or organization."
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "link": {
+                                    "type": {
+                                        "name": "url"
+                                    },
+                                    "label": {
+                                        "EN": "Resource hyperlink"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Web site link allowing the user access to the information resource."
+                                        }
+                                    }
+                                },
+                                "notes": {
+                                    "type": {
+                                        "name": "textarea"
+                                    },
+                                    "value": {
+                                        "multilingual": true
+                                    },
+                                    "label": {
+                                        "EN": "Notes"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "Some additional details about the resource mainly concerning the domain to which the resource refers."
+                                        }
+                                    }
+                                },
+                                "isbn": {
+                                    "type": {
+                                        "name": "text"
+                                    },
+                                    "label": {
+                                        "EN": "ISBN code"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "If available, the International Standard Book Number can be reported in order to uniquely identify the resource cited."
+                                        }
+                                    }
+                                },
+                                "issn": {
+                                    "type": {
+                                        "name": "text"
+                                    },
+                                    "label": {
+                                        "EN": "ISSN code"
+                                    },
+                                    "info": {
+                                        "popover": {
+                                            "EN": "If available, the International Standard Serial Number (used to identify periodical publications such as reviews and scientific journals) can be reported in order to uniquely identify the resource cited."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+
+                "referenceEntity": {
+                    "type": {
+                        "name": "entities",
+                        "instruction": {
+                            "EN": "Select a reference subject"
+                        }
+                    },
+                    "label": {
+                        "EN": "Reference subject"
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "The metadata entity(ies) the document refers to. This element allows users to contextualize the document by making reference to specific metadata areas."
+                        }
+                    }
+                },
+                "referenceElement": {
+                    "type": {
+                        "name": "subentities",
+                        "instruction": {
+                            "EN": "Select a reference element"
+                        }
+                    },
+                    "label": {
+                        "EN": "Reference element"
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "The metadata element(s)the document refers to. This element allows users to contextualize the document by making reference to specific metadata element(s)."
+                        }
+                    }
+                }
+            }
+        } ,
+        {
+            "module": "spatialRepresentation",
+            "resourceType": ["geographic"],
+            "type": {
+                "name": "label"
+            },
+            "label": {
+                "EN": "Spatial Representation"
+            },
+            "properties": {
+                "layerType": {
+                    "type": {
+                        "name": "select"
+                    },
+                    "label": {
+                        "EN": "Type of layer"
+                    },
+                    "info": {
+                        "popover": {
+                            "EN": "Layer typology: vector or raster spatial representation."
+                        }
+                    },
+                    "source": {
+                        "type": {
+                            "name": "MultipleChoice",
+                            "multipleChoice": "ResponsiblePartyRole"
+                        },
+                        "url": "http://faostat3.fao.org:7799/v2/msd/choices/ResponsiblePartyRole",
+                        "datafields":
+                        {
+                            "code": "code",
+                            "label": "EN",
+                            "lang": "EN"
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

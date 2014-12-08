@@ -1,77 +1,64 @@
-requirejs.config({
+﻿// relative or absolute path of Components' main.js
 
-    baseUrl: 'scripts/lib',
+define(['module'], function(module){
+   var userConfig =  module.config();
 
-    locale: 'en',
-
-    paths : {
-        host : '../metadata/host',
-        'fx-editor/controllers': "../metadata/js/editor/controllers",
-        'fx-editor/js': "../metadata/js",
-        'fx-editor/utils' : "../metadata/js/editor/utils",
-        'fx-editor/conf/json': "../metadata/conf/json",
-        'fx-editor/conf/js': "../metadata/conf/js",
-        'fx-editor/widgets': "../metadata/js/editor/widgets",
-        'fx-editor/plugins': "../metadata/js/editor/widgets/bridge/plugins",
-        'fx-editor/templates': "../metadata/templates",
-        'fx-editor/start-up' : "../metadata/js/start-up",
-        //'jquery': "libs/jquery",
-        //'jquery-serialize-object' : "libs/jquery-serialize-object",
-        //'pnotify' : "libs/pnotify",
-        'jqueryui': "//code.jquery.com/ui/1.10.3/jquery-ui.min",
-        //'bootstrap-validator': "http://cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min",
-        //'bootstrap-validator': "libs/bootstrapValidator",
-        //'text': "libs/text",
-        //'i18n': "libs/i18n",
-        //'domReady': "libs/domReady",
-        'nls': "../metadata/nls",
-        //'handlebars': "libs/handlebars",
-        //'jstorage': "libs/jstorage",
-        //'json2': "libs/json2",
-        //'jqrangeslider': "libs/jqrangeslider",
-        //'bootstrap-tagsinput': "libs/bootstrap-tagsinput",
-        //'bootstrap-datetimepicker': "libs/bootstrap-datetimepicker",
-        //'moment': "libs/moment.min"
+     var override = { 
+        lib : '../lib',
         "fenix-ui-topmenu" : '../components/fenix-ui-topmenu',
-        jquery: "//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min",
-        jqxall: "//fenixapps.fao.org/repository/js/jqwidgets/3.2.2/jqx-all",
-        bootstrap : "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min"
-    },
-   
-    shim: {
-        bootstrap: {
-            deps: ['jquery']
-        },
-        jqxall: {
-            deps: ['jquery']
-        },
-        "jquery.history": {
-            deps: ['jquery']
-        },
-        "jqrangeslider": {
-            deps: ["jquery", "jqueryui"]
-        },
-        "jquery-serialize-object": {
-            deps: ["jquery"]
-        },
-        "bootstrap-validator": {
-           deps: ["jquery", "moment"]
-        },
-        "jstorage" : {
-          deps: ["jquery", "json2"]
-        },
-        "bootstrap-tagsinput" : {
-            deps: ["jquery", "bootstrap"]
-        },
-        "bootstrap-datetimepicker" : {
-         deps: ["jquery", "moment"]
-        }
-    }
+        'fast-fix':"../lib/fastfix",
+        'jquery': "../lib/jquery",
+        'jquery-serialize-object' : "../lib/jquery-serialize-object",
+        'bootstrap': "../lib/bootstrap",
+        'pnotify' : '../lib/pnotify', 
+        'nprogress': "../lib/nprogress",
+        'pnotify.nonblock': "../lib/pnotify.nonblock",
+        'jqueryui': "http://code.jquery.com/ui/1.10.3/jquery-ui.min",
+       // 'bootstrap-validator': "http://cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min",
+        'bootstrap-validator': "../lib/bootstrapValidator",
+        'text': "../lib/text",
+        'i18n': "../lib/i18n",
+        'domReady': "../lib/domReady",
+        'handlebars': "../lib/handlebars",
+        'jstorage': "../lib/jstorage",
+        'json2': "../lib/json2",
+        'jqrangeslider': "../lib/jqrangeslider",
+        'bootstrap-tagsinput': "../lib/bootstrap-tagsinput",
+        'bootstrap-datetimepicker': "../lib/bootstrap-datetimepicker",
+        'moment': "../lib/moment"  
+       /* , pnotify: '../lib/pnotify' 
+        , "fenix-ui-topmenu" : '../components/fenix-ui-topmenu'
+        , bootstrap : "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min"*/
+
+    }; 
+
+    require(['../metadata/paths'], function( MetadataEditor ) {
+
+    // NOTE: This setTimeout() call is used because, for whatever reason, if you make
+    //       a 'require' call in here or in the Cart without it, it will just hang
+    //       and never actually go fetch the files in the browser. There's probably a
+    //       better way to handle this, but I don't know what it is.
+
+
+    setTimeout(function() {
+
+
+         /*
+         @param: prefix of Components paths to reference them also in absolute mode
+         @param: paths to override
+         @param: options passed in to override defaults
+         @param: callback function
+         */
+
+        MetadataEditor.initialize('../metadata', override, userConfig, function() {
+
+            require(['fx-editor/start' ], function( StartUp ){
+
+              new StartUp().init(userConfig);
+            });
+        });
+
+    }, 0);
 });
-
-require(['host', 'domReady!'], function( Host ) {
-
-    var host = new Host();
-    host.initFenixComponent()
 
 });

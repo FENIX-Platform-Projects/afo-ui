@@ -1,0 +1,37 @@
+{
+    "path-mapping": [
+        {
+            "entity": "identification",
+            "path": "root",
+            "fields": {
+                "language": {
+                    "path" : "language.codes"
+                },
+                "characterSet": {
+                    "path" : "characterSet.codes"
+                },
+                "metadataLanguage": {
+                    "path" : "metadataLanguage.codes"
+                },
+                "responsibleParty": {
+                    "path" : "contacts"
+                },
+                "contactInfo": {
+                    "path" : "contacts.contactInfo"
+                }
+            }
+        },
+        {
+            "entity": "statisticalProcessing",
+            "path": "statisticalProcessing.datasource",
+            "fields": {
+                "responsibleParty": {
+                    "path" : "dataCollector"
+                },
+                "contactInfo": {
+                    "path" : "dataCollector.contactInfo"
+                }
+            }
+        }
+    ]
+}

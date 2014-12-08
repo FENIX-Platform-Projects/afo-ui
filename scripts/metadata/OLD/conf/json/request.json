@@ -1,0 +1,34 @@
+{
+    "filter": {
+        "types": ["dataset"],
+        "metadata": {
+            "uid": [
+                {
+                    "enumeration": "053CPD010"
+                },
+                {
+                    "enumeration": "107CPD010"
+                },
+                {
+                    "enumeration": "133CPD010"
+                },
+                {
+                    "enumeration": "233CPD010"
+                },
+                {
+                    "enumeration": "195CPD010"
+                },
+                {
+                    "enumeration": "158CPD010"
+                },
+                {
+                    "enumeration": "217CPD010"
+                },
+                {
+                    "enumeration": "175CPD010"
+                }
+            ]
+        }
+    },
+    "business": []
+}

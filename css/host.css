@@ -354,11 +354,11 @@ a {
   color: #666666; }
 
 h1 {
-  font: normal normal 100 36px/normal "sansationregular";
+  font: normal normal 100 32px/normal "sansationregular";
   color: magenta; }
 
 h2 {
-  font: normal normal 100 26px/normal "sansationregular";
+  font: normal normal 100 22px/normal "sansationregular";
   color: #d926d9; }
 
 h3 {
@@ -831,6 +831,58 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   .fx-resume-list-obj .fx-resume-obj-value {
     display: inline;
     margin-right: 7px; }
+
+/* Fenix - Top Menu Component */
+.navbar ul {
+  list-style: outside none none;
+  padding-left: 0; }
+
+.navbar .container {
+  position: relative; }
+
+.navbar-default {
+  background-color: #ffffff; }
+
+.nav-pills li a {
+  color: #336601; }
+
+.navbar-brand {
+  background-image: url("img/fenix-ico.svg");
+  background-position: 0 3px;
+  background-repeat: no-repeat;
+  background-size: 44px 44px;
+  display: block;
+  height: 50px;
+  padding: 0;
+  width: 50px; }
+
+.navbar .lang_picker {
+  height: 22px;
+  margin-top: 13px;
+  text-transform: uppercase; }
+
+.navbar .lang_picker li {
+  cursor: pointer;
+  float: right; }
+
+.navbar .lang_picker li a, .navbar .lang_picker li a:hover {
+  color: #666666;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1.7;
+  padding: 0 5px;
+  text-align: center;
+  text-decoration: none; }
+
+.navbar .lang_picker li a:hover, .navbar .lang_picker li a.selected {
+  background-color: #666666;
+  border-radius: 22px;
+  color: white;
+  height: 22px;
+  width: 22px; }
+
+.navbar .lang_picker li:last-child {
+  border-right: medium none; }
 
 /* Fenix - Sidebar Component */
 .bs-docs-sidebar.affix {
@@ -1625,7 +1677,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 @font-face {
   font-family: 'sansationregular';
   src: url("fonts/sansation-regular-webfont.eot");
-  src: url("fonts/sansation-regular-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/sansation-regular-webfont.woff2") format("woff2"), url("fonts/sansation-regular-webfont.woff") format("woff"), url("fonts/sansation-regular-webfont.ttf") format("truetype"), url("..fonts/sansation-regular-webfont.svg#sansationregular") format("svg");
+  src: url("fonts/sansation-regular-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/sansation-regular-webfont.woff2") format("woff2"), url("fonts/sansation-regular-webfont.woff") format("woff"), url("fonts/sansation-regular-webfont.ttf") format("truetype"), url("fonts/sansation-regular-webfont.svg#sansationregular") format("svg");
   font-weight: normal;
   font-style: normal; }
 /* Stefano's original CSS from main.css */

@@ -29,7 +29,10 @@
     "i18n": "https://github.com/requirejs/i18n/tarball/master",    
     "jqwidgets": "http://fenixapps.fao.org/repository/js/jqwidgets/3.1.tgz",
     "handlebars": "~2.0.0",
-    "jstree": "~3.0.8"
+    "jstree": "~3.0.8",
+    "intro.js": "~0.9.0",
+    "draggabilly": "~1.1.1",
+    "packery": "~1.2.4"    
   },
   "devDependencies": {
     "grunt": "~0.4.2",
@@ -45,20 +48,5 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "main": "main.js",
-  "config": {
-    "sections": [
-      "home",
-      "view",
-      "analysis",
-      "data management",
-      "about"
-    ],
-    "langs": [
-      "en",
-      "fr",
-      "es"
-    ]
   }
 }

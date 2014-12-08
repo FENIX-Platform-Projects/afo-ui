@@ -1614,9 +1614,12 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 /* Theme */
 /* AFO Theme */
 .navbar-brand {
-  background-image: url("img/uae-ico.svg") !important;
+  background-image: url("img/afo-ico.svg") !important;
   /* To be removed */
-  background-size: 34px 44px !important; }
+  background-size: 45px 45px !important;
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat; }
 
 /* Stefano's original CSS from main.css */
 #page-catalogue .jstree,

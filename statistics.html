@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-    <title>FENIX Metadata Editor</title>
+    <title>FENIX - Analysis</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
@@ -10,292 +9,99 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-    <meta name="description" content="FENIX Structure">
-    <meta name="author" content="Daniele Salvatore <daniele.salvatore [at] fao.org>">
-    <meta name="author" content="Daniele Olivotti <daniele.olivotti[at]fao.org>">
+
+    <meta name="description" content="FENIX Analysis Interface">
+    <meta name="author" content="Daniele Salvatore <daniele.salvatore[at]fao.org>">
     <meta name="author" content="Nicola Selleri <nicola.selleri[at]fao.org>">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
 
     <!-- Third Party CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href='css/iThing-min.css'/>
-    <link href="css/jqwidgets/styles/jqx.base.css" type="text/css"  rel="stylesheet"/>
-    <link rel="stylesheet" href="css/host.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap.tagsinput/0.4.2/bootstrap-tagsinput.css"/>
-    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css"/>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css"/>
-    <link rel="stylesheet" href="css/formprogress.css"/>
     <link rel="stylesheet" href='http://fenixapps.fao.org/repository/js/jqwidgets/3.1/styles/jqx.base.css'/>
-
-
-    <!-- FENIX CSS -->
-    <link rel="stylesheet" href="submodules/fenix-ui-common/css/fenix-style.css">
+    <link rel="stylesheet" href='submodules/fenix-ui-catalog/css/pnotify.custom.min.css'/>
+    <link rel="stylesheet" href='submodules/fenix-ui-catalog/css/iThing-min.css'/>
+    <link rel="stylesheet" href='node_modules/jstree/dist/themes/default/style.min.css'/>
+    <link rel="stylesheet" href='node_modules/intro.js/minified/introjs.min.css'/>
     <link rel="stylesheet" href='node_modules/nprogress/nprogress.css'/>
-    <link rel="stylesheet" href='submodules/fenix-ui-metadata-editor/css/pnotify.css'/>
-    <link rel="stylesheet" href="submodules/fenix-ui-DSDEditor/css/fenix-ui-DSDEditor.css" type="text/css" />
-    <link rel="stylesheet" href='submodules/fenix-ui-metadata-editor/css/fenix-metadata-editor.css'/>
-    <link rel="stylesheet" href="css/host.css">
+    <link href="css/mbExtruder.css" media="all" rel="stylesheet" type="text/css">
+
+    <!-- FENIX CSS-->
+    <link rel="stylesheet" href="submodules/fenix-ui-common/css/fenix-style.css">
+    <link rel="stylesheet" href='submodules/fenix-ui-catalog/css/fenix-ui-catalog.css'/>
+    <link rel="stylesheet" href='css/host.css'/>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="css/icons/fx-favicon.ico">
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"/>
-
-    <script>
-        $('#copy').click(function(event){
-            e.preventDefault();
-        } );
-    </script>
 </head>
 <body>
 
-
-<!-- FENIX DSD Editor-->
 <div class="container">
+
     <div class="row fx-header">
         <div class="col-xs-12">
             <div class="page-header">
-                <h1>Fenix Data Editor<small> FENIX</small></h1>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- FENIX Metadata Editor related Nav Bar options -->
-<div class="container">
-    <div class="col-xs-12" id="fx-editor-navbar">
-        <div class="btn-toolbar">
-            <button type="button" onclick="exitMetadataEditor()"  class="btn btn-primary">
-                Close
-            </button>
-            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                Copy Metadata <span class="caret"></span>
-            </button>
-            <div class="dropdown-menu" >
-                <div class="col-sm-12">
-                    <div class="col-sm-12">
-                        Copy the metadata of a resource
-                    </div>
-                    <div class="col-sm-12">
-                        <input type="text" placeholder="Enter Resource Identification Code" onclick="return false;" class="form-control input-sm" id="resourceUid" />
-                    </div>
-                    <br/>
-                    <div class="col-sm-12">
-                        <input type="text" placeholder="Enter Resource Version (if applicable)" onclick="return false;" class="form-control input-sm" id="resourceVersion" />
-                    </div>
-                    <div class="col-sm-12">
-                        <button type="submit" class="btn btn-success btn-sm editor-copy-btn">Load</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row fx-editor-data-entry-container">
-    <div><br/></div>
-
-
-    <button id="debug_skipMeta" type="button" style="display:none">ff</button>
-    <!--<button id="debug_skipMeta" type="button">ff</button>-->
-
-    <!-- FENIX Metadata Editor-->
-    <div id="metadataEditorContainer"></div>
-
-    <!-- FENIX DSD Container-->
-    <div id="DSDEditorContainer" class="container" style="visibility:hidden">
-        <p>Welcome to the Fenix Platform Data Editor. Please start by adding the metadata. Later, you can use the Column editor on the left (1) to add and modify columns. These are displayed in the right side (2), where you can check your personalized columns. </p>
-        <div class="row">
-            <div class="col-sm-12   ">
-                <div id="DSDEditorMainContainer" class="row"></div>
-                Upload a CSV<div id="divUplaodCSV"></div>
-                <button id="btnColsEditDone" type="button" class="btn btn-default pull-right">Done</button>
-                <hr>
-                <a href="sampledata/management/fenix_data_upload_sample.csv">Download Sample CSV</a>
-                <hr>
+                <h1>Data Analysis<small> FENIX</small></h1>
+                <p>Analysis of data is a process of inspecting, cleaning, transforming, and modeling data with the goal of discovering useful information, suggesting conclusions, and supporting decision making.</p>
             </div>
         </div>
     </div>
 
-    <div id="DataEditorContainer" class="container" style="visibility:hidden">
-        <div class="row">
-            <div class="col-xs-12">
-                <div id="DataEditorMainContainer"></div>
-                <button id="createDatasetEnd" type="button" class="btn btn-default pull-right">Done</button>
-            </div>
-        </div>
-    </div>
-</div>
+    <div class="row fx-catalog-toolbar">
 
-<div class="container">
+        <div class="col-xs-6">
+            <button id="btn" type="button" class="btn btn-default">OPEN CATALOG</button>
+        </div>
+
+        <div class="col-xs-6 fx-widget-stack-btns">
+            Widgets in the stack <em id="fx-widgets-stack-counter"></em>
+            <input class="btn " id="fx-widgets-stack-btn" type='button' value='OPEN STACK'>
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-xs-12 well widget-grid-container">
+            <div id="fx-ana-result-container"></div>
+        </div>
+
+    </div>
+
+    <hr>
+
     <!-- FOOTER -->
     <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
 
         <p>2014 FENIX · <a href="#">Terms</a></p>
     </footer>
-
 </div>
 
-<!-- Javascript
-================================================== -->
-<!-- Javascript
-================================================== -->
-<script>
+<!-- FENIX Widgets Stack -->
+<div id="fx-widgets-stack"></div>
 
-    //=============== HOST:  Event Listener example
-    // Listening for when the Metadata Editor's 'Close' button action has finished its final action
-    document.body.addEventListener("fx.editor.finish", function (e) {
-        console.log("=== LISTENER  ====");
-        //e.detail.data = the Object passed from the editor
-        /** {
-            "title" : {
-            "EN" : "Agriculture production. Crops, National Production ."
-        },
-            "uid" : "4",
-                "rid" : "9_65"
-        }  **/
+<!-- FENIX Catalog Overlay -->
+<div id="overlay">
+    <button class="closeOverlay"></button>
 
-        console.log(e.detail.data);
-    }, false);
+    <div class="overlay-content">
+        <div id="catalogContainer"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="filterContainer"><div id="fx-ana-filter-container"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    //=============== HOST:  Event Listener example
-    // Listening for the Metadata Editor's status on whether the root metadata entity is present
-    document.body.addEventListener("fx.editor.root.entity.status", function (e) {
-        console.log("=== LISTENER  ====");
-        //e.detail.data = the Object passed from the editor
-        /** {
-            "available" : true or false
-        }  **/
-        console.log(e.detail.data);
-    }, false);
-
-
-
-    //=============== HOST: Nav Bar to trigger FENIX Metadata Editor events to Close and Copy Metadata
-    // Prevents drop down menu disappearing (see Copy button)
-    $('.dropdown-menu input').click(function(e) {
-        e.stopPropagation(); //This will prevent the event from bubbling up and close the dropdown when you type/click on text boxes.
-    });
-
-    // Copy Metadata: Load Button onClick Action
-    // FENIX Metadata Editor will listen for the event "fx.editor.metadata.copy"
-    $('.editor-copy-btn').click(function(event){
-        event.preventDefault();
-
-        var uid = document.getElementById('resourceUid');
-        var version = document.getElementById('resourceVersion');
-
-        // Create the event and pass uid and version values
-        var event = new CustomEvent("fx.editor.metadata.copy", {"detail": { "version": version.value, "uid": uid.value}});
-        // Dispatch/Trigger/Fire the event
-        document.body.dispatchEvent(event);
-    } );
-
-    // Close onClick Action
-    // FENIX Metadata Editor will listen for the event "fx.editor.metadata.exit"
-    function exitMetadataEditor(){
-        // Create the event
-        var event = new CustomEvent("fx.editor.metadata.exit", {});
-        // Dispatch/Trigger/Fire the event
-        document.body.dispatchEvent(event);
-
-    }
-
-    // ========== FENIX Metadata Editor URL Parameters ===================
-    // resourceType ==> dataset, geographic or codelist  ==> Determines which type of Metadata Editor to load
-    // uid ==> resource uid ==> Required to Load 'Edit'/'Read Only' Metadata Editor
-    // version ==> resource version ==> Used in combination with uid (if applicable)
-    // readonly ==> in combination with uid (& version if applicable) ==> Loads a read only version of the Metadata Editor
-
-    // Example URLs:
-    //===============
-    // Load EDIT MODE: http://localhost:8080/uneca/createdataset.html?resourceType=dataset&uid=mai
-    // Load READ-ONLY MODE: http://localhost:8080/uneca/createdataset.html?resourceType=dataset&uid=mai&readonly
-    // Load CREATE NEW METADATA FOR DATASET: http://localhost:8080/uneca/createdataset.html?resourceType=dataset
-
-
-    function getURLParameter(sParam) {
-        var sPageURL = window.location.search.substring(1);
-        var sURLVariables = sPageURL.split('&');
-        for (var i = 0; i < sURLVariables.length; i++) {
-            var sParameterName = sURLVariables[i].split('=');
-            if (sParameterName[0] == sParam) {
-                return sParameterName[1];
-            }
-        }
-    }
-
-    function isURLParameter(sParam) {
-        var sPageURL = window.location.search.substring(1);
-        var sURLVariables = sPageURL.split('&');
-        for (var i = 0; i < sURLVariables.length; i++) {
-            var sParameterName = sURLVariables[i].split('=');
-            if (sParameterName[0] == sParam) {
-                return true;
-            }
-        }
-    }
-
-    /** if (typeof Element.prototype.addEventListener === 'undefined') {
-        Element.prototype.addEventListener = function (e, callback) {
-            e = 'on' + e;
-            return this.attachEvent(e, callback);
-        };
-    }  **/
-
-    // ========== Set FENIX Metadata Editor configuration (initialization) parameters ===================
-    var sourceValues = null, resourceTypeValue = "dataset", readOnlyValue = false;
-
-    if (getURLParameter("uid") != null && getURLParameter("version") == null) {
-        sourceValues = {
-            "urlTest": "http://exldvsdmxreg1.ext.fao.org:7788/v2/msd/resources/metadata/uid/" + getURLParameter("uid") + "?full=true",
-            "url": "http://faostat3.fao.org/d3s2/v2/msd/resources/metadata/uid/" + getURLParameter("uid") + "?full=true",
-            "type": "get"
-        };
-    }
-
-    if (getURLParameter("version") != null && getURLParameter("uid") != null) {
-        sourceValues = {
-            "urlTest": "http://exldvsdmxreg1.ext.fao.org:7788/v2/msd/resources/metadata/" + getURLParameter("uid") + "/" + getURLParameter("version") + "?full=true",
-            "url": "http://faostat3.fao.org/d3s2/v2/msd/resources/metadata/" + getURLParameter("uid") + "/" + getURLParameter("version") + "?full=true",
-            "type": "get"
-        };
-    }
-
-    if (getURLParameter("resourceType") != null) {
-        resourceTypeValue = getURLParameter("resourceType");
-    }
-
-    if (isURLParameter("readonly")) {
-        readOnlyValue = true;
-    }
-
-    //Set require JS Metadata Editor configuration
-    var require = {
-        config: {
-            createdataset: { //This must match your module name
-                container: "div#metadataEditorContainer",
-                source: sourceValues,
-                resourceType: resourceTypeValue, //dataset, geographic, codelist
-                readOnly: readOnlyValue,
-                widget: {
-                    lang: 'EN'
-                },
-                config: {
-                    gui: "./submodules/fenix-ui-metadata-editor/conf/json/fx-editor-gui-config.json",
-                    validation: "./submodules/fenix-ui-metadata-editor/conf/json/fx-editor-validation-config.json",
-                    jsonMapping: "./submodules/fenix-ui-metadata-editor/conf/json/fx-editor-mapping-config.json",
-                    ajaxEventCalls: "./submodules/fenix-ui-metadata-editor/conf/json/fx-editor-ajax-config.json",
-                    dates: "./submodules/fenix-ui-metadata-editor/conf/json/fx-editor-dates-config.json"
-                }
-            }
-        }
-    };
-
-</script>
-
-
-<script data-main="scripts/mains/analysis" src="src/lib/require.js"></script>
+<!-- data-main attribute tells require.js to load scripts/main.js after require.js loads. -->
+<script data-main="scripts/mains/analysis"  src="node_modules/requirejs/require.js"></script>
 
 </body>
 </html>

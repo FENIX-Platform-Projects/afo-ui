@@ -39,7 +39,7 @@ require([
             ], function (Analysis, Catalog, TopMenu) {
 
                 new TopMenu({
-                    url: 'json/fenix-ui-topmenu_config.json', active: "analysis"
+                    url: 'json/fenix-ui-topmenu_config.json', active: "statistics"
                 });
 
                 new Analysis().init({

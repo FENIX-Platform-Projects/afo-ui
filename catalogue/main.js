@@ -27,7 +27,8 @@ require.config({
 		'jquery.power.tip'      :'//fenixapps.fao.org/repository/js/jquery.power.tip/1.1.0/jquery.powertip.min',
 		'jquery-ui'             :'//fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min',
 		'jquery.i18n.properties':'//fenixapps.fao.org/repository/js/jquery/1.0.9/jquery.i18n.properties-min',
-		'jquery.hoverIntent'    :'//fenixapps.fao.org/repository/js/jquery.hoverIntent/1.0/jquery.hoverIntent'
+		'jquery.hoverIntent'    :'//fenixapps.fao.org/repository/js/jquery.hoverIntent/1.0/jquery.hoverIntent',
+		"fenix-ui-topmenu": 	'../scripts/components/fenix-ui-topmenu'
 	},
 
 	shim: {
@@ -67,10 +68,18 @@ require([
 	'fenix-map',
 	'text!../config/catalogue-map.json',
 	'text!html/accordion.html',
+	'fenix-ui-topmenu/main',
 	'domready!'
 ], function($,_,bts,highcharts,jstree,Handlebars,
 	FenixMap,
-	mapConf, accordion) {
+	mapConf, accordion, TopMenu) {
+
+
+	new TopMenu({
+		url: '../json/fenix-ui-topmenu_config.json',
+		active: "catalogue"
+	});
+
 
 	mapConf = JSON.parse(mapConf);
 	accordionTmpl = Handlebars.compile(accordion);

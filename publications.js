@@ -59,6 +59,4 @@ require([
 		active: "publications"
 	});
 
-	$('#pubs').load('publications/pubs.html');
-
 });

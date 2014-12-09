@@ -1,12 +1,11 @@
 
 
-require.fenix-map-config({
+require.config({
 
 	baseUrl: '../src/',
 
 	paths: {
 		'i18n'                  :'lib/i18n',
-		'require'				:'lib/require',
 		'text'                  :'lib/text',
 		'domready'              :'lib/domready',
 		'bootstrap'             :'lib/bootstrap',	

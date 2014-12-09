@@ -92,7 +92,7 @@ define([
                 type: 'spline', //Tipo di grafico:  area, areaspline, boxplot, bubble, column, line, pie, scatter, spline
 
                 alignTicks: false,
-                backgroundColor: '#f9f7f3', //Colore di background
+                backgroundColor: '#ffffff', //Colore di background
                 //borderColor: '#3fa8da', //Colore bordo intorno
                 //borderWidth: 1, //Spessore bordo intorno
                 //borderRadius: 0, //Smusso bordo intorno
@@ -392,7 +392,7 @@ define([
                 type: 'spline', //Tipo di grafico:  area, areaspline, boxplot, bubble, column, line, pie, scatter, spline
 
                 alignTicks: false,
-                backgroundColor: '#f9f7f3', //Colore di background
+                backgroundColor: '#ffffff', //Colore di background
                 //borderColor: '#3fa8da', //Colore bordo intorno
                 //borderWidth: 1, //Spessore bordo intorno
                 //borderRadius: 0, //Smusso bordo intorno
@@ -692,14 +692,14 @@ define([
                 type: 'spline', //Tipo di grafico:  area, areaspline, boxplot, bubble, column, line, pie, scatter, spline
 
                 alignTicks: false,
-                backgroundColor: '#f9f7f3', //Colore di background
+                backgroundColor: '#ffffff', //Colore di background
                 //borderColor: '#3fa8da', //Colore bordo intorno
                 //borderWidth: 1, //Spessore bordo intorno
                 //borderRadius: 0, //Smusso bordo intorno
                 //margin: [5,5,5,5], //Margine intorno (vince sullo spacing)
                 spacing: [20, 1, 1, 1],//Spacing intorno (molto simile al margin - Di default il bottom è 15, qui l'ho messo a 10 per essere uguale agli altri)
                 //plotBackgroundColor: 'red', //Colore di background solo area chart
-                plotBorderColor: '#f9f7f3', //Colore bordo intorno solo area chart
+                plotBorderColor: '#ffffff', //Colore bordo intorno solo area chart
                 plotBorderWidth: 0, //Spessore bordo intorno solo area chart
                 //showAxes: false, //Mostra gli assi quando le serie sono aggiunte dinamicamente
                 style: {

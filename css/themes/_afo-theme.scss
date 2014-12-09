@@ -1,5 +1,16 @@
 /* AFO Theme */
 
+$host-menu-height : 50px;
+
+body{
+  padding-top: $host-menu-height;
+}
+
+.navbar-default {
+  background-color: $custom-color1 !important;
+  border: none;
+}
+
 .navbar-brand{
   background-image: url("img/afo-ico.svg") !important; /* To be removed */
   background-size: 45px 45px !important;
@@ -20,6 +31,46 @@
   url('fonts/sansation-regular-webfont.svg#sansationregular') format('svg');
   font-weight: normal;
   font-style: normal;
+}
+
+// Buttons
+
+.btn{
+  background-color:transparent;
+  color: $fenix-text;
+  border-color: $fenix-text;
+  @include fx-border-radius(0);
+  font-weight: 300;
+  padding: 3px 12px;
+
+  &:hover{
+    background-color: transparent;
+    color: $fx-cool-blue;
+    border-color: $fx-cool-blue;
+  }
+  &:active{
+    background-color: transparent;
+    color: $fx-cool-blue;
+    border-color: $fx-cool-blue;
+    @include fx-box-shadow(0, 0, 0, white);
+  }
+
+}
+
+
+.btn[disabled]{
+  background-color:transparent;
+  color: $fenix-text;
+  border-color: $fenix-text;
+  @include fx-border-radius(0);
+  font-weight: 300;
+  padding: 3px 12px;
+}
+
+.white-inverted{
+  background-color: transparent;
+  border-color: white;
+  color: white;
 }
 
 

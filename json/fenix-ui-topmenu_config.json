@@ -4,7 +4,7 @@
          "attrs":{
             "id":"home"
          },
-         "target":"index.html",
+         "target":"../index.html",
          "label":{
             "EN":"Home",
             "FR":"PI"

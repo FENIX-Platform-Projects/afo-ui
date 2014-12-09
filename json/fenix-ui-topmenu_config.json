@@ -29,7 +29,7 @@
             "EN":"Statistics",
             "FR":"PI"
          }
-      },
+      }, 
       {
          "attrs":{
             "id":"catalogue"
@@ -50,6 +50,16 @@
             "FR":"PI"
          }
       },
+      {
+         "attrs":{
+            "id":"createdataset"
+         },
+         "target":"./createdataset.html",
+         "label":{
+            "EN":"Data Managment",
+            "FR":"PI"
+         }
+      },           
         {
          "attrs":{
             "id":"Publications"

@@ -24,7 +24,7 @@
          "attrs":{
             "id":"statistics"
          },
-         "target":"statistics.html",
+         "target":"./statistics",
          "label":{
             "EN":"Statistics",
             "FR":"PI"

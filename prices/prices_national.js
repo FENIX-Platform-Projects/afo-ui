@@ -140,7 +140,7 @@ function myGetData()
 		);
 */
 
-$.getJSON("../data/prices_national.json", function(data) {
+$.getJSON("data/prices_national.json", function(data) {
 	
 	
 	FAOSTATNEWOLAP.originalData=data;

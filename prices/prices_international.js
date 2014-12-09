@@ -34,7 +34,7 @@ var chart_options = {
     series: []
 };
 
-$.get('../data/prices_international.csv', function(data) {
+$.get('data/prices_international.csv', function(data) {
 
     var lines = data.split('\n');
     
@@ -65,7 +65,7 @@ $.get('../data/prices_international.csv', function(data) {
     $('#chart_prices_inter').highcharts(chart_options);
 });
 
-$('#prices_international_grid').load("html/prices_international.html");
+$('#prices_international_grid').load("prices/html/prices_international.html");
 
 //});
 

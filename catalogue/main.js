@@ -28,7 +28,7 @@ require.config({
 		'jquery-ui'             :'//fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min',
 		'jquery.i18n.properties':'//fenixapps.fao.org/repository/js/jquery/1.0.9/jquery.i18n.properties-min',
 		'jquery.hoverIntent'    :'//fenixapps.fao.org/repository/js/jquery.hoverIntent/1.0/jquery.hoverIntent',
-		"fenix-ui-topmenu": 	'../scripts/components/fenix-ui-topmenu'
+		'fenix-ui-topmenu'      :'../scripts/components/fenix-ui-topmenu'
 	},
 
 	shim: {

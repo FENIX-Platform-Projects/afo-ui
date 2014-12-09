@@ -62,7 +62,7 @@
       },           
         {
          "attrs":{
-            "id":"Publications"
+            "id":"publications"
          },
          "target":"publications.html",
          "label":{
@@ -72,7 +72,7 @@
       },
           {
          "attrs":{
-            "id":"Policies"
+            "id":"policies"
          },
          "target":"policies.html",
          "label":{
@@ -82,7 +82,7 @@
       },
       {
          "attrs":{
-            "id":"merket_news"
+            "id":"market_news"
          },
          "target":"market_news.html",
          "label":{
@@ -103,7 +103,7 @@
       
    ],
    "brand":{
-      "target":"index.html",
+      "target": "index.html",
       "url" : "./src/images/logo.png"
    },
    "languages":[

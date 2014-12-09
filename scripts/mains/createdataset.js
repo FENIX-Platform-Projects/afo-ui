@@ -56,9 +56,13 @@ define(['module'], function (module) {
                                     url: 'json/fenix-ui-topmenu_config.json', active: "createdataset"
                                 });
 
+                                //Metadata
+
+
 
                                 var uid = "";
                                 var version = "";
+                                var csvData;
 
                                 var cfgDSDEdit = {
                                     columnEditor: { codelists: "config/submodules/DSDEditor/Codelists_AFO.json" },
@@ -101,7 +105,8 @@ define(['module'], function (module) {
                                         over = confirm("Overwrite?");
                                     if (over) {
                                         E.setColumns(contents.columns);
-                                        DE.setData(contents.data);
+                                        //console.log(contents.data);
+                                        csvData=contents.data;
                                     }
                                 });
 
@@ -119,7 +124,10 @@ define(['module'], function (module) {
                                     $('#DataEditorContainer').show();
                                     $('#DataEditorContainer').css('visibility', '');
 
-                                    DE.setDSDAndData(newDSD, null);
+                                    if (csvData)
+                                        DE.setDSDAndData(newDSD, csvData);
+                                    else
+                                        DE.setDSDAndData(newDSD, null);
                                 });
 
                                 //METADATA Editor end

@@ -77,7 +77,7 @@ require([
 
 	new TopMenu({
 		url: 'json/fenix-ui-topmenu_config.json',
-		active: "prices"
+		active: "home"
 	});
 
 });

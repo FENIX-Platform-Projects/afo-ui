@@ -1,7 +1,7 @@
 
 require.config({
 
-	baseUrl: '../src/',
+	baseUrl: 'src/',
 
 	paths: {
 		'i18n'                  :'lib/i18n',
@@ -76,7 +76,7 @@ require([
 
 
 	new TopMenu({
-		url: '../json/fenix-ui-topmenu_config.json',
+		url: 'json/fenix-ui-topmenu_config.json',
 		active: "catalogue"
 	});
 
@@ -85,8 +85,8 @@ require([
 	accordionTmpl = Handlebars.compile(accordion);
 
 	_.extend(FMCONFIG, {
-		BASEURL: '../src/fenix_modules/fenix-map-js',
-		BASEURL_LANG: '../src/fenix_modules/fenix-map-js/I18N/'
+		BASEURL: 'src/fenix_modules/fenix-map-js',
+		BASEURL_LANG: 'src/fenix_modules/fenix-map-js/I18N/'
 	});
 
 	function initListFamilies(fert) {
@@ -94,7 +94,7 @@ require([
 		$('#listFamilies').jstree({
 			core: {
 				data: {
-					url: '../data/fertilizers_families.json'
+					url: 'data/fertilizers_families.json'
 				},
 				themes: {
 					icons: false
@@ -218,7 +218,7 @@ require([
 		var countriesData = [];
 
 		$.ajax({
-			url: '../data/countries_iso3_afo.json',
+			url: 'data/countries_iso3_afo.json',
 			dataType: "json",
 			async: false,
 			success: function(json) {
@@ -291,7 +291,7 @@ require([
 		var cropsData = [];
 
 		$.ajax({
-			url: '../data/crops.json',
+			url: 'data/crops.json',
 			dataType: "json",
 			async: false,
 			success: function(json) {

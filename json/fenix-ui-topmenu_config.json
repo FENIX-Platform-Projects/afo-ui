@@ -4,7 +4,7 @@
          "attrs":{
             "id":"home"
          },
-         "target":"../index.html",
+         "target":"index.html",
          "label":{
             "EN":"Home",
             "FR":"PI"
@@ -14,7 +14,7 @@
          "attrs":{
             "id":"prices"
          },
-         "target":"./prices",
+         "target":"prices.html",
          "label":{
             "EN":"Prices",
             "FR":"PI"
@@ -24,7 +24,7 @@
          "attrs":{
             "id":"statistics"
          },
-         "target":"./statistics",
+         "target":"statistics.html",
          "label":{
             "EN":"Statistics",
             "FR":"PI"
@@ -34,7 +34,7 @@
          "attrs":{
             "id":"catalogue"
          },
-         "target":"./catalogue",
+         "target":"catalogue.html",
          "label":{
             "EN":"Catalogue",
             "FR":"PI"
@@ -44,7 +44,7 @@
          "attrs":{
             "id":"directories"
          },
-         "target":"./directories",
+         "target":"directories.html",
          "label":{
             "EN":"Directories",
             "FR":"PI"
@@ -54,7 +54,7 @@
          "attrs":{
             "id":"createdataset"
          },
-         "target":"./createdataset.html",
+         "target":"createdataset.html",
          "label":{
             "EN":"Data Managment",
             "FR":"PI"
@@ -64,7 +64,7 @@
          "attrs":{
             "id":"Publications"
          },
-         "target":"./publications",
+         "target":"publications.html",
          "label":{
             "EN":"Publications",
             "FR":"PI"
@@ -74,7 +74,7 @@
          "attrs":{
             "id":"Policies"
          },
-         "target":"./policies",
+         "target":"policies.html",
          "label":{
             "EN":"Policies",
             "FR":"PI"
@@ -84,7 +84,7 @@
          "attrs":{
             "id":"merket_news"
          },
-         "target":"./market_news",
+         "target":"market_news.html",
          "label":{
             "EN":"Market news",
             "FR":"PI"
@@ -94,7 +94,7 @@
          "attrs":{
             "id":"events"
          },
-         "target":"./events",
+         "target":"events.html",
          "label":{
             "EN":"Events",
             "FR":"PI"

@@ -1,0 +1,5 @@
+{
+    "dsd.contextSystem" : {
+        "enumeration" : ["UNECA", "FENIX"]
+    }
+}

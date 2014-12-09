@@ -13,3 +13,15 @@
 [submodule "submodules/fenix-ui-map"]
 	path = submodules/fenix-ui-map
 	url = https://github.com/FENIX-Platform/fenix-ui-map.git
+[submodule "submodules/fenix-ui-metadata-editor"]
+	path = submodules/fenix-ui-metadata-editor
+	url = https://github.com/FENIX-Platform/fenix-ui-metadata-editor.git
+[submodule "submodules/fenix-ui-DataEditor"]
+	path = submodules/fenix-ui-DataEditor
+	url = https://github.com/FENIX-Platform/fenix-ui-DataEditor.git
+[submodule "submodules/fenix-ui-dataUpload"]
+	path = submodules/fenix-ui-dataUpload
+	url = https://github.com/FENIX-Platform/fenix-ui-dataUpload.git
+[submodule "submodules/fenix-ui-DSDEditor"]
+	path = submodules/fenix-ui-DSDEditor
+	url = https://github.com/FENIX-Platform/fenix-ui-DSDEditor.git

@@ -1,5 +1,5 @@
 {
     "dsd.contextSystem" : {
-        "enumeration" : ["AFO", "FAOSTAT", "CountrySTAT", "FENIX"]
+        "enumeration" : ["AFO", "FAOSTAT", "CountrySTAT"]
     }
 }

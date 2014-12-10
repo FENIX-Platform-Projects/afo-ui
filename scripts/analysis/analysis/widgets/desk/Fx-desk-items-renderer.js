@@ -32,6 +32,7 @@ define([
         if (this.o === undefined) {
             this.o = {};
         }
+        alert()
         $.extend(true, this.o, defaultOptions, options);
         this.ds = new DataSetRenderer();
     }

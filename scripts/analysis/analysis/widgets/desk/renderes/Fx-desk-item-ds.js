@@ -36,6 +36,9 @@ define([
     };
 
     function DataSetRender(options) {
+
+        alert()
+
         this.o = {};
         $.extend(true, this.o, defaultOptions, options);
     }
@@ -66,6 +69,8 @@ define([
 
     DataSetRender.prototype.processColumn = function (index, column) {
 
+        console.log(column)
+
         //if ( column.hasOwnProperty(this.o.VALUES) && column[this.o.VALUES] !== null && column[this.o.VALUES].length <= -1 ) {
         if (column.hasOwnProperty(this.o.VIRTUAL) && column[this.o.VIRTUAL] === 'INTERNAL') {
 
@@ -83,12 +88,12 @@ define([
                 this.columnsCodeMapping[column.columnId] = this.createMapCode(column.values);
             }
 
-            if (column.columnId === "VALUE") {
+            if (column.subject === "value") {
 
                 this.valueIndex = index;
             }
 
-            if (column.columnId === "TIME") {
+            if (column.subject === "time") {
                 this.xAxis =[];
                 
                 if ( typeof column.values[0] === 'string') {
@@ -104,7 +109,9 @@ define([
                 
             }
 
-            if (column.columnId === "ITEM") {
+            if (column.subject === "item") {
+
+
                 
                 this.itemIndex = index;
 
@@ -223,6 +230,8 @@ define([
         this.data = [];
         this.series = [];
         this.rawSeries = {};
+
+        console.log(this.rawColumns)
 
         for (var i = 0; i < this.rawColumns.length; i++) {
             this.processColumn(i, this.rawColumns[i]);

@@ -24,6 +24,8 @@ define([
 
     function DeskController(options) {
 
+        alert()
+
         if (this.o === undefined) {
             this.o = {};
         }

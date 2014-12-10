@@ -106,7 +106,7 @@ define(['module'], function (module) {
                                     if (over) {
                                         E.setColumns(contents.columns);
                                         //console.log(contents.data);
-                                        csvData=contents.data;
+                                        csvData = contents.data;
                                     }
                                 });
 
@@ -124,10 +124,10 @@ define(['module'], function (module) {
                                     $('#DataEditorContainer').show();
                                     $('#DataEditorContainer').css('visibility', '');
 
-                                    if (csvData)
-                                        DE.setDSDAndData(newDSD, csvData);
-                                    else
-                                        DE.setDSDAndData(newDSD, null);
+
+                                    DE.setDSD(newDSD, function () {
+                                        if (csvData) DE.setData(csvData);
+                                    });
                                 });
 
                                 //METADATA Editor end

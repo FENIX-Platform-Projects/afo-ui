@@ -2,8 +2,12 @@
 
 $host-menu-height : 50px;
 
+html {
+  background-color: $custom-color1;
+}
+
 body{
-  padding-top: $host-menu-height;
+  border-top: $host-menu-height solid $custom-color1;
   background-color: $fenix-light-bg;
   color: $fenix-text;
 }

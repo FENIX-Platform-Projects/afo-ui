@@ -1614,7 +1614,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 
 .afo-home-evidence {
   background-color: #ddf3c2;
-  padding: 20px 10px 10px  10px; }
+  padding: 20px 10px; }
   .afo-home-evidence h2 {
     margin-top: 0; }
 
@@ -1927,8 +1927,11 @@ p.fx-strong {
 
 /* Theme */
 /* AFO Theme */
+html {
+  background-color: #ddf3c2; }
+
 body {
-  padding-top: 50px;
+  border-top: 50px solid #ddf3c2;
   background-color: #f9f7f3;
   color: #666666; }
 

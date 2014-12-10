@@ -102,6 +102,7 @@ body{
 
 .page-header{
   margin: 0;
+  border-bottom: none;
   p{
     text-align: left;
   }
@@ -307,4 +308,9 @@ table{
 thead{
   font-style: normal;
   font-weight: normal ;
+}
+
+.form-group{
+  height: 500px;
+  overflow-y: scroll;
 }

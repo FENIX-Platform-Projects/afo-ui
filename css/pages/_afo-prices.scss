@@ -43,7 +43,7 @@
 }
 
 .gt-next-page{
-  @include fx-small-icons(-105px,-15px);
+  @include fx-small-icons(-120px,-15px);
 }
 
 .gt-last-page{
@@ -59,6 +59,8 @@
   .afo-table-header{
     th{
       border-bottom: none !important;
+      font-weight: 100;
+      color: black;
     }
   }
   tbody{

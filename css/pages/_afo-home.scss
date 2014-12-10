@@ -206,6 +206,10 @@ p.fx-strong{
   margin-top: 20px;
 }
 
+.obj-box.tab-content{
+  width: 100%;
+}
+
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   background-color: transparent;
   color: $fx-cool-blue;

@@ -1738,6 +1738,9 @@ p.fx-strong {
 .tab-content {
   margin-top: 20px; }
 
+.obj-box.tab-content, .tab-content.obj-box-radius10, .tab-content.obj-box-title {
+  width: 100%; }
+
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   background-color: transparent;
   color: #336600;
@@ -1867,7 +1870,7 @@ p.fx-strong {
 .gt-next-page {
   height: 15px;
   width: 15px;
-  background: url("img/fenix-catalog-sprite-small.svg") no-repeat -105px -15px;
+  background: url("img/fenix-catalog-sprite-small.svg") no-repeat -120px -15px;
   background-size: 150px 30px; }
 
 .gt-last-page {
@@ -1883,7 +1886,9 @@ p.fx-strong {
   background-size: 150px 30px; }
 
 #prices_retail_grid .afo-table-header th {
-  border-bottom: none !important; }
+  border-bottom: none !important;
+  font-weight: 100;
+  color: black; }
 #prices_retail_grid tbody tr:hover {
   cursor: pointer;
   background-color: #fcfaee; }
@@ -2068,7 +2073,8 @@ body {
   color: white; }
 
 .page-header {
-  margin: 0; }
+  margin: 0;
+  border-bottom: none; }
   .page-header p {
     text-align: left; }
 
@@ -2222,3 +2228,7 @@ table {
 thead {
   font-style: normal;
   font-weight: normal; }
+
+.form-group {
+  height: 500px;
+  overflow-y: scroll; }

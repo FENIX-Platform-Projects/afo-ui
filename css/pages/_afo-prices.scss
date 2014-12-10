@@ -54,11 +54,17 @@
   @include fx-small-icons(-15px,0);
 }
 
-#pesticide {
+#prices_retail_grid {
 
   .afo-table-header{
     th{
       border-bottom: none !important;
+    }
+  }
+  tbody{
+    tr:hover{
+      cursor: pointer;
+      background-color: $custom-color3;
     }
   }
 }

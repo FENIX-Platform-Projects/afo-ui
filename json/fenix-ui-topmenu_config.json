@@ -70,26 +70,6 @@
             "FR":"PI"
          }
       },
-          {
-         "attrs":{
-            "id":"policies"
-         },
-         "target":"policies.html",
-         "label":{
-            "EN":"Policies",
-            "FR":"PI"
-         }
-      },
-      {
-         "attrs":{
-            "id":"market_news"
-         },
-         "target":"market_news.html",
-         "label":{
-            "EN":"Market news",
-            "FR":"PI"
-         }
-      },
        {
          "attrs":{
             "id":"events"

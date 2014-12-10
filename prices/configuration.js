@@ -1,6 +1,7 @@
  FAOSTATOLAPV3={};
 FAOSTATOLAPV3.grouped=true;
-var matchMonth = {"Jan":01,"Feb":02,"Mar":03,"Apr":04,"May":05,"Jun":06,"Jul":07,"Aug":08,"Sep":09,"Oct":10,"Nov":11,"Dec":12};
+
+var matchMonth = {"Jan":"01","Feb":"02","Mar":"03","Apr":"04","May":"05","Jun":"06","Jul":"07","Aug":"08","Sep":"09","Oct":"10","Nov":"11","Dec":"12"};
 function changechkTreeview()
 {
    FAOSTATOLAPV3.grouped=document.getElementById('chkTreeview').checked;
@@ -19,16 +20,50 @@ $("#pivot").pivotUI(FAOSTATNEWOLAP.originalData,{
 	},false);
 	}
 
+	
+	/*
 function newGrid(r){
    var r2d2=[];
     
     $("#mesFlags").empty();
+	sortedIndex=[];
+	for(col in r.colKeys)
+    {sortedIndex.push(r.colKeys[col].join("||"));}
+	sortedIndex.sort();
 for(ligne in r.tree)
     {
         //console.log(ligne);
    var temp=ligne.split('||');
-    for(col in r.colKeys){ 
-        var coldInd=r.colKeys[col].join("||");//.replace(/[^a-zA-Z0-9]/g,"_")
+    for(col in sortedIndex){
+        var coldInd=sortedIndex[col];//.replace(/[^a-zA-Z0-9]/g,"_")
+		// console.log(coldInd);
+        // for(col in r.tree[ligne])
+	
+		if( r.tree[ligne][coldInd]!=null){temp.push(r.tree[ligne][coldInd].value());}
+		else{temp.push( "");}
+        // r2d2.push([ligne,col,+r.tree[ligne][col].value()]);
+      }
+		//  console.log(temp);
+      r2d2.push(temp);
+     }*/
+	
+	
+function newGrid(r){
+   var r2d2=[];
+    
+    $("#mesFlags").empty(); 
+	sortedIndex=[];
+	for(col in r.colKeys)
+    {sortedIndex.push(r.colKeys[col].join("||"));}
+	sortedIndex.sort();
+	
+	
+for(ligne in r.tree)
+    {
+        //console.log(ligne);
+   var temp=ligne.split('||');
+    for(col in /*r.colKeys*/sortedIndex){
+        var coldInd=/*r.colKeys*/sortedIndex[col]/*.join("||")*/;//.replace(/[^a-zA-Z0-9]/g,"_")
 		// console.log(coldInd);
         // for(col in r.tree[ligne])
 		/*      console.log("ligne"+ligne+" "+r.tree[ligne]);
@@ -52,14 +87,6 @@ var dsOption= {
 	data : r2d2
 };
 
-/*
-		{name : 'Area'  },
-		{name : 'Item'  },
-		{name : 'Element'  },
-                {name : '2007'  },
-		{name : '2008'  },
-		{name : '2009'  },
-                {name : '2010'  }*/
 
 
 var colsOption = [];
@@ -73,34 +100,38 @@ var colsOption = [];
 	   {id: '2009' , header: "2009" , width :80  },
             {id: '2010' , header: "2010" , width :70  }*/
 
-
 for(var i in r.rowAttrs){
-
-   dsOption.fields.push({name : r.rowAttrs[i]  });
+ dsOption.fields.push({name : r.rowAttrs[i]  });
    colsOption.push({id:  r.rowAttrs[i] , header:  r.rowAttrs[i] , frozen : true ,grouped : FAOSTATOLAPV3.grouped});
-   
 }
 
 
  var reg = new RegExp("<span class=\"ordre\">[0-9]*</span>(.*)", "g"); 
 
  var reg2 = new RegExp("<span class=\"ordre\">[0-9]*</span><table class=\"innerCol\"><th>([0-9]+)</th><th>([^>]*)</th></table>", "g"); 
-
+/*
 for(var i in r.colKeys){
+//for(var i in sortedIndex){
  // console.log(r.colKeys[i].toString());
-   dsOption.fields.push(
-           {name : r.colKeys[i].toString().replace(/[^a-zA-Z0-9]/g,"_")/*,type:'float' */ }
-           );
-		   montitle="";
-		   for(var ii=0;ii<r.colKeys[i].length;ii++){
-		   if(F3DWLD.CONFIG.wdsPayload.showCodes)
-			   {montitle+=" "+r.colKeys[i][ii].replace(reg2, "$2 ($1)")/*.replace(/[^a-zA-Z0-9]/g,"_")*/;}
-               else{montitle+=" "+r.colKeys[i][ii].replace(reg, "$1")/*.replace(/[^a-zA-Z0-9]/g,"_")*/;}
-            }
-			colsOption.push({id:  r.colKeys[i].join("_").replace(/[^a-zA-Z0-9]/g,"_") ,header: montitle });
+   dsOption.fields.push({name : r.colKeys[i].toString().replace(/[^a-zA-Z0-9]/g,"_") });
+	montitle="";
+	for(var ii=0;ii<r.colKeys[i].length;ii++){
+	if(F3DWLD.CONFIG.wdsPayload.showCodes){montitle+=" "+r.colKeys[i][ii].replace(reg2, "$2 ($1)");}
+	else{montitle+=" "+r.colKeys[i][ii].replace(reg, "$1");}
+	}
+	colsOption.push({id:  r.colKeys[i].join("_").replace(/[^a-zA-Z0-9]/g,"_") ,header: montitle });
+}*/
+
+for(var i in sortedIndex){
+//for(var i in sortedIndex){
+ // console.log(r.colKeys[i].toString());
+   dsOption.fields.push({name : sortedIndex[i].replace(/[^a-zA-Z0-9]/g,"_")/*,type:'float' */ });
+	montitle=""+sortedIndex[i].replace(reg, "$1");
+	
+	colsOption.push({id:  sortedIndex[i].replace(/[^a-zA-Z0-9]/g,"_") ,header: montitle });
 }
 
-
+/*
 Sigma.ToolFactroy.register(
 	'mybutton',  
 	{
@@ -109,8 +140,7 @@ Sigma.ToolFactroy.register(
               
 		action : function(event,grid) {  alert( 'The id of this grid is  '+grid.id)  }
 	}
-);
-
+);*/
 
 
 var gridOption={
@@ -121,16 +151,14 @@ var gridOption={
 	replaceContainer : true, 
 
 	dataset : dsOption ,
-         resizable : true,
+	resizable : false,
 	columns : colsOption,
 	pageSize : 15 ,
         pageSizeList : [15,25,50,150],
         SigmaGridPath : 'grid/',
 	toolbarContent : 'nav | goto | pagesize ',/*| mybutton |*/
 onMouseOver : function(value,  record,  cell,  row,  colNo, rowNo,  columnObj,  grid){
-		
-		
-		if (columnObj && columnObj.toolTip) {
+if (columnObj && columnObj.toolTip) {
 			grid.showCellToolTip(cell,columnObj.toolTipWidth);
 		}else{
 			grid.hideCellToolTip();
@@ -147,6 +175,7 @@ onMouseOver : function(value,  record,  cell,  row,  colNo, rowNo,  columnObj,  
 //console.log(colsOption );
 //console.log(dsOption.fields);
 //Sigma.Msg.Grid.en.PAGE_AFTER='okokk'+gridOption.pageSize;
+console.log(gridOption)
   FAOSTATOLAPV3.mygrid=new Sigma.Grid( gridOption );
   
 //console.log( FAOSTATOLAPV3.mygrid);

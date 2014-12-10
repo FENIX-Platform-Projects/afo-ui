@@ -20,5 +20,38 @@
 
 .pvtAxisContainer, .pvtVals{
   border: none !important;
-  background: transparent !important;
+  background: $fenix-light-bg !important;
 }
+
+.gt-toolbar-box{
+  border-color: transparent !important;
+}
+
+.gt-first-page, .gt-prev-page, .gt-next-page, .gt-last-page, .gt-goto-page{
+  background-color: transparent !important;
+  height: 15px !important;
+  width: 15px !important;
+  background-repeat: no-repeat;
+}
+
+.gt-first-page{
+  @include fx-small-icons(-135px,-15px);
+}
+
+.gt-prev-page{
+  @include fx-small-icons(-105px,-15px);
+}
+
+.gt-next-page{
+  @include fx-small-icons(-105px,-15px);
+}
+
+.gt-last-page{
+  @include fx-small-icons(-135px,0);
+}
+
+.gt-goto-page{
+  @include fx-small-icons(-15px,0);
+}
+
+

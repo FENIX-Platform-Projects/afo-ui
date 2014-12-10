@@ -1841,7 +1841,46 @@ p.fx-strong {
 
 .pvtAxisContainer, .pvtVals {
   border: none !important;
-  background: transparent !important; }
+  background: #f9f7f3 !important; }
+
+.gt-toolbar-box {
+  border-color: transparent !important; }
+
+.gt-first-page, .gt-prev-page, .gt-next-page, .gt-last-page, .gt-goto-page {
+  background-color: transparent !important;
+  height: 15px !important;
+  width: 15px !important;
+  background-repeat: no-repeat; }
+
+.gt-first-page {
+  height: 15px;
+  width: 15px;
+  background: url("img/fenix-catalog-sprite-small.svg") no-repeat -135px -15px;
+  background-size: 150px 30px; }
+
+.gt-prev-page {
+  height: 15px;
+  width: 15px;
+  background: url("img/fenix-catalog-sprite-small.svg") no-repeat -105px -15px;
+  background-size: 150px 30px; }
+
+.gt-next-page {
+  height: 15px;
+  width: 15px;
+  background: url("img/fenix-catalog-sprite-small.svg") no-repeat -105px -15px;
+  background-size: 150px 30px; }
+
+.gt-last-page {
+  height: 15px;
+  width: 15px;
+  background: url("img/fenix-catalog-sprite-small.svg") no-repeat -135px 0;
+  background-size: 150px 30px; }
+
+.gt-goto-page {
+  height: 15px;
+  width: 15px;
+  background: url("img/fenix-catalog-sprite-small.svg") no-repeat -15px 0;
+  background-size: 150px 30px; }
 
 /* AFO - Publication Page Style */
 .list-group-item {

@@ -54,4 +54,13 @@
   @include fx-small-icons(-15px,0);
 }
 
+#pesticide {
+
+  .afo-table-header{
+    th{
+      border-bottom: none !important;
+    }
+  }
+}
+
 

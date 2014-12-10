@@ -1882,6 +1882,9 @@ p.fx-strong {
   background: url("img/fenix-catalog-sprite-small.svg") no-repeat -15px 0;
   background-size: 150px 30px; }
 
+#pesticide .afo-table-header th {
+  border-bottom: none !important; }
+
 /* AFO - Publication Page Style */
 .list-group-item {
   border: none;
@@ -2191,8 +2194,8 @@ table {
   border: 1px solid #ccc;
   float: left;
   margin: 20px 0;
-  height: 280px;
-  width: 480px; }
+  height: 300px;
+  width: 100%; }
 
 #prices_retail_grid {
   user-select: none;
@@ -2207,7 +2210,7 @@ table {
   color: #666666;
   cursor: default;
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 500 !important;
   text-transform: uppercase;
   border: none; }
   .afo-table-header td {

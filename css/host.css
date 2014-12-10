@@ -340,10 +340,10 @@
 /* Fenix Typography */
 body {
   color: #666666;
-  font: normal normal 300 14px/normal "Roboto Condensed"; }
+  font: normal normal 300 13px/normal "Roboto Condensed"; }
 
 a {
-  color: magenta; }
+  color: #336600; }
   a:focus {
     outline: none; }
   a:active {
@@ -354,25 +354,25 @@ a {
   color: #666666; }
 
 h1 {
-  font: normal normal 100 32px/normal "sansationregular";
-  color: magenta; }
+  font: normal normal 100 32px/normal "sansation_lightlight";
+  color: #336600; }
 
 h2 {
-  font: normal normal 100 18px/normal "sansationregular";
-  color: #d926d9; }
+  font: normal normal 100 18px/normal "sansation_lightlight";
+  color: #33570f; }
 
 h3 {
   font: normal normal 300 28px/normal "Roboto";
-  color: #bf40bf; }
+  color: #334d19; }
 
 h4 {
   font: normal normal 500 14px/normal "Roboto Condensed";
-  color: #a659a6; }
+  color: #334224; }
 
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {
   font-family: Roboto;
   font-weight: 700;
-  color: magenta;
+  color: #336600;
   text-transform: uppercase;
   font-size: 12px; }
 
@@ -399,18 +399,18 @@ input[type="button"]::-moz-focus-inner {
   border: 0; }
 
 .btn {
-  background-color: magenta;
+  background-color: #336600;
   color: white;
   border-color: transparent;
-  font: normal normal 300 14px/normal "Roboto Condensed"; }
+  font: normal normal 300 13px/normal "Roboto Condensed"; }
   .btn:hover {
     background-color: transparent;
-    color: magenta;
-    border-color: magenta; }
+    color: #336600;
+    border-color: #336600; }
   .btn:active {
     background-color: transparent;
-    color: magenta;
-    border-color: magenta;
+    color: #336600;
+    border-color: #336600;
     -webkit-box-shadow: 0 0 0 white;
     -moz-box-shadow: 0 0 0 white;
     box-shadow: 0 0 0 white; }
@@ -419,7 +419,7 @@ input[type="button"]::-moz-focus-inner {
   background-color: transparent;
   color: #666666;
   border-color: transparent;
-  font: normal normal 300 14px/normal "Roboto Condensed"; }
+  font: normal normal 300 13px/normal "Roboto Condensed"; }
   .fx-button-reset:hover {
     background-color: transparent;
     color: #666666;
@@ -447,8 +447,8 @@ input[type="button"]::-moz-focus-inner {
 , .btn-primary.disabled.active
 , .btn-primary[disabled].active
 , fieldset[disabled] .btn-primary.active {
-  background-color: #bf40bf;
-  border-color: #bf40bf; }
+  background-color: #334d19;
+  border-color: #334d19; }
 
 /* Fenix - Circle Number Component */
 .fx-circle-number {
@@ -459,7 +459,7 @@ input[type="button"]::-moz-focus-inner {
   width: 20px;
   line-height: 20px;
   text-align: center;
-  background-color: magenta;
+  background-color: #336600;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   -ms-border-radius: 100%;
@@ -477,9 +477,9 @@ input[type="button"]::-moz-focus-inner {
     -ms-border-radius: 0;
     border-radius: 0; }
   .datepicker .datepicker-days .day.active {
-    background-color: magenta; }
+    background-color: #336600; }
   .datepicker .datepicker-days .day.today:before {
-    border-bottom-color: magenta; }
+    border-bottom-color: #336600; }
   .datepicker .datepicker-days .day.active.today:before {
     border-bottom-color: white; }
 
@@ -496,7 +496,7 @@ input[type=text]::-ms-clear {
 
 /* Fenix - Labels Component */
 label {
-  font: normal normal 300 14px/normal "Roboto Condensed"; }
+  font: normal normal 300 13px/normal "Roboto Condensed"; }
 
 /* Fenix - Legend Component */
 legend {
@@ -575,7 +575,7 @@ legend {
   top: 4px;
   left: 30px;
   font-weight: 300;
-  color: #bf40bf; }
+  color: #334d19; }
 
 .fx-catalog-modular-form-content {
   padding: 10px 10px 10px 10px;
@@ -590,7 +590,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   border-width: 0; }
 
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
-  border-color: magenta; }
+  border-color: #336600; }
 
 .nav > li > a {
   padding: 15px 10px 14px 10px;
@@ -601,13 +601,13 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   border-bottom: 1px solid transparent; }
 
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
-  background-color: magenta; }
+  background-color: #336600; }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-  color: magenta; }
+  color: #336600; }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  border-bottom: 1px solid magenta; }
+  border-bottom: 1px solid #336600; }
 
 /* Fenix - Object Box Component */
 .obj-box, .obj-box-radius10, .obj-box-title {
@@ -637,7 +637,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 .obj-box-title {
   padding-top: 5px; }
   .obj-box-title h4 {
-    color: magenta;
+    color: #336600;
     font: normal normal 500 14px/normal "Roboto Condensed"; }
 
 /* Fenix - Panel Component */
@@ -676,12 +676,12 @@ div[data-module="region"] .fx-catalog-modular-form-content {
         .panel-group .panel-heading .panel-title a:focus {
           text-decoration: none; }
   .panel-group .panel-heading.fx-active-panel .panel-title a {
-    color: magenta; }
+    color: #336600; }
   .panel-group .panel-body .btn {
     background-color: transparent;
     color: #666666;
     border-color: transparent;
-    font: normal normal 300 14px/normal "Roboto Condensed";
+    font: normal normal 300 13px/normal "Roboto Condensed";
     text-align: left;
     position: relative; }
     .panel-group .panel-body .btn:hover {
@@ -761,7 +761,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   min-height: 60px; }
 
 .fx-resume-title {
-  color: magenta;
+  color: #336600;
   padding-left: 15px;
   padding-top: 5px;
   font: normal normal 400 10px/normal "Roboto";
@@ -776,7 +776,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 #fx-catalog-submit-btn {
   color: white;
   text-transform: uppercase;
-  background-color: magenta;
+  background-color: #336600;
   width: 150px;
   position: absolute;
   bottom: 0;
@@ -799,7 +799,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
     padding-left: 15px; }
     .fx-resume-item-selected .fx-resume-module-title em {
       font: normal normal 400 10px/normal "Roboto";
-      color: magenta;
+      color: #336600;
       font-size: 12px;
       /* Not expected */
       position: absolute;
@@ -901,14 +901,14 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 
 .bs-docs-sidebar .nav > li > a:hover, .bs-docs-sidebar .nav > li > a:focus {
   background-color: transparent;
-  border-left: 1px solid magenta;
-  color: magenta;
+  border-left: 1px solid #336600;
+  color: #336600;
   text-decoration: none; }
 
 .bs-docs-sidebar .nav > .active > a, .bs-docs-sidebar .nav > .active:hover > a, .bs-docs-sidebar .nav > .active:focus > a {
   background-color: transparent;
-  border-left: 1px solid magenta;
-  color: magenta;
+  border-left: 1px solid #336600;
+  color: #336600;
   font-weight: 700; }
 
 .bs-docs-sidebar .nav .nav {
@@ -965,11 +965,11 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   position: relative; }
   .fx-widget .nav-tabs > li > a:hover, .fx-widget .nav-tabs > li > a:focus, .fx-widget .nav-tabs > li > a:active {
     background-color: transparent;
-    color: magenta;
+    color: #336600;
     border-color: transparent; }
   .fx-widget .nav-tabs > li.active > a, .fx-widget .nav-tabs > li.active > a:hover, .fx-widget .nav-tabs > li.active > a:focus {
     background-color: white;
-    color: magenta;
+    color: #336600;
     border-left-color: #d8d8d8;
     border-top-color: #d8d8d8;
     border-right-color: #d8d8d8;
@@ -1082,15 +1082,15 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   display: none; }
 
 .fx-closepanel-container {
-  border-bottom: 1px solid magenta;
+  border-bottom: 1px solid #336600;
   padding: 5px 10px; }
   .fx-closepanel-container .fx-widget-icons {
-    color: magenta;
+    color: #336600;
     margin-right: 5px;
     cursor: pointer; }
   .fx-closepanel-container #fx-ws-close-btn {
     text-transform: uppercase;
-    color: magenta;
+    color: #336600;
     cursor: pointer;
     line-height: 1;
     display: inline-block;
@@ -1115,7 +1115,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   list-style-type: none;
   padding: 16px 16px 35px 16px;
   position: relative;
-  border-bottom: 1px solid magenta; }
+  border-bottom: 1px solid #336600; }
 
 .fx-sessionstore-item-title {
   text-transform: uppercase;
@@ -1152,7 +1152,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   width: 20px;
   line-height: 20px;
   text-align: center;
-  background-color: magenta;
+  background-color: #336600;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   -ms-border-radius: 100%;
@@ -1171,12 +1171,12 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 
 .introjs-button:hover, .introjs-button:active, .introjs-button:focus {
   text-shadow: none;
-  color: magenta;
+  color: #336600;
   text-decoration: none; }
 
 /* Fenix - JQwidgets */
 .jqx-widget {
-  font: normal normal 300 14px/normal "Roboto Condensed"; }
+  font: normal normal 300 13px/normal "Roboto Condensed"; }
 
 .jqx-widget-content {
   color: #666666;
@@ -1188,14 +1188,14 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   color: #666666;
   text-shadow: none;
   border-color: transparent;
-  background-color: #ffe5ff;
-  background-image: -moz-linear-gradient(top, #ffe5ff, #ffe5ff);
-  background-image: -ms-linear-gradient(top, #ffe5ff, #ffe5ff);
-  background-image: -o-linear-gradient(top, #ffe5ff, #ffe5ff);
-  background-image: -webkit-gradient(linear, center top, center bottom, from(#ffe5ff), to(#ffe5ff));
-  background-image: -webkit-linear-gradient(top, #ffe5ff, #ffe5ff);
-  background-image: linear-gradient(top, #ffe5ff, #ffe5ff);
-  background-image: linear-gradient(to bottom, #ffe5ff, #ffe5ff);
+  background-color: #ddf3c2;
+  background-image: -moz-linear-gradient(top, #ddf3c2, #ddf3c2);
+  background-image: -ms-linear-gradient(top, #ddf3c2, #ddf3c2);
+  background-image: -o-linear-gradient(top, #ddf3c2, #ddf3c2);
+  background-image: -webkit-gradient(linear, center top, center bottom, from(#ddf3c2), to(#ddf3c2));
+  background-image: -webkit-linear-gradient(top, #ddf3c2, #ddf3c2);
+  background-image: linear-gradient(top, #ddf3c2, #ddf3c2);
+  background-image: linear-gradient(to bottom, #ddf3c2, #ddf3c2);
   -moz-background-clip: padding;
   background-clip: padding-box;
   -webkit-background-clip: padding-box;
@@ -1262,14 +1262,14 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   color: #666666;
   text-shadow: none;
   border-color: transparent;
-  background-color: #ffe5ff;
-  background-image: -moz-linear-gradient(top, #ffe5ff, #ffe5ff);
-  background-image: -ms-linear-gradient(top, #ffe5ff, #ffe5ff);
-  background-image: -o-linear-gradient(top, #ffe5ff, #ffe5ff);
-  background-image: -webkit-gradient(linear, center top, center bottom, from(#ffe5ff), to(#ffe5ff));
-  background-image: -webkit-linear-gradient(top, #ffe5ff, #ffe5ff);
-  background-image: linear-gradient(top, #ffe5ff, #ffe5ff);
-  background-image: linear-gradient(to bottom, #ffe5ff, #ffe5ff);
+  background-color: #ddf3c2;
+  background-image: -moz-linear-gradient(top, #ddf3c2, #ddf3c2);
+  background-image: -ms-linear-gradient(top, #ddf3c2, #ddf3c2);
+  background-image: -o-linear-gradient(top, #ddf3c2, #ddf3c2);
+  background-image: -webkit-gradient(linear, center top, center bottom, from(#ddf3c2), to(#ddf3c2));
+  background-image: -webkit-linear-gradient(top, #ddf3c2, #ddf3c2);
+  background-image: linear-gradient(top, #ddf3c2, #ddf3c2);
+  background-image: linear-gradient(to bottom, #ddf3c2, #ddf3c2);
   -moz-background-clip: padding;
   background-clip: padding-box;
   -webkit-background-clip: padding-box;
@@ -1278,15 +1278,15 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 .jqx-fill-state-pressed, .jqx-widget .jqx-grid-cell-selected {
   color: #666666;
   text-shadow: none;
-  border-color: #ffccff;
-  background-color: #ffccff;
-  background-image: -moz-linear-gradient(top, #ffccff, #ffccff);
-  background-image: -ms-linear-gradient(top, #ffccff, #ffccff);
-  background-image: -o-linear-gradient(top, #ffccff, #ffccff);
-  background-image: -webkit-gradient(linear, center top, center bottom, from(#ffccff), to(#ffccff));
-  background-image: -webkit-linear-gradient(top, #ffccff, #ffccff);
-  background-image: linear-gradient(top, #ffccff, #ffccff);
-  background-image: linear-gradient(to bottom, #ffccff, #ffccff);
+  border-color: #ddf3c2;
+  background-color: #ddf3c2;
+  background-image: -moz-linear-gradient(top, #ddf3c2, #ddf3c2);
+  background-image: -ms-linear-gradient(top, #ddf3c2, #ddf3c2);
+  background-image: -o-linear-gradient(top, #ddf3c2, #ddf3c2);
+  background-image: -webkit-gradient(linear, center top, center bottom, from(#ddf3c2), to(#ddf3c2));
+  background-image: -webkit-linear-gradient(top, #ddf3c2, #ddf3c2);
+  background-image: linear-gradient(top, #ddf3c2, #ddf3c2);
+  background-image: linear-gradient(to bottom, #ddf3c2, #ddf3c2);
   -moz-background-clip: padding;
   background-clip: padding-box;
   -webkit-background-clip: padding-box;
@@ -1590,22 +1590,40 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 
 .jstree-default .jstree-wholerow-clicked {
   background: none;
-  background-color: #ffccff; }
+  background-color: #ddf3c2; }
 
 .jstree-default .jstree-wholerow-hovered {
   background: none;
-  background-color: #ffe5ff; }
+  background-color: #ddf3c2; }
 
 /* Pages */
 /* AFO - Home Style */
 /* UAE - Home Style */
+.afo-home-main-title {
+  position: relative;
+  top: 50%;
+  -ms-transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%); }
+  .afo-home-main-title h1 {
+    margin: 0px; }
+
 .fx-home-content-grid h1.fx-big-title {
   font-size: 40px;
   text-align: left; }
 
 .afo-home-evidence {
   background-color: #ddf3c2;
-  padding: 10px; }
+  padding: 20px 10px 10px  10px; }
+  .afo-home-evidence h2 {
+    margin-top: 0; }
+
+.afo-home-left-column h4, .afo-home-right-column h4 {
+  margin-bottom: 5px; }
+
+.afo-home-box {
+  padding-top: 0;
+  margin-top: 0; }
 
 /* FENIX AFO - FENIX part of the homepage */
 .fx-home-header {
@@ -1685,8 +1703,7 @@ p.fx-strong {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
-  border-radius: 0;
-  display: none; }
+  border-radius: 0; }
 
 .fx-map {
   position: absolute;
@@ -1718,8 +1735,8 @@ p.fx-strong {
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   background-color: transparent;
-  color: magenta;
-  border-color: magenta; }
+  color: #336600;
+  border-color: #336600; }
 
 .fx-chart-description h2:first-child {
   margin-top: 70px; }
@@ -1737,7 +1754,8 @@ p.fx-strong {
   font-size: 10px;
   top: -9px;
   position: relative;
-  font-style: normal; }
+  font-style: normal;
+  margin-bottom: 5px; }
 
 .fx-big-data {
   font-size: 25px;
@@ -1745,8 +1763,10 @@ p.fx-strong {
   position: relative; }
 
 /* SWIPER */
-.jumbotron, .jumbotron-wrapper {
-  background-color: magenta; }
+.jumbotron-wrapper {
+  background-image: url("img/home-bg.jpg");
+  background-size: cover;
+  background-position: 0 8%; }
 
 .jumbotron, .jumbotron h1, .jumbotron h2 {
   color: white;
@@ -1768,7 +1788,7 @@ p.fx-strong {
   color: white; }
 
 .jumbotron {
-  background-color: magenta; }
+  background-color: transparent; }
   .jumbotron .btn {
     border-color: white;
     padding: 3px 12px; }
@@ -1776,11 +1796,17 @@ p.fx-strong {
       border-color: white; }
   .jumbotron .btn-default:hover, .jumbotron .btn-default:focus, .jumbotron .btn-default:active, .jumbotron .btn-default.active, .jumbotron .open > .dropdown-toggle.btn-default {
     background-color: white;
-    color: magenta; }
+    color: #336600; }
 
 .swiper-container {
   width: 100%;
   color: white; }
+  .swiper-container .swiper-slide h1 {
+    font-family: Roboto;
+    font-weight: 100;
+    font-size: 50px; }
+  .swiper-container .swiper-slide h4 {
+    color: white; }
 
 .swiper-slide .title {
   font-style: italic;
@@ -1794,6 +1820,45 @@ p.fx-strong {
 
 .swiper-active-switch {
   background: white; }
+
+/* AFO - Prices Page Style */
+.afo-prices-international-chart {
+  height: 500px; }
+
+/* AFO - Publication Page Style */
+.list-group-item {
+  border: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0; }
+
+.list-group-item:first-child {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0; }
+
+.list-group-item:last-child {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0; }
+
+/* AFO - Statistics Page Style */
+.fx-catalog-modular-menu .panel-body .btn {
+  border: none;
+  border-color: transparent; }
+
+#fx-catalog-submit-btn.disabled {
+  border: none;
+  background-color: #ddf3c2; }
+
+.fx-widget {
+  border: none; }
+
+.fx-handle {
+  border: none; }
 
 /* Special Modules */
 /* columns of same height styles */
@@ -1863,7 +1928,9 @@ p.fx-strong {
 /* Theme */
 /* AFO Theme */
 body {
-  padding-top: 50px; }
+  padding-top: 50px;
+  background-color: #f9f7f3;
+  color: #666666; }
 
 .navbar-default {
   background-color: #ddf3c2 !important;
@@ -1872,7 +1939,7 @@ body {
 .navbar-brand {
   background-image: url("img/afo-ico.svg") !important;
   /* To be removed */
-  background-size: 45px 45px !important;
+  background-size: 40px 40px !important;
   height: 50px;
   width: 50px;
   background-repeat: no-repeat; }
@@ -1884,6 +1951,15 @@ body {
   src: url("fonts/sansation-regular-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/sansation-regular-webfont.woff2") format("woff2"), url("fonts/sansation-regular-webfont.woff") format("woff"), url("fonts/sansation-regular-webfont.ttf") format("truetype"), url("fonts/sansation-regular-webfont.svg#sansationregular") format("svg");
   font-weight: normal;
   font-style: normal; }
+@font-face {
+  font-family: 'sansation_lightlight';
+  src: url("fonts/sansation-light-webfont.eot");
+  src: url("fonts/sansation-light-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/sansation-light-webfont.woff2") format("woff2"), url("fonts/sansation-light-webfont.woff") format("woff"), url("fonts/sansation-light-webfont.ttf") format("truetype"), url("fonts/sansation-light-webfont.svg#sansation_lightlight") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+.obj-box, .obj-box-radius10, .obj-box-title {
+  border: none; }
+
 .btn {
   background-color: transparent;
   color: #666666;
@@ -1896,12 +1972,12 @@ body {
   padding: 3px 12px; }
   .btn:hover {
     background-color: transparent;
-    color: magenta;
-    border-color: magenta; }
+    color: #336600;
+    border-color: #336600; }
   .btn:active {
     background-color: transparent;
-    color: magenta;
-    border-color: magenta;
+    color: #336600;
+    border-color: #336600;
     -webkit-box-shadow: 0 0 0 white;
     -moz-box-shadow: 0 0 0 white;
     box-shadow: 0 0 0 white; }
@@ -1917,10 +1993,18 @@ body {
   font-weight: 300;
   padding: 3px 12px; }
 
+.fx-button-reset {
+  border-color: transparent; }
+
 .white-inverted {
   background-color: transparent;
   border-color: white;
   color: white; }
+
+.page-header {
+  margin: 0; }
+  .page-header p {
+    text-align: left; }
 
 /* Stefano's original CSS from main.css */
 #page-catalogue .jstree,
@@ -1938,20 +2022,16 @@ body {
 #page-catalogue #listFamilies {
   min-height: 500px; }
 
+table {
+  border-collapse: separate; }
+
 /* Page Directories */
-#page-directories #listCountries .btn {
-  color: #b4d180; }
-
-#page-directories #listCountries .btn.active {
-  color: white; }
-
 /* Directories */
 #listCompanies .tabCompany {
   clear: both;
   margin: 10px 0 40px 0;
   background-color: #fff;
   border: none;
-  box-shadow: 0 0 4px #ccc;
   display: none; }
 
 #listCompanies .tabCompany td {
@@ -2044,27 +2124,8 @@ body {
   width: 10%;
   display: inline-block; }
 
-.collapse {
-  display: block;
-  height: 60px !important;
-  overflow: hidden; }
-
 .panel-title a:hover {
   text-decoration: none; }
-
-.collapsing,
-.collapse.in {
-  height: auto !important;
-  overflow: hidden;
-  overflow-y: scroll;
-  max-height: 280px;
-  min-height: 60px; }
-
-#chart_prices_inter {
-  float: left;
-  margin: 20px 0;
-  height: 280px;
-  width: 100%; }
 
 #prices_retail_map {
   border: 1px solid #ccc;

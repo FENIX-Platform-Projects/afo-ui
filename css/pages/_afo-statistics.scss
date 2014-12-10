@@ -1,0 +1,24 @@
+/* AFO - Statistics Page Style */
+
+.fx-catalog-modular-menu{
+  .panel-body{
+    .btn {
+      border: none;
+      border-color: transparent;
+
+    }
+  }
+}
+
+#fx-catalog-submit-btn.disabled{
+  border: none;
+  background-color: $custom-color1;
+}
+
+.fx-widget{
+  border: none;
+}
+
+.fx-handle{
+  border: none;
+}

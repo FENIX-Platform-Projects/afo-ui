@@ -1,1811 +1,1866 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <title>AfricaFeritilizer.org - AF Skeleton web application by FENIX</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-      <meta name="format-detection" content="telephone=no">
+<head>
+    <title>AfricaFeritilizer.org - AF Skeleton web application by FENIX</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
 
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-      <meta name="description" content="FENIX Structure">
-      <meta name="author" content="Stefano Cudini <stefano.cudini [at] fao.org>">
-      <meta name="author" content="Daniele Salvatore <daniele.salvatore [at] fao.org>">
-      <meta name="author" content="Nicola Selleri <nicola.selleri[at]fao.org>">
+    <meta name="description" content="FENIX Structure">
+    <meta name="author" content="Stefano Cudini <stefano.cudini [at] fao.org>">
+    <meta name="author" content="Daniele Salvatore <daniele.salvatore [at] fao.org>">
+    <meta name="author" content="Nicola Selleri <nicola.selleri[at]fao.org>">
 
-      <!-- Third Party CSS -->
-      <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Third Party CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 
-      <!-- FENIX CSS -->
-      <link rel="stylesheet" type="text/css" href="css/host.css">
+    <!-- FENIX CSS -->
+    <link rel="stylesheet" type="text/css" href="css/host.css">
 
 
-   
-  </head>
-  <body id="page-directories">
+</head>
+<body id="page-directories">
 
-    <div class="container">
-      <div class="col-xs-12">
-        <h2>Directories</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id consequat leo. In vestibulum arcu ac enim accumsan, nec scelerisque eros porta. Phasellus euismod risus ac dapibus convallis. Nulla facilisi. Nulla blandit magna luctus, varius ipsum in, aliquam nulla. Maecenas nisi ligula, vulputate vel rhoncus at, ullamcorper ut nisl. In sollicitudin suscipit tortor, nec ultrices risus vehicula sit amet. Nulla aliquet bibendum consequat. Quisque vehicula lectus sem. Suspendisse potenti. Maecenas blandit nunc a dolor fermentum laoreet. Ut non tristique dui, et pharetra tortor.</p>
-      </div>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>Directories</h2>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id consequat leo. In vestibulum arcu ac enim
+                accumsan, nec scelerisque eros porta. Phasellus euismod risus ac dapibus convallis. Nulla facilisi. Nulla
+                blandit magna luctus, varius ipsum in, aliquam nulla. Maecenas nisi ligula, vulputate vel rhoncus at,
+                ullamcorper ut nisl. In sollicitudin suscipit tortor, nec ultrices risus vehicula sit amet. Nulla aliquet
+                bibendum consequat. Quisque vehicula lectus sem. Suspendisse potenti. Maecenas blandit nunc a dolor
+                fermentum laoreet. Ut non tristique dui, et pharetra tortor.</p>
+        </div>
     </div>
-    
-    <div class="container">
-
-      <form class="form" role="form">
-
-        <div class="form-group col-xs-3 pull-right">
-          <button type="button" name="add_company" id="add_company" class="form-control">Add New Company</button>
-        </div>
-
-        <div class="form-group col-xs-12">
-          <label class="control-label"> Country Name </label>
-
-          <div class="col-xs-12" id="listCountries">
-              <a class="btn btn-default" href="#Kenya">Kenya</a>
-              <a class="btn btn-default" href="#Mali">Mali</a>
-              <a class="btn btn-default" href="#Nigeria">Nigeria</a>
-              <a class="btn btn-default" href="#South-Africa">South Africa</a>
-              <a class="btn btn-default" href="#Tanzania">Tanzania</a>
-              <a class="btn btn-default" href="#more">...</a>
-              <!--
-              <a class="btn btn-sm" href="#Algeria">Algeria</a>
-              <a class="btn btn-sm btn-success active" href="#Angola">Angola</a>
-              <a class="btn btn-sm" href="#Benin">Benin</a>
-              <a class="btn btn-sm" href="#Botswana">Botswana</a>
-              <a class="btn btn-sm" href="#Burkina-Faso">Burkina Faso</a>
-              <a class="btn btn-sm" href="#Burundi">Burundi</a>
-              <a class="btn btn-sm" href="#Cameroon">Cameroon</a>
-              <a class="btn btn-sm" href="#Cape-Verde">Cape Verde</a>
-              <a class="btn btn-sm" href="#Central-African-Republic">Central African Republic</a>
-              <a class="btn btn-sm" href="#Chad">Chad</a>
-              <a class="btn btn-sm" href="#Comoros">Comoros</a>
-              <a class="btn btn-sm" href="#Congo">Congo</a>
-              <a class="btn btn-sm" href="#Congo-Democratic-Republic">Congo Democratic Republic</a>
-              <a class="btn btn-sm" href="#Cote-d-Ivoire">Côte d'Ivoire</a>
-              <a class="btn btn-sm" href="#Djibouti">Djibouti</a>
-              <a class="btn btn-sm" href="#Egypt">Egypt</a>
-              <a class="btn btn-sm" href="#Equatorial-Guinea">Equatorial Guinea</a>
-              <a class="btn btn-sm" href="#Eritrea">Eritrea</a>
-              <a class="btn btn-sm" href="#Ethiopia">Ethiopia</a>
-              <a class="btn btn-sm" href="#Gabon">Gabon</a>
-              <a class="btn btn-sm" href="#Gambia">Gambia</a>
-              <a class="btn btn-sm" href="#Ghana">Ghana</a>
-              <a class="btn btn-sm" href="#Guinea">Guinea</a>
-              <a class="btn btn-sm" href="#Guinea-Bissau">Guinea-Bissau</a>
-              <a class="btn btn-sm" href="#Kenya">Kenya</a>
-              <a class="btn btn-sm" href="#Lesotho">Lesotho</a>
-              <a class="btn btn-sm" href="#Liberia">Liberia</a>
-              <a class="btn btn-sm" href="#Libya">Libya</a>
-              <a class="btn btn-sm" href="#Madagascar">Madagascar</a>
-              <a class="btn btn-sm" href="#Malawi">Malawi</a>
-              <a class="btn btn-sm" href="#Mali">Mali</a>
-              <a class="btn btn-sm" href="#Mauritania">Mauritania</a>
-              <a class="btn btn-sm" href="#Mauritius">Mauritius</a>
-              <a class="btn btn-sm" href="#Morocco">Morocco</a>
-              <a class="btn btn-sm" href="#Mozambique">Mozambique</a>
-              <a class="btn btn-sm" href="#Namibia">Namibia</a>
-              <a class="btn btn-sm" href="#Niger">Niger</a>
-              <a class="btn btn-sm" href="#Nigeria">Nigeria</a>
-              <a class="btn btn-sm" href="#Reunion">Réunion</a>
-              <a class="btn btn-sm" href="#Rwanda">Rwanda</a>
-              <a class="btn btn-sm" href="#Sao-Tome-and-Principe">São Tomé and Príncipe</a>
-              <a class="btn btn-sm" href="#Senegal">Senegal</a>
-              <a class="btn btn-sm" href="#Seychelles">Seychelles</a>
-              <a class="btn btn-sm" href="#Sierra-Leone">Sierra Leone</a>
-              <a class="btn btn-sm" href="#Somalia">Somalia</a>
-              <a class="btn btn-sm" href="#South-Africa">South Africa</a>
-              <a class="btn btn-sm" href="#Sudan">Sudan</a>
-              <a class="btn btn-sm" href="#Swaziland">Swaziland</a>
-              <a class="btn btn-sm" href="#Tanzania">Tanzania</a>
-              <a class="btn btn-sm" href="#Togo">Togo</a>
-              <a class="btn btn-sm" href="#Tunisia">Tunisia</a>
-              <a class="btn btn-sm" href="#Uganda">Uganda</a>
-              <a class="btn btn-sm" href="#Zambia">Zambia</a>
-              <a class="btn btn-sm" href="#Zimbabwe">Zimbabwe</a>
-              -->
-          </div>
-        </div>
-
-        <div class="clearfix"><br /></div>
-
-            <div class="form-group col-xs-6">
-              <label class="control-label"> Company Name *</label>
-              <input type="text" name="company_name" id=" company_name" class="form-control" disabled="disabled">
-            </div>
- 
-            <div class="form-group col-xs-6">
-              <label class="control-label"> City Name </label>
-              <input type="text" name="company_name" id="city" class="form-control" disabled="disabled">
-            </div>
-
-          </form> 
-        </div>
-      
-    <div class="container" id="listCompanies">
-                  
-      <table width="100%" class="container" border="0" cellspacing="0" cellpadding="0">
-        
-        <tbody>
-
-          <tr id="viewContact_1">
-          <td colspan="5">
-
-          <table class="container tabCompany" cellspacing="0" cellpadding="0" >
-            <tbody><tr class="containerHeader">
-              <td>
-                <b>Company Info</b>
-              </td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Company Name</td>
-              <td class="companyName">TOGUNA AGRO INDUSTRIES</td>
-            </tr>
-            <tr>
-              <td>Production Site</td>
-              <td>USINE DE TILMESI</td>
-            </tr>
-            <tr>
-              <td>Geographical Address</td>
-              <td>Tilmesi</td>
-            </tr>
-            <tr>
-              <td>City</td>
-              <td>Tilemsi</td>
-            </tr>
-            <tr>
-              <td>Country Name</td>
-              <td>Mali</td>
-            </tr>
-            <tr>
-              <td>Telephone</td>
-              <td>+223 20203081, +223 20203085</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td>togunaindustries@yahoo.fr</td>
-            </tr>
-            <tr>
-              <td>Year of establishment</td>
-              <td>2007</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Plant Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Nominal Capacity</td>
-              <td>Phosphate Rock 350,000</td>
-            </tr>
-            <tr>
-              <td>No Of Employees</td>
-              <td>101-500</td>
-            </tr>
-            <tr>
-              <td>process</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>Renovation And Year Of Renovation</td>
-              <td> YES - 40% increase of bagging capacity </td>
-            </tr>
-
-            <tr class="containerHeader">
-              <td>Storage Capacity Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>For Raw Materials</td>
-              <td>10,000mt</td>
-            </tr>
-            <tr>
-              <td>For Finished Products</td>
-              <td>10,000mt</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Markets</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Markets</td>
-              <td>
-                                  Domestic / large scale farms &amp; estates
-                                      ,
-                                                    Domestic / small scale farms
-                                      ,
-                                                    Regional market (export)
-                                      ,
-                                                    Domestic / fertilizer manufacturers &amp; blenders
-                                                </td>
-            </tr>
-
-
-            <tr>
-              <td>Fertilizer</td>
-              <td>
-                                                  Phosphate Rock
-
-                                                </td>
-            </tr>
-            <tr>
-              <td>Other Fertilizer</td>
-              <td>NPK</td>
-            </tr>     
-            
-                                    
-          </tbody></table>
-        </td></tr>
-
-                                                                
-                                
-                    
-          <tr id="viewContact_2">
-          <td colspan="5">
-
-          <table class="container tabCompany" cellspacing="0" cellpadding="0" >
-            <tbody><tr class="containerHeader">
-              <td>
-                <b>Company Info</b>
-              </td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Company Name</td>
-              <td class="companyName">PRIME GOLD FERTILIZER AND CHEMICAL INDUSTRIES LTD</td>
-            </tr>
-            <tr>
-              <td>Production Site</td>
-              <td>PRIME GOLD FERTILIZER, ALETO, ELEME, PORT HARCOURT, RIVERS STATE</td>
-            </tr>
-            <tr>
-              <td>Geographical Address</td>
-              <td>Klm 10, East - West Road, Aleto - Eleme, Port Harcourt, Rivers State</td>
-            </tr>
-            <tr>
-              <td>City</td>
-              <td>Port-Harcourt</td>
-            </tr>
-            <tr>
-              <td>Country Name</td>
-              <td>Nigeria</td>
-            </tr>
-            <tr>
-              <td>Telephone</td>
-              <td>+ 234 8033008036, +234 8173008036</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td>info@primegoldfertilizers.com</td>
-            </tr>
-            <tr>
-              <td>Year of establishment</td>
-              <td>2009</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Plant Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Nominal Capacity</td>
-              <td>SSP 30,000mt , TSP 30,000mt , DAP 30,000mt</td>
-            </tr>
-            <tr>
-              <td>No Of Employees</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>process</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>Renovation And Year Of Renovation</td>
-              <td> YES - Increase in capacity to 120 mtpd </td>
-            </tr>
-
-            <tr class="containerHeader">
-              <td>Storage Capacity Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>For Raw Materials</td>
-              <td>3,000mt</td>
-            </tr>
-            <tr>
-              <td>For Finished Products</td>
-              <td>2,800mt</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Markets</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Markets</td>
-              <td>
-                                  Domestic / large scale farms &amp; estates
-                                      ,
-                                                    Domestic / small scale farms
-                                      ,
-                                                    Domestic / fertilizer manufacturers &amp; blenders
-                                                </td>
-            </tr>
-
-
-            <tr>
-              <td>Fertilizer</td>
-              <td>
-                                                  SSP
-                                      ,
-                                                    TSP
-                                      ,
-                                                    DAP
-
-                                      ,
-                                                    MOP
-                                                </td>
-            </tr>
-            <tr>
-              <td>Other Fertilizer</td>
-              <td>NPK COMPOUND FERTILIZER SERIES (NPK 15-15-15, NPK 20-10-10 AND NPK 12-12-17-2MgO)</td>
-            </tr>     
-            
-                                    
-          </tbody></table>
-        </td></tr>
-
-                  
-
-          <tr id="viewContact_3">
-          <td colspan="5">
-
-          <table class="container tabCompany" cellspacing="0" cellpadding="0" >
-            <tbody><tr class="containerHeader">
-              <td>
-                <b>Company Info</b>
-              </td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Company Name</td>
-              <td class="companyName">NOTORE CHEMICAL INDUSTRY LIMITED</td>
-            </tr>
-            <tr>
-              <td>Production Site</td>
-              <td>NOTORE INDUSTRIAL COMPLEX</td>
-            </tr>
-            <tr>
-              <td>Geographical Address</td>
-              <td>Onne, Rivers State, Nigeria</td>
-            </tr>
-            <tr>
-              <td>City</td>
-              <td>Rivers</td>
-            </tr>
-            <tr>
-              <td>Country Name</td>
-              <td>Nigeria</td>
-            </tr>
-            <tr>
-              <td>Telephone</td>
-              <td>+234 12798079</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>Year of establishment</td>
-              <td>1988</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Plant Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Nominal Capacity</td>
-              <td>Urea 500,000mt</td>
-            </tr>
-            <tr>
-              <td>No Of Employees</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>process</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>Renovation And Year Of Renovation</td>
-              <td> YES -  </td>
-            </tr>
-
-            <tr class="containerHeader">
-              <td>Storage Capacity Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>For Raw Materials</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>For Finished Products</td>
-              <td></td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Markets</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Markets</td>
-              <td>
-                                  Domestic / large scale farms &amp; estates
-                                      ,
-                                                    Domestic / small scale farms
-                                      ,
-                                                    Regional market (export)
-                                      ,
-                                                    International market (export)
-                                      ,
-                                                    Domestic / fertilizer manufacturers &amp; blenders
-                                                </td>
-            </tr>
-
-
-            <tr>
-              <td>Fertilizer</td>
-              <td>
-                                                  Urea
-
-                                                </td>
-            </tr>
-            <tr>
-              <td>Other Fertilizer</td>
-              <td>Blended NPK</td>
-            </tr>     
-            
-                                    
-          </tbody></table>
-        </td></tr>
-
-                                                                
-                                
-                                                                                                                                                                                                                                                  
-                
-
-          <tr id="viewContact_4">
-          <td colspan="5">
-
-          <table class="container tabCompany" cellspacing="0" cellpadding="0" >
-            <tbody><tr class="containerHeader">
-              <td>
-                <b>Company Info</b>
-              </td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Company Name</td>
-              <td class="companyName">KAFFO MINES LIMITED</td>
-            </tr>
-            <tr>
-              <td>Production Site</td>
-              <td>KAFFO MINES LIMITED</td>
-            </tr>
-            <tr>
-              <td>Geographical Address</td>
-              <td>Km 53 Suleja-Minna Road, Kwakuti, Niger State</td>
-            </tr>
-            <tr>
-              <td>City</td>
-              <td>Niger</td>
-            </tr>
-            <tr>
-              <td>Country Name</td>
-              <td>Nigeria</td>
-            </tr>
-            <tr>
-              <td>Telephone</td>
-              <td>+234 7031300523, +234 8092870962</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td>saidugmkaffomines@yahoo.com</td>
-            </tr>
-            <tr>
-              <td>Year of establishment</td>
-              <td>2008</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Plant Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Nominal Capacity</td>
-              <td>SSP 10,000mt, Agric Lime 28,000mt, NPK Blends 140,000mt</td>
-            </tr>
-            <tr>
-              <td>No Of Employees</td>
-              <td>51-100</td>
-            </tr>
-            <tr>
-              <td>process</td>
-              <td>Dryer-pulveriser granulite, blending and granulation.</td>
-            </tr>
-            <tr>
-              <td>Renovation And Year Of Renovation</td>
-              <td> YES - 2012, still upgrading  blending and granulation unit. addition of 4 feet pan  to increase production to 15 tons per hour. </td>
-            </tr>
-
-            <tr class="containerHeader">
-              <td>Storage Capacity Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>For Raw Materials</td>
-              <td>6,000mt</td>
-            </tr>
-            <tr>
-              <td>For Finished Products</td>
-              <td>9,000mt</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Markets</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Markets</td>
-              <td>
-                                  Domestic / large scale farms &amp; estates
-                                      ,
-                                                    Domestic / small scale farms
-                                      ,
-                                                    Domestic / fertilizer manufacturers &amp; blenders
-                                                </td>
-            </tr>
-
-
-            <tr>
-              <td>Fertilizer</td>
-              <td>
-                                                  SSP
-                                                </td>
-            </tr>
-            <tr>
-              <td>Other Fertilizer</td>
-              <td>Agric Lime, NPK Blends</td>
-            </tr>     
-            
-                                    
-          </tbody></table>
-        </td></tr>
-
-                                                                
-                                
-                 
-
-          <tr id="viewContact_5">
-          <td colspan="5">
-
-          <table class="container tabCompany" cellspacing="0" cellpadding="0" >
-            <tbody><tr class="containerHeader">
-              <td>
-                <b>Company Info</b>
-              </td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Company Name</td>
-              <td class="companyName">SUPERPHOSPHATE FERTILIZER AND CHEMICALS LIMITED</td>
-            </tr>
-            <tr>
-              <td>Production Site</td>
-              <td>SFC- KAKURI KADUNA</td>
-            </tr>
-            <tr>
-              <td>Geographical Address</td>
-              <td>4 Nasarawa Road Kakuri, Kaduna</td>
-            </tr>
-            <tr>
-              <td>City</td>
-              <td>Kaduna</td>
-            </tr>
-            <tr>
-              <td>Country Name</td>
-              <td>Nigeria</td>
-            </tr>
-            <tr>
-              <td>Telephone</td>
-              <td>+234 8067102460</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>Year of establishment</td>
-              <td>1975</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Plant Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Nominal Capacity</td>
-              <td>SSP 150,000mt</td>
-            </tr>
-            <tr>
-              <td>No Of Employees</td>
-              <td>51-100</td>
-            </tr>
-            <tr>
-              <td>process</td>
-              <td>Acidulation of sulphuric acid with granular phosphate rock to produce single superphosphate fertilizer (ssp) 18% p2o5</td>
-            </tr>
-            <tr>
-              <td>Renovation And Year Of Renovation</td>
-              <td> YES - 2002, ssp revamp </td>
-            </tr>
-
-            <tr class="containerHeader">
-              <td>Storage Capacity Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>For Raw Materials</td>
-              <td>150,000mt</td>
-            </tr>
-            <tr>
-              <td>For Finished Products</td>
-              <td>20,000mt</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Markets</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Markets</td>
-              <td>
-                                  Domestic / large scale farms &amp; estates
-                                                </td>
-            </tr>
-
-
-            <tr>
-              <td>Fertilizer</td>
-              <td>
-                                                  SSP
-                                                </td>
-            </tr>
-            <tr>
-              <td>Other Fertilizer</td>
-              <td></td>
-            </tr>     
-            
-                                    
-          </tbody></table>
-        </td></tr>
-
-                                                                
-                                
-                                                  
-                
-
-          <tr id="viewContact_8">
-          <td colspan="5">
-
-          <table class="container tabCompany" cellspacing="0" cellpadding="0" >
-            <tbody><tr class="containerHeader">
-              <td>
-                <b>Company Info</b>
-              </td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Company Name</td>
-              <td class="companyName">TAK AGRO &amp; CHEMICALS LTD</td>
-            </tr>
-            <tr>
-              <td>Production Site</td>
-              <td>WEST AFRICA FERTILIZER COMPANY LTD</td>
-            </tr>
-            <tr>
-              <td>Geographical Address</td>
-              <td>Km 169 Benin - Okene Federal Highway, Okpella Edo State, Nigeria</td>
-            </tr>
-            <tr>
-              <td>City</td>
-              <td>Okpella</td>
-            </tr>
-            <tr>
-              <td>Country Name</td>
-              <td>Nigeria</td>
-            </tr>
-            <tr>
-              <td>Telephone</td>
-              <td>+234 8097411005</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td>eegbaran@yahoo.com</td>
-            </tr>
-            <tr>
-              <td>Year of establishment</td>
-              <td>1992</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Plant Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Nominal Capacity</td>
-              <td>Granulated Limestone 65,000mt</td>
-            </tr>
-            <tr>
-              <td>No Of Employees</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>process</td>
-              <td>Crushers: primary &amp;secondary (manufacturer stedman machine company) for crushing limestone boulders, ball mill (manufacturer kennedy van saun) for grinding crushed aggregate limestone mixed with clay; pan granulating machine for granulation &amp; binding with sodium silicate and the fluid bed dryer for drying the granules.</td>
-            </tr>
-            <tr>
-              <td>Renovation And Year Of Renovation</td>
-              <td> NO </td>
-            </tr>
-
-            <tr class="containerHeader">
-              <td>Storage Capacity Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>For Raw Materials</td>
-              <td>40,000mt</td>
-            </tr>
-            <tr>
-              <td>For Finished Products</td>
-              <td>6,000mt</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Markets</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Markets</td>
-              <td>
-                                  Domestic / fertilizer manufacturers &amp; blenders
-                                                </td>
-            </tr>
-
-
-            <tr>
-              <td>Fertilizer</td>
-              <td>
-                                              </td>
-            </tr>
-            <tr>
-              <td>Other Fertilizer</td>
-              <td>Granulated Limestone</td>
-            </tr>     
-            
-                                    
-          </tbody></table>
-        </td></tr>
-
-                
-
-          <tr id="viewContact_9">
-          <td colspan="5">
-
-          <table class="container tabCompany" cellspacing="0" cellpadding="0" >
-            <tbody><tr class="containerHeader">
-              <td>
-                <b>Company Info</b>
-              </td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Company Name</td>
-              <td class="companyName">FOSKOR (PTY) LIMITED</td>
-            </tr>
-            <tr>
-              <td>Production Site</td>
-              <td>FOSKOR MINING DIVISION</td>
-            </tr>
-            <tr>
-              <td>Geographical Address</td>
-              <td>27 Selati Road, Phalaborwa, Limpopo Province 1390</td>
-            </tr>
-            <tr>
-              <td>City</td>
-              <td>Phalaborwa</td>
-            </tr>
-            <tr>
-              <td>Country Name</td>
-              <td>South Africa</td>
-            </tr>
-            <tr>
-              <td>Telephone</td>
-              <td>+27 157892000</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td>jeaninea@foskor.co.za</td>
-            </tr>
-            <tr>
-              <td>Year of establishment</td>
-              <td>1951</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Plant Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Nominal Capacity</td>
-              <td>Phosphate Rock 2,600,000mt</td>
-            </tr>
-            <tr>
-              <td>No Of Employees</td>
-              <td>more than 500</td>
-            </tr>
-            <tr>
-              <td>process</td>
-              <td>The Foskor Mining Division operates two opencast mines using convensional drilling,blasting, loading and hauling in the operation followed by primary and secondary crushing as part of the communition process. Wet milling reduces the particle size to liberate apatite followed by conventional induced air flotation process to extract the phosphate. De-watering follows flotation and the product is stockpiled.</td>
-            </tr>
-            <tr>
-              <td>Renovation And Year Of Renovation</td>
-              <td> YES - In 2000 a new modular processing plant was commissioned that included crushing, milling and flotation technologies. This facility replaced old redundant processing facilities commissioned in the early 1960. In 2009 Foskor commissioned its second opencast </td>
-            </tr>
-
-            <tr class="containerHeader">
-              <td>Storage Capacity Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>For Raw Materials</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>For Finished Products</td>
-              <td>800,000mt</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Markets</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Markets</td>
-              <td>
-                                  International market (export)
-                                      ,
-                                                    Domestic / fertilizer manufacturers &amp; blenders
-                                                </td>
-            </tr>
-
-
-            <tr>
-              <td>Fertilizer</td>
-              <td>
-                                                  Phosphate Rock
-
-                                                </td>
-            </tr>
-            <tr>
-              <td>Other Fertilizer</td>
-              <td></td>
-            </tr>     
-            
-                                    
-          </tbody></table>
-        </td></tr>
-
-                 
-          <tr id="viewContact_10">
-          <td colspan="5">
-
-          <table class="container tabCompany" cellspacing="0" cellpadding="0" >
-            <tbody><tr class="containerHeader">
-              <td>
-                <b>Company Info</b>
-              </td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Company Name</td>
-              <td class="companyName">FOSKOR (PTY) LIMITED</td>
-            </tr>
-            <tr>
-              <td>Production Site</td>
-              <td>FOSKOR ACID DIVISION</td>
-            </tr>
-            <tr>
-              <td>Geographical Address</td>
-              <td>21 John Ross Parkway, Richards Bay, Kwazulu- Natal 3900</td>
-            </tr>
-            <tr>
-              <td>City</td>
-              <td>Richards Bay</td>
-            </tr>
-            <tr>
-              <td>Country Name</td>
-              <td>South Africa</td>
-            </tr>
-            <tr>
-              <td>Telephone</td>
-              <td>+27 35902311</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>Year of establishment</td>
-              <td>1951</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Plant Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Nominal Capacity</td>
-              <td>P2O5 640,000mt , Sulfuric Acid 2,200,000mt, MAP 400,000mt, DAP 300,000mt</td>
-            </tr>
-            <tr>
-              <td>No Of Employees</td>
-              <td>more than 500</td>
-            </tr>
-            <tr>
-              <td>process</td>
-              <td>Wet Acid-  Chemical Granulation</td>
-            </tr>
-            <tr>
-              <td>Renovation And Year Of Renovation</td>
-              <td> YES - New Sulphuric Acid and Phosphoric Acid Plants were built in 2002 to double capacity. Currently busy with major Asset Replacement for the plant that was build in 1976 </td>
-            </tr>
-
-            <tr class="containerHeader">
-              <td>Storage Capacity Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>For Raw Materials</td>
-              <td>Phosphate Rock -100,000mt, Sulphur - 110,000mt</td>
-            </tr>
-            <tr>
-              <td>For Finished Products</td>
-              <td>P2O5 - 50,000mt, MAP/DAP - 35,000mt</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Markets</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Markets</td>
-              <td>
-                                  Domestic / large scale farms &amp; estates
-                                      ,
-                                                    Domestic / small scale farms
-                                      ,
-                                                    Regional market (export)
-                                      ,
-                                                    International market (export)
-                                                </td>
-            </tr>
-
-
-            <tr>
-              <td>Fertilizer</td>
-              <td>
-                                                  Sulfuric Acid
-
-                                      ,
-                                                    MAP
-
-                                      ,
-                                                    DAP
-
-                                      ,
-                                                    P2O5
-                                                </td>
-            </tr>
-            <tr>
-              <td>Other Fertilizer</td>
-              <td></td>
-            </tr>     
-            
-                                    
-          </tbody></table>
-        </td></tr>
-
-              
-
-          <tr id="viewContact_11">
-          <td colspan="5">
-
-          <table class="container tabCompany" cellspacing="0" cellpadding="0" >
-            <tbody><tr class="containerHeader">
-              <td>
-                <b>Company Info</b>
-              </td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Company Name</td>
-              <td class="companyName">BOSVELD PHOSPHATES (PTY) LTD</td>
-            </tr>
-            <tr>
-              <td>Production Site</td>
-              <td>BOSVELD PHOSPHATES</td>
-            </tr>
-            <tr>
-              <td>Geographical Address</td>
-              <td>1 Station Road, Phalaborwa, South Africa 1389</td>
-            </tr>
-            <tr>
-              <td>City</td>
-              <td>Phalaborwa</td>
-            </tr>
-            <tr>
-              <td>Country Name</td>
-              <td>South Africa</td>
-            </tr>
-            <tr>
-              <td>Telephone</td>
-              <td>+27 157806100, +27 0105900633</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td>ravesh@bosveldafrica.co.za</td>
-            </tr>
-            <tr>
-              <td>Year of establishment</td>
-              <td>1980</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Plant Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Nominal Capacity</td>
-              <td>P2O5 600,000mt, Sulfuric Acid 120,000mt, MAP 100,000mt, SSP 60,000mt, DAP 138,000mt</td>
-            </tr>
-            <tr>
-              <td>No Of Employees</td>
-              <td>101-500</td>
-            </tr>
-            <tr>
-              <td>process</td>
-              <td>Wet acid process</td>
-            </tr>
-            <tr>
-              <td>Renovation And Year Of Renovation</td>
-              <td> YES - 1975 - the addition of a second phosphoric acid plant  1981 - a second sulfuric acid plant was built  2012 - MAP and SSP Plants </td>
-            </tr>
-
-            <tr class="containerHeader">
-              <td>Storage Capacity Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>For Raw Materials</td>
-              <td>51,000mt</td>
-            </tr>
-            <tr>
-              <td>For Finished Products</td>
-              <td>35,000mt</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Markets</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Markets</td>
-              <td>
-                                  Domestic / large scale farms &amp; estates
-                                      ,
-                                                    Domestic / small scale farms
-                                      ,
-                                                    Regional market (export)
-                                      ,
-                                                    Domestic / fertilizer manufacturers &amp; blenders
-                                                </td>
-            </tr>
-
-
-            <tr>
-              <td>Fertilizer</td>
-              <td>
-                                                  Sulfuric Acid
-
-                                      ,
-                                                    MAP
-
-                                      ,
-                                                    SSP
-                                      ,
-                                                    DAP
-
-                                      ,
-                                                    P2O5
-                                                </td>
-            </tr>
-            <tr>
-              <td>Other Fertilizer</td>
-              <td>NPK, Bulk Blends</td>
-            </tr>     
-            
-                                    
-          </tbody></table>
-        </td></tr>
-
-             
-
-          <tr id="viewContact_12">
-          <td colspan="5">
-
-          <table class="container tabCompany" cellspacing="0" cellpadding="0" >
-            <tbody><tr class="containerHeader">
-              <td>
-                <b>Company Info</b>
-              </td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Company Name</td>
-              <td class="companyName">POLI GENERAL TRADING &amp; SUPPLIES LTD</td>
-            </tr>
-            <tr>
-              <td>Production Site</td>
-              <td>POLI GENERAL TRADING &amp; SUPPLIES LTD</td>
-            </tr>
-            <tr>
-              <td>Geographical Address</td>
-              <td>Tanga /Mombasa Highway Road  Amboni Area/ Mafuriko Village  1/2 km from the Highway  Z.B. Mining ltd</td>
-            </tr>
-            <tr>
-              <td>City</td>
-              <td>Tanga</td>
-            </tr>
-            <tr>
-              <td>Country Name</td>
-              <td>Tanzania</td>
-            </tr>
-            <tr>
-              <td>Telephone</td>
-              <td>+255 754267139, +255 272646260</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td>palsonltd@live.com</td>
-            </tr>
-            <tr>
-              <td>Year of establishment</td>
-              <td>2002</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Plant Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Nominal Capacity</td>
-              <td>Lime Fertilizers 10,800mt</td>
-            </tr>
-            <tr>
-              <td>No Of Employees</td>
-              <td>11-50</td>
-            </tr>
-            <tr>
-              <td>process</td>
-              <td>Crushing and Milling to produce powder lime fertilizer</td>
-            </tr>
-            <tr>
-              <td>Renovation And Year Of Renovation</td>
-              <td> YES - 2011- Replacing existing Crushers with bigger ones so as to increase production </td>
-            </tr>
-
-            <tr class="containerHeader">
-              <td>Storage Capacity Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>For Raw Materials</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>For Finished Products</td>
-              <td>12000mt</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Markets</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Markets</td>
-              <td>
-                                  Domestic / large scale farms &amp; estates
-                                      ,
-                                                    Domestic / small scale farms
-                                      ,
-                                                    Domestic / fertilizer manufacturers &amp; blenders
-                                                </td>
-            </tr>
-
-
-            <tr>
-              <td>Fertilizer</td>
-              <td>
-                                              </td>
-            </tr>
-            <tr>
-              <td>Other Fertilizer</td>
-              <td>Lime Fertilizers</td>
-            </tr>     
-            
-                                    
-          </tbody></table>
-        </td></tr>
-
-           
-          <tr id="viewContact_13">
-          <td colspan="5">
-
-          <table class="container tabCompany" cellspacing="0" cellpadding="0" >
-            <tbody><tr class="containerHeader">
-              <td>
-                <b>Company Info</b>
-              </td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Company Name</td>
-              <td class="companyName">ABM EQUIPMENT SERVICES LTD</td>
-            </tr>
-            <tr>
-              <td>Production Site</td>
-              <td>GOFU INDUSTRIAL AREA</td>
-            </tr>
-            <tr>
-              <td>Geographical Address</td>
-              <td>Block KB 1X Maendeleo Rd  Gofu Industrial Area , TANGA</td>
-            </tr>
-            <tr>
-              <td>City</td>
-              <td>Tanga</td>
-            </tr>
-            <tr>
-              <td>Country Name</td>
-              <td>Tanzania</td>
-            </tr>
-            <tr>
-              <td>Telephone</td>
-              <td>+255 653703170, +255 757615462</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td>ben_abmfertilizers@yahoo.com</td>
-            </tr>
-            <tr>
-              <td>Year of establishment</td>
-              <td>2012</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Plant Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Nominal Capacity</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>No Of Employees</td>
-              <td>1-10</td>
-            </tr>
-            <tr>
-              <td>process</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>Renovation And Year Of Renovation</td>
-              <td> NO </td>
-            </tr>
-
-            <tr class="containerHeader">
-              <td>Storage Capacity Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>For Raw Materials</td>
-              <td>60mt</td>
-            </tr>
-            <tr>
-              <td>For Finished Products</td>
-              <td>200mt</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Markets</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Markets</td>
-              <td>
-                                  Domestic / large scale farms &amp; estates
-                                                </td>
-            </tr>
-
-
-            <tr>
-              <td>Fertilizer</td>
-              <td>
-                                              </td>
-            </tr>
-            <tr>
-              <td>Other Fertilizer</td>
-              <td>CaCO3,CaMg(Co3)2,CaSO4,Mg</td>
-            </tr>     
-            
-                                    
-          </tbody></table>
-        </td></tr>
-
-          
-
-          <tr id="viewContact_18">
-          <td colspan="5">
-
-          <table class="container tabCompany" cellspacing="0" cellpadding="0" >
-            <tbody><tr class="containerHeader">
-              <td>
-                <b>Company Info</b>
-              </td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Company Name</td>
-              <td class="companyName">SASOL NITRO</td>
-            </tr>
-            <tr>
-              <td>Production Site</td>
-              <td>SECUNDA</td>
-            </tr>
-            <tr>
-              <td>Geographical Address</td>
-              <td>Nitrogen street, Sasol Secunda Plant</td>
-            </tr>
-            <tr>
-              <td>City</td>
-              <td>Secunda</td>
-            </tr>
-            <tr>
-              <td>Country Name</td>
-              <td>South Africa</td>
-            </tr>
-            <tr>
-              <td>Telephone</td>
-              <td>+27 113442400</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td>fertiliser@sasol.com</td>
-            </tr>
-            <tr>
-              <td>Year of establishment</td>
-              <td>1985</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Plant Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Nominal Capacity</td>
-              <td>Ammonia 660,000mt, Ammonium Nitrate 330,000mt, Sulfate of Ammonia 100,000mt</td>
-            </tr>
-            <tr>
-              <td>No Of Employees</td>
-              <td>51-100</td>
-            </tr>
-            <tr>
-              <td>process</td>
-              <td>CAN and Ammonium sulphate production + bulk blending of NPK</td>
-            </tr>
-            <tr>
-              <td>Renovation And Year Of Renovation</td>
-              <td> YES - Commence new LAN production facility during October 2012 </td>
-            </tr>
-
-            <tr class="containerHeader">
-              <td>Storage Capacity Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>For Raw Materials</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>For Finished Products</td>
-              <td></td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Markets</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Markets</td>
-              <td>
-                                  Domestic / large scale farms &amp; estates
-                                      ,
-                                                    Domestic / small scale farms
-                                      ,
-                                                    Regional market (export)
-                                      ,
-                                                    Domestic / fertilizer manufacturers &amp; blenders
-                                                </td>
-            </tr>
-
-
-            <tr>
-              <td>Fertilizer</td>
-              <td>
-                                                  Ammonia
-
-                                      ,
-                                                    Ammonium Nitrate
-
-                                      ,
-                                                    Nitric Acid
-                                      ,
-                                                    Sulfate of Ammonia
-                                                </td>
-            </tr>
-            <tr>
-              <td>Other Fertilizer</td>
-              <td></td>
-            </tr>     
-            
-                                    
-          </tbody></table>
-        </td></tr>
-
-            
-
-          <tr id="viewContact_19">
-          <td colspan="5">
-
-          <table class="container tabCompany" cellspacing="0" cellpadding="0" >
-            <tbody><tr class="containerHeader">
-              <td>
-                <b>Company Info</b>
-              </td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Company Name</td>
-              <td class="companyName">KEL CHEMICALS LIMITED</td>
-            </tr>
-            <tr>
-              <td>Production Site</td>
-              <td>KEL CHEMICALS LIMITED</td>
-            </tr>
-            <tr>
-              <td>Geographical Address</td>
-              <td>Garissa Road, Thika town</td>
-            </tr>
-            <tr>
-              <td>City</td>
-              <td>Thika</td>
-            </tr>
-            <tr>
-              <td>Country Name</td>
-              <td>Kenya</td>
-            </tr>
-            <tr>
-              <td>Telephone</td>
-              <td>+254 771759466 , +254 772583313</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td>info@kelchemicals.com</td>
-            </tr>
-            <tr>
-              <td>Year of establishment</td>
-              <td>1970</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Plant Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Nominal Capacity</td>
-              <td>Sulfuric Acid 26400mt, SSP 200000mt</td>
-            </tr>
-            <tr>
-              <td>No Of Employees</td>
-              <td>11-50</td>
-            </tr>
-            <tr>
-              <td>process</td>
-              <td>Manufacture of Sulphuric Acid from elemental Sulphur.  Manufacture of SSP from Sulphuric acid and Phosphate rock</td>
-            </tr>
-            <tr>
-              <td>Renovation And Year Of Renovation</td>
-              <td> NO </td>
-            </tr>
-
-            <tr class="containerHeader">
-              <td>Storage Capacity Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>For Raw Materials</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>For Finished Products</td>
-              <td></td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Markets</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Markets</td>
-              <td>
-                                  Domestic / large scale farms &amp; estates
-                                      ,
-                                                    Domestic / small scale farms
-                                                </td>
-            </tr>
-
-
-            <tr>
-              <td>Fertilizer</td>
-              <td>
-                                                  Sulfuric Acid
-
-                                      ,
-                                                    SSP
-                                                </td>
-            </tr>
-            <tr>
-              <td>Other Fertilizer</td>
-              <td></td>
-            </tr>     
-            
-                                    
-          </tbody></table>
-        </td></tr>
-
-          <tr id="viewContact_20">
-          <td colspan="5">
-
-          <table class="container tabCompany" cellspacing="0" cellpadding="0" >
-            <tbody><tr class="containerHeader">
-              <td>
-                <b>Company Info</b>
-              </td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Company Name</td>
-              <td class="companyName">CYBERNETICS NIGERIA LIMITED</td>
-            </tr>
-            <tr>
-              <td>Production Site</td>
-              <td>AGROLYSER MICRONUTIRENT FERTILIZER PLANT</td>
-            </tr>
-            <tr>
-              <td>Geographical Address</td>
-              <td>15-17 Gwari Avenue, Off Kachia Road, Barnawa</td>
-            </tr>
-            <tr>
-              <td>City</td>
-              <td>Kaduna South</td>
-            </tr>
-            <tr>
-              <td>Country Name</td>
-              <td>Nigeria</td>
-            </tr>
-            <tr>
-              <td>Telephone</td>
-              <td>+234 8053158852, +234 7038440263</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td>cyberagrolyser@yahoo.com</td>
-            </tr>
-            <tr>
-              <td>Year of establishment</td>
-              <td>1985</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Plant Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Nominal Capacity</td>
-              <td>Micronutrients And Secondary Elements 2,500mt</td>
-            </tr>
-            <tr>
-              <td>No Of Employees</td>
-              <td>11-50</td>
-            </tr>
-            <tr>
-              <td>process</td>
-              <td>Chemical grafting of micronutrients and secondary elements to an alkaline base</td>
-            </tr>
-            <tr>
-              <td>Renovation And Year Of Renovation</td>
-              <td> NO </td>
-            </tr>
-
-            <tr class="containerHeader">
-              <td>Storage Capacity Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>For Raw Materials</td>
-              <td>850mt</td>
-            </tr>
-            <tr>
-              <td>For Finished Products</td>
-              <td>1,500mt</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Markets</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Markets</td>
-              <td>
-                                  Domestic / small scale farms
-                                                </td>
-            </tr>
-
-
-            <tr>
-              <td>Fertilizer</td>
-              <td>
-                                              </td>
-            </tr>
-            <tr>
-              <td>Other Fertilizer</td>
-              <td>Micronutrients And Secondary Elements</td>
-            </tr>     
-            
-                                    
-          </tbody></table>
-        </td></tr>
-
-           
-          <tr id="viewContact_21">
-          <td colspan="5">
-
-          <table class="container tabCompany" cellspacing="0" cellpadding="0" >
-            <tbody><tr class="containerHeader">
-              <td>
-                <b>Company Info</b>
-              </td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Company Name</td>
-              <td class="companyName">OMNIA FERTILIZER</td>
-            </tr>
-            <tr>
-              <td>Production Site</td>
-              <td>OMNIA FERTILIZER</td>
-            </tr>
-            <tr>
-              <td>Geographical Address</td>
-              <td>13 Sloane Street, Epsom Downs 2021, Bryanston.</td>
-            </tr>
-            <tr>
-              <td>City</td>
-              <td>Sasolburg</td>
-            </tr>
-            <tr>
-              <td>Country Name</td>
-              <td>South Africa</td>
-            </tr>
-            <tr>
-              <td>Telephone</td>
-              <td>+27 117098888, +27 117098899</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td>fertilizer@omnia.co.za</td>
-            </tr>
-            <tr>
-              <td>Year of establishment</td>
-              <td>1953</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Plant Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Nominal Capacity</td>
-              <td>Ammonium Nitrate 1,640mt, Nitric Acid 1,650mt, SSP 500mt</td>
-            </tr>
-            <tr>
-              <td>No Of Employees</td>
-              <td>101-500</td>
-            </tr>
-            <tr>
-              <td>process</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>Renovation And Year Of Renovation</td>
-              <td> YES - New Nitric acid and Ammonium Nitrate plant </td>
-            </tr>
-
-            <tr class="containerHeader">
-              <td>Storage Capacity Info</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>For Raw Materials</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>For Finished Products</td>
-              <td>65,000mt</td>
-            </tr>
-            <tr class="containerHeader">
-              <td>Markets</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>Markets</td>
-              <td>
-                                  Domestic / large scale farms &amp; estates
-                                      ,
-                                                    Domestic / small scale farms
-                                      ,
-                                                    Regional market (export)
-                                                </td>
-            </tr>
-
-
-            <tr>
-              <td>Fertilizer</td>
-              <td>
-                                                  Ammonium Nitrate
-
-                                      ,
-                                                    Nitric Acid
-                                      ,
-                                                    SSP
-                                                </td>
-            </tr>
-            <tr>
-              <td>Other Fertilizer</td>
-              <td>Granular Fertilizer; Nitrophosphate</td>
-            </tr>     
-            
-                                    
-          </tbody></table>
-        </td></tr>
-
-                                                                
-                                
-                                                                                                                                                  
-                                                                                                                                                        
-                        <tr><td></td></tr>
-      </tbody></table>
-
-  </div>
 </div>
 
-                </div>
+<div class="container">
+    <div class="row">
+        <form class="form" role="form">
 
-    <!-- Footer --> 
-    <div class="container">
-      <div class="footer">
-        <p>AfricaFeritilizer.org - AF Skeleton web application by FENIX</p>
-      </div>
+            <div class="form-group col-xs-3 pull-right">
+                <button type="button" name="add_company" id="add_company" class="form-control">Add New Company</button>
+            </div>
+
+            <div class="form-group col-xs-12">
+                <label class="control-label"> Country Name </label>
+
+                <div class="col-xs-12" id="listCountries">
+                    <a class="btn btn-default" href="#Kenya">Kenya</a>
+                    <a class="btn btn-default" href="#Mali">Mali</a>
+                    <a class="btn btn-default" href="#Nigeria">Nigeria</a>
+                    <a class="btn btn-default" href="#South-Africa">South Africa</a>
+                    <a class="btn btn-default" href="#Tanzania">Tanzania</a>
+                    <a class="btn btn-default" href="#more">...</a>
+                    <!--
+                    <a class="btn btn-sm" href="#Algeria">Algeria</a>
+                    <a class="btn btn-sm btn-success active" href="#Angola">Angola</a>
+                    <a class="btn btn-sm" href="#Benin">Benin</a>
+                    <a class="btn btn-sm" href="#Botswana">Botswana</a>
+                    <a class="btn btn-sm" href="#Burkina-Faso">Burkina Faso</a>
+                    <a class="btn btn-sm" href="#Burundi">Burundi</a>
+                    <a class="btn btn-sm" href="#Cameroon">Cameroon</a>
+                    <a class="btn btn-sm" href="#Cape-Verde">Cape Verde</a>
+                    <a class="btn btn-sm" href="#Central-African-Republic">Central African Republic</a>
+                    <a class="btn btn-sm" href="#Chad">Chad</a>
+                    <a class="btn btn-sm" href="#Comoros">Comoros</a>
+                    <a class="btn btn-sm" href="#Congo">Congo</a>
+                    <a class="btn btn-sm" href="#Congo-Democratic-Republic">Congo Democratic Republic</a>
+                    <a class="btn btn-sm" href="#Cote-d-Ivoire">Côte d'Ivoire</a>
+                    <a class="btn btn-sm" href="#Djibouti">Djibouti</a>
+                    <a class="btn btn-sm" href="#Egypt">Egypt</a>
+                    <a class="btn btn-sm" href="#Equatorial-Guinea">Equatorial Guinea</a>
+                    <a class="btn btn-sm" href="#Eritrea">Eritrea</a>
+                    <a class="btn btn-sm" href="#Ethiopia">Ethiopia</a>
+                    <a class="btn btn-sm" href="#Gabon">Gabon</a>
+                    <a class="btn btn-sm" href="#Gambia">Gambia</a>
+                    <a class="btn btn-sm" href="#Ghana">Ghana</a>
+                    <a class="btn btn-sm" href="#Guinea">Guinea</a>
+                    <a class="btn btn-sm" href="#Guinea-Bissau">Guinea-Bissau</a>
+                    <a class="btn btn-sm" href="#Kenya">Kenya</a>
+                    <a class="btn btn-sm" href="#Lesotho">Lesotho</a>
+                    <a class="btn btn-sm" href="#Liberia">Liberia</a>
+                    <a class="btn btn-sm" href="#Libya">Libya</a>
+                    <a class="btn btn-sm" href="#Madagascar">Madagascar</a>
+                    <a class="btn btn-sm" href="#Malawi">Malawi</a>
+                    <a class="btn btn-sm" href="#Mali">Mali</a>
+                    <a class="btn btn-sm" href="#Mauritania">Mauritania</a>
+                    <a class="btn btn-sm" href="#Mauritius">Mauritius</a>
+                    <a class="btn btn-sm" href="#Morocco">Morocco</a>
+                    <a class="btn btn-sm" href="#Mozambique">Mozambique</a>
+                    <a class="btn btn-sm" href="#Namibia">Namibia</a>
+                    <a class="btn btn-sm" href="#Niger">Niger</a>
+                    <a class="btn btn-sm" href="#Nigeria">Nigeria</a>
+                    <a class="btn btn-sm" href="#Reunion">Réunion</a>
+                    <a class="btn btn-sm" href="#Rwanda">Rwanda</a>
+                    <a class="btn btn-sm" href="#Sao-Tome-and-Principe">São Tomé and Príncipe</a>
+                    <a class="btn btn-sm" href="#Senegal">Senegal</a>
+                    <a class="btn btn-sm" href="#Seychelles">Seychelles</a>
+                    <a class="btn btn-sm" href="#Sierra-Leone">Sierra Leone</a>
+                    <a class="btn btn-sm" href="#Somalia">Somalia</a>
+                    <a class="btn btn-sm" href="#South-Africa">South Africa</a>
+                    <a class="btn btn-sm" href="#Sudan">Sudan</a>
+                    <a class="btn btn-sm" href="#Swaziland">Swaziland</a>
+                    <a class="btn btn-sm" href="#Tanzania">Tanzania</a>
+                    <a class="btn btn-sm" href="#Togo">Togo</a>
+                    <a class="btn btn-sm" href="#Tunisia">Tunisia</a>
+                    <a class="btn btn-sm" href="#Uganda">Uganda</a>
+                    <a class="btn btn-sm" href="#Zambia">Zambia</a>
+                    <a class="btn btn-sm" href="#Zimbabwe">Zimbabwe</a>
+                    -->
+                </div>
+            </div>
+
+            <div class="clearfix"><br/></div>
+
+            <div class="form-group col-xs-6">
+                <label class="control-label"> Company Name *</label>
+                <input type="text" name="company_name" id=" company_name" class="form-control" disabled="disabled">
+            </div>
+
+            <div class="form-group col-xs-6">
+                <label class="control-label"> City Name </label>
+                <input type="text" name="company_name" id="city" class="form-control" disabled="disabled">
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div class="container" id="listCompanies">
+
+        <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+
+    <tbody>
+
+    <tr id="viewContact_1">
+        <td colspan="5">
+
+            <table class="tabCompany" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr class="containerHeader">
+                    <td>
+                        <b>Company Info</b>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Company Name</td>
+                    <td class="companyName">TOGUNA AGRO INDUSTRIES</td>
+                </tr>
+                <tr>
+                    <td>Production Site</td>
+                    <td>USINE DE TILMESI</td>
+                </tr>
+                <tr>
+                    <td>Geographical Address</td>
+                    <td>Tilmesi</td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>Tilemsi</td>
+                </tr>
+                <tr>
+                    <td>Country Name</td>
+                    <td>Mali</td>
+                </tr>
+                <tr>
+                    <td>Telephone</td>
+                    <td>+223 20203081, +223 20203085</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>togunaindustries@yahoo.fr</td>
+                </tr>
+                <tr>
+                    <td>Year of establishment</td>
+                    <td>2007</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Plant Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Nominal Capacity</td>
+                    <td>Phosphate Rock 350,000</td>
+                </tr>
+                <tr>
+                    <td>No Of Employees</td>
+                    <td>101-500</td>
+                </tr>
+                <tr>
+                    <td>process</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Renovation And Year Of Renovation</td>
+                    <td> YES - 40% increase of bagging capacity</td>
+                </tr>
+
+                <tr class="containerHeader">
+                    <td>Storage Capacity Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>For Raw Materials</td>
+                    <td>10,000mt</td>
+                </tr>
+                <tr>
+                    <td>For Finished Products</td>
+                    <td>10,000mt</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Markets</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Markets</td>
+                    <td>
+                        Domestic / large scale farms &amp; estates
+                        ,
+                        Domestic / small scale farms
+                        ,
+                        Regional market (export)
+                        ,
+                        Domestic / fertilizer manufacturers &amp; blenders
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Fertilizer</td>
+                    <td>
+                        Phosphate Rock
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>Other Fertilizer</td>
+                    <td>NPK</td>
+                </tr>
+
+
+                </tbody>
+            </table>
+        </td>
+    </tr>
+
+
+    <tr id="viewContact_2">
+        <td colspan="5">
+
+            <table class="container tabCompany" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr class="containerHeader">
+                    <td>
+                        <b>Company Info</b>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Company Name</td>
+                    <td class="companyName">PRIME GOLD FERTILIZER AND CHEMICAL INDUSTRIES LTD</td>
+                </tr>
+                <tr>
+                    <td>Production Site</td>
+                    <td>PRIME GOLD FERTILIZER, ALETO, ELEME, PORT HARCOURT, RIVERS STATE</td>
+                </tr>
+                <tr>
+                    <td>Geographical Address</td>
+                    <td>Klm 10, East - West Road, Aleto - Eleme, Port Harcourt, Rivers State</td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>Port-Harcourt</td>
+                </tr>
+                <tr>
+                    <td>Country Name</td>
+                    <td>Nigeria</td>
+                </tr>
+                <tr>
+                    <td>Telephone</td>
+                    <td>+ 234 8033008036, +234 8173008036</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>info@primegoldfertilizers.com</td>
+                </tr>
+                <tr>
+                    <td>Year of establishment</td>
+                    <td>2009</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Plant Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Nominal Capacity</td>
+                    <td>SSP 30,000mt , TSP 30,000mt , DAP 30,000mt</td>
+                </tr>
+                <tr>
+                    <td>No Of Employees</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>process</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Renovation And Year Of Renovation</td>
+                    <td> YES - Increase in capacity to 120 mtpd</td>
+                </tr>
+
+                <tr class="containerHeader">
+                    <td>Storage Capacity Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>For Raw Materials</td>
+                    <td>3,000mt</td>
+                </tr>
+                <tr>
+                    <td>For Finished Products</td>
+                    <td>2,800mt</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Markets</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Markets</td>
+                    <td>
+                        Domestic / large scale farms &amp; estates
+                        ,
+                        Domestic / small scale farms
+                        ,
+                        Domestic / fertilizer manufacturers &amp; blenders
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Fertilizer</td>
+                    <td>
+                        SSP
+                        ,
+                        TSP
+                        ,
+                        DAP
+
+                        ,
+                        MOP
+                    </td>
+                </tr>
+                <tr>
+                    <td>Other Fertilizer</td>
+                    <td>NPK COMPOUND FERTILIZER SERIES (NPK 15-15-15, NPK 20-10-10 AND NPK 12-12-17-2MgO)</td>
+                </tr>
+
+
+                </tbody>
+            </table>
+        </td>
+    </tr>
+
+
+    <tr id="viewContact_3">
+        <td colspan="5">
+
+            <table class="container tabCompany" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr class="containerHeader">
+                    <td>
+                        <b>Company Info</b>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Company Name</td>
+                    <td class="companyName">NOTORE CHEMICAL INDUSTRY LIMITED</td>
+                </tr>
+                <tr>
+                    <td>Production Site</td>
+                    <td>NOTORE INDUSTRIAL COMPLEX</td>
+                </tr>
+                <tr>
+                    <td>Geographical Address</td>
+                    <td>Onne, Rivers State, Nigeria</td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>Rivers</td>
+                </tr>
+                <tr>
+                    <td>Country Name</td>
+                    <td>Nigeria</td>
+                </tr>
+                <tr>
+                    <td>Telephone</td>
+                    <td>+234 12798079</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Year of establishment</td>
+                    <td>1988</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Plant Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Nominal Capacity</td>
+                    <td>Urea 500,000mt</td>
+                </tr>
+                <tr>
+                    <td>No Of Employees</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>process</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Renovation And Year Of Renovation</td>
+                    <td> YES -</td>
+                </tr>
+
+                <tr class="containerHeader">
+                    <td>Storage Capacity Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>For Raw Materials</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>For Finished Products</td>
+                    <td></td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Markets</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Markets</td>
+                    <td>
+                        Domestic / large scale farms &amp; estates
+                        ,
+                        Domestic / small scale farms
+                        ,
+                        Regional market (export)
+                        ,
+                        International market (export)
+                        ,
+                        Domestic / fertilizer manufacturers &amp; blenders
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Fertilizer</td>
+                    <td>
+                        Urea
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>Other Fertilizer</td>
+                    <td>Blended NPK</td>
+                </tr>
+
+
+                </tbody>
+            </table>
+        </td>
+    </tr>
+
+
+    <tr id="viewContact_4">
+        <td colspan="5">
+
+            <table class="container tabCompany" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr class="containerHeader">
+                    <td>
+                        <b>Company Info</b>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Company Name</td>
+                    <td class="companyName">KAFFO MINES LIMITED</td>
+                </tr>
+                <tr>
+                    <td>Production Site</td>
+                    <td>KAFFO MINES LIMITED</td>
+                </tr>
+                <tr>
+                    <td>Geographical Address</td>
+                    <td>Km 53 Suleja-Minna Road, Kwakuti, Niger State</td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>Niger</td>
+                </tr>
+                <tr>
+                    <td>Country Name</td>
+                    <td>Nigeria</td>
+                </tr>
+                <tr>
+                    <td>Telephone</td>
+                    <td>+234 7031300523, +234 8092870962</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>saidugmkaffomines@yahoo.com</td>
+                </tr>
+                <tr>
+                    <td>Year of establishment</td>
+                    <td>2008</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Plant Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Nominal Capacity</td>
+                    <td>SSP 10,000mt, Agric Lime 28,000mt, NPK Blends 140,000mt</td>
+                </tr>
+                <tr>
+                    <td>No Of Employees</td>
+                    <td>51-100</td>
+                </tr>
+                <tr>
+                    <td>process</td>
+                    <td>Dryer-pulveriser granulite, blending and granulation.</td>
+                </tr>
+                <tr>
+                    <td>Renovation And Year Of Renovation</td>
+                    <td> YES - 2012, still upgrading blending and granulation unit. addition of 4 feet pan to increase
+                        production to 15 tons per hour.
+                    </td>
+                </tr>
+
+                <tr class="containerHeader">
+                    <td>Storage Capacity Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>For Raw Materials</td>
+                    <td>6,000mt</td>
+                </tr>
+                <tr>
+                    <td>For Finished Products</td>
+                    <td>9,000mt</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Markets</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Markets</td>
+                    <td>
+                        Domestic / large scale farms &amp; estates
+                        ,
+                        Domestic / small scale farms
+                        ,
+                        Domestic / fertilizer manufacturers &amp; blenders
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Fertilizer</td>
+                    <td>
+                        SSP
+                    </td>
+                </tr>
+                <tr>
+                    <td>Other Fertilizer</td>
+                    <td>Agric Lime, NPK Blends</td>
+                </tr>
+
+
+                </tbody>
+            </table>
+        </td>
+    </tr>
+
+
+    <tr id="viewContact_5">
+        <td colspan="5">
+
+            <table class="container tabCompany" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr class="containerHeader">
+                    <td>
+                        <b>Company Info</b>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Company Name</td>
+                    <td class="companyName">SUPERPHOSPHATE FERTILIZER AND CHEMICALS LIMITED</td>
+                </tr>
+                <tr>
+                    <td>Production Site</td>
+                    <td>SFC- KAKURI KADUNA</td>
+                </tr>
+                <tr>
+                    <td>Geographical Address</td>
+                    <td>4 Nasarawa Road Kakuri, Kaduna</td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>Kaduna</td>
+                </tr>
+                <tr>
+                    <td>Country Name</td>
+                    <td>Nigeria</td>
+                </tr>
+                <tr>
+                    <td>Telephone</td>
+                    <td>+234 8067102460</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Year of establishment</td>
+                    <td>1975</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Plant Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Nominal Capacity</td>
+                    <td>SSP 150,000mt</td>
+                </tr>
+                <tr>
+                    <td>No Of Employees</td>
+                    <td>51-100</td>
+                </tr>
+                <tr>
+                    <td>process</td>
+                    <td>Acidulation of sulphuric acid with granular phosphate rock to produce single superphosphate
+                        fertilizer (ssp) 18% p2o5
+                    </td>
+                </tr>
+                <tr>
+                    <td>Renovation And Year Of Renovation</td>
+                    <td> YES - 2002, ssp revamp</td>
+                </tr>
+
+                <tr class="containerHeader">
+                    <td>Storage Capacity Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>For Raw Materials</td>
+                    <td>150,000mt</td>
+                </tr>
+                <tr>
+                    <td>For Finished Products</td>
+                    <td>20,000mt</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Markets</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Markets</td>
+                    <td>
+                        Domestic / large scale farms &amp; estates
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Fertilizer</td>
+                    <td>
+                        SSP
+                    </td>
+                </tr>
+                <tr>
+                    <td>Other Fertilizer</td>
+                    <td></td>
+                </tr>
+
+
+                </tbody>
+            </table>
+        </td>
+    </tr>
+
+
+    <tr id="viewContact_8">
+        <td colspan="5">
+
+            <table class="container tabCompany" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr class="containerHeader">
+                    <td>
+                        <b>Company Info</b>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Company Name</td>
+                    <td class="companyName">TAK AGRO &amp; CHEMICALS LTD</td>
+                </tr>
+                <tr>
+                    <td>Production Site</td>
+                    <td>WEST AFRICA FERTILIZER COMPANY LTD</td>
+                </tr>
+                <tr>
+                    <td>Geographical Address</td>
+                    <td>Km 169 Benin - Okene Federal Highway, Okpella Edo State, Nigeria</td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>Okpella</td>
+                </tr>
+                <tr>
+                    <td>Country Name</td>
+                    <td>Nigeria</td>
+                </tr>
+                <tr>
+                    <td>Telephone</td>
+                    <td>+234 8097411005</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>eegbaran@yahoo.com</td>
+                </tr>
+                <tr>
+                    <td>Year of establishment</td>
+                    <td>1992</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Plant Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Nominal Capacity</td>
+                    <td>Granulated Limestone 65,000mt</td>
+                </tr>
+                <tr>
+                    <td>No Of Employees</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>process</td>
+                    <td>Crushers: primary &amp;secondary (manufacturer stedman machine company) for crushing limestone
+                        boulders, ball mill (manufacturer kennedy van saun) for grinding crushed aggregate limestone mixed
+                        with clay; pan granulating machine for granulation &amp; binding with sodium silicate and the fluid
+                        bed dryer for drying the granules.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Renovation And Year Of Renovation</td>
+                    <td> NO</td>
+                </tr>
+
+                <tr class="containerHeader">
+                    <td>Storage Capacity Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>For Raw Materials</td>
+                    <td>40,000mt</td>
+                </tr>
+                <tr>
+                    <td>For Finished Products</td>
+                    <td>6,000mt</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Markets</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Markets</td>
+                    <td>
+                        Domestic / fertilizer manufacturers &amp; blenders
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Fertilizer</td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Other Fertilizer</td>
+                    <td>Granulated Limestone</td>
+                </tr>
+
+
+                </tbody>
+            </table>
+        </td>
+    </tr>
+
+
+    <tr id="viewContact_9">
+        <td colspan="5">
+
+            <table class="container tabCompany" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr class="containerHeader">
+                    <td>
+                        <b>Company Info</b>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Company Name</td>
+                    <td class="companyName">FOSKOR (PTY) LIMITED</td>
+                </tr>
+                <tr>
+                    <td>Production Site</td>
+                    <td>FOSKOR MINING DIVISION</td>
+                </tr>
+                <tr>
+                    <td>Geographical Address</td>
+                    <td>27 Selati Road, Phalaborwa, Limpopo Province 1390</td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>Phalaborwa</td>
+                </tr>
+                <tr>
+                    <td>Country Name</td>
+                    <td>South Africa</td>
+                </tr>
+                <tr>
+                    <td>Telephone</td>
+                    <td>+27 157892000</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>jeaninea@foskor.co.za</td>
+                </tr>
+                <tr>
+                    <td>Year of establishment</td>
+                    <td>1951</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Plant Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Nominal Capacity</td>
+                    <td>Phosphate Rock 2,600,000mt</td>
+                </tr>
+                <tr>
+                    <td>No Of Employees</td>
+                    <td>more than 500</td>
+                </tr>
+                <tr>
+                    <td>process</td>
+                    <td>The Foskor Mining Division operates two opencast mines using convensional drilling,blasting, loading
+                        and hauling in the operation followed by primary and secondary crushing as part of the communition
+                        process. Wet milling reduces the particle size to liberate apatite followed by conventional induced
+                        air flotation process to extract the phosphate. De-watering follows flotation and the product is
+                        stockpiled.
+                    </td>
+                </tr>
+                <tr>
+                    <td>Renovation And Year Of Renovation</td>
+                    <td> YES - In 2000 a new modular processing plant was commissioned that included crushing, milling and
+                        flotation technologies. This facility replaced old redundant processing facilities commissioned in
+                        the early 1960. In 2009 Foskor commissioned its second opencast
+                    </td>
+                </tr>
+
+                <tr class="containerHeader">
+                    <td>Storage Capacity Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>For Raw Materials</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>For Finished Products</td>
+                    <td>800,000mt</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Markets</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Markets</td>
+                    <td>
+                        International market (export)
+                        ,
+                        Domestic / fertilizer manufacturers &amp; blenders
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Fertilizer</td>
+                    <td>
+                        Phosphate Rock
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>Other Fertilizer</td>
+                    <td></td>
+                </tr>
+
+
+                </tbody>
+            </table>
+        </td>
+    </tr>
+
+
+    <tr id="viewContact_10">
+        <td colspan="5">
+
+            <table class="container tabCompany" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr class="containerHeader">
+                    <td>
+                        <b>Company Info</b>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Company Name</td>
+                    <td class="companyName">FOSKOR (PTY) LIMITED</td>
+                </tr>
+                <tr>
+                    <td>Production Site</td>
+                    <td>FOSKOR ACID DIVISION</td>
+                </tr>
+                <tr>
+                    <td>Geographical Address</td>
+                    <td>21 John Ross Parkway, Richards Bay, Kwazulu- Natal 3900</td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>Richards Bay</td>
+                </tr>
+                <tr>
+                    <td>Country Name</td>
+                    <td>South Africa</td>
+                </tr>
+                <tr>
+                    <td>Telephone</td>
+                    <td>+27 35902311</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Year of establishment</td>
+                    <td>1951</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Plant Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Nominal Capacity</td>
+                    <td>P2O5 640,000mt , Sulfuric Acid 2,200,000mt, MAP 400,000mt, DAP 300,000mt</td>
+                </tr>
+                <tr>
+                    <td>No Of Employees</td>
+                    <td>more than 500</td>
+                </tr>
+                <tr>
+                    <td>process</td>
+                    <td>Wet Acid- Chemical Granulation</td>
+                </tr>
+                <tr>
+                    <td>Renovation And Year Of Renovation</td>
+                    <td> YES - New Sulphuric Acid and Phosphoric Acid Plants were built in 2002 to double capacity.
+                        Currently busy with major Asset Replacement for the plant that was build in 1976
+                    </td>
+                </tr>
+
+                <tr class="containerHeader">
+                    <td>Storage Capacity Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>For Raw Materials</td>
+                    <td>Phosphate Rock -100,000mt, Sulphur - 110,000mt</td>
+                </tr>
+                <tr>
+                    <td>For Finished Products</td>
+                    <td>P2O5 - 50,000mt, MAP/DAP - 35,000mt</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Markets</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Markets</td>
+                    <td>
+                        Domestic / large scale farms &amp; estates
+                        ,
+                        Domestic / small scale farms
+                        ,
+                        Regional market (export)
+                        ,
+                        International market (export)
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Fertilizer</td>
+                    <td>
+                        Sulfuric Acid
+
+                        ,
+                        MAP
+
+                        ,
+                        DAP
+
+                        ,
+                        P2O5
+                    </td>
+                </tr>
+                <tr>
+                    <td>Other Fertilizer</td>
+                    <td></td>
+                </tr>
+
+
+                </tbody>
+            </table>
+        </td>
+    </tr>
+
+
+    <tr id="viewContact_11">
+        <td colspan="5">
+
+            <table class="container tabCompany" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr class="containerHeader">
+                    <td>
+                        <b>Company Info</b>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Company Name</td>
+                    <td class="companyName">BOSVELD PHOSPHATES (PTY) LTD</td>
+                </tr>
+                <tr>
+                    <td>Production Site</td>
+                    <td>BOSVELD PHOSPHATES</td>
+                </tr>
+                <tr>
+                    <td>Geographical Address</td>
+                    <td>1 Station Road, Phalaborwa, South Africa 1389</td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>Phalaborwa</td>
+                </tr>
+                <tr>
+                    <td>Country Name</td>
+                    <td>South Africa</td>
+                </tr>
+                <tr>
+                    <td>Telephone</td>
+                    <td>+27 157806100, +27 0105900633</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>ravesh@bosveldafrica.co.za</td>
+                </tr>
+                <tr>
+                    <td>Year of establishment</td>
+                    <td>1980</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Plant Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Nominal Capacity</td>
+                    <td>P2O5 600,000mt, Sulfuric Acid 120,000mt, MAP 100,000mt, SSP 60,000mt, DAP 138,000mt</td>
+                </tr>
+                <tr>
+                    <td>No Of Employees</td>
+                    <td>101-500</td>
+                </tr>
+                <tr>
+                    <td>process</td>
+                    <td>Wet acid process</td>
+                </tr>
+                <tr>
+                    <td>Renovation And Year Of Renovation</td>
+                    <td> YES - 1975 - the addition of a second phosphoric acid plant 1981 - a second sulfuric acid plant was
+                        built 2012 - MAP and SSP Plants
+                    </td>
+                </tr>
+
+                <tr class="containerHeader">
+                    <td>Storage Capacity Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>For Raw Materials</td>
+                    <td>51,000mt</td>
+                </tr>
+                <tr>
+                    <td>For Finished Products</td>
+                    <td>35,000mt</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Markets</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Markets</td>
+                    <td>
+                        Domestic / large scale farms &amp; estates
+                        ,
+                        Domestic / small scale farms
+                        ,
+                        Regional market (export)
+                        ,
+                        Domestic / fertilizer manufacturers &amp; blenders
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Fertilizer</td>
+                    <td>
+                        Sulfuric Acid
+
+                        ,
+                        MAP
+
+                        ,
+                        SSP
+                        ,
+                        DAP
+
+                        ,
+                        P2O5
+                    </td>
+                </tr>
+                <tr>
+                    <td>Other Fertilizer</td>
+                    <td>NPK, Bulk Blends</td>
+                </tr>
+
+
+                </tbody>
+            </table>
+        </td>
+    </tr>
+
+
+    <tr id="viewContact_12">
+        <td colspan="5">
+
+            <table class="container tabCompany" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr class="containerHeader">
+                    <td>
+                        <b>Company Info</b>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Company Name</td>
+                    <td class="companyName">POLI GENERAL TRADING &amp; SUPPLIES LTD</td>
+                </tr>
+                <tr>
+                    <td>Production Site</td>
+                    <td>POLI GENERAL TRADING &amp; SUPPLIES LTD</td>
+                </tr>
+                <tr>
+                    <td>Geographical Address</td>
+                    <td>Tanga /Mombasa Highway Road Amboni Area/ Mafuriko Village 1/2 km from the Highway Z.B. Mining ltd
+                    </td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>Tanga</td>
+                </tr>
+                <tr>
+                    <td>Country Name</td>
+                    <td>Tanzania</td>
+                </tr>
+                <tr>
+                    <td>Telephone</td>
+                    <td>+255 754267139, +255 272646260</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>palsonltd@live.com</td>
+                </tr>
+                <tr>
+                    <td>Year of establishment</td>
+                    <td>2002</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Plant Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Nominal Capacity</td>
+                    <td>Lime Fertilizers 10,800mt</td>
+                </tr>
+                <tr>
+                    <td>No Of Employees</td>
+                    <td>11-50</td>
+                </tr>
+                <tr>
+                    <td>process</td>
+                    <td>Crushing and Milling to produce powder lime fertilizer</td>
+                </tr>
+                <tr>
+                    <td>Renovation And Year Of Renovation</td>
+                    <td> YES - 2011- Replacing existing Crushers with bigger ones so as to increase production</td>
+                </tr>
+
+                <tr class="containerHeader">
+                    <td>Storage Capacity Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>For Raw Materials</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>For Finished Products</td>
+                    <td>12000mt</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Markets</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Markets</td>
+                    <td>
+                        Domestic / large scale farms &amp; estates
+                        ,
+                        Domestic / small scale farms
+                        ,
+                        Domestic / fertilizer manufacturers &amp; blenders
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Fertilizer</td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Other Fertilizer</td>
+                    <td>Lime Fertilizers</td>
+                </tr>
+
+
+                </tbody>
+            </table>
+        </td>
+    </tr>
+
+
+    <tr id="viewContact_13">
+        <td colspan="5">
+
+            <table class="container tabCompany" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr class="containerHeader">
+                    <td>
+                        <b>Company Info</b>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Company Name</td>
+                    <td class="companyName">ABM EQUIPMENT SERVICES LTD</td>
+                </tr>
+                <tr>
+                    <td>Production Site</td>
+                    <td>GOFU INDUSTRIAL AREA</td>
+                </tr>
+                <tr>
+                    <td>Geographical Address</td>
+                    <td>Block KB 1X Maendeleo Rd Gofu Industrial Area , TANGA</td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>Tanga</td>
+                </tr>
+                <tr>
+                    <td>Country Name</td>
+                    <td>Tanzania</td>
+                </tr>
+                <tr>
+                    <td>Telephone</td>
+                    <td>+255 653703170, +255 757615462</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>ben_abmfertilizers@yahoo.com</td>
+                </tr>
+                <tr>
+                    <td>Year of establishment</td>
+                    <td>2012</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Plant Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Nominal Capacity</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>No Of Employees</td>
+                    <td>1-10</td>
+                </tr>
+                <tr>
+                    <td>process</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Renovation And Year Of Renovation</td>
+                    <td> NO</td>
+                </tr>
+
+                <tr class="containerHeader">
+                    <td>Storage Capacity Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>For Raw Materials</td>
+                    <td>60mt</td>
+                </tr>
+                <tr>
+                    <td>For Finished Products</td>
+                    <td>200mt</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Markets</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Markets</td>
+                    <td>
+                        Domestic / large scale farms &amp; estates
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Fertilizer</td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Other Fertilizer</td>
+                    <td>CaCO3,CaMg(Co3)2,CaSO4,Mg</td>
+                </tr>
+
+
+                </tbody>
+            </table>
+        </td>
+    </tr>
+
+
+    <tr id="viewContact_18">
+        <td colspan="5">
+
+            <table class="container tabCompany" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr class="containerHeader">
+                    <td>
+                        <b>Company Info</b>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Company Name</td>
+                    <td class="companyName">SASOL NITRO</td>
+                </tr>
+                <tr>
+                    <td>Production Site</td>
+                    <td>SECUNDA</td>
+                </tr>
+                <tr>
+                    <td>Geographical Address</td>
+                    <td>Nitrogen street, Sasol Secunda Plant</td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>Secunda</td>
+                </tr>
+                <tr>
+                    <td>Country Name</td>
+                    <td>South Africa</td>
+                </tr>
+                <tr>
+                    <td>Telephone</td>
+                    <td>+27 113442400</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>fertiliser@sasol.com</td>
+                </tr>
+                <tr>
+                    <td>Year of establishment</td>
+                    <td>1985</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Plant Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Nominal Capacity</td>
+                    <td>Ammonia 660,000mt, Ammonium Nitrate 330,000mt, Sulfate of Ammonia 100,000mt</td>
+                </tr>
+                <tr>
+                    <td>No Of Employees</td>
+                    <td>51-100</td>
+                </tr>
+                <tr>
+                    <td>process</td>
+                    <td>CAN and Ammonium sulphate production + bulk blending of NPK</td>
+                </tr>
+                <tr>
+                    <td>Renovation And Year Of Renovation</td>
+                    <td> YES - Commence new LAN production facility during October 2012</td>
+                </tr>
+
+                <tr class="containerHeader">
+                    <td>Storage Capacity Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>For Raw Materials</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>For Finished Products</td>
+                    <td></td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Markets</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Markets</td>
+                    <td>
+                        Domestic / large scale farms &amp; estates
+                        ,
+                        Domestic / small scale farms
+                        ,
+                        Regional market (export)
+                        ,
+                        Domestic / fertilizer manufacturers &amp; blenders
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Fertilizer</td>
+                    <td>
+                        Ammonia
+
+                        ,
+                        Ammonium Nitrate
+
+                        ,
+                        Nitric Acid
+                        ,
+                        Sulfate of Ammonia
+                    </td>
+                </tr>
+                <tr>
+                    <td>Other Fertilizer</td>
+                    <td></td>
+                </tr>
+
+
+                </tbody>
+            </table>
+        </td>
+    </tr>
+
+
+    <tr id="viewContact_19">
+        <td colspan="5">
+
+            <table class="container tabCompany" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr class="containerHeader">
+                    <td>
+                        <b>Company Info</b>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Company Name</td>
+                    <td class="companyName">KEL CHEMICALS LIMITED</td>
+                </tr>
+                <tr>
+                    <td>Production Site</td>
+                    <td>KEL CHEMICALS LIMITED</td>
+                </tr>
+                <tr>
+                    <td>Geographical Address</td>
+                    <td>Garissa Road, Thika town</td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>Thika</td>
+                </tr>
+                <tr>
+                    <td>Country Name</td>
+                    <td>Kenya</td>
+                </tr>
+                <tr>
+                    <td>Telephone</td>
+                    <td>+254 771759466 , +254 772583313</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>info@kelchemicals.com</td>
+                </tr>
+                <tr>
+                    <td>Year of establishment</td>
+                    <td>1970</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Plant Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Nominal Capacity</td>
+                    <td>Sulfuric Acid 26400mt, SSP 200000mt</td>
+                </tr>
+                <tr>
+                    <td>No Of Employees</td>
+                    <td>11-50</td>
+                </tr>
+                <tr>
+                    <td>process</td>
+                    <td>Manufacture of Sulphuric Acid from elemental Sulphur. Manufacture of SSP from Sulphuric acid and
+                        Phosphate rock
+                    </td>
+                </tr>
+                <tr>
+                    <td>Renovation And Year Of Renovation</td>
+                    <td> NO</td>
+                </tr>
+
+                <tr class="containerHeader">
+                    <td>Storage Capacity Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>For Raw Materials</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>For Finished Products</td>
+                    <td></td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Markets</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Markets</td>
+                    <td>
+                        Domestic / large scale farms &amp; estates
+                        ,
+                        Domestic / small scale farms
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Fertilizer</td>
+                    <td>
+                        Sulfuric Acid
+
+                        ,
+                        SSP
+                    </td>
+                </tr>
+                <tr>
+                    <td>Other Fertilizer</td>
+                    <td></td>
+                </tr>
+
+
+                </tbody>
+            </table>
+        </td>
+    </tr>
+
+    <tr id="viewContact_20">
+        <td colspan="5">
+
+            <table class="container tabCompany" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr class="containerHeader">
+                    <td>
+                        <b>Company Info</b>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Company Name</td>
+                    <td class="companyName">CYBERNETICS NIGERIA LIMITED</td>
+                </tr>
+                <tr>
+                    <td>Production Site</td>
+                    <td>AGROLYSER MICRONUTIRENT FERTILIZER PLANT</td>
+                </tr>
+                <tr>
+                    <td>Geographical Address</td>
+                    <td>15-17 Gwari Avenue, Off Kachia Road, Barnawa</td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>Kaduna South</td>
+                </tr>
+                <tr>
+                    <td>Country Name</td>
+                    <td>Nigeria</td>
+                </tr>
+                <tr>
+                    <td>Telephone</td>
+                    <td>+234 8053158852, +234 7038440263</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>cyberagrolyser@yahoo.com</td>
+                </tr>
+                <tr>
+                    <td>Year of establishment</td>
+                    <td>1985</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Plant Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Nominal Capacity</td>
+                    <td>Micronutrients And Secondary Elements 2,500mt</td>
+                </tr>
+                <tr>
+                    <td>No Of Employees</td>
+                    <td>11-50</td>
+                </tr>
+                <tr>
+                    <td>process</td>
+                    <td>Chemical grafting of micronutrients and secondary elements to an alkaline base</td>
+                </tr>
+                <tr>
+                    <td>Renovation And Year Of Renovation</td>
+                    <td> NO</td>
+                </tr>
+
+                <tr class="containerHeader">
+                    <td>Storage Capacity Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>For Raw Materials</td>
+                    <td>850mt</td>
+                </tr>
+                <tr>
+                    <td>For Finished Products</td>
+                    <td>1,500mt</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Markets</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Markets</td>
+                    <td>
+                        Domestic / small scale farms
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Fertilizer</td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Other Fertilizer</td>
+                    <td>Micronutrients And Secondary Elements</td>
+                </tr>
+
+
+                </tbody>
+            </table>
+        </td>
+    </tr>
+
+
+    <tr id="viewContact_21">
+        <td colspan="5">
+
+            <table class="container tabCompany" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr class="containerHeader">
+                    <td>
+                        <b>Company Info</b>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Company Name</td>
+                    <td class="companyName">OMNIA FERTILIZER</td>
+                </tr>
+                <tr>
+                    <td>Production Site</td>
+                    <td>OMNIA FERTILIZER</td>
+                </tr>
+                <tr>
+                    <td>Geographical Address</td>
+                    <td>13 Sloane Street, Epsom Downs 2021, Bryanston.</td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>Sasolburg</td>
+                </tr>
+                <tr>
+                    <td>Country Name</td>
+                    <td>South Africa</td>
+                </tr>
+                <tr>
+                    <td>Telephone</td>
+                    <td>+27 117098888, +27 117098899</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>fertilizer@omnia.co.za</td>
+                </tr>
+                <tr>
+                    <td>Year of establishment</td>
+                    <td>1953</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Plant Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Nominal Capacity</td>
+                    <td>Ammonium Nitrate 1,640mt, Nitric Acid 1,650mt, SSP 500mt</td>
+                </tr>
+                <tr>
+                    <td>No Of Employees</td>
+                    <td>101-500</td>
+                </tr>
+                <tr>
+                    <td>process</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Renovation And Year Of Renovation</td>
+                    <td> YES - New Nitric acid and Ammonium Nitrate plant</td>
+                </tr>
+
+                <tr class="containerHeader">
+                    <td>Storage Capacity Info</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>For Raw Materials</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>For Finished Products</td>
+                    <td>65,000mt</td>
+                </tr>
+                <tr class="containerHeader">
+                    <td>Markets</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Markets</td>
+                    <td>
+                        Domestic / large scale farms &amp; estates
+                        ,
+                        Domestic / small scale farms
+                        ,
+                        Regional market (export)
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Fertilizer</td>
+                    <td>
+                        Ammonium Nitrate
+
+                        ,
+                        Nitric Acid
+                        ,
+                        SSP
+                    </td>
+                </tr>
+                <tr>
+                    <td>Other Fertilizer</td>
+                    <td>Granular Fertilizer; Nitrophosphate</td>
+                </tr>
+
+
+                </tbody>
+            </table>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td></td>
+    </tr>
+    </tbody>
+    </table>
     </div>
 
-    <script data-main="directories" src="src/lib/require.js"></script>
 
-  </body>
+
+<!-- Footer -->
+<div class="container">
+    <div class="footer">
+        <p>AfricaFeritilizer.org - AF Skeleton web application by FENIX</p>
+    </div>
+</div>
+
+<script data-main="directories" src="src/lib/require.js"></script>
+
+</body>
 </html>

@@ -7,8 +7,16 @@
 //@import 'fx-colors';
 //
 
+.afo-home-main-title{
 
+  position: relative;
+  top: 50%;
+  @include fx-transfor-me(translate(0,-50%));
 
+  h1{
+    margin: 0px;
+  }
+}
 
 .fx-home-content-grid h1.fx-big-title{
   font-size: 40px;
@@ -18,9 +26,25 @@
 
 .afo-home-evidence{
   background-color: $custom-color1;
-  padding: 10px;
+  padding: 20px 10px 10px  10px;
+  h2{
+    margin-top: 0;
+  }
+
 }
 
+.afo-home-left-column, .afo-home-right-column {
+  h4{
+    margin-bottom: 5px;
+  }
+}
+
+.afo-home-box{
+  padding-top: 0;
+  margin-top: 0;
+
+
+}
 
 /* FENIX AFO - FENIX part of the homepage */
 
@@ -144,7 +168,7 @@ p.fx-strong{
 /* Map */
 .fm-box{
   @include fx-border-radius(0);
-  display: none;
+//  display: none; /* Controversial */
 }
 
 .fx-map{
@@ -215,6 +239,7 @@ p.fx-strong{
   top: -9px;
   position: relative;
   font-style: normal;
+  margin-bottom: 5px;
 }
 
 .fx-big-data{
@@ -228,11 +253,11 @@ p.fx-strong{
 
 
 /* SWIPER */
-
-.jumbotron, .jumbotron-wrapper {
-  background-color: $fx-cool-blue;
+.jumbotron-wrapper {
+  background-image: url('img/home-bg.jpg');
+  background-size: cover;
+  background-position: 0 8%;
 }
-
 
 .jumbotron, .jumbotron h1, .jumbotron h2 {
   color: white;
@@ -259,8 +284,8 @@ p.fx-strong{
 }
 
 .jumbotron {
+  background-color: transparent;
 
-  background-color: $fx-cool-blue;
 
   .btn{
     border-color: white;
@@ -285,6 +310,20 @@ p.fx-strong{
   width: 100%;
 
   color: white;
+
+    .swiper-slide{
+
+      h1{
+        font-family: Roboto;
+        font-weight: 100;
+        font-size: 50px;
+      }
+
+      h4{
+        color: white;
+      }
+    }
+
 
 }
 

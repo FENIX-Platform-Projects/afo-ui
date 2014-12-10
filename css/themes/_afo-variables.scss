@@ -7,13 +7,12 @@ $host-menu-height : 50px;
 
 // Typography
 $small-text : 12px;
-$standard-text-size: 14px;
-$standard-text : normal normal 300 $standard-text-size/normal 'Roboto Condensed';
+$standard-text-size: 13px;$standard-text : normal normal 300 $standard-text-size/normal 'Roboto Condensed';
 $standard-text-bold : normal normal 500 14px/normal 'Roboto Condensed';
 $standard-text-big : normal normal 300 16px/normal 'Roboto Condensed';
 
-$fx-text-h1: normal normal 100 32px/normal 'sansationregular';
-$fx-text-h2: normal normal 100 18px/normal 'sansationregular';
+$fx-text-h1: normal normal 100 32px/normal 'sansation_lightlight';
+$fx-text-h2: normal normal 100 18px/normal 'sansation_lightlight';
 $fx-text-h3: normal normal 300 28px/normal 'Roboto';
 $fx-text-h4: normal normal 500 14px/normal 'Roboto Condensed';
 
@@ -22,11 +21,12 @@ $fx-text-smalltitle-bold: normal normal 700 10px/normal 'Roboto';
 
 // Fenix Colors
 $fenix-standard-blue: rgba(53, 166, 220, 1);
-$fx-cool-blue:  magenta;
+$fx-cool-blue: #336600 /* magenta*/;
+
 $fx-secondary-color: desaturate( $fx-cool-blue, 50% );
 
-$fx-main-color-light: lighten( $fx-cool-blue, 40%); // Ideal for selection
-$fx-main-color-lighter: lighten( $fx-cool-blue, 45%); // Ideal for hovers
+$fx-main-color-light: #DDF3C2; // Ideal for selection
+$fx-main-color-lighter: #DDF3C2; // Ideal for hovers
 
 $fenix-text: #666666;
 $fenix-secondary-text: #999999;

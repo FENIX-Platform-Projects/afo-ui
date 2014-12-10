@@ -4,6 +4,8 @@ $host-menu-height : 50px;
 
 body{
   padding-top: $host-menu-height;
+  background-color: $fenix-light-bg;
+  color: $fenix-text;
 }
 
 .navbar-default {
@@ -13,12 +15,11 @@ body{
 
 .navbar-brand{
   background-image: url("img/afo-ico.svg") !important; /* To be removed */
-  background-size: 45px 45px !important;
+  background-size: 40px 40px !important;
   height: 50px;
   width: 50px;
   background-repeat: no-repeat;
 }
-
 
 /* Sansation Font (Africa Fertilizer logo) */
 @font-face {
@@ -31,6 +32,23 @@ body{
   url('fonts/sansation-regular-webfont.svg#sansationregular') format('svg');
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+  font-family: 'sansation_lightlight';
+  src: url('fonts/sansation-light-webfont.eot');
+  src: url('fonts/sansation-light-webfont.eot?#iefix') format('embedded-opentype'),
+  url('fonts/sansation-light-webfont.woff2') format('woff2'),
+  url('fonts/sansation-light-webfont.woff') format('woff'),
+  url('fonts/sansation-light-webfont.ttf') format('truetype'),
+  url('fonts/sansation-light-webfont.svg#sansation_lightlight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+.obj-box {
+  border: none;
 }
 
 // Buttons
@@ -67,12 +85,23 @@ body{
   padding: 3px 12px;
 }
 
+.fx-button-reset{
+  border-color:transparent  ;
+}
+
 .white-inverted{
   background-color: transparent;
   border-color: white;
   color: white;
 }
 
+
+.page-header{
+  margin: 0;
+  p{
+    text-align: left;
+  }
+}
 
 /* Stefano's original CSS from main.css */
 
@@ -95,14 +124,12 @@ width: auto;
  min-height: 500px;
 }
 
+table{
+  border-collapse: separate;
+}
+
 /* Page Directories */
 
-#page-directories #listCountries .btn {
-  color: #B4D180
-}
-#page-directories #listCountries .btn.active {
-  color: #fff
-}
 
 /* Directories */
 
@@ -111,7 +138,6 @@ width: auto;
   margin: 10px 0 40px 0;
   background-color: #fff;
   border: none;
-  box-shadow: 0 0 4px #ccc;
   display: none;
 }
 
@@ -222,31 +248,25 @@ width: auto;
   display: inline-block;
 }
 
-.collapse {
-  display: block;
-  height: 60px !important;
-  overflow: hidden;
-}
+//.collapse {
+//  display: block;
+//  height: 60px !important;
+//  overflow: hidden;
+//}
 
 .panel-title a:hover {
   text-decoration: none;
 }
 
-.collapsing,
-.collapse.in {
-  height: auto !important;
-  overflow: hidden;
-  overflow-y: scroll;
-  max-height: 280px;
-  min-height: 60px;
-}
+//.collapsing,
+//.collapse.in {
+//  height: auto !important;
+//  overflow: hidden;
+//  overflow-y: scroll;
+//  max-height: 280px;
+//  min-height: 60px;
+//}
 
-#chart_prices_inter {
-  float: left;
-  margin: 20px 0;
-  height: 280px;
-  width:100%;
-}
 #prices_retail_map {
   border: 1px solid #ccc;
   float: left;

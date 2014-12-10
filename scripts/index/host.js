@@ -139,8 +139,8 @@ define([
                 }
             },
             colors: [ //Colori delle charts
-                '#ca1a33',
-                '#986e2e',
+                '#336600',
+                '#336600',
                 '#744490',
                 '#E10079',
                 '#2D1706',
@@ -179,7 +179,7 @@ define([
 
                 //margin: 100, //Margine dell'intero blocco legenda dall'area di PLOT (Solo quando non è floating)
                 //padding: 20, //Padding del box legenda (Ingrandisce il box)
-                backgroundColor: '#f9f7f3', //Colore di sfondo della legenda
+                backgroundColor: '#ffffff', //Colore di sfondo della legenda
                 //layout: 'horizontal', //Tipologia di legenda
                 align: 'center', //Allineamento orizzontale del box della legenda (left, center, right)
                 verticalAlign: 'bottom', //allineamento verticale della legenda (top, middle, bottom)
@@ -250,7 +250,7 @@ define([
                         symbol: 'circle', // Tipologia di marker
                         radius: 4,
                         lineWidth: 1,
-                        lineColor: '#ca1a33',
+                        lineColor: '#336600',
                         fillColor: '#FFFFFF',
                         states: {
                             hover: {
@@ -348,17 +348,17 @@ define([
             },
             tooltip: {
                 valueSuffix: 'M',
-                backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                backgroundColor: 'rgba(255, 255, 255, 1)',
                 borderWidth: 1,
                 shadow: false
             },
             series: [
                 {
-                    name: 'Africa',
+                    name: 'Algeria',
                     data: [21900, 20524, 21336, 22604, 22049, 20977, 23123, 23112, 22054, 22498, 23131, 22854, 23330, 24190, 24677, 26054, 25336, 24943, 24007, 25454]
                 },
                 {
-                    name: 'Southern Asia',
+                    name: 'Eritrea',
                     data: [28085, 27839, 27024, 28216, 28301, 29022, 30216, 29792, 31530, 28332, 32032, 30913, 32731, 33005, 34326, 34262, 34553, 35502, 37066, 34641],
                     marker: {
                         enabled: true, //Attiva o disattiva i marker
@@ -366,7 +366,7 @@ define([
                         symbol: 'circle', // Tipologia di marker
                         radius: 4,
                         lineWidth: 1,
-                        lineColor: '#986e2e',
+                        lineColor: '#336600',
                         fillColor: '#FFFFFF',
                         states: {
                             hover: {
@@ -378,7 +378,6 @@ define([
                                 lineWidth: 2
                             }
                         }
-
                     }
                 }
             ]
@@ -439,8 +438,8 @@ define([
                 }
             },
             colors: [ //Colori delle charts
-                '#ca1a33',
-                '#986e2e',
+                '#336600',
+                '#336600',
                 '#744490',
                 '#E10079',
                 '#2D1706',
@@ -479,7 +478,7 @@ define([
 
                 //margin: 100, //Margine dell'intero blocco legenda dall'area di PLOT (Solo quando non è floating)
                 //padding: 20, //Padding del box legenda (Ingrandisce il box)
-                backgroundColor: '#f9f7f3', //Colore di sfondo della legenda
+                backgroundColor: '#ffffff', //Colore di sfondo della legenda
                 //layout: 'horizontal', //Tipologia di legenda
                 align: 'center', //Allineamento orizzontale del box della legenda (left, center, right)
                 verticalAlign: 'bottom', //allineamento verticale della legenda (top, middle, bottom)
@@ -550,14 +549,14 @@ define([
                         symbol: 'circle', // Tipologia di marker
                         radius: 4,
                         lineWidth: 1,
-                        lineColor: '#ca1a33',
+                        lineColor: '#336600',
                         fillColor: '#FFFFFF',
                         states: {
                             hover: {
                                 enabled: true, // Attiva o disattiva il marker quando si passa sopra la chart
                                 symbol: 'circle',
                                 fillColor: '#FFFFFF',
-                                lineColor: '#ca1a33',
+                                lineColor: '#336600',
                                 radius: 5,
                                 lineWidth: 2
                             }
@@ -648,7 +647,7 @@ define([
             },
             tooltip: {
                 valueSuffix: 'M',
-                backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                backgroundColor: 'rgba(255, 255, 255, 1)',
                 borderWidth: 1,
                 shadow: false
             },
@@ -666,14 +665,14 @@ define([
                         symbol: 'circle', // Tipologia di marker
                         radius: 4,
                         lineWidth: 1,
-                        lineColor: '#986e2e',
+                        lineColor: '#336600',
                         fillColor: '#FFFFFF',
                         states: {
                             hover: {
                                 enabled: true, // Attiva o disattiva il marker quando si passa sopra la chart
                                 symbol: 'circle',
                                 fillColor: '#FFFFFF',
-                                lineColor: '#986e2e',
+                                lineColor: '#336600',
                                 radius: 5,
                                 lineWidth: 2
                             }
@@ -739,8 +738,8 @@ define([
                 }
             },
             colors: [ //Colori delle charts
-                '#ca1a33',
-                '#986e2e',
+                '#336600',
+                '#336600',
                 '#744490',
                 '#E10079',
                 '#2D1706',
@@ -779,7 +778,7 @@ define([
 
                 //margin: 100, //Margine dell'intero blocco legenda dall'area di PLOT (Solo quando non è floating)
                 //padding: 20, //Padding del box legenda (Ingrandisce il box)
-                backgroundColor: '#f9f7f3', //Colore di sfondo della legenda
+                backgroundColor: '#ffffff', //Colore di sfondo della legenda
                 //layout: 'horizontal', //Tipologia di legenda
                 align: 'center', //Allineamento orizzontale del box della legenda (left, center, right)
                 verticalAlign: 'bottom', //allineamento verticale della legenda (top, middle, bottom)
@@ -850,7 +849,7 @@ define([
                         symbol: 'circle', // Tipologia di marker
                         radius: 4,
                         lineWidth: 1,
-                        lineColor: '#ca1a33',
+                        lineColor: '#336600',
                         fillColor: '#FFFFFF',
                         states: {
                             hover: {
@@ -948,7 +947,7 @@ define([
             },
             tooltip: {
                 valueSuffix: 'M',
-                backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                backgroundColor: 'rgba(255, 255, 255, 1)',
                 borderWidth: 1,
                 shadow: false
             },
@@ -966,7 +965,7 @@ define([
                         symbol: 'circle', // Tipologia di marker
                         radius: 4,
                         lineWidth: 1,
-                        lineColor: '#986e2e',
+                        lineColor: '#336600',
                         fillColor: '#FFFFFF',
                         states: {
                             hover: {

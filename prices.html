@@ -45,20 +45,26 @@
 				<li><a href="#prices_retail" role="tab" data-toggle="tab">Retail prices</a></li>
 			</ul>
 
+
 			<!-- Tab panes -->
 			<div class="tab-content col-xs-12">
 				<div class="tab-pane active" id="prices_international">
 					<p class="">
-						Monthly Average Prices for selected Fertilizers &bull; October 2013 - September 2014
+						<h4>Monthly Average Prices for selected Fertilizers &bull; October 2013 - September 2014</h4>
 					</p>
 					<div class="row">
-						<div class="col-xs-8">
-							<div id="chart_prices_inter"></div>
+						<div class="col-xs-12">
+                            <div class="obj-box"><div id="chart_prices_inter" class="afo-prices-international-chart"></div></div>
 						</div>
-						<div class="col-xs-10" style="font-size:12px" id="prices_international_grid">
+                    </div>
+                    <br><br>
+                    <div class="row">
+						<div class="col-xs-12"  id="prices_international_grid">
 						</div>
 					</div>
 				</div>
+
+
 				<div class="tab-pane" id="prices_national">
 					<div class="row">
 						<div class="col-xs-12">
@@ -72,15 +78,20 @@
 							<button id="pivot_download" style="display:none" class="btn btn-default" type="button">
 								<i class="glyphicon glyphicon-download"></i> Download XLS File</button>
 								<form id="xlsDataForm" action="http://faostat3.fao.org/faostat-olapws/ExportPOI2" method="POST" >
-        <!--textarea id="myJson"  name="myJson" ></textarea-->
-        <input id="myJson"  name="myJson" type="hidden" value="" />
-        <input id="myFlags"  name="myFlags" type="hidden" value='{"data":[{"title":"","label":"Official data"}]}' />
-    </form>
-						</div>
+                                    <!--textarea id="myJson"  name="myJson" ></textarea-->
+                                    <input id="myJson"  name="myJson" type="hidden" value="" />
+                                    <input id="myFlags"  name="myFlags" type="hidden" value='{"data":[{"title":"","label":"Official data"}]}' />
+                                </form>
+                            </div>
 
 						</div>
 					</div>
 				</div>
+
+
+
+
+
 				<div class="tab-pane" id="prices_retail">
 					<div class="row">
 						<div class="col-xs-12" style="font-size:12px">

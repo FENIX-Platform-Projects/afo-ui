@@ -362,7 +362,7 @@ h2 {
   color: #33570f; }
 
 h3 {
-  font: normal normal 300 28px/normal "Roboto";
+  font: normal normal 500 14px/normal "Roboto Condensed";
   color: #334d19; }
 
 h4 {
@@ -1597,6 +1597,11 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   background-color: #ddf3c2; }
 
 /* Pages */
+/* AFO - Data Management Page Style */
+#metadataEditorContainer h3.panel-title {
+  font-family: sansation_lightlight;
+  color: #336600; }
+
 /* AFO - Home Style */
 /* UAE - Home Style */
 .afo-home-main-title {
@@ -1824,6 +1829,19 @@ p.fx-strong {
 /* AFO - Prices Page Style */
 .afo-prices-international-chart {
   height: 500px; }
+
+.afo-prices-tab-content {
+  width: 100%; }
+
+.afo-market-highlights {
+  column-count: 2; }
+
+#pivot table {
+  border: 0; }
+
+.pvtAxisContainer, .pvtVals {
+  border: none !important;
+  background: transparent !important; }
 
 /* AFO - Publication Page Style */
 .list-group-item {
@@ -2143,3 +2161,15 @@ table {
   -khtml-user-select: none;
   -webkit-user-select: none;
   -o-user-select: none; }
+
+/* Tables */
+.afo-table-header {
+  background-color: #ddf3c2;
+  color: #666666;
+  cursor: default;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  border: none; }
+  .afo-table-header td {
+    border-top: none; }

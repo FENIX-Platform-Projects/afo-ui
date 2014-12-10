@@ -3,3 +3,22 @@
 .afo-prices-international-chart{
   height: 500px;
 }
+
+.afo-prices-tab-content{
+  width: 100%;
+}
+
+.afo-market-highlights {
+  column-count: 2;
+}
+
+#pivot{
+  table {
+    border: 0;
+  }
+}
+
+.pvtAxisContainer, .pvtVals{
+  border: none !important;
+  background: transparent !important;
+}

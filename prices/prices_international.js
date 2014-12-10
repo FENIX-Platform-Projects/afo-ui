@@ -10,7 +10,7 @@ var chart_options ={
     //Line chart
 
     chart: {
-        type: 'spline', //Tipo di grafico:  area, areaspline, boxplot, bubble, column, line, pie, scatter, spline
+        type: 'line', //Tipo di grafico:  area, areaspline, boxplot, bubble, column, line, pie, scatter, spline
 
         alignTicks: false,
         backgroundColor: '#ffffff', //Colore di background
@@ -28,7 +28,7 @@ var chart_options ={
             fontSize: '12px', // La dimensione qui vale solo per i titoli
             fontWeight: 300 // Con Roboto è molto bello giocare con i pesi
         },
-        zoomType: 'xy', //Attiva lo zoom e stabilisce in quale dimensione
+        zoomType: 'false', //Attiva lo zoom e stabilisce in quale dimensione
         //selectionMarkerFill: 'rgba(0,0,0,0.25)',//Colore di fonfo della selezione per lo zoom (trasparente per far vedere sotto)
         resetZoomButton: {
             position: {
@@ -144,7 +144,7 @@ var chart_options ={
     },
     plotOptions: {
         series: {
-            allowPointSelect: true, //Permette di selezionare i punti della chart
+            allowPointSelect: false, //Permette di selezionare i punti della chart
             //pointPlacement: "on", Per partire dall'origine
             animation: { // Configura l'animazione di entrata
                 duration: 1000,
@@ -166,7 +166,7 @@ var chart_options ={
                 ]
             },
             marker: {
-                enabled: true, //Attiva o disattiva i marker
+                enabled: false, //Attiva o disattiva i marker
                 //symbol: 'url(http://www.mentaltoy.com/resources/logoChart.png)', //Questo paramentro carica un simbolo personalizzato. Si può anche avere una chart con marker diverse sulle linee
                 symbol: 'circle', // Tipologia di marker
                 radius: 4,

@@ -175,7 +175,7 @@ var chart_options ={
                 fillColor: '#FFFFFF',
                 states: {
                     hover: {
-                        enabled: true, // Attiva o disattiva il marker quando si passa sopra la chart
+                        enabled: false, // Attiva o disattiva il marker quando si passa sopra la chart
                         symbol: 'circle',
                         fillColor: '#FFFFFF',
                         lineColor: '#336600',
@@ -267,11 +267,8 @@ var chart_options ={
             }
         ]
     },
-    tooltip: {
-        valueSuffix: 'M',
-        backgroundColor: 'rgba(255, 255, 255, 1)',
-        borderWidth: 1,
-        shadow: false
+	tooltip: {
+        enabled: false
     },
     series: [
     ]

@@ -253,24 +253,51 @@ table{
   display: inline-block;
 }
 
-//.collapse {
-//  display: block;
-//  height: 60px !important;
-//  overflow: hidden;
-//}
+
 
 .panel-title a:hover {
   text-decoration: none;
 }
 
-//.collapsing,
-//.collapse.in {
-//  height: auto !important;
-//  overflow: hidden;
-//  overflow-y: scroll;
-//  max-height: 280px;
-//  min-height: 60px;
-//}
+#resultsCountries{
+
+  .collapse {
+    display: block;
+    height: 60px !important;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid  $fenix-light-gray;
+
+//    &:before{
+//      position: absolute;
+//      top: 50%;
+//      left: 0;
+//      z-index: 2;
+//      content: '';
+//      width: 100%;
+//      height: 50%;
+//      @include fx-transparent-to-white;
+//
+////      box-shadow: inset 0 -7px 9px -7px rgba(255,255,255,0.9);
+////      -webkit-box-shadow: inset 0 -7px 9px -7px rgba(255,255,255,0.9);
+////      -moz-box-shadow: inset 0 -7px 9px -7px rgba(255,255,255,0.9);
+//    }
+
+
+
+  }
+
+  .collapsing,
+  .collapse.in {
+    height: auto !important;
+    overflow: hidden;
+    overflow-y: scroll;
+    max-height: 280px;
+    min-height: 60px;
+  }
+}
+
+
 
 #prices_retail_map {
   border: 1px solid #ccc;

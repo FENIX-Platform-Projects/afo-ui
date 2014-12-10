@@ -22,6 +22,7 @@ require.config({
         'fenix-map-config': './fenix_modules/fenix-map-js/fenix-map-config',
         'chosen': '//fenixapps.fao.org/repository/js/chosen/1.0.0/chosen.jquery.min',
         'leaflet': '//fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet',
+        'leaflet-markecluster': '//fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/leaflet.markercluster',
         'import-dependencies': '//fenixapps.fao.org/repository/js/FENIX/utils/import-dependencies-1.0',
         'jquery.power.tip': '//fenixapps.fao.org/repository/js/jquery.power.tip/1.1.0/jquery.powertip.min',
         'jquery-ui': '//fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min',
@@ -67,6 +68,7 @@ require.config({
                 'gt_grid_all',
                 'fusionchart']
         },
+        'leaflet-markecluster': ['leaflet'],
         'fenix-map': {
             deps: [
                 'i18n',
@@ -91,6 +93,8 @@ require([
         'highcharts',
         'jstree',
         'handlebars',
+        'leaflet',
+        'leaflet-markecluster',
         'fenix-map',
         'text!../config/catalogue-map.json',
         'text!html/accordion.html',
@@ -100,7 +104,7 @@ require([
 
         'domready!'
     ],
-    function ($, _, bts, highcharts, jstree, Handlebars,
+    function ($, _, bts, highcharts, jstree, Handlebars, L, Lmarkers,
               FenixMap,
               mapConf, accordion, TopMenu) {
 
@@ -140,7 +144,4 @@ require([
                     break;
             }
         });
-
-    }
-)
-;
+});

@@ -98,12 +98,9 @@ require([
 				},
 				themes: {
 					icons: false
-				}				
+				}
 			},
-			plugins: ['checkbox'],
-			checkbox: {
-				keep_selected_style: false
-			}
+			"plugins": ["checkbox", "wholerow"]
 		}).on('changed.jstree', function (e, data) {
 			e.preventDefault();
 			initMapFamilies( data.selected );
@@ -231,7 +228,7 @@ require([
 				themes: { icons: false },
 				data: countriesData
 			},
-			plugins: ['checkbox'],
+            plugins: ["checkbox", "wholerow"],
 			checkbox: {
 				keep_selected_style: false
 			}
@@ -304,7 +301,7 @@ require([
 				themes: { icons: false },
 				data: cropsData
 			},
-			plugins: ['checkbox'],
+			plugins: ["checkbox", "wholerow"],
 			checkbox: {
 				keep_selected_style: false
 			}

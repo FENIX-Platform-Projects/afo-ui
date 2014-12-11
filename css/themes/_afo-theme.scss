@@ -111,7 +111,6 @@ body{
 /* Stefano's original CSS from main.css */
 
 
-#page-catalogue .jstree,
 #page-catalogue #fertMap {
 min-height: 500px;
 }
@@ -125,9 +124,6 @@ height: 240px;
 width: auto;
 }
 
-#page-catalogue #listFamilies {
- min-height: 500px;
-}
 
 table{
   border-collapse: separate;
@@ -259,7 +255,7 @@ table{
   text-decoration: none;
 }
 
-#resultsCountries{
+#resultsCountries, #resultsCrops{
 
   .collapse {
     display: block;
@@ -267,24 +263,6 @@ table{
     overflow: hidden;
     position: relative;
     border-bottom: 1px solid  $fenix-light-gray;
-
-//    &:before{
-//      position: absolute;
-//      top: 50%;
-//      left: 0;
-//      z-index: 2;
-//      content: '';
-//      width: 100%;
-//      height: 50%;
-//      @include fx-transparent-to-white;
-//
-////      box-shadow: inset 0 -7px 9px -7px rgba(255,255,255,0.9);
-////      -webkit-box-shadow: inset 0 -7px 9px -7px rgba(255,255,255,0.9);
-////      -moz-box-shadow: inset 0 -7px 9px -7px rgba(255,255,255,0.9);
-//    }
-
-
-
   }
 
   .collapsing,

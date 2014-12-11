@@ -1585,7 +1585,8 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   display: none;
   /* It hides folder icon */ }
 
-.jstree-default .jstree-node, .jstree-default .jstree-icon {
+.jstree-default .jstree-node,
+.jstree-default .jstree-icon {
   background-image: url("img/treejs-32px.png"); }
 
 .jstree-default .jstree-wholerow-clicked {
@@ -2079,7 +2080,6 @@ body {
     text-align: left; }
 
 /* Stefano's original CSS from main.css */
-#page-catalogue .jstree,
 #page-catalogue #fertMap {
   min-height: 500px; }
 
@@ -2090,9 +2090,6 @@ body {
 #page-catalogue #chartFamilies {
   height: 240px;
   width: auto; }
-
-#page-catalogue #listFamilies {
-  min-height: 500px; }
 
 table {
   border-collapse: separate; }
@@ -2199,14 +2196,15 @@ table {
 .panel-title a:hover {
   text-decoration: none; }
 
-#resultsCountries .collapse {
+#resultsCountries .collapse, #resultsCrops .collapse {
   display: block;
   height: 60px !important;
   overflow: hidden;
   position: relative;
   border-bottom: 1px solid #dddddd; }
 #resultsCountries .collapsing,
-#resultsCountries .collapse.in {
+#resultsCountries .collapse.in, #resultsCrops .collapsing,
+#resultsCrops .collapse.in {
   height: auto !important;
   overflow: hidden;
   overflow-y: scroll;

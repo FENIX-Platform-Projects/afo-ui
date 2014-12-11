@@ -2196,6 +2196,10 @@ table {
 .panel-title a:hover {
   text-decoration: none; }
 
+.panel-left {
+  height: 530px;
+  overflow-y: auto; }
+
 #resultsCountries .collapse, #resultsCrops .collapse {
   display: block;
   height: 60px !important;

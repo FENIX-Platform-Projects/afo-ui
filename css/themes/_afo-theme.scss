@@ -255,6 +255,12 @@ table{
   text-decoration: none;
 }
 
+
+.panel-left {
+  height: 530px;
+  overflow-y:auto;
+}
+
 #resultsCountries, #resultsCrops{
 
   .collapse {

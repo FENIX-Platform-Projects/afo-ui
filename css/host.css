@@ -2242,7 +2242,3 @@ table {
 thead {
   font-style: normal;
   font-weight: normal; }
-
-.form-group {
-  height: 500px;
-  overflow-y: scroll; }

@@ -3,8 +3,8 @@
 .pvtVals{display:block}
 .pvtRenderer{display:block}
 
-#unused li{display:inline}
-
+#unused li{display:inline;}
+#unused{display:none;}
 /*#myGrid1_div{float:right}*/
 
 #nested_by{display:none}

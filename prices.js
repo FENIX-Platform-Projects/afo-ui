@@ -87,41 +87,36 @@ require.config({
 });
 
 require([
-        'jquery',
-        'underscore',
-        'bootstrap',
-        'highcharts',
-        'jstree',
-        'handlebars',
-        'leaflet',
-        'leaflet-markecluster',
-        'fenix-map',
-        'text!../config/catalogue-map.json',
-        'text!html/accordion.html',
+        'jquery','underscore','bootstrap','highcharts','jstree','handlebars',
+        //'leaflet','leaflet-markecluster',
+        //'fenix-map',
         'fenix-ui-topmenu/main',
         //OLAP deps
         'pivot',
-
         'domready!'
     ],
-    function ($, _, bts, highcharts, jstree, Handlebars, L, Lmarkers,
-              FenixMap,
-              mapConf, accordion, TopMenu) {
-
+    function ($, _, bts, highcharts, jstree, Handlebars, 
+    	//L, Lmarkers,
+        //      FenixMap,
+              TopMenu,
+              Pivot) {
 
         //TODO replace with require() modules
 
         var initPricesInternational = _.once(function () {
-            $.getScript('prices/prices_international.js');
+            require(['../prices/prices_international']);
+            //$.getScript('prices/prices_international.js');
         });
 
         var initPricesNational = _.once(function () {
             $.getScript('prices/prices_national.js');
+            //require(['../prices/prices_national.js']);
         });
 
-        var initPricesRetail = _.once(function () {
-            $.getScript('prices/prices_retail.js');
-        });
+        var initPricesRetail = function () {
+            //$.getScript('prices/prices_retail.js');
+            require(['../prices/prices_retail']);
+        };
 
         new TopMenu({
             url: 'json/fenix-ui-topmenu_config.json',

@@ -66,7 +66,7 @@ require.config({
 
 require([
     'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars',
-    'fenix-map', 'text!../config/catalogue-map.json', 'text!html/accordion.html',
+    'fenix-map', 'text!../config/services.json', 'text!html/accordion.html',
     "host", 'domready!'
 ], function ($, _, bts, highcharts, jstree, Handlebars,
              FenixMap,

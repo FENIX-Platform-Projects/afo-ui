@@ -66,7 +66,7 @@ require.config({
 require([
 	'jquery','underscore','bootstrap','highcharts','jstree','handlebars',
 	'fenix-map',
-	'text!../config/catalogue-map.json',
+	'text!../config/services.json',
 	'text!html/accordion.html',
 	'fenix-ui-topmenu/main',
 	'domready!'

@@ -25,3 +25,6 @@
 [submodule "submodules/fenix-ui-DSDEditor"]
 	path = submodules/fenix-ui-DSDEditor
 	url = https://github.com/FENIX-Platform/fenix-ui-DSDEditor.git
+[submodule "submodules/fenix-map-js"]
+	path = submodules/fenix-map-js
+	url = https://github.com/FENIX-Platform/fenix-map-js.git

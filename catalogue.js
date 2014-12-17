@@ -19,8 +19,8 @@ require.config({
 		'handlebars'            :'lib/handlebars',
 
 		//fenix-map-js
-		'fenix-map'             :'fenix_modules/fenix-map-js/fenix-map-min',
-		'fenix-map-config'      :'fenix_modules/fenix-map-js/fenix-map-config',		
+		'fenix-map'             :'../submodules/fenix-map-js/dist/latest/fenix-map-min',
+		'fenix-map-config'      :'../submodules/fenix-map-js/dist/latest/fenix-map-config',
 		'chosen'                :'//fenixapps.fao.org/repository/js/chosen/1.0.0/chosen.jquery.min',		
 		'leaflet'               :'//fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet',	    
 		'import-dependencies'   :'//fenixapps.fao.org/repository/js/FENIX/utils/import-dependencies-1.0',
@@ -85,8 +85,8 @@ require([
 	accordionTmpl = Handlebars.compile(accordion);
 
 	_.extend(FMCONFIG, {
-		BASEURL: 'src/fenix_modules/fenix-map-js',
-		BASEURL_LANG: 'src/fenix_modules/fenix-map-js/I18N/'
+		BASEURL: 'submodules/fenix-map-js',
+		BASEURL_LANG: 'submodules/fenix-map-js/dist/I18N/'
 	});
 
 	function initListFamilies(fert) {
@@ -142,8 +142,6 @@ require([
 
 	function initChartFamilies(resp) {
 
-		console.log('initChartFamilies',resp);
-
 		var ccodes = {};
 		_.each(resp, function(val) {
 			if(!ccodes[ val[0] ])
@@ -165,8 +163,6 @@ require([
 			//opacities[ val[0] ]= parseFloat( opacities[ val[0] ].toFixed(2) );
 			//opacities[ val[0] ]= opacities[val[0]]>1 ? 1 : opacities[val[0]];
 		});
-
-		console.log('opacities',opacities);
 
 		$('#chartFamilies').highcharts({
 			chart: { type: 'column' },
@@ -431,10 +427,7 @@ require([
 			
 			opacities[ val[0] ]= parseFloat( opacities[ val[0] ].toFixed(2) );
 			opacities[ val[0] ]= opacities[val[0]]>1 ? 1 : opacities[val[0]];
-			console.log( opacities[ val[0] ] );
 		});
-
-		console.log('resp opacities',resp,opacities);
 
 		var data = [];
 		_.each(ccodes, function(val, key) {

@@ -42,7 +42,7 @@ require.config({
     },
 
     shim: {
-        'bootstrap': {deps: ['jquery']},
+        'bootstrap': ['jquery'],
         'chosen': ['jquery'],
         'highcharts': ['jquery'],
         'jstree': ['jquery'],
@@ -51,38 +51,35 @@ require.config({
         'jquery.i18n.properties': ['jquery'],
         'jquery.hoverIntent': ['jquery'],
         'underscore': {
-            exports: '_'
+			exports: '_'
         },
 //		'fenix-map-config': {
 //			exports: 'FMCONFIG'
 //		},
-        'pivot': {
-            deps: [
-                'jquery',
-                'jquery-ui',
-                'jquery.i18n.properties',
-                'countriesAgg',
-                'olap-config',
-                'gt_msg_en',
-                //'gt_const',
-                'gt_grid_all',
-                'fusionchart']
-        },
+        'pivot': [
+			'jquery',
+			'jquery-ui',
+			'jquery.i18n.properties',
+			'countriesAgg',
+			'olap-config',
+			'gt_msg_en',
+			//'gt_const',
+			'gt_grid_all',
+			'fusionchart'
+        ],
         'leaflet-markecluster': ['leaflet'],
-        'fenix-map': {
-            deps: [
-                'i18n',
-                'jquery',
-                'chosen',
-                'leaflet',
-                'jquery-ui',
-                'jquery.hoverIntent',
-                'jquery.power.tip',
-                'jquery.i18n.properties',
-                'import-dependencies',
-                'fenix-map-config'
-            ]
-        }
+        'fenix-map': [
+			'i18n',
+			'jquery',
+			'chosen',
+			'leaflet',
+			'jquery-ui',
+			'jquery.hoverIntent',
+			'jquery.power.tip',
+			'jquery.i18n.properties',
+			'import-dependencies',
+			'fenix-map-config'
+        ]
     }
 });
 

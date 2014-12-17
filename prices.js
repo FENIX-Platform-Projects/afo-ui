@@ -18,8 +18,8 @@ require.config({
         'handlebars': './lib/handlebars',
 
         //fenix-map-js
-        'fenix-map': './fenix_modules/fenix-map-js/fenix-map-min',
-        'fenix-map-config': './fenix_modules/fenix-map-js/fenix-map-config',
+        'fenix-map': '../submodules/fenix-map-js/dist/latest/fenix-map-min',
+        'fenix-map-config': '../submodules/fenix-map-js/dist/latest/fenix-map-config',
         'chosen': '//fenixapps.fao.org/repository/js/chosen/1.0.0/chosen.jquery.min',
         'leaflet': '//fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet',
         'leaflet-markecluster': '//fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/leaflet.markercluster',

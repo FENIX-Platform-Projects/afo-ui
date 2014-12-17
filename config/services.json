@@ -5,6 +5,6 @@
 	"wmsUrl": "http://fenixapps2.fao.org/geoserver-demo",
 	"sldUrl": "http://fenixapps2.fao.org/geoservices/CSS2SLD",
 	"url_geoserver_wms": "http://168.202.28.214:9090/geoserver/wms",
-	"url_spatialquery": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial",
+	"url_spatialquery": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/",
 	"url_geocoding": "http://fenix.fao.org/geo/fenix/geocoding/latlon/"
 }

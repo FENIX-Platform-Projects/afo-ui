@@ -110,6 +110,11 @@ module.exports = function(grunt) {
                 src: "node_modules/underscore/underscore-min.js",
                 dest: "src/lib/underscore.js"
             },
+            underscorestring: {
+                nonull: true,
+                src: "node_modules/underscore.string/lib/underscore.string.js",
+                dest: "src/lib/underscore.string.js"
+            },
             jqwidgets_js: {
 				nonull: true,
 				src: "node_modules/jqwidgets/jqx-all.js",

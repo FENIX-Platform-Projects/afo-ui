@@ -28,3 +28,6 @@
 [submodule "submodules/fenix-map-js"]
 	path = submodules/fenix-map-js
 	url = https://github.com/FENIX-Platform/fenix-map-js.git
+[submodule "submodules/fenix-ui-menu"]
+	path = submodules/fenix-ui-menu
+	url = https://github.com/FENIX-Platform/fenix-ui-menu.git

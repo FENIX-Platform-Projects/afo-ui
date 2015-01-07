@@ -134,6 +134,8 @@ require([
 
 
 
-$listCompanies.find('.tabCompany').show();
+    //DEBUGGING
+
+	//$listCompanies.find('.tabCompany').show();
 
 });

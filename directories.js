@@ -74,28 +74,25 @@ require([
 
 				var name = $(this).find('td:eq(3)').text();
 				
-				console.log( filter.company, name );
-
 				regSearch = new RegExp(filter.company,'ig');
 				if( regSearch.test( name ))
             		$(this).show().find('tr:eq(1)').addClass('bg-success');            
            	}
 
-/*			if(filter.city) {
+			if(filter.city) {
 
-				var name = $(this).find('td:eq(3)').text();
-				
-				console.log( filter.city, name );
+				var name = $(this).find('td:eq(7)').text();
 
 				regSearch = new RegExp(filter.city,'ig');
 				if( regSearch.test( name ))
-            		$(this).show().find('tr:eq(1)').addClass('bg-success');            
-           	}   */        	
+            		$(this).show().find('tr:eq(4)').addClass('bg-success');            
+           	}           	
         });
     }
 
-    $('#company_name').on('blur', function(e) {
+    $('#company_name, #city_name').on('blur', function(e) {
     	$(this).val('');
+    	$('#cancCompanies').trigger('click');
     });
 
     $('#cancCompanies').on('click', function(e) {
@@ -118,10 +115,25 @@ require([
     $('#company_name').on('keyup', function(e) {
     	var text = $.trim( $(this).val() );
 
-		//$('#cancCompanies').trigger('click');
+		$('#cancCompanies').trigger('click');
 
     	selectCompany({
 		    company: text
 		});
     });
+
+    $('#city_name').on('keyup', function(e) {
+    	var text = $.trim( $(this).val() );
+
+		$('#cancCompanies').trigger('click');
+
+    	selectCompany({
+		    city: text
+		});
+    });    
+
+
+
+$listCompanies.find('.tabCompany').show();
+
 });

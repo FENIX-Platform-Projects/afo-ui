@@ -49,23 +49,38 @@
 			<div class="tab-content afo-prices-tab-content obj-box col-xs-12">
 				<div class="tab-pane active" id="prices_international">
 
-						<h3>Monthly Average Prices for selected Fertilizers &bull; October 2013 - September 2014</h3>
+					<h3>Monthly Average Prices for selected Fertilizers &bull; October 2013 - September 2014</h3>
 
+					<p>For more detailed information and data, visit <a href="http://www.argusmedia.com/fertilizer">www.argusmedia.com</a><p>
+					
 					<div class="row">
-						<div class="col-xs-12">
+						<div class="col-xs-5">
+                            <div class="afo-prices-international-argus">
+                            	<img src="css/img/argus.jpg" height="360px" width="360px" />
+                            </div>
+						</div>
+						<div class="col-xs-7">
                             <div id="chart_prices_inter" class="afo-prices-international-chart"></div>
 						</div>
                     </div>
+
                     <br><br>
                     <hr>
+
                     <div class="row">
                         <div class="col-xs-12">
                             <h3>International Monthly Average Prices for selected Fertilizers | November 2013 - October 2014</h3>
-                            <div  id="prices_international_grid">
-                            </div>
+                            <div id="prices_international_grid"></div>
                         </div>
 					</div>
-                    <hr>
+                    
+                    <hr />
+
+                    <div class="text-center">
+                    	<a href="http://argusmedia.com/"><img src="css/img/argus_logo.jpg" class="img-thumbnail" /></a>
+                    </div>
+
+                    <h3>Market higlights - November 2014</h3>
 
                     <div class="row">
                         <div class="col-xs-12 afo-market-highlights">
@@ -132,58 +147,57 @@
 
 					<div class="row">
 						<div class="col-xs-12">
-
-						<div class="fx-olap-holder">
-							<div id="pivot"></div>
-							<div id="fx-olap-holder-div"></div>
-							 <div id="myGrid1_div"></div>
-							<div id="mesFlags" style="clear:both"></div>
-							<div id="pivot_loader" class="text-center"><i class="icon loader-xs"></i> &nbsp;Loading data...</div>
-							<button id="pivot_download" style="display:none" class="btn btn-default" type="button">
+							<div class="fx-olap-holder">
+								<div id="pivot"></div>
+								<div id="fx-olap-holder-div"></div>
+								<div id="myGrid1_div"></div>
+								<div id="mesFlags" style="clear:both"></div>
+								<div id="pivot_loader" class="text-center"><i class="icon loader-xs"></i> &nbsp;Loading data...</div>
+								<button id="pivot_download" style="display:none" class="btn btn-default" type="button">
 								<i class="glyphicon glyphicon-download"></i> Download XLS File</button>
 								<form id="xlsDataForm" action="http://faostat3.fao.org/faostat-olapws/ExportPOI2" method="POST" >
-                                    <!--textarea id="myJson"  name="myJson" ></textarea-->
-                                    <input id="myJson"  name="myJson" type="hidden" value="" />
-                                    <input id="myFlags"  name="myFlags" type="hidden" value='{"data":[{"title":"","label":"Official data"}]}' />
-                                </form>
-                            </div>
-
+	                                <!--textarea id="myJson"  name="myJson" ></textarea-->
+	                                <input id="myJson"  name="myJson" type="hidden" value="" />
+	                                <input id="myFlags"  name="myFlags" type="hidden" value='{"data":[{"title":"","label":"Official data"}]}' />
+	                            </form>
+	                        </div>
 						</div>
 					</div>
 				</div>
 
-
-
-
-
 				<div class="tab-pane" id="prices_retail">
 					<div class="row">
-						<div class="col-xs-12" style="font-size:12px">
+						<div class="col-xs-6">
 							<h3>Georeferenced data</h3>
 							<div id="prices_retail_map"></div>
-							<h3>Aggregated Data</h3>
-							<div id="prices_retail_grid" class="clearfix">
-								
-<table id="pesticide" class="table" aria-describedby="pesticide_info">
-<thead>
-	<tr class="afo-table-header" role="row"><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Country: activate to sort column ascending" style="width: 137px;"><div class="DataTables_sort_wrapper">Country<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Region: activate to sort column ascending" style="width: 121px;"><div class="DataTables_sort_wrapper">Region<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="District: activate to sort column ascending" style="width: 128px;"><div class="DataTables_sort_wrapper">District<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Town: activate to sort column ascending" style="width: 95px;"><div class="DataTables_sort_wrapper">Town<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Product: activate to sort column ascending" style="width: 137px;"><div class="DataTables_sort_wrapper">Product<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Unit: activate to sort column ascending" style="width: 82px;"><div class="DataTables_sort_wrapper">Unit<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Price / Trend: activate to sort column ascending" style="width: 86px;"><div class="DataTables_sort_wrapper">Price / Trend<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Month: activate to sort column ascending" style="width: 118px;"><div class="DataTables_sort_wrapper">Month<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th></tr>
-</thead>
-<tbody role="alert" aria-live="polite" aria-relevant="all">
-	<tr class="odd"><td class=""> burkina faso</td><td class="">SUD-OUEST</td><td class="">BOUGOURIBA</td><td class="">ouagadougou</td><td class="">other fertilizer</td><td class="">50 kg bag</td><td class="">5000.00 | 0.00</td><td class="">2012-11-03</td></tr>
-	<tr class="even warning"><td class=""> burkina faso</td><td class="">CASCADES</td><td class="">COMOE</td><td class="">BANFORA</td><td class="">complex fertilizers [NPK]</td><td class="">50 kg bag</td><td class="">17500.00 | 0.00</td><td class="">2012-12-05</td></tr>
-	<tr class="odd warning"><td class=""> burkina faso</td><td class="">CENTRE-NORD</td><td class="">SANMATENGA</td><td class="">KAYA</td><td class="">nitrogen fertilizer [N]</td><td class="">50 kg bag</td><td class="">18000.00 | 0.00</td><td class="">2013-07-05</td></tr>
-	<tr class="even"><td class=""> burkina faso</td><td class="">SUD-OUEST</td><td class="">BOUGOURIBA</td><td class="">ouagadougou</td><td class="">other fertilizer</td><td class="">50 kg bag</td><td class="">5000.00 | 0.00</td><td class="">2013-08-09</td></tr>
-	<tr class="odd"><td class=""> burkina faso</td><td class="">BOUCLE DU MOUHOUN</td><td class="">MOUHOUN</td><td class="">DEDOUGOU</td><td class="">nitrogen fertilizer [N]</td><td class="">50 kg bag</td><td class="">20000.00 | 0.00</td><td class="">2013-07-01</td></tr>
-	<tr class="even"><td class=""> burkina faso</td><td class="">SUD-OUEST</td><td class="">BOUGOURIBA</td><td class="">ouagadougou</td><td class="">complex fertilizers [NPK]</td><td class="">50 kg bag</td><td class="">18000.00 | 0.00</td><td class="">2013-05-07</td></tr>
-	<tr class="odd"><td class=""> burkina faso</td><td class="">CENTRE-NORD</td><td class="">SANMATENGA</td><td class="">KAYA</td><td class="">complex fertilizers [NPK]</td><td class="">50 kg bag</td><td class="">15.00 | 0.00</td><td class="">2012-11-03</td></tr>
-	<tr class="even"><td class=""> burkina faso</td><td class="">EST</td><td class="">GOURMA</td><td class="">FADA N'GOURMA</td><td class="">other fertilizer</td><td class="">50 kg bag</td><td class="">2.00 | 0.00</td><td class="">2012-11-05</td></tr>
-	<tr class="odd"><td class=""> burkina faso</td><td class="">SAHEL</td><td class="">SENO</td><td class="">DORI</td><td class="">complex fertilizers [NPK]</td><td class="">50 kg bag</td><td class="">50.00 | 0.00</td><td class="">2012-11-03</td></tr>
-	<tr class="even"><td class=""> burkina faso</td><td class="">CENTRE-EST</td><td class="">BOULGOU</td><td class="">TENKODOGO</td><td class="">complex fertilizers [NPK]</td><td class="">50 kg bag</td><td class="">17000.00 | 0.00</td><td class="">2013-03-06</td></tr>
-</tbody>
-</table>
-
-							</div>
 						</div>
+						<div class="col-xs-6">
+							<h3>Average Daily prices</h3>
+							<div id="prices_retail_chart"></div>
+						</div>
+					</div>
+					<div class="row">
+							<h3>Aggregated Data</h3>
+							<div id="prices_retail_grid" class="col-xs-12" style="font-size:12px">
+
+								<table id="pesticide" class="table" aria-describedby="pesticide_info">
+								<thead>
+									<tr class="afo-table-header" role="row"><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Country: activate to sort column ascending" style="width: 137px;"><div class="DataTables_sort_wrapper">Country<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Region: activate to sort column ascending" style="width: 121px;"><div class="DataTables_sort_wrapper">Region<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="District: activate to sort column ascending" style="width: 128px;"><div class="DataTables_sort_wrapper">District<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Town: activate to sort column ascending" style="width: 95px;"><div class="DataTables_sort_wrapper">Town<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Product: activate to sort column ascending" style="width: 137px;"><div class="DataTables_sort_wrapper">Product<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Unit: activate to sort column ascending" style="width: 82px;"><div class="DataTables_sort_wrapper">Unit<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Price / Trend: activate to sort column ascending" style="width: 86px;"><div class="DataTables_sort_wrapper">Price / Trend<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Month: activate to sort column ascending" style="width: 118px;"><div class="DataTables_sort_wrapper">Month<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th></tr>
+								</thead>
+								<tbody role="alert" aria-live="polite" aria-relevant="all">
+									<tr class="odd"><td class=""> burkina faso</td><td class="">SUD-OUEST</td><td class="">BOUGOURIBA</td><td class="">ouagadougou</td><td class="">other fertilizer</td><td class="">50 kg bag</td><td class="">5000.00 | 0.00</td><td class="">2012-11-03</td></tr>
+									<tr class="even warning"><td class=""> burkina faso</td><td class="">CASCADES</td><td class="">COMOE</td><td class="">BANFORA</td><td class="">complex fertilizers [NPK]</td><td class="">50 kg bag</td><td class="">17500.00 | 0.00</td><td class="">2012-12-05</td></tr>
+									<tr class="odd warning"><td class=""> burkina faso</td><td class="">CENTRE-NORD</td><td class="">SANMATENGA</td><td class="">KAYA</td><td class="">nitrogen fertilizer [N]</td><td class="">50 kg bag</td><td class="">18000.00 | 0.00</td><td class="">2013-07-05</td></tr>
+									<tr class="even"><td class=""> burkina faso</td><td class="">SUD-OUEST</td><td class="">BOUGOURIBA</td><td class="">ouagadougou</td><td class="">other fertilizer</td><td class="">50 kg bag</td><td class="">5000.00 | 0.00</td><td class="">2013-08-09</td></tr>
+									<tr class="odd"><td class=""> burkina faso</td><td class="">BOUCLE DU MOUHOUN</td><td class="">MOUHOUN</td><td class="">DEDOUGOU</td><td class="">nitrogen fertilizer [N]</td><td class="">50 kg bag</td><td class="">20000.00 | 0.00</td><td class="">2013-07-01</td></tr>
+									<tr class="even"><td class=""> burkina faso</td><td class="">SUD-OUEST</td><td class="">BOUGOURIBA</td><td class="">ouagadougou</td><td class="">complex fertilizers [NPK]</td><td class="">50 kg bag</td><td class="">18000.00 | 0.00</td><td class="">2013-05-07</td></tr>
+									<tr class="odd"><td class=""> burkina faso</td><td class="">CENTRE-NORD</td><td class="">SANMATENGA</td><td class="">KAYA</td><td class="">complex fertilizers [NPK]</td><td class="">50 kg bag</td><td class="">15.00 | 0.00</td><td class="">2012-11-03</td></tr>
+									<tr class="even"><td class=""> burkina faso</td><td class="">EST</td><td class="">GOURMA</td><td class="">FADA N'GOURMA</td><td class="">other fertilizer</td><td class="">50 kg bag</td><td class="">2.00 | 0.00</td><td class="">2012-11-05</td></tr>
+									<tr class="odd"><td class=""> burkina faso</td><td class="">SAHEL</td><td class="">SENO</td><td class="">DORI</td><td class="">complex fertilizers [NPK]</td><td class="">50 kg bag</td><td class="">50.00 | 0.00</td><td class="">2012-11-03</td></tr>
+									<tr class="even"><td class=""> burkina faso</td><td class="">CENTRE-EST</td><td class="">BOULGOU</td><td class="">TENKODOGO</td><td class="">complex fertilizers [NPK]</td><td class="">50 kg bag</td><td class="">17000.00 | 0.00</td><td class="">2013-03-06</td></tr>
+								</tbody>
+								</table>
+							</div>
 					</div>
 				</div>
 			</div>

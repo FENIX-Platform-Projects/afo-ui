@@ -60,20 +60,68 @@ require([
 	});
 
     var $listCountries = $('#listCountries'),
-        $listCompanies = $('#listCompanies');
+        $listCompanies = $('#listCompanies'),
+        $cancCompanies = $('#cancCompanies');
 
     function selectCompany(filter) {
         //hide all
         $listCompanies.find('.tabCompany').hide().each(function() {
-            if ($(this).find('td:eq(11)').text() === filter.country) $(this).show().find('tr:eq(5)').addClass('bg-success');
+            
+            if(filter.country && $(this).find('td:eq(11)').text() === filter.country)
+            	$(this).show().find('tr:eq(5)').addClass('bg-success');
+			
+			if(filter.company) {
+
+				var name = $(this).find('td:eq(3)').text();
+				
+				console.log( filter.company, name );
+
+				regSearch = new RegExp(filter.company,'ig');
+				if( regSearch.test( name ))
+            		$(this).show().find('tr:eq(1)').addClass('bg-success');            
+           	}
+
+/*			if(filter.city) {
+
+				var name = $(this).find('td:eq(3)').text();
+				
+				console.log( filter.city, name );
+
+				regSearch = new RegExp(filter.city,'ig');
+				if( regSearch.test( name ))
+            		$(this).show().find('tr:eq(1)').addClass('bg-success');            
+           	}   */        	
         });
     }
 
+    $('#company_name').on('blur', function(e) {
+    	$(this).val('');
+    });
+
+    $('#cancCompanies').on('click', function(e) {
+    	e.preventDefault();
+    	e.stopPropagation();
+    	$listCountries.find('a').removeClass('btn-success active');
+    	$listCompanies.find('.tabCompany').hide();
+    });
+
 	$listCountries.on('click', 'a', function(e) {
+		
 		$(this).siblings().removeClass('btn-success active');
 		$(this).addClass('btn-success active');
+
 		selectCompany({
 		    country: $(this).text()
 		});
 	});
+
+    $('#company_name').on('keyup', function(e) {
+    	var text = $.trim( $(this).val() );
+
+		//$('#cancCompanies').trigger('click');
+
+    	selectCompany({
+		    company: text
+		});
+    });
 });

@@ -99,6 +99,7 @@ require([
     	e.preventDefault();
     	e.stopPropagation();
     	$listCountries.find('a').removeClass('btn-success active');
+    	$listCompanies.find('tr').removeClass('btn-success');
     	$listCompanies.find('.tabCompany').hide();
     });
 
@@ -136,6 +137,6 @@ require([
 
     //DEBUGGING
 
-	//$listCompanies.find('.tabCompany').show();
+	$listCompanies.find('.tabCompany').show();
 
 });

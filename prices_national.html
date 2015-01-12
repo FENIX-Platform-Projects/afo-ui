@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AfricaFeritilizer.org - AF Skeleton web application by FENIX</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta name="description" content="FENIX Structure">
+    <meta name="author" content="Stefano Cudini <stefano.cudini [at] fao.org>">
+    <meta name="author" content="Daniele Salvatore <daniele.salvatore [at] fao.org>">
+    <meta name="author" content="Nicola Selleri <nicola.selleri[at]fao.org>">
+
+    <!-- Third Party CSS -->
+    <link href="//fenixapps.fao.org/repository/js/bootstrap/3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet.css" />
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/MarkerCluster.css">
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/MarkerCluster.Default.css">
+ 
+    <!-- OLAP -->
+    <link rel="stylesheet" type="text/css" href="submodules/fenix-ui-olap/css/pivot.css">
+    <link rel="stylesheet" type="text/css" href="submodules/fenix-ui-olap/lib/grid/gt_grid_height.css" />
+	<link rel="stylesheet" type="text/css" href="prices/localpivot.css"  />
+
+    <!-- FENIX CSS -->
+    <link rel="stylesheet" type="text/css" href="css/host.css">
+
+</head>
+<body id="page-prices">
+
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<h2>Prices</h2>
+			</div>
+
+			<!-- Nav tabs -->
+			<ul id="prices_tabs" class="nav nav-tabs" role="tablist">
+				<li class="active"><a href="#prices_international" role="tab" data-toggle="tab">International Prices</a></li>
+				<li><a href="#prices_national" role="tab" data-toggle="tab">National Prices</a></li>
+				<li><a href="#prices_retail" role="tab" data-toggle="tab">Retail prices</a></li>
+			</ul>
+
+
+			<!-- Tab panes -->
+			<div class="tab-content afo-prices-tab-content obj-box col-xs-12">
+				<div class="tab-pane active" id="prices_international">
+
+					<h3>Monthly Average Prices for selected Fertilizers &bull; October 2013 - September 2014</h3>
+
+					<p>For more detailed information and data, visit <a href="http://www.argusmedia.com/fertilizer">www.argusmedia.com</a><p>
+					
+					<div class="row">
+						<div class="col-xs-5">
+                            <div class="afo-prices-international-argus">
+                            	<img src="css/img/argus.jpg" height="360px" width="360px" />
+                            </div>
+						</div>
+						<div class="col-xs-7">
+                            <div id="chart_prices_inter" class="afo-prices-international-chart"></div>
+						</div>
+                    </div>
+
+                    <br><br>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h3>International Monthly Average Prices for selected Fertilizers | November 2013 - October 2014</h3>
+                            <div id="prices_international_grid"></div>
+                        </div>
+					</div>
+                    
+                    <hr />
+
+                    <div class="text-center">
+                    	<a href="http://argusmedia.com/"><img src="css/img/argus_logo.jpg" class="img-thumbnail" /></a>
+                    </div>
+
+                    <h3>Market higlights - November 2014</h3>
+
+                    <div class="row">
+                        <div class="col-xs-12 afo-market-highlights">
+                            <h4>NITROGEN</h4>
+                            <p>Outside of India and China, there has been little fresh business to speak of. European buying has paused after the flurry of trade over recent weeks. A large quantity of urea is lined up for shipment through November and buyers have taken a step back this week.</p>
+
+                            <p>Trade in Egypt has also stalled as the exporters continue discussions with the government over export lincenses, gas allocations and domestic commitments. After a cluster of trades last week, one was reported this week at $370/t fob, a small lot for prompt loading. The price is up $3/t on previous business.</p>
+
+                            <p>Overall the market lacks a clear price trend and buyers remain cautious about building stocks. European buyers will need to purchase more urea ahead of application which commonly starts in Q1. Much of the what has been booked recently for Europe is a replacement for losses from elsewhere, including Egypt.</p>
+
+                            <p class="afo-prices-country-name">Egypt</p>
+                            <p>Trammo is understood to have bought 3,000t of urea from Helwan at $370/t for prompt shipment to Greece. Helwan could not be reached for confirmation</p>
+
+                            <p>Negotiations continue between the urea producers and the government over domestic commitments and gas allocations. As it stands, none of the producers are understood to have export licenses for November.</p>
+
+                            <p>Helwan and Mopco are understood to be operating at around 80pc. Alexfert is operating but committed domestically. EFC continues to operate one line.</p>
+
+                            <p class="afo-prices-country-name">Algeria</p>
+                            <p>On 30 October, Sorfert reported that its urea line was in the start up phase. Yara's m/v Polaris Queen is currently loading 15,000t</p>
+
+                            <p class="afo-prices-country-name">South Africa</p>
+                            <p>Keytrade will load a 30,000t Omani cargo next week for shipment to South Africa.</p>
+
+
+                            <h4>PHOSPHATE</h4>
+                            <p>The market continued to weaken in October. Prices have been slipping in Europe with buyers waiting for prices to bottom out before stepping in the market. Brazil is dead with MAP price indication at $470/t cfr and DAP at $460/t cfr. Argentinean demand is also limited and prices east of Suez are now definitely on the wane with DAP sold to India below $490/t cfr. Weak corn prices continued to be the main reason for the lack of interest globally.</p>
+
+                            <p>Looking forward, in late Q4, it looks like Australia will be the only volume market. This market will be keenly contested with Mexican, US, Moroccan and Chinese all in the mix. Mosaic confirmed a second DAP/MAP combination cargo for January shipment to Australia. But the Saudis will also be vying for a share of this market, and are considering converting partially to MAP in Q4, especially given that Ethiopian DAP demand appears to be completely out of the game. If the Chinese flat tax rate window opens early, then it is likely the Chinese will also add to the competition. The prevailing view currently is that China will have a flat tax rate year-round next year, which will add a bearish sentiment for Q1 as it could place downward price pressure on account of greater supply. Some European DAP demand needs to be covered, and Brazil will need to step in for hand-to-mouth buying for safrinha. A partial recovery in the US as a result of improved harvesting could see some stabilisation and recovery in Q1, in tandem with production cuts at Mosaic and OCP Morocco.</p>
+
+                            <p class="afo-prices-country-name">Morocco</p>
+                            <p>OCP has clarified its production plan and its export line up for October. Granulation of DAP/MAP and NPKs has been reduced to 200,000t from the previously reported 270,000t in order to accommodate higher rates of phosphoric acid shipment to India (now estimated at 120,000-130,000t/month through to year end) as well as acid shipments to Pakistan and Europe.</p>
+
+                            <p>OCP is reportedly offering $510/t fob in the Med for November lifting, a rollover of October's price.
+
+                            <p class="afo-prices-country-name">Tunisia</p>
+                            <p>GCT has not made any sales to European markets for October and is targeting a rollover of the $530s-540/t fob for the 30,000t of availability it has, with 30,000t already lined up for Turkey. Production is consistent at around 50-60pc of capacity on DAP, equivalent to 60,000t/month currently. A trader has sold 5,000t of Tunisian DAP to Turkey at $535/t fob.</p>
+
+
+                            <h4>POTASH</h4>
+                            <p>European contract pricing for fourth quarter supply of standard MOP remains uncertain. Few deals are thought to have been made this week amid ongoing uncertainty about the effect of crop pricing, the trajectory of the Euro and Russia's embargo on European agricultural produce on farmer demand.</p>
+
+                            <p>Demand is slowing in many markets around the world in line with normal seasonality. Brazilian demand has reduced- with import data showing 300,000t less was imported in September than August - though the record pace of imports earlier in the year may have something to do with this. In the US a late harvest in many regions has delayed the fall application, while producers are still said to be working through a backlog of older orders. Europe is expected to remain quiet until the spring now.</p>
+
+                            <p>The mood is therefore a little bearish in these markets, though there is no indication yet of a downward movement for prices.</p>
+
+                            <p class="afo-prices-country-name">East Africa</p>
+                            <p>APC has sold 3,000-4000t gMOP into east Africa at close to $400/t cfr.</p>
+
+                            <p class="afo-prices-country-name">South Africa</p>
+                            <p>A delegation from K+S Kali visited a couple of weeks back as is traditional at this time of the year. There are unconfirmed reports that it was informing customers that it was looking for a $20/t increase on the existing prices of around $350-360/t cfr for standard MOP and $370-380/t cfr for granular MOP.</p>
+
+                            <p class="afo-prices-country-name">Ivory Coast</p>
+                            <p>A trader has been seen checking freight for 20,000t granular MOP and 5,000t standard MOP loading Klaipeda for delivery to Abidjan in mid-late November.</p>
+                        </div>
+                    </div>
+
+
+				</div>
+
+
+				<div class="tab-pane" id="prices_national">
+
+					<h3>Averaged prices calculated from local prices</h3>
+
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="fx-olap-holder">
+								<div id="pivot"></div>
+								<div id="fx-olap-holder-div"></div>
+								<div id="myGrid1_div"></div>
+								<div id="mesFlags" style="clear:both"></div>
+								<div id="pivot_loader" class="text-center"><i class="icon loader-xs"></i> &nbsp;Loading data...</div>
+								<button id="pivot_download" style="display:none" class="btn btn-default" type="button">
+								<i class="glyphicon glyphicon-download"></i> Download XLS File</button>
+								<form id="xlsDataForm" action="http://faostat3.fao.org/faostat-olapws/ExportPOI2" method="POST" >
+	                                <!--textarea id="myJson"  name="myJson" ></textarea-->
+	                                <input id="myJson"  name="myJson" type="hidden" value="" />
+	                                <input id="myFlags"  name="myFlags" type="hidden" value='{"data":[{"title":"","label":"Official data"}]}' />
+	                            </form>
+	                        </div>
+						</div>
+					</div>
+				</div>
+
+				<div class="tab-pane" id="prices_retail">
+					<div class="row">
+						<div class="col-xs-6">
+							<h3>Georeferenced data</h3>
+							<div id="prices_retail_map"></div>
+						</div>
+						<div class="col-xs-6">
+							<h3>Average Daily prices</h3>
+							<div id="prices_retail_chart"></div>
+						</div>
+					</div>
+					<div class="row">
+							<h3>Aggregated Data</h3>
+							<div id="prices_retail_grid" class="col-xs-12" style="font-size:12px">
+
+								<table id="pesticide" class="table" aria-describedby="pesticide_info">
+								<thead>
+									<tr class="afo-table-header" role="row"><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Country: activate to sort column ascending" style="width: 137px;"><div class="DataTables_sort_wrapper">Country<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Region: activate to sort column ascending" style="width: 121px;"><div class="DataTables_sort_wrapper">Region<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="District: activate to sort column ascending" style="width: 128px;"><div class="DataTables_sort_wrapper">District<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Town: activate to sort column ascending" style="width: 95px;"><div class="DataTables_sort_wrapper">Town<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Product: activate to sort column ascending" style="width: 137px;"><div class="DataTables_sort_wrapper">Product<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Unit: activate to sort column ascending" style="width: 82px;"><div class="DataTables_sort_wrapper">Unit<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Price / Trend: activate to sort column ascending" style="width: 86px;"><div class="DataTables_sort_wrapper">Price / Trend<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Month: activate to sort column ascending" style="width: 118px;"><div class="DataTables_sort_wrapper">Month<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th></tr>
+								</thead>
+								<tbody role="alert" aria-live="polite" aria-relevant="all">
+									<tr class="odd"><td class=""> burkina faso</td><td class="">SUD-OUEST</td><td class="">BOUGOURIBA</td><td class="">ouagadougou</td><td class="">other fertilizer</td><td class="">50 kg bag</td><td class="">5000.00 | 0.00</td><td class="">2012-11-03</td></tr>
+									<tr class="even warning"><td class=""> burkina faso</td><td class="">CASCADES</td><td class="">COMOE</td><td class="">BANFORA</td><td class="">complex fertilizers [NPK]</td><td class="">50 kg bag</td><td class="">17500.00 | 0.00</td><td class="">2012-12-05</td></tr>
+									<tr class="odd warning"><td class=""> burkina faso</td><td class="">CENTRE-NORD</td><td class="">SANMATENGA</td><td class="">KAYA</td><td class="">nitrogen fertilizer [N]</td><td class="">50 kg bag</td><td class="">18000.00 | 0.00</td><td class="">2013-07-05</td></tr>
+									<tr class="even"><td class=""> burkina faso</td><td class="">SUD-OUEST</td><td class="">BOUGOURIBA</td><td class="">ouagadougou</td><td class="">other fertilizer</td><td class="">50 kg bag</td><td class="">5000.00 | 0.00</td><td class="">2013-08-09</td></tr>
+									<tr class="odd"><td class=""> burkina faso</td><td class="">BOUCLE DU MOUHOUN</td><td class="">MOUHOUN</td><td class="">DEDOUGOU</td><td class="">nitrogen fertilizer [N]</td><td class="">50 kg bag</td><td class="">20000.00 | 0.00</td><td class="">2013-07-01</td></tr>
+									<tr class="even"><td class=""> burkina faso</td><td class="">SUD-OUEST</td><td class="">BOUGOURIBA</td><td class="">ouagadougou</td><td class="">complex fertilizers [NPK]</td><td class="">50 kg bag</td><td class="">18000.00 | 0.00</td><td class="">2013-05-07</td></tr>
+									<tr class="odd"><td class=""> burkina faso</td><td class="">CENTRE-NORD</td><td class="">SANMATENGA</td><td class="">KAYA</td><td class="">complex fertilizers [NPK]</td><td class="">50 kg bag</td><td class="">15.00 | 0.00</td><td class="">2012-11-03</td></tr>
+									<tr class="even"><td class=""> burkina faso</td><td class="">EST</td><td class="">GOURMA</td><td class="">FADA N'GOURMA</td><td class="">other fertilizer</td><td class="">50 kg bag</td><td class="">2.00 | 0.00</td><td class="">2012-11-05</td></tr>
+									<tr class="odd"><td class=""> burkina faso</td><td class="">SAHEL</td><td class="">SENO</td><td class="">DORI</td><td class="">complex fertilizers [NPK]</td><td class="">50 kg bag</td><td class="">50.00 | 0.00</td><td class="">2012-11-03</td></tr>
+									<tr class="even"><td class=""> burkina faso</td><td class="">CENTRE-EST</td><td class="">BOULGOU</td><td class="">TENKODOGO</td><td class="">complex fertilizers [NPK]</td><td class="">50 kg bag</td><td class="">17000.00 | 0.00</td><td class="">2013-03-06</td></tr>
+								</tbody>
+								</table>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <!-- Footer -->
+    <div class="container">
+      <div class="footer">
+        <p>AfricaFeritilizer.org - AF Skeleton web application by FENIX</p>
+      </div>
+    </div>
+
+    <script src="https://www.google.com/jsapi"></script>
+
+	<script data-main="prices" src="src/lib/require.js"></script>
+
+
+  </body>
+</html>

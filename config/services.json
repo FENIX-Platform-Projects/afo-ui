@@ -1,10 +1,15 @@
 {
 	"dbName": "africafertilizer",
+	
 	"wdsUrl": "http://faostat3.fao.org/wds/rest/table/json",
+
 	"mapUrl": "http://fenixapps.fao.org/maps-africaferilizers/api?",
 	"wmsUrl": "http://fenixapps2.fao.org/geoserver-demo",
 	"sldUrl": "http://fenixapps2.fao.org/geoservices/CSS2SLD",
-	"url_geoserver_wms": "http://168.202.28.214:9090/geoserver/wms",
-	"url_spatialquery": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/",
+	
+	"url_geoserver_wms": "http://fenix.fao.org/geoserver",
+
+	"url_bbox": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/bbox/layer/country/iso3/",
+
 	"url_geocoding": "http://fenix.fao.org/geo/fenix/geocoding/latlon/"
 }

@@ -1,4 +1,5 @@
 
+
 require.config({
 
 	baseUrl: 'src/',
@@ -356,25 +357,13 @@ require([
 		var query = "SELECT ST_AsGeoJSON(ST_Transform(ST_SetSRID(ST_Extent(geom), 3857), 4326)) "+
 					"FROM spatial.gaul0_faostat3_3857 "+
 					"WHERE iso3 IN ('"+ codes.join("','") +"')",
-			url = mapConf.url_spatialquery + encodeURIComponent(query);
+
+			url = mapConf.url_bbox + encodeURIComponent(codes.join());
 
 		$.getJSON(url, function(json) {
+			
+			fmMap.map.fitBounds(json);
 
-			json = $.parseJSON(json[0][0]);
-
-			if(json)
-			{
-				var coords = json.coordinates,
-					minlat = coords[0][0][1],
-					minlon = coords[0][0][0],
-					maxlat = coords[0][1][1],
-					maxlon = coords[0][2][0];
-
-				fmMap.map.fitBounds([
-					[minlat, minlon],
-					[maxlat, maxlon]
-				]);
-			}
 		});
 	};
 

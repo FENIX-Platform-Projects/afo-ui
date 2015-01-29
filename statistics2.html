@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FENIX - Analysis</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+    <meta name="description" content="FENIX Analysis Interface">
+    <meta name="author" content="Daniele Salvatore <daniele.salvatore[at]fao.org>">
+    <meta name="author" content="Nicola Selleri <nicola.selleri[at]fao.org>">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+    <!-- Third Party CSS -->
+    <link rel="stylesheet" href="//fenixapps.fao.org/repository/js/bootstrap/3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href='http://fenixapps.fao.org/repository/js/jqwidgets/3.1/styles/jqx.base.css'/>
+    <link rel="stylesheet" href='submodules/fenix-ui-catalog/css/pnotify.custom.min.css'/>
+    <link rel="stylesheet" href='submodules/fenix-ui-catalog/css/iThing-min.css'/>
+    <link rel="stylesheet" href='node_modules/jstree/dist/themes/default/style.min.css'/>
+    <link rel="stylesheet" href='node_modules/intro.js/minified/introjs.min.css'/>
+    <link rel="stylesheet" href='node_modules/nprogress/nprogress.css'/>
+    <link rel="stylesheet" href="css/mbExtruder.css" media="all" type="text/css">
+
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet.css" />
+
+    <!-- FENIX CSS-->
+    <link rel="stylesheet" href="submodules/fenix-ui-common/css/fenix-style.css">
+    <link rel="stylesheet" href='submodules/fenix-ui-catalog/css/fenix-ui-catalog.css'/>
+    <link rel="stylesheet" href='css/host.css'/>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="css/icons/fx-favicon.ico">
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row fx-header">
+        <div class="col-xs-12">
+            <div class="page-header">
+                <h2>Data Analysis</h2>
+                <p>Analysis of data is a process of inspecting, cleaning, transforming, and modeling data with the goal of discovering useful information, suggesting conclusions, and supporting decision making.</p>
+            </div>
+        </div>
+    </div>
+
+
+	<div class="row">
+		<div class="col-xs-4">
+			<select id="stats_select" class="form-control" style="height:200px;width:100%" multiple >
+				<optgroup label="Africa Regions" class="stats_list_regions">
+				</optgroup>
+				<optgroup label="Africa Countries" class="stats_list_countries">
+				</optgroup>
+			</select>
+		</div>
+		<div class="col-xs-4">
+			<div id="stats_map_regions" style="height:200px;width:100%"></div>
+			<div class="btn-group map-zooms" role="group">
+				<a href="#" class="btn btn-link" data-zoom="+1"><span class="glyphicon glyphicon-plus"></span></a>
+				<a href="#" class="btn btn-link" data-zoom="-1"><span class="glyphicon glyphicon-minus"></span></a>
+			</div>
+		</div>
+		<div class="col-xs-4">
+			<div id="stats_map_countries" style="height:200px;width:100%"></div>
+			<div class="btn-group map-zooms" role="group">
+				<a href="#" class="btn btn-link" data-zoom="+1"><span class="glyphicon glyphicon-plus"></span></a>
+				<a href="#" class="btn btn-link" data-zoom="-1"><span class="glyphicon glyphicon-minus"></span></a>
+			</div>
+		</div>
+	</div>
+
+	<hr />
+
+    <div class="row fx-catalog-toolbar">
+
+        <div class="col-xs-6">
+            <button id="btn" type="button" class="btn btn-default">OPEN CATALOG</button>
+        </div>
+
+        <div class="col-xs-6 fx-widget-stack-btns">
+            Widgets in the stack <em id="fx-widgets-stack-counter"></em>
+            <input class="btn " id="fx-widgets-stack-btn" type='button' value='OPEN STACK'>
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-xs-12 well widget-grid-container">
+            <div id="fx-ana-result-container"></div>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <!-- FOOTER -->
+    <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+
+        <p>2014 FENIX · <a href="#">Terms</a></p>
+    </footer>
+</div>
+
+<!-- FENIX Widgets Stack -->
+<div id="fx-widgets-stack"></div>
+
+<!-- FENIX Catalog Overlay -->
+<div id="overlay">
+    <button class="closeOverlay"></button>
+
+    <div class="overlay-content">
+        <div id="catalogContainer"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="filterContainer"><div id="fx-ana-filter-container"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- data-main attribute tells require.js to load scripts/main.js after require.js loads. -->
+<script data-main="statistics2" src="node_modules/requirejs/require.js"></script>
+
+</body>
+</html>

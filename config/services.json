@@ -11,5 +11,7 @@
 
 	"url_bbox": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/bbox/layer/country/iso3/",
 
-	"url_geocoding": "http://fenix.fao.org/geo/fenix/geocoding/latlon/"
+	"url_geocoding": "http://fenix.fao.org/geo/fenix/geocoding/latlon/",
+
+	"url_baselayer": "http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}.png"
 }

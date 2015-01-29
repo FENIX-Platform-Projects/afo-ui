@@ -18,16 +18,14 @@
 
 
     <!-- Third Party CSS -->
-    <link rel="stylesheet" href="//fenixapps.fao.org/repository/js/bootstrap/3.2/css/bootstrap.min.css">
+    <link href="//fenixapps.fao.org/repository/js/bootstrap/3.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href='http://fenixapps.fao.org/repository/js/jqwidgets/3.1/styles/jqx.base.css'/>
     <link rel="stylesheet" href='submodules/fenix-ui-catalog/css/pnotify.custom.min.css'/>
     <link rel="stylesheet" href='submodules/fenix-ui-catalog/css/iThing-min.css'/>
     <link rel="stylesheet" href='node_modules/jstree/dist/themes/default/style.min.css'/>
     <link rel="stylesheet" href='node_modules/intro.js/minified/introjs.min.css'/>
     <link rel="stylesheet" href='node_modules/nprogress/nprogress.css'/>
-    <link rel="stylesheet" href="css/mbExtruder.css" media="all" type="text/css">
-
-    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet.css" />
+    <link href="css/mbExtruder.css" media="all" rel="stylesheet" type="text/css">
 
     <!-- FENIX CSS-->
     <link rel="stylesheet" href="submodules/fenix-ui-common/css/fenix-style.css">
@@ -50,34 +48,6 @@
             </div>
         </div>
     </div>
-
-
-	<div class="row">
-		<div class="col-xs-4">
-			<select id="stats_select" class="form-control" style="height:200px;width:100%" multiple >
-				<optgroup label="Africa Regions" class="stats_list_regions">
-				</optgroup>
-				<optgroup label="Africa Countries" class="stats_list_countries">
-				</optgroup>
-			</select>
-		</div>
-		<div class="col-xs-4">
-			<div id="stats_map_regions" style="height:200px;width:100%"></div>
-			<div class="btn-group map-zooms" role="group">
-				<a href="#" class="btn btn-link" data-zoom="+1"><span class="glyphicon glyphicon-plus"></span></a>
-				<a href="#" class="btn btn-link" data-zoom="-1"><span class="glyphicon glyphicon-minus"></span></a>
-			</div>
-		</div>
-		<div class="col-xs-4">
-			<div id="stats_map_countries" style="height:200px;width:100%"></div>
-			<div class="btn-group map-zooms" role="group">
-				<a href="#" class="btn btn-link" data-zoom="+1"><span class="glyphicon glyphicon-plus"></span></a>
-				<a href="#" class="btn btn-link" data-zoom="-1"><span class="glyphicon glyphicon-minus"></span></a>
-			</div>
-		</div>
-	</div>
-
-	<hr />
 
     <div class="row fx-catalog-toolbar">
 
@@ -131,7 +101,7 @@
 </div>
 
 <!-- data-main attribute tells require.js to load scripts/main.js after require.js loads. -->
-<script data-main="statistics2" src="node_modules/requirejs/require.js"></script>
+<script data-main="scripts/mains/analysis"  src="node_modules/requirejs/require.js"></script>
 
 </body>
 </html>

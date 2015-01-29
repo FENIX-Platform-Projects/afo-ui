@@ -90,6 +90,7 @@ require([
         'text!../config/services.json',
         'text!../config/africa_countries.json',
         'text!../config/africa_regions.json',
+        'text!../config/africa.json',
         'domready!'
     ],
     function ($, _, bts, highcharts, jstree, Handlebars, 
@@ -97,11 +98,14 @@ require([
 		TopMenu,
 		Config,
 		Countries,
-		Regions) {
+		Regions,
+		Africa
+		) {
 
 		Config = JSON.parse(Config);
 		Countries = JSON.parse(Countries);
 		Regions = JSON.parse(Regions);
+		Africa = JSON.parse(Africa);
 
 		console.log(Countries);
 
@@ -130,12 +134,18 @@ require([
 			});
 
 		var mapCountries = L.map('stats_map_countries', {
-				zoom: 3,
+				zoom: 4,
 				zoomControl: false,
 				attributionControl: false,
-				center: L.latLng(0,0),
+				center: L.latLng(20,0),
 				layers: L.tileLayer(Config.url_baselayer)
 			});		
+
+		L.geoJson(Africa, {
+			style: function (feature) {
+				return {fill:true, color:'#6AAC46', fillColor: '#6AAC46'};
+			}
+		}).addTo(mapRegions);
 
 		mapzoomsRegions$.on('click','.btn', function(e) {
 			var z = parseInt($(this).data('zoom'));

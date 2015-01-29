@@ -9,7 +9,7 @@
 	
 	"url_geoserver_wms": "http://fenix.fao.org/geoserver",
 
-	"url_bbox": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/bbox/layer/country/iso3/",
+	"url_bbox": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/bbox/layer/country/",
 
 	"url_geocoding": "http://fenix.fao.org/geo/fenix/geocoding/latlon/",
 

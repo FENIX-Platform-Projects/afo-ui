@@ -358,7 +358,7 @@ require([
 					"FROM spatial.gaul0_faostat3_3857 "+
 					"WHERE iso3 IN ('"+ codes.join("','") +"')",
 
-			url = mapConf.url_bbox + encodeURIComponent(codes.join());
+			url = mapConf.url_bbox +'iso3/'+ encodeURIComponent(codes.join());
 
 		$.getJSON(url, function(json) {
 			

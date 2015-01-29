@@ -119,11 +119,26 @@ require([
 			mapzoomsRegions$ = $('#stats_map_regions').next('.map-zooms'),
 			mapzoomsCountries$ = $('#stats_map_countries').next('.map-zooms');
 
+		var style = {
+				fill: true,
+				color: '#6AAC46',
+				opacity: 0.5,
+				fillOpacity: 0.4,
+				fillColor: '#6AAC46'
+			},
+			styleHover = {
+				fill: true,
+				color: '#6AAC46',
+				opacity: 0.8,
+				fillOpacity: 0.6,
+				fillColor: '#6AAC46'
+			};
+
 		for(var r in Regions)
-			listRegions$.append('<option>'+Regions[r][1]+'</option>');
+			listRegions$.append('<option value="'+Regions[r][0]+'">'+Regions[r][1]+'</option>');
 
 		for(var c in Countries)
-			listCountries$.append('<option>'+Countries[c][2]+'</option>');
+			listCountries$.append('<option value="'+Countries[c][1]+'">'+Countries[c][2]+'</option>');
 
 		var mapRegions = L.map('stats_map_regions', {
 				zoom: 2,
@@ -139,13 +154,67 @@ require([
 				attributionControl: false,
 				center: L.latLng(20,0),
 				layers: L.tileLayer(Config.url_baselayer)
-			});		
+			});
 
-		L.geoJson(Africa, {
+		var geojsonRegions = L.geoJson(Africa, {
 			style: function (feature) {
-				return {fill:true, color:'#6AAC46', fillColor: '#6AAC46'};
+				return style;
+			},
+			onEachFeature: function(feature, layer) {
+
+				layer.setStyle(style);
+
+				layer.on("mouseover", function (e) {
+					layer.setStyle(styleHover);
+				});
+
+				layer.on("mouseout", function (e) {
+					layer.setStyle(style); 
+				});
+/*
+				layer.on("click", function (e) {
+					layer.properties
+				});		*/		
 			}
 		}).addTo(mapRegions);
+
+		var geojsonCountries = L.geoJson(null, {
+			style: function (feature) {
+				return style;
+			},
+			onEachFeature: function(feature, layer) {
+
+				layer.setStyle(style);
+
+				layer.on("mouseover", function (e) {
+					layer.setStyle(styleHover);
+				});
+
+				layer.on("mouseout", function (e) {
+					layer.setStyle(style); 
+				});
+
+				layer.on("click", function (e) {
+					console.log( layer.properties );
+				});
+			}
+		}).addTo(mapCountries);
+
+		var zoomToCountries = function(codes) {
+			var query = "SELECT ST_AsGeoJSON(ST_Transform(ST_SetSRID(geom, 3857), 4326)) "+
+						"FROM spatial.gaul0_faostat3_3857 "+
+						"WHERE faost_code IN ('"+ codes.join("','") +"')",
+
+				url = Config.url_bbox +'faost_code/'+ encodeURIComponent(codes.join());
+
+			$.getJSON(url, function(json) {
+				
+				console.log(json);
+
+				geojsonCountries.addData(json);
+
+			});
+		};
 
 		mapzoomsRegions$.on('click','.btn', function(e) {
 			var z = parseInt($(this).data('zoom'));
@@ -155,5 +224,11 @@ require([
 		mapzoomsCountries$.on('click','.btn', function(e) {
 			var z = parseInt($(this).data('zoom'));
 			mapCountries[ z>0 ? 'zoomIn' : 'zoomOut' ]();
+		});
+
+		listCountries$.on('click', 'option', function(e) {
+			var code = $(e.target).attr('value');
+			console.log( code ) ;
+			zoomToCountries([code]);
 		});
 });

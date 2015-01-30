@@ -1895,20 +1895,22 @@ p.fx-strong {
   background-color: #fcfaee; }
 
 /* AFO - Publication Page Style */
-.list-group-item {
+#page-publications .container {
+  background-color: white; }
+#page-publications .navbar .container {
+  background-color: transparent; }
+#page-publications .list-group-item {
   border: none;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   border-radius: 0; }
-
-.list-group-item:first-child {
+#page-publications .list-group-item:first-child {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   border-radius: 0; }
-
-.list-group-item:last-child {
+#page-publications .list-group-item:last-child {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
@@ -1993,6 +1995,80 @@ p.fx-strong {
 
 .col-bottom {
   vertical-align: bottom; }
+
+/* Components */
+/* Africa Fertilizer Footer */
+.afo-footer {
+  background-color: lightgray;
+  height: 160px; }
+
+.afo-footer-logo-image {
+  margin-top: 20px; }
+
+.afp-footer-social li {
+  float: left;
+  margin: 20px 6px;
+  border: 1px solid #666666;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  border-radius: 100%;
+  cursor: pointer; }
+
+.afo-footer-item {
+  width: 50%;
+  float: left;
+  font: normal normal 400 10px/normal "Roboto";
+  text-transform: uppercase; }
+  .afo-footer-item h3 {
+    background-color: #5ba539;
+    margin-top: 27px;
+    display: inline-block;
+    font: normal normal 400 10px/normal "Roboto";
+    color: white;
+    padding: 2px 7px; }
+  .afo-footer-item ul {
+    list-style: none;
+    padding-left: 0; }
+    .afo-footer-item ul li a {
+      color: #666666;
+      line-height: 18px; }
+      .afo-footer-item ul li a:hover {
+        color: #666666; }
+
+.afo-footer-credits {
+  background-color: lightgray;
+  padding-bottom: 20px;
+  font: normal normal 400 10px/normal "Roboto"; }
+
+.afo-footer-sub {
+  height: 60px;
+  padding-top: 23px;
+  color: white;
+  border-top: 1px solid white;
+  background-color: #5ca7d8;
+  background-image: -moz-linear-gradient(top, #5ca7d8, #94d4fe);
+  background-image: -ms-linear-gradient(top, #5ca7d8, #94d4fe);
+  background-image: -o-linear-gradient(top, #5ca7d8, #94d4fe);
+  background-image: -webkit-gradient(linear, center top, center bottom, from(#5ca7d8), to(#94d4fe));
+  background-image: -webkit-linear-gradient(top, #5ca7d8, #94d4fe);
+  background-image: linear-gradient(top, #5ca7d8, #94d4fe);
+  background-image: linear-gradient(to bottom, #5ca7d8, #94d4fe);
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  background-repeat: no-repeat;
+  font: normal normal 400 10px/normal "Roboto"; }
+  .afo-footer-sub em {
+    font-style: normal;
+    color: #666666; }
+    .afo-footer-sub em:last-child {
+      float: right; }
+  .afo-footer-sub a {
+    color: white;
+    margin: 0 35px; }
+    .afo-footer-sub a:hover {
+      color: white; }
 
 /* Theme */
 /* AFO Theme */
@@ -2219,7 +2295,7 @@ table {
   border: 1px solid #ccc;
   float: left;
   margin: 20px 0;
-  height: 350px;
+  height: 300px;
   width: 100%; }
 
 #prices_retail_grid {

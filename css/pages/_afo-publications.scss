@@ -1,16 +1,31 @@
 /* AFO - Publication Page Style */
 
-.list-group-item{
-  border: none;
-  @include fx-border-radius(0);
+
+#page-publications{
+
+  .container {
+    background-color: white;
+  }
+
+  .navbar .container {
+    background-color: transparent;
+  }
+
+  .list-group-item{
+    border: none;
+    @include fx-border-radius(0);
+  }
+
+  .list-group-item:first-child{
+
+    @include fx-border-radius(0);
+  }
+
+  .list-group-item:last-child{
+
+    @include fx-border-radius(0);
+  }
+
+
 }
 
-.list-group-item:first-child{
-
-  @include fx-border-radius(0);
-}
-
-.list-group-item:last-child{
-
-  @include fx-border-radius(0);
-}

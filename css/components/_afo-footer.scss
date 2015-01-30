@@ -1,0 +1,84 @@
+/* Africa Fertilizer Footer */
+
+.afo-footer{
+  background-color: $afo-gray-dark;
+  height: 160px;
+}
+
+.afo-footer-logo-image{
+  margin-top: 20px;
+}
+
+.afp-footer-social{
+  li{
+    float: left;
+    margin: 20px 6px;
+    border: 1px solid $fenix-text;
+    @include fx-border-radius(100%);
+    cursor: pointer;
+  }
+}
+
+
+
+.afo-footer-item{
+  width: 50%;
+  float: left;
+  font: $fx-text-smalltitle-normal;
+  text-transform: uppercase;
+
+  h3{
+    background-color: $afo-green-title;
+    margin-top: 27px;
+    display: inline-block;
+    font: $fx-text-smalltitle-normal;
+    color: white;
+    padding: 2px 7px;
+  }
+
+  ul{
+    list-style: none;
+    padding-left: 0;
+    li{
+      a{
+        color: $fenix-text;
+        line-height: 18px;
+        &:hover{
+          color: $fenix-text;
+        }
+      }
+    }
+  }
+
+}
+
+.afo-footer-credits{
+  background-color: $afo-gray-dark;
+  padding-bottom: 20px;
+  font: $fx-text-smalltitle-normal;
+}
+
+.afo-footer-sub{
+  height: 60px;
+  padding-top: 23px;
+  color: white;
+  border-top: 1px solid white;
+  @include fx-gradient(#5ca7d8, #94d4fe);
+  font: $fx-text-smalltitle-normal;
+
+
+    em{
+      font-style: normal;
+      color: $fenix-text;
+      &:last-child{
+        float: right;
+      }
+    }
+    a{
+      color: white;
+      margin: 0 35px;
+      &:hover{
+        color: white;
+      }
+    }
+}

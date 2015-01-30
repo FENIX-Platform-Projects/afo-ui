@@ -139,4 +139,6 @@ require([
 
 	$listCompanies.find('.tabCompany').show();
 
+	$('.footer').load('html/footer.html');
+
 });

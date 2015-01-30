@@ -288,5 +288,8 @@ require([
 			
 			geomCountries([code]);
 
-		});		
+		});
+
+
+	$('.footer').load('html/footer.html');		
 });

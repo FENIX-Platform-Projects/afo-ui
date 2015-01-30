@@ -59,4 +59,6 @@ require([
 		active: "market_news"
 	});
 
+	$('.footer').load('html/footer.html');
+
 });

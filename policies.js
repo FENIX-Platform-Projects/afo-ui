@@ -59,4 +59,6 @@ require([
 		active: "policies"
 	});
 
+	$('.footer').load('html/footer.html');
+
 });

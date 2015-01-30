@@ -136,4 +136,6 @@ require([
                     break;
             }
         });
+
+	$('.footer').load('html/footer.html');        
 });

@@ -519,4 +519,5 @@ require([
 
 	initListFamilies();
 
+	$('.footer').load('html/footer.html');
 });

@@ -59,4 +59,6 @@ require([
 		active: "events"
 	});
 
+	$('.footer').load('html/footer.html');
+
 });

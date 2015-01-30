@@ -75,4 +75,5 @@ require([
     var host = new Host();
     host.initFenixComponent();
 
+    $('.footer').load('html/footer.html');
 });

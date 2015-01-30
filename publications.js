@@ -59,4 +59,6 @@ require([
 		active: "publications"
 	});
 
+	$('.footer').load('html/footer.html');
+
 });

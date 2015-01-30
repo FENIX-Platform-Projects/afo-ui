@@ -859,7 +859,9 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 .navbar .lang_picker {
   height: 22px;
   margin-top: 13px;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  display: none;
+}
 
 .navbar .lang_picker li {
   cursor: pointer;
@@ -1619,7 +1621,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   text-align: left; }
 
 .afo-home-evidence {
-  background-color: #ddf3c2;
+  background-color: #f1eff0;
   padding: 20px 10px; }
   .afo-home-evidence h2 {
     margin-top: 0; }
@@ -1895,10 +1897,6 @@ p.fx-strong {
   background-color: #fcfaee; }
 
 /* AFO - Publication Page Style */
-#page-publications .container {
-  background-color: white; }
-#page-publications .navbar .container {
-  background-color: transparent; }
 #page-publications .list-group-item {
   border: none;
   -webkit-border-radius: 0;
@@ -1923,7 +1921,7 @@ p.fx-strong {
 
 #fx-catalog-submit-btn.disabled {
   border: none;
-  background-color: #ddf3c2; }
+  background-color: #f1eff0; }
 
 .fx-widget {
   border: none; }
@@ -2046,14 +2044,14 @@ p.fx-strong {
   padding-top: 23px;
   color: white;
   border-top: 1px solid white;
-  background-color: #5ca7d8;
-  background-image: -moz-linear-gradient(top, #5ca7d8, #94d4fe);
-  background-image: -ms-linear-gradient(top, #5ca7d8, #94d4fe);
-  background-image: -o-linear-gradient(top, #5ca7d8, #94d4fe);
-  background-image: -webkit-gradient(linear, center top, center bottom, from(#5ca7d8), to(#94d4fe));
-  background-image: -webkit-linear-gradient(top, #5ca7d8, #94d4fe);
-  background-image: linear-gradient(top, #5ca7d8, #94d4fe);
-  background-image: linear-gradient(to bottom, #5ca7d8, #94d4fe);
+  background-color: #94d4fe;
+  background-image: -moz-linear-gradient(top, #94d4fe, #5ca7d8);
+  background-image: -ms-linear-gradient(top, #94d4fe, #5ca7d8);
+  background-image: -o-linear-gradient(top, #94d4fe, #5ca7d8);
+  background-image: -webkit-gradient(linear, center top, center bottom, from(#94d4fe), to(#5ca7d8));
+  background-image: -webkit-linear-gradient(top, #94d4fe, #5ca7d8);
+  background-image: linear-gradient(top, #94d4fe, #5ca7d8);
+  background-image: linear-gradient(to bottom, #94d4fe, #5ca7d8);
   -moz-background-clip: padding;
   background-clip: padding-box;
   -webkit-background-clip: padding-box;
@@ -2073,16 +2071,38 @@ p.fx-strong {
 /* Theme */
 /* AFO Theme */
 html {
-  background-color: #ddf3c2; }
+  background-color: #f1eff0; }
 
 body {
-  border-top: 50px solid #ddf3c2;
-  background-color: #f9f7f3;
+  border-top: 50px solid #f1eff0;
+  background-color: #f1eff0;
   color: #666666; }
 
 .navbar-default {
-  background-color: #ddf3c2 !important;
+  background-color: #a0c03a;
+  background-image: -moz-linear-gradient(top, #a0c03a, #5ba539);
+  background-image: -ms-linear-gradient(top, #a0c03a, #5ba539);
+  background-image: -o-linear-gradient(top, #a0c03a, #5ba539);
+  background-image: -webkit-gradient(linear, center top, center bottom, from(#a0c03a), to(#5ba539));
+  background-image: -webkit-linear-gradient(top, #a0c03a, #5ba539);
+  background-image: linear-gradient(top, #a0c03a, #5ba539);
+  background-image: linear-gradient(to bottom, #a0c03a, #5ba539);
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  background-repeat: no-repeat;
   border: none; }
+  .navbar-default li {
+    height: 50px !important; }
+    .navbar-default li a {
+      font: normal normal 300 12px/normal "Roboto" !important;
+      color: white !important;
+      text-transform: uppercase;
+      padding-top: 16px !important;
+      padding-bottom: 16px !important;
+      border-color: #457f25 !important;
+      border-bottom-color: transparent !important;
+      border-right: 1px solid #457f25; }
 
 .navbar-brand {
   background-image: url("img/afo-ico.svg") !important;
@@ -2090,7 +2110,24 @@ body {
   background-size: 40px 40px !important;
   height: 50px;
   width: 50px;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  background-color: white;
+  background-position: 5px center !important; }
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  background-color: white; }
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  border-bottom-color: transparent;
+  background-color: white !important;
+  color: #336600 !important;
+  border-right: 1px solid #457f25 !important; }
+
+.container {
+  background-color: white; }
+
+.navbar .container {
+  background-color: transparent; }
 
 /* Sansation Font (Africa Fertilizer logo) */
 @font-face {
@@ -2307,7 +2344,7 @@ table {
 
 /* Tables */
 .afo-table-header {
-  background-color: #ddf3c2;
+  background-color: #f1eff0;
   color: #666666;
   cursor: default;
   font-size: 11px;

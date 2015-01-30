@@ -3,14 +3,6 @@
 
 #page-publications{
 
-  .container {
-    background-color: white;
-  }
-
-  .navbar .container {
-    background-color: transparent;
-  }
-
   .list-group-item{
     border: none;
     @include fx-border-radius(0);

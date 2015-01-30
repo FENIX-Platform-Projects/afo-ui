@@ -8,13 +8,28 @@ html {
 
 body{
   border-top: $host-menu-height solid $custom-color1;
-  background-color: $fenix-light-bg;
+  background-color: $custom-color1;
   color: $fenix-text;
 }
 
 .navbar-default {
-  background-color: $custom-color1 !important;
+  @include fx-gradient(#a0c03a, #5ba539);
   border: none;
+
+  li {
+  height: 50px !important;
+    a{
+      font: $afo-text-menu-item !important;
+      color: white !important;
+      text-transform: uppercase;
+      padding-top: 16px !important;
+      padding-bottom: 16px !important;
+      border-color: $custom-color4 !important;
+      border-bottom-color: transparent !important;
+      border-right: 1px solid $custom-color4;
+    }
+  }
+
 }
 
 .navbar-brand{
@@ -23,8 +38,28 @@ body{
   height: 50px;
   width: 50px;
   background-repeat: no-repeat;
+  background-color: white;
+  background-position: 5px center !important;
 }
 
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus{
+  background-color: white;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
+  border-bottom-color: transparent;
+  background-color: white !important;
+  color: $fx-cool-blue !important;
+  border-right: 1px solid $custom-color4 !important;
+}
+
+.container {
+  background-color: white;
+}
+
+.navbar .container {
+  background-color: transparent;
+}
 /* Sansation Font (Africa Fertilizer logo) */
 @font-face {
   font-family: 'sansationregular';

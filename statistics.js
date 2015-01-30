@@ -99,8 +99,7 @@ require([
 		Config,
 		Countries,
 		Regions,
-		Africa
-		) {
+		Africa) {
 
 		Config = JSON.parse(Config);
 		Countries = JSON.parse(Countries);
@@ -122,14 +121,16 @@ require([
 		var style = {
 				fill: true,
 				color: '#6AAC46',
-				opacity: 0.5,
+				weight: 1,
+				opacity: 1,
 				fillOpacity: 0.4,
 				fillColor: '#6AAC46'
 			},
 			styleHover = {
 				fill: true,
 				color: '#6AAC46',
-				opacity: 0.8,
+				weight: 1,
+				opacity: 1,
 				fillOpacity: 0.6,
 				fillColor: '#6AAC46'
 			};
@@ -156,7 +157,7 @@ require([
 				layers: L.tileLayer(Config.url_baselayer)
 			});
 
-		var geojsonRegions = L.geoJson(Africa, {
+		var geojsonRegions = L.geoJson(null, {
 			style: function (feature) {
 				return style;
 			},
@@ -200,18 +201,61 @@ require([
 			}
 		}).addTo(mapCountries);
 
-		var zoomToCountries = function(codes) {
-			var query = "SELECT ST_AsGeoJSON(ST_Transform(ST_SetSRID(geom, 3857), 4326)) "+
+		var zoomToCountries = function(fmMap, codes) {
+			var query = "SELECT ST_AsGeoJSON(ST_Transform(ST_SetSRID(ST_Extent(geom), 3857), 4326)) "+
 						"FROM spatial.gaul0_faostat3_3857 "+
-						"WHERE faost_code IN ('"+ codes.join("','") +"')",
+						"WHERE iso3 IN ('"+ codes.join("','") +"')",
 
-				url = Config.url_bbox +'faost_code/'+ encodeURIComponent(codes.join());
+				url = mapConf.url_bbox +'iso3/'+ encodeURIComponent(codes.join());
 
 			$.getJSON(url, function(json) {
 				
-				console.log(json);
+				geojsonCountries.fitBounds(json);
 
-				geojsonCountries.addData(json);
+			});
+		};
+
+		var geomCountries = function(codes) {
+			var query = "SELECT ST_AsGeoJSON(ST_Transform(ST_SetSRID(ST_Union(geom), 3857), 4326)) "+
+						"FROM spatial.gaul0_faostat3_3857 "+
+						"WHERE faost_code IN ("+ codes.join(",") +")",
+
+				url = Config.url_spatialquery + encodeURIComponent(query);
+
+			$.getJSON(url, function(json) {
+
+				var geom = JSON.parse(json[0][0]);
+
+				geojsonCountries.clearLayers().addData( geom );
+
+				mapCountries.fitBounds( geojsonCountries.getBounds() );
+
+			});
+		};
+
+		var geomRegions = function(regCode) {
+
+			codes = _.filter(Countries, function(v) {
+				return v[0] == regCode;
+			});
+
+			codes = _.map(codes, function(v) {
+				return v[1];
+			});
+
+			var query = "SELECT ST_AsGeoJSON(ST_Transform(ST_SetSRID(ST_Union(geom), 3857), 4326)) "+
+						"FROM spatial.gaul0_faostat3_3857 "+
+						"WHERE faost_code IN ("+ codes.join(",") +")",
+
+				url = Config.url_spatialquery + encodeURIComponent(query);
+
+			$.getJSON(url, function(json) {
+
+				var geom = JSON.parse(json[0][0]);
+
+				geojsonRegions.clearLayers().addData( geom );
+
+				mapRegions.fitBounds( geojsonRegions.getBounds() );
 
 			});
 		};
@@ -226,9 +270,23 @@ require([
 			mapCountries[ z>0 ? 'zoomIn' : 'zoomOut' ]();
 		});
 
-		listCountries$.on('click', 'option', function(e) {
-			var code = $(e.target).attr('value');
-			console.log( code ) ;
-			zoomToCountries([code]);
+		listRegions$.on('click', 'option', function(e) {
+			
+			//codes console.log( listCountries$.parent().val() )
+
+			var regCode = $(e.target).attr('value');
+			
+			geomRegions(regCode);
+
 		});
+
+		listCountries$.on('click', 'option', function(e) {
+			
+			//codes console.log( listCountries$.parent().val() )
+
+			var code = $(e.target).attr('value');
+			
+			geomCountries([code]);
+
+		});		
 });

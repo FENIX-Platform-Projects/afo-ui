@@ -54,25 +54,29 @@
 
 	<div class="row">
 		<div class="col-xs-4">
-			<select id="stats_select" class="form-control" style="height:200px;width:100%" multiple >
+			<select id="stats_select" class="form-control" style="height:200px;width:100%" size="8" >
 				<optgroup label="Africa Regions" class="stats_list_regions">
 				</optgroup>
+				<optgroup></optgroup>
 				<optgroup label="Africa Countries" class="stats_list_countries">
 				</optgroup>
 			</select>
-		</div>
-		<div class="col-xs-4">
-			<div id="stats_map_regions" style="height:200px;width:100%"></div>
-			<div class="btn-group map-zooms" role="group">
-				<a href="#" class="btn btn-link" data-zoom="+1"><span class="glyphicon glyphicon-plus"></span></a>
-				<a href="#" class="btn btn-link" data-zoom="-1"><span class="glyphicon glyphicon-minus"></span></a>
-			</div>
+			<label style="padding:5px">Select by List</label>
 		</div>
 		<div class="col-xs-4">
 			<div id="stats_map_countries" style="height:200px;width:100%"></div>
 			<div class="btn-group map-zooms" role="group">
 				<a href="#" class="btn btn-link" data-zoom="+1"><span class="glyphicon glyphicon-plus"></span></a>
 				<a href="#" class="btn btn-link" data-zoom="-1"><span class="glyphicon glyphicon-minus"></span></a>
+				<label style="padding:5px">Select by Country</label>
+			</div>
+		</div>		
+		<div class="col-xs-4">
+			<div id="stats_map_regions" style="height:200px;width:100%"></div>
+			<div class="btn-group map-zooms" role="group">
+				<a href="#" class="btn btn-link" data-zoom="+1"><span class="glyphicon glyphicon-plus"></span></a>
+				<a href="#" class="btn btn-link" data-zoom="-1"><span class="glyphicon glyphicon-minus"></span></a>
+				<label style="padding:5px">Select by Region</label>
 			</div>
 		</div>
 	</div>

@@ -83,8 +83,7 @@ require([
 		//    pagination: '.pagination',
 		loop: true,
 		grabCursor: true,
-		paginationClickable: true,
-		mode: 'vertical'
+		paginationClickable: true
 	});
 	$('.swipe-high-prev').on('click', function(e) {
 		e.preventDefault();

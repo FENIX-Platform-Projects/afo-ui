@@ -23,7 +23,7 @@ require.config({
         'fenix-map': '../submodules/fenix-map-js/dist/latest/fenix-map-min',
         'fenix-map-config': '../submodules/fenix-map-js/dist/latest/fenix-map-config',
         'chosen': '//fenixapps.fao.org/repository/js/chosen/1.0.0/chosen.jquery.min',
-        'leaflet': '//fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet',
+        'leaflet': '//fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet-src',
         'import-dependencies': '//fenixapps.fao.org/repository/js/FENIX/utils/import-dependencies-1.0',
         'jquery.power.tip': '//fenixapps.fao.org/repository/js/jquery.power.tip/1.1.0/jquery.powertip.min',
         'jquery-ui': '//fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min',
@@ -73,6 +73,8 @@ require([
 	Config,
 	TopMenu) {
 
+	Config = JSON.parse(Config);
+
 	new TopMenu({
 		url: 'json/fenix-ui-topmenu_config.json',
 		active: "events"
@@ -111,12 +113,22 @@ require([
 		mySwiperMap.swipeNext();
 	});
 
-/*	var swiperMapOpts = {zoomControl: false, attributionControl: false},
-		mapSlide1 = L.map('mapSlide1', swiperMapOpts),
-		mapSlide2 = L.map('mapSlide2', swiperMapOpts),
-		mapSlide3 = L.map('mapSlide3', swiperMapOpts);
-
-*/
-
+	var swiperMapOpts = {
+			zoom: 4,
+			zoomControl: false,
+			attributionControl: false,
+			center: L.latLng(20,0),
+			layers: L.tileLayer(Config.url_osmlayer)
+		},
+		swiperMaps = {
+			slide1: L.map('mapSlide1', swiperMapOpts),
+			slide2: L.map('mapSlide2', swiperMapOpts),
+			slide3: L.map('mapSlide3', swiperMapOpts)
+		};
+	
+/*	_.each(swiperMaps, function(map) {
+		L.control.zoom({position:'bottomright'}).addTo(map);
+	});*/
+	
 	$('.footer').load('html/footer.html');
 });

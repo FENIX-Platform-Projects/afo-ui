@@ -65,48 +65,59 @@ require.config({
 });
 
 require([
-    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars',
-    'fenix-map', 'text!../config/services.json', 'text!html/accordion.html',
-    "host", 'domready!'
-], function ($, _, bts, highcharts, jstree, Handlebars,
-             FenixMap,
-             mapConf, accordion, Host) {
+    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet',
+    'text!../config/services.json',
+	'fenix-ui-topmenu/main',
+	'domready!'
+], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L,
+	Config,
+	TopMenu) {
 
-    var host = new Host();
-    host.initFenixComponent();
+	new TopMenu({
+		url: 'json/fenix-ui-topmenu_config.json',
+		active: "events"
+	});
 
-    // Highltights
-    var mySwiper = new Swiper('#afo-high-wrapper',{
-        pagination: '.pagination',
-        loop:true,
-        grabCursor: true,
-        paginationClickable: true
-    })
-    $('.arrow-left').on('click', function(e){
-        e.preventDefault()
-        mySwiper.swipePrev()
-    })
-    $('.arrow-right').on('click', function(e){
-        e.preventDefault()
-        mySwiper.swipeNext()
-    })
+		// Highltights
+	var mySwiperHigh = $('#afo-high-wrapper').swiper({
+		//    pagination: '.pagination',
+		loop: true,
+		grabCursor: true,
+		paginationClickable: true,
+		mode: 'vertical'
+	});
+	$('.swipe-high-prev').on('click', function(e) {
+		e.preventDefault();
+		mySwiperHigh.swipePrev();
+	});
+	$('.swipe-high-next').on('click', function(e) {
+		e.preventDefault();
+		mySwiperHigh.swipeNext();
+	});
 
-    //Maps
-    var mySwiper = new Swiper('#afo-maps-wrapper',{
-        pagination: '.pagination',
-        loop:true,
-        grabCursor: true,
-        paginationClickable: true,
-        mode: 'vertical'
-    })
-    $('.arrow-left').on('click', function(e){
-        e.preventDefault()
-        mySwiper.swipePrev()
-    })
-    $('.arrow-right').on('click', function(e){
-        e.preventDefault()
-        mySwiper.swipeNext()
-    })
+	//Maps
+	var mySwiperMap = $('#afo-maps-wrapper').swiper({
+		//    pagination: '.pagination',
+		loop: true,
+		grabCursor: true,
+		paginationClickable: true,
+		mode: 'vertical'
+	});
+	$('.swipe-maps-prev').on('click', function(e) {
+		e.preventDefault();
+		mySwiperMap.swipePrev();
+	});
+	$('.swipe-maps-next').on('click', function(e) {
+		e.preventDefault();
+		mySwiperMap.swipeNext();
+	});
 
-    $('.footer').load('html/footer.html');
+/*	var swiperMapOpts = {zoomControl: false, attributionControl: false},
+		mapSlide1 = L.map('mapSlide1', swiperMapOpts),
+		mapSlide2 = L.map('mapSlide2', swiperMapOpts),
+		mapSlide3 = L.map('mapSlide3', swiperMapOpts);
+
+*/
+
+	$('.footer').load('html/footer.html');
 });

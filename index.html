@@ -22,6 +22,21 @@
 
     <link rel="stylesheet" href="css/host.css">
 
+<style>
+
+/* 
+
+TODO CONVERT AND MOVE TO SCSS FILES
+
+*/	
+
+.swiper-map {
+	height: 100%;
+	width: 100%;
+}
+
+</style>
+
 </head>
 <body>
 
@@ -56,35 +71,36 @@
     <div class="row">
 
         <div class="col-xs-8">
-
             <div id="afo-high-swiper-container-wrapper">
-                <a class="arrow-left" href="#"></a>
-                <a class="arrow-right" href="#"></a>
+                <a class="swipe-high-prev" href="#">[prev]</a>
+                <a class="swipe-high-next" href="#">[next]</a>
                 <div class="swiper-container" id="afo-high-wrapper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"> Bella pe te </div>
                         <div class="swiper-slide"> <img src="css/img/argus_logo.jpg"> </div>
                     </div>
                 </div>
-                <div class="pagination"></div>
             </div>
-
         </div>
 
         <div class="col-xs-4">
-
             <div id="afo-maps-swiper-container-wrapper">
-                <a class="arrow-left" href="#"></a>
-                <a class="arrow-right" href="#"></a>
+                <a class="swipe-maps-prev" href="#">[prev]</a>
+                <a class="swipe-maps-next" href="#">[next]</a>
                 <div class="swiper-container" id="afo-maps-wrapper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"> <img src="css/img/argus.jpg"> </div>
-                        <div class="swiper-slide"> <img src="css/img/argus_logo.jpg"> </div>
+                        <div class="swiper-slide">
+                        	<div class="swiper-map" id="mapSlide1"><img src="css/img/argus_logo.jpg"></div>
+                        </div>
+                        <div class="swiper-slide">
+                        	<div class="swiper-map" id="mapSlide2"><img src="css/img/argus_logo.jpg"></div>
+                        </div>
+                        <div class="swiper-slide">
+                        	<div class="swiper-map" id="mapSlide3"><img src="css/img/argus_logo.jpg"></div>
+                        </div>                        
                     </div>
                 </div>
-                <div class="pagination"></div>
             </div>
-
         </div>
 
     </div>

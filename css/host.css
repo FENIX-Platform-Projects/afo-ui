@@ -1891,6 +1891,11 @@ p.fx-strong {
     #afo-high-swiper-container-wrapper .arrow-right.arrow-disabled {
       background: url(img/afo-arrow-right-off.svg) no-repeat; }
 
+.afo-slider-1 {
+  background: url(img/afo-home-slider-1.jpg) no-repeat;
+  background-size: cover;
+  background-position: 50% 50%; }
+
 /* Maps */
 #afo-maps-swiper-container-wrapper {
   width: 100%;

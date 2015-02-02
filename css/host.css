@@ -859,9 +859,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 .navbar .lang_picker {
   height: 22px;
   margin-top: 13px;
-  text-transform: uppercase;
-  display: none;
-}
+  text-transform: uppercase; }
 
 .navbar .lang_picker li {
   cursor: pointer;
@@ -1773,65 +1771,6 @@ p.fx-strong {
   font-weight: 700;
   position: relative; }
 
-/* SWIPER */
-.jumbotron-wrapper {
-  background-image: url("img/home-bg.jpg");
-  background-size: cover;
-  background-position: 0 8%; }
-
-.jumbotron, .jumbotron h1, .jumbotron h2 {
-  color: white;
-  font-weight: normal; }
-
-.container .jumbotron {
-  padding: 0;
-  margin: 0; }
-
-.jumbotron p {
-  font-size: 12px; }
-
-.jumbotron h1 {
-  font-size: 30px; }
-
-.jumbotron .swiper-container {
-  width: 100%;
-  height: 250px;
-  color: white; }
-
-.jumbotron {
-  background-color: transparent; }
-  .jumbotron .btn {
-    border-color: white;
-    padding: 3px 12px; }
-    .jumbotron .btn:hover {
-      border-color: white; }
-  .jumbotron .btn-default:hover, .jumbotron .btn-default:focus, .jumbotron .btn-default:active, .jumbotron .btn-default.active, .jumbotron .open > .dropdown-toggle.btn-default {
-    background-color: white;
-    color: #336600; }
-
-.swiper-container {
-  width: 100%;
-  color: white; }
-  .swiper-container .swiper-slide h1 {
-    font-family: Roboto;
-    font-weight: 100;
-    font-size: 50px; }
-  .swiper-container .swiper-slide h4 {
-    color: white; }
-
-.swiper-slide .title {
-  font-style: italic;
-  font-size: 42px;
-  margin-top: 80px;
-  margin-bottom: 0;
-  line-height: 45px; }
-
-.swiper-visible-switch {
-  background: #dddddd; }
-
-.swiper-active-switch {
-  background: white; }
-
 /* AFO - Prices Page Style */
 .afo-prices-international-chart {
   height: 400px; }
@@ -1928,6 +1867,131 @@ p.fx-strong {
 
 .fx-handle {
   border: none; }
+
+/* Africa Fertilizer - Swiper */
+/* Highlights */
+#afo-high-swiper-container-wrapper {
+  width: 100%;
+  height: 340px;
+  padding: 30px 40px;
+  border-radius: 20px;
+  background: #111;
+  border: 3px solid white;
+  margin: 5px auto;
+  position: relative;
+  box-shadow: 0px 0px 5px #000; }
+
+.device .arrow-left {
+  background: url(img/arrows.png) no-repeat left top;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  margin-top: -15px;
+  width: 17px;
+  height: 30px; }
+
+.device .arrow-right {
+  background: url(img/arrows.png) no-repeat left bottom;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -15px;
+  width: 17px;
+  height: 30px; }
+
+.swiper-container {
+  height: 300px;
+  width: 100%; }
+
+.content-slide {
+  padding: 20px;
+  color: #fff; }
+
+.title {
+  font-size: 25px;
+  margin-bottom: 10px; }
+
+.pagination {
+  position: absolute;
+  left: 0;
+  text-align: center;
+  bottom: 5px;
+  width: 100%; }
+
+.swiper-pagination-switch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background: #999;
+  box-shadow: 0px 1px 2px #555 inset;
+  margin: 0 3px;
+  cursor: pointer; }
+
+.swiper-active-switch {
+  background: #fff; }
+
+/* Maps */
+#afo-maps-swiper-container-wrapper {
+  width: 100%;
+  height: 340px;
+  padding: 30px 40px;
+  border-radius: 20px;
+  background: #111;
+  border: 3px solid white;
+  margin: 5px auto;
+  position: relative;
+  box-shadow: 0px 0px 5px #000; }
+
+.device .arrow-left {
+  background: url(img/arrows.png) no-repeat left top;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  margin-top: -15px;
+  width: 17px;
+  height: 30px; }
+
+.device .arrow-right {
+  background: url(img/arrows.png) no-repeat left bottom;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -15px;
+  width: 17px;
+  height: 30px; }
+
+.swiper-container {
+  height: 300px;
+  width: 100%; }
+
+.content-slide {
+  padding: 20px;
+  color: #fff; }
+
+.title {
+  font-size: 25px;
+  margin-bottom: 10px; }
+
+.pagination {
+  position: absolute;
+  left: 0;
+  text-align: center;
+  bottom: 5px;
+  width: 100%; }
+
+.swiper-pagination-switch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background: #999;
+  box-shadow: 0px 1px 2px #555 inset;
+  margin: 0 3px;
+  cursor: pointer; }
+
+.swiper-active-switch {
+  background: #fff; }
 
 /* Special Modules */
 /* columns of same height styles */

@@ -75,5 +75,38 @@ require([
     var host = new Host();
     host.initFenixComponent();
 
+    // Highltights
+    var mySwiper = new Swiper('#afo-high-wrapper',{
+        pagination: '.pagination',
+        loop:true,
+        grabCursor: true,
+        paginationClickable: true
+    })
+    $('.arrow-left').on('click', function(e){
+        e.preventDefault()
+        mySwiper.swipePrev()
+    })
+    $('.arrow-right').on('click', function(e){
+        e.preventDefault()
+        mySwiper.swipeNext()
+    })
+
+    //Maps
+    var mySwiper = new Swiper('#afo-maps-wrapper',{
+        pagination: '.pagination',
+        loop:true,
+        grabCursor: true,
+        paginationClickable: true,
+        mode: 'vertical'
+    })
+    $('.arrow-left').on('click', function(e){
+        e.preventDefault()
+        mySwiper.swipePrev()
+    })
+    $('.arrow-right').on('click', function(e){
+        e.preventDefault()
+        mySwiper.swipeNext()
+    })
+
     $('.footer').load('html/footer.html');
 });

@@ -30,7 +30,8 @@ require.config({
         'jquery.i18n.properties': '//fenixapps.fao.org/repository/js/jquery/1.0.9/jquery.i18n.properties-min',
         'jquery.hoverIntent': '//fenixapps.fao.org/repository/js/jquery.hoverIntent/1.0/jquery.hoverIntent',
 
-        'fenix-ui-topmenu'      :'../scripts/components/fenix-ui-topmenu'
+        //'fenix-ui-topmenu': '../scripts/components/fenix-ui-topmenu/main',
+        'fenix-ui-menu': '../submodules/fenix-ui-menu/main'
     },
 
     shim: {
@@ -62,10 +63,29 @@ require.config({
     }
 });
 
+require(['submodules/fenix-ui-menu/js/paths',
+		 'submodules/fenix-ui-common/js/Compiler'
+		 ], function(Menu, Compiler) {
+
+    var menuConfig = Menu;
+    menuConfig['baseUrl'] = '../../submodules/fenix-ui-menu/js';
+
+    Compiler.resolve([menuConfig], {
+        placeholders: {
+            "FENIX_CDN": "//fenixapps.fao.org/repository"
+        }
+    });
+
+    require(['fx-menu/start'], function(TopMenu) {
+
+        new TopMenu({
+            url: 'config/submodules/fx-menu/fenix-ui-topmenu_config.json',
+            active: "analysis"
+        });
 require([
     'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet',
     'text!../config/services.json',
-	'fenix-ui-topmenu/main',
+	'fenix-ui-topmenu',
 	'domready!'
 ], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L,
 	Config,
@@ -73,10 +93,13 @@ require([
 
 	Config = JSON.parse(Config);
 
-	new TopMenu({
-		url: 'json/fenix-ui-topmenu_config.json',
-		active: "home"
-	});
+    require(['fx-menu/start'], function (TopMenu) {
+
+        new TopMenu({
+            url: 'config/fenix-ui-menu.json',
+            active: 'home'
+        });
+    });
 
 	var swiperMapOpts = {
 			zoom: 4,

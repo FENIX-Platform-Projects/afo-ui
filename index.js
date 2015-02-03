@@ -91,7 +91,6 @@ require([
 
 	swiperMaps.slide1 = L.map('mapSlide1', swiperMapOpts);
 	swiperMaps.slide1.addControl(L.control.zoom({position:'bottomright'}));
-	swiperMaps.slide1.invalidateSize();
 
 	swiperMaps.slide2 = L.map('mapSlide2', {
 		zoom: 4,
@@ -102,13 +101,33 @@ require([
 	});
 
 	swiperMaps.slide2.addControl(L.control.zoom({position:'bottomright'}));
-	swiperMaps.slide2.invalidateSize();
-	//$(map.getContainer()).css({position:'absolute'})
 
-		// Highltights
+	//Maps
+	var mySwiperMap = $('#afo-maps-wrapper').swiper({
+		loop: false,
+		simulateTouch: false,
+		mode: 'vertical',
+		onSwiperCreated: function() {
+			swiperMaps.slide1.invalidateSize();
+		},
+		onSlideChangeEnd: function() {
+			swiperMaps.slide1.invalidateSize();
+			swiperMaps.slide2.invalidateSize();	
+		}
+	});
+	$('.swipe-maps-prev').on('click', function(e) {
+		e.preventDefault();
+		mySwiperMap.swipePrev();
+	});
+	$('.swipe-maps-next').on('click', function(e) {
+		e.preventDefault();
+		mySwiperMap.swipeNext();
+	});
+
+	// Highltights
 	var mySwiperHigh = $('#afo-high-wrapper').swiper({
 		loop: true,
-		simulateTouch: false,
+		simulateTouch: false
 	});
 	$('.swipe-high-prev').on('click', function(e) {
 		e.preventDefault();
@@ -119,20 +138,5 @@ require([
 		mySwiperHigh.swipeNext();
 	});
 
-	//Maps
-	var mySwiperMap = $('#afo-maps-wrapper').swiper({
-		loop: false,
-		simulateTouch: false,
-		mode: 'vertical'
-	});
-	$('.swipe-maps-prev').on('click', function(e) {
-		e.preventDefault();
-		mySwiperMap.swipePrev();
-	});
-	$('.swipe-maps-next').on('click', function(e) {
-		e.preventDefault();
-		mySwiperMap.swipeNext();
-	});
-	
 	$('.footer').load('html/footer.html');
 });

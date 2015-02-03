@@ -100,7 +100,7 @@ require([
 	var mySwiperMap = $('#afo-maps-wrapper').swiper({
 		//    pagination: '.pagination',
 		loop: true,
-		grabCursor: true,
+		//grabCursor: true,
 		paginationClickable: true,
 		mode: 'vertical'
 	});
@@ -126,9 +126,12 @@ require([
 			slide3: L.map('mapSlide3', swiperMapOpts)
 		};
 	
-/*	_.each(swiperMaps, function(map) {
+	window.swiperMaps = swiperMaps;
+
+	_.each(swiperMaps, function(map) {
 		L.control.zoom({position:'bottomright'}).addTo(map);
-	});*/
+		$(map.getContainer()).css({position:'absolute'})
+	});
 	
 	$('.footer').load('html/footer.html');
 });

@@ -12,9 +12,14 @@ body{
   color: $fenix-text;
 }
 
+.navbar{
+  min-height: 49px;
+}
+
 .navbar-default {
   @include fx-gradient(#a0c03a, #5ba539);
   border: none;
+
 
   li {
 

@@ -2005,6 +2005,10 @@ p.fx-strong {
   height: 49px;
   border: 1px solid #e4e4e4; }
 
+.swiper-map {
+  width: 100%;
+  height: 100%; }
+
 /* Special Modules */
 /* columns of same height styles */
 .container-xs-height {
@@ -2158,6 +2162,9 @@ body {
   border-top: 50px solid #f1eff0;
   background-color: #f1eff0;
   color: #666666; }
+
+.navbar {
+  min-height: 49px; }
 
 .navbar-default {
   background-color: #a0c03a;

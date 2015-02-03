@@ -7,6 +7,34 @@
   height: 389px;
   position: relative;
 
+    .swiper-slide{
+      padding: 50px;
+    }
+
+    .afo-swiper-caption{
+      position: relative;
+      top: 50%;
+      @include fx-transfor-me(translateY(-55%));
+    }
+    .afo-slider-header {
+      color: white;
+      border-bottom: 1px solid white;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+    .afo-slider-title {
+      color: white;
+      margin-top: 10px;
+    }
+    .afo-slider-subtitle{
+      color: white;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
     .arrow-left {
       background: url(img/afo-arrow-left-on.svg) no-repeat;
       width: 48px;

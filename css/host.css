@@ -280,6 +280,9 @@
 .fa-th:before {
   content: "\f00a"; }
 
+.fa-home:before {
+  content: "\f015"; }
+
 .fa-clock-o:before {
   content: "\f017"; }
 
@@ -340,7 +343,7 @@
 /* Fenix Typography */
 body {
   color: #666666;
-  font: normal normal 300 13px/normal "Roboto Condensed"; }
+  font: normal normal 300 13px/normal "Roboto"; }
 
 a {
   color: #336600; }
@@ -354,7 +357,7 @@ a {
   color: #666666; }
 
 h1 {
-  font: normal normal 100 32px/normal "sansation_lightlight";
+  font: normal normal 100 36px/normal "Roboto";
   color: #336600; }
 
 h2 {
@@ -362,11 +365,11 @@ h2 {
   color: #33570f; }
 
 h3 {
-  font: normal normal 500 14px/normal "Roboto Condensed";
+  font: normal normal 500 14px/normal "Roboto";
   color: #334d19; }
 
 h4 {
-  font: normal normal 500 14px/normal "Roboto Condensed";
+  font: normal normal 500 14px/normal "Roboto";
   color: #334224; }
 
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {
@@ -402,7 +405,7 @@ input[type="button"]::-moz-focus-inner {
   background-color: #336600;
   color: white;
   border-color: transparent;
-  font: normal normal 300 13px/normal "Roboto Condensed"; }
+  font: normal normal 300 13px/normal "Roboto"; }
   .btn:hover {
     background-color: transparent;
     color: #336600;
@@ -419,7 +422,7 @@ input[type="button"]::-moz-focus-inner {
   background-color: transparent;
   color: #666666;
   border-color: transparent;
-  font: normal normal 300 13px/normal "Roboto Condensed"; }
+  font: normal normal 300 13px/normal "Roboto"; }
   .fx-button-reset:hover {
     background-color: transparent;
     color: #666666;
@@ -454,7 +457,7 @@ input[type="button"]::-moz-focus-inner {
 .fx-circle-number {
   color: white;
   display: inline-block;
-  font: normal normal 500 14px/normal "Roboto Condensed";
+  font: normal normal 500 14px/normal "Roboto";
   height: 20px;
   width: 20px;
   line-height: 20px;
@@ -496,7 +499,7 @@ input[type=text]::-ms-clear {
 
 /* Fenix - Labels Component */
 label {
-  font: normal normal 300 13px/normal "Roboto Condensed"; }
+  font: normal normal 300 13px/normal "Roboto"; }
 
 /* Fenix - Legend Component */
 legend {
@@ -638,7 +641,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   padding-top: 5px; }
   .obj-box-title h4 {
     color: #336600;
-    font: normal normal 500 14px/normal "Roboto Condensed"; }
+    font: normal normal 500 14px/normal "Roboto"; }
 
 /* Fenix - Panel Component */
 .panel-group {
@@ -665,7 +668,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
     border-radius: 0;
     padding: 10px; }
     .panel-group .panel-heading .panel-title {
-      font: normal normal 300 16px/normal "Roboto Condensed"; }
+      font: normal normal 300 16px/normal "Roboto"; }
       .panel-group .panel-heading .panel-title a {
         color: #666666;
         text-transform: uppercase; }
@@ -681,7 +684,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
     background-color: transparent;
     color: #666666;
     border-color: transparent;
-    font: normal normal 300 13px/normal "Roboto Condensed";
+    font: normal normal 300 13px/normal "Roboto";
     text-align: left;
     position: relative; }
     .panel-group .panel-body .btn:hover {
@@ -1147,7 +1150,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   background: none;
   color: white;
   display: inline-block;
-  font: normal normal 500 14px/normal "Roboto Condensed";
+  font: normal normal 500 14px/normal "Roboto";
   height: 20px;
   width: 20px;
   line-height: 20px;
@@ -1176,7 +1179,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 
 /* Fenix - JQwidgets */
 .jqx-widget {
-  font: normal normal 300 13px/normal "Roboto Condensed"; }
+  font: normal normal 300 13px/normal "Roboto"; }
 
 .jqx-widget-content {
   color: #666666;
@@ -1948,6 +1951,29 @@ p.fx-strong {
   width: 100%;
   height: 389px;
   position: relative; }
+  #afo-high-swiper-container-wrapper .swiper-slide {
+    padding: 50px; }
+  #afo-high-swiper-container-wrapper .afo-swiper-caption {
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-55%);
+    -webkit-transform: translateY(-55%);
+    transform: translateY(-55%); }
+  #afo-high-swiper-container-wrapper .afo-slider-header {
+    color: white;
+    border-bottom: 1px solid white;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase; }
+  #afo-high-swiper-container-wrapper .afo-slider-title {
+    color: white;
+    margin-top: 10px; }
+  #afo-high-swiper-container-wrapper .afo-slider-subtitle {
+    color: white;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase; }
   #afo-high-swiper-container-wrapper .arrow-left {
     background: url(img/afo-arrow-left-on.svg) no-repeat;
     width: 48px;
@@ -2099,12 +2125,7 @@ p.fx-strong {
   font: normal normal 400 10px/normal "Roboto";
   text-transform: uppercase; }
   .afo-footer-item h3 {
-    background-color: #5ba539;
-    margin-top: 27px;
-    display: inline-block;
-    font: normal normal 400 10px/normal "Roboto";
-    color: white;
-    padding: 2px 7px; }
+    margin-top: 27px; }
   .afo-footer-item ul {
     list-style: none;
     padding-left: 0; }
@@ -2152,6 +2173,21 @@ p.fx-strong {
 .navbar .lang_picker {
   height: auto !important;
   margin-top: 0 !important; }
+
+/* AFO  BreadCrumbs */
+.breadcrumb {
+  background-color: transparent;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 8px 0;
+  margin-bottom: 0; }
+  .breadcrumb a {
+    color: #5ba539;
+    text-transform: uppercase; }
+
+.breadcrumb > li + li:before {
+  content: '|';
+  color: #5ba539; }
 
 /* Theme */
 /* AFO Theme */
@@ -2444,3 +2480,17 @@ table {
 thead {
   font-style: normal;
   font-weight: normal; }
+
+.afo-title {
+  background-color: #5ba539;
+  display: inline-block;
+  font: normal normal 400 10px/normal "Roboto";
+  color: white;
+  padding: 2px 7px; }
+
+.afo-title-blue {
+  background-color: #5ca7d8;
+  display: inline-block;
+  font: normal normal 400 10px/normal "Roboto";
+  color: white;
+  padding: 2px 7px; }

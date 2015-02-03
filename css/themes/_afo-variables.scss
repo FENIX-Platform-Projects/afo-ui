@@ -7,14 +7,15 @@ $host-menu-height : 49px;
 
 // Typography
 $small-text : 12px;
-$standard-text-size: 13px;$standard-text : normal normal 300 $standard-text-size/normal 'Roboto Condensed';
-$standard-text-bold : normal normal 500 14px/normal 'Roboto Condensed';
-$standard-text-big : normal normal 300 16px/normal 'Roboto Condensed';
+$standard-text-size: 13px;
+$standard-text : normal normal 300 $standard-text-size/normal 'Roboto';
+$standard-text-bold : normal normal 500 14px/normal 'Roboto';
+$standard-text-big : normal normal 300 16px/normal 'Roboto';
 
-$fx-text-h1: normal normal 100 32px/normal 'sansation_lightlight';
+$fx-text-h1: normal normal 100 36px/normal 'Roboto';
 $fx-text-h2: normal normal 100 18px/normal 'sansation_lightlight';
-$fx-text-h3: normal normal 500 14px/normal 'Roboto Condensed';
-$fx-text-h4: normal normal 500 14px/normal 'Roboto Condensed';
+$fx-text-h3: normal normal 500 14px/normal 'Roboto';
+$fx-text-h4: normal normal 500 14px/normal 'Roboto';
 
 $afo-text-menu-item: normal normal 300 12px/normal 'Roboto';
 
@@ -43,6 +44,7 @@ $light-brown: #f3efe0;
 
 $afo-gray-dark: #d3d3d3;
 $afo-green-title: #5ba539;
+$afo-blue-title: #5ca7d8;
 $afo-hairline: #e4e4e4;
 
 

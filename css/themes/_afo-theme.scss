@@ -362,3 +362,18 @@ thead{
   font-weight: normal ;
 }
 
+.afo-title{
+    background-color: $afo-green-title;
+    display: inline-block;
+    font: $fx-text-smalltitle-normal;
+    color: white;
+    padding: 2px 7px;
+}
+
+.afo-title-blue{
+  background-color: $afo-blue-title;
+  display: inline-block;
+  font: $fx-text-smalltitle-normal;
+  color: white;
+  padding: 2px 7px;
+}

@@ -91,6 +91,7 @@ require([
 
 	swiperMaps.slide1 = L.map('mapSlide1', swiperMapOpts);
 	swiperMaps.slide1.addControl(L.control.zoom({position:'bottomright'}));
+	swiperMaps.slide1.invalidateSize();
 
 	swiperMaps.slide2 = L.map('mapSlide2', {
 		zoom: 4,
@@ -101,11 +102,8 @@ require([
 	});
 
 	swiperMaps.slide2.addControl(L.control.zoom({position:'bottomright'}));
-	
-
+	swiperMaps.slide2.invalidateSize();
 	//$(map.getContainer()).css({position:'absolute'})
-	
-
 
 		// Highltights
 	var mySwiperHigh = $('#afo-high-wrapper').swiper({

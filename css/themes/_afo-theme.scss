@@ -17,7 +17,7 @@ body{
   border: none;
 
   li {
-  height: 50px !important;
+
     a{
       font: $afo-text-menu-item !important;
       color: white !important;
@@ -26,6 +26,7 @@ body{
       padding-bottom: 16px !important;
       border-color: $custom-color4 !important;
       border-bottom-color: transparent !important;
+      border-bottom: 0px !important;
       border-right: 1px solid $custom-color4;
     }
   }
@@ -35,7 +36,7 @@ body{
 .navbar-brand{
   background-image: url("img/afo-ico.svg") !important; /* To be removed */
   background-size: 40px 40px !important;
-  height: 50px;
+
   width: 50px;
   background-repeat: no-repeat;
   background-color: white;

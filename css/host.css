@@ -2144,6 +2144,11 @@ p.fx-strong {
     .afo-footer-sub a:hover {
       color: white; }
 
+/* AFO Lang Picker */
+.navbar .lang_picker {
+  height: auto !important;
+  margin-top: 0 !important; }
+
 /* Theme */
 /* AFO Theme */
 html {
@@ -2168,23 +2173,21 @@ body {
   -webkit-background-clip: padding-box;
   background-repeat: no-repeat;
   border: none; }
-  .navbar-default li {
-    height: 50px !important; }
-    .navbar-default li a {
-      font: normal normal 300 12px/normal "Roboto" !important;
-      color: white !important;
-      text-transform: uppercase;
-      padding-top: 16px !important;
-      padding-bottom: 16px !important;
-      border-color: #457f25 !important;
-      border-bottom-color: transparent !important;
-      border-right: 1px solid #457f25; }
+  .navbar-default li a {
+    font: normal normal 300 12px/normal "Roboto" !important;
+    color: white !important;
+    text-transform: uppercase;
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+    border-color: #457f25 !important;
+    border-bottom-color: transparent !important;
+    border-bottom: 0px !important;
+    border-right: 1px solid #457f25; }
 
 .navbar-brand {
   background-image: url("img/afo-ico.svg") !important;
   /* To be removed */
   background-size: 40px 40px !important;
-  height: 50px;
   width: 50px;
   background-repeat: no-repeat;
   background-color: white;

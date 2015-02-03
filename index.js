@@ -77,7 +77,7 @@ require([
 
 	new TopMenu({
 		url: 'json/fenix-ui-topmenu_config.json',
-		active: "events"
+		active: "home"
 	});
 
 	var swiperMapOpts = {
@@ -107,12 +107,10 @@ require([
 	
 
 
-/*		// Highltights
+		// Highltights
 	var mySwiperHigh = $('#afo-high-wrapper').swiper({
-		//    pagination: '.pagination',
 		loop: false,
-		grabCursor: true,
-		paginationClickable: true
+		simulateTouch: false,
 	});
 	$('.swipe-high-prev').on('click', function(e) {
 		e.preventDefault();
@@ -121,15 +119,12 @@ require([
 	$('.swipe-high-next').on('click', function(e) {
 		e.preventDefault();
 		mySwiperHigh.swipeNext();
-	});*/
+	});
 
 	//Maps
 	var mySwiperMap = $('#afo-maps-wrapper').swiper({
-		//    pagination: '.pagination',
 		loop: false,
 		simulateTouch: false,
-		//grabCursor: true,
-		//paginationClickable: true,
 		mode: 'vertical'
 	});
 	$('.swipe-maps-prev').on('click', function(e) {

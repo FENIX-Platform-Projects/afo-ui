@@ -109,7 +109,7 @@ require([
 
 		// Highltights
 	var mySwiperHigh = $('#afo-high-wrapper').swiper({
-		loop: false,
+		loop: true,
 		simulateTouch: false,
 	});
 	$('.swipe-high-prev').on('click', function(e) {

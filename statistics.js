@@ -88,15 +88,18 @@ require([
         'leaflet',
         'fenix-ui-topmenu/main',
         'text!../config/services.json',
-        'text!../config/africa_countries.json',
-        'text!../config/africa_regions.json',
-        'text!../config/africa.json',
+
+        'text!../data/africa_countries.json',
+        'text!../data/africa_regions.json',
+        'text!../data/africa.json',
+
         'domready!'
     ],
     function ($, _, bts, highcharts, jstree, Handlebars, 
 		L,
 		TopMenu,
 		Config,
+		
 		Countries,
 		Regions,
 		Africa) {

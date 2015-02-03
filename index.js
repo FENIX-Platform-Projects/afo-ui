@@ -3,7 +3,7 @@ require.config({
     baseUrl: 'src/',
 
     paths: {
-        "host": '../scripts/index/host',
+        'host': '../scripts/index/host',
         'i18n': 'lib/i18n',
         'text': 'lib/text',
         'domready': 'lib/domready',
@@ -29,7 +29,8 @@ require.config({
         'jquery-ui': '//fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min',
         'jquery.i18n.properties': '//fenixapps.fao.org/repository/js/jquery/1.0.9/jquery.i18n.properties-min',
         'jquery.hoverIntent': '//fenixapps.fao.org/repository/js/jquery.hoverIntent/1.0/jquery.hoverIntent',
-        'fenix-ui-topmenu': '../scripts/components/fenix-ui-topmenu'
+
+        'fenix-ui-topmenu': '../submodules/fenix-ui-menu/main'
     },
 
     shim: {
@@ -67,7 +68,7 @@ require.config({
 require([
     'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet',
     'text!../config/services.json',
-	'fenix-ui-topmenu/main',
+	'fenix-ui-topmenu',
 	'domready!'
 ], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L,
 	Config,
@@ -75,10 +76,18 @@ require([
 
 	Config = JSON.parse(Config);
 
+requirejs(['./paths'], function (paths) {
+	
+	requirejs.config(paths);
+
+	requirejs(['fx-c-c/start'], function (ChartCreator) {
+
+
 	new TopMenu({
 		url: 'json/fenix-ui-topmenu_config.json',
 		active: "home"
 	});
+});
 
 	var swiperMapOpts = {
 			zoom: 4,

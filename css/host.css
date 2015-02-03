@@ -2084,7 +2084,7 @@ p.fx-strong {
   margin-top: 20px; }
 
 .afp-footer-social li {
-  float: left;
+  float: right;
   margin: 20px 6px;
   border: 1px solid #666666;
   -webkit-border-radius: 100%;
@@ -2159,7 +2159,7 @@ html {
   background-color: #f1eff0; }
 
 body {
-  border-top: 50px solid #f1eff0;
+  border-top: 49px solid #f1eff0;
   background-color: #f1eff0;
   color: #666666; }
 
@@ -2195,7 +2195,7 @@ body {
   background-image: url("img/afo-ico.svg") !important;
   /* To be removed */
   background-size: 40px 40px !important;
-  height: 49px;
+  height: 49px !important;
   width: 50px;
   background-repeat: no-repeat;
   background-color: white;

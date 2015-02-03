@@ -80,10 +80,37 @@ require([
 		active: "events"
 	});
 
-		// Highltights
+	var swiperMapOpts = {
+			zoom: 4,
+			zoomControl: false,
+			attributionControl: false,
+			center: L.latLng(20,0),
+			layers: L.tileLayer(Config.url_osmlayer)
+		},
+		swiperMaps = {};
+
+	swiperMaps.slide1 = L.map('mapSlide1', swiperMapOpts);
+	swiperMaps.slide1.addControl(L.control.zoom({position:'bottomright'}));
+
+	swiperMaps.slide2 = L.map('mapSlide2', {
+		zoom: 4,
+		zoomControl: false,
+		attributionControl: false,
+		center: L.latLng(20,0),
+		layers: L.tileLayer(Config.url_baselayer)
+	});
+
+	swiperMaps.slide2.addControl(L.control.zoom({position:'bottomright'}));
+	
+
+	//$(map.getContainer()).css({position:'absolute'})
+	
+
+
+/*		// Highltights
 	var mySwiperHigh = $('#afo-high-wrapper').swiper({
 		//    pagination: '.pagination',
-		loop: true,
+		loop: false,
 		grabCursor: true,
 		paginationClickable: true
 	});
@@ -94,14 +121,15 @@ require([
 	$('.swipe-high-next').on('click', function(e) {
 		e.preventDefault();
 		mySwiperHigh.swipeNext();
-	});
+	});*/
 
 	//Maps
 	var mySwiperMap = $('#afo-maps-wrapper').swiper({
 		//    pagination: '.pagination',
-		loop: true,
+		loop: false,
+		simulateTouch: false,
 		//grabCursor: true,
-		paginationClickable: true,
+		//paginationClickable: true,
 		mode: 'vertical'
 	});
 	$('.swipe-maps-prev').on('click', function(e) {
@@ -111,26 +139,6 @@ require([
 	$('.swipe-maps-next').on('click', function(e) {
 		e.preventDefault();
 		mySwiperMap.swipeNext();
-	});
-
-	var swiperMapOpts = {
-			zoom: 4,
-			zoomControl: false,
-			attributionControl: false,
-			center: L.latLng(20,0),
-			layers: L.tileLayer(Config.url_osmlayer)
-		},
-		swiperMaps = {
-			slide1: L.map('mapSlide1', swiperMapOpts),
-			slide2: L.map('mapSlide2', swiperMapOpts),
-			slide3: L.map('mapSlide3', swiperMapOpts)
-		};
-	
-	window.swiperMaps = swiperMaps;
-
-	_.each(swiperMaps, function(map) {
-		L.control.zoom({position:'bottomright'}).addTo(map);
-		$(map.getContainer()).css({position:'absolute'})
 	});
 	
 	$('.footer').load('html/footer.html');

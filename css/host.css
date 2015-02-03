@@ -2164,7 +2164,7 @@ body {
   color: #666666; }
 
 .navbar {
-  min-height: 49px; }
+  min-height: 40px; }
 
 .navbar-default {
   background-color: #a0c03a;
@@ -2195,6 +2195,7 @@ body {
   background-image: url("img/afo-ico.svg") !important;
   /* To be removed */
   background-size: 40px 40px !important;
+  height: 49px;
   width: 50px;
   background-repeat: no-repeat;
   background-color: white;

@@ -48,11 +48,23 @@ require.config({
 
 require([
 	'jquery','underscore','bootstrap','highcharts','jstree','handlebars',
-	'text!html/accordion.html',
+	'text!../html/pubblication.html',
 	'fenix-ui-topmenu/main',
 	'domready!'
 ], function($,_,bts,highcharts,jstree,Handlebars,
-	accordion, TopMenu) {
+	pubblication, TopMenu) {
+
+	pubblicationTmpl = Handlebars.compile(pubblication);
+
+	$.getJSON('data/pubblications.json', function(json) {
+
+		_.each(json, function(pub) {
+
+			$('#listPubs').append(pubblicationTmpl(pub));
+
+		});		
+	});
+
 
 	new TopMenu({
 		url: 'json/fenix-ui-topmenu_config.json',

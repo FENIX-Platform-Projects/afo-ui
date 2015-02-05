@@ -107,15 +107,12 @@ require(['submodules/fenix-ui-menu/js/paths',
 			transparent: true
 		});
 
-
-		var data = {
-			stylename: "fenix:gaul0_faostat_3857",
-			style: "[iso3 = 'COD'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'GHA'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'CIV'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'KEN'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'MWI'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }[iso3 = 'MOZ'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'NGA'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'SEN'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'TZA'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'UGA'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'ZMB'] { fill: #309000; fill-opacity: 0.92; stroke: #FFFFFF; }[iso3 = 'BFA'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'BDI'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'CMR'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'ETH'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }[iso3 = 'MDG'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'MLI'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'NER'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }[iso3 = 'RWA'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }[iso3 = 'TGO'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'BEN'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }"
-		};
-
 		$.ajax({
 			url: Config.sldUrl,
-			data: data,	
+			data: {
+				stylename: "fenix:gaul0_faostat_3857",
+				style: "[iso3 = 'COD'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'GHA'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'CIV'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'KEN'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'MWI'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }[iso3 = 'MOZ'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'NGA'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'SEN'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'TZA'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'UGA'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'ZMB'] { fill: #309000; fill-opacity: 0.92; stroke: #FFFFFF; }[iso3 = 'BFA'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'BDI'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'CMR'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'ETH'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }[iso3 = 'MDG'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'MLI'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'NER'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }[iso3 = 'RWA'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }[iso3 = 'TGO'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'BEN'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }"
+			},	
 			async: false,
 			type: 'POST',
 			success: function(response) {
@@ -144,7 +141,7 @@ require(['submodules/fenix-ui-menu/js/paths',
 		});
 		swiperMaps.slide2.addControl(L.control.zoom({position:'bottomright'}));
 
-		//Maps
+		//	SLIDER Maps
 		var mySwiperMap = $('#afo-maps-wrapper').swiper({
 			loop: false,
 			simulateTouch: false,
@@ -166,7 +163,7 @@ require(['submodules/fenix-ui-menu/js/paths',
 			mySwiperMap.swipeNext();
 		});
 
-		// Highltights
+		//	SLIDER Highltights
 		var mySwiperHigh = $('#afo-high-wrapper').swiper({
 			loop: true,
 			simulateTouch: false

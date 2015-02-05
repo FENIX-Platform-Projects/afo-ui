@@ -219,7 +219,7 @@ require([
 		};
 
 		var geomCountries = function(codes) {
-			var query = "SELECT ST_AsGeoJSON(ST_Transform(ST_SetSRID(ST_Union(geom), 3857), 4326)) "+
+			var query = "SELECT ST_AsGeoJSON(ST_Transform(ST_SetSRID(geom, 3857), 4326)) "+
 						"FROM spatial.gaul0_faostat3_3857 "+
 						"WHERE faost_code IN ("+ codes.join(",") +")",
 

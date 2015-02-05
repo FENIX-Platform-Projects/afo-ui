@@ -2,7 +2,7 @@
    "type" : "fixed-top",
 
    "brand": {
-      "target": "#"
+      "target": "index.html"
    },
    
    "languages": [
@@ -17,33 +17,20 @@
    ],
    "items":[
       {
-      	 "type" : "dropdown",
          "attrs": {
             "id":"home"
          },
-         "target":"../",
+         "target":"index.html",
          "label": {
             "EN": "Home",
             "FR": ""
-         },
-         "children": [
-		      {
-		         "attrs": {
-		            "id":"home"
-		         },
-		         "target":"../",
-		         "label": {
-		            "EN": "Home",
-		            "FR": ""
-		         }
-		      }
-         ]
+         }
       },
       {
          "attrs": {
             "id":"prices"
          },
-         "target":"../prices/",
+         "target":"prices.html",
          "label": {
             "EN": "Prices",
             "FR": ""
@@ -51,11 +38,11 @@
       },
       {
          "attrs": {
-            "id": "analysis"
+            "id": "statistics"
          },
-         "target": "../analysis/",
+         "target": "statistics.html",
          "label": {
-            "EN":"Analysis",
+            "EN":"Statistics",
             "FR":""
          }
       },
@@ -63,7 +50,7 @@
          "attrs": {
             "id":"catalogue"
          },
-         "target":"../catalogue/",
+         "target":"catalogue.html",
          "label": {
             "EN":"Catalogue",
             "FR":""
@@ -73,7 +60,7 @@
          "attrs": {
             "id":"directories"
          },
-         "target":"../directories/",
+         "target":"directories.html",
          "label": {
             "EN":"Directories",
             "FR":""
@@ -83,7 +70,7 @@
          "attrs": {
             "id":"publications"
          },
-         "target":"../publications/",
+         "target":"publications.html",
          "label": {
             "EN":"Publications",
             "FR":""
@@ -93,7 +80,7 @@
          "attrs": {
             "id":"policies"
          },
-         "target":"../policies/",
+         "target":"policies.html",
          "label": {
             "EN":"Policies",
             "FR":""
@@ -103,7 +90,7 @@
          "attrs": {
             "id":"market_news"
          },
-         "target":"../market_news/",
+         "target":"market_news.html",
          "label": {
             "EN":"Market news",
             "FR":""
@@ -113,7 +100,7 @@
          "attrs": {
             "id":"events"
          },
-         "target":"../events/",
+         "target":"events.html",
          "label": {
             "EN":"Events",
             "FR":""

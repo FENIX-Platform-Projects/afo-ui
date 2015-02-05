@@ -178,6 +178,9 @@ require(['submodules/fenix-ui-menu/js/paths',
 		});
 
 		$('.footer').load('html/footer.html');
+
+
+
 	});
 
 

@@ -100,11 +100,12 @@ body{
 
 .btn{
   background-color:transparent;
-  color: $fenix-text;
-  border-color: $fenix-text;
+  color: $afo-green-title;
+  border-color: $afo-green-title;
   @include fx-border-radius(0);
-  font-weight: 300;
+  font-weight: 500;
   padding: 3px 12px;
+  border-width: 2px;
 
   &:hover{
     background-color: transparent;

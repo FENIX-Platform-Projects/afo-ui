@@ -1,2 +1,26 @@
 /* AFO - Home Style */
 
+
+
+.afo-home-item{
+
+ .afo-home-item-date{
+   em{
+     font-style: normal;
+     color: $afo-green-title;
+     font-size: 12px;
+   }
+ }
+
+  .afo-home-item-title{
+    font-size: 16px;
+    min-height: 45px;
+  }
+
+  .afo-home-item-content {
+    min-height: 90px;
+  }
+
+
+
+}

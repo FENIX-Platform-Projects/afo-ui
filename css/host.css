@@ -1681,6 +1681,16 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   color: #336600; }
 
 /* AFO - Home Style */
+.afo-home-item .afo-home-item-date em {
+  font-style: normal;
+  color: #5ba539;
+  font-size: 12px; }
+.afo-home-item .afo-home-item-title {
+  font-size: 16px;
+  min-height: 45px; }
+.afo-home-item .afo-home-item-content {
+  min-height: 90px; }
+
 /* AFO - Prices Page Style */
 .afo-prices-international-chart {
   height: 400px; }
@@ -2103,14 +2113,15 @@ body {
 
 .btn {
   background-color: transparent;
-  color: #666666;
-  border-color: #666666;
+  color: #5ba539;
+  border-color: #5ba539;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   border-radius: 0;
-  font-weight: 300;
-  padding: 3px 12px; }
+  font-weight: 500;
+  padding: 3px 12px;
+  border-width: 2px; }
   .btn:hover {
     background-color: transparent;
     color: #336600;

@@ -36,6 +36,7 @@
     }
 
     .arrow-left {
+      float: left;
       background: url(img/afo-arrow-left-on.svg) no-repeat;
       width: 48px;
       height: 48px;
@@ -48,6 +49,8 @@
     }
 
     .arrow-right {
+      float: left;
+
       background: url(img/afo-arrow-right-on.svg) no-repeat;
       width: 48px;
       height: 48px;
@@ -78,6 +81,7 @@
   position: relative;
 }
 .arrow-up {
+  float: left;
   background: url(img/afo-arrow-up-on.svg) no-repeat;
   width: 48px;
   height: 48px;
@@ -90,6 +94,7 @@
 }
 
 .arrow-down {
+  float: left;
   background: url(img/afo-arrow-down-on.svg) no-repeat;
   width: 48px;
   height: 48px;
@@ -119,4 +124,24 @@
 .swiper-map{
   width: 100%;
   height: 100%;
+}
+
+.afo-box-ui-text-btn{
+  display: inline-block;
+  height: 47px;
+  line-height: 48px;
+  float: left;
+  font-size: 12px;
+  font-weight: bold;
+  color: $afo-green-title;
+  padding: 0 30px;
+  border-right: 1px solid $afo-hairline;
+
+  &:hover, &:active, &.focus, &:visited{
+    text-decoration: none;
+    background-color: $afo-btn-hover;
+    color: $afo-green-title;;
+  }
+
+
 }

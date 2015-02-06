@@ -22,26 +22,32 @@ body{
 
 
   li {
-
+    height: 50px !important;
     a{
       font: $afo-text-menu-item !important;
       color: white !important;
       text-transform: uppercase;
-      padding-top: 16px !important;
-      padding-bottom: 16px !important;
+      padding: 17px 15px 34px 15px;
+      line-height: 20px;
+      height: 50px !important;
+      display: inline-block !important;
+      border-top: 0px !important;
       border-color: $custom-color4 !important;
-      border-bottom-color: transparent !important;
+      border-bottom-color: white !important;
       border-bottom: 0px !important;
       border-right: 1px solid $custom-color4;
+      @include fx-transfor-me(translateY(-1px));
+
+
     }
   }
 
 }
 
 .navbar-brand{
-  background-image: url("img/afo-ico.svg") !important; /* To be removed */
+  background-image: url("img/afo-ico.svg"); /* To be removed */
   background-size: 40px 40px !important;
-  height: 49px !important;
+  height: 50px !important;
   width: 50px;
   background-repeat: no-repeat;
   background-color: white;

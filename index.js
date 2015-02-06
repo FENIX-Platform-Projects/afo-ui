@@ -52,14 +52,24 @@ require(['submodules/fenix-ui-menu/js/paths',
 		    },
 
 		    shim: {
-		        'bootstrap': ['jquery'],
-		        'chosen': ['jquery'],
-		        'highcharts': ['jquery'],
-		        'jstree': ['jquery'],
-		        'jquery-ui': ['jquery'],
-		        'jquery.power.tip': ['jquery'],
-		        'jquery.i18n.properties': ['jquery'],
-		        'jquery.hoverIntent': ['jquery'],
+		        'bootstrap': {
+                    deps: ['jquery']},
+		        'chosen': {
+                    deps: ['jquery']},
+		        'highcharts': {
+                    deps: ['jquery']},
+		        'jstree': {
+                    deps: ['jquery']},
+		        'jquery-ui': {
+                    deps: ['jquery']},
+		        'jquery.power.tip': {
+                    deps: ['jquery']},
+		        'jquery.i18n.properties': {
+                    deps: ['jquery']},
+		        'jquery.hoverIntent': {
+                    deps: ['jquery']},
+                "swiper": {
+                    deps: ['jquery']},
 		        'underscore': {
 		            exports: '_'
 		        },

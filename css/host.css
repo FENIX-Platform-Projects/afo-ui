@@ -844,10 +844,10 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   position: relative; }
 
 .navbar-default {
-  background-color: #ffffff; }
+  background-color: white; }
 
 .nav-pills li a {
-  color: #336601; }
+  color: #666666; }
 
 .navbar-brand {
   background-image: url("img/fenix-ico.svg");
@@ -871,7 +871,6 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 .navbar .lang_picker li a, .navbar .lang_picker li a:hover {
   color: #666666;
   display: inline-block;
-  font-size: 12px;
   line-height: 1.7;
   padding: 0 5px;
   text-align: center;
@@ -879,10 +878,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 
 .navbar .lang_picker li a:hover, .navbar .lang_picker li a.selected {
   background-color: #666666;
-  border-radius: 22px;
-  color: white;
-  height: 22px;
-  width: 22px; }
+  color: white; }
 
 .navbar .lang_picker li:last-child {
   border-right: medium none; }
@@ -1685,10 +1681,11 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   padding: 15px 0 45px 0;
   border-bottom: 1px solid #e4e4e4; }
 
-.afo-home-item .afo-home-item-date em {
-  font-style: normal;
-  color: #5ba539;
+.afo-home-item .afo-home-item-date {
   font-size: 12px; }
+  .afo-home-item .afo-home-item-date em {
+    font-style: normal;
+    color: #5ba539; }
 .afo-home-item .afo-home-item-title {
   font-size: 16px;
   min-height: 45px; }
@@ -1727,7 +1724,8 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 
 .tab-content {
   padding-top: 25px;
-  margin-bottom: 40px; }
+  margin-bottom: 40px;
+  min-height: 200px; }
 
 .nav-tabs {
   border-color: transparent; }
@@ -1875,6 +1873,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
     font-size: 12px;
     text-transform: uppercase; }
   #afo-high-swiper-container-wrapper .arrow-left {
+    float: left;
     background: url(img/afo-arrow-left-on.svg) no-repeat;
     width: 48px;
     height: 48px;
@@ -1883,6 +1882,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
     #afo-high-swiper-container-wrapper .arrow-left.arrow-disabled {
       background: url(img/afo-arrow-left-off.svg) no-repeat; }
   #afo-high-swiper-container-wrapper .arrow-right {
+    float: left;
     background: url(img/afo-arrow-right-on.svg) no-repeat;
     width: 48px;
     height: 48px;
@@ -1903,6 +1903,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   position: relative; }
 
 .arrow-up {
+  float: left;
   background: url(img/afo-arrow-up-on.svg) no-repeat;
   width: 48px;
   height: 48px;
@@ -1912,6 +1913,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
     background: url(img/afo-arrow-up-off.svg) no-repeat; }
 
 .arrow-down {
+  float: left;
   background: url(img/afo-arrow-down-on.svg) no-repeat;
   width: 48px;
   height: 48px;
@@ -1934,6 +1936,21 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 .swiper-map {
   width: 100%;
   height: 100%; }
+
+.afo-box-ui-text-btn {
+  display: inline-block;
+  height: 47px;
+  line-height: 48px;
+  float: left;
+  font-size: 12px;
+  font-weight: bold;
+  color: #5ba539;
+  padding: 0 30px;
+  border-right: 1px solid #e4e4e4; }
+  .afo-box-ui-text-btn:hover, .afo-box-ui-text-btn:active, .afo-box-ui-text-btn.focus, .afo-box-ui-text-btn:visited {
+    text-decoration: none;
+    background-color: #f2f2f2;
+    color: #5ba539; }
 
 /* Special Modules */
 /* columns of same height styles */
@@ -2116,22 +2133,30 @@ body {
   -webkit-background-clip: padding-box;
   background-repeat: no-repeat;
   border: none; }
-  .navbar-default li a {
-    font: normal normal 300 12px/normal "Roboto" !important;
-    color: white !important;
-    text-transform: uppercase;
-    padding-top: 16px !important;
-    padding-bottom: 16px !important;
-    border-color: #457f25 !important;
-    border-bottom-color: transparent !important;
-    border-bottom: 0px !important;
-    border-right: 1px solid #457f25; }
+  .navbar-default li {
+    height: 50px !important; }
+    .navbar-default li a {
+      font: normal normal 300 12px/normal "Roboto" !important;
+      color: white !important;
+      text-transform: uppercase;
+      padding: 17px 15px 34px 15px;
+      line-height: 20px;
+      height: 50px !important;
+      display: inline-block !important;
+      border-top: 0px !important;
+      border-color: #457f25 !important;
+      border-bottom-color: white !important;
+      border-bottom: 0px !important;
+      border-right: 1px solid #457f25;
+      -ms-transform: translateY(-1px);
+      -webkit-transform: translateY(-1px);
+      transform: translateY(-1px); }
 
 .navbar-brand {
-  background-image: url("img/afo-ico.svg") !important;
+  background-image: url("img/afo-ico.svg");
   /* To be removed */
   background-size: 40px 40px !important;
-  height: 49px !important;
+  height: 50px !important;
   width: 50px;
   background-repeat: no-repeat;
   background-color: white;

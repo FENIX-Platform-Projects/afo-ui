@@ -10,10 +10,11 @@
 .afo-home-item{
 
  .afo-home-item-date{
+   font-size: 12px;
    em{
      font-style: normal;
      color: $afo-green-title;
-     font-size: 12px;
+
    }
  }
 
@@ -73,6 +74,7 @@
 .tab-content{
   padding-top: 25px;
   margin-bottom: 40px;
+  min-height: 200px;
 }
 
 .nav-tabs{

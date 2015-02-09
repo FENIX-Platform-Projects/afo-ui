@@ -17,6 +17,9 @@ body{
   min-height: $host-menu-height; //It has to be defined - Very important Bootstrap override
 }
 
+.navbar-default .navbar-nav > li > a{
+  color: white;
+}
 
 .navbar-default {
   @include fx-gradient(#a0c03a, #5ba539);
@@ -32,7 +35,8 @@ body{
     border-right: 1px solid $custom-color4;
     a{
       font: $afo-text-menu-item;
-      color: white !important;
+
+
       text-transform: uppercase;
       height: $host-menu-height;
 //      padding: 17px 15px 34px 15px;
@@ -52,13 +56,25 @@ body{
 
 }
 
-.afo-eldorado-icons{
 
-  a{
-    font-family: 'eldorado_stroke';
+.fx-menu{
+  .navbar-right{
+    li {
+      border-right: 0;
+
+    }
   }
+}
 
 
+#login {
+  a{
+    padding: 0;
+    span{
+      -webkit-font-smoothing: auto;
+      -moz-osx-font-smoothing: auto;
+    }
+  }
 }
 
 .navbar-brand{
@@ -401,4 +417,12 @@ thead{
   font: $fx-text-smalltitle-normal;
   color: white;
   padding: 2px 7px;
+}
+
+.dropdown-menu{
+  li{
+    a{
+      color: $afo-green-title;
+    }
+  }
 }

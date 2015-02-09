@@ -1,133 +1,121 @@
 {
-   "type" : "fixed-top",
-
-   "brand": {
-      "target": "index.html"
-   },
-   
-   "languages": [
-      {
-         "lang":"EN",
-         "label":"En"
+  "type": "fixed-top",
+  "brand": {
+    "target": "index.html"
+  },
+  "languages": [
+    {
+      "lang": "EN",
+      "label": "En"
+    },
+    {
+      "lang": "FR",
+      "label": "Fr"
+    }
+  ],
+  "items": [
+    {
+      "attrs": {
+        "id": "home"
       },
-      {
-         "lang":"FR",
-         "label":"Fr"
+      "target": "index.html",
+      "label": {
+        "EN": "Home",
+        "FR": ""
+      },
+      "breadcrumbLabel": {
+        "EN": "WELCOME TO THE AFRICA FERTILIZER INFORMATION PORTAL",
+        "FR": ""
       }
-   ],
-   "items":[
-      {
-         "attrs": {
-            "id":"prices"
-         },
-         "target":"prices.html",
-         "label": {
-            "EN": "Prices",
-            "FR": ""
-         },
-         "type": "dropdown",
-         "children": [
-	      {
-	         "attrs": {
-	            "id": "prices_international"
-	         },
-	         "target": "prices_international.html",
-	         "label": {
-	            "EN":"Prices International",
-	            "FR":""
-	         }
-	      },
-	      {
-	         "attrs": {
-	            "id": "prices_national"
-	         },
-	         "target": "prices_national.html",
-	         "label": {
-	            "EN":"Prices National",
-	            "FR":""
-	         }
-	      },
-	      {
-	         "attrs": {
-	            "id": "prices_retail"
-	         },
-	         "target": "prices_retail.html",
-	         "label": {
-	            "EN":"Prices Retail",
-	            "FR":""
-	         }
-	      }	      	      
-         ]
+    },
+    {
+      "attrs": {
+        "id": "prices"
       },
-      {
-         "attrs": {
-            "id": "statistics"
-         },
-         "target": "statistics.html",
-         "label": {
-            "EN":"Statistics",
-            "FR":""
-         }
-      },
-      {
-         "attrs": {
-            "id":"catalogue"
-         },
-         "target":"catalogue.html",
-         "label": {
-            "EN":"Catalogue",
-            "FR":""
-         }
-      },
-      {
-         "attrs": {
-            "id":"directories"
-         },
-         "target":"directories.html",
-         "label": {
-            "EN":"Directories",
-            "FR":""
-         }
-      },
-      {
-         "attrs": {
-            "id":"publications"
-         },
-         "target":"publications.html",
-         "label": {
-            "EN":"Publications",
-            "FR":""
-         }
-      },
-      {
-         "attrs": {
-            "id":"policies"
-         },
-         "target":"policies.html",
-         "label": {
-            "EN":"Policies",
-            "FR":""
-         }
-      },
-      {
-         "attrs": {
-            "id":"market_news"
-         },
-         "target":"market_news.html",
-         "label": {
-            "EN":"Market news",
-            "FR":""
-         }
-      },
-      {
-         "attrs": {
-            "id":"events"
-         },
-         "target":"events.html",
-         "label": {
-            "EN":"Events",
-            "FR":""
-         }
+      "target": "prices.html",
+      "label": {
+        "EN": "Prices",
+        "FR": ""
       }
-   ]
+    },
+    {
+      "attrs": {
+        "id": "statistics"
+      },
+      "target": "statistics.html",
+      "label": {
+        "EN": "Statistics",
+        "FR": ""
+      }
+    },
+    {
+      "attrs": {
+        "id": "catalogue"
+      },
+      "target": "catalogue.html",
+      "label": {
+        "EN": "Catalogue",
+        "FR": ""
+      }
+    },
+    {
+      "attrs": {
+        "id": "directories"
+      },
+      "target": "directories.html",
+      "label": {
+        "EN": "Directories",
+        "FR": ""
+      }
+    },
+    {
+      "attrs": {
+        "id": "publications"
+      },
+      "target": "publications.html",
+      "label": {
+        "EN": "Publications",
+        "FR": ""
+      }
+    },
+    {
+      "attrs": {
+        "id": "policies"
+      },
+      "target": "policies.html",
+      "label": {
+        "EN": "Policies",
+        "FR": ""
+      }
+    },
+    {
+      "attrs": {
+        "id": "market_news"
+      },
+      "target": "market_news.html",
+      "label": {
+        "EN": "Market news",
+        "FR": ""
+      }
+    },
+    {
+      "attrs": {
+        "id": "events"
+      },
+      "target": "events.html",
+      "label": {
+        "EN": "Events",
+        "FR": ""
+      }
+    },
+    {
+      "attrs": {
+        "id": "login"
+      },
+      "label": {
+        "EN": "Login",
+        "FR": ""
+      }
+    }
+  ]
 }

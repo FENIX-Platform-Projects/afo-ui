@@ -1,0 +1,6 @@
+{
+  "guest@afo.org" : {
+      "name" : "Guest",
+      "password" : "guest"
+  }
+}

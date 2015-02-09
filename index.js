@@ -8,6 +8,9 @@ require(['submodules/fenix-ui-menu/js/paths',
     menuConfig['baseUrl'] = 'submodules/fenix-ui-menu/js';
 
     Compiler.resolve([menuConfig], {
+        placeholders : {
+            FENIX_CDN: '//fenixapps.fao.org/repository'
+        },
         config: {
 
 		    //baseUrl: 'src/',
@@ -18,14 +21,13 @@ require(['submodules/fenix-ui-menu/js/paths',
 		    	'text': '//fenixapps.fao.org/repository/js/requirejs/plugins/text/2.0.12/text',
 		        //TODO 'i18n': 'lib/i18n',
 		        'domready': '//fenixapps.fao.org/repository/js/requirejs/plugins/domready/2.0.1/domReady',
-		       
+                'amplify' : '//fenixapps.fao.org/repository/js/amplify/1.1.2/amplify.min',
 		        'highcharts': '//fenixapps.fao.org/repository/js/highcharts/4.0.4/js/highcharts',
 
 		        'underscore': "//fenixapps.fao.org/repository/js/underscore/1.7.0/underscore.min",
 		        'handlebars': '//fenixapps.fao.org/repository/js/handlebars/2.0.0/handlebars',
 
                 'domReady': '//fenixapps.fao.org/repository/js/requirejs/plugins/domready/2.0.1/domReady',
-                'highcharts': "//fenixapps.fao.org/repository/js/highcharts/4.0.4/js/highcharts",
                 'swiper': "//fenixapps.fao.org/repository/js/swiper/2.7.5/dist/idangerous.swiper.min",
 				'bootstrap': '//fenixapps.fao.org/repository/js/bootstrap/3.3.2/js/bootstrap.min',
 				'draggabilly': '//fenixapps.fao.org/repository/js/draggabilly/dist/draggabilly.pkgd.min',
@@ -46,33 +48,46 @@ require(['submodules/fenix-ui-menu/js/paths',
 		        'jquery.power.tip': '//fenixapps.fao.org/repository/js/jquery.power.tip/1.1.0/jquery.powertip.min',
 		        'jquery-ui': '//fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min',
 		        'jquery.i18n.properties': '//fenixapps.fao.org/repository/js/jquery/1.0.9/jquery.i18n.properties-min',
-		        'jquery.hoverIntent': '//fenixapps.fao.org/repository/js/jquery.hoverIntent/1.0/jquery.hoverIntent',
+		        'jquery.hoverIntent': '//fenixapps.fao.org/repository/js/jquery.hoverIntent/1.0/jquery.hoverIntent'
 
 		        //'fenix-ui-menu': '../submodules/fenix-ui-menu/main'
 		    },
 
 		    shim: {
-		        'bootstrap': {
-                    deps: ['jquery']},
+                amplify: {
+                    deps: ['jquery'],
+                    exports: 'amplifyjs'
+                },
+		        'bootstrap':{
+                    deps : ['jquery']
+                } ,
 		        'chosen': {
-                    deps: ['jquery']},
+                    deps : ['jquery']
+                },
 		        'highcharts': {
-                    deps: ['jquery']},
+                    deps : ['jquery']
+                },
 		        'jstree': {
-                    deps: ['jquery']},
+                    deps : ['jquery']
+                },
 		        'jquery-ui': {
-                    deps: ['jquery']},
-		        'jquery.power.tip': {
-                    deps: ['jquery']},
+                    deps : ['jquery']
+                },
+		        'jquery.power.tip':{
+                    deps : ['jquery']
+                },
 		        'jquery.i18n.properties': {
-                    deps: ['jquery']},
+                    deps : ['jquery']
+                },
 		        'jquery.hoverIntent': {
-                    deps: ['jquery']},
-                "swiper": {
-                    deps: ['jquery']},
+                    deps : ['jquery']
+                },
 		        'underscore': {
 		            exports: '_'
 		        },
+                swiper:{
+                    deps : ['jquery']
+                },
 		        'fenix-map': {
 		            deps: [
 		                'i18n',
@@ -96,17 +111,36 @@ require(['submodules/fenix-ui-menu/js/paths',
 	    'text!config/services.json',
 
 		'fx-menu/start',
+        './scripts/components/AuthenticationManager',
+        'amplify',
 		
 		'domready!'
 	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L,
 		Config,
-		TopMenu) {
+		TopMenu, AuthenticationManager) {
 
 		Config = JSON.parse(Config);
 
         new TopMenu({
             url: 'config/fenix-ui-menu.json',
-            active: 'home'
+            active: 'home',
+            className : 'fx-top-menu',
+            breadcrumb : {
+                active : true,
+                container : "#breadcumb_container",
+                showHome : true
+            }
+        });
+
+        /*Login*/
+        new AuthenticationManager();
+        //How to intercept Login event
+        amplify.subscribe('login', function (user) {
+            console.warn("Event login intercepted");
+            console.log(user);
+            console.warn('User from local storage');
+            console.log(amplify.store.sessionStorage('afo.security.user'));
+
         });
 
 		var swiperMaps = {};

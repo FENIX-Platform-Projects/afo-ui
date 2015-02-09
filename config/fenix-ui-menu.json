@@ -150,15 +150,15 @@
         "EN": "Events",
         "FR": ""
       }
-    },
-    {
-      "attrs": {
-        "id": "login"
-      },
-      "label": {
-        "EN": "Login",
-        "FR": ""
-      }
     }
-  ]
+  ],
+  "rightItems" : [{
+    "attrs": {
+      "id": "login"
+    },
+    "label": {
+      "EN": "Login",
+      "FR": ""
+    }
+  }]
 }

@@ -37,45 +37,48 @@
         "EN": "Prices",
         "FR": ""
       },
-        "type": "dropdown",
+      "type": "dropdown",
       "children": [
-          {
-              "attrs": {
-                  "id": "prices_international"
-              },
-              "target": "prices_international.html",
-              "label": {
-                  "EN": "Prices International",
-                  "FR": ""
-              }
-          },{
-              "attrs": {
-                  "id": "prices_national"
-              },
-              "target": "prices_national.html",
-              "label": {
-                  "EN": "Prices National",
-                  "FR": ""
-              }
-          },{
-              "attrs": {
-                  "id": "prices_retail"
-              },
-              "target": "prices_retail.html",
-              "label": {
-                  "EN": "Prices Retail",
-                  "FR": ""
-              }
-          },{
-              "attrs": {
-                  "id": "prices_analysis"
-              },
-              "target": "prices_analysis.html",
-              "label": {
-                  "EN": "Fertilizer Analysis Analysis",
-                  "FR": ""
-              }
+        {
+          "attrs": {
+            "id": "prices_international"
+          },
+          "target": "prices_international.html",
+          "label": {
+            "EN": "Prices International",
+            "FR": ""
           }
+        },
+        {
+          "attrs": {
+            "id": "prices_national"
+          },
+          "target": "prices_national.html",
+          "label": {
+            "EN": "Prices National",
+            "FR": ""
+          }
+        },
+        {
+          "attrs": {
+            "id": "prices_retail"
+          },
+          "target": "prices_retail.html",
+          "label": {
+            "EN": "Prices Retail",
+            "FR": ""
+          }
+        },
+        {
+          "attrs": {
+            "id": "prices_analysis"
+          },
+          "target": "prices_analysis.html",
+          "label": {
+            "EN": "Fertilizer Analysis Analysis",
+            "FR": ""
+          }
+        }
       ]
     },
     {

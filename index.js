@@ -126,7 +126,7 @@ require(['submodules/fenix-ui-menu/js/paths',
             active: 'home',
             className : 'fx-top-menu',
             breadcrumb : {
-                active : true,
+                active : false,
                 container : "#breadcumb_container",
                 showHome : true
             }

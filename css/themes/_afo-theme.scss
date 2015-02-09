@@ -22,6 +22,10 @@ body{
   @include fx-gradient(#a0c03a, #5ba539);
 //  border: none;
 
+  li#home{
+    display: none;
+
+  }
 
   li {
    // height: 50px !important;

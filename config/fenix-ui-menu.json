@@ -18,23 +18,46 @@
    "items":[
       {
          "attrs": {
-            "id":"home"
-         },
-         "target":"index.html",
-         "label": {
-            "EN": "Home",
-            "FR": ""
-         }
-      },
-      {
-         "attrs": {
             "id":"prices"
          },
          "target":"prices.html",
          "label": {
             "EN": "Prices",
             "FR": ""
-         }
+         },
+         "type": "dropdown",
+         "children": [
+	      {
+	         "attrs": {
+	            "id": "prices_international"
+	         },
+	         "target": "prices_international.html",
+	         "label": {
+	            "EN":"Prices International",
+	            "FR":""
+	         }
+	      },
+	      {
+	         "attrs": {
+	            "id": "prices_national"
+	         },
+	         "target": "prices_national.html",
+	         "label": {
+	            "EN":"Prices National",
+	            "FR":""
+	         }
+	      },
+	      {
+	         "attrs": {
+	            "id": "prices_retail"
+	         },
+	         "target": "prices_retail.html",
+	         "label": {
+	            "EN":"Prices Retail",
+	            "FR":""
+	         }
+	      }	      	      
+         ]
       },
       {
          "attrs": {

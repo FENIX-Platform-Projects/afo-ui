@@ -595,13 +595,8 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
   border-color: #336600; }
 
-.nav > li > a {
-  padding: 15px 10px 14px 10px;
-  /* Necessary for the border-bottom */ }
-
 .navbar-default .navbar-nav > li > a {
-  color: #666666;
-  border-bottom: 1px solid transparent; }
+  color: #666666; }
 
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
   background-color: #336600; }
@@ -843,9 +838,6 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 .navbar .container {
   position: relative; }
 
-.navbar-default {
-  background-color: white; }
-
 .nav-pills li a {
   color: #666666; }
 
@@ -853,11 +845,8 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   background-image: url("img/fenix-ico.svg");
   background-position: 0 3px;
   background-repeat: no-repeat;
-  background-size: 44px 44px;
-  display: block;
-  height: 50px;
-  padding: 0;
-  width: 50px; }
+  background-size: 100% 100%;
+  display: block; }
 
 .navbar .lang_picker {
   height: 22px;
@@ -870,9 +859,6 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 
 .navbar .lang_picker li a, .navbar .lang_picker li a:hover {
   color: #666666;
-  display: inline-block;
-  line-height: 1.7;
-  padding: 0 5px;
   text-align: center;
   text-decoration: none; }
 
@@ -2087,9 +2073,8 @@ div[data-module="region"] .fx-catalog-modular-form-content {
       color: white; }
 
 /* AFO Lang Picker */
-.navbar .lang_picker {
-  height: auto !important;
-  margin-top: 0 !important; }
+.navbar .lang_picker li {
+  border-right: none; }
 
 /* AFO  BreadCrumbs */
 .breadcrumb {
@@ -2117,7 +2102,7 @@ body {
   color: #666666; }
 
 .navbar {
-  min-height: 40px; }
+  min-height: 49px; }
 
 .navbar-default {
   background-color: #a0c03a;
@@ -2131,36 +2116,23 @@ body {
   -moz-background-clip: padding;
   background-clip: padding-box;
   -webkit-background-clip: padding-box;
-  background-repeat: no-repeat;
-  border: none; }
+  background-repeat: no-repeat; }
   .navbar-default li {
-    height: 50px !important; }
+    border-right: 1px solid #457f25; }
     .navbar-default li a {
       font: normal normal 300 12px/normal "Roboto" !important;
       color: white !important;
       text-transform: uppercase;
-      padding: 17px 15px 34px 15px;
-      line-height: 20px;
-      height: 50px !important;
-      display: inline-block !important;
-      border-top: 0px !important;
-      border-color: #457f25 !important;
-      border-bottom-color: white !important;
-      border-bottom: 0px !important;
-      border-right: 1px solid #457f25;
-      -ms-transform: translateY(-1px);
-      -webkit-transform: translateY(-1px);
-      transform: translateY(-1px); }
+      height: 49px; }
 
 .navbar-brand {
   background-image: url("img/afo-ico.svg");
-  /* To be removed */
-  background-size: 40px 40px !important;
-  height: 50px !important;
-  width: 50px;
+  height: 49px;
+  width: 49px;
+  background-size: 80% 80%;
   background-repeat: no-repeat;
   background-color: white;
-  background-position: 5px center !important; }
+  background-position: center center; }
 
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
   background-color: white; }
@@ -2168,8 +2140,7 @@ body {
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
   border-bottom-color: transparent;
   background-color: white !important;
-  color: #336600 !important;
-  border-right: 1px solid #457f25 !important; }
+  color: #336600 !important; }
 
 .container {
   background-color: white; }

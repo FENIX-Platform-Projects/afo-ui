@@ -13,30 +13,34 @@ body{
 }
 
 .navbar{
-  min-height: 40px;
+//  min-height: 40px;
+  min-height: $host-menu-height; //It has to be defined - Very important Bootstrap override
 }
+
 
 .navbar-default {
   @include fx-gradient(#a0c03a, #5ba539);
-  border: none;
+//  border: none;
 
 
   li {
-    height: 50px !important;
+   // height: 50px !important;
+    border-right: 1px solid $custom-color4;
     a{
       font: $afo-text-menu-item !important;
       color: white !important;
       text-transform: uppercase;
-      padding: 17px 15px 34px 15px;
-      line-height: 20px;
-      height: 50px !important;
-      display: inline-block !important;
-      border-top: 0px !important;
-      border-color: $custom-color4 !important;
-      border-bottom-color: white !important;
-      border-bottom: 0px !important;
-      border-right: 1px solid $custom-color4;
-      @include fx-transfor-me(translateY(-1px));
+      height: $host-menu-height;
+//      padding: 17px 15px 34px 15px;
+//      line-height: 20px;
+//      height: 50px !important;
+//      display: inline-block !important;
+//      border-top: 0px !important;
+//      border-color: $custom-color4 !important;
+//      border-bottom-color: red;
+//      border-bottom: 0px;
+//      border-right: 1px solid $custom-color4;
+//      @include fx-transfor-me(translateY(-1px));
 
 
     }
@@ -45,13 +49,14 @@ body{
 }
 
 .navbar-brand{
-  background-image: url("img/afo-ico.svg"); /* To be removed */
-  background-size: 40px 40px !important;
-  height: 50px !important;
-  width: 50px;
+  background-image: url("img/afo-ico.svg");
+//  background-size: 40px 40px !important;
+    height: $host-menu-height;
+  width: $host-menu-height;
+  background-size: 80% 80%;
   background-repeat: no-repeat;
   background-color: white;
-  background-position: 5px center !important;
+ background-position: center center;
 }
 
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus{
@@ -62,7 +67,7 @@ body{
   border-bottom-color: transparent;
   background-color: white !important;
   color: $fx-cool-blue !important;
-  border-right: 1px solid $custom-color4 !important;
+
 }
 
 .container {

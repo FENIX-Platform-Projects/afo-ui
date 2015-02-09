@@ -57,6 +57,9 @@
 .icojam_copybook_2:before {
   content: "\e7b5"; }
 
+.icojam_user:before {
+  content: "\ebbb"; }
+
 /* Roboto */
 /* Roboto Import */
 /* Roboto Regular */
@@ -858,13 +861,8 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   float: right; }
 
 .navbar .lang_picker li a, .navbar .lang_picker li a:hover {
-  color: #666666;
   text-align: center;
   text-decoration: none; }
-
-.navbar .lang_picker li a:hover, .navbar .lang_picker li a.selected {
-  background-color: #666666;
-  color: white; }
 
 .navbar .lang_picker li:last-child {
   border-right: medium none; }
@@ -2122,10 +2120,13 @@ body {
   .navbar-default li {
     border-right: 1px solid #457f25; }
     .navbar-default li a {
-      font: normal normal 300 12px/normal "Roboto" !important;
+      font: normal normal 300 12px/normal "Roboto";
       color: white !important;
       text-transform: uppercase;
       height: 49px; }
+
+.afo-eldorado-icons a {
+  font-family: 'eldorado_stroke'; }
 
 .navbar-brand {
   background-image: url("img/afo-ico.svg");

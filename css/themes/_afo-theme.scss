@@ -31,7 +31,7 @@ body{
    // height: 50px !important;
     border-right: 1px solid $custom-color4;
     a{
-      font: $afo-text-menu-item !important;
+      font: $afo-text-menu-item;
       color: white !important;
       text-transform: uppercase;
       height: $host-menu-height;
@@ -49,6 +49,15 @@ body{
 
     }
   }
+
+}
+
+.afo-eldorado-icons{
+
+  a{
+    font-family: 'eldorado_stroke';
+  }
+
 
 }
 

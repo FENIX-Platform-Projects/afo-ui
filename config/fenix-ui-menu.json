@@ -153,12 +153,13 @@
     }
   ],
   "rightItems" : [{
-    "attrs": {
-      "id": "login"
-    },
-    "label": {
-      "EN": "Login",
-      "FR": ""
-    }
-  }]
+      "attrs": {
+        "id": "login",
+        "class": "afo-eldorado-icons"
+      },
+      "label": {
+        "EN": "<span class='icojam_user'></span>",
+        "FR": ""
+      }
+    }]
 }

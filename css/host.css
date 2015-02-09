@@ -857,8 +857,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   text-transform: uppercase; }
 
 .navbar .lang_picker li {
-  cursor: pointer;
-  float: right; }
+  cursor: pointer; }
 
 .navbar .lang_picker li a, .navbar .lang_picker li a:hover {
   text-align: center;

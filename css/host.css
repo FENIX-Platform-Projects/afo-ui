@@ -598,9 +598,6 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
   border-color: #336600; }
 
-.navbar-default .navbar-nav > li > a {
-  color: #666666; }
-
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
   background-color: #336600; }
 
@@ -852,8 +849,6 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   display: block; }
 
 .navbar .lang_picker {
-  height: 22px;
-  margin-top: 13px;
   text-transform: uppercase; }
 
 .navbar .lang_picker li {
@@ -2101,6 +2096,9 @@ body {
 .navbar {
   min-height: 49px; }
 
+.navbar-default .navbar-nav > li > a {
+  color: white; }
+
 .navbar-default {
   background-color: #a0c03a;
   background-image: -moz-linear-gradient(top, #a0c03a, #5ba539);
@@ -2120,12 +2118,17 @@ body {
     border-right: 1px solid #457f25; }
     .navbar-default li a {
       font: normal normal 300 12px/normal "Roboto";
-      color: white !important;
       text-transform: uppercase;
       height: 49px; }
 
-.afo-eldorado-icons a {
-  font-family: 'eldorado_stroke'; }
+.fx-menu .navbar-right li {
+  border-right: 0; }
+
+#login a {
+  padding: 0; }
+  #login a span {
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto; }
 
 .navbar-brand {
   background-image: url("img/afo-ico.svg");
@@ -2393,3 +2396,6 @@ thead {
   font: normal normal 400 10px/normal "Roboto";
   color: white;
   padding: 2px 7px; }
+
+.dropdown-menu li a {
+  color: #5ba539; }

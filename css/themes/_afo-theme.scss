@@ -13,14 +13,17 @@ body{
 }
 
 .navbar{
-//  min-height: 40px;
+  //  min-height: 40px;
   min-height: $host-menu-height; //It has to be defined - Very important Bootstrap override
 }
 
+.navbar-default .navbar-nav > li > a{
+  color: white;
+}
 
 .navbar-default {
   @include fx-gradient(#a0c03a, #5ba539);
-//  border: none;
+  //  border: none;
 
   li#home{
     display: none;
@@ -28,23 +31,24 @@ body{
   }
 
   li {
-   // height: 50px !important;
+    // height: 50px !important;
     border-right: 1px solid $custom-color4;
     a{
       font: $afo-text-menu-item;
-      color: white !important;
+
+
       text-transform: uppercase;
       height: $host-menu-height;
-//      padding: 17px 15px 34px 15px;
-//      line-height: 20px;
-//      height: 50px !important;
-//      display: inline-block !important;
-//      border-top: 0px !important;
-//      border-color: $custom-color4 !important;
-//      border-bottom-color: red;
-//      border-bottom: 0px;
-//      border-right: 1px solid $custom-color4;
-//      @include fx-transfor-me(translateY(-1px));
+      //      padding: 17px 15px 34px 15px;
+      //      line-height: 20px;
+      //      height: 50px !important;
+      //      display: inline-block !important;
+      //      border-top: 0px !important;
+      //      border-color: $custom-color4 !important;
+      //      border-bottom-color: red;
+      //      border-bottom: 0px;
+      //      border-right: 1px solid $custom-color4;
+      //      @include fx-transfor-me(translateY(-1px));
 
 
     }
@@ -52,24 +56,36 @@ body{
 
 }
 
-.afo-eldorado-icons{
 
-  a{
-    font-family: 'eldorado_stroke';
+.fx-menu{
+  .navbar-right{
+    li {
+      border-right: 0;
+
+    }
   }
+}
 
 
+#login {
+  a{
+    padding: 0;
+    span{
+      -webkit-font-smoothing: auto;
+      -moz-osx-font-smoothing: auto;
+    }
+  }
 }
 
 .navbar-brand{
   background-image: url("img/afo-ico.svg");
-//  background-size: 40px 40px !important;
-    height: $host-menu-height;
+  //  background-size: 40px 40px !important;
+  height: $host-menu-height;
   width: $host-menu-height;
   background-size: 80% 80%;
   background-repeat: no-repeat;
   background-color: white;
- background-position: center center;
+  background-position: center center;
 }
 
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus{
@@ -178,16 +194,16 @@ body{
 
 
 #page-catalogue #fertMap {
-min-height: 500px;
+  min-height: 500px;
 }
 #page-catalogue #fertMap {
-height: 500px;
+  height: 500px;
   position: relative;
 }
 
 #page-catalogue #chartFamilies {
-height: 240px;
-width: auto;
+  height: 240px;
+  width: auto;
 }
 
 
@@ -388,11 +404,11 @@ thead{
 }
 
 .afo-title{
-    background-color: $afo-green-title;
-    display: inline-block;
-    font: $fx-text-smalltitle-normal;
-    color: white;
-    padding: 2px 7px;
+  background-color: $afo-green-title;
+  display: inline-block;
+  font: $fx-text-smalltitle-normal;
+  color: white;
+  padding: 2px 7px;
 }
 
 .afo-title-blue{
@@ -401,4 +417,12 @@ thead{
   font: $fx-text-smalltitle-normal;
   color: white;
   padding: 2px 7px;
+}
+
+.dropdown-menu{
+  li{
+    a{
+      color: $afo-green-title;
+    }
+  }
 }

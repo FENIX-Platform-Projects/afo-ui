@@ -1656,7 +1656,9 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   height: 160px; }
 
 .afo-footer-logo-image {
-  margin-top: 20px; }
+  margin-top: 20px;
+  padding-right: 15px;
+  max-width: 160px; }
 
 .afp-footer-social li {
   float: right;
@@ -2046,6 +2048,10 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   height: 20px;
   padding: 15px; }
 
+/* ////////////////// Home Media Queries */
+@media (max-width: 990px) {
+  .afo-home-jumbo > div {
+    margin-bottom: 50px; } }
 /* AFO - Prices Page Style */
 .afo-prices-international-chart {
   height: 400px; }

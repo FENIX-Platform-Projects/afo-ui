@@ -101,3 +101,17 @@
   padding: 15px;
 }
 
+/* ////////////////// Home Media Queries */
+
+@media (max-width: 990px) {
+
+  .afo-home-jumbo{
+    >div {
+      margin-bottom: 50px;
+    }
+  }
+
+}
+
+
+

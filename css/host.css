@@ -599,7 +599,8 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   border-color: #336600; }
 
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
-  background-color: #336600; }
+  background-color: transparent;
+  color: #666666; }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
   color: #336600; }
@@ -1730,7 +1731,8 @@ div[data-module="region"] .fx-catalog-modular-form-content {
     -moz-transition: all 0.3s ease 0s;
     -ms-transition: all 0.3s ease 0s;
     -o-transition: all 0.3s ease 0s;
-    transition: all 0.3s ease 0s; }
+    transition: all 0.3s ease 0s;
+    text-decoration: none; }
 
 .navbar .lang_picker {
   overflow: hidden;

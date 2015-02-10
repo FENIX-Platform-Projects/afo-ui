@@ -11,6 +11,7 @@
         a{
           @include fx-transfor-me(translateY(-200%));
           @include animate;
+          text-decoration: none;
         }
 
 

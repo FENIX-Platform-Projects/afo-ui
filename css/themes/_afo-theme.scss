@@ -308,6 +308,14 @@ thead{
   padding: 2px 7px;
 }
 
+.afo-title-white{
+  background-color: white;
+  display: inline-block;
+  font: $fx-text-smalltitle-normal;
+  color: $afo-green-title;
+  padding: 2px 7px;
+}
+
 .dropdown-menu{
   li{
     a{

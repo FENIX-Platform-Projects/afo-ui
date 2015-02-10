@@ -2155,28 +2155,26 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   width: 100%;
   height: 389px;
   position: relative; }
-  #afo-high-swiper-container-wrapper .swiper-slide {
-    padding: 50px; }
+  #afo-high-swiper-container-wrapper .afo-slider-content {
+    height: 100%;
+    min-width: 250px;
+    width: 35%;
+    padding: 35px;
+    background-color: rgba(55, 53, 53, 0.7); }
   #afo-high-swiper-container-wrapper .afo-swiper-caption {
     position: relative;
     top: 50%;
     -ms-transform: translateY(-55%);
     -webkit-transform: translateY(-55%);
     transform: translateY(-55%); }
-  #afo-high-swiper-container-wrapper .afo-slider-header {
-    color: white;
-    border-bottom: 1px solid white;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    text-transform: uppercase; }
   #afo-high-swiper-container-wrapper .afo-slider-title {
     color: white;
-    margin-top: 10px; }
+    margin-top: 10px;
+    font: normal normal 100 24px/normal "Roboto"; }
   #afo-high-swiper-container-wrapper .afo-slider-subtitle {
     color: white;
-    font-weight: 700;
-    font-size: 12px;
+    font-weight: 500;
+    font-size: 10px;
     text-transform: uppercase; }
   #afo-high-swiper-container-wrapper .arrow-left {
     float: left;
@@ -2198,7 +2196,27 @@ div[data-module="region"] .fx-catalog-modular-form-content {
       background: url(img/afo-arrow-right-off.svg) no-repeat; }
 
 .afo-slider-1 {
-  background: url(img/afo-home-slider-1.jpg) no-repeat;
+  background: url(../src/images/slider-home-1.jpg) no-repeat;
+  background-size: cover;
+  background-position: 50% 50%; }
+
+.afo-slider-2 {
+  background: url(../src/images/slider-home-2.jpg) no-repeat;
+  background-size: cover;
+  background-position: 50% 50%; }
+
+.afo-slider-3 {
+  background: url(../src/images/slider-home-3.jpg) no-repeat;
+  background-size: cover;
+  background-position: 50% 50%; }
+
+.afo-slider-4 {
+  background: url(../src/images/slider-home-4.jpg) no-repeat;
+  background-size: cover;
+  background-position: 50% 50%; }
+
+.afo-slider-5 {
+  background: url(../src/images/slider-home-5.jpg) no-repeat;
   background-size: cover;
   background-position: 50% 50%; }
 
@@ -2207,6 +2225,14 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   width: 100%;
   height: 389px;
   position: relative; }
+  #afo-maps-swiper-container-wrapper .swiper-slide {
+    position: relative; }
+    #afo-maps-swiper-container-wrapper .swiper-slide .afo-title-white {
+      position: absolute;
+      margin: 0;
+      z-index: 1;
+      top: 15px;
+      left: 15px; }
 
 .arrow-up {
   float: left;
@@ -2258,6 +2284,10 @@ div[data-module="region"] .fx-catalog-modular-form-content {
     background-color: #f2f2f2;
     color: #5ba539; }
 
+/* /////////////// Home Swiper Media Queries */
+@media (max-width: 767px) {
+  #afo-high-swiper-container-wrapper .afo-slider-content {
+    width: 100%; } }
 /* Special Modules */
 /* columns of same height styles */
 .container-xs-height {
@@ -2563,6 +2593,13 @@ thead {
   display: inline-block;
   font: normal normal 400 10px/normal "Roboto";
   color: white;
+  padding: 2px 7px; }
+
+.afo-title-white {
+  background-color: white;
+  display: inline-block;
+  font: normal normal 400 10px/normal "Roboto";
+  color: #5ba539;
   padding: 2px 7px; }
 
 .dropdown-menu li a {

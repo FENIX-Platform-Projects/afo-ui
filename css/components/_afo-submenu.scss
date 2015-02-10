@@ -1,0 +1,93 @@
+/* Afo Subemenu */
+
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover{
+  background-color: $afo-submenu;
+  border-right-color:transparent;
+
+}
+
+.dropdown{
+
+  &.open{
+
+    .dropdown-menu{
+
+    }
+  }
+
+  .dropdown-toggle{
+//    .caret
+  }
+
+
+  .dropdown-menu{
+    @include fx-no-border-radius;
+    @include fx-noshadow;
+    border: 0;
+    background-color: $afo-submenu;
+    min-width: 250px;
+
+    > li{
+      height: $host-menu-height;
+      border-bottom: 1px solid $afo-submenu-hairline;
+      position: relative;
+      cursor: pointer;
+
+      &:last-child{
+        border-bottom-color: transparent;
+      }
+
+      &:hover{
+        background-color: $afo-submenu-hover;
+
+        &:before{
+          content: '';
+          position: absolute;
+          width: 5px;
+          height: 100%;
+          background-color: $afo-green-title;
+          right: 0;
+          top: 0;
+
+        }
+
+      }
+
+      > a{
+        text-transform: uppercase;
+        color: $fenix-text;
+        font: $afo-text-menu-item;
+        position: relative;
+        top: 50%;
+        @include fx-transfor-me(translateY(-50%));
+
+        &:hover{
+          background-color: transparent;
+
+        }
+
+        &:active{
+          background-color: transparent;
+
+        }
+
+        &:focus{
+          background-color: transparent;
+
+        }
+
+        &:visited{
+          background-color: transparent;
+
+        }
+
+      }
+
+    }
+  }
+
+
+}
+
+

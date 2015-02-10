@@ -1649,6 +1649,25 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   content: "\eb28"; }
 
 /* Pages */
+/* Afo Catalogue Page*/
+/* Stefano's original CSS from main.css */
+#page-catalogue #fertMap {
+  min-height: 500px; }
+
+#page-catalogue #fertMap {
+  height: 500px;
+  position: relative; }
+
+#page-catalogue #chartFamilies {
+  height: 240px;
+  width: auto; }
+
+#page-catalogue #resultsCountries {
+  min-height: 500px; }
+
+#page-catalogue #crops {
+  min-height: 500px; }
+
 /* AFO - Data Management Page Style */
 #metadataEditorContainer h3.panel-title {
   font-family: sansation_lightlight;
@@ -2069,13 +2088,19 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   border-right: none; }
 
 /* AFO  BreadCrumbs */
+#breadcumb_container {
+  height: 35px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
 .breadcrumb {
   background-color: transparent;
   font-size: 12px;
   font-weight: bold;
   padding: 8px 0;
   margin-bottom: 0; }
-  .breadcrumb a {
+  .breadcrumb li a {
     color: #5ba539;
     text-transform: uppercase; }
 
@@ -2083,18 +2108,81 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   content: '|';
   color: #5ba539; }
 
+/* Afo Subemenu */
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
+  background-color: #f9f6ee;
+  border-right-color: transparent; }
+
+.dropdown .dropdown-menu {
+  -moz-border-radius-topleft: 0;
+  -webkit-border-top-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-border-radius-topright: 0;
+  -webkit-border-top-right-radius: 0;
+  border-top-right-radius: 0;
+  -moz-border-radius-bottomright: 0;
+  -webkit-border-bottom-right-radius: 0;
+  border-bottom-right-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  -webkit-border-bottom-left-radius: 0;
+  border-bottom-left-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border: 0;
+  background-color: #f9f6ee;
+  min-width: 250px; }
+  .dropdown .dropdown-menu > li {
+    height: 49px;
+    border-bottom: 1px solid #f4f0e2;
+    position: relative;
+    cursor: pointer; }
+    .dropdown .dropdown-menu > li:last-child {
+      border-bottom-color: transparent; }
+    .dropdown .dropdown-menu > li:hover {
+      background-color: #f4f0e2; }
+      .dropdown .dropdown-menu > li:hover:before {
+        content: '';
+        position: absolute;
+        width: 5px;
+        height: 100%;
+        background-color: #5ba539;
+        right: 0;
+        top: 0; }
+    .dropdown .dropdown-menu > li > a {
+      text-transform: uppercase;
+      color: #666666;
+      font: normal normal 500 12px/normal "Roboto";
+      position: relative;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%); }
+      .dropdown .dropdown-menu > li > a:hover {
+        background-color: transparent; }
+      .dropdown .dropdown-menu > li > a:active {
+        background-color: transparent; }
+      .dropdown .dropdown-menu > li > a:focus {
+        background-color: transparent; }
+      .dropdown .dropdown-menu > li > a:visited {
+        background-color: transparent; }
+
 /* Theme */
 /* AFO Theme */
 html {
   background-color: #f1eff0; }
 
 body {
-  border-top: 49px solid #f1eff0;
+  border-top: 50px solid #f1eff0;
   background-color: #f1eff0;
   color: #666666; }
 
 .navbar {
-  min-height: 49px; }
+  min-height: 50px; }
 
 .navbar-default .navbar-nav > li > a {
   color: white; }
@@ -2114,12 +2202,12 @@ body {
   background-repeat: no-repeat; }
   .navbar-default li#home {
     display: none; }
-  .navbar-default li {
+  .navbar-default .navbar-nav > li {
     border-right: 1px solid #457f25; }
-    .navbar-default li a {
-      font: normal normal 300 12px/normal "Roboto";
+    .navbar-default .navbar-nav > li > a {
+      font: normal normal 500 12px/normal "Roboto";
       text-transform: uppercase;
-      height: 49px; }
+      height: 50px; }
 
 .fx-menu .navbar-right li {
   border-right: 0; }
@@ -2132,8 +2220,8 @@ body {
 
 .navbar-brand {
   background-image: url("img/afo-ico.svg");
-  height: 49px;
-  width: 49px;
+  height: 50px;
+  width: 50px;
   background-size: 80% 80%;
   background-repeat: no-repeat;
   background-color: white;
@@ -2142,10 +2230,24 @@ body {
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
   background-color: white; }
 
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  border-bottom-color: transparent;
-  background-color: white !important;
-  color: #336600 !important; }
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: white; }
+
+.navbar-header {
+  background-color: #f1eff0; }
+
+.navbar-default .navbar-toggle {
+  border-color: transparent; }
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+  background-color: transparent; }
+
+.navbar-collapse {
+  border-top: 0; }
+  .navbar-collapse .navbar-nav {
+    margin-top: 0; }
+    .navbar-collapse .navbar-nav .dropdown.open {
+      background-color: #f9f6ee; }
 
 .container {
   background-color: white; }
@@ -2216,18 +2318,6 @@ body {
   border-bottom: none; }
   .page-header p {
     text-align: left; }
-
-/* Stefano's original CSS from main.css */
-#page-catalogue #fertMap {
-  min-height: 500px; }
-
-#page-catalogue #fertMap {
-  height: 500px;
-  position: relative; }
-
-#page-catalogue #chartFamilies {
-  height: 240px;
-  width: auto; }
 
 table {
   border-collapse: separate; }

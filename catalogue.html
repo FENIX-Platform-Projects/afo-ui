@@ -17,16 +17,18 @@
     <!-- Third Party CSS -->
     <link href="//fenixapps.fao.org/repository/js/bootstrap/3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href='http://fenixapps.fao.org/repository/js/chosen/1.0.0/chosen.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/css/jquery.power.tip/1.1.0/jquery.powertip.css" type="text/css" />
-    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min.css" />
-    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet.css" />
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/css/jquery.power.tip/1.1.0/jquery.powertip.css"
+          type="text/css"/>
+    <link rel="stylesheet"
+          href="http://fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min.css"/>
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet.css"/>
 
-    <link rel="stylesheet" href="submodules/fenix-ui-map/dist/fenix-ui-map.min.css" />
+    <link rel="stylesheet" href="submodules/fenix-ui-map/dist/fenix-ui-map.min.css"/>
     <link rel="stylesheet" href='node_modules/jstree/dist/themes/default/style.min.css'/>
 
     <!-- FENIX CSS -->
     <link rel="stylesheet" type="text/css" href="submodules/fenix-ui-olap/css/pivot.css">
-    <link rel="stylesheet" type="text/css" href="submodules/fenix-ui-olap/lib/grid/gt_grid_height.css" />
+    <link rel="stylesheet" type="text/css" href="submodules/fenix-ui-olap/lib/grid/gt_grid_height.css"/>
     <link rel="stylesheet" type="text/css" href="css/host.css">
 </head>
 <body id="page-catalogue">
@@ -39,79 +41,87 @@
         </div>
     </div>
 
-	<div class="row fx-header">
-		<div class="col-xs-12">
-			<div class="page-header">
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id consequat leo. In vestibulum arcu ac enim accumsan, nec scelerisque eros porta. Phasellus euismod risus ac dapibus convallis.
-				</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="row">
-		<!-- Nav tabs -->
-		<ul id="catalogue_tabs" class="nav nav-tabs" role="tablist">
-			<li class="active"><a href="#families" role="tab" data-toggle="tab">Fertilizers</a></li>
-			<li><a href="#countries" role="tab" data-toggle="tab">Countries</a></li>
-			<li><a href="#crops" role="tab" data-toggle="tab">Crops</a></li>			
-		</ul>
-
-		<!-- Tab panes -->
-		<div class="tab-content col-xs-12 obj-box">
-			<div class="tab-pane active" id="families">
-				<div class="row">
-					<div class="col-xs-4">
-						<div id="listFamilies" class="obj-box panel-left"></div>
-					</div>
-					<div class="col-xs-8">
-						<div id="fertMap"></div>
-						<ul id="legendFamilies">
-							<li style="background:#F1EEE8">0</li>
-							<li style="background:#BCD5AB">1</li>
-							<li style="background:#A5C88E">1 - 5</li>
-							<li style="background:#8DBD70">5 - 10</li>
-							<li style="background:#6AAC46"> < 10</li>
-						</ul>
-						<!--div id="chartFamilies" class="obj-box"></div-->
-					</div>
-				</div>
-			</div>
-			<div class="tab-pane" id="countries">
-				<div class="row">
-					<div class="col-xs-4">
-						<div id="listCountries" class="obj-box panel-left">
-						</div>
-					</div>
-					<div class="col-xs-8">
-						<div id="resultsCountries" class="panel-group" role="tablist" aria-multiselectable="true">
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="tab-pane" id="crops">
-				<div class="row">
-					<div class="col-xs-4">
-						<div id="listCrops" class="obj-box panel-left"></div>
-					</div>
-					<div class="col-xs-8">
-						<div id="resultsCrops" class="panel-group" role="tablist" aria-multiselectable="true">
-					</div>  
-				</div>
-			</div>
-		</div>
-	</div>
-	</div>
-</div>
-
-    <!-- Footer --> 
-    <div class="container">
-      <div class="footer">
-        <p>AfricaFeritilizer.org - AF Skeleton web application by FENIX</p>
-      </div>
+    <div class="row fx-header">
+        <div class="col-xs-12">
+            <div class="page-header">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id consequat leo. In vestibulum arcu
+                    ac enim accumsan, nec scelerisque eros porta. Phasellus euismod risus ac dapibus convallis.
+                </p>
+            </div>
+        </div>
     </div>
 
-    <script data-main="catalogue" src="src/lib/require.js"></script>
+    <div class="row">
+        <!-- Nav tabs -->
+        <div class="col-xs-12">
+            <ul id="catalogue_tabs" class="nav nav-tabs" role="tablist">
+                <li class="active"><a href="#families" role="tab" data-toggle="tab">Fertilizers</a></li>
+                <li><a href="#countries" role="tab" data-toggle="tab">Countries</a></li>
+                <li><a href="#crops" role="tab" data-toggle="tab">Crops</a></li>
+            </ul>
+        </div>
+    </div>
 
-  </body>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+
+        <div class="tab-pane active row" id="families">
+
+            <div class="col-xs-4">
+                <div id="listFamilies" class="obj-box panel-left"></div>
+            </div>
+
+            <div class="col-xs-8">
+                <div id="fertMap"></div>
+                <ul id="legendFamilies">
+                    <li style="background:#F1EEE8">0</li>
+                    <li style="background:#BCD5AB">1</li>
+                    <li style="background:#A5C88E">1 - 5</li>
+                    <li style="background:#8DBD70">5 - 10</li>
+                    <li style="background:#6AAC46"> < 10</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="tab-pane row"" id="countries">
+
+            <div class="col-xs-4">
+                <div id="listCountries" class="obj-box panel-left">
+                </div>
+            </div>
+            <div class="col-xs-8">
+                <div id="resultsCountries" class="panel-group" role="tablist" aria-multiselectable="true">
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-pane row" id="crops">
+
+            <div class="col-xs-4">
+                <div id="listCrops" class="obj-box panel-left"></div>
+            </div>
+            <div class="col-xs-8">
+                <div id="resultsCrops" class="panel-group" role="tablist" aria-multiselectable="true">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Fine Tab Content -->
+</div>
+
+
+<!-- Footer -->
+<div class="container">
+    <div class="footer">
+        <p>AfricaFeritilizer.org - AF Skeleton web application by FENIX</p>
+    </div>
+</div>
+
+<script data-main="catalogue" src="src/lib/require.js"></script>
+
+</body>
 </html>

@@ -1,5 +1,12 @@
 /* AFO  BreadCrumbs */
 
+#breadcumb_container{
+  height: 35px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .breadcrumb{
   background-color: transparent;
   font-size: 12px;
@@ -7,14 +14,26 @@
   padding: 8px 0;
   margin-bottom: 0;
 
-  a{
-    color: $afo-green-title;
-    text-transform: uppercase;
-    &:hover{
+
+
+  li{
+
+
+
+    a{
+      color: $afo-green-title;
+      text-transform: uppercase;
+
+
+      &:hover{
+
+      }
 
     }
 
   }
+
+
 
 }
 

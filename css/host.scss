@@ -7,6 +7,7 @@
 @import '../submodules/fenix-ui-common/css/fenix-style-no-variables';
 
 /* Pages */
+@import 'pages/afo-catalogue';
 @import 'pages/afo-data-management';
 @import 'pages/afo-home';
 @import 'pages/afo-prices';
@@ -21,6 +22,7 @@
 @import 'components/afo-footer';
 @import 'components/afo-lang-picker';
 @import 'components/afo-breadcrumbs';
+@import 'components/afo-submenu';
 
 
 /* Theme */

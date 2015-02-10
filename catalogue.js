@@ -35,8 +35,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 				'jstree': "//fenixapps.fao.org/repository/js/jstree/3.0.8/dist/jstree.min",
 
 				//fenix-map-js
-				'fenix-map': "submodules/fenix-map-js/dist/latest/fenix-map-min",
-				'fenix-map-config': "submodules/fenix-map-js/dist/latest/fenix-map-config",
+				'fenix-map': "submodules/fenix-ui-map/dist/fenix-ui-map.min",
+				'fenix-map-config': "submodules/fenix-ui-map/dist/fenix-ui-map-config",
 				'chosen': "//fenixapps.fao.org/repository/js/chosen/1.0.0/chosen.jquery.min",
 				'leaflet': "//fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet",
 				'jquery.power.tip': "//fenixapps.fao.org/repository/js/jquery.power.tip/1.1.0/jquery.powertip.min",
@@ -128,7 +128,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		BASEURL_LANG: 'submodules/fenix-map-js/dist/I18N/'
 	});
 
-	function initListFamilies(fert) {
+	function initListFamilies(fmLayer) {
 
 		$('#listFamilies').jstree({
 			core: {
@@ -142,11 +142,14 @@ require(["submodules/fenix-ui-menu/js/paths",
 			"plugins": ["checkbox", "wholerow"]
 		}).on('changed.jstree', function (e, data) {
 			e.preventDefault();
-			initMapFamilies( data.selected );
+			
+			console.log( data.selected );
+
+			initMapFamilies( data.selected, fmLayer );
 		});
 	}
 
-	function initMapFamilies(ferts) {
+	function initMapFamilies(ferts, fmLayer) {
 
 		ferts = $.isArray(ferts) ? ferts : [ferts];
 
@@ -173,7 +176,10 @@ require(["submodules/fenix-ui-menu/js/paths",
 			dataType: 'JSON',
 			success: function(resp) {
 
+				console.log(resp);
+
 				updateLayer(fmLayer, resp);
+
 				initChartFamilies(resp);
 			}
 		});
@@ -181,10 +187,10 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 	function initChartFamilies(resp) {
 
-		var ccodes = {};
+		var retCodes = {};
 		_.each(resp, function(val) {
-			if(!ccodes[ val[0] ])
-				ccodes[ val[0] ] = 1;
+			if(!retCodes[ val[0] ])
+				retCodes[ val[0] ] = 1;
 		});
 
 		var ferts = {};
@@ -202,7 +208,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			//opacities[ val[0] ]= parseFloat( opacities[ val[0] ].toFixed(2) );
 			//opacities[ val[0] ]= opacities[val[0]]>1 ? 1 : opacities[val[0]];
 		});
-
+/*
 		$('#chartFamilies').highcharts({
 			chart: { type: 'column' },
 			title: { text: 'Fertilizers for Country' },
@@ -233,15 +239,15 @@ require(["submodules/fenix-ui-menu/js/paths",
 				//categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
 				categories: _.keys(ferts)
 			},
-			series: _.map(ccodes, function(val) {
+			series: _.map(retCodes, function(val) {
 				return {
 					name: val,
-					data: _.map(ccodes, function (val,code) {
+					data: _.map(retCodes, function (val,code) {
 
 					})
 				};
 			})
-		});
+		});*/
 	}
 //COUNTRIES
 
@@ -389,22 +395,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 			});
 	}
 
-	var zoomToCountries = function(fmMap, codes) {
-		// http://127.0.0.1:5005/spatialquery/db/spatial/SELECT%20ST_AsGeoJSON%28ST_Extent%28geom%29%29%20from%20spatial.gaul1_3857%20where%20adm1_code%20IN%20%2870073,70075,1503,1489,1506,1502,1485,1507,1498,1492,70072,1495,1501,1487,70074,1493,70080,1494,1509,1511,70081,70082,1505,1491,1504,1490,70079,1508,70077,70078,70076,1500%29
-		// TODO: POST and not GET
-		var query = "SELECT ST_AsGeoJSON(ST_Transform(ST_SetSRID(ST_Extent(geom), 3857), 4326)) "+
-					"FROM spatial.gaul0_faostat3_3857 "+
-					"WHERE iso3 IN ('"+ codes.join("','") +"')",
-
-			url = Config.url_bbox +'iso3/'+ encodeURIComponent(codes.join());
-
-		$.getJSON(url, function(json) {
-			
-			fmMap.map.fitBounds(json);
-
-		});
-	};
-
 	var setLayerStyle = function(fmLayer, ccodes, opacities) {
 
 		var style = '';
@@ -412,14 +402,12 @@ require(["submodules/fenix-ui-menu/js/paths",
 			style += "[iso3 = '"+iso3+"'] { fill: #309000; fill-opacity: "+opacities[iso3]+"; stroke: #FFFFFF; }";
 		});
 
-		var data = {
-			stylename: "fenix:gaul0_faostat_3857",
-			style: "[iso3 = 'COD'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'GHA'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'CIV'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'KEN'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'MWI'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }[iso3 = 'MOZ'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'NGA'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'SEN'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'TZA'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'UGA'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'ZMB'] { fill: #309000; fill-opacity: 0.92; stroke: #FFFFFF; }[iso3 = 'BFA'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'BDI'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'CMR'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'ETH'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }[iso3 = 'MDG'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'MLI'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'NER'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }[iso3 = 'RWA'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }[iso3 = 'TGO'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'BEN'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }"
-		};
-	
 		$.ajax({
 			url: Config.sldUrl,
-			data: data,	
+			data: {
+				stylename: "fenix:gaul0_faostat_3857",
+				style: "[iso3 = 'COD'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'GHA'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'CIV'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'KEN'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'MWI'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }[iso3 = 'MOZ'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'NGA'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'SEN'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'TZA'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'UGA'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'ZMB'] { fill: #309000; fill-opacity: 0.92; stroke: #FFFFFF; }[iso3 = 'BFA'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'BDI'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'CMR'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'ETH'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }[iso3 = 'MDG'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'MLI'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'NER'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }[iso3 = 'RWA'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }[iso3 = 'TGO'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'BEN'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }"
+			},
 			async: false,
 			type: 'POST',
 			success: function(response) {
@@ -428,25 +416,18 @@ require(["submodules/fenix-ui-menu/js/paths",
 		});
 	};
 
-	var updateLayer = function(fmLayer, resp) {
-		//resp:
-		/*[
-			["TZA","Agric Lime"],
-			["UGA","Agric Lime"],
-			["BDI","Borax"],
-			["TZA","Borax"]
-		]*/
+	var updateLayer = function(fmLayer, codes) {
 
-		var ccodes = {};
-		_.each(resp, function(val) {
-			if(!ccodes[ val[0] ])
-				ccodes[ val[0] ] = '';
+		var retCodes = {};
+		_.each(codes, function(val) {
+			if(!retCodes[ val[0] ])
+				retCodes[ val[0] ] = '';
 			
-			ccodes[ val[0] ] += '<b>&bull; '+val[1]+'</b><br>';
+			retCodes[ val[0] ] += '<b>&bull; '+val[1]+'</b><br>';
 		});
 
 		var opacities = {};
-		_.each(resp, function(val) {
+		_.each(codes, function(val) {
 			if(!opacities[ val[0] ])
 				opacities[ val[0] ]= 0.2;
 			
@@ -457,7 +438,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		});
 
 		var data = [];
-		_.each(ccodes, function(val, key) {
+		_.each(retCodes, function(val, key) {
 			var o = _.object([key],[val]);
 			data.push( o );
 		});
@@ -477,11 +458,14 @@ require(["submodules/fenix-ui-menu/js/paths",
 			}
 		};
 
-		setLayerStyle(fmLayer, ccodes, opacities);
-		resultsCountries
+		setLayerStyle(fmLayer, retCodes, opacities);
+
 		fmLayer.leafletLayer.redraw();
 
-		zoomToCountries(fmMap, _.keys(ccodes));
+		retCodes = _.keys(retCodes);
+
+		fmLayer._fenixmap.zoomTo("country", "iso3", retCodes);
+		//TODO convert from iso3 to gaul code(adm0_code)
 	};
 
 	var fmMap = new FM.Map('fertMap', {
@@ -503,6 +487,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 		zoomControl: false,
 		attributionControl: false
 	});
+
+	window.fmMap = fmMap;
 
 	fmMap.createMap();
 
@@ -544,7 +530,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		switch($(e.target).attr('href'))
 		{
 			case '#families':
-				initListFamilies();
+				initListFamilies(fmLayer);
 			break;
 			case '#countries':
 				initListCountries();
@@ -555,7 +541,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		}
 	});
 
-	initListFamilies();
+	initListFamilies(fmLayer);
 
 	$('.footer').load('html/footer.html');
 

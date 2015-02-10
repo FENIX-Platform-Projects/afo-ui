@@ -1,0 +1,191 @@
+/* Afo Top Menu */
+
+.navbar{
+  //  min-height: 40px;
+  min-height: $host-menu-height; //It has to be defined - Very important Bootstrap override
+}
+
+.navbar-default .navbar-nav > li > a{
+  color: white;
+}
+
+.navbar-default {
+  @include fx-gradient(#a0c03a, #5ba539);
+  //  border: none;
+
+  li#home{
+    display: none;
+
+  }
+
+
+  .navbar-nav{
+    > li {
+      // height: 50px !important;
+
+      border-right: 1px solid $custom-color4;
+      > a{
+        font: $afo-text-menu-item;
+        text-transform: uppercase;
+        height: $host-menu-height;
+        //      padding: 17px 15px 34px 15px;
+        //      line-height: 20px;
+        //      height: 50px !important;
+        //      display: inline-block !important;
+        //      border-top: 0px !important;
+        //      border-color: $custom-color4 !important;
+        //      border-bottom-color: red;
+        //      border-bottom: 0px;
+        //      border-right: 1px solid $custom-color4;
+        //      @include fx-transfor-me(translateY(-1px));
+
+
+      }
+    }
+  }
+
+
+
+}
+
+
+
+
+.navbar-brand{
+  background-image: url("img/afo-ico.svg");
+  //  background-size: 40px 40px !important;
+  height: $host-menu-height;
+  width: $host-menu-height;
+  background-size: 80% 80%;
+  background-repeat: no-repeat;
+  background-color: white;
+  background-position: center center;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus{
+  background-color: white;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
+  color:white;
+}
+
+
+.navbar-header{
+  background-color: $custom-color1;
+}
+
+.navbar-default .navbar-toggle{
+  border-color: transparent;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover{
+  background-color: transparent;
+}
+
+
+.navbar-collapse{
+  border-top: 0;
+  .navbar-nav{
+    margin-top: 0;
+
+    > li{
+
+
+      > a{
+
+      }
+    }
+
+    .dropdown.open{
+      background-color: $afo-submenu;
+    }
+
+  }
+
+
+}
+
+.container {
+  background-color: white;
+}
+
+
+
+
+
+
+.navbar .container {
+  background-color: transparent;
+}
+
+
+
+.fx-menu{
+  .navbar-right{
+    > li {
+      border-right: 0;
+      height: $host-menu-height;;
+      width: $host-menu-height;
+      padding:12px;
+
+    }
+  }
+}
+
+#login {
+  position: relative;
+  left: 10px;
+  &:before{
+    content: '';
+    position: absolute;
+    height:26px;
+    width: 26px;
+    border:1px solid white;
+    top: 12px;
+    left: 12px; /* review - Too hardcoded */
+  }
+
+  a{
+    height: auto;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    top: 50%;
+    display: inline-block;
+    width: 100%;
+    @include fx-transfor-me(translateY(-50%));
+  }
+    span{
+
+      -webkit-font-smoothing: auto;
+      -moz-osx-font-smoothing: auto;
+
+  }
+}
+
+/*//////////////////////////////////////////// Navbar Media queries */
+
+@media (min-width: 768px) and (max-width: 990px) {
+
+
+
+    .navbar-nav.fx-ul{
+    >li{
+
+      >a{
+        font-size: 80%;
+        padding: 15px 7px;
+      }
+
+    }
+  }
+}
+
+@media (max-width: 767px) {
+
+  #login {
+    left: 0px;
+  }
+
+}

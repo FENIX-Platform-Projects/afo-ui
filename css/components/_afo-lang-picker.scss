@@ -1,15 +1,51 @@
 /* AFO Lang Picker */
 
+.lang_picker_holder{
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+
+  &:hover{
+    .lang_picker {
+      li{
+        a{
+          @include fx-transfor-me(translateY(-200%));
+          @include animate;
+        }
+
+
+      }
+
+    }
+
+  }
+
+}
+
 .navbar .lang_picker{
 //  height: auto !important;
 //  margin-top: 0 !important;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
 
 
   li{
     border-right: none ;
+    height: 100%;
+    width: 100%;
+    border:1px solid white;
 
     a{
-
+      text-align: center;
+      color: white;
+      position: relative;
+      text-align: center;
+      top: 50%;
+      display: inline-block;
+      width: 100%;
+      @include fx-transfor-me(translateY(-50%));
+      @include animate;
     }
 
   }

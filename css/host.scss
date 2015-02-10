@@ -6,6 +6,14 @@
 
 @import '../submodules/fenix-ui-common/css/fenix-style-no-variables';
 
+
+/* Components */
+@import 'components/afo-footer';
+@import 'components/afo-lang-picker';
+@import 'components/afo-breadcrumbs';
+@import 'components/afo-submenu';
+@import 'components/afo-topmenu';
+
 /* Pages */
 @import 'pages/afo-catalogue';
 @import 'pages/afo-data-management';
@@ -18,11 +26,7 @@
 /* Special Modules */
 @import 'themes/bootstrap-fixed-height';
 
-/* Components */
-@import 'components/afo-footer';
-@import 'components/afo-lang-picker';
-@import 'components/afo-breadcrumbs';
-@import 'components/afo-submenu';
+
 
 
 /* Theme */

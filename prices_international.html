@@ -15,35 +15,38 @@
     <meta name="author" content="Nicola Selleri <nicola.selleri[at]fao.org>">
 
     <!-- Third Party CSS -->
-    <link href="//fenixapps.fao.org/repository/js/bootstrap/3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//fenixapps.fao.org/repository/js/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet.css" />
     <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/MarkerCluster.css">
     <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/MarkerCluster.Default.css">
  
-    <!-- OLAP -->
-    <link rel="stylesheet" type="text/css" href="submodules/fenix-ui-olap/css/pivot.css">
-    <link rel="stylesheet" type="text/css" href="submodules/fenix-ui-olap/lib/grid/gt_grid_height.css" />
-	<link rel="stylesheet" type="text/css" href="prices/localpivot.css"  />
-
     <!-- FENIX CSS -->
     <link rel="stylesheet" type="text/css" href="css/host.css">
 
 </head>
-<body id="page-prices">
+<body id="page-prices_international">
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="breadcumb_container"></div>
+        </div>
+    </div>
 
 	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<h2>Prices</h2>
-			</div>
 
-			<!-- Nav tabs -->
-			<ul id="prices_tabs" class="nav nav-tabs" role="tablist">
-				<li class="active"><a href="#prices_international" role="tab" data-toggle="tab">International Prices</a></li>
-				<li><a href="#prices_national" role="tab" data-toggle="tab">National Prices</a></li>
-				<li><a href="#prices_retail" role="tab" data-toggle="tab">Retail prices</a></li>
-			</ul>
-
+		    <div class="row fx-header">
+		        <div class="col-xs-12">
+		            <div class="page-header">
+		                <p>
+		                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id consequat leo. In vestibulum arcu
+		                    ac enim accumsan, nec scelerisque eros porta. Phasellus euismod risus ac dapibus convallis.
+		                </p>
+		            </div>
+		        </div>
+		    </div>
 
 			<!-- Tab panes -->
 			<div class="tab-content afo-prices-tab-content obj-box col-xs-12">
@@ -213,7 +216,7 @@
 
     <script src="https://www.google.com/jsapi"></script>
 
-	<script data-main="prices" src="src/lib/require.js"></script>
+	<script data-main="prices_international" src="src/lib/require.js"></script>
 
 
   </body>

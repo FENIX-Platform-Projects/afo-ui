@@ -171,6 +171,15 @@ require(["submodules/fenix-ui-menu/js/paths",
 		})
 		.addControl(L.control.zoom({position:'bottomright'}));
 
+		swiperMaps.slide3 = L.map('mapSlide3', {
+			zoom: 5,
+			zoomControl: false,
+			attributionControl: false,
+			center: L.latLng(20,0),
+			layers: L.tileLayer(Config.url_osmlayer)
+		})
+		.addControl(L.control.zoom({position:'bottomright'}));
+
 		//	SLIDER Maps
 		var mySwiperMap = $('#afo-maps-wrapper').swiper({
 			loop: false,
@@ -181,7 +190,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 			},
 			onSlideChangeEnd: function() {
 				swiperMaps.slide1.invalidateSize();
-				swiperMaps.slide2.invalidateSize();	
+				swiperMaps.slide2.invalidateSize();
+				swiperMaps.slide3.invalidateSize();
 			}
 		});
 		$('.swipe-maps-prev').on('click', function(e) {

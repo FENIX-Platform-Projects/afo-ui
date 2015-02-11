@@ -1649,6 +1649,25 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   font-size: 24px;
   content: "\eb28"; }
 
+/* Typography */
+/* Afo Typography */
+/* Sansation Font (Africa Fertilizer logo) */
+@font-face {
+  font-family: 'sansationregular';
+  src: url("fonts/sansation-regular-webfont.eot");
+  src: url("fonts/sansation-regular-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/sansation-regular-webfont.woff2") format("woff2"), url("fonts/sansation-regular-webfont.woff") format("woff"), url("fonts/sansation-regular-webfont.ttf") format("truetype"), url("fonts/sansation-regular-webfont.svg#sansationregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'sansation_lightlight';
+  src: url("fonts/sansation-light-webfont.eot");
+  src: url("fonts/sansation-light-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/sansation-light-webfont.woff2") format("woff2"), url("fonts/sansation-light-webfont.woff") format("woff"), url("fonts/sansation-light-webfont.ttf") format("truetype"), url("fonts/sansation-light-webfont.svg#sansation_lightlight") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+.afo-page-title {
+  font-family: "sansation_lightlight";
+  font-size: 26px; }
+
 /* Components */
 /* Africa Fertilizer Footer */
 .afo-footer {
@@ -2326,19 +2345,6 @@ body {
   background-color: #f1eff0;
   color: #666666; }
 
-/* Sansation Font (Africa Fertilizer logo) */
-@font-face {
-  font-family: 'sansationregular';
-  src: url("fonts/sansation-regular-webfont.eot");
-  src: url("fonts/sansation-regular-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/sansation-regular-webfont.woff2") format("woff2"), url("fonts/sansation-regular-webfont.woff") format("woff"), url("fonts/sansation-regular-webfont.ttf") format("truetype"), url("fonts/sansation-regular-webfont.svg#sansationregular") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-@font-face {
-  font-family: 'sansation_lightlight';
-  src: url("fonts/sansation-light-webfont.eot");
-  src: url("fonts/sansation-light-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/sansation-light-webfont.woff2") format("woff2"), url("fonts/sansation-light-webfont.woff") format("woff"), url("fonts/sansation-light-webfont.ttf") format("truetype"), url("fonts/sansation-light-webfont.svg#sansation_lightlight") format("svg");
-  font-weight: normal;
-  font-style: normal; }
 .obj-box, .obj-box-radius10, .obj-box-title {
   border: none; }
 

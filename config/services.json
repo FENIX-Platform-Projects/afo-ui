@@ -16,5 +16,9 @@
 	"url_geocoding": "http://fenix.fao.org/geo/fenix/geocoding/latlon/",
 
 	"url_baselayer": "http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}.png",
-	"url_osmlayer": "http://{s}.tile.osm.org/{z}/{x}/{y}.png"
+	"url_osmlayer": "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
+	
+	"queries": {
+		"home_maps":"select ams.country_code, country_label, afo_footprint, manufacturing_plant, blending_plant from afo_map_slider ams, codes_countries cc where ams.country_code = cc.country_code"
+	}
 }

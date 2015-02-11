@@ -109,7 +109,40 @@
       "label": {
         "EN": "Directories",
         "FR": ""
-      }
+      },
+      "type": "dropdown",
+      "children": [
+        {
+          "attrs": {
+            "id": "directories_manufact"
+          },
+          "target": "directories_manufact.html",
+          "label": {
+            "EN": "Manufacturing Plant Directory",
+            "FR": ""
+          }
+        },
+        {
+          "attrs": {
+            "id": "directories_plants"
+          },
+          "target": "directories_plants.html",
+          "label": {
+            "EN": "Processing Plants Directory",
+            "FR": ""
+          }
+        },
+        {
+          "attrs": {
+            "id": "directories_dealers"
+          },
+          "target": "directories_dealers.html",
+          "label": {
+            "EN": "Agro Dealers Directory",
+            "FR": ""
+          }
+        }        
+      ]        
     },
     {
       "attrs": {

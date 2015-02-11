@@ -1903,7 +1903,8 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   min-height: 50px; }
 
 .navbar-default .navbar-nav > li > a {
-  color: white; }
+  color: white;
+  overflow: hidden; }
   .navbar-default .navbar-nav > li > a:before {
     content: '';
     position: absolute;
@@ -2228,6 +2229,17 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 .afo-pub-category-list {
   list-style: none;
   padding-left: 0; }
+  .afo-pub-category-list > li {
+    padding: 10px 15px;
+    border-bottom: 1px solid #e4e4e4; }
+    .afo-pub-category-list > li > a {
+      color: #666666;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 500; }
+      .afo-pub-category-list > li > a:hover {
+        text-decoration: none;
+        color: #5ba539; }
 
 /* AFO - Statistics Page Style */
 .fx-catalog-modular-menu .panel-body .btn {

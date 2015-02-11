@@ -41,9 +41,26 @@
   padding-left: 0;
   
   >li {
+    padding: 10px 15px;
+    border-bottom: 1px solid $afo-hairline;
+
     >a{
+      color:$fenix-text;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 500;
+
+      &:before{
 
 
+
+      }
+
+
+      &:hover{
+        text-decoration: none;
+        color: $afo-green-title;
+      }
 
     }
   }

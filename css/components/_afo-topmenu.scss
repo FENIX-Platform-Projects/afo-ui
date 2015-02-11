@@ -7,6 +7,7 @@
 
 .navbar-default .navbar-nav > li > a{
   color: white;
+  overflow: hidden;
 
   &:before {
     // Very cool menu effect //

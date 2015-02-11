@@ -118,7 +118,10 @@ require(["submodules/fenix-ui-menu/js/paths",
 		//	SLIDER Highltights
 		var swiperHigh = $('#afo-high-wrapper').swiper({
 			loop: true,
-			simulateTouch: false
+			simulateTouch: false,
+            onSwiperCreated: updateMainSwiperIndex,
+            onSlideChangeEnd: updateMainSwiperIndex
+
 		});
 		$('.swipe-high-prev').on('click', function(e) {
 			e.preventDefault();
@@ -128,6 +131,14 @@ require(["submodules/fenix-ui-menu/js/paths",
 			e.preventDefault();
 			swiperHigh.swipeNext();
 		});
+
+
+        function updateMainSwiperIndex (swiper) {
+            var s = swiper || swiperHigh;
+
+           $('.hp-main-swiper-index').html('<span class="swiper-index"><span class="swiper-index-active">'+ (s.activeLoopIndex + 1)+'</span><span class="swiper-index-total"> | '+ (s.slides.length - (s.loopedSlides*2) )+'</span></span>' );
+        }
+
 
 
 ///MAPS SLIDER
@@ -187,11 +198,13 @@ require(["submodules/fenix-ui-menu/js/paths",
 			mode: 'vertical',
 			onSwiperCreated: function() {
 				swiperMaps.slide1.invalidateSize();
+                $('#afo-maps-wrapper').find(".map-legend").removeClass("active");
 			},
 			onSlideChangeEnd: function() {
 				swiperMaps.slide1.invalidateSize();
 				swiperMaps.slide2.invalidateSize();
 				swiperMaps.slide3.invalidateSize();
+                $('#afo-maps-wrapper').find(".map-legend").removeClass("active");
 			}
 		});
 		$('.swipe-maps-prev').on('click', function(e) {
@@ -202,6 +215,13 @@ require(["submodules/fenix-ui-menu/js/paths",
 			e.preventDefault();
 			mySwiperMap.swipeNext();
 		});
+
+        $('#afo-maps-legend-btn').on('click', showMapLegend);
+
+        function showMapLegend(){
+
+            $('#afo-maps-wrapper').find(".map-legend[data-legend='"+mySwiperMap.activeIndex+"']").toggleClass("active");
+        }
 
 		$('.footer').load('html/footer.html');
 

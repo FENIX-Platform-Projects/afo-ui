@@ -41,7 +41,7 @@
       &:hover{
         background-color: $afo-submenu-hover;
 
-        &:before{
+        &:before{ // Very cool submenu effect //
           content: '';
           position: absolute;
           width: 5px;

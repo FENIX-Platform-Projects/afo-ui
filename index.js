@@ -80,7 +80,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 	require([
 	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet',
 	    'text!config/services.json',
-
 		'fx-menu/start',
         './scripts/components/AuthenticationManager',
         'amplify',
@@ -172,7 +171,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		.addControl(L.control.zoom({position:'bottomright'}));
 
 		swiperMaps.slide3 = L.map('mapSlide3', {
-			zoom: 5,
+			zoom: 6,
 			zoomControl: false,
 			attributionControl: false,
 			center: L.latLng(20,0),

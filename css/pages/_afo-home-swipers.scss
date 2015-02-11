@@ -111,7 +111,7 @@
   .swiper-slide{
     position: relative;
 
-    .afo-title-white{
+    .afo-title-white.maptitle{
       position: absolute;
       margin: 0;
       z-index: 1;
@@ -180,7 +180,7 @@
   padding: 0 30px;
   border-right: 1px solid $afo-hairline;
 
-  &:hover, &:active, &.focus, &:visited{
+  &:hover, &:active, &:focus, &:visited{
     text-decoration: none;
     background-color: $afo-btn-hover;
     color: $afo-green-title;;
@@ -188,6 +188,80 @@
 
 
 }
+
+
+.hp-main-swiper-index{
+  float: right;
+  border-right: 0;
+  font-weight: 300;
+  color: $fenix-text !important;
+
+  &:hover, &:active, &:focus {
+    background-color: transparent;
+    text-decoration: none;
+    color: $fenix-text;
+  }
+
+}
+
+
+.map-legend{
+  visibility: hidden;
+  width: 100%;
+  height: 88px;
+  background-color: rgba(255,255,255,0.8);
+  position: absolute;
+  bottom: -88px;
+  left: 0;
+  @include animate;
+
+  border-right: 1px solid $afo-hairline;
+  border-top: 1px solid $afo-hairline;
+  border-left: 1px solid $afo-hairline;
+
+  .afo-title-white{
+    position: relative !important; // to be removed
+    margin-left: 20px;
+  }
+
+
+  &.active{
+    visibility: visible;
+    @include animate;
+    bottom: 0;
+  }
+
+
+
+  .afo-leg{
+    list-style: none;
+    padding-left: 0;
+
+    >li{
+      float: left;
+      padding: 5px;
+
+
+    }
+  }
+
+}
+
+.afo-legen-circe{
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  background-color: red;
+  @include fx-border-radius(100%);
+  margin-right: 5px;
+  @include fx-transfor-me(translateY(3px));
+}
+
+.leg1{   background-color: #F1EEE8; }
+.leg2{   background-color: #BCD5AB; }
+.leg3{   background-color: #A5C88E; }
+.leg4{   background-color: #8DBD70; }
+.leg5{   background-color: #6AAC46; }
 
 /* /////////////// Home Swiper Media Queries */
 

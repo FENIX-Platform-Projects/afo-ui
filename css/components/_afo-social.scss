@@ -1,0 +1,26 @@
+/* Afo Social */
+.twitter-timeline{
+  min-width: 100px !important;
+  width: 100% !important;
+  max-height: 250px!important;
+  padding-right: 2px;
+}
+
+.fb_iframe_widget{
+  border: 1px solid #e8e8e8 !important;
+  @include fx-border-radius(5px);
+  overflow: hidden;
+  width: 100% !important;
+
+  span{
+
+
+    iframe{
+
+    }
+  }
+}
+
+.fb_iframe_widget_fluid{
+  display: inline-block !important;
+}

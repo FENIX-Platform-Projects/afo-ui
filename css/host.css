@@ -1887,8 +1887,13 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
   background-color: white; }
 
+/* Over menu */
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
   color: white; }
+
+/* Active - hover and normal state of menu btn */
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  border-bottom: 0; }
 
 .navbar-header {
   background-color: #f1eff0; }

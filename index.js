@@ -139,7 +139,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			zoomControl: false,
 			attributionControl: false,
 			center: L.latLng(12,18),
-			layers: L.tileLayer(Config.url_osmlayer)
+			layers: L.tileLayer(Config.url_baselayer)
 		});
 		swiperMaps.slide1.addControl(L.control.zoom({position:'bottomright'}));
 
@@ -151,7 +151,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			zoomControl: false,
 			attributionControl: false,
 			center: L.latLng(20,0),
-			layers: L.tileLayer(Config.url_baselayer)
+			layers: L.tileLayer(Config.url_osmlayer)
 		});
 		swiperMaps.slide2.addControl(L.control.zoom({position:'bottomright'}));
 

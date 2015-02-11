@@ -21,3 +21,30 @@
 
 }
 
+#listPubs {
+  list-style: none;
+  padding-left: 0;
+
+}
+
+.afo-pub-category-title{
+  margin-top: 10px;
+}
+
+.afo-sidebar-item {
+  background-color: $afo-light-bg;
+  padding: 10px;
+}
+
+.afo-pub-category-list{
+  list-style: none;
+  padding-left: 0;
+  
+  >li {
+    >a{
+
+
+
+    }
+  }
+}

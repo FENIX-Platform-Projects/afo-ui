@@ -1,0 +1,40 @@
+/* Afo Form */
+
+.form-control{
+  -webkit-transition:none;
+  -moz-transition:none;
+  -ms-transition:none;
+  -o-transition:none;
+  transition:none;
+
+  outline: none;
+
+  @include fx-noshadow;
+
+  border: 2px solid $afo-green-title;
+  @include fx-border-radius(0);
+  font-weight: 500;
+  padding: 3px 12px;
+  font-size: 12px;
+  height: 28px;
+
+  &:focus{
+    @include fx-noshadow;
+    outline: none;
+    border: 2px solid $afo-green-title;
+  }
+}
+
+.input-group-btn{
+
+  .btn{
+    border-left: 0;
+
+    &:hover{
+      border-color:$afo-green-title;
+
+    }
+
+  }
+
+}

@@ -1666,9 +1666,31 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   font-style: normal; }
 .afo-page-title {
   font-family: "sansation_lightlight";
-  font-size: 26px; }
+  font-size: 26px;
+  color: #666666; }
 
 /* Components */
+/* AFO  BreadCrumbs */
+#breadcumb_container {
+  height: 35px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+
+.breadcrumb {
+  background-color: transparent;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 8px 0;
+  margin-bottom: 0; }
+  .breadcrumb li a {
+    color: #5ba539;
+    text-transform: uppercase; }
+
+.breadcrumb > li + li:before {
+  content: '|';
+  color: #5ba539; }
+
 /* Africa Fertilizer Footer */
 .afo-footer {
   background-color: lightgray;
@@ -1739,6 +1761,38 @@ div[data-module="region"] .fx-catalog-modular-form-content {
     .afo-footer-sub a:hover {
       color: white; }
 
+/* Afo Form */
+.form-control {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border: 2px solid #5ba539;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+  font-weight: 500;
+  padding: 3px 12px;
+  font-size: 12px;
+  height: 28px; }
+  .form-control:focus {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+    border: 2px solid #5ba539; }
+
+.input-group-btn .btn {
+  border-left: 0; }
+  .input-group-btn .btn:hover {
+    border-color: #5ba539; }
+
 /* AFO Lang Picker */
 .lang_picker_holder {
   overflow: hidden;
@@ -1780,27 +1834,6 @@ div[data-module="region"] .fx-catalog-modular-form-content {
       -ms-transition: all 0.3s ease 0s;
       -o-transition: all 0.3s ease 0s;
       transition: all 0.3s ease 0s; }
-
-/* AFO  BreadCrumbs */
-#breadcumb_container {
-  height: 35px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap; }
-
-.breadcrumb {
-  background-color: transparent;
-  font-size: 12px;
-  font-weight: bold;
-  padding: 8px 0;
-  margin-bottom: 0; }
-  .breadcrumb li a {
-    color: #5ba539;
-    text-transform: uppercase; }
-
-.breadcrumb > li + li:before {
-  content: '|';
-  color: #5ba539; }
 
 /* Afo Subemenu */
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
@@ -2181,6 +2214,21 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   -ms-border-radius: 0;
   border-radius: 0; }
 
+#listPubs {
+  list-style: none;
+  padding-left: 0; }
+
+.afo-pub-category-title {
+  margin-top: 10px; }
+
+.afo-sidebar-item {
+  background-color: #f9f6ee;
+  padding: 10px; }
+
+.afo-pub-category-list {
+  list-style: none;
+  padding-left: 0; }
+
 /* AFO - Statistics Page Style */
 .fx-catalog-modular-menu .panel-body .btn {
   border: none;
@@ -2555,18 +2603,21 @@ thead {
   display: inline-block;
   font: normal normal 400 10px/normal "Roboto";
   color: white;
-  padding: 2px 7px; }
+  padding: 2px 7px;
+  text-transform: uppercase; }
 
 .afo-title-blue {
   background-color: #5ca7d8;
   display: inline-block;
   font: normal normal 400 10px/normal "Roboto";
   color: white;
-  padding: 2px 7px; }
+  padding: 2px 7px;
+  text-transform: uppercase; }
 
 .afo-title-white {
   background-color: white;
   display: inline-block;
   font: normal normal 400 10px/normal "Roboto";
   color: #5ba539;
-  padding: 2px 7px; }
+  padding: 2px 7px;
+  text-transform: uppercase; }

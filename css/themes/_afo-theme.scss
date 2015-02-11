@@ -26,19 +26,26 @@ body{
   font-weight: 500;
   padding: 3px 12px;
   border-width: 2px;
+  text-transform: uppercase;
 
   &:hover{
     background-color: transparent;
-    color: $fx-cool-blue;
-    border-color: $fx-cool-blue;
+    color: $afo-green-title;
+    border-color: $afo-green-title;
   }
   &:active{
     background-color: transparent;
-    color: $fx-cool-blue;
-    border-color: $fx-cool-blue;
+    color: $afo-green-title;
+    border-color: $afo-green-title;
     @include fx-box-shadow(0, 0, 0, white);
   }
 
+}
+
+.open > .dropdown-toggle.btn-default{
+  background-color: transparent;
+  color: $afo-green-title;
+  border-color: $afo-green-title;
 }
 
 

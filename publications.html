@@ -55,9 +55,35 @@
     <!-- Content -->
     <div class="row">
         <div class="col-xs-12 col-sm-8">
-            <ul id="listPubs">
-                <!-- CONTENT DYNAMIC -->
-            </ul>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <span class="afo-pub-order">ORDER BY:</span>
+                    <div class="dropdown pull-right">
+                        <button class="btn btn-default dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                            Select Sort Order
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu afo-dropdown-toggle dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Most recent</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Publication title A-Z</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Highest rating</a></li>
+                        </ul>
+                    </div>
+                    <hr class="afo-pub-filter-header">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul id="listPubs">
+                        <!-- CONTENT DYNAMIC -->
+                    </ul>
+                </div>
+            </div>
+
+
+
         </div>
         <div class="col-xs-12 col-sm-4">
 
@@ -73,7 +99,7 @@
             <h3 class="afo-title afo-pub-category-title">Publication by category</h3>
 
                 <ul class="afo-pub-category-list">
-                    <li><a href="#">Production</a></li>
+                    <li><a class="active" href="#">Production</a></li>
                     <li><a href="#">General</a></li>
                     <li><a href="#">Regulatory</a></li>
                     <li><a href="#">Prices</a></li>

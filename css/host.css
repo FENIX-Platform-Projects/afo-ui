@@ -1699,7 +1699,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 .afo-footer-logo-image {
   margin-top: 20px;
   padding-right: 15px;
-  max-width: 160px; }
+  max-width: 145px; }
 
 .afp-footer-social li {
   float: right;
@@ -1897,6 +1897,9 @@ div[data-module="region"] .fx-catalog-modular-form-content {
         background-color: transparent; }
       .dropdown .dropdown-menu > li > a:visited {
         background-color: transparent; }
+
+.afo-dropdown-toggle {
+  margin-top: 0; }
 
 /* Afo Top Menu */
 .navbar {
@@ -2218,9 +2221,14 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 #listPubs {
   list-style: none;
   padding-left: 0; }
+  #listPubs .title {
+    color: #5ba539; }
+    #listPubs .title:hover {
+      text-decoration: none;
+      color: #5ba539; }
 
 .afo-pub-category-title {
-  margin-top: 10px; }
+  margin-top: 0; }
 
 .afo-sidebar-item {
   background-color: #f9f6ee;
@@ -2230,16 +2238,43 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   list-style: none;
   padding-left: 0; }
   .afo-pub-category-list > li {
-    padding: 10px 15px;
+    padding: 6px 15px;
     border-bottom: 1px solid #e4e4e4; }
     .afo-pub-category-list > li > a {
       color: #666666;
       text-transform: uppercase;
-      font-size: 12px;
-      font-weight: 500; }
+      font-size: 10px;
+      font-weight: 500;
+      position: relative; }
+      .afo-pub-category-list > li > a.active:before {
+        content: '';
+        position: absolute;
+        height: 15px;
+        width: 15px;
+        background-image: url("img/afo-arrow-right-on.svg");
+        background-position: -16px 32px;
+        left: -18px;
+        top: -1px;
+        display: block; }
+      .afo-pub-category-list > li > a:hover:before {
+        content: '';
+        position: absolute;
+        height: 15px;
+        width: 15px;
+        background-image: url("img/afo-arrow-right-on.svg");
+        background-position: -16px 32px;
+        left: -18px;
+        top: -1px;
+        display: block; }
+      .afo-pub-category-list > li > aactive {
+        color: #5ba539; }
       .afo-pub-category-list > li > a:hover {
         text-decoration: none;
         color: #5ba539; }
+
+.afo-pub-order {
+  position: relative;
+  top: 5px; }
 
 /* AFO - Statistics Page Style */
 .fx-catalog-modular-menu .panel-body .btn {
@@ -2418,18 +2453,24 @@ body {
   border-radius: 0;
   font-weight: 500;
   padding: 3px 12px;
-  border-width: 2px; }
+  border-width: 2px;
+  text-transform: uppercase; }
   .btn:hover {
     background-color: transparent;
-    color: #336600;
-    border-color: #336600; }
+    color: #5ba539;
+    border-color: #5ba539; }
   .btn:active {
     background-color: transparent;
-    color: #336600;
-    border-color: #336600;
+    color: #5ba539;
+    border-color: #5ba539;
     -webkit-box-shadow: 0 0 0 white;
     -moz-box-shadow: 0 0 0 white;
     box-shadow: 0 0 0 white; }
+
+.open > .dropdown-toggle.btn-default {
+  background-color: transparent;
+  color: #5ba539;
+  border-color: #5ba539; }
 
 .btn[disabled] {
   background-color: transparent;

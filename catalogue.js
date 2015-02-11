@@ -395,9 +395,10 @@ require(["submodules/fenix-ui-menu/js/paths",
 			});
 	}
 
-	var setLayerStyle = function(fmLayer, ccodes, opacities) {
+	var setLayerStyle = function(ccodes, opacities) {
 
-		var style = '';
+		var style = '',
+			sld = '';
 		_.each(ccodes, function(val, iso3) {
 			style += "[iso3 = '"+iso3+"'] { fill: #309000; fill-opacity: "+opacities[iso3]+"; stroke: #FFFFFF; }";
 		});
@@ -406,14 +407,15 @@ require(["submodules/fenix-ui-menu/js/paths",
 			url: Config.sldUrl,
 			data: {
 				stylename: "fenix:gaul0_faostat_3857",
-				style: "[iso3 = 'COD'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'GHA'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'CIV'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'KEN'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'MWI'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }[iso3 = 'MOZ'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'NGA'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'SEN'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'TZA'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'UGA'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'ZMB'] { fill: #309000; fill-opacity: 0.92; stroke: #FFFFFF; }[iso3 = 'BFA'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'BDI'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'CMR'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'ETH'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }[iso3 = 'MDG'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'MLI'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'NER'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }[iso3 = 'RWA'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }[iso3 = 'TGO'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'BEN'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }"
+				style: style
 			},
 			async: false,
 			type: 'POST',
 			success: function(response) {
-				fmLayer.leafletLayer.wmsParams.sld = response;
+				sld = response;
 			}
 		});
+		return sld;
 	};
 
 	var updateLayer = function(fmLayer, codes) {
@@ -458,8 +460,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			}
 		};
 
-		setLayerStyle(fmLayer, retCodes, opacities);
-
+		fmLayer.leafletLayer.wmsParams.sld = setLayerStyle(retCodes, opacities);
 		fmLayer.leafletLayer.redraw();
 
 		retCodes = _.keys(retCodes);

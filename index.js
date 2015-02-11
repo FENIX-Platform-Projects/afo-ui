@@ -113,20 +113,37 @@ require(["submodules/fenix-ui-menu/js/paths",
             console.log(amplify.store.sessionStorage('afo.security.user'));
         });
 
-		var swiperMaps = {};
 
-		var countriesLayer = L.tileLayer.wms(Config.wmsUrl, {
-			layers: 'fenix:gaul0_faostat_3857',
-			format: 'image/png',
-			transparent: true
+//HIGLIGHTS SLIDER
+		//	SLIDER Highltights
+		var swiperHigh = $('#afo-high-wrapper').swiper({
+			loop: true,
+			simulateTouch: false
 		});
+		$('.swipe-high-prev').on('click', function(e) {
+			e.preventDefault();
+			swiperHigh.swipePrev();
+		});
+		$('.swipe-high-next').on('click', function(e) {
+			e.preventDefault();
+			swiperHigh.swipeNext();
+		});
+
+
+///MAPS SLIDER
+		var swiperMaps = {},
+			countriesLayer = L.tileLayer.wms(Config.wmsUrl, {
+				layers: 'fenix:gaul0_faostat_3857',
+				format: 'image/png',
+				transparent: true
+			});
 
 		$.ajax({
 			url: Config.sldUrl,
 			data: {
 				stylename: "fenix:gaul0_faostat_3857",
 				style: "[iso3 = 'COD'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'GHA'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'CIV'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'KEN'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'MWI'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }[iso3 = 'MOZ'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'NGA'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'SEN'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'TZA'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'UGA'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }[iso3 = 'ZMB'] { fill: #309000; fill-opacity: 0.92; stroke: #FFFFFF; }[iso3 = 'BFA'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'BDI'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'CMR'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'ETH'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }[iso3 = 'MDG'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'MLI'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'NER'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }[iso3 = 'RWA'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }[iso3 = 'TGO'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }[iso3 = 'BEN'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }"
-			},	
+			},
 			async: false,
 			type: 'POST',
 			success: function(response) {
@@ -140,10 +157,9 @@ require(["submodules/fenix-ui-menu/js/paths",
 			attributionControl: false,
 			center: L.latLng(12,18),
 			layers: L.tileLayer(Config.url_baselayer)
-		});
-		swiperMaps.slide1.addControl(L.control.zoom({position:'bottomright'}));
-
-		swiperMaps.slide1.addLayer(countriesLayer);
+		})
+		.addControl(L.control.zoom({position:'bottomright'}))
+		.addLayer(countriesLayer);
 
 
 		swiperMaps.slide2 = L.map('mapSlide2', {
@@ -152,8 +168,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 			attributionControl: false,
 			center: L.latLng(20,0),
 			layers: L.tileLayer(Config.url_osmlayer)
-		});
-		swiperMaps.slide2.addControl(L.control.zoom({position:'bottomright'}));
+		})
+		.addControl(L.control.zoom({position:'bottomright'}));
 
 		//	SLIDER Maps
 		var mySwiperMap = $('#afo-maps-wrapper').swiper({
@@ -175,20 +191,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 		$('.swipe-maps-next').on('click', function(e) {
 			e.preventDefault();
 			mySwiperMap.swipeNext();
-		});
-
-		//	SLIDER Highltights
-		var mySwiperHigh = $('#afo-high-wrapper').swiper({
-			loop: true,
-			simulateTouch: false
-		});
-		$('.swipe-high-prev').on('click', function(e) {
-			e.preventDefault();
-			mySwiperHigh.swipePrev();
-		});
-		$('.swipe-high-next').on('click', function(e) {
-			e.preventDefault();
-			mySwiperHigh.swipeNext();
 		});
 
 		$('.footer').load('html/footer.html');

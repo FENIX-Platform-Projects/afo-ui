@@ -59,7 +59,8 @@ require(["submodules/fenix-ui-menu/js/paths",
                 'amplify': {
                     deps: ['jquery'],
                     exports: 'amplifyjs'
-                },		        
+                },
+				'swiper': ['jquery'],
 		        'fenix-map': {
 		            deps: [
 		                'i18n',

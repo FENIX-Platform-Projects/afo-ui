@@ -40,6 +40,14 @@
 
 </head>
 <body>
+  <div class="container">
+      <div class="row">
+          <div class="col-xs-12">
+              <div id="breadcumb_container"></div>
+          </div>
+      </div>
+  </div>
+
 
 
 <!-- FENIX DSD Editor-->
@@ -96,111 +104,9 @@
 
 <!-- Javascript
 ================================================== -->
-<!-- Javascript
-================================================== -->
-<script>
-
-    var sourceValues = null, resourceTypeValue = "dataset";
-
-    function getURLParameter(sParam) {
-        var sPageURL = window.location.search.substring(1);
-        var sURLVariables = sPageURL.split('&');
-        for (var i = 0; i < sURLVariables.length; i++) {
-            var sParameterName = sURLVariables[i].split('=');
-            if (sParameterName[0] == sParam) {
-                return sParameterName[1];
-            }
-        }
-    }
-
-    //Host Event Listener: Listening for when the Metadata Editor's 'Save & Close' button action has finished its final action
-    document.body.addEventListener("fx.editor.finish", function (e) {
-        console.log("=== LISTENER  ====");
-        //e.detail.data = the Object passed from the editor
-        /** {
-            "title" : {
-            "EN" : "Agriculture production. Crops, National Production ."
-        },
-            "uid" : "4",
-                "rid" : "9_65"
-        }  **/
-
-        console.log(e.detail.data);
-    }, false);
-
-    //Example Host Function that is the callback function for the Metadata Editor's onFinishClick (i.e. 'Save & Close' button)
-    function launchCreateDataset(data) {
-        //data = the Object passed to the callback function from the Editor
-        /** {
-            "title" : {
-            "EN" : "Agriculture production. Crops, National Production ."
-        },
-            "uid" : "4",
-                "rid" : "9_65"
-        }  **/
-
-        console.log("=== CALLBACK FUNCTION ====");
-        console.log(data);
-    }
-
-    if (typeof Element.prototype.addEventListener === 'undefined') {
-        Element.prototype.addEventListener = function (e, callback) {
-            e = 'on' + e;
-            return this.attachEvent(e, callback);
-        };
-    }
-
-    // URL Parameters to set Metadata Editor configuration parameters
-
-    if (getURLParameter("uid") != null && getURLParameter("version") == null) {
-        sourceValues = {
-            "url": "http://faostat3.fao.org/d3s2/v2/msd/resources/metadata/uid/" + getURLParameter("uid") + "?full=true",
-            "type": "get"
-        };
-    }
-
-    if (getURLParameter("version") != null && getURLParameter("uid") != null) {
-        sourceValues = {
-            "url": "http://faostat3.fao.org/d3s2/v2/msd/resources/metadata/" + getURLParameter("uid") + "/" + getURLParameter("version") + "?full=true",
-            "type": "get"
-        };
-    }
-
-    if (getURLParameter("resourceType") != null) {
-        resourceTypeValue = getURLParameter("resourceType");
-    }
-
-    //http://localhost:8080/fnx-metadata-editor/index.html?resourceType=dataset&uid=D3S_-9095541986054944792-8580822434764208352
-    //uid = D3S_-9095541986054944792-8580822434764208352
-
-    //Metadata Editor configuration parameters
-    var require = {
-        config: {
-            createdataset: { //This must match your module name
-                container: "div#metadataEditorContainer",
-                source: sourceValues,
-                resourceType: resourceTypeValue, //dataset, geographic, codelist
-                widget: {
-                    lang: 'EN'
-                },
-                config: {
-                    gui: "./submodules/fenix-ui-metadata-editor/conf/json/fx-editor-gui-config.json",
-                    validation: "./submodules/fenix-ui-metadata-editor/conf/json/fx-editor-validation-config.json",
-                    jsonMapping: "./submodules/fenix-ui-metadata-editor/conf/json/fx-editor-mapping-config.json",
-                    ajaxEventCalls: "./submodules/fenix-ui-metadata-editor/conf/json/fx-editor-ajax-config.json",
-                    dates: "./submodules/fenix-ui-metadata-editor/conf/json/fx-editor-dates-config.json"
-                },
-                onFinishClick: function (data) {
-                    launchCreateDataset(data); // Host callback function
-                }
-            }
-        }
-    };
-
-</script>
 
 
-<script data-main="scripts/mains/createdataset" src="node_modules/requirejs/require.js"></script>
+<script data-main="scripts/mains/createdataset" src="//fenixapps.fao.org/repository/js/requirejs/2.1.15/require.min.js"></script>
 
 </body>
 </html>

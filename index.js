@@ -141,8 +141,7 @@ require(["submodules/fenix-ui-menu/js/paths",
             })
         }
 
-
-//HIGLIGHTS SLIDER
+        //HIGLIGHTS SLIDER
 		//	SLIDER Highltights
 		var swiperHigh = $('#afo-high-wrapper').swiper({
 			loop: true,

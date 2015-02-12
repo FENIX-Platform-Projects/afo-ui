@@ -1,0 +1,198 @@
+{
+  "type": "fixed-top",
+  "brand": {
+    "target": "index.html"
+  },
+  "languages": [
+    {
+      "lang": "EN",
+      "label": "En"
+    },
+    {
+      "lang": "FR",
+      "label": "Fr"
+    }
+  ],
+  "items": [
+    {
+      "attrs": {
+        "id": "home"
+      },
+      "target": "index.html",
+      "label": {
+        "EN": "Home",
+        "FR": ""
+      },
+      "breadcrumbLabel": {
+        "EN": "WELCOME TO THE AFRICA FERTILIZER INFORMATION PORTAL",
+        "FR": ""
+      }
+    },
+    {
+      "attrs": {
+        "id": "prices"
+      },
+      "target": "prices.html",
+      "label": {
+        "EN": "Prices",
+        "FR": ""
+      },
+      "type": "dropdown",
+      "children": [
+        {
+          "attrs": {
+            "id": "prices_international"
+          },
+          "target": "prices_international.html",
+          "label": {
+            "EN": "Prices International",
+            "FR": ""
+          }
+        },
+        {
+          "attrs": {
+            "id": "prices_national"
+          },
+          "target": "prices_national.html",
+          "label": {
+            "EN": "Prices National",
+            "FR": ""
+          }
+        },
+        {
+          "attrs": {
+            "id": "prices_retail"
+          },
+          "target": "prices_retail.html",
+          "label": {
+            "EN": "Detailed Prices",
+            "FR": ""
+          }
+        },
+        {
+          "attrs": {
+            "id": "prices_analysis"
+          },
+          "target": "prices_analysis.html",
+          "label": {
+            "EN": "Fertilizer Analysis Analysis",
+            "FR": ""
+          }
+        }
+      ]
+    },
+    {
+      "attrs": {
+        "id": "statistics"
+      },
+      "target": "statistics.html",
+      "label": {
+        "EN": "Statistics",
+        "FR": ""
+      }
+    },
+    {
+      "attrs": {
+        "id": "catalogue"
+      },
+      "target": "catalogue.html",
+      "label": {
+        "EN": "Catalogue",
+        "FR": ""
+      }
+    },
+    {
+      "attrs": {
+        "id": "directories"
+      },
+      "target": "directories.html",
+      "label": {
+        "EN": "Directories",
+        "FR": ""
+      },
+      "type": "dropdown",
+      "children": [
+        {
+          "attrs": {
+            "id": "directories_manufact"
+          },
+          "target": "directories_manufact.html",
+          "label": {
+            "EN": "Manufacturing Plant Directory",
+            "FR": ""
+          }
+        },
+        {
+          "attrs": {
+            "id": "directories_plants"
+          },
+          "target": "directories_plants.html",
+          "label": {
+            "EN": "Processing Plants Directory",
+            "FR": ""
+          }
+        },
+        {
+          "attrs": {
+            "id": "directories_dealers"
+          },
+          "target": "directories_dealers.html",
+          "label": {
+            "EN": "Agro Dealers Directory",
+            "FR": ""
+          }
+        }        
+      ]        
+    },
+    {
+      "attrs": {
+        "id": "publications"
+      },
+      "target": "publications.html",
+      "label": {
+        "EN": "Publications",
+        "FR": ""
+      }
+    },
+    {
+      "attrs": {
+        "id": "policies"
+      },
+      "target": "policies.html",
+      "label": {
+        "EN": "Policies",
+        "FR": ""
+      }
+    },
+    {
+      "attrs": {
+        "id": "market_news"
+      },
+      "target": "market_news.html",
+      "label": {
+        "EN": "Market news",
+        "FR": ""
+      }
+    },
+    {
+      "attrs": {
+        "id": "events"
+      },
+      "target": "events.html",
+      "label": {
+        "EN": "Events",
+        "FR": ""
+      }
+    }
+  ],
+  "rightItems" : [{
+      "attrs": {
+        "id": "logout",
+        "class": "afo-eldorado-icons"
+      },
+      "label": {
+        "EN": "<span class='icojam_air_conditioning_external'></span>",
+        "FR": ""
+      }
+    }]
+}

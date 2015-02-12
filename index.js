@@ -94,7 +94,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
         var authUser = amplify.store.sessionStorage('afo.security.user'),
             menuUrl,
-            publicMenuConfig =  'config/fenix-ui-menu.json',
+            publicMenuConfig = 'config/fenix-ui-menu.json',
             authMenuConfig = 'config/fenix-ui-menu-auth.json';
 
         authUser ? menuUrl = authMenuConfig : menuUrl = publicMenuConfig;
@@ -113,21 +113,13 @@ require(["submodules/fenix-ui-menu/js/paths",
         /*Login*/
         new AuthenticationManager();
 
-        //How to intercept Login event
         amplify.subscribe('login', function (user) {
-            console.warn("Event login intercepted");
-            console.log(user);
-            console.warn('User from local storage');
-            console.log(amplify.store.sessionStorage('afo.security.user'));
-            refreshMenu(authMenuConfig );
+            refreshMenu(authMenuConfig);
         });
-
-        //How to intercept Login event
         amplify.subscribe('logout', function () {
             console.warn("Event logout intercepted");
             refreshMenu(publicMenuConfig);
         });
-
         function refreshMenu(url) {
             topMenu.refresh({
                 active: 'home',

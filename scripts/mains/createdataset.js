@@ -267,25 +267,17 @@ require([
                 showHome : true
             }
         });
-
+        
         /*Login*/
         new AuthenticationManager();
 
-        //How to intercept Login event
         amplify.subscribe('login', function (user) {
-            console.warn("Event login intercepted");
-            console.log(user);
-            console.warn('User from local storage');
-            console.log(amplify.store.sessionStorage('afo.security.user'));
-            refreshMenu(authMenuConfig );
+            refreshMenu(authMenuConfig);
         });
-
-        //How to intercept Login event
         amplify.subscribe('logout', function () {
             console.warn("Event logout intercepted");
             refreshMenu(publicMenuConfig);
         });
-
         function refreshMenu(url) {
             topMenu.refresh({
                 active: 'home',

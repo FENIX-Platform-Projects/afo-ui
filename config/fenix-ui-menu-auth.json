@@ -131,17 +131,7 @@
             "EN": "Processing Plants Directory",
             "FR": ""
           }
-        },
-        {
-          "attrs": {
-            "id": "directories_dealers"
-          },
-          "target": "directories_dealers.html",
-          "label": {
-            "EN": "Agro Dealers Directory",
-            "FR": ""
-          }
-        }        
+        }     
       ]        
     },
     {
@@ -151,16 +141,6 @@
       "target": "publications.html",
       "label": {
         "EN": "Publications",
-        "FR": ""
-      }
-    },
-    {
-      "attrs": {
-        "id": "policies"
-      },
-      "target": "policies.html",
-      "label": {
-        "EN": "Policies",
         "FR": ""
       }
     },

@@ -141,17 +141,7 @@
             "EN": "Processing Plants Directory",
             "FR": ""
           }
-        },
-        {
-          "attrs": {
-            "id": "directories_dealers"
-          },
-          "target": "directories_dealers.html",
-          "label": {
-            "EN": "Agro Dealers Directory",
-            "FR": ""
-          }
-        }        
+        }     
       ]        
     },
     {
@@ -161,16 +151,6 @@
       "target": "publications.html",
       "label": {
         "EN": "Publications",
-        "FR": ""
-      }
-    },
-    {
-      "attrs": {
-        "id": "policies"
-      },
-      "target": "policies.html",
-      "label": {
-        "EN": "Policies",
         "FR": ""
       }
     },
@@ -195,7 +175,8 @@
       }
     }
   ],
-  "rightItems" : [{
+  "rightItems" : [
+  	{
       "attrs": {
         "id": "login",
         "class": "afo-eldorado-icons"
@@ -204,5 +185,6 @@
         "EN": "<span class='icojam_user'></span>",
         "FR": ""
       }
-    }]
+    }
+  ]
 }

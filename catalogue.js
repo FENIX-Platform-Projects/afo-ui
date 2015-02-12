@@ -180,11 +180,11 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 				updateLayer(fmLayer, resp);
 
-				initChartFamilies(resp);
+				//initChartFamilies(resp);
 			}
 		});
 	}
-
+/*
 	function initChartFamilies(resp) {
 
 		var retCodes = {};
@@ -208,48 +208,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 			//opacities[ val[0] ]= parseFloat( opacities[ val[0] ].toFixed(2) );
 			//opacities[ val[0] ]= opacities[val[0]]>1 ? 1 : opacities[val[0]];
 		});
-/*
-		$('#chartFamilies').highcharts({
-			chart: { type: 'column' },
-			title: { text: 'Fertilizers for Country' },
-			plotOptions: {
-				column: {
-					stacking: 'normal',
-					dataLabels: {
-						enabled: false,
-						color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
-						style: {
-							textShadow: '0 0 3px black, 0 0 3px black'
-						}
-					}
-				}
-			},
-			yAxis: {
-				min: 0,
-				title: { text: 'Fertilizers in country' },
-				stackLabels: {
-					enabled: true,
-					style: {
-						fontWeight: 'bold',
-						color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-					}
-				}
-			},
-			xAxis: {
-				//categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
-				categories: _.keys(ferts)
-			},
-			series: _.map(retCodes, function(val) {
-				return {
-					name: val,
-					data: _.map(retCodes, function (val,code) {
-
-					})
-				};
-			})
-		});*/
 	}
-//COUNTRIES
+//COUNTRIES*/
 
 	function initListCountries() {
 

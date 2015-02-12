@@ -127,6 +127,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		_.each(json, function(pub) {
 
 			pub.DocumentTags = pub.DocumentTags ? pub.DocumentTags.split(', ') : '';
+			pub.DocumentType = pub.DocumentType.replace('.','');
 
 			console.log(pub);
 

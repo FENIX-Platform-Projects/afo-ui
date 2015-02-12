@@ -172,9 +172,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 		.addControl(L.control.zoom({position:'bottomright'}))
 		.addLayer(countriesLayer);
 
-
 		swiperMaps.slide2 = L.map('mapSlide2', {
-			zoom: 5,
+			zoom: 3,
 			zoomControl: false,
 			attributionControl: false,
 			center: L.latLng(20,0),
@@ -183,7 +182,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		.addControl(L.control.zoom({position:'bottomright'}));
 
 		swiperMaps.slide3 = L.map('mapSlide3', {
-			zoom: 6,
+			zoom: 3,
 			zoomControl: false,
 			attributionControl: false,
 			center: L.latLng(20,0),

@@ -199,6 +199,41 @@
   }
 }
 
+#logout {
+  position: relative;
+  left: 10px;
+  &:before{
+    content: '';
+    position: absolute;
+    height:26px;
+    width: 26px;
+    border:2px solid white;
+    top: 12px;
+    left: 12px; /* review - Too hardcoded */
+  }
+
+  a{
+    height: auto;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    top: 50%;
+    display: inline-block;
+    width: 100%;
+    @include fx-transfor-me(translateY(-50%));
+
+    &:before{
+      display: none;
+    }
+  }
+  span{
+
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+
+  }
+}
+
 /*//////////////////////////////////////////// Navbar Media queries */
 
 @media (min-width: 768px) and (max-width: 990px) {

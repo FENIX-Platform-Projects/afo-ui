@@ -2180,6 +2180,35 @@ div[data-module="region"] .fx-catalog-modular-form-content {
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto; }
 
+#logout {
+  position: relative;
+  left: 10px; }
+  #logout:before {
+    content: '';
+    position: absolute;
+    height: 26px;
+    width: 26px;
+    border: 2px solid white;
+    top: 12px;
+    left: 12px;
+    /* review - Too hardcoded */ }
+  #logout a {
+    height: auto;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    top: 50%;
+    display: inline-block;
+    width: 100%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%); }
+    #logout a:before {
+      display: none; }
+  #logout span {
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto; }
+
 /*//////////////////////////////////////////// Navbar Media queries */
 @media (min-width: 768px) and (max-width: 990px) {
   .navbar-nav.fx-ul > li > a {
@@ -2360,10 +2389,11 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   border-radius: 0;
-  border-top-color: none;
-  border-left-color: none;
-  border-right-color: none;
-  border-bottom-color: #e4e4e4; }
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: #e4e4e4;
+  margin-bottom: 0; }
 #page-publications .list-group-item:first-child {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;

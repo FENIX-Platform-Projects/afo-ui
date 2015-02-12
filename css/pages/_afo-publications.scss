@@ -5,11 +5,14 @@
 
   .list-group-item{
     @include fx-border-radius(0);
-    border-top-color:none;
-    border-left-color:none;
-    border-right-color:none;
+    border-top-color:transparent;
+    border-left-color:transparent;
+    border-right-color:transparent;
     border-bottom-color:$afo-hairline;
+    margin-bottom: 0;
   }
+
+
 
   .list-group-item:first-child{
 

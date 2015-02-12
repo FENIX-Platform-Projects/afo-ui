@@ -203,7 +203,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			zoom: 3,
 			zoomControl: false,
 			attributionControl: false,
-			center: L.latLng(20,0),
+			center: L.latLng(12,18),
 			layers: L.tileLayer(Config.url_osmlayer)
 		})
 		.addControl(L.control.zoom({position:'bottomright'}));
@@ -212,7 +212,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			zoom: 3,
 			zoomControl: false,
 			attributionControl: false,
-			center: L.latLng(20,0),
+			center: L.latLng(12,18),
 			layers: L.tileLayer(Config.url_osmlayer)
 		})
 		.addControl(L.control.zoom({position:'bottomright'}));
@@ -242,12 +242,9 @@ require(["submodules/fenix-ui-menu/js/paths",
 			mySwiperMap.swipeNext();
 		});
 
-        $('#afo-maps-legend-btn').on('click', showMapLegend);
-
-        function showMapLegend(){
-
+        $('#afo-maps-legend-btn').on('click', function() {
             $('#afo-maps-wrapper').find(".map-legend[data-legend='"+mySwiperMap.activeIndex+"']").toggleClass("active");
-        }
+        });
 
 		$('.footer').load('html/footer.html');
 

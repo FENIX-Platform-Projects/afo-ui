@@ -105,6 +105,10 @@ require(["submodules/fenix-ui-menu/js/paths",
 		AuthenticationManager
 		) {
 
+/*		_.templateSettings = {
+		  interpolate: /\{\{(.+?)\}\}/g
+		};*/
+
 		Config = JSON.parse(Config);
 
         new TopMenu({
@@ -156,14 +160,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 		for(var c in Countries)
 			listCountries$.append('<option value="'+Countries[c][1]+'">'+Countries[c][2]+'</option>');
 
-		var mapRegions = L.map('stats_map_regions', {
-				zoom: 2,
-				zoomControl: false,
-				attributionControl: false,
-				center: L.latLng(0,0),
-				layers: L.tileLayer(Config.url_baselayer)
-			});
-
 		var mapCountries = L.map('stats_map_countries', {
 				zoom: 4,
 				zoomControl: false,
@@ -171,28 +167,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 				center: L.latLng(20,0),
 				layers: L.tileLayer(Config.url_baselayer)
 			});
-
-		var geojsonRegions = L.geoJson(null, {
-			style: function (feature) {
-				return style;
-			},
-			onEachFeature: function(feature, layer) {
-
-				layer.setStyle(style);
-
-				layer.on("mouseover", function (e) {
-					layer.setStyle(styleHover);
-				});
-
-				layer.on("mouseout", function (e) {
-					layer.setStyle(style); 
-				});
-/*
-				layer.on("click", function (e) {
-					layer.properties
-				});		*/		
-			}
-		}).addTo(mapRegions);
 
 		var geojsonCountries = L.geoJson(null, {
 			style: function (feature) {
@@ -234,9 +208,15 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 			var query = "SELECT ST_AsGeoJSON(ST_Transform(ST_SetSRID(geom, 3857), 4326)) "+
 						"FROM spatial.gaul0_faostat3_3857 "+
-						"WHERE faost_code IN ("+ codes.join(",") +")",
+						"WHERE faost_code IN ("+ codes.join(',') +")",
 
 				url = Config.url_spatialquery + encodeURIComponent(query);
+
+
+			$.getJSON(url, function(json) {
+				geojsonCountries.fitBounds(json);
+
+			});
 
 			$.getJSON(url, function(json) {
 
@@ -253,23 +233,16 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 			regCode = parseInt(regCode);
 
-console.log(regCode, Countries);
-
 			codes = _.filter(Countries, function(v) {
-				return v[0] == regCode;
+				return v[0] === regCode;
 			});
-
-			console.log(codes);
 
 			codes = _.map(codes, function(v) {
 				return v[1];
 			});
 
-			var query = "SELECT ST_AsGeoJSON(ST_Transform(ST_SetSRID(ST_Union(geom), 3857), 4326)) "+
-						"FROM spatial.gaul0_faostat3_3857 "+
-						"WHERE faost_code IN ("+ codes.join(",") +")",
-
-				url = Config.url_spatialquery + encodeURIComponent(query);
+			var url = Config.url_spatialquery + Config.queries.countries_geojson +
+					encodeURIComponent( "("+codes.join(",")+")" );
 
 			$.getJSON(url, function(json) {
 
@@ -277,15 +250,8 @@ console.log(regCode, Countries);
 
 				geojsonRegions.clearLayers().addData( geom );
 
-				mapRegions.fitBounds( geojsonRegions.getBounds() );
-
 			});
 		};
-
-		mapzoomsRegions$.on('click','.btn', function(e) {
-			var z = parseInt($(this).data('zoom'));
-			mapRegions[ z>0 ? 'zoomIn' : 'zoomOut' ]();
-		});
 
 		mapzoomsCountries$.on('click','.btn', function(e) {
 			var z = parseInt($(this).data('zoom'));

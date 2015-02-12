@@ -1581,77 +1581,6 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 /* Leaflet */
 /* Fenix Leaflet Import */
 /* Fenix Leaflet Zoom control 0.7.3*/
-.leaflet-bar {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  border-radius: 0; }
-
-.leaflet-bar a, .leaflet-bar a:hover {
-  height: 23px;
-  width: 23px;
-  line-height: 23px; }
-
-.leaflet-bar a:first-child, .leaflet-bar a:last-child {
-  -moz-border-radius-topleft: 0;
-  -webkit-border-top-left-radius: 0;
-  border-top-left-radius: 0;
-  -moz-border-radius-topright: 0;
-  -webkit-border-top-right-radius: 0;
-  border-top-right-radius: 0;
-  -moz-border-radius-bottomright: 0;
-  -webkit-border-bottom-right-radius: 0;
-  border-bottom-right-radius: 0;
-  -moz-border-radius-bottomleft: 0;
-  -webkit-border-bottom-left-radius: 0;
-  border-bottom-left-radius: 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  border-radius: 0;
-  -webkit-border-radius: 100%;
-  -moz-border-radius: 100%;
-  -ms-border-radius: 100%;
-  border-radius: 100%;
-  border-color: transparent;
-  margin: 5px; }
-
-.leaflet-control-zoom-in,
-.leaflet-control-zoom-out {
-  font-family: 'eldorado_stroke';
-  font-size: 0;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  text-indent: 0;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-.leaflet-control-zoom-out {
-  font-size: 0px; }
-
-.leaflet-touch .leaflet-control-zoom-in {
-  font-size: 0; }
-
-.leaflet-touch .leaflet-control-zoom-out {
-  font-size: 0; }
-
-.leaflet-control-zoom-in:before {
-  color: #336600;
-  font-size: 24px;
-  content: "\eb2a"; }
-
-.leaflet-control-zoom-out:before {
-  color: #336600;
-  font-size: 24px;
-  content: "\eb28"; }
-
 /* Typography */
 /* Afo Typography */
 /* Sansation Font (Africa Fertilizer logo) */
@@ -1837,6 +1766,70 @@ div[data-module="region"] .fx-catalog-modular-form-content {
       -ms-transition: all 0.3s ease 0s;
       -o-transition: all 0.3s ease 0s;
       transition: all 0.3s ease 0s; }
+
+/* Afo Leaflet */
+#afo-maps-wrapper .leaflet-bar {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0; }
+#afo-maps-wrapper .leaflet-bar a, #afo-maps-wrapper .leaflet-bar a:hover {
+  height: 23px;
+  width: 23px;
+  line-height: 23px; }
+#afo-maps-wrapper .leaflet-bar a:first-child, #afo-maps-wrapper .leaflet-bar a:last-child {
+  -moz-border-radius-topleft: 0;
+  -webkit-border-top-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-border-radius-topright: 0;
+  -webkit-border-top-right-radius: 0;
+  border-top-right-radius: 0;
+  -moz-border-radius-bottomright: 0;
+  -webkit-border-bottom-right-radius: 0;
+  border-bottom-right-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  -webkit-border-bottom-left-radius: 0;
+  border-bottom-left-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  border-radius: 100%;
+  border-color: transparent;
+  margin: 5px; }
+#afo-maps-wrapper .leaflet-control-zoom-in,
+#afo-maps-wrapper .leaflet-control-zoom-out {
+  font-family: 'eldorado_stroke';
+  font-size: 0;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-indent: 0;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+#afo-maps-wrapper .leaflet-control-zoom-out {
+  font-size: 0px; }
+#afo-maps-wrapper .leaflet-touch .leaflet-control-zoom-in {
+  font-size: 0; }
+#afo-maps-wrapper .leaflet-touch .leaflet-control-zoom-out {
+  font-size: 0; }
+#afo-maps-wrapper .leaflet-control-zoom-in:before {
+  color: #336600;
+  font-size: 24px;
+  content: "\eb2a"; }
+#afo-maps-wrapper .leaflet-control-zoom-out:before {
+  color: #336600;
+  font-size: 24px;
+  content: "\eb28"; }
 
 /* Afo Social */
 .twitter-timeline {
@@ -2239,6 +2232,9 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   border-radius: 0; }
+
+.afo-pub-holder {
+  background-color: #f9f6ee; }
 
 #listPubs {
   list-style: none;

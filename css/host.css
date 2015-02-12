@@ -2951,3 +2951,6 @@ thead {
   color: #5ba539;
   padding: 2px 7px;
   text-transform: uppercase; }
+
+.modal-dialog {
+  z-index: 1041; }

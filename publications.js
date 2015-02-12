@@ -126,6 +126,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		_.each(json, function(pub) {
 
+			pub.DocumentTags = pub.DocumentTags.split();
+			
 			$('#listPubs').append(publicationTmpl(pub));
 
 		});		

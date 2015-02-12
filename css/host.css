@@ -2124,7 +2124,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   color: #5ba539; }
 
 .navbar-header {
-  background-color: #f1eff0; }
+  background-color: whitesmoke; }
 
 .navbar-default .navbar-toggle {
   border-color: transparent; }
@@ -2392,8 +2392,10 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   border-top-color: transparent;
   border-left-color: transparent;
   border-right-color: transparent;
-  border-bottom-color: #e4e4e4;
+  border-bottom-color: transparent;
   margin-bottom: 0; }
+#page-publications .list-group-item.item-line {
+  border-bottom-color: #e4e4e4; }
 #page-publications .list-group-item:first-child {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -2407,7 +2409,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   padding-bottom: 20px; }
 
 .afo-pub-holder {
-  background-color: #f9f6ee; }
+  background-color: #e5e5e5; }
 
 #listPubs {
   list-style: none;
@@ -2424,7 +2426,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   margin-top: 0; }
 
 .afo-sidebar-item {
-  background-color: #f9f6ee;
+  background-color: #e5e5e5;
   padding: 10px; }
 
 .afo-pub-category-list {
@@ -2485,7 +2487,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 
 #fx-catalog-submit-btn.disabled {
   border: none;
-  background-color: #f1eff0; }
+  background-color: whitesmoke; }
 
 .fx-widget {
   border: none; }
@@ -2708,11 +2710,11 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 /* Theme */
 /* AFO Theme */
 html {
-  background-color: #f1eff0; }
+  background-color: whitesmoke; }
 
 body {
-  border-top: 50px solid #f1eff0;
-  background-color: #f1eff0;
+  border-top: 50px solid whitesmoke;
+  background-color: whitesmoke;
   color: #666666; }
 
 .obj-box, .obj-box-radius10, .obj-box-title {
@@ -2912,7 +2914,7 @@ table {
 
 /* Tables */
 .afo-table-header {
-  background-color: #f1eff0;
+  background-color: whitesmoke;
   color: #666666;
   cursor: default;
   font-size: 11px;

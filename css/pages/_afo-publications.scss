@@ -8,11 +8,13 @@
     border-top-color:transparent;
     border-left-color:transparent;
     border-right-color:transparent;
-    border-bottom-color:$afo-hairline;
+    border-bottom-color:transparent;
     margin-bottom: 0;
   }
 
-
+  .list-group-item.item-line{
+    border-bottom-color:$afo-hairline;
+  }
 
   .list-group-item:first-child{
 

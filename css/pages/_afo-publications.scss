@@ -16,6 +16,7 @@
   .list-group-item:last-child{
 
     @include fx-border-radius(0);
+    padding-bottom: 20px;
   }
 
 
@@ -39,9 +40,9 @@
   }
 
   li{
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid $afo-hairline;
+    margin: 20px 0;
+    //padding-bottom: 20px;
+    //border-bottom: 1px solid $afo-hairline;
   }
 
 }

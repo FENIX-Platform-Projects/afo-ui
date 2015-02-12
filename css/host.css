@@ -2231,7 +2231,8 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
-  border-radius: 0; }
+  border-radius: 0;
+  padding-bottom: 20px; }
 
 .afo-pub-holder {
   background-color: #f9f6ee; }
@@ -2245,9 +2246,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
       text-decoration: none;
       color: #5ba539; }
   #listPubs li {
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #e4e4e4; }
+    margin: 20px 0; }
 
 .afo-pub-category-title {
   margin-top: 0; }
@@ -2487,7 +2486,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
     bottom: 0; }
   .map-legend .afo-leg {
     list-style: none;
-    padding-left: 0; }
+    padding-left: 20px; }
     .map-legend .afo-leg > li {
       float: left;
       padding: 5px; }

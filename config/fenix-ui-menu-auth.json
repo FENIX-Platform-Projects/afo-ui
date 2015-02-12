@@ -170,7 +170,7 @@
       },
       "target": "market_news.html",
       "label": {
-        "EN": "Market news",
+        "EN": "News",
         "FR": ""
       }
     },
@@ -183,7 +183,17 @@
         "EN": "Events",
         "FR": ""
       }
-    }
+    },
+    {
+      "attrs": {
+        "id": "createdataset"
+      },
+      "target": "createdataset.html",
+      "label": {
+        "EN": "Manager",
+        "FR": ""
+      }
+    }    
   ],
   "rightItems" : [{
       "attrs": {

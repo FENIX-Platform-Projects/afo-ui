@@ -4,8 +4,11 @@
 #page-publications{
 
   .list-group-item{
-    border: none;
     @include fx-border-radius(0);
+    border-top-color:none;
+    border-left-color:none;
+    border-right-color:none;
+    border-bottom-color:$afo-hairline;
   }
 
   .list-group-item:first-child{
@@ -124,4 +127,15 @@
 .afo-pub-order{
   position: relative;
   top: 5px;
+}
+
+.afo-field-title{
+  font-size: 10px;
+  font-weight: 500;
+  display: inline-block;
+  width: 90px;
+}
+
+.afo-file-type{
+  font-size: 24px;
 }

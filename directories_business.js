@@ -105,7 +105,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		Config = JSON.parse(Config);
 
         new TopMenu({
-            active: 'directories',        	
+            active: 'directories_business',        	
             url: 'config/fenix-ui-menu.json',
             className : 'fx-top-menu',
             breadcrumb : {
@@ -121,88 +121,9 @@ require(["submodules/fenix-ui-menu/js/paths",
             console.log(amplify.store.sessionStorage('afo.security.user'));
         });
 
+        //HERE NEW CODE
 
-    var $listCountries = $('#listCountries'),
-        $listCompanies = $('#listCompanies'),
-        $cancCompanies = $('#cancCompanies');
-
-    function selectCompany(filter) {
-        //hide all
-        $listCompanies.find('.tabCompany').hide().each(function() {
-            
-            if(filter.country && $(this).find('td:eq(11)').text() === filter.country)
-            	$(this).show().find('tr:eq(5)').addClass('bg-success');
-			
-			if(filter.company) {
-
-				var name = $(this).find('td:eq(3)').text();
-				
-				regSearch = new RegExp(filter.company,'ig');
-				if( regSearch.test( name ))
-            		$(this).show().find('tr:eq(1)').addClass('bg-success');            
-           	}
-
-			if(filter.city) {
-
-				var name = $(this).find('td:eq(7)').text();
-
-				regSearch = new RegExp(filter.city,'ig');
-				if( regSearch.test( name ))
-            		$(this).show().find('tr:eq(4)').addClass('bg-success');            
-           	}           	
-        });
-    }
-
-    $('#company_name, #city_name').on('blur', function(e) {
-    	$(this).val('');
-    	$('#cancCompanies').trigger('click');
-    });
-
-    $('#cancCompanies').on('click', function(e) {
-    	e.preventDefault();
-    	e.stopPropagation();
-    	$listCountries.find('a').removeClass('btn-success active');
-    	$listCompanies.find('tr').removeClass('btn-success');
-    	$listCompanies.find('.tabCompany').hide();
-    });
-
-	$listCountries.on('click', 'a', function(e) {
-		
-		$(this).siblings().removeClass('btn-success active');
-		$(this).addClass('btn-success active');
-
-		selectCompany({
-		    country: $(this).text()
-		});
-	});
-
-    $('#company_name').on('keyup', function(e) {
-    	var text = $.trim( $(this).val() );
-
-		$('#cancCompanies').trigger('click');
-
-    	selectCompany({
-		    company: text
-		});
-    });
-
-    $('#city_name').on('keyup', function(e) {
-    	var text = $.trim( $(this).val() );
-
-		$('#cancCompanies').trigger('click');
-
-    	selectCompany({
-		    city: text
-		});
-    });    
-
-
-
-    //DEBUGGING
-
-	$listCompanies.find('.tabCompany').show();
-
-	$('.footer').load('html/footer.html');
+		$('.footer').load('html/footer.html');
 
 	});
 

@@ -38,7 +38,11 @@ require(["submodules/fenix-ui-menu/js/paths",
 				'fenix-map': "submodules/fenix-map-js/dist/latest/fenix-map-min",
 				'fenix-map-config': "submodules/fenix-map-js/dist/latest/fenix-map-config",
 				'chosen': "//fenixapps.fao.org/repository/js/chosen/1.0.0/chosen.jquery.min",
+				
 				'leaflet': "//fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet",
+				'leaflet.encoded': "//fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.encoded/0.0.5/Polyline.encoded",
+				'geojson_decoder': "src/geojson_decoder",
+
 				'jquery.power.tip': "//fenixapps.fao.org/repository/js/jquery.power.tip/1.1.0/jquery.powertip.min",
 				'jquery-ui': "//fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min",
 				'jquery.hoverIntent': "//fenixapps.fao.org/repository/js/jquery.hoverIntent/1.0/jquery.hoverIntent",
@@ -61,7 +65,8 @@ require(["submodules/fenix-ui-menu/js/paths",
                 'amplify': {
                     deps: ['jquery'],
                     exports: 'amplifyjs'
-                },		        
+                },
+                'geojson_decoder': ['leaflet','leaflet.encoded'],
 		        'fenix-map': {
 		            deps: [
 		                'i18n',
@@ -73,7 +78,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 		                'jquery.power.tip',
 		                'jquery.i18n.properties',
 		                'import-dependencies',
-		                'fenix-map-config'
+		                'fenix-map-config',
+		                'geojson_decoder'
 		            ]
 		        }	        
 		    }
@@ -81,7 +87,7 @@ require(["submodules/fenix-ui-menu/js/paths",
     });
 
 	require([
-	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet',
+	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet','geojson_decoder',
 	    'text!config/services.json',
 
         'text!data/africa_regions.json',
@@ -94,7 +100,8 @@ require(["submodules/fenix-ui-menu/js/paths",
         'amplify',
 
 		'domready!'
-	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L,
+	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L, geojsonDecoder,
+
 		Config,
 
 		Regions,
@@ -262,7 +269,16 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 			var regCode = $(e.target).attr('value');
 			
-			geomRegions(regCode);
+			//geomRegions(regCode);
+
+var service = "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/query/"
+var url = service += "SELECT ST_AsGeoJSON(geom), adm0_code, areanamee FROM spatial.gaul0_faostat3_4326 WHERE adm0_code IN (1,2)?geojsonEncoding=True"
+
+// Add neighbourhood geojson (encoded) file to map.
+$.getJSON(url, function (data) {
+    //console.log(data);
+    geojsonDecoder.decodeToMap(data, mapCountries);
+});
 
 		});
 

@@ -124,24 +124,24 @@
       "children": [
         {
           "attrs": {
-            "id": "directories_manufact"
+            "id": "directories_business"
           },
-          "target": "directories_manufact.html",
+          "target": "directories_business.html",
           "label": {
-            "EN": "Manufacturing Plant Directory",
+            "EN": "Business Directory",
             "FR": ""
           }
-        },
+        },      
         {
           "attrs": {
-            "id": "directories_plants"
+            "id": "directories_prod"
           },
-          "target": "directories_plants.html",
+          "target": "directories_prod.html",
           "label": {
-            "EN": "Processing Plants Directory",
+            "EN": "Production Directory",
             "FR": ""
           }
-        }     
+        }  
       ]        
     },
     {

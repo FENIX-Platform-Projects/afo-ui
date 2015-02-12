@@ -13,6 +13,8 @@
 
 	"url_spatialquery": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/query/",
 
+	"url_spatialquery_encoded": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/query/",
+
 	"url_geocoding": "http://fenix.fao.org/geo/fenix/geocoding/latlon/",
 
 	"url_baselayer": "http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}.png",
@@ -23,7 +25,6 @@
 		"fertilizers_tree" : "select fc.fertilizer_class as group, fc.fertilizer_code as id, cf.fertilizer_label as text from fertilizers_class fc, codes_fertilizers cf where fc.fertilizer_code = cf.fertilizer_code order by fc.fertilizer_class",
 		"fertilizers_country" : "select distinct country_code from fertilizers_country where fertilizer_code in ( {{fertilizersList}} )",
 		"dealers" : "select * from dealers",
-		"countries_geojson": "SELECT ST_AsGeoJSON(geom) FROM spatial.gaul0_faostat3_4326 WHERE faost_code IN ",
-		"COMMENT countries_geojson": "SELECT ST_AsGeoJSON(geom), adm0_code, adm0_name FROM spatial.gaul0_2015_4326 WHERE adm0_code IN "
+		"countries_geojson": "SELECT ST_AsGeoJSON(geom), adm0_code, adm0_name FROM spatial.gaul0_faostat3_4326 WHERE faost_code IN "
 	}
 }

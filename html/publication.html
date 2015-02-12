@@ -11,10 +11,15 @@
     </div>
 
     <div class="list-group-item">
-        <span class="field">Tags: </span> <b>
+        <span class="field">TAGS</span><b>
+        {{#if DocumentTags}}
+
         {{#each DocumentTags}}
     		<span class="label label-default">{{this}}</span> 
 		{{/each}}
+        {{else}}
+            <span>No tags</span>
+        {{/if}}
         </b>
     </div>
 

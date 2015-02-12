@@ -30,6 +30,16 @@
     },
     {
       "attrs": {
+        "id": "about_us"
+      },
+      "target": "about_us.html",
+      "label": {
+        "EN": "About Us",
+        "FR": ""
+      }
+    },    
+    {
+      "attrs": {
         "id": "prices"
       },
       "target": "prices.html",

@@ -310,21 +310,7 @@ thead{
 
 
 
-.afo-sidebar-item {
-  background-color: $afo-light-bg;
-  padding: 10px;
 
-  .afo-title{
-    margin-top: 0;
-  }
-
-  .afo-sidebar-img{
-    font-size: 50px;
-    height: 60px;
-    
-  }
-
-}
 
 .afo-category-list{
   list-style: none;
@@ -385,4 +371,36 @@ thead{
 
     }
   }
+}
+
+
+.afo-sidebar-item {
+  background-color: $afo-light-bg;
+  padding: 10px;
+
+  .afo-title{
+    margin-top: 0;
+    margin-bottom: 25px;
+  }
+
+
+  .afo-sidebar-img{
+    float: right;
+    font-size: 20px;
+    height: 35px;
+    width: 35px;
+    display: inline-block;
+    text-align: center;
+  }
+
+}
+
+.afo-sidebar-img-holder{
+  text-align: center;
+  background-color: $custom-color1;
+  padding: 20px 5px;
+}
+
+.afo-sidebar-first{
+  margin-top: 30px;
 }

@@ -25,6 +25,7 @@
 		"fertilizers_tree" : "select fc.fertilizer_class as group, fc.fertilizer_code as id, cf.fertilizer_label as text from fertilizers_class fc, codes_fertilizers cf where fc.fertilizer_code = cf.fertilizer_code order by fc.fertilizer_class",
 		"fertilizers_country" : "select distinct country_code from fertilizers_country where fertilizer_code in ( {{fertilizersList}} )",
 		"dealers" : "select * from dealers",
-		"countries_geojson": "SELECT ST_AsGeoJSON(geom), adm0_code, adm0_name FROM spatial.gaul0_faostat3_4326 WHERE faost_code IN "
+		"countries_geojson": "SELECT ST_AsGeoJSON(geom), adm0_code, adm0_name FROM spatial.gaul0_faostat3_4326 WHERE faost_code IN ",
+		"countries_groups": "SELECT country, name FROM countries WHERE value = 1 AND name IN ( {{ids}} ) "
 	}
 }

@@ -1,5 +1,5 @@
 
-define(['leaflet'], function() {
+define(function() {
 
 	var map;
 	var MARKER = {

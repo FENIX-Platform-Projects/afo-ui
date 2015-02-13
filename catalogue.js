@@ -162,12 +162,10 @@ require(["submodules/fenix-ui-menu/js/paths",
 			nowrap: false,
 			valuesIndex: 0,
 			json: JSON.stringify({
-				query:
-					"SELECT country, name "+
-					"FROM countries "+
-					"WHERE value = 1 AND name IN ('"+ ferts.join("','") +"') "
+				query: Config.queries.countries_groups
 			})
 		};
+'"+ ferts.join("','") +"'
 
 		$.ajax({
 			url: Config.wdsUrl,

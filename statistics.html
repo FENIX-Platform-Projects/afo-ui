@@ -57,28 +57,30 @@
         </div>
     </div>
 
-
 	<div class="row">
-		<div class="col-xs-4">
-			<select id="stats_select" class="form-control" style="height:200px;width:100%" size="8" >
-				<optgroup label="Africa Regions" class="stats_list_regions">
-				</optgroup>
-				<optgroup></optgroup>
-				<optgroup style="display:none" label="Africa Countries" class="stats_list_countries">
-				</optgroup>
+		<div class="col-xs-2">
+			<label class="">Africa Regions</label>
+			<select id="stats_selectRegions" class="form-control" style="height:300px;width:100%" size="8" >
 			</select>
-			<label style="padding:5px">Select by List</label>
 		</div>
+		<div class="col-xs-2">
+			<label class="">Region countries</label>
+			<select id="stats_selectCountries" class="form-control" style="height:300px;width:100%" size="8" >
+			</select>
+		</div>		
 		<div class="col-xs-8">
-			<div id="stats_map_countries" style="height:200px;width:100%"></div>
-			<div class="btn-group map-zooms" role="group">
-				<a href="#" class="btn btn-link" data-zoom="+1"><span class="glyphicon glyphicon-plus"></span></a>
-				<a href="#" class="btn btn-link" data-zoom="-1"><span class="glyphicon glyphicon-minus"></span></a>
-				<label style="padding:5px">Select by Country</label>
-			</div>
+			<label class="">Region Map</label>
+			<div id="stats_map_countries" style="height:300px;width:100%"></div>
 		</div>
 	</div>
 
+    <div class="row">
+        <div class="col-xs-12 text-center">
+        	<br /><label class="">Selected Country</label> <b><big class="text-success" id="stats_selected_countries">&nbsp;</big></b>
+        </div>
+    </div>
+
+	<hr />
 
     <div class="row">
         <div class="col-xs-12">
@@ -88,30 +90,6 @@
 
 	<hr />
 
-<!--     <div class="row fx-catalog-toolbar">
-
-        <div class="col-xs-6">
-            <button id="btn" type="button" class="btn btn-default">OPEN CATALOG</button>
-        </div>
-
-        <div class="col-xs-6 fx-widget-stack-btns">
-            Widgets in the stack <em id="fx-widgets-stack-counter"></em>
-            <input class="btn " id="fx-widgets-stack-btn" type='button' value='OPEN STACK'>
-        </div>
-
-    </div>
-
-
-    <div class="row">
-
-        <div class="col-xs-12 well widget-grid-container">
-            <div id="fx-ana-result-container"></div>
-        </div>
-
-    </div>
-
-    <hr> -->
-
     <!-- FOOTER -->
     <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
@@ -119,25 +97,7 @@
         <p>2014 FENIX · <a href="#">Terms</a></p>
     </footer>
 </div>
-<!-- 
-<div id="fx-widgets-stack"></div>
 
-<div id="overlay">
-    <button class="closeOverlay"></button>
-
-    <div class="overlay-content">
-        <div id="catalogContainer"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div id="filterContainer"><div id="fx-ana-filter-container"></div></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-<!-- data-main attribute tells require.js to load scripts/main.js after require.js loads. -->
 <script data-main="statistics" src="node_modules/requirejs/require.js"></script>
 
 </body>

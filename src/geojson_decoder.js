@@ -36,7 +36,7 @@ define(function() {
 	    return polygons;
 	}
 
-	function decodeToLayer(featureCollection, targetLayer, popupTmpl, featureStyle) {
+	function decodeToLayer(featureCollection, targetLayer, style, onEachFeature) {
 	    var geom,bb,
 	    	features = featureCollection["features"],
 	    	popupOpts = {closeButton: false};
@@ -53,32 +53,29 @@ define(function() {
 	            case "LineString":
 	                var coords = Array.isArray(geom[0]) ? L.GeoJSON.coordsToLatLngs(geom, 0) : L.PolylineUtil.decode(geom);
 	                
-	                var poly = L.polyline(coords, featureStyle).addTo(targetLayer);
-
-					poly.bindPopup( L.Util.template(popupTmpl, feature["properties"]), popupOpts);
+	                var poly = L.polyline(coords, style).addTo(targetLayer);
+	                onEachFeature(feature, poly);
 
 	                break;
 	            case "MultiLineString":
 	                var ls = Array.isArray(geom[0][0]) ? L.GeoJSON.coordsToLatLngs(geom, 1) : _build_linestrings(geom);
 	                
-	                var poly = L.multiPolyline(ls, featureStyle).addTo(targetLayer);
-
-	                poly.bindPopup( L.Util.template(popupTmpl, feature["properties"]), popupOpts);
+	                var poly = L.multiPolyline(ls, style).addTo(targetLayer);
+	                onEachFeature(feature, poly);
 
 	                break;
 	            case "Polygon":
 	                var rings = Array.isArray(geom[0][0]) ? L.GeoJSON.coordsToLatLngs(geom, 1) : _build_linestrings(geom);
 	                
-	                L.polygon(rings, featureStyle).addTo(targetLayer);
-	                
-	                poly.bindPopup( L.Util.template(popupTmpl, feature["properties"]), popupOpts);
+	                var poly = L.polygon(rings, style).addTo(targetLayer);
+	                onEachFeature(feature, poly);
 
 	                break;
 	            case "MultiPolygon":
 	                var polygons = Array.isArray(geom[0][0]) ? L.GeoJSON.coordsToLatLngs(geom, 2) : _build_polygons(geom);
-	                var poly = L.multiPolygon(polygons, featureStyle).addTo(targetLayer);
-	                
-	                poly.bindPopup( L.Util.template(popupTmpl, feature["properties"]), popupOpts);
+
+	                var poly = L.multiPolygon(polygons, style).addTo(targetLayer);
+	                onEachFeature(feature, poly);
 
 	                break;
 	            default:

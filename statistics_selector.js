@@ -136,7 +136,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 		Africa = JSON.parse(Africa);
 
 		var listRegions$ = $('#stats_select .stats_list_regions'),
-			listCountries$ = $('#stats_select .stats_list_countries'),
 			mapzoomsRegions$ = $('#stats_map_regions').next('.map-zooms'),
 			mapzoomsCountries$ = $('#stats_map_countries').next('.map-zooms');
 
@@ -149,8 +148,14 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		function getWDS(queryTmpl, queryVars, callback) {
 
-			var sqltmpl = _.template(queryTmpl),
+			var sqltmpl, sql;
+
+			if(queryVars) {
+				sqltmpl = _.template(queryTmpl);
 				sql = sqltmpl(queryVars);
+			}
+			else
+				sql = queryTmpl;
 
 			var	data = {
 					datasource: Config.dbName,
@@ -168,18 +173,14 @@ require(["submodules/fenix-ui-menu/js/paths",
 				data: data,
 				type: 'POST',
 				dataType: 'JSON',
-				success: function(resp) {
-
-					callback(resp[0]);
-				}
+				success: callback
 			});
 		}
 
-		for(var r in Regions)
-			listRegions$.append('<option value="'+Regions[r][0]+'">'+Regions[r][1]+'</option>');
-
-		for(var c in Countries)
-			listCountries$.append('<option value="'+Countries[c][1]+'">'+Countries[c][2]+'</option>');
+		getWDS(Config.queries.regions, null, function(Regions) {
+			for(var r in Regions)
+				listRegions$.append('<option value="'+Regions[r][0]+'">'+Regions[r][1]+'</option>');
+		});
 
 		var mapCountries = L.map('stats_map_countries', {
 				zoom: 4,
@@ -225,7 +226,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			});
 		};
 
-		var geomRegions = function(regCode) {
+/*		var geomRegions = function(regCode) {
 
 			codes = _.filter(Countries, function(v) {
 				return v[0] === regCode;
@@ -239,7 +240,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 				console.log(resp);
 
-/*				var urlTmpl = _.template(),
+				var urlTmpl = _.template(),
 					url = Config.url_spatialquery + 
 						  encodeURIComponent( urlTmpl() );
 
@@ -250,10 +251,10 @@ require(["submodules/fenix-ui-menu/js/paths",
 					geojsonRegions.clearLayers().addData( geom );
 
 					mapCountries.fitBounds( geojsonCountries.getBounds() );
-				});*/
+				});
 
 			});
-		};
+		};*/
 
 		mapzoomsCountries$.on('click','.btn', function(e) {
 			var z = parseInt( $(this).data('zoom') );
@@ -272,10 +273,9 @@ require(["submodules/fenix-ui-menu/js/paths",
 				return v[1];
 			});
 
-			var url = Config.url_spatialquery;
-
-			var sqltmpl = _.template(Config.queries.countries_geojson_enc),
-				sql = sqltmpl({ids: [].join(',')});
+			
+			var urlTmpl = _.template(Config.que),
+				url = urlTmpl({sql: Config.queries.countries_geojson });
 
 			$.getJSON(url, function(data) {
 				//

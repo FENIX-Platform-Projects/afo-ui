@@ -169,7 +169,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		$.ajax({
 			url: Config.wdsUrl,
-			data: data,			
+			data: data,
 			type: 'POST',
 			dataType: 'JSON',
 			success: function(resp) {

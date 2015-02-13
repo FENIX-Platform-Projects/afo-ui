@@ -13,19 +13,23 @@
 
 	"url_spatialquery": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/query/",
 
-	"url_spatialquery_encoded": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/query/",
+	"url_spatialquery_enc": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/query/<%= sql %>?geojsonEncoding=True",
 
 	"url_geocoding": "http://fenix.fao.org/geo/fenix/geocoding/latlon/",
 
 	"url_baselayer": "http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}.png",
+
 	"url_osmlayer": "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
 	
 	"queries": {
-		"home_maps":"select ams.country_code, country_label, afo_footprint, manufacturing_plant, blending_plant from afo_map_slider ams, codes_countries cc where ams.country_code = cc.country_code",
-		"fertilizers_tree" : "select fc.fertilizer_class as group, fc.fertilizer_code as id, cf.fertilizer_label as text from fertilizers_class fc, codes_fertilizers cf where fc.fertilizer_code = cf.fertilizer_code order by fc.fertilizer_class",
-		"fertilizers_country" : "select distinct country_code from fertilizers_country where fertilizer_code in ( {{fertilizersList}} )",
-		"dealers" : "select * from dealers",
-		"countries_geojson": "SELECT ST_AsGeoJSON(geom), adm0_code, adm0_name FROM spatial.gaul0_faostat3_4326 WHERE faost_code IN ",
-		"countries_groups": "SELECT country, name FROM countries WHERE value = 1 AND name IN ( {{ids}} ) "
+		"home_maps": "select ams.country_code, country_label, afo_footprint, manufacturing_plant, blending_plant from afo_map_slider ams, codes_countries cc where ams.country_code = cc.country_code",
+		"fertilizers_tree": "select fc.fertilizer_class as group, fc.fertilizer_code as id, cf.fertilizer_label as text from fertilizers_class fc, codes_fertilizers cf where fc.fertilizer_code = cf.fertilizer_code order by fc.fertilizer_class",
+		"fertilizers_country": "select distinct country_code from fertilizers_country where fertilizer_code in ( <%= fertilizersList %> )",
+		"dealers": "select * from dealers",
+		"regions": "select country_code, country_label from codes_countries where parent_code = '' ",
+		"countries_byregion": "select country_code, country_label from codes_countries where parent_code = <%= id %> ",
+		"countries_geojson": "SELECT ST_AsGeoJSON(geom), adm0_code, adm0_name FROM spatial.gaul0_faostat3_4326 WHERE faost_code IN ( <%= ids %> ) ",
+		"countries_geojson_enc": "SELECT ST_AsGeoJSON(geom), adm0_code, areanamee FROM spatial.gaul0_faostat3_4326 WHERE adm0_code IN ( <%= ids %> ) ",
+		"countries_groups": "SELECT country, name FROM countries WHERE value = 1 AND name IN ( <%= ids %> ) "
 	}
 }

@@ -153,19 +153,19 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		ferts = $.isArray(ferts) ? ferts : [ferts];
 
-		var data = {
-			datasource: Config.dbName,
-			thousandSeparator: ',',
-			decimalSeparator: '.',
-			decimalNumbers: 2,
-			cssFilename: '',
-			nowrap: false,
-			valuesIndex: 0,
-			json: JSON.stringify({
-				query: Config.queries.countries_groups
-			})
-		};
-'"+ ferts.join("','") +"'
+		var sqltmpl = _.template(Config.queries.countries_groups),
+			sql = sqltmpl({ids: "'"+ferts.join("','")+"'"});
+
+		var	data = {
+				datasource: Config.dbName,
+				thousandSeparator: ',',
+				decimalSeparator: '.',
+				decimalNumbers: 2,
+				cssFilename: '',
+				nowrap: false,
+				valuesIndex: 0,
+				json: JSON.stringify({query: sql})
+			};
 
 		$.ajax({
 			url: Config.wdsUrl,

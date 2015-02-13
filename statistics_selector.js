@@ -132,7 +132,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 		Countries = JSON.parse(Countries);
 		Africa = JSON.parse(Africa);
 
-		var listRegions$ = $('#stats_select .stats_list_regions'),
+		var listRegions$ = $('#stats_selectRegions'),
+			listCountries$ = $('#stats_selectCountries'),
 			mapzoomsRegions$ = $('#stats_map_regions').next('.map-zooms'),
 			mapzoomsCountries$ = $('#stats_map_countries').next('.map-zooms');
 
@@ -222,7 +223,11 @@ require(["submodules/fenix-ui-menu/js/paths",
 			var regCode = parseInt( $(e.target).attr('value') );
 
 			getWDS(Config.queries.countries_byregion, {id: "'"+regCode+"'"}, function(resp) {
-				
+
+				listCountries$.empty();
+				for(var r in resp)
+					listCountries$.append('<option value="'+resp[r][0]+'">'+resp[r][1]+'</option>');
+
 				var idsCountries = _.map(resp, function(val) {
 					return val[0];
 				});
@@ -234,12 +239,12 @@ require(["submodules/fenix-ui-menu/js/paths",
 					url = urlTmpl({sql: sql });
 
 				$.getJSON(url, function(data) {
-					//
+
 					geojsonCountries.clearLayers();
 					
 					geojsonDecoder.decodeToLayer(data,
 						geojsonCountries,
-						'<a class="popupCountry" data-cid="{prop1}" href="#"><h4>{prop2}</h4></a>',
+						'<a class="popupCountry" data-cid="{prop1}" href="#"><h4>{prop2} &raquo;</h4></a>',
 						style);
 
 					var bb = geojsonCountries.getBounds();

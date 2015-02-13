@@ -194,21 +194,23 @@ require(["submodules/fenix-ui-menu/js/paths",
 			},
 			onEachFeature: function(feature, layer) {
 
-				feature.setStyle(style);
+				layer.setStyle(style);
 
-				feature.on("mouseover", function (e) {
-					feature.setStyle(styleHover);
+				console.log('onEachFeature',layer,feature);
+
+				layer.on("mouseover", function (e) {
+					layer.setStyle(styleHover);
 				});
 
-				feature.on("mouseout", function (e) {
-					feature.setStyle(style); 
+				layer.on("mouseout", function (e) {
+					layer.setStyle(style); 
 				});
 
-				feature.on("click", function (e) {
-					console.log( feature.properties );
+				layer.on("click", function (e) {
+					console.log( layer.properties );
 				});
 			}
-		}).addTo(mapCountries);
+		});
 
 		mapzoomsCountries$.on('click','.btn', function(e) {
 			var z = parseInt( $(this).data('zoom') );
@@ -234,12 +236,23 @@ require(["submodules/fenix-ui-menu/js/paths",
 				$.getJSON(url, function(data) {
 					//
 					geojsonCountries.clearLayers();
-					geojsonDecoder.decodeToLayer(data, geojsonCountries);
-					mapCountries.fitBounds( geojsonCountries.getBounds().pad(-0.8) );
+					
+					geojsonDecoder.decodeToLayer(data,
+						geojsonCountries,
+						'<a class="popupCountry" data-cid="{prop1}" href="#"><h4>{prop2}</h4></a>',
+						style);
+
+					var bb = geojsonCountries.getBounds();
+					mapCountries.fitBounds( bb.pad(-0.8) );
+					geojsonCountries.addTo(mapCountries);
 				});
 
 			});
 
+		});
+
+		$('#stats_map_countries').on('click','.popupCountry', function(e) {
+			console.log( $(e.currentTarget).data('cid') );
 		});
 
 		$('.footer').load('html/footer.html');		

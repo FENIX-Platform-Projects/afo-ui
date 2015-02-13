@@ -2267,7 +2267,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   padding-left: 0;
   margin-top: 20px; }
   .afo-home-partner-container ul li {
-    width: 14%; }
+    width: 16%; }
     .afo-home-partner-container ul li a {
       background-size: contain;
       width: 100%;
@@ -2295,6 +2295,8 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   padding-top: 25px;
   margin-bottom: 40px;
   min-height: 200px; }
+  .tab-content > div {
+    padding: 0 30px; }
 
 .nav-tabs {
   border-color: transparent; }

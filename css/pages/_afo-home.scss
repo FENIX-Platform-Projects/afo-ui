@@ -36,9 +36,11 @@
   padding-left: 0;
   margin-top: 20px;
 
+
+
   ul{
     li{
-      width: 14%;
+      width: 16%;
 
       a{
         background-size: contain;
@@ -49,6 +51,8 @@
         background-position: 50% 50%;
         border-color: transparent;
       }
+
+
 
       a[href="#part-ifdc"]{background-image: url("img/partners-logos/IFDC_logo.svg");}
 
@@ -75,6 +79,11 @@
   padding-top: 25px;
   margin-bottom: 40px;
   min-height: 200px;
+
+  >div {
+    padding: 0 30px;
+  }
+
 }
 
 .nav-tabs{

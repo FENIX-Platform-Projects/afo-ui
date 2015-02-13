@@ -239,7 +239,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 								layer.setStyle(style); 
 							})
 							.on("click", function (e) {
-								listCountries$.find("option:selected").removeAttr("selected");								
+								listCountries$.find("option:selected").removeAttr("selected");
+								listCountries$.val(feature.properties.prop1);
 								$('#stats_selected_countries').text( feature.properties.prop2 );
 							});
 						}

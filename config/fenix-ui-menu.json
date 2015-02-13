@@ -27,16 +27,6 @@
         "EN": "WELCOME TO THE AFRICA FERTILIZER INFORMATION PORTAL",
         "FR": ""
       }
-    },
-    {
-      "attrs": {
-        "id": "about_us"
-      },
-      "target": "about_us.html",
-      "label": {
-        "EN": "About Us",
-        "FR": ""
-      }
     },    
     {
       "attrs": {
@@ -173,7 +163,17 @@
         "EN": "Events",
         "FR": ""
       }
-    }
+    },
+    {
+      "attrs": {
+        "id": "about_us"
+      },
+      "target": "about_us.html",
+      "label": {
+        "EN": "About Us",
+        "FR": ""
+      }
+    }    
   ],
   "rightItems" : [
   	{

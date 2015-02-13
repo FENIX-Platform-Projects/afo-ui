@@ -166,6 +166,16 @@
     },
     {
       "attrs": {
+        "id": "about_us"
+      },
+      "target": "about_us.html",
+      "label": {
+        "EN": "About Us",
+        "FR": ""
+      }
+    },    
+    {
+      "attrs": {
         "id": "createdataset"
       },
       "target": "createdataset.html",
@@ -173,7 +183,7 @@
         "EN": "Manager",
         "FR": ""
       }
-    }    
+    }   
   ],
   "rightItems" : [{
       "attrs": {

@@ -182,7 +182,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		var mapCountries = L.map('stats_map_countries', {
 				zoom: 4,
-				zoomControl: false,
+				//zoomControl: false,
 				attributionControl: false,
 				center: L.latLng(20,0),
 				layers: L.tileLayer(Config.url_baselayer)

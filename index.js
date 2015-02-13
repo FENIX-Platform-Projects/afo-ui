@@ -241,12 +241,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		$('.footer').load('html/footer.html');
 
 		$('.afo-home-partner-container .nav-tabs')
-/*			.on('mouseout', function(e) {
-				e.preventDefault();
-				e.stopPropagation();
-				$(e.delegateTarget).next('.tab-content').find('.tab-pane').removeClass('active in');
-			})		
-*/			.on('mouseenter','a', _.debounce(function(e) {
+			.on('mouseenter','a', _.debounce(function(e) {
 				e.preventDefault();
 				e.stopPropagation();
 				//$(e.delegateTarget).trigger('mouseout'); 

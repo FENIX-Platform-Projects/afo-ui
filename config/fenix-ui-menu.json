@@ -27,6 +27,16 @@
         "EN": "WELCOME TO THE AFRICA FERTILIZER INFORMATION PORTAL",
         "FR": ""
       }
+    },
+    {
+      "attrs": {
+        "id": "statistics"
+      },
+      "target": "statistics.html",
+      "label": {
+        "EN": "Statistics",
+        "FR": ""
+      }
     },    
     {
       "attrs": {
@@ -83,26 +93,6 @@
     },
     {
       "attrs": {
-        "id": "statistics"
-      },
-      "target": "statistics.html",
-      "label": {
-        "EN": "Statistics",
-        "FR": ""
-      }
-    },
-    {
-      "attrs": {
-        "id": "catalogue"
-      },
-      "target": "catalogue.html",
-      "label": {
-        "EN": "Catalogue",
-        "FR": ""
-      }
-    },
-    {
-      "attrs": {
         "id": "directories"
       },
       "target": "directories.html",
@@ -134,6 +124,16 @@
         }  
       ]        
     },
+    {
+      "attrs": {
+        "id": "catalogue"
+      },
+      "target": "catalogue.html",
+      "label": {
+        "EN": "Catalogue",
+        "FR": ""
+      }
+    },    
     {
       "attrs": {
         "id": "publications"

@@ -87,24 +87,22 @@ require(["submodules/fenix-ui-menu/js/paths",
     });
 
 	require([
-	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet','geojson_decoder',
-	    'text!config/services.json',
+		'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet','geojson_decoder',
+		'text!config/services.json',
 
-        'text!data/africa_regions.json',
-        'text!data/africa_regions_countries.json',        
-        'text!data/africa.json',
+		'text!data/africa_regions_countries.json',
+		'text!data/africa.json',
 
 		'fx-menu/start',
-        './scripts/components/AuthenticationManager',
+		'./scripts/components/AuthenticationManager',
 
-        'amplify',
+		'amplify',
 
 		'domready!'
 	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L, geojsonDecoder,
 
 		Config,
 
-		Regions,
 		Countries,
 		Africa,
 
@@ -132,7 +130,6 @@ require(["submodules/fenix-ui-menu/js/paths",
         });
 
 		Countries = JSON.parse(Countries);
-		Regions = JSON.parse(Regions);
 		Africa = JSON.parse(Africa);
 
 		var listRegions$ = $('#stats_select .stats_list_regions'),
@@ -140,7 +137,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			mapzoomsCountries$ = $('#stats_map_countries').next('.map-zooms');
 
 		var style = {
-				fill: true, color: '#6AAC46', weight: 1, opacity: 1, fillOpacity: 0.4, fillColor: '#6AAC46'
+				fill: true, color: '#68AC46', weight: 1, opacity: 1, fillOpacity: 0.4, fillColor: '#6AAC46'
 			},
 			styleHover = {
 				fill: true, color: '#6AAC46', weight: 1, opacity: 1, fillOpacity: 0.6, fillColor: '#6AAC46'
@@ -177,9 +174,10 @@ require(["submodules/fenix-ui-menu/js/paths",
 			});
 		}
 
-		getWDS(Config.queries.regions, null, function(Regions) {
-			for(var r in Regions)
-				listRegions$.append('<option value="'+Regions[r][0]+'">'+Regions[r][1]+'</option>');
+		getWDS(Config.queries.regions, null, function(regs) {
+			Regions = regs;
+			for(var r in regs)
+				listRegions$.append('<option value="'+regs[r][0]+'">'+regs[r][1]+'</option>');
 		});
 
 		var mapCountries = L.map('stats_map_countries', {
@@ -196,65 +194,21 @@ require(["submodules/fenix-ui-menu/js/paths",
 			},
 			onEachFeature: function(feature, layer) {
 
-				layer.setStyle(style);
+				feature.setStyle(style);
 
-				layer.on("mouseover", function (e) {
-					layer.setStyle(styleHover);
+				feature.on("mouseover", function (e) {
+					feature.setStyle(styleHover);
 				});
 
-				layer.on("mouseout", function (e) {
-					layer.setStyle(style); 
+				feature.on("mouseout", function (e) {
+					feature.setStyle(style); 
 				});
 
-				layer.on("click", function (e) {
-					console.log( layer.properties );
+				feature.on("click", function (e) {
+					console.log( feature.properties );
 				});
 			}
 		}).addTo(mapCountries);
-
-		var zoomToCountries = function(fmMap, codes) {
-			var query = "SELECT ST_AsGeoJSON(ST_Transform(ST_SetSRID(ST_Extent(geom), 3857), 4326)) "+
-						"FROM spatial.gaul0_faostat3_3857 "+
-						"WHERE iso3 IN ('"+ codes.join("','") +"')",
-
-				url = mapConf.url_bbox +'iso3/'+ encodeURIComponent(codes.join());
-
-			$.getJSON(url, function(json) {
-				
-				geojsonCountries.fitBounds(json);
-
-			});
-		};
-
-/*		var geomRegions = function(regCode) {
-
-			codes = _.filter(Countries, function(v) {
-				return v[0] === regCode;
-			});
-
-			codes = _.map(codes, function(v) {
-				return v[1];
-			});
-
-			getWDS(Config.queries.countries_geojson, {ids: codes.join(",") }, function(resp) {
-
-				console.log(resp);
-
-				var urlTmpl = _.template(),
-					url = Config.url_spatialquery + 
-						  encodeURIComponent( urlTmpl() );
-
-				$.getJSON(url, function(json) {
-
-					var geom = JSON.parse(json[0][0]);
-
-					geojsonRegions.clearLayers().addData( geom );
-
-					mapCountries.fitBounds( geojsonCountries.getBounds() );
-				});
-
-			});
-		};*/
 
 		mapzoomsCountries$.on('click','.btn', function(e) {
 			var z = parseInt( $(this).data('zoom') );
@@ -264,22 +218,26 @@ require(["submodules/fenix-ui-menu/js/paths",
 		listRegions$.on('click', 'option', function(e) {
 
 			var regCode = parseInt( $(e.target).attr('value') );
-			//geomRegions(regCode);
 
-			var codes = _.filter(Countries, function(v) {
-				return v[0] === regCode;
-			});
-			codes = _.map(codes, function(v) {
-				return v[1];
-			});
+			getWDS(Config.queries.countries_byregion, {id: "'"+regCode+"'"}, function(resp) {
+				
+				var idsCountries = _.map(resp, function(val) {
+					return val[0];
+				});
 
-			
-			var urlTmpl = _.template(Config.que),
-				url = urlTmpl({sql: Config.queries.countries_geojson });
+				var sqlTmpl = urlTmpl = _.template(Config.queries.countries_geojson),
+					sql = sqlTmpl({ids: idsCountries.join(',') });
+				
+				var urlTmpl = _.template(Config.url_spatialquery_enc),
+					url = urlTmpl({sql: sql });
 
-			$.getJSON(url, function(data) {
-				//
-				geojsonDecoder.decodeToMap(data, mapCountries);
+				$.getJSON(url, function(data) {
+					//
+					geojsonCountries.clearLayers();
+					geojsonDecoder.decodeToLayer(data, geojsonCountries);
+					mapCountries.fitBounds( geojsonCountries.getBounds().pad(-0.8) );
+				});
+
 			});
 
 		});

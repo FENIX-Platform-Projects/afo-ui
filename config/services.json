@@ -27,7 +27,7 @@
 		"fertilizers_country": "select distinct country_code from fertilizers_country where fertilizer_code in ( <%= fertilizersList %> )",
 		"dealers": "select * from dealers",
 		"regions": "select country_code, country_label from codes_countries where parent_code = '' order by country_code ",
-		"countries_byregion": "select country_code, country_label from codes_countries where parent_code = <%= id %> ",
+		"countries_byregion": "SELECT country_code, country_label FROM codes_countries WHERE parent_code = <%= id %> ",
 		"countries_geojson": "SELECT ST_AsGeoJSON(geom), adm0_code, areanamee FROM spatial.gaul0_faostat3_4326 WHERE adm0_code IN ( <%= ids %> ) ",
 		"countries_groups": "SELECT country, name FROM countries WHERE value = 1 AND name IN ( <%= ids %> ) "
 	}

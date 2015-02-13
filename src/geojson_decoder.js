@@ -44,35 +44,35 @@ define(function() {
 	    return polygons;
 	}
 
-	function decodeToMap(featureCollection, map) {
-	    var geom;
+	function decodeToLayer(featureCollection, targetLayer) {
+	    var geom,bb;
 	    var features = featureCollection["features"];
-	    //console.log(features)
-	    var gj = L.GeoJSON;
+
 	    for (var i = 0; i < features.length; i++) {
 	        var feature = features[i];
-	        console.log(feature)
+
 	        geom = feature["geometry"]["coordinates"];
 	       // console.log(geom)
 	        switch(feature["geometry"]["type"]) {
 	            case "Point":
-	                L.marker([geom[1], geom[0]], MARKER).addTo(map);
+	                L.marker([geom[1], geom[0]], MARKER).addTo(targetLayer);
 	                break;
 	            case "LineString":
-	                var coords = Array.isArray(geom[0]) ? gj.coordsToLatLngs(geom, 0) : L.PolylineUtil.decode(geom);
-	                L.polyline(coords, GEOMSTYLE).addTo(map);
+	                var coords = Array.isArray(geom[0]) ? L.GeoJSON.coordsToLatLngs(geom, 0) : L.PolylineUtil.decode(geom);
+	                L.polyline(coords, GEOMSTYLE).addTo(targetLayer);
 	                break;
 	            case "MultiLineString":
-	                var ls = Array.isArray(geom[0][0]) ? gj.coordsToLatLngs(geom, 1) : _build_linestrings(geom);
-	                L.multiPolyline(ls, GEOMSTYLE).addTo(map);
+	                var ls = Array.isArray(geom[0][0]) ? L.GeoJSON.coordsToLatLngs(geom, 1) : _build_linestrings(geom);
+	                L.multiPolyline(ls, GEOMSTYLE).addTo(targetLayer);
 	                break;
 	            case "Polygon":
-	                var rings = Array.isArray(geom[0][0]) ? gj.coordsToLatLngs(geom, 1) : _build_linestrings(geom);
-	                L.polygon(rings, GEOMSTYLE).addTo(map);
+	                var rings = Array.isArray(geom[0][0]) ? L.GeoJSON.coordsToLatLngs(geom, 1) : _build_linestrings(geom);
+	                L.polygon(rings, GEOMSTYLE).addTo(targetLayer);
 	                break;
 	            case "MultiPolygon":
-	                var polygons = Array.isArray(geom[0][0]) ? gj.coordsToLatLngs(geom, 2) : _build_polygons(geom);
-	                var polyLine = L.multiPolygon(polygons, GEOMSTYLE).addTo(map);	                break;
+	                var polygons = Array.isArray(geom[0][0]) ? L.GeoJSON.coordsToLatLngs(geom, 2) : _build_polygons(geom);
+	                var polyLine = L.multiPolygon(polygons, GEOMSTYLE).addTo(targetLayer);
+	                break;
 	            default:
 	                console.error(feature.geometry.type + ' not implemented.');
 	        }
@@ -80,6 +80,6 @@ define(function() {
 	}
 
 	return {
-		decodeToMap: decodeToMap
+		decodeToLayer: decodeToLayer
 	};
 });

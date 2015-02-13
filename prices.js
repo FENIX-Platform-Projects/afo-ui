@@ -29,6 +29,7 @@ require.config({
         'jquery.i18n.properties': '//fenixapps.fao.org/repository/js/jquery/1.0.9/jquery.i18n.properties-min',
         'jquery.hoverIntent': '//fenixapps.fao.org/repository/js/jquery.hoverIntent/1.0/jquery.hoverIntent',
         'fenix-ui-topmenu': '../scripts/components/fenix-ui-topmenu',
+        'jquery.rangeSlider': '//fenixapps.fao.org/repository/js/jquery.rangeslider/5.7.0/jQDateRangeSlider-min',
 
         //OLAP
         'pivot': '../submodules/fenix-ui-olap/js/pivot',
@@ -53,6 +54,7 @@ require.config({
         'underscore': {
 			exports: '_'
         },
+        'jquery.rangeSlider': ['jquery', 'jquery-ui'],
 //		'fenix-map-config': {
 //			exports: 'FMCONFIG'
 //		},
@@ -90,6 +92,7 @@ require([
         'fenix-ui-topmenu/main',
         //OLAP deps
         'pivot',
+        'jquery.rangeSlider',
         'domready!'
     ],
     function ($, _, bts, highcharts, jstree, Handlebars, 

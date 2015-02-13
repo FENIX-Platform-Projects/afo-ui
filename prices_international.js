@@ -43,7 +43,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 				'jquery-ui': "//fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min",
 				'jquery.hoverIntent': "//fenixapps.fao.org/repository/js/jquery.hoverIntent/1.0/jquery.hoverIntent",
 				'jquery.i18n.properties': "//fenixapps.fao.org/repository/js/jquery/1.0.9/jquery.i18n.properties-min",
-				'import-dependencies': "//fenixapps.fao.org/repository/js/FENIX/utils/import-dependencies-1.0"
+				'import-dependencies': "//fenixapps.fao.org/repository/js/FENIX/utils/import-dependencies-1.0",
+                'jquery.rangeSlider': '//fenixapps.fao.org/repository/js/jquery.rangeslider/5.7.0/jQDateRangeSlider-min',
 			},
 
 		    shim: {
@@ -55,6 +56,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		        'jquery.power.tip': ['jquery'],
 		        'jquery.i18n.properties': ['jquery'],
 		        'jquery.hoverIntent': ['jquery'],
+                'jquery.rangeSlider': ['jquery', 'jquery-ui'],
 		        'underscore': {
 		            exports: '_'
 		        },
@@ -89,7 +91,7 @@ require(["submodules/fenix-ui-menu/js/paths",
         './scripts/components/AuthenticationManager',
 
         'amplify',
-
+        'jquery.rangeSlider',
 		'domready!'
 	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L,
 		Config,
@@ -100,6 +102,9 @@ require(["submodules/fenix-ui-menu/js/paths",
 		) {
 
 		Config = JSON.parse(Config);
+
+        //JQUERY range slider
+        $(".afo-range").dateRangeSlider();
 
         new TopMenu({
             active: 'prices_international',

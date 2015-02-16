@@ -108,7 +108,7 @@ require(["submodules/fenix-ui-menu/js/paths",
         $(".afo-range").dateRangeSlider();
 
         new TopMenu({
-            active: 'prices_international',
+            active: 'prices_detailed',
             url: 'config/fenix-ui-menu.json',
             className : 'fx-top-menu',
             breadcrumb : {

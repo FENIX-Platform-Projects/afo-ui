@@ -29,6 +29,7 @@
 		"regions": "select country_code, country_label from codes_countries where parent_code = '' order by country_code ",
 		"countries_byregion": "SELECT country_code, country_label FROM codes_countries WHERE parent_code = <%= id %> ",
 		"countries_geojson": "SELECT ST_AsGeoJSON(geom), adm0_code, areanamee FROM spatial.gaul0_faostat3_4326 WHERE adm0_code IN ( <%= ids %> ) ",
-		"countries_groups": "SELECT country, name FROM countries WHERE value = 1 AND name IN ( <%= ids %> ) "
+		"countries_groups": "SELECT country, name FROM countries WHERE value = 1 AND name IN ( <%= ids %> ) ",
+		"prices_national" : "select country_label as area, fertilizer_label as item, year, month_label as month, value, currency_label as unit, flag from ( select   country as Area,  fertilizer as Item,  month/100 as Year,	  to_char(month%100, 'FM99') as Month,  avg (unit_price_usd) as Value,  currency as Unit,  '' as Flag from prices_local group by fertilizer, country, month, currency) as pl join codes_countries on (area = country_code) join codes_fertilizers on (item = fertilizer_code) join codes_currencies on (unit = currency_code) join codes_months on (month = month_code)"
 	}
 }

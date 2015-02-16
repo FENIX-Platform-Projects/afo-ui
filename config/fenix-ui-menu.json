@@ -36,7 +36,30 @@
       "label": {
         "EN": "Statistics",
         "FR": ""
-      }
+      },
+      "type": "dropdown",
+      "children": [
+                {
+          "attrs": {
+            "id": "statistics_glance"
+          },
+          "target": "statistics_glance.html",
+          "label": {
+            "EN": "At a Glance",
+            "FR": ""
+          }
+        },
+        {
+          "attrs": {
+            "id": "statistics_compare"
+          },
+          "target": "statistics_compare.html",
+          "label": {
+            "EN": "Compare",
+            "FR": ""
+          }
+        }
+      ]      
     },    
     {
       "attrs": {
@@ -49,13 +72,13 @@
       },
       "type": "dropdown",
       "children": [
-        {
+                {
           "attrs": {
             "id": "prices_international"
           },
           "target": "prices_international.html",
           "label": {
-            "EN": "Prices International",
+            "EN": "International",
             "FR": ""
           }
         },
@@ -65,7 +88,7 @@
           },
           "target": "prices_national.html",
           "label": {
-            "EN": "Prices National",
+            "EN": "National",
             "FR": ""
           }
         },
@@ -75,7 +98,7 @@
           },
           "target": "prices_retail.html",
           "label": {
-            "EN": "Detailed Prices",
+            "EN": "Detailed",
             "FR": ""
           }
         }
@@ -98,7 +121,7 @@
           },
           "target": "directories_business.html",
           "label": {
-            "EN": "Business Directory",
+            "EN": "Business",
             "FR": ""
           }
         },      
@@ -108,7 +131,7 @@
           },
           "target": "directories_prod.html",
           "label": {
-            "EN": "Production Directory",
+            "EN": "Production",
             "FR": ""
           }
         }  
@@ -131,16 +154,6 @@
       "target": "publications.html",
       "label": {
         "EN": "Publications",
-        "FR": ""
-      }
-    },
-    {
-      "attrs": {
-        "id": "market_news"
-      },
-      "target": "market_news.html",
-      "label": {
-        "EN": "News",
         "FR": ""
       }
     },

@@ -92,11 +92,11 @@ console.log(results);
 
     };
 
-    App.prototype.prepareQuery = function () {
+    App.prototype.prepareQuery = function (results) {
 
-        return this.config.queries.select_from_compare;
+        return _replace(this.config.queries.select_from_compare, results);
 
-        function _template(str, data) {
+        function _replace(str, data) {
             return str.replace(/\{ *([\w_]+) *\}/g, function (str, key) {
                 return data[key] || '';
             });

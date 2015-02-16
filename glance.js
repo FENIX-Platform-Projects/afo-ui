@@ -39,6 +39,7 @@ require([
             },
 
             shim: {
+
                 'bootstrap': ['jquery'],
 
                 'highcharts': ['jquery'],
@@ -51,6 +52,7 @@ require([
                     exports: 'amplifyjs'
                 },
                 'geojson_decoder': ['leaflet', 'leaflet.encoded'],
+                'leaflet.encoded' : ['leaflet'],
                 'fenix-map': {
                     deps: [
                         'i18n',

@@ -1,5 +1,6 @@
 
-define(function() {
+define(['leaflet', 'leaflet.encoded'],
+    function(L, Lenc) {
 
 	var map;
 	var MARKER = {
@@ -21,6 +22,7 @@ define(function() {
 	}
 
 	function _build_linestrings(geom) {
+
 	    var paths = [];
 	    for (var j = 0; j < geom.length; j++) {
 	        paths.push(L.PolylineUtil.decode(geom[j]));

@@ -28,18 +28,8 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="css/icons/fx-favicon.ico">
 
-    <style>
-        .product-s-list {
-            height: 150px;
-            overflow: auto;
-        }
-    </style>
-
-
-
 </head>
 <body>
-
 
 <!-- breadcrumbs and padding for static top menu-->
 <div class="container">
@@ -52,52 +42,68 @@
 
 </div>
 
-<!-- geo selectors container -->
+<!-- selectors-->
 <div class="container">
 
     <div class="row">
-        <div class="col-xs-4">
-            LIST MAP
-        </div>
-        <div class="col-xs-8">
-            MAP
-        </div>
-    </div>
-
-</div>
-
-<!-- other selectors container -->
-<div class="container">
-
-    <div class="row">
-        <div class="col-xs-12">
+        <!-- Data Sources -->
+        <div class="col-xs-6">
             <div id="data-sources-s"></div>
         </div>
+        <!-- Nutrient Product switch-->
+        <div class="col-xs-6">
+            <div id="n-p-s"></div>
+        </div>
+
     </div>
 
+
     <div class="row">
+
+        <!-- Geo List -->
+        <div class="col-xs-3">
+            <label class="">Africa Regions</label>
+            <select id="stats_selectRegions" class="form-control" style="height:300px;width:100%" size="8" >
+            </select>
+        </div>
+        <!-- Geo Map-->
         <div class="col-xs-6">
 
-            <div>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <label for="product-search-s"> Filter </label>
-                        <input type="text" id="product-search-s" value="" class="input">
+            <div class="afo-tabs" role="tabpanel">
+
+                <ul id="prices_tabs" class="nav nav-tabs" role="tablist">
+                    <li><a href="#stats_selectCountries_tab" role="tab" data-toggle="tab">Countries list</a></li>
+                    <li class="active"><a href="#stats_map_countries_tab" role="tab" data-toggle="tab">Countries map</a></li>
+                </ul>
+                <div class="tab-content afo-prices-tab-content obj-box">
+                    <div class="tab-pane" id="stats_selectCountries_tab">
+                        <select id="stats_selectCountries" class="form-control" style="height:300px;width:100%" size="8" >
+                        </select>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 product-s-list">
-                        <div id="product-s"></div>
+                    <div class="tab-pane active" id="stats_map_countries_tab">
+                        <div id="stats_map_countries" class="afo-simple-map" style="height:300px;width:100%"></div>
                     </div>
                 </div>
             </div>
 
         </div>
-        <div class="col-xs-6">
-            <div id="n-p-s"></div>
+
+        <!-- Product list-->
+        <div class="col-xs-3">
+            <label for="product-search-s"> Filter </label>
+            <input type="text" id="product-search-s" value="" class="input">
+            <div id="product-s"></div>
         </div>
+
     </div>
 
+</div>
+
+<div class="row">
+    <div class="col-xs-12 text-center">
+        <br /><label class="">Selected Country</label>
+        <b><big class="text-success" id="stats_selected_countries">&nbsp;</big></b>
+    </div>
 </div>
 
 <!-- search -->

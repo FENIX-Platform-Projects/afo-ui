@@ -3,8 +3,9 @@ define([
     "underscore",
     "commons/Wds",
     'text!config/services.json',
+    'geojson_decoder',
     'jstree'
-], function (_, Wds, C) {
+], function (_, Wds, C, geojsonDecoder) {
 
     'use strict';
 
@@ -16,6 +17,7 @@ define([
     };
 
     function Selectors() {
+
         this.config = JSON.parse(C);
         this._initMapSelector();
         this._initDataSourceSelector();
@@ -24,6 +26,143 @@ define([
     }
 
     Selectors.prototype._initMapSelector = function () {
+
+        var self= this;
+
+        var listRegions$ = $('#stats_selectRegions'),
+            listCountries$ = $('#stats_selectCountries'),
+            mapzoomsRegions$ = $('#stats_map_regions').next('.map-zooms'),
+            mapzoomsCountries$ = $('#stats_map_countries').next('.map-zooms');
+
+        var style = {
+                fill: true, color: '#68AC46', weight: 1, opacity: 1, fillOpacity: 0.4, fillColor: '#6AAC46'
+            },
+            styleHover = {
+                fill: true, color: '#6AAC46', weight: 1, opacity: 1, fillOpacity: 0.8, fillColor: '#6AAC46'
+            };
+
+        function getWDS(queryTmpl, queryVars, callback) {
+
+            var sqltmpl, sql;
+
+            if(queryVars) {
+                sqltmpl = _.template(queryTmpl);
+                sql = sqltmpl(queryVars);
+            }
+            else
+                sql = queryTmpl;
+
+            var	data = {
+                datasource: self.config.dbName,
+                thousandSeparator: ',',
+                decimalSeparator: '.',
+                decimalNumbers: 2,
+                cssFilename: '',
+                nowrap: false,
+                valuesIndex: 0,
+                json: JSON.stringify({query: sql})
+            };
+
+            $.ajax({
+                url: self.config.wdsUrl,
+                data: data,
+                type: 'POST',
+                dataType: 'JSON',
+                success: callback
+            });
+        }
+
+        getWDS(this.config.queries.regions, null, function(regs) {
+            var Regions = regs;
+            for(var r in regs)
+                listRegions$.append('<option value="'+regs[r][0]+'">'+regs[r][1]+'</option>');
+        });
+
+        var mapCountries = L.map('stats_map_countries', {
+            zoom: 4,
+            zoomControl: false,
+            attributionControl: false,
+            center: L.latLng(20,0),
+            layers: L.tileLayer(this.config.url_baselayer)
+        })
+            .addControl(L.control.zoom({position:'bottomright'}))
+
+        var geojsonCountries = L.featureGroup(null, {
+            style: function (feature) {
+                return style;
+            }
+        });
+
+        mapzoomsCountries$.on('click','.btn', function(e) {
+            var z = parseInt( $(this).data('zoom') );
+            mapCountries[ z>0 ? 'zoomIn' : 'zoomOut' ]();
+        });
+
+        listRegions$.on('click', 'option', function(e) {
+
+            var regCode = parseInt( $(e.target).attr('value') );
+
+            getWDS(self.config.queries.countries_byregion, {id: "'"+regCode+"'"}, function(resp) {
+
+                listCountries$.empty();
+                for(var r in resp)
+                    listCountries$.append('<option value="'+resp[r][0]+'">'+resp[r][1]+'</option>');
+
+                var idsCountries = _.map(resp, function(val) {
+                    return val[0];
+                });
+
+                var sqlTmpl = urlTmpl = _.template(self.config.queries.countries_geojson),
+                    sql = sqlTmpl({ids: idsCountries.join(',') });
+
+                var urlTmpl = _.template(self.config.url_spatialquery_enc),
+                    url = urlTmpl({sql: sql });
+
+                $.getJSON(url, function(data) {
+
+                    geojsonCountries.clearLayers();
+
+                    geojsonDecoder.decodeToLayer(data,
+                        geojsonCountries,
+                        style,
+                        function(feature, layer) {
+                            layer
+                                .setStyle(style)
+                                .on("mouseover", function (e) {
+                                    layer.setStyle(styleHover);
+                                })
+                                .on("mouseout", function (e) {
+                                    layer.setStyle(style);
+                                })
+                                .on("click", function (e) {
+                                    listCountries$.find("option:selected").removeAttr("selected");
+                                    listCountries$.val(feature.properties.prop1);
+                                    $('#stats_selected_countries').text( feature.properties.prop2 );
+                                });
+                        }
+                    );
+                    var bb = geojsonCountries.getBounds();
+                    mapCountries.fitBounds( bb.pad(-0.8) );
+                    geojsonCountries.addTo(mapCountries);
+                });
+
+            });
+
+        });
+
+        listCountries$.on('click', 'option', function(e) {
+            e.preventDefault();
+            $('#stats_selected_countries').text( $(e.target).text() );
+        });
+
+        $('#stats_map_countries').on('click','.popupCountry', function(e) {
+            e.preventDefault();
+            listCountries$.find("option:selected").removeAttr("selected");
+            $('#stats_selected_countries').text( $(e.currentTarget).data('name') );
+        });
+
+
+
     };
 
     Selectors.prototype._initDataSourceSelector = function () {
@@ -134,7 +273,7 @@ define([
             var config = {
                 id: item[0], // will be autogenerated if omitted
                 text: item[1], // node text
-                parent: '#',
+                parent: '#'
                 //icon: "string", // string for custom
                 /* state: {
                     opened: boolean,  // is the node open

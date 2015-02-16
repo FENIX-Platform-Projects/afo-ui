@@ -330,7 +330,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 */
 
-var Q = "SELECT area, item, year, month, value, unit, '' as flag FROM prices_national";
+var Q = "SELECT area, item, year, month, TO_CHAR(value,'99.99'), unit, '' as flag FROM prices_national";
 
 getWDS(Q, null, function(data) {
 		//HERE

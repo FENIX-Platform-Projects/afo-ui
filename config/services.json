@@ -31,13 +31,6 @@
 		"countries_byregion": "SELECT country_code, country_label FROM codes_countries WHERE parent_code = <%= id %> ",
 		"countries_geojson": "SELECT ST_AsGeoJSON(geom), adm0_code, areanamee FROM spatial.gaul0_faostat3_4326 WHERE adm0_code IN ( <%= ids %> ) ",
 		"countries_groups": "SELECT country, name FROM countries WHERE value = 1 AND name IN ( <%= ids %> ) "
-
-		"home_maps":"select ams.country_code, country_label, afo_footprint, manufacturing_plant, blending_plant from afo_map_slider ams, codes_countries cc where ams.country_code = cc.country_code",
-		"fertilizers_tree" : "select fc.fertilizer_class as group, fc.fertilizer_code as id, cf.fertilizer_label as text from fertilizers_class fc, codes_fertilizers cf where fc.fertilizer_code = cf.fertilizer_code order by fc.fertilizer_class",
-		"fertilizers_country" : "select distinct country_code from fertilizers_country where fertilizer_code in ( {{fertilizersList}} )",
-		"dealers" : "select * from dealers",
-		"countries_geojson": "SELECT ST_AsGeoJSON(geom), adm0_code, adm0_name FROM spatial.gaul0_faostat3_4326 WHERE faost_code IN ",
-		"countries_groups": "SELECT country, name FROM countries WHERE value = 1 AND name IN ( {{ids}} ) ",
 		"data_sources": "select * from codes_data_sources",
         "products": "select * from codes_fertilizers",
         "select_from_compare" : "select element_code, element_label, year, value, um from ( select element, year, value, um from compare where data_source = 'afo' and fertilizer = '2510000000' and country = '133' and n_p = 'p' ) c right join codes_elements on element = element_code"

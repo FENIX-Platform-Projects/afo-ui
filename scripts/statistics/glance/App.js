@@ -63,6 +63,35 @@ define([
     App.prototype.query = function (results) {
 
         console.log(results)
+
+        var data = {
+            datasource: "africafertilizer",
+            thousandSeparator: ',',
+            decimalSeparator: '.',
+            decimalNumbers: 2,
+            cssFilename: '',
+            nowrap: false,
+            valuesIndex: 0,
+            json: JSON.stringify({
+                query: "select * from compare limit 1000"
+            })
+        };
+
+        $.ajax({
+            url: "http://faostat3.fao.org/wds/rest/table/json",
+            data: data,
+            type: 'POST',
+            dataType: 'JSON',
+            success: _.bind(this._printResults, this),
+            error: function (e) {
+                console.error("WDS error: " + e);
+            }
+        });
+
+    };
+
+    App.prototype._printResults = function () {
+
     };
 
     App.prototype._initSecurity = function() {

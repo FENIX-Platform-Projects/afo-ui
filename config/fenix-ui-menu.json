@@ -94,9 +94,9 @@
         },
         {
           "attrs": {
-            "id": "prices_retail"
+            "id": "prices_detailed"
           },
-          "target": "prices_retail.html",
+          "target": "prices_detailed.html",
           "label": {
             "EN": "Detailed",
             "FR": ""

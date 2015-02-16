@@ -326,20 +326,22 @@ require(["submodules/fenix-ui-menu/js/paths",
 1. replace getJSON with getWDS
 2. add new query in queries section into configuration file: /config/seervices.json
 
-select country_label as area, fertilizer_label as item, year, month_label as month, value, currency_label as unit, flag 
-from ( select country as Area, fertilizer as Item, month/100 as Year, to_char(month%100, 'FM99') as Month,  avg (unit_price_usd) as Value,  currency as Unit,  '' as Flag 
-		from prices_local group by fertilizer, country, month, currency) as pl 
-	join codes_countries on (area = country_code) 
-	join codes_fertilizers on (item = fertilizer_code) 
-	join codes_currencies on (unit = currency_code) 
-	join codes_months on (month = month_code)
 
-getWDS(Config.queries.regions, null, function(data) {
-		//HERE
-});
+
 */
-		$.getJSON("data/prices_national.json", function(data) {
-			FAOSTATNEWOLAP.originalData=data;
+
+
+var Q = "SELECT area, item, year, month, value, unit, '' as flag FROM prices_national";
+
+getWDS(Q, null, function(data) {
+		//HERE
+		console.log(data);	
+//});
+//		$.getJSON("data/prices_national.json", function(data) {
+//["Area","Item","Year","Month2","Value","Unit","Flag"]	
+
+			FAOSTATNEWOLAP.originalData = data;
+
 			$("#pivot").pivotUI(data, {
 				derivedAttributes: {
 					"Month": function(mp){

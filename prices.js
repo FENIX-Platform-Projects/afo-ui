@@ -39,7 +39,6 @@ require.config({
         //'gt_const': 'submodules/fenix-ui-olap/grid/gt_const',
         'gt_grid_all': '../submodules/fenix-ui-olap/lib/grid/gt_grid_all',
         'fusionchart': '../submodules/fenix-ui-olap/lib/grid/flashchart/fusioncharts/FusionCharts'
-
     },
 
     shim: {

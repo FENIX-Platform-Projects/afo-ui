@@ -53,55 +53,38 @@ define([
 	layerRetail.addTo(map);
 
 
-getWDS(queryTmpl, queryVars, callback) {
+	function loadMarkers() {
 
-});
-/*	function loadMarkers() {
+			getWDS(Config.queries.prices_local_geo_filter, {
+				fertilizer_code: '3102100000',
+				month_from_yyyymm: '201201',
+				month_to_yyyymm: '201212'
+			},function(data) {
 
-		var markers = {},
-			places = [],
-			placesquery = [];
+				console.log(data);
 
-		$('#prices_retail_grid tbody tr.warning').each(function() {
+				var markers = {},
+					places = [],
+					placesquery = [];
 
-				var fert = $(this).find('td').eq(4).text(),
-					price = $(this).find('td').eq(6).text(),
-					place = $(this).find('td').eq(0).text()+', '+
-							$(this).find('td').eq(3).text();
-							
-				places.push({
-					fert: fert,
-					place: place,
-					loc: []
-				});
-			});
 
-			placesquery = _.pluck(places, 'place').join('|');
+				layerRetail.clearLayers();
 
-			layerRetail.clearLayers();
-			$.get(Config.url_geocoding+placesquery, function(json) {
+				//var bb = L.latLngBounds(latlngs);
 
-				var bb = L.latLngBounds(json);
-
-				for(var i in json)
-				{
-					markers[ json[i].join() ] = L.marker(L.latLng(json[i]), {
-						title: places[i].place
-					})
-					.bindPopup([
-						'<b>'+places[i].place+'</b>',
-						places[i].fert,
-						places[i].price
-						].join('<br>')
-					);
+				for(var i in data) {
+					var popup = L.Util.template('<h4>{title}<h4><big style="color:red">{val}</big>', {
+							title: data[i][0],
+							val: data[i][2]+' '+data[i][3]+" (avg)"
+						});
+					L.marker(data[i][1].split('|'))
+						.bindPopup( popup )
+						.addTo(layerRetail);
 				}
 
-				for(var l in markers)
-					markers[l].addTo(layerRetail);
-
-				map.fitBounds( bb.pad(1) );
+				map.fitBounds( layerRetail.getBounds().pad(-0.8) );
 			});
-	}*/
+	}
 
 /*	$('#prices_retail_grid tbody tr').on('click', function(e) {
 		$(this).toggleClass('warning');
@@ -109,6 +92,6 @@ getWDS(queryTmpl, queryVars, callback) {
 		loadMarkers();
 	});*/
 
-	//loadMarkers();
+	loadMarkers();
 
 });

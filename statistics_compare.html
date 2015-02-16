@@ -59,13 +59,13 @@
 
     <div class="row">
 
-        <!-- Geo List -->
+<!--        &lt;!&ndash; Geo List &ndash;&gt;
         <div class="col-xs-3">
             <label class="">Africa Regions</label>
             <select id="stats_selectRegions" class="form-control" style="height:300px;width:100%" size="8" >
             </select>
         </div>
-        <!-- Geo Map-->
+        &lt;!&ndash; Geo Map&ndash;&gt;
         <div class="col-xs-6">
 
             <div class="afo-tabs" role="tabpanel">
@@ -85,13 +85,31 @@
                 </div>
             </div>
 
+        </div>-->
+        <!-- Element list-->
+        <div class="col-xs-3" >
+            COUNTRY
+        </div>
+
+
+        <!-- Element list-->
+        <div class="col-xs-3" >
+            <label for="product-search-s"> Filter </label>
+            <input type="text" id="element-search-s" value="" class="input">
+            <div id="element-s"  style="height: 150px; overflow: auto"></div>
         </div>
 
         <!-- Product list-->
-        <div class="col-xs-3" style="max-height:300px">
+        <div class="col-xs-3" >
             <label for="product-search-s"> Filter </label>
             <input type="text" id="product-search-s" value="" class="input">
             <div id="product-s"  style="height: 150px; overflow: auto"></div>
+        </div>
+
+        <!-- Product list-->
+        <div class="col-xs-3" >
+            <div>  Compare by </div>
+            <div id="compare-s"></div>
         </div>
 
     </div>

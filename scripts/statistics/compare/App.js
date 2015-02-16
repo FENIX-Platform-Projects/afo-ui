@@ -28,7 +28,7 @@ define([
 
     App.prototype.start = function () {
 
-                //check if session is authenticated
+         //check if session is authenticated
          this.state.authenticated = amplify.store.sessionStorage('afo.security.user') === undefined;
 
          this._initSecurity();
@@ -54,23 +54,22 @@ define([
     App.prototype._bindEventListeners = function () {
 
         $(s.SEARCH_BTN).on('click', _.bind(function () {
-
             var results = this.selectors.getFilter();
 
+            console.log(results)
+
+           /*
+
             if (results !== false) {
+
                 $(s.COURTESY).hide();
                 $(s.RESULTS).show();
 
                 this.queryChart(results);
                 this.queryTable(results);
-            }
+            }*/
 
         }, this));
-    };
-
-    App.prototype.showCourtesyMessage = function(){
-        $(s.COURTESY).show();
-        $(s.RESULTS).hide();
     };
 
     App.prototype.queryChart = function (results) {
@@ -138,6 +137,11 @@ define([
             }
         });
 
+    };
+
+    App.prototype.showCourtesyMessage = function(){
+        $(s.COURTESY).show();
+        $(s.RESULTS).hide();
     };
 
     App.prototype.prepareTableQuery = function (results) {

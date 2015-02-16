@@ -377,7 +377,7 @@ define([
             return filter;
         } else {
 
-            this._showValidationErrors();
+            this._showValidationErrors(valid);
             return false;
         }
     };

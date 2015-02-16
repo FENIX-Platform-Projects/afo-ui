@@ -183,7 +183,7 @@ define([
 
         //Top Menu
         this.topMenu = new Menu({
-            active: 'statistics',
+            active: 'statistics_glance',
             url: this.state.authenticated ? c.MENU_AUTH : c.MENU_PUBLIC,
             className: 'fx-top-menu',
             breadcrumb: {

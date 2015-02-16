@@ -24,34 +24,5 @@ define([
         this.chart.render(data, {});
     };
 
-   /* Results.prototype.render = function (data) {
-
-        console.log(data)
-
-        if (!this.validate(data)){
-          return;
-        }
-
-        if (!data || data.length === 0) {
-            this.showCourtesyMessage();
-            return;
-        }
-
-
-        $(s.COURTESY).hide();
-        $(s.RESULTS).show();
-
-        this.chart.render(data, {});
-
-
-    };
-
-    Results.prototype.showCourtesyMessage = function () {
-
-        $(s.COURTESY).show();
-        $(s.RESULTS).hide();
-
-    };*/
-
     return Results;
 });

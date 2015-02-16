@@ -57,7 +57,6 @@ f<!DOCTYPE html>
 
     </div>
 
-
     <div class="row">
 
         <!-- Geo List -->
@@ -92,19 +91,13 @@ f<!DOCTYPE html>
         <div class="col-xs-3" style="max-height:300px">
             <label for="product-search-s"> Filter </label>
             <input type="text" id="product-search-s" value="" class="input">
-            <div id="product-s"></div>
+            <div id="product-s"  style="height: 150px; overflow: auto"></div>
         </div>
 
     </div>
 
 </div>
 
-<div class="row">
-    <div class="col-xs-12 text-center">
-        <br /><label class="">Selected Country</label>
-        <b><big class="text-success" id="stats_selected_countries">&nbsp;</big></b>
-    </div>
-</div>
 
 <!-- search -->
 <div class="container">
@@ -123,21 +116,25 @@ f<!DOCTYPE html>
     <!-- table container-->
     <div class="row">
         <div class="col-xs-12">
-          <div id="table1"></div>
+            <div id="table1"></div>
         </div>
     </div>
 
     <!-- charts container-->
     <div class="row">
         <div class="col-xs-6">
-           <div id="chart1"></div>
+            <h2>Production</h2>
+            <div id="chart1"></div>
         </div>
         <div class="col-xs-6">
+            <h2>Import / Export</h2>
             <div id="chart2"></div>
         </div>
     </div>
 
 </div>
+
+
 
 <!-- footer -->
 <div class="container">

@@ -56,15 +56,14 @@ define([
             var results = this.selectors.getFilter();
 
             if (results !== false) {
-                this.query(results);
+                this.queryChart(results);
+                //this.queryTable(results);
             }
 
         }, this));
     };
 
-    App.prototype.query = function (results) {
-
-console.log(results);
+    App.prototype.queryChart = function (results) {
 
         var data = {
             datasource:  this.config.dbName,
@@ -75,7 +74,7 @@ console.log(results);
             nowrap: false,
             valuesIndex: 0,
             json: JSON.stringify({
-                query: this.prepareQuery(results)
+                query: this.prepareChartQuery(results)
             })
         };
 
@@ -84,29 +83,69 @@ console.log(results);
             data: data,
             type: 'POST',
             dataType: 'JSON',
-            success: _.bind(this._printResults, this),
+            success: _.bind(function (data) {
+                console.log(data)
+                if (data.length > 0){
+                    this.results.printChart(data)
+                } else {
+                    console.log("NO data")
+                }
+
+            } , this),
             error: function (e) {
-                console.error("WDS error: " + e);
+                console.error("WDS error: ");
+                console.log(e)
             }
         });
 
     };
 
-    App.prototype.prepareQuery = function (results) {
+    App.prototype.queryTable = function (results) {
 
-        return _replace(this.config.queries.select_from_compare, results);
+        var data = {
+            datasource:  this.config.dbName,
+            thousandSeparator: ',',
+            decimalSeparator: '.',
+            decimalNumbers: 2,
+            cssFilename: '',
+            nowrap: false,
+            valuesIndex: 0,
+            json: JSON.stringify({
+                query: this.prepareTableQuery(results)
+            })
+        };
 
-        function _replace(str, data) {
-            return str.replace(/\{ *([\w_]+) *\}/g, function (str, key) {
-                return data[key] || '';
-            });
-        }
+
+        $.ajax({
+            url:  this.config.wdsUrl,
+            data: data,
+            type: 'POST',
+            dataType: 'JSON',
+            success: _.bind(function (data) {
+                    this.results.printTable(data)
+                } , this),
+            error: function (e) {
+                console.error("WDS error: ");
+                console.log(e)
+            }
+        });
 
     };
 
-    App.prototype._printResults = function ( data) {
+    App.prototype.prepareTableQuery = function (results) {
 
-        this.results.render(data);
+        return this._replace(this.config.queries.select_from_compare, results);
+    };
+
+    App.prototype.prepareChartQuery = function (results) {
+
+        return this._replace(this.config.queries.select_from_compare_chart, results);
+    };
+
+    App.prototype._replace = function(str, data) {
+        return str.replace(/\{ *([\w_]+) *\}/g, function (str, key) {
+            return data[key] || '';
+        });
     };
 
     App.prototype._initSecurity = function () {

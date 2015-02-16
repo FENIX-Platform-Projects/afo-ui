@@ -6,40 +6,52 @@ define([
 
     'use strict';
 
+    var s = {
+        COURTESY: '#afo-courtesy',
+        RESULTS: '#afo-results'
+    };
+
     function Results() {
-        this._initTable();
-        this._initChart();
+        this.table = new Table();
+        this.chart = new Chart();
     }
 
-    Results.prototype.validate = function () {
-
-        return true;
+    Results.prototype.printTable = function (data) {
+        this.table.render(data);
     };
 
-
-    Results.prototype.validate = function () {
-
-        return true;
+    Results.prototype.printChart = function (data) {
+        this.chart.render(data, {});
     };
 
-    Results.prototype.render = function (data) {
+   /* Results.prototype.render = function (data) {
 
-        if (this.validate()){
+        console.log(data)
 
-            this.chart.render(data, {});
-            this.table.render(data, {});
+        if (!this.validate(data)){
+          return;
         }
 
+        if (!data || data.length === 0) {
+            this.showCourtesyMessage();
+            return;
+        }
+
+
+        $(s.COURTESY).hide();
+        $(s.RESULTS).show();
+
+        this.chart.render(data, {});
+
+
     };
 
-    Results.prototype._initTable = function () {
-        this.table = new Table();
-    };
+    Results.prototype.showCourtesyMessage = function () {
 
-    Results.prototype._initChart = function () {
+        $(s.COURTESY).show();
+        $(s.RESULTS).hide();
 
-        this.chart = new Chart();
-    };
+    };*/
 
     return Results;
 });

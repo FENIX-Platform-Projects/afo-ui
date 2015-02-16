@@ -53,10 +53,10 @@ define([
 	layerRetail.addTo(map);
 
 
-/*getWDS(queryTmpl, queryVars, callback) {
+getWDS(queryTmpl, queryVars, callback) {
 
 });
-*//*	function loadMarkers() {
+/*	function loadMarkers() {
 
 		var markers = {},
 			places = [],

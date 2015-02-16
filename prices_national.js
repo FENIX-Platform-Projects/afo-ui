@@ -330,10 +330,16 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 */
 
-var Q = "SELECT area, item, year, month, TO_CHAR(value,'99.99'), unit, '' as flag FROM prices_national";
+var Q = 
+//    "prices_national_filter" : "select area, item, year, month, to_char(value,'FM999999999999999999.00') as value, unit, '' as flag from prices_national where fertilizer_code = '<%= fertilizer_code %>' and month_number between <%= month_from_yyyymm %> and <%= month_to_yyyymm %>",//"SELECT area, item, year, month, TO_CHAR(value,'99.99'), unit, '' as flag FROM prices_national";
 
-getWDS(Q, null, function(data) {
+getWDS(Config.queries.prices_national_filter, {
+	fertilizer_code: '3102100000',
+	month_from_yyyymm: '201201',
+	month_to_yyyymm: '201212'
+}, function(data) {
 		//HERE
+		
 		data = [["Area","Item","Year","Month2","Value","Unit","Flag"]].concat(data);
 //});
 //		$.getJSON("data/prices_national.json", function(data) {

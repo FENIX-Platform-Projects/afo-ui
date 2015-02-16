@@ -330,12 +330,11 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 */
 
-
 var Q = "SELECT area, item, year, month, value, unit, '' as flag FROM prices_national";
 
 getWDS(Q, null, function(data) {
 		//HERE
-		console.log(data);	
+		data = [["Area","Item","Year","Month2","Value","Unit","Flag"]].concat(data);
 //});
 //		$.getJSON("data/prices_national.json", function(data) {
 //["Area","Item","Year","Month2","Value","Unit","Flag"]	

@@ -19,7 +19,8 @@
     <link rel="stylesheet" href="//fenixapps.fao.org/repository/js/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href='node_modules/jstree/dist/themes/default/style.min.css'/>
     <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet.css"/>
-
+    <!-- Webix -->
+    <link rel="stylesheet" href='//fenixapps.fao.org/repository/js/webix/2.2.1/css/webix.css'/>
     <!-- FENIX CSS-->
     <link rel="stylesheet" href="submodules/fenix-ui-common/css/fenix-style.css">
     <link rel="stylesheet" href='css/host.css'/>
@@ -27,15 +28,18 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="css/icons/fx-favicon.ico">
 
+    <style>
+        .product-s-list {
+            height: 150px;
+            overflow: auto;
+        }
+    </style>
+
+
 
 </head>
 <body>
 
-<style>
-    .product-s-list {
-        height: 150px;
-        overflow: auto;
-    }   </style>
 
 <!-- breadcrumbs and padding for static top menu-->
 <div class="container">
@@ -113,14 +117,17 @@
     <!-- table container-->
     <div class="row">
         <div class="col-xs-12">
-            TABLE
+          <div id="table1"></div>
         </div>
     </div>
 
     <!-- charts container-->
     <div class="row">
-        <div class="col-xs-12">
-            CHARTS
+        <div class="col-xs-6">
+           <div id="chart1"></div>
+        </div>
+        <div class="col-xs-6">
+            <div id="chart2"></div>
         </div>
     </div>
 

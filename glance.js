@@ -13,9 +13,8 @@ require([
         },
         config: {
             paths: {
-
                 'glance': 'scripts/statistics/glance',
-                'commons' :'scripts/commons',
+                'commons': 'scripts/commons',
                 'AuthenticationManager': './scripts/components/AuthenticationManager',
                 //Require JS plugins
                 'text': "//fenixapps.fao.org/repository/js/requirejs/plugins/text/2.0.12/text",
@@ -28,6 +27,7 @@ require([
                 'bootstrap': "//fenixapps.fao.org/repository/js/bootstrap/3.3.2/js/bootstrap.min",
                 'jquery': "//fenixapps.fao.org/repository/js/jquery/2.1.1/jquery.min",
                 'jstree': "//fenixapps.fao.org/repository/js/jstree/3.0.8/dist/jstree.min",
+                'webix' : '//fenixapps.fao.org/repository/js/webix/2.2.1/js/webix',
 
                 //fenix-map-js
                 'fenix-map': "submodules/fenix-map-js/dist/latest/fenix-map-min",

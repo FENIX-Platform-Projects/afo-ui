@@ -3,15 +3,16 @@ define([
     'underscore',
     'fx-menu/start',
     'AuthenticationManager',
-    'glance/Selectors',
     'glance/Results',
+    'glance/Selectors',
+    'text!config/services.json',
     'amplify'
-], function (_, Menu, AuthenticationManager, Selectors, Results ) {
+], function (_, Menu, AuthenticationManager, Results, Selectors, Config) {
 
     'use strict';
 
     var c = {
-        MENU_AUTH : 'config/fenix-ui-menu.json',
+        MENU_AUTH: 'config/fenix-ui-menu.json',
         MENU_PUBLIC: 'config/fenix-ui-menu-auth.json'
     }, s = {
         FOOTER: '.footer',
@@ -20,19 +21,20 @@ define([
 
     function App() {
         this.state = {};
+        this.config = JSON.parse(Config);
     }
 
-    App.prototype.start = function() {
+    App.prototype.start = function () {
 
-        //check if session is authenticated
-        this.state.authenticated = amplify.store.sessionStorage('afo.security.user') === undefined;
+                //check if session is authenticated
+         this.state.authenticated = amplify.store.sessionStorage('afo.security.user') === undefined;
 
-        this._initSecurity();
-        this._bindEventListeners();
-        this._initPageStructure();
+         this._initSecurity();
+         this._bindEventListeners();
+         this._initPageStructure();
     };
 
-    App.prototype._initPageStructure = function() {
+    App.prototype._initPageStructure = function () {
 
         //Top menu
         this._initTopMenu();
@@ -47,11 +49,11 @@ define([
         $(s.FOOTER).load('html/footer.html');
     };
 
-    App.prototype._bindEventListeners = function() {
+    App.prototype._bindEventListeners = function () {
 
         $(s.SEARCH_BTN).on('click', _.bind(function () {
 
-            var results =  this.selectors.getFilter();
+            var results = this.selectors.getFilter();
 
             if (results !== false) {
                 this.query(results);
@@ -62,10 +64,8 @@ define([
 
     App.prototype.query = function (results) {
 
-        console.log(results)
-
         var data = {
-            datasource: "africafertilizer",
+            datasource:  this.config.dbName,
             thousandSeparator: ',',
             decimalSeparator: '.',
             decimalNumbers: 2,
@@ -73,12 +73,12 @@ define([
             nowrap: false,
             valuesIndex: 0,
             json: JSON.stringify({
-                query: "select * from compare limit 1000"
+                query: this.prepareQuery(results)
             })
         };
 
         $.ajax({
-            url: "http://faostat3.fao.org/wds/rest/table/json",
+            url:  this.config.wdsUrl,
             data: data,
             type: 'POST',
             dataType: 'JSON',
@@ -90,11 +90,24 @@ define([
 
     };
 
-    App.prototype._printResults = function () {
+    App.prototype.prepareQuery = function () {
+
+        return this.config.queries.select_from_compare;
+
+        function _template(str, data) {
+            return str.replace(/\{ *([\w_]+) *\}/g, function (str, key) {
+                return data[key] || '';
+            });
+        }
 
     };
 
-    App.prototype._initSecurity = function() {
+    App.prototype._printResults = function ( data) {
+
+        this.results.render(data);
+    };
+
+    App.prototype._initSecurity = function () {
 
         var self = this;
 
@@ -114,7 +127,7 @@ define([
         });
     };
 
-    App.prototype._initTopMenu = function() {
+    App.prototype._initTopMenu = function () {
 
         //Top Menu
         this.topMenu = new Menu({

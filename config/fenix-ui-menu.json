@@ -78,16 +78,6 @@
             "EN": "Detailed Prices",
             "FR": ""
           }
-        },
-        {
-          "attrs": {
-            "id": "prices_analysis"
-          },
-          "target": "prices_analysis.html",
-          "label": {
-            "EN": "Fertilizer Analysis Analysis",
-            "FR": ""
-          }
         }
       ]
     },

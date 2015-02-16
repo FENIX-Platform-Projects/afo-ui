@@ -3,8 +3,8 @@ define([
     'underscore',
     'fx-menu/start',
     'AuthenticationManager',
-    'glance/Results',
-    'glance/Selectors',
+    'compare/Results',
+    'compare/Selectors',
     'text!config/services.json',
     'amplify'
 ], function (_, Menu, AuthenticationManager, Results, Selectors, Config) {
@@ -183,7 +183,7 @@ define([
 
         //Top Menu
         this.topMenu = new Menu({
-            active: 'statistics',
+            active: 'statistics_compare',
             url: this.state.authenticated ? c.MENU_AUTH : c.MENU_PUBLIC,
             className: 'fx-top-menu',
             breadcrumb: {

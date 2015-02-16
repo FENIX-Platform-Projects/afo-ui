@@ -39,7 +39,7 @@
       },
       "type": "dropdown",
       "children": [
-                {
+        {
           "attrs": {
             "id": "statistics_glance"
           },
@@ -53,14 +53,14 @@
           "attrs": {
             "id": "statistics_compare"
           },
-          "target": "#",
+          "target": "statistics_compare.html",
           "label": {
             "EN": "Compare",
             "FR": ""
           }
         }
-      ]      
-    },    
+      ]
+    },
     {
       "attrs": {
         "id": "prices"
@@ -72,7 +72,7 @@
       },
       "type": "dropdown",
       "children": [
-                {
+        {
           "attrs": {
             "id": "prices_international"
           },
@@ -124,7 +124,7 @@
             "EN": "Business",
             "FR": ""
           }
-        },      
+        },
         {
           "attrs": {
             "id": "directories_prod"
@@ -134,8 +134,8 @@
             "EN": "Production",
             "FR": ""
           }
-        }  
-      ]        
+        }
+      ]
     },
     {
       "attrs": {
@@ -146,7 +146,7 @@
         "EN": "Catalogue",
         "FR": ""
       }
-    },    
+    },
     {
       "attrs": {
         "id": "publications"
@@ -176,10 +176,10 @@
         "EN": "About Us",
         "FR": ""
       }
-    }    
+    }
   ],
-  "rightItems" : [
-  	{
+  "rightItems": [
+    {
       "attrs": {
         "id": "login",
         "class": "afo-eldorado-icons"

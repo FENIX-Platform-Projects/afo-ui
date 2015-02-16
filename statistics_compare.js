@@ -13,7 +13,7 @@ require([
         },
         config: {
             paths: {
-                'glance': 'scripts/statistics/glance',
+                'compare': 'scripts/statistics/compare',
                 'commons': 'scripts/commons',
                 'AuthenticationManager': './scripts/components/AuthenticationManager',
                 //Require JS plugins
@@ -73,15 +73,14 @@ require([
     });
 
     require([
-        'glance/App',
+        'compare/App',
         'domready!'
     ], function (App) {
 
-        var glance = new App();
-        glance.start();
+        var compare = new App();
+        compare.start();
 
 
     }); // end of App.start()
 
 });
-

@@ -53,7 +53,7 @@
           "attrs": {
             "id": "statistics_compare"
           },
-          "target": "#",
+          "target": "statistics_compare.html",
           "label": {
             "EN": "Compare",
             "FR": ""

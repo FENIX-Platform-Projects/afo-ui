@@ -2114,6 +2114,57 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 .afo-dropdown-toggle {
   margin-top: 0; }
 
+/* Afo Tabs component */
+.afo-tabs .nav-tabs {
+  -ms-transform: translateX(-10px);
+  -webkit-transform: translateX(-10px);
+  transform: translateX(-10px); }
+  .afo-tabs .nav-tabs > li {
+    margin-bottom: 10px; }
+    .afo-tabs .nav-tabs > li > a {
+      padding: 0 10px;
+      color: #666666;
+      font-weight: 500;
+      font-size: 12px; }
+      .afo-tabs .nav-tabs > li > a:before {
+        -webkit-transition: all 0.3s ease 0s;
+        -moz-transition: all 0.3s ease 0s;
+        -ms-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #5ba539;
+        left: 0;
+        bottom: -2px;
+        pointer-events: none;
+        -ms-transform: scaleX(0);
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0); }
+    .afo-tabs .nav-tabs > li.active > a {
+      color: #5ba539; }
+      .afo-tabs .nav-tabs > li.active > a:before {
+        -webkit-transition: all 0.3s ease 0s;
+        -moz-transition: all 0.3s ease 0s;
+        -ms-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+        -ms-transform: scaleX(0.8);
+        -webkit-transform: scaleX(0.8);
+        transform: scaleX(0.8); }
+.afo-tabs .tab-content {
+  padding-top: 10px; }
+  .afo-tabs .tab-content > div {
+    padding: 0; }
+.afo-tabs h3 {
+  font-size: 32px;
+  font-weight: 100;
+  color: #666666; }
+.afo-tabs li {
+  margin: 12px 0; }
+
 /* Afo Top Menu */
 .navbar {
   min-height: 50px; }
@@ -2281,56 +2332,6 @@ div[data-module="region"] .fx-catalog-modular-form-content {
     left: 0px; } }
 /* Pages */
 /* Afo - About us Page */
-.afo-about-container .nav-tabs {
-  -ms-transform: translateX(-10px);
-  -webkit-transform: translateX(-10px);
-  transform: translateX(-10px); }
-  .afo-about-container .nav-tabs > li {
-    margin-bottom: 10px; }
-    .afo-about-container .nav-tabs > li > a {
-      padding: 0 10px;
-      color: #666666;
-      font-weight: 500;
-      font-size: 12px; }
-      .afo-about-container .nav-tabs > li > a:before {
-        -webkit-transition: all 0.3s ease 0s;
-        -moz-transition: all 0.3s ease 0s;
-        -ms-transition: all 0.3s ease 0s;
-        -o-transition: all 0.3s ease 0s;
-        transition: all 0.3s ease 0s;
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        background-color: #5ba539;
-        left: 0;
-        bottom: -2px;
-        pointer-events: none;
-        -ms-transform: scaleX(0);
-        -webkit-transform: scaleX(0);
-        transform: scaleX(0); }
-    .afo-about-container .nav-tabs > li.active > a {
-      color: #5ba539; }
-      .afo-about-container .nav-tabs > li.active > a:before {
-        -webkit-transition: all 0.3s ease 0s;
-        -moz-transition: all 0.3s ease 0s;
-        -ms-transition: all 0.3s ease 0s;
-        -o-transition: all 0.3s ease 0s;
-        transition: all 0.3s ease 0s;
-        -ms-transform: scaleX(0.8);
-        -webkit-transform: scaleX(0.8);
-        transform: scaleX(0.8); }
-.afo-about-container .tab-content {
-  padding-top: 10px; }
-  .afo-about-container .tab-content > div {
-    padding: 0; }
-.afo-about-container h3 {
-  font-size: 32px;
-  font-weight: 100;
-  color: #666666; }
-.afo-about-container li {
-  margin: 12px 0; }
-
 /* Afo Catalogue Page*/
 /* Stefano's original CSS from main.css */
 #page-catalogue #fertMap {

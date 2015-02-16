@@ -64,6 +64,8 @@ define([
 
     App.prototype.query = function (results) {
 
+console.log(results);
+
         var data = {
             datasource:  this.config.dbName,
             thousandSeparator: ',',

@@ -10,6 +10,7 @@ define([
     'use strict';
 
     var s = {
+    	COUNTRIES: ["133"],
         DATA_SOURCES: '#data-sources-s',
         PRODUCT: '#product-s',
         PRODUCT_SEARCH: '#product-search-s',
@@ -27,7 +28,7 @@ define([
 
     Selectors.prototype._initMapSelector = function () {
 
-        var self= this;
+        var self = this;
 
         var listRegions$ = $('#stats_selectRegions'),
             listCountries$ = $('#stats_selectCountries'),
@@ -138,6 +139,7 @@ define([
                                     listCountries$.find("option:selected").removeAttr("selected");
                                     listCountries$.val(feature.properties.prop1);
                                     $('#stats_selected_countries').text( feature.properties.prop2 );
+                                    s.COUNTRIES = feature.properties.prop1;
                                 });
                         }
                     );
@@ -153,15 +155,19 @@ define([
         listCountries$.on('click', 'option', function(e) {
             e.preventDefault();
             $('#stats_selected_countries').text( $(e.target).text() );
+            s.COUNTRIES = $(e.delegateTarget).val();
         });
 
         $('#stats_map_countries').on('click','.popupCountry', function(e) {
             e.preventDefault();
             listCountries$.find("option:selected").removeAttr("selected");
-            $('#stats_selected_countries').text( $(e.currentTarget).data('name') );
+            //$('#stats_selected_countries').text( $(e.currentTarget).data('name') );
+            s.COUNTRIES = $(e.currentTarget).data('id');
         });
 
+        function setResult(codes) {
 
+        }
 
     };
 
@@ -356,11 +362,12 @@ define([
     Selectors.prototype.getFilter = function() {
 
         var filter = {
-            sources : $(s.DATA_SOURCES).find('input').val(),
-            kind:  $(s.N_P).find('input').val(),
-            countries: ["133"], //TODO remove
-            product:  $(s.PRODUCT).jstree(true).get_selected()
-        }, valid = this._validateFilter(filter);
+	            countries: s.COUNTRIES,
+	            sources:   $(s.DATA_SOURCES).find('input').val(),
+	            kind:      $(s.N_P).find('input').val(),
+	            product:   $(s.PRODUCT).jstree(true).get_selected()
+	        },
+	        valid = this._validateFilter(filter);
 
         if (valid !== false) {
             return filter;

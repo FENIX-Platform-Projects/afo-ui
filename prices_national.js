@@ -326,12 +326,8 @@ getWDS(Config.queries.prices_national_filter, {
 	month_from_yyyymm: '201201',
 	month_to_yyyymm: '201212'
 }, function(data) {
-		//HERE
 
 		data = [["Area","Item","Year","Month2","Value","Unit","Flag"]].concat(data);
-//});
-//		$.getJSON("data/prices_national.json", function(data) {
-//["Area","Item","Year","Month2","Value","Unit","Flag"]	
 
 			FAOSTATNEWOLAP.originalData = data;
 

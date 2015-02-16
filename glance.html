@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Africa Fertilizer Organization - Statistics at a glance</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta name="description" content="Africa Fertilizer Organization - Statistics at a glance">
+    <meta name="author" content="Daniele Salvatore <daniele.salvatore[at]fao.org>">
+    <meta name="author" content="Nicola Selleri <nicola.selleri[at]fao.org>">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Third Party CSS -->
+    <link rel="stylesheet" href="//fenixapps.fao.org/repository/js/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href='node_modules/jstree/dist/themes/default/style.min.css'/>
+
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet.css"/>
+
+    <!-- FENIX CSS-->
+    <link rel="stylesheet" href="submodules/fenix-ui-common/css/fenix-style.css">
+    <link rel="stylesheet" href='css/host.css'/>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="css/icons/fx-favicon.ico">
+
+    <style>
+
+        /*TODO REMOVE ME*/
+
+        .product-s-list {
+            height: 150px;
+            overflow: auto;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<!-- breadcrumbs and padding for static top menu-->
+<div class="container">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="breadcumb_container"></div>
+        </div>
+    </div>
+
+</div>
+
+<!-- geo selectors container -->
+<div class="container">
+
+    <div class="row">
+        <div class="col-xs-4">
+            LIST MAP
+        </div>
+        <div class="col-xs-8">
+            MAP
+        </div>
+    </div>
+
+</div>
+
+<!-- other selectors container -->
+<div class="container">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="data-sources-s"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-6">
+
+            <div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <label for="product-search-s"> Filter </label>
+                        <input type="text" id="product-search-s" value="" class="input">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 product-s-list">
+                        <div id="product-s"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-xs-6">
+            <div id="n-p-s"></div>
+        </div>
+    </div>
+
+</div>
+
+<!-- search -->
+<div class="container">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <button type="button" class="btn btn-default" id="search-btn"> Search </button>
+        </div>
+    </div>
+
+</div>
+
+<!-- results -->
+<div class="container">
+
+    <!-- table container-->
+    <div class="row">
+        <div class="col-xs-12">
+          TABLE
+        </div>
+    </div>
+
+    <!-- charts container-->
+    <div class="row">
+        <div class="col-xs-12">
+           CHARTS
+        </div>
+    </div>
+
+</div>
+
+<!-- footer -->
+<div class="container">
+
+    <div class="row">
+        <div class="col-xs-12">
+           <div class="footer"></div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Javascript-->
+<script data-main="glance" src="//fenixapps.fao.org/repository/js/requirejs/2.1.15/require.min.js"></script>
+
+</body>
+</html>

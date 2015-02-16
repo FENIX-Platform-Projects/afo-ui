@@ -329,6 +329,14 @@ getWDS(Config.queries.prices_national_filter, {
 
 		data = [["Area","Item","Year","Month2","Value","Unit","Flag"]].concat(data);
 
+getWDS(Config.queries.regions, null, function(data) {
+		//HERE
+});
+*/
+var Q="select area, item, year, month, value, unit, '' as flag from prices_national";
+getWDS(Q ,null, function(data) {
+		//$.getJSON("data/prices_national.json", function(data) {
+		data=[["Area","Item","Year","Month2","Value","Unit","Flag"]].concat(data);
 			FAOSTATNEWOLAP.originalData = data;
 
 			$("#pivot").pivotUI(data, {

@@ -42,7 +42,7 @@
       "attrs": {
         "id": "prices"
       },
-      "target": "prices.html",
+      "target": "#",
       "label": {
         "EN": "Prices",
         "FR": ""

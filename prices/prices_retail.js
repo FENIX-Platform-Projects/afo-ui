@@ -41,9 +41,11 @@ define([
 
 	var map = L.map('prices_retail_map', {
 			zoom: 11,
+			zoomControl: false,
+			attributionControl:false,
 			center: L.latLng(0,0),
 			layers: L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
-		});
+		}).addControl(L.control.zoom({position:'bottomright'}))
 
 	var layerRetail = new L.MarkerClusterGroup({
 		maxClusterRadius:30

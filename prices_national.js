@@ -321,15 +321,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 				);
 		*/
 
-/*
-//TODO FOR JACQUES:
-1. replace getJSON with getWDS
-2. add new query in queries section into configuration file: /config/seervices.json
-
-
-
-*/
-
 getWDS(Config.queries.prices_national_filter, {
 	fertilizer_code: '3102100000',
 	month_from_yyyymm: '201201',

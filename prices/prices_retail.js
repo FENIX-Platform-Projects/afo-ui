@@ -72,15 +72,13 @@ define([
 
 				//var bb = L.latLngBounds(latlngs);
 
-				for(var i in data) {
-					var popup = L.Util.template('<h4>{title}<h4><big style="color:red">{val}</big>', {
-							title: data[i][0],
-							val: data[i][2]+' '+data[i][3]+" (avg)"
-						});
+				for(var i in data)
 					L.marker(data[i][1].split('|'))
-						.bindPopup( popup )
+						.bindPopup( L.Util.template('<h4>{title}<h4><big style="color:#2e0">{val}</big>', {
+							title: data[i][0].replace('[Town]',''),
+							val: data[i][2]+' '+data[i][3]+" (avg)"
+						}) )
 						.addTo(layerRetail);
-				}
 
 				map.fitBounds( layerRetail.getBounds().pad(-0.8) );
 			});

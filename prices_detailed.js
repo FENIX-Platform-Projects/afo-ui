@@ -39,7 +39,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 				'fenix-map-config': "submodules/fenix-map-js/dist/latest/fenix-map-config",
 				'chosen': "//fenixapps.fao.org/repository/js/chosen/1.0.0/chosen.jquery.min",
 				'leaflet': "//fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet",
-				'leaflet-markecluster': '//fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/leaflet.markercluster',
+				'leaflet-markercluster': '//fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/leaflet.markercluster',
 
 				'jquery.power.tip': "//fenixapps.fao.org/repository/js/jquery.power.tip/1.1.0/jquery.powertip.min",
 				'jquery-ui': "//fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min",
@@ -66,7 +66,8 @@ require(["submodules/fenix-ui-menu/js/paths",
                 'amplify': {
                     deps: ['jquery'],
                     exports: 'amplifyjs'
-                },		        
+                },
+                'leaflet-markercluster': ['leaflet'],
 		        'fenix-map': {
 		            deps: [
 		                'i18n',
@@ -86,7 +87,7 @@ require(["submodules/fenix-ui-menu/js/paths",
     });
 
 	require([
-	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet', 'leaflet-markecluster',
+	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet', 'leaflet-markercluster',
 	    'text!config/services.json',
 
 		'fx-menu/start',
@@ -103,16 +104,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 		) {
 
 		Config = JSON.parse(Config);
-
-        //JQUERY range slider
-        $(".afo-range").dateRangeSlider({
-
-        }).on('valuesChanged', function(e, data) {
-        	var minD = new Date(data.values.min),
-        		maxD = new Date(data.values.max);
-
-        	console.log()
-        });
 
         new TopMenu({
             active: 'prices_detailed',
@@ -133,7 +124,99 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		$('.footer').load('html/footer.html');
 
-		require(['prices/prices_retail']);
+		function getWDS(queryTmpl, queryVars, callback) {
+
+			var sqltmpl, sql;
+
+			if(queryVars) {
+				sqltmpl = _.template(queryTmpl);
+				sql = sqltmpl(queryVars);
+			}
+			else
+				sql = queryTmpl;
+
+			var	data = {
+					datasource: Config.dbName,
+					thousandSeparator: ',',
+					decimalSeparator: '.',
+					decimalNumbers: 2,
+					cssFilename: '',
+					nowrap: false,
+					valuesIndex: 0,
+					json: JSON.stringify({query: sql})
+				};
+
+			$.ajax({
+				url: Config.wdsUrl,
+				data: data,
+				type: 'POST',
+				dataType: 'JSON',
+				success: callback
+			});
+		}
+
+		var map = L.map('prices_retail_map', {
+				zoom: 11,
+				zoomControl: false,
+				attributionControl:false,
+				center: L.latLng(0,0),
+				layers: L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+			}).addControl(L.control.zoom({position:'bottomright'}))
+
+		var layerRetail = new L.MarkerClusterGroup({
+			maxClusterRadius:30
+		});
+		layerRetail.addTo(map);
+
+		function loadMarkers(sqlFilter) {
+
+			getWDS(Config.queries.prices_local_geo_filter, sqlFilter,function(data) {
+
+				layerRetail.clearLayers();
+				for(var i in data)
+					L.marker(data[i][1].split('|'))
+						.bindPopup( L.Util.template('<h4>{title}<h4><big style="color:#2e0">{val}</big>', {
+							title: data[i][0].replace('[Town]',''),
+							val: data[i][2]+' '+data[i][3]+" (avg)"
+						}) )
+						.addTo(layerRetail);
+
+				map.fitBounds( layerRetail.getBounds().pad(-0.8) );
+			});
+		}
+
+		loadMarkers({
+				fertilizer_code: '3102100000',
+				month_from_yyyymm: '201201',
+				month_to_yyyymm: '201212'
+			});
+
+        //JQUERY range slider
+		$(".afo-range").dateRangeSlider().on('valuesChanged', function(e, data) {
+			var minD = new Date(data.values.min),
+				maxD = new Date(data.values.max);
+
+			console.log(minD, maxD);
+
+			loadMarkers({
+					fertilizer_code: '3102100000',
+					month_from_yyyymm: '201201',
+					month_to_yyyymm: '201212'
+				});
+		});
+
+		$(".afo-range").dateRangeSlider().on('valuesChanged', function(e, data) {
+			var minD = new Date(data.values.min),
+				maxD = new Date(data.values.max);
+
+			console.log(minD, maxD);
+
+			loadMarkers({
+					fertilizer_code: '3102100000',
+					month_from_yyyymm: '201201',
+					month_to_yyyymm: '201212'
+				});
+		});		
 
 		$('#prices_international_grid').load("prices/html/prices_international.html");
 

@@ -63,14 +63,23 @@
 			<select id="stats_selectRegions" class="form-control" style="height:300px;width:100%" size="8" >
 			</select>
 		</div>
-		<div class="col-xs-2">
-			<label class="">Region countries</label>
-			<select id="stats_selectCountries" class="form-control" style="height:300px;width:100%" size="8" >
-			</select>
-		</div>		
-		<div class="col-xs-8">
-			<label class="">Region Map</label>
-			<div id="stats_map_countries" class="afo-simple-map" style="height:300px;width:100%"></div>
+		<div class="col-xs-10">
+
+			<!-- Nav tabs -->
+			<ul id="prices_tabs" class="nav nav-tabs" role="tablist">
+				<li class="active"><a href="#stats_selectCountries_tab" role="tab" data-toggle="tab">Countries list</a></li>
+				<li><a href="#stats_map_countries_tab" role="tab" data-toggle="tab">Countries map</a></li>
+			</ul>
+			<div class="tab-content afo-prices-tab-content obj-box">
+				<div class="tab-pane" id="stats_selectCountries_tab">
+					<select id="stats_selectCountries" class="form-control" style="height:300px;width:100%" size="8" >
+					</select>
+				</div>
+				<div class="tab-pane active" id="stats_map_countries_tab">
+					<div id="stats_map_countries" class="afo-simple-map" style="height:300px;width:100%"></div>
+				</div>
+			</div>
+			
 		</div>
 	</div>
 

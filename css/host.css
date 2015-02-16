@@ -1922,7 +1922,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
       transition: all 0.3s ease 0s; }
 
 /* Afo Leaflet */
-#afo-maps-wrapper .leaflet-bar {
+.afo-simple-map .leaflet-bar {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -1930,11 +1930,11 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   border-radius: 0; }
-#afo-maps-wrapper .leaflet-bar a, #afo-maps-wrapper .leaflet-bar a:hover {
+.afo-simple-map .leaflet-bar a, .afo-simple-map .leaflet-bar a:hover {
   height: 23px;
   width: 23px;
   line-height: 23px; }
-#afo-maps-wrapper .leaflet-bar a:first-child, #afo-maps-wrapper .leaflet-bar a:last-child {
+.afo-simple-map .leaflet-bar a:first-child, .afo-simple-map .leaflet-bar a:last-child {
   -moz-border-radius-topleft: 0;
   -webkit-border-top-left-radius: 0;
   border-top-left-radius: 0;
@@ -1957,8 +1957,8 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   border-radius: 100%;
   border-color: transparent;
   margin: 5px; }
-#afo-maps-wrapper .leaflet-control-zoom-in,
-#afo-maps-wrapper .leaflet-control-zoom-out {
+.afo-simple-map .leaflet-control-zoom-in,
+.afo-simple-map .leaflet-control-zoom-out {
   font-family: 'eldorado_stroke';
   font-size: 0;
   speak: none;
@@ -1970,17 +1970,17 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
-#afo-maps-wrapper .leaflet-control-zoom-out {
+.afo-simple-map .leaflet-control-zoom-out {
   font-size: 0px; }
-#afo-maps-wrapper .leaflet-touch .leaflet-control-zoom-in {
+.afo-simple-map .leaflet-touch .leaflet-control-zoom-in {
   font-size: 0; }
-#afo-maps-wrapper .leaflet-touch .leaflet-control-zoom-out {
+.afo-simple-map .leaflet-touch .leaflet-control-zoom-out {
   font-size: 0; }
-#afo-maps-wrapper .leaflet-control-zoom-in:before {
+.afo-simple-map .leaflet-control-zoom-in:before {
   color: #336600;
   font-size: 24px;
   content: "\eb2a"; }
-#afo-maps-wrapper .leaflet-control-zoom-out:before {
+.afo-simple-map .leaflet-control-zoom-out:before {
   color: #336600;
   font-size: 24px;
   content: "\eb28"; }

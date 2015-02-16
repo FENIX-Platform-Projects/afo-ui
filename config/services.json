@@ -23,7 +23,7 @@
     "data_sources": "select * from codes_data_sources",
     "products": "select * from codes_fertilizers",
     "select_from_compare": "select element_code, element_label, year, coalesce(value, -1), um from ( select element, year, value, um from compare where data_source = 'ifa' and fertilizer = '2510000000' and country = '133' and n_p = 'p' )c right join codes_elements on element = element_code ORDER BY element ASC, year ASC",
-    "prices_national" : "select area, item, year, month, value, unit, '' as flag from prices_national",
-    "prices_national_filter" : "select area, item, year, month, value, unit, '' as flag from prices_national where fertilizer_code = '<%= fertilizer_code %>' and month_number between <%= month_from_yyyymm %> and <%= month_to_yyyymm %>"
+    "prices_national" : "select area, item, year, month, to_char(value,'FM999999999999999999.00') as value, unit, '' as flag from prices_national",
+    "prices_national_filter" : "select area, item, year, month, to_char(value,'FM999999999999999999.00') as value, unit, '' as flag from prices_national where fertilizer_code = '<%= fertilizer_code %>' and month_number between <%= month_from_yyyymm %> and <%= month_to_yyyymm %>"
   }
 }

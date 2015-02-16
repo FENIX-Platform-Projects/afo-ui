@@ -3,10 +3,10 @@
 .pvtVals{display:block}
 .pvtRenderer{display:block}
 
-#unused li{display:inline;}
-#unused{display:none;}
+#unused li{display:none;one;}
+#unused{	float:right			;}
 /*#myGrid1_div{float:right}*/
-
+.pvtVals{display:none;}
 #nested_by{display:none}
 #filtre_Value{display:none !important}
 .pvtAttrDropdown{display:none}

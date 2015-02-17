@@ -3,9 +3,8 @@ define([
     "underscore",
     "commons/Wds",
     'text!config/services.json',
-    'geojson_decoder',
     'jstree'
-], function (_, Wds, C, geojsonDecoder) {
+], function (_, Wds, C) {
 
     'use strict';
 
@@ -16,163 +15,109 @@ define([
         ELEMENT: '#element-s',
         ELEMENT_SEARCH: '#element-search-s',
         N_P: '#n-p-s',
-        COMPARE: '#compare-s'
+        COMPARE: '#compare-s',
+        COUNTRY: '#country-s',
+        COUNTRY_SEARCH: '#country-search-s',
+        SHOW_AS: '#show-s'
     }, defaultValues = {
-          DATA_SOURCE: 'ifa',
-          N_P: 'p'
-    }, selection = { COUNTRIES: null };
+        DATA_SOURCE: 'ifa',
+        N_P: 'p',
+        SHOW_AS: 'table'
+    };
 
     function Selectors() {
 
         this.config = JSON.parse(C);
-        //this._initMapSelector();
+        this._initMapSelector();
         this._initDataSourceSelector();
         this._initProductSelector();
         this._initElementSelector();
         this._initProductNutrientSelector();
         this._initCompareSelector();
+        this._initShowAsSelector();
     }
 
     Selectors.prototype._initMapSelector = function () {
 
-      /*  var self = this;
+        var self = this;
 
-        var listRegions$ = $('#stats_selectRegions'),
-            listCountries$ = $('#stats_selectCountries'),
-            mapzoomsRegions$ = $('#stats_map_regions').next('.map-zooms'),
-            mapzoomsCountries$ = $('#stats_map_countries').next('.map-zooms');
+        Wds.get({
+            query: this.config.queries.countries,
+            success: function (res) {
 
-        var style = {
-                fill: true, color: '#68AC46', weight: 1, opacity: 1, fillOpacity: 0.4, fillColor: '#6AAC46'
-            },
-            styleHover = {
-                fill: true, color: '#6AAC46', weight: 1, opacity: 1, fillOpacity: 0.8, fillColor: '#6AAC46'
-            };
+                var data = [],
+                    list;
 
-        function getWDS(queryTmpl, queryVars, callback) {
+                if (Array.isArray(res)) {
 
-            var sqltmpl, sql;
+                    list = res.sort(function (a, b) {
+                        if (a[1] < b[1]) return -1;
+                        if (a[1] > b[1]) return 1;
+                        return 0;
+                    });
 
-            if (queryVars) {
-                sqltmpl = _.template(queryTmpl);
-                sql = sqltmpl(queryVars);
+                    _.each(list, function (n) {
+                        data.push(createNode(n));
+                    });
+
+                }
+
+                createTree(data);
+                initSearch();
             }
-            else
-                sql = queryTmpl;
+        });
 
-            var data = {
-                datasource: self.config.dbName,
-                thousandSeparator: ',',
-                decimalSeparator: '.',
-                decimalNumbers: 2,
-                cssFilename: '',
-                nowrap: false,
-                valuesIndex: 0,
-                json: JSON.stringify({query: sql})
-            };
+        function createTree(data) {
 
-            $.ajax({
-                url: self.config.wdsUrl,
-                data: data,
-                type: 'POST',
-                dataType: 'JSON',
-                success: callback
+            self.countriesTree = $(s.COUNTRY).jstree({
+                "core": {
+                    "animation": 0,
+                    "themes": {"stripes": true},
+                    'data': data
+                },
+                "plugins": ["search", "wholerow", "ui"],
+                "search": {
+                    show_only_matches: true
+                },
+                "ui": {"initially_select": ['2814200000']}
+            });
+
+            $(s.COUNTRY).jstree(true).select_node('ul > li:first');
+        }
+
+        function initSearch() {
+            var to = false;
+            $(s.COUNTRY_SEARCH).keyup(function () {
+                if (to) {
+                    clearTimeout(to);
+                }
+                to = setTimeout(function () {
+                    var v = $(s.COUNTRY_SEARCH).val();
+                    $(s.COUNTRY).jstree(true).search(v);
+                }, 250);
             });
         }
 
-        getWDS(this.config.queries.regions, null, function (regs) {
-            var Regions = regs;
-            for (var r in regs)
-                listRegions$.append('<option value="' + regs[r][0] + '">' + regs[r][1] + '</option>');
-        });
+        function createNode(item) {
 
-        var mapCountries = L.map('stats_map_countries', {
-            zoom: 4,
-            zoomControl: false,
-            attributionControl: false,
-            center: L.latLng(20, 0),
-            layers: L.tileLayer(this.config.url_baselayer)
-        })
-            .addControl(L.control.zoom({position: 'bottomright'}))
+            // Expected format of the node (there are no required fields)
+            var config = {
+                id: item[1], // will be autogenerated if omitted
+                text: item[2], // node text
+                parent: item[0] === '' ? '#' : item[0]
+                //icon: "string", // string for custom
+                /* state: {
+                 opened: boolean,  // is the node open
+                 disabled: boolean,  // is the node disabled
+                 selected: boolean  // is the node selected
+                 },*/
+                //children    : [],  // array of strings or objects
+                //li_attr: {},  // attributes for the generated LI node
+                //a_attr: {}  // attributes for the generated A node
+            };
 
-        var geojsonCountries = L.featureGroup(null, {
-            style: function (feature) {
-                return style;
-            }
-        });
-
-        mapzoomsCountries$.on('click', '.btn', function (e) {
-            var z = parseInt($(this).data('zoom'));
-            mapCountries[z > 0 ? 'zoomIn' : 'zoomOut']();
-        });
-
-        listRegions$.on('click', 'option', function (e) {
-
-            var regCode = parseInt($(e.target).attr('value'));
-
-            getWDS(self.config.queries.countries_byregion, {id: "'" + regCode + "'"}, function (resp) {
-
-                listCountries$.empty();
-                for (var r in resp)
-                    listCountries$.append('<option value="' + resp[r][0] + '">' + resp[r][1] + '</option>');
-
-                var idsCountries = _.map(resp, function (val) {
-                    return val[0];
-                });
-
-                var sqlTmpl = urlTmpl = _.template(self.config.queries.countries_geojson),
-                    sql = sqlTmpl({ids: idsCountries.join(',')});
-
-                var urlTmpl = _.template(self.config.url_spatialquery_enc),
-                    url = urlTmpl({sql: sql});
-
-                $.getJSON(url, function (data) {
-
-                    geojsonCountries.clearLayers();
-
-                    geojsonDecoder.decodeToLayer(data,
-                        geojsonCountries,
-                        style,
-                        function (feature, layer) {
-                            layer
-                                .setStyle(style)
-                                .on("mouseover", function (e) {
-                                    layer.setStyle(styleHover);
-                                })
-                                .on("mouseout", function (e) {
-                                    layer.setStyle(style);
-                                })
-                                .on("click", function (e) {
-                                    listCountries$.find("option:selected").removeAttr("selected");
-                                    listCountries$.val(feature.properties.prop1);
-                                    $('#stats_selected_countries').text(feature.properties.prop2);
-                                    selection.COUNTRIES = feature.properties.prop1;
-                                });
-                        }
-                    );
-                    var bb = geojsonCountries.getBounds();
-                    mapCountries.fitBounds(bb.pad(-0.8));
-                    geojsonCountries.addTo(mapCountries);
-                });
-
-            });
-
-        });
-
-        listCountries$.on('click', 'option', function (e) {
-            e.preventDefault();
-            $('#stats_selected_countries').text($(e.target).text());
-            selection.COUNTRIES = $(e.delegateTarget).val();
-        });
-
-        $('#stats_map_countries').on('click', '.popupCountry', function (e) {
-            e.preventDefault();
-            listCountries$.find("option:selected").removeAttr("selected");
-            //$('#stats_selected_countries').text( $(e.currentTarget).data('name') );
-            selection.COUNTRIES = $(e.currentTarget).data('id');
-        });
-*/
-
+            return config;
+        }
     };
 
     Selectors.prototype._initDataSourceSelector = function () {
@@ -190,7 +135,7 @@ define([
                 }
 
                 $(s.DATA_SOURCES).html($form);
-                $(s.DATA_SOURCES).find('input[value="'+ defaultValues.DATA_SOURCE +'"]').prop('checked', true);
+                $(s.DATA_SOURCES).find('input[value="' + defaultValues.DATA_SOURCE + '"]').prop('checked', true);
             }
         });
 
@@ -258,11 +203,11 @@ define([
                     "themes": {"stripes": true},
                     'data': data
                 },
-                "plugins": [ "search", "wholerow", "ui" ],
+                "plugins": ["search", "wholerow", "ui"],
                 "search": {
                     show_only_matches: true
                 },
-                "ui" : { "initially_select" : [ '2814200000' ] }
+                "ui": {"initially_select": ['2814200000']}
             });
 
             $(s.PRODUCT).jstree(true).select_node('ul > li:first');
@@ -342,11 +287,11 @@ define([
                     "themes": {"stripes": true},
                     'data': data
                 },
-                "plugins": [ "search", "wholerow", "ui" ],
+                "plugins": ["search", "wholerow", "ui"],
                 "search": {
                     show_only_matches: true
                 },
-                "ui" : { "initially_select" : [ '2814200000' ] }
+                "ui": {"initially_select": ['2814200000']}
             });
 
             $(s.ELEMENT).jstree(true).select_node('ul > li:first');
@@ -398,7 +343,7 @@ define([
         }
 
         $(s.N_P).html($form);
-        $(s.N_P).find('input[value="'+ defaultValues.N_P +'"]').prop('checked', true);
+        $(s.N_P).find('input[value="' + defaultValues.N_P + '"]').prop('checked', true);
 
         function renderRadioBtn(item, index) {
 
@@ -426,7 +371,7 @@ define([
     };
 
     Selectors.prototype._initCompareSelector = function () {
-        var kind = [['country', 'Country'], ['product', 'Product'], ['element', 'Element']],
+        var kind = [['COUNTRY', 'Country'], ['ELEMENT', 'Element'], ['PRODUCT', 'Product']],
             $form = $('<form>');
 
         if (Array.isArray(kind)) {
@@ -436,7 +381,7 @@ define([
         }
 
         $(s.COMPARE).html($form);
-        $(s.COMPARE).find('input[value="'+ defaultValues.N_P +'"]').prop('checked', true);
+        $(s.COMPARE).find('input[value="' + defaultValues.N_P + '"]').prop('checked', true);
 
         function renderRadioBtn(item, index) {
 
@@ -463,33 +408,69 @@ define([
         }
     };
 
+    Selectors.prototype._initShowAsSelector = function () {
+        var kind = [['table', 'Table'], ['chart', 'Chart']],
+            $form = $('<form>');
+
+        if (Array.isArray(kind)) {
+            _.each(kind, function (item, index) {
+                $form.append(renderRadioBtn(item, index));
+            });
+        }
+
+        $(s.SHOW_AS).html($form);
+        $(s.SHOW_AS).find('input[value="' + defaultValues.SHOW_AS + '"]').prop('checked', true);
+
+        function renderRadioBtn(item, index) {
+
+            var id = 'afo-show-' + index,
+                $container = $('<span>'),
+                $label = $('<label>', {
+                    text: item[1],
+                    for: id
+                }),
+                $radio = $('<input>', {
+                    type: 'radio',
+                    id: id,
+                    name: 'afo-show',
+                    value: item[0]
+                });
+
+            if (index === 0) {
+                $radio.attr("checked", true);
+            }
+
+            $container.append($radio).append($label);
+
+            return $container;
+        }
+    };
+
     Selectors.prototype._validateFilter = function (f) {
         var valid = true,
             errors = {};
 
-        if (!f.hasOwnProperty('SOURCE') || !f.SOURCE ) {
+        if (!f.hasOwnProperty('SOURCE') || !f.SOURCE) {
             errors["sources"] = "invalid";
             valid = false;
         }
 
-        if (!f.hasOwnProperty('KIND') || !f.KIND ) {
+        if (!f.hasOwnProperty('KIND') || !f.KIND) {
             errors["kind"] = "invalid";
             valid = false;
         }
 
-/* TODO
-        if (!f.hasOwnProperty('COUNTRY') || !f.COUNTRY ) {
+        if (!f.hasOwnProperty('COUNTRY') || !f.COUNTRY || f.COUNTRY.length === 0) {
             errors["countries"] = "invalid";
             valid = false;
         }
-*/
 
-        if (!f.hasOwnProperty('PRODUCT') || !f.PRODUCT ) {
+        if (!f.hasOwnProperty('PRODUCT') || !f.PRODUCT || f.PRODUCT.length === 0) {
             errors["product"] = "invalid";
             valid = false;
         }
 
-        if (!f.hasOwnProperty('ELEMENT') || !f.ELEMENT ) {
+        if (!f.hasOwnProperty('ELEMENT') || !f.ELEMENT || f.ELEMENT.length === 0) {
             errors["element"] = "invalid";
             valid = false;
         }
@@ -501,11 +482,12 @@ define([
 
         var filter = {
                 ELEMENT: $(s.ELEMENT).jstree(true).get_selected(),
-                COUNTRY: selection.COUNTRIES,
+                COUNTRY: $(s.COUNTRY).jstree(true).get_selected(),
                 SOURCE: $(s.DATA_SOURCES).find('input:checked').val(),
                 KIND: $(s.N_P).find('input:checked').val(),
                 PRODUCT: $(s.PRODUCT).jstree(true).get_selected(),
                 COMPARE: $(s.COMPARE).find('input:checked').val(),
+                SHOW: $(s.SHOW_AS).find('input:checked').val()
             },
             valid = this._validateFilter(filter);
 

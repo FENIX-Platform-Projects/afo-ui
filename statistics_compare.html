@@ -47,11 +47,11 @@
 
     <div class="row">
         <!-- Data Sources -->
-        <div class="col-xs-6">
+        <div class="col-sm-9 col-xs-12">
             <div id="data-sources-s"></div>
         </div>
         <!-- Nutrient Product switch-->
-        <div class="col-xs-6">
+        <div class="col-sm-3 col-xs-12">
             <div id="n-p-s"></div>
         </div>
 
@@ -59,57 +59,46 @@
 
     <div class="row">
 
-<!--        &lt;!&ndash; Geo List &ndash;&gt;
+        <!-- Element list-->
         <div class="col-xs-3">
-            <label class="">Africa Regions</label>
-            <select id="stats_selectRegions" class="form-control" style="height:300px;width:100%" size="8" >
-            </select>
+            <label for="country-search-s"> Filter </label>
+            <input type="text" id="country-search-s" value="" class="input">
+
+            <div id="country-s" style="height: 150px; overflow: auto"></div>
         </div>
-        &lt;!&ndash; Geo Map&ndash;&gt;
-        <div class="col-xs-6">
 
-            <div class="afo-tabs" role="tabpanel">
+        <!-- Element list-->
+        <div class="col-xs-3">
+            <label for="product-search-s"> Filter </label>
+            <input type="text" id="element-search-s" value="" class="input">
 
-                <ul id="prices_tabs" class="nav nav-tabs" role="tablist">
-                    <li><a href="#stats_selectCountries_tab" role="tab" data-toggle="tab">Countries list</a></li>
-                    <li class="active"><a href="#stats_map_countries_tab" role="tab" data-toggle="tab">Countries map</a></li>
-                </ul>
-                <div class="tab-content afo-prices-tab-content obj-box">
-                    <div class="tab-pane" id="stats_selectCountries_tab">
-                        <select id="stats_selectCountries" class="form-control" style="height:300px;width:100%" size="8" >
-                        </select>
-                    </div>
-                    <div class="tab-pane active" id="stats_map_countries_tab">
-                        <div id="stats_map_countries" class="afo-simple-map" style="height:300px;width:100%"></div>
-                    </div>
+            <div id="element-s" style="height: 150px; overflow: auto"></div>
+        </div>
+
+        <!-- Product list-->
+        <div class="col-xs-3">
+            <label for="product-search-s"> Filter </label>
+            <input type="text" id="product-search-s" value="" class="input">
+
+            <div id="product-s" style="height: 150px; overflow: auto"></div>
+        </div>
+
+        <!-- Product list-->
+        <div class="col-xs-3">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div> Compare by</div>
+                    <div id="compare-s"></div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div> Show as</div>
+                    <div id="show-s"></div>
                 </div>
             </div>
 
-        </div>-->
-        <!-- Element list-->
-        <div class="col-xs-3" >
-            COUNTRY
-        </div>
-
-
-        <!-- Element list-->
-        <div class="col-xs-3" >
-            <label for="product-search-s"> Filter </label>
-            <input type="text" id="element-search-s" value="" class="input">
-            <div id="element-s"  style="height: 150px; overflow: auto"></div>
-        </div>
-
-        <!-- Product list-->
-        <div class="col-xs-3" >
-            <label for="product-search-s"> Filter </label>
-            <input type="text" id="product-search-s" value="" class="input">
-            <div id="product-s"  style="height: 150px; overflow: auto"></div>
-        </div>
-
-        <!-- Product list-->
-        <div class="col-xs-3" >
-            <div>  Compare by </div>
-            <div id="compare-s"></div>
         </div>
 
     </div>
@@ -122,7 +111,7 @@
 
     <div class="row">
         <div class="col-xs-12">
-            <button type="button" class="btn btn-default" id="search-btn"> Search </button>
+            <button type="button" class="btn btn-default" id="search-btn"> Search</button>
         </div>
     </div>
 
@@ -142,10 +131,12 @@
     <div class="row">
         <div class="col-xs-6">
             <h2>Production</h2>
+
             <div id="chart1"></div>
         </div>
         <div class="col-xs-6">
             <h2>Import / Export</h2>
+
             <div id="chart2"></div>
         </div>
     </div>
@@ -156,7 +147,7 @@
 
     <div class="row">
         <div class="col-xs-12">
-           COURTESY Message
+            COURTESY Message
         </div>
     </div>
 

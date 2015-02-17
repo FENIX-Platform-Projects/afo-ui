@@ -56,18 +56,18 @@ define([
         $(s.SEARCH_BTN).on('click', _.bind(function () {
             var results = this.selectors.getFilter();
 
-            console.log(results)
-
-           /*
-
             if (results !== false) {
 
                 $(s.COURTESY).hide();
                 $(s.RESULTS).show();
 
                 this.queryChart(results);
-                this.queryTable(results);
-            }*/
+
+            } else {
+
+                $(s.COURTESY).show();
+                $(s.RESULTS).hide();
+            }
 
         }, this));
     };

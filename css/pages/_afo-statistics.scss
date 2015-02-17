@@ -15,6 +15,17 @@
   background-color: $custom-color1;
 }
 
+#stats_map_countries_tab{
+  position: relative;
+}
+
+#product-search-s{
+  float: right;
+  width: 50%;
+  height: 25px;
+  font-size: 10px;
+}
+
 .fx-widget{
   border: none;
 }
@@ -46,10 +57,99 @@
 }
 
 
+
+#prices_tabs{
+
+    li{
+      margin: 0;
+      margin-top: 5px;
+      margin-bottom: 5px;
+
+      a{
+        border: 0;
+      }
+    }
+
+}
+
+.afo-stat-geo{
+  h3{
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+
+  .form-control{
+    font-size: 12px;
+    font-weight: 300;
+
+    .jstree-anchor{
+      font: 300 9px "Roboto" !important;
+    }
+  }
+
+}
+
+.afo-fert-selector{
+  position: relative;
+
+
+    .jstree-anchor{
+      font: 300 12px "Roboto";
+    }
+
+}
+
 .afo-stat-sources{
 
   .afo-title-gray{
     margin-top: 0 ;
   }
 
+}
+
+#product-s,  #stats_selectRegions{
+  height: 300px;
+  overflow: auto;
+  border: 0;
+
+
+}
+
+#product-s{
+  border: 1px solid $afo-hairline;
+}
+
+#stats_selectRegions{
+
+  padding: 0;
+  border: 1px solid $afo-hairline;
+
+  >option{
+    height: 24px;
+    line-height: 24px;
+    padding-left: 24px;
+
+
+    &:nth-child(odd){
+      background-color: $afo-btn-hover;
+    }
+    &:checked{
+      background-color: $fx-main-color-lighter;
+    }
+
+  }
+
+}
+
+#stats_map_countries{
+  height: 300px;
+}
+
+.afo-stat-search-holder{
+  border-top:1px solid $afo-hairline;
+  border-bottom:1px solid $afo-hairline;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }

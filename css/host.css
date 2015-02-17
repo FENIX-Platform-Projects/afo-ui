@@ -1758,6 +1758,50 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   font-weight: 300;
   font-size: 10px; }
 
+.afo-big-title {
+  font-size: 32px;
+  font-weight: 100;
+  color: #666666; }
+
+.afo-title {
+  background-color: #5ba539;
+  display: inline-block;
+  font: normal normal 400 10px/normal "Roboto";
+  color: white;
+  padding: 2px 7px;
+  text-transform: uppercase; }
+
+.afo-title-blue {
+  background-color: #5ca7d8;
+  display: inline-block;
+  font: normal normal 400 10px/normal "Roboto";
+  color: white;
+  padding: 2px 7px;
+  text-transform: uppercase; }
+
+.afo-title-white {
+  background-color: white;
+  display: inline-block;
+  font: normal normal 400 10px/normal "Roboto";
+  color: #5ba539;
+  padding: 2px 7px;
+  text-transform: uppercase; }
+
+.afo-title-white.maptitle {
+  position: absolute;
+  margin: 0;
+  z-index: 1;
+  top: 15px;
+  left: 15px; }
+
+.afo-title-gray {
+  background-color: #e4e4e4;
+  display: inline-block;
+  font: normal normal 400 10px/normal "Roboto";
+  color: #666666;
+  padding: 2px 7px;
+  text-transform: uppercase; }
+
 /* Components */
 /* AFO  BreadCrumbs */
 #breadcumb_container {
@@ -2206,10 +2250,6 @@ input[type="radio"]:checked + label {
   padding-top: 10px; }
   .afo-tabs .tab-content > div {
     padding: 0; }
-.afo-tabs h3 {
-  font-size: 32px;
-  font-weight: 100;
-  color: #666666; }
 .afo-tabs li {
   margin: 12px 0; }
 
@@ -2425,6 +2465,12 @@ input[type="radio"]:checked + label {
   list-style: none;
   padding-left: 0;
   margin-top: 20px; }
+  .afo-home-partner-container .tab-content {
+    padding-top: 25px;
+    margin-bottom: 40px;
+    min-height: 150px; }
+    .afo-home-partner-container .tab-content > div {
+      padding: 0 30px; }
   .afo-home-partner-container ul li {
     width: 16%; }
     .afo-home-partner-container ul li a {
@@ -2449,13 +2495,6 @@ input[type="radio"]:checked + label {
       background-image: url("img/partners-logos/argus-logo.svg"); }
     .afo-home-partner-container ul li a[href="#part-cs"] {
       background-image: url("img/partners-logos/cs-logo.svg"); }
-
-.tab-content {
-  padding-top: 25px;
-  margin-bottom: 40px;
-  min-height: 200px; }
-  .tab-content > div {
-    padding: 0 30px; }
 
 .nav-tabs {
   border-color: transparent; }
@@ -2674,6 +2713,15 @@ input[type="radio"]:checked + label {
   border: none;
   background-color: whitesmoke; }
 
+#stats_map_countries_tab {
+  position: relative; }
+
+#product-search-s {
+  float: right;
+  width: 50%;
+  height: 25px;
+  font-size: 10px; }
+
 .fx-widget {
   border: none; }
 
@@ -2689,8 +2737,60 @@ input[type="radio"]:checked + label {
 .afo-statistics-glance .span12 hr {
   margin: 0 0 10px 0; }
 
+#prices_tabs li {
+  margin: 0;
+  margin-top: 5px;
+  margin-bottom: 5px; }
+  #prices_tabs li a {
+    border: 0; }
+
+.afo-stat-geo h3 {
+  margin-top: 5px;
+  margin-bottom: 15px; }
+.afo-stat-geo .form-control {
+  font-size: 12px;
+  font-weight: 300; }
+  .afo-stat-geo .form-control .jstree-anchor {
+    font: 300 9px "Roboto" !important; }
+
+.afo-fert-selector {
+  position: relative; }
+  .afo-fert-selector .jstree-anchor {
+    font: 300 12px "Roboto"; }
+
 .afo-stat-sources .afo-title-gray {
   margin-top: 0; }
+
+#product-s, #stats_selectRegions {
+  height: 300px;
+  overflow: auto;
+  border: 0; }
+
+#product-s {
+  border: 1px solid #e4e4e4; }
+
+#stats_selectRegions {
+  padding: 0;
+  border: 1px solid #e4e4e4; }
+  #stats_selectRegions > option {
+    height: 24px;
+    line-height: 24px;
+    padding-left: 24px; }
+    #stats_selectRegions > option:nth-child(odd) {
+      background-color: #f2f2f2; }
+    #stats_selectRegions > option:checked {
+      background-color: #ddf3c2; }
+
+#stats_map_countries {
+  height: 300px; }
+
+.afo-stat-search-holder {
+  border-top: 1px solid #e4e4e4;
+  border-bottom: 1px solid #e4e4e4;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px; }
 
 /* Africa Fertilizer - Swiper */
 /* Highlights */
@@ -2770,12 +2870,6 @@ input[type="radio"]:checked + label {
   position: relative; }
   #afo-maps-swiper-container-wrapper .swiper-slide {
     position: relative; }
-    #afo-maps-swiper-container-wrapper .swiper-slide .afo-title-white.maptitle {
-      position: absolute;
-      margin: 0;
-      z-index: 1;
-      top: 15px;
-      left: 15px; }
 
 .arrow-up {
   float: left;
@@ -3123,38 +3217,6 @@ table {
 thead {
   font-style: normal;
   font-weight: normal; }
-
-.afo-title {
-  background-color: #5ba539;
-  display: inline-block;
-  font: normal normal 400 10px/normal "Roboto";
-  color: white;
-  padding: 2px 7px;
-  text-transform: uppercase; }
-
-.afo-title-blue {
-  background-color: #5ca7d8;
-  display: inline-block;
-  font: normal normal 400 10px/normal "Roboto";
-  color: white;
-  padding: 2px 7px;
-  text-transform: uppercase; }
-
-.afo-title-white {
-  background-color: white;
-  display: inline-block;
-  font: normal normal 400 10px/normal "Roboto";
-  color: #5ba539;
-  padding: 2px 7px;
-  text-transform: uppercase; }
-
-.afo-title-gray {
-  background-color: #e4e4e4;
-  display: inline-block;
-  font: normal normal 400 10px/normal "Roboto";
-  color: #666666;
-  padding: 2px 7px;
-  text-transform: uppercase; }
 
 .modal-dialog {
   z-index: 1041; }

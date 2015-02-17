@@ -36,7 +36,16 @@
   padding-left: 0;
   margin-top: 20px;
 
+  .tab-content{
+    padding-top: 25px;
+    margin-bottom: 40px;
+    min-height: 150px;
 
+    >div {
+      padding: 0 30px;
+    }
+
+  }
 
   ul{
     li{
@@ -75,16 +84,7 @@
     }
 }
 
-.tab-content{
-  padding-top: 25px;
-  margin-bottom: 40px;
-  min-height: 200px;
 
-  >div {
-    padding: 0 30px;
-  }
-
-}
 
 .nav-tabs{
   border-color: transparent;

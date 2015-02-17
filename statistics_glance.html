@@ -85,7 +85,7 @@
         <!-- Geo List -->
         <div class="col-xs-12 col-sm-3">
             <h3 class="afo-title-gray">AFRICA REGIONS</h3>
-            <select id="stats_selectRegions" class="form-control" style="height:300px;width:100%" size="8">
+            <select id="stats_selectRegions" class="form-control"  size="8">
             </select>
         </div>
         <!-- Geo Map-->
@@ -97,15 +97,18 @@
                     <li><a href="#stats_selectCountries_tab" role="tab" data-toggle="tab">Countries list</a></li>
                     <li class="active"><a href="#stats_map_countries_tab" role="tab" data-toggle="tab">Countries
                         map</a></li>
+
+
                 </ul>
                 <div class="tab-content afo-prices-tab-content">
                     <div class="tab-pane" id="stats_selectCountries_tab">
-                        <select id="stats_selectCountries" class="form-control" style="height:300px;width:100%"
-                                size="8">
+                        <select id="stats_selectCountries" class="form-control" size="8">
                         </select>
                     </div>
                     <div class="tab-pane active" id="stats_map_countries_tab">
-                        <div id="stats_map_countries" class="afo-simple-map" style="height:300px;width:100%"></div>
+                        <h3 id="stats_selected_countries" class="afo-title-white maptitle">SELECT A COUNTRY</h3>
+
+                        <div id="stats_map_countries" class="afo-simple-map" ></div>
                     </div>
                 </div>
             </div>
@@ -113,13 +116,22 @@
         </div>
 
         <!-- Product list-->
-        <div class="col-xs-12 col-sm-3" style="max-height:300px">
-            <label for="product-search-s"> Filter </label>
-            <input type="text" id="product-search-s" value="" class="input">
+        <div class="col-xs-12 col-sm-3 afo-fert-selector" >
+            <h3 class="afo-title-gray">FERTILIZER</h3>
 
-            <div id="product-s" style="height: 150px; overflow: auto"></div>
+
+            <input type="text" id="product-search-s" value="" class="input form-control">
+
+            <div id="product-s"></div>
         </div>
 
+    </div>
+
+
+    <div class="row ">
+        <div class="col-xs-12 afo-stat-search-holder">
+            <button type="button" class="btn btn-default pull-right" id="search-btn"> Search</button>
+        </div>
     </div>
 
 
@@ -127,16 +139,6 @@
 </div>
 
 
-<!-- search -->
-<div class="container">
-
-    <div class="row">
-        <div class="col-xs-12">
-            <button type="button" class="btn btn-default" id="search-btn"> Search</button>
-        </div>
-    </div>
-
-</div>
 
 <!-- results -->
 <div id="afo-results" class="container" style="display: none">

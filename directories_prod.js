@@ -103,6 +103,10 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		Config = JSON.parse(Config);
 
+        var listCountries$ = $('#dirs_selectCountries'),
+            listProducts$ = $('#dirs_selectProducts');
+
+
         new TopMenu({
             active: 'directories_prod',        	
             url: 'config/fenix-ui-menu.json',
@@ -120,7 +124,50 @@ require(["submodules/fenix-ui-menu/js/paths",
             console.log(amplify.store.sessionStorage('afo.security.user'));
         });
 
-        //HERE NEW CODE
+        function getWDS(queryTmpl, queryVars, callback) {
+
+            var sqltmpl, sql;
+
+            if(queryVars) {
+                sqltmpl = _.template(queryTmpl);
+                sql = sqltmpl(queryVars);
+            }
+            else
+                sql = queryTmpl;
+
+            var	data = {
+                datasource: Config.dbName,
+                thousandSeparator: ',',
+                decimalSeparator: '.',
+                decimalNumbers: 2,
+                cssFilename: '',
+                nowrap: false,
+                valuesIndex: 0,
+                json: JSON.stringify({query: sql})
+            };
+
+            $.ajax({
+                url: Config.wdsUrl,
+                data: data,
+                type: 'POST',
+                dataType: 'JSON',
+                success: callback
+            });
+        }
+
+        window.getWDS=getWDS;
+
+        getWDS(Config.queries.countries, null, function(countries) {
+
+            for(var r in countries)
+                listCountries$.append('<option value="'+countries[r][0]+'">'+countries[r][1]+'</option>');
+        });
+
+        getWDS(Config.queries.products, null, function(products) {
+
+            for(var r in products)
+                listProducts$.append('<option value="'+products[r][0]+'">'+products[r][1]+'</option>');
+        });
 
 		$('.footer').load('html/footer.html');
 

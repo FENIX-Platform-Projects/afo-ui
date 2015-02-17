@@ -3,8 +3,8 @@ define([
     'underscore',
     'fx-menu/start',
     'AuthenticationManager',
-    'production/Results',
-    'production/Selectors',
+    'business/Results',
+    'business/Selectors',
     'text!config/services.json',
     'amplify'
 ], function (_, Menu, AuthenticationManager, Results, Selectors, Config) {
@@ -33,7 +33,7 @@ define([
 
         this._initSecurity();
         this._bindEventListeners();
-        this._initPageStructure();
+   //     this._initPageStructure();
     };
 
     App.prototype._initPageStructure = function () {
@@ -80,55 +80,6 @@ define([
         }, this));
     };
 
-    App.prototype.performChartQuery = function (v, results) {
-
-        var query;
-
-        switch (results.COMPARE) {
-            case 'ELEMENT' :
-                query = this._replace(this.config.queries.compare_by_element, v);
-                break;
-            case 'PRODUCT' :
-                query = this._replace(this.config.queries.compare_by_product, v);
-                break;
-            case 'COUNTRY' :
-                query = this._replace(this.config.queries.compare_by_country, v);
-                break;
-        }
-
-        var data = {
-            datasource: this.config.dbName,
-            thousandSeparator: ',',
-            decimalSeparator: '.',
-            decimalNumbers: 2,
-            cssFilename: '',
-            nowrap: false,
-            valuesIndex: 0,
-            json: JSON.stringify({
-                query: query
-            })
-        };
-
-        $.ajax({
-            url: this.config.wdsUrl,
-            data: data,
-            type: 'POST',
-            dataType: 'JSON',
-            success: _.bind(function (data) {
-                if (data.length ===0){
-                    return;
-                }
-
-                this.appendChart(data)
-            }, this),
-            error: function (e) {
-                console.error("WDS error: ");
-                console.log(e)
-            }
-        });
-
-
-    };
 
     App.prototype.performTableQuery = function (v, results) {
 

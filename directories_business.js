@@ -14,8 +14,9 @@ require(["submodules/fenix-ui-menu/js/paths",
         },
         config: {
 			paths: {
-                'production': 'scripts/directories/production',
+                'business': 'scripts/directories/business',
                 'commons': 'scripts/commons',
+                'AuthenticationManager': './scripts/components/AuthenticationManager',
                 'text': "//fenixapps.fao.org/repository/js/requirejs/plugins/text/2.0.12/text",
 				'i18n': "//fenixapps.fao.org/repository/js/requirejs/plugins/i18n/2.0.4/i18n",
 				'domready': "//fenixapps.fao.org/repository/js/requirejs/plugins/domready/2.0.1/domReady",
@@ -36,7 +37,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 				'jqwidgets': "//fenixapps.fao.org/repository/js/jqwidgets/3.1/jqx-light",
 				'jstree': "//fenixapps.fao.org/repository/js/jstree/3.0.8/dist/jstree.min",
                 'webix' : '//fenixapps.fao.org/repository/js/webix/2.2.1/js/webix',
-                'AuthenticationManager': './scripts/components/AuthenticationManager',
 
 
 
@@ -88,12 +88,12 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 
     require([
-        'production/App',
+        'business/App',
         'domready!'
     ], function (App) {
 
-        var compare = new App();
-        compare.start();
+        var business = new App();
+        business.start();
 
 
     }); // end of App.start()

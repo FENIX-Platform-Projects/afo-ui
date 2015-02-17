@@ -169,7 +169,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 				zoomControl: false,
 				attributionControl:false,
 				center: L.latLng(0,0),
-				layers: L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+				layers: L.tileLayer(Config.url_baselayer)
 			}).addControl(L.control.zoom({position:'bottomright'}))
 
 		var layerRetail = new L.MarkerClusterGroup({

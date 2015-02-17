@@ -1,16 +1,21 @@
 {
   "dbName": "africafertilizer",
+  "gaulLayer": "gaul0_faostat_afo_3857",
   "wdsUrl": "http://faostat3.fao.org/wds/rest/table/json",
   "mapUrl": "http://fenixapps.fao.org/maps-africaferilizers/api?",
   "wmsUrl": "http://fenixapps2.fao.org/geoserver-demo",
   "sldUrl": "http://fenixapps2.fao.org/geoservices/CSS2SLD",
+  
   "url_geoserver_wms": "http://fenix.fao.org/geoserver",
-  "url_bbox": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/bbox/layer/country/",
+  "url_bbox": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/bbox/layer/gaul0_faostat_afo_4326/",
   "url_spatialquery": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/query/",
+  
   "url_spatialquery_enc": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/query/<%= sql %>?geojsonEncoding=True",
+
   "url_geocoding": "http://fenix.fao.org/geo/fenix/geocoding/latlon/",
   "url_baselayer": "http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}.png",
   "url_osmlayer": "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
+
   "queries": {
     "home_maps": "select ams.country_code, country_label, afo_footprint, manufacturing_plant, blending_plant from afo_map_slider ams, codes_countries cc where ams.country_code = cc.country_code",
     "fertilizers_tree": "select fc.fertilizer_class as group, fc.fertilizer_code as id, cf.fertilizer_label as text from fertilizers_class fc, codes_fertilizers cf where fc.fertilizer_code = cf.fertilizer_code order by fc.fertilizer_class",
@@ -19,7 +24,7 @@
     "regions": "select country_code, country_label from codes_countries where parent_code = '' order by country_code ",
     "countries": "select DISTINCT country_code, country_label from codes_countries where parent_code <> '' order by country_label",
     "countries_byregion": "SELECT country_code, country_label FROM codes_countries WHERE parent_code = <%= id %> ",
-    "countries_geojson": "SELECT ST_AsGeoJSON(geom), adm0_code, areanamee FROM spatial.gaul0_faostat3_4326 WHERE adm0_code IN ( <%= ids %> ) ",
+    "countries_geojson": "SELECT ST_AsGeoJSON(geom), adm0_code, areanamee FROM spatial.gaul0_faostat_afo_4326 WHERE adm0_code IN ( <%= ids %> ) ",
     "countries_groups": "SELECT country, name FROM countries WHERE value = 1 AND name IN ( <%= ids %> ) ",
     "data_sources": "select * from codes_data_sources",
     "products": "select DISTINCT fertilizer_label, fertilizer_code from codes_fertilizers ORDER BY fertilizer_label",

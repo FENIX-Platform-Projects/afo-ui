@@ -436,12 +436,13 @@ require(["submodules/fenix-ui-menu/js/paths",
 		},
 		guiController: {
 			overlay : true,
-			baselayer: true,
-			wmsLoader: true
+			baselayer: false,
+			wmsLoader: false
 		},
 		gui: {
 			disclaimerfao: true
-		}
+		},
+		usedefaultbaselayers: false
 	}, {
 		zoomControl: false,
 		attributionControl: false
@@ -449,21 +450,18 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 	window.fmMap = fmMap;
 
-	fmMap.createMap();
+	fmMap.createMap(0, 20, 3);
 
-	fmMap.addLayer( new FM.layer({
-		urlWMS: Config.wmsUrl,
-		//hideLayerInControllerList: true,
-		layers: "fenix:gaul0_line_3857",
-		layertitle: "Boundaries",
-		styles: "gaul0_line",
-		opacity: "0.7",
-		zindex: 600
-	}) );
+/*	fmMap.addLayer( new FM.layer({
+		urlWMS: Config.url_baselayer
+	}) );*/
+
+	L.tileLayer(Config.url_baselayer).addTo(fmMap.map);
 
 	var fmLayer = new FM.layer({
 		urlWMS: Config.wmsUrl,
-		layers: "fenix:gaul0_faostat_3857",
+		layers: "fenix:"+Config.gaulLayer,
+		styles: "none",
 		layertitle: "Fertilizers",
 		defaultgfi: true,
 		opacity: '0.7',		

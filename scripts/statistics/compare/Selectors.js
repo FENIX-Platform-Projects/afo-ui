@@ -52,7 +52,6 @@ define([
                     _.each(res, function (n) {
                         data.push(createNode(n));
                     });
-
                 }
 
                 createTree(data);

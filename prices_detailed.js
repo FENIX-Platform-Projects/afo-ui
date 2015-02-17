@@ -195,7 +195,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 							.bindPopup( L.Util.template(PopupHtml, {
 								title: data[i][0] && data[i][0] ? data[i][0].replace('[Town]','') : '',
 								fert: $("#prices_selectProduct option:selected").text(),
-								val: data[i][2]+' '+data[i][3]+" (avg)"
+								val: data[i][2]+" USD/ton (avg)"
 							}) )
 							.addTo(layerRetail);
 					}
@@ -231,7 +231,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			};
 
 			loadMarkers( Selection );
-		});	
+		});
 
 		$("#prices_selectProduct").on('change', function(e) {
 			Selection.fertilizer_code = $(e.target).val();

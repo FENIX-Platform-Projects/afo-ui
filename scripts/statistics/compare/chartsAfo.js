@@ -1,56 +1,25 @@
-define(['underscore',  "commons/fx_chart", 'highcharts'], function (_, FxChartTemplate) {
+define(['underscore', "commons/fx_chart", 'highcharts'], function (_, FxChartTemplate) {
 
+    function Chart(){
 
-    function Chart() {
-
-        this.o = {
-
-            chart1: {
-                elements: ['appcons'],
-                id: "chart1"
-            },
-
-            chart2: {
-                elements: ['imp', 'exp'],
-                id: "chart2"
-            }
-        };
+        this.o = {};
     };
 
 
-    Chart.prototype.render = function (data, config) {
-        this.o = $.extend(true, {}, this.o, config);
+    Chart.prototype.render = function(container, data) {
 
-        // chart1
-        this.renderChart(this.o.chart1.id, this.filterData(this.o.chart1.elements, data))
-
-        // chart2
-        this.renderChart(this.o.chart2.id, this.filterData(this.o.chart2.elements, data))
+        // render chart
+        this.renderChart(container, data)
     }
 
-    Chart.prototype.filterData = function (elements, data) {
-        var chartdata = []
-        for (var i = 0; i < elements.length; i++) {
-            for (var j = 0; j < data.length; j++) {
-                if (elements[i] == data[j][0]) {
-                    chartdata.push(data[j])
-                }
-            }
-        }
-        return chartdata;
-    }
-
-
-    Chart.prototype.renderChart = function (id, chartData) {
-
+    Chart.prototype.renderChart = function(id, chartData) {
         var series = this.getSeries(chartData);
-        var measurementUnit = chartData[0][4];
-
-        var chart_id = id
+        var measurementUnit = chartData[0][3];
+        var chart_id = id;
         var c = {}
         c.chart = {
-            "renderTo": chart_id,
-            "type": "line"
+            renderTo : chart_id,
+            type : "line"
         };
         c.series = series;
         c.yAxis = {
@@ -58,22 +27,20 @@ define(['underscore',  "commons/fx_chart", 'highcharts'], function (_, FxChartTe
                 text: measurementUnit
             }
         }
-
         c = $.extend(true, {}, FxChartTemplate, c);
         return new Highcharts.Chart(c);
-        //return new Highcharts.Chart(c);
     }
 
-    Chart.prototype.getSeries = function (chartData) {
+    Chart.prototype.getSeries = function(chartData) {
         var allSeries = [];
-        for (var i = 0; i < chartData.length; i++) {
-            allSeries.push(chartData[i][1]);
+        for (var i=0; i < chartData.length; i++) {
+            allSeries.push(chartData[i][0]);
         }
         allSeries = _.uniq(allSeries);
 
         // get series (names)
         var series = []
-        for (var i = 0; i < allSeries.length; i++) {
+        for (var i=0; i < allSeries.length; i++) {
             series.push({
                 name: allSeries[i],
                 data: []
@@ -81,10 +48,10 @@ define(['underscore',  "commons/fx_chart", 'highcharts'], function (_, FxChartTe
         }
 
         // get data
-        for (var i = 0; i < chartData.length; i++) {
-            for (var j = 0; j < series.length; j++) {
-                if (chartData[i][1] == series[j].name) {
-                    series[j].data.push([parseFloat(chartData[i][2]), parseFloat(chartData[i][3])]);
+        for (var i=0; i < chartData.length; i++) {
+            for( var j=0; j < series.length; j++) {
+                if (chartData[i][0] == series[j].name) {
+                    series[j].data.push([parseFloat(chartData[i][1]), parseFloat(chartData[i][2])]);
                     break;
                 }
             }

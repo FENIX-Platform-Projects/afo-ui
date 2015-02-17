@@ -2,13 +2,14 @@
 define([
     'compare/chartsAfo',
     'compare/tableAfo'
-], function ( Chart, Table ) {
+], function (Chart, Table) {
 
     'use strict';
 
     var s = {
         COURTESY: '#afo-courtesy',
-        RESULTS: '#afo-results'
+        RESULTS: '#afo-results',
+        LIST: '.results-list'
     };
 
     function Results() {
@@ -17,11 +18,32 @@ define([
     }
 
     Results.prototype.printTable = function (data) {
-        this.table.render(data);
+        var id = this.appendContainer();
+        this.table.render(id, data);
+    };
+
+    Results.prototype.appendContainer = function () {
+
+        if (!window.chartCounter) {
+            window.chartCounter = 0;
+        }
+        window.chartCounter++;
+        var id = "afo-chart-" + window.chartCounter;
+        var $c = $('<li>', {
+            id: id
+        });
+
+        $(s.LIST).append($c);
+        return id;
     };
 
     Results.prototype.printChart = function (data) {
-        this.chart.render(data, {});
+        var id = this.appendContainer();
+        this.chart.render(id, data);
+    };
+
+    Results.prototype.empty = function () {
+        $(s.LIST).empty();
     };
 
     return Results;

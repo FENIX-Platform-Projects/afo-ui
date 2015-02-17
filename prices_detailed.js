@@ -124,6 +124,9 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		$('.footer').load('html/footer.html');
 
+
+        var listProducts$ = $('#prices_selectProduct');
+
 		function getWDS(queryTmpl, queryVars, callback) {
 
 			var sqltmpl, sql;
@@ -194,29 +197,30 @@ require(["submodules/fenix-ui-menu/js/paths",
         //JQUERY range slider
 		$(".afo-range").dateRangeSlider().on('valuesChanged', function(e, data) {
 			var minD = new Date(data.values.min),
-				maxD = new Date(data.values.max);
+				maxD = new Date(data.values.max),
+				minDate = minD.getFullYear()+(minD.getMonth()+1),
+				maxDate = maxD.getFullYear()+(maxD.getMonth()+1);
 
-			console.log(minD, maxD);
+
+			console.log(minD, maxD, data);
 
 			loadMarkers({
-					fertilizer_code: '3102100000',
-					month_from_yyyymm: '201201',
-					month_to_yyyymm: '201212'
+					fertilizer_code: $("#prices_selectProduct").val(),
+					month_from_yyyymm: minDate,
+					month_to_yyyymm: maxDate
 				});
 		});
 
-		$(".afo-range").dateRangeSlider().on('valuesChanged', function(e, data) {
-			var minD = new Date(data.values.min),
-				maxD = new Date(data.values.max);
+		getWDS(Config.queries.products, null,function(products) {
 
-			console.log(minD, maxD);
+            for(var r in products)
+                listProducts$.append('<option value="'+products[r][1]+'">'+products[r][0]+'</option>');
 
-			loadMarkers({
-					fertilizer_code: '3102100000',
-					month_from_yyyymm: '201201',
-					month_to_yyyymm: '201212'
-				});
-		});		
+		});
+
+		$("#prices_selectProduct").on('change', function(e) {
+			console.log( $(e.target).val() );
+		});
 
 		$('#prices_international_grid').load("prices/html/prices_international.html");
 

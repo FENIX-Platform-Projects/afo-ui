@@ -1746,9 +1746,17 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   font-style: normal; }
 .afo-page-subtitle {
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 700;
   color: #5ba539;
   text-transform: uppercase; }
+
+.afo-disclaimer {
+  font-weight: 700;
+  font-size: 10px; }
+
+.afo-disclaimer-small {
+  font-weight: 300;
+  font-size: 10px; }
 
 /* Components */
 /* AFO  BreadCrumbs */
@@ -2474,13 +2482,12 @@ input[type="radio"]:checked + label {
     margin-bottom: 50px; } }
 /* AFO - Prices Page Style */
 .afo-prices-international-chart {
-  height: 400px; }
+  padding-left: 70px; }
+  .afo-prices-international-chart a {
+    color: #666666; }
 
 .afo-prices-tab-content {
   width: 100%; }
-
-.afo-market-highlights {
-  column-count: 2; }
 
 #pivot table {
   border: 0; }
@@ -2536,6 +2543,35 @@ input[type="radio"]:checked + label {
   cursor: pointer;
   background-color: #fcfaee; }
 
+#chart_prices_inter {
+  margin-bottom: 20px; }
+
+.afo-notes {
+  text-align: justify;
+  text-justify: inter-word; }
+  .afo-notes:first-child {
+    padding-right: 30px; }
+  .afo-notes:last-child {
+    padding-left: 30px; }
+
+.afo-grid-holder > .afo-title {
+  margin-bottom: 20px;
+  margin-top: 30px; }
+
+#prices_international_grid table {
+  font-family: 'Roboto Condensed'; }
+  #prices_international_grid table .afo-table-header {
+    background-color: #ddf3c2; }
+
+/*//////////////////////////////////////////// Navbar Media queries */
+@media (max-width: 767px) {
+  .afo-prices-international-chart {
+    padding-left: 0px; }
+
+  .afo-notes:first-child {
+    padding-right: 15px; }
+  .afo-notes:last-child {
+    padding-left: 15px; } }
 /* AFO - Publication Page Style */
 #page-publications .list-group-item {
   -webkit-border-radius: 0;

@@ -137,6 +137,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		        //borderColor: '#3fa8da', //Colore bordo intorno
 		        //borderWidth: 1, //Spessore bordo intorno
 		        //borderRadius: 0, //Smusso bordo intorno
+                height: 300,
 		        //margin: [5,5,5,5], //Margine intorno (vince sullo spacing)
 		        spacing: [20, 1, 1, 1],//Spacing intorno (molto simile al margin - Di default il bottom è 15, qui l'ho messo a 10 per essere uguale agli altri)
 		        //plotBackgroundColor: 'red', //Colore di background solo area chart
@@ -215,7 +216,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		    },
 		    legend: { //Modifica style della legenda
 		        enabled: true, //Attiva la legenda
-		        floating: false, // IMPORTANTE - Permette alla plot area di stare sotto alla legenda - si guadagna molto spazio
+		        floating: true, // IMPORTANTE - Permette alla plot area di stare sotto alla legenda - si guadagna molto spazio
 
 		        //margin: 100, //Margine dell'intero blocco legenda dall'area di PLOT (Solo quando non è floating)
 		        //padding: 20, //Padding del box legenda (Ingrandisce il box)
@@ -250,7 +251,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		            },
 		            connectNulls: true,
 		            cropThreshold: 3,
-		            lineWidth: 3, // IMPORTANTE - Cambia lo spessore delle linee della chart
+		            lineWidth: 1, // IMPORTANTE - Cambia lo spessore delle linee della chart
 		            states: {
 		                hover: {
 		                    lineWidth: 1

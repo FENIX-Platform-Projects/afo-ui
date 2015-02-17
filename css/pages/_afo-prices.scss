@@ -1,16 +1,18 @@
 /* AFO - Prices Page Style */
 
 .afo-prices-international-chart{
-  height: 400px;
+  padding-left: 70px;
+
+  a{
+    color: $fenix-text;
+  }
+
 }
 
 .afo-prices-tab-content{
   width: 100%;
 }
 
-.afo-market-highlights {
-  column-count: 2;
-}
 
 #pivot{
   table {
@@ -71,4 +73,87 @@
   }
 }
 
+#chart_prices_inter{
+  margin-bottom: 20px;
+}
 
+
+.afo-notes{
+
+  text-align: justify;
+  text-justify: inter-word;
+
+  &:first-child{
+    padding-right: 30px;
+  }
+
+  &:last-child{
+    padding-left: 30px;
+  }
+
+
+}
+
+
+//// Grid ///
+
+.afo-grid-holder{
+
+  >.afo-title{
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
+
+}
+
+
+#prices_international_grid{
+
+
+  table{
+    font-family: 'Roboto Condensed';
+
+
+
+
+    .afo-table-header{
+      background-color: $fx-main-color-lighter;
+    }
+
+  }
+
+
+
+}
+
+
+/*//////////////////////////////////////////// Navbar Media queries */
+
+@media (min-width: 768px) and (max-width: 990px) {
+
+}
+
+@media (max-width: 767px) {
+
+
+  .afo-prices-international-chart{
+    padding-left: 0px;
+  }
+
+
+  .afo-notes{
+
+
+    &:first-child{
+      padding-right: 15px;
+    }
+
+    &:last-child{
+      padding-left: 15px;
+    }
+
+
+  }
+
+
+}

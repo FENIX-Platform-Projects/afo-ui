@@ -17,9 +17,11 @@
     <!-- Third Party CSS -->
     <link href="//fenixapps.fao.org/repository/js/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet.css" />
-    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/MarkerCluster.css">
-    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/MarkerCluster.Default.css">
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet.css"/>
+    <link rel="stylesheet"
+          href="http://fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/MarkerCluster.css">
+    <link rel="stylesheet"
+          href="http://fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/MarkerCluster.Default.css">
 
 
     <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/jquery.rangeslider/5.7.0/css/classic-min.css">
@@ -38,118 +40,198 @@
         </div>
     </div>
 
-	<div class="container">
 
-        <div class="row fx-header">
-            <div class="col-xs-12">
-                <div class="page-header">
-                    <h2>International Prices</h2>
-                    <p>This section provides information on monthly international prices for the main types of fertilizers.</p>
-                </div>
+    <div class="row fx-header">
+        <div class="col-xs-12">
+            <div class="page-header">
+                <h2>International Prices</h2>
+
+                <p>This section provides information on monthly international prices for the main types of
+                    fertilizers.</p>
             </div>
         </div>
-		    
-
-			<h3>Monthly Average Prices for selected Fertilizers &bull; October 2013 - September 2014</h3>
-
-			<p>For more detailed information and data, visit <a href="http://www.argusmedia.com/fertilizer">www.argusmedia.com</a><p>
-
-			<div class="row">
-				<div class="col-xs-5">
-                    <div class="afo-prices-international-argus">
-                    	<img src="css/img/argus.jpg" height="360px" width="360px" />
-                    </div>
-				</div>
-				<div class="col-xs-7">
-                    <div id="chart_prices_inter" class="afo-prices-international-chart"></div>
-				</div>
-            </div>
-
-            <br><br>
-            <hr>
-
-            <div class="row">
-                <div class="col-xs-12">
-                    <h3>International Monthly Average Prices for selected Fertilizers | November 2013 - October 2014</h3>
-                    <div id="prices_international_grid"></div>
-                </div>
-			</div>
-            
-            <hr />
-
-            <div class="text-center">
-            	<a href="http://argusmedia.com/"><img src="css/img/argus_logo.jpg" class="img-thumbnail" /></a>
-            </div>
-
-            <h3>Market higlights - November 2014</h3>
-
-            <div class="row">
-                <div class="col-xs-12 afo-market-highlights">
-                    <h4>NITROGEN</h4>
-                    <p>Outside of India and China, there has been little fresh business to speak of. European buying has paused after the flurry of trade over recent weeks. A large quantity of urea is lined up for shipment through November and buyers have taken a step back this week.</p>
-
-                    <p>Trade in Egypt has also stalled as the exporters continue discussions with the government over export lincenses, gas allocations and domestic commitments. After a cluster of trades last week, one was reported this week at $370/t fob, a small lot for prompt loading. The price is up $3/t on previous business.</p>
-
-                    <p>Overall the market lacks a clear price trend and buyers remain cautious about building stocks. European buyers will need to purchase more urea ahead of application which commonly starts in Q1. Much of the what has been booked recently for Europe is a replacement for losses from elsewhere, including Egypt.</p>
-
-                    <p class="afo-prices-country-name">Egypt</p>
-                    <p>Trammo is understood to have bought 3,000t of urea from Helwan at $370/t for prompt shipment to Greece. Helwan could not be reached for confirmation</p>
-
-                    <p>Negotiations continue between the urea producers and the government over domestic commitments and gas allocations. As it stands, none of the producers are understood to have export licenses for November.</p>
-
-                    <p>Helwan and Mopco are understood to be operating at around 80pc. Alexfert is operating but committed domestically. EFC continues to operate one line.</p>
-
-                    <p class="afo-prices-country-name">Algeria</p>
-                    <p>On 30 October, Sorfert reported that its urea line was in the start up phase. Yara's m/v Polaris Queen is currently loading 15,000t</p>
-
-                    <p class="afo-prices-country-name">South Africa</p>
-                    <p>Keytrade will load a 30,000t Omani cargo next week for shipment to South Africa.</p>
-
-
-                    <h4>PHOSPHATE</h4>
-                    <p>The market continued to weaken in October. Prices have been slipping in Europe with buyers waiting for prices to bottom out before stepping in the market. Brazil is dead with MAP price indication at $470/t cfr and DAP at $460/t cfr. Argentinean demand is also limited and prices east of Suez are now definitely on the wane with DAP sold to India below $490/t cfr. Weak corn prices continued to be the main reason for the lack of interest globally.</p>
-
-                    <p>Looking forward, in late Q4, it looks like Australia will be the only volume market. This market will be keenly contested with Mexican, US, Moroccan and Chinese all in the mix. Mosaic confirmed a second DAP/MAP combination cargo for January shipment to Australia. But the Saudis will also be vying for a share of this market, and are considering converting partially to MAP in Q4, especially given that Ethiopian DAP demand appears to be completely out of the game. If the Chinese flat tax rate window opens early, then it is likely the Chinese will also add to the competition. The prevailing view currently is that China will have a flat tax rate year-round next year, which will add a bearish sentiment for Q1 as it could place downward price pressure on account of greater supply. Some European DAP demand needs to be covered, and Brazil will need to step in for hand-to-mouth buying for safrinha. A partial recovery in the US as a result of improved harvesting could see some stabilisation and recovery in Q1, in tandem with production cuts at Mosaic and OCP Morocco.</p>
-
-                    <p class="afo-prices-country-name">Morocco</p>
-                    <p>OCP has clarified its production plan and its export line up for October. Granulation of DAP/MAP and NPKs has been reduced to 200,000t from the previously reported 270,000t in order to accommodate higher rates of phosphoric acid shipment to India (now estimated at 120,000-130,000t/month through to year end) as well as acid shipments to Pakistan and Europe.</p>
-
-                    <p>OCP is reportedly offering $510/t fob in the Med for November lifting, a rollover of October's price.
-
-                    <p class="afo-prices-country-name">Tunisia</p>
-                    <p>GCT has not made any sales to European markets for October and is targeting a rollover of the $530s-540/t fob for the 30,000t of availability it has, with 30,000t already lined up for Turkey. Production is consistent at around 50-60pc of capacity on DAP, equivalent to 60,000t/month currently. A trader has sold 5,000t of Tunisian DAP to Turkey at $535/t fob.</p>
-
-
-                    <h4>POTASH</h4>
-                    <p>European contract pricing for fourth quarter supply of standard MOP remains uncertain. Few deals are thought to have been made this week amid ongoing uncertainty about the effect of crop pricing, the trajectory of the Euro and Russia's embargo on European agricultural produce on farmer demand.</p>
-
-                    <p>Demand is slowing in many markets around the world in line with normal seasonality. Brazilian demand has reduced- with import data showing 300,000t less was imported in September than August - though the record pace of imports earlier in the year may have something to do with this. In the US a late harvest in many regions has delayed the fall application, while producers are still said to be working through a backlog of older orders. Europe is expected to remain quiet until the spring now.</p>
-
-                    <p>The mood is therefore a little bearish in these markets, though there is no indication yet of a downward movement for prices.</p>
-
-                    <p class="afo-prices-country-name">East Africa</p>
-                    <p>APC has sold 3,000-4000t gMOP into east Africa at close to $400/t cfr.</p>
-
-                    <p class="afo-prices-country-name">South Africa</p>
-                    <p>A delegation from K+S Kali visited a couple of weeks back as is traditional at this time of the year. There are unconfirmed reports that it was informing customers that it was looking for a $20/t increase on the existing prices of around $350-360/t cfr for standard MOP and $370-380/t cfr for granular MOP.</p>
-
-                    <p class="afo-prices-country-name">Ivory Coast</p>
-                    <p>A trader has been seen checking freight for 20,000t granular MOP and 5,000t standard MOP loading Klaipeda for delivery to Abidjan in mid-late November.</p>
-                </div>
-            </div>
-
-		</div>
-	</div>
-
-    <!-- Footer -->
-    <div class="container">
-      <div class="footer">
-        <p>AfricaFeritilizer.org - AF Skeleton web application by FENIX</p>
-      </div>
     </div>
 
-	<script data-main="prices_international" src="src/lib/require.js"></script>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-5">
+            <div class="afo-prices-international-argus">
+                <img src="css/img/argus.jpg" class="img-responsive"/>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-7 afo-int-chart-holder">
+            <div class="afo-prices-international-chart">
+                <h3 class="afo-title">10 years – 3 fertilizers urea/DAP/MOP</h3>
+
+                <p>For more detailed information and data, visit <a
+                        href="http://www.argusmedia.com">www.argusmedia.com</a></p>
+
+                <div id="chart_prices_inter"></div>
+                <p class="afo-disclaimer">Argus Media Ltd is the source of the data, on which IFDC bases the above
+                    calculations</p>
+            </div>
+
+        </div>
+    </div>
+    <br><br>
+
+    <div class="row afo-grid-holder">
+        <div class="col-xs-12">
+            <h3 class="afo-title">International Monthly Average Prices for selected Fertilizers | November 2013 -
+                October 2014</h3><br><br>
+
+            <div id="prices_international_grid"></div>
+
+            <p class="afo-disclaimer">Argus Media Ltd is the source of the data, on which IFDC bases the above
+                calculations</p>
+        </div>
+    </div>
+
+    <br><br><br>
+
+    <h3 class="afo-title">Market higlights - January 2015</h3>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 afo-notes">
+
+            <h4 class="afo-page-subtitle"> NITROGEN</h4>
+            Despite a relatively balanced market for February, urea prices are already coming under some pressure
+            because of the bearish outlook from March onwards. Chinese granular urea prices started to weaken because
+            domestic demand is drying up. US prices dipped below $320/st fob Nola - $14/st down on last week. Baltic
+            prilled urea prices softened to $304-307/t fob due to lack of sale opportunities.
+
+            Trade balances show an increasing surplus of urea on world markets as Q2 starts, particularly with China
+            enjoying a lower export tax, and this is forecast to push fob levels down for March and April shipment. The
+            paper market is showing Arabian Gulf granular urea below $310/t fob March-April. The gap between Chinese
+            prilled and granular urea is also expected to shrink from the current $25-30/t to $10/t or less, implying a
+            large fall for granular.
+
+            The prices offered in the Indian tender this week were neither bullish or bearish. The netbacks from the
+            lowest price is around $285/t fob China thanks to extremely low freight rates of $8-9/t for 60,000t cargoes
+            to east coast India. This is not as high as the $290-295/t fob Chinese suppliers were targeting, but at
+            least no trader shorted the market at aggressive levels below $280/t fob.
+
+            <h4 class="afo-page-subtitle">Egypt</h4>
+            Exports of urea are likely to be a maximum of 30,000t in February and could be zero. A meeting took place
+            yesterday between the Egyptian urea producers and the ministry of agriculture to discuss the ministry's
+            request for all output to be delivered to the domestic market. The producers did not accede to its request,
+            however. The production situation has improved over the past week, with more urea units operating and others
+            due to restart imminently, but spot trade remains on-hold as domestic commitments are fulfilled.
+
+            <h4 class="afo-page-subtitle">Libya</h4>
+            LifeCo is operating only its larger urea unit, producing about 50,000t/month of prills. It will load around
+            15,000t for European markets and 17,000t for West Africa in January and is planning 18-20,000t for the US in
+            early-February.
+
+            <h4 class="afo-page-subtitle">Algeria</h4>
+            Sorfet has announced that export supply will be lower February-April due to requirements from the domestic
+            market. It estimates that up to a third (approximately 35,000t/month at capacity) of its production will
+            have to be distributed in Algeria.
+
+            <h4 class="afo-page-subtitle"> PHOSPHATE</h4>
+            Producers for the most part are comfortable heading into February; Brazilian stocks are reportedly low and
+            US domestic prices are edging up on limited local supply and sparse imports. OCP will have cargoes for the
+            US in February, plus Ethiopia, and some tonnage to Europe as well as Latin America. The Russians have
+            shipments fixed for Latin America while the lack of GCT tonnes will also be to the benefit of OCP as well as
+            the Jordanians who are shipping to Europe and Australia. China is not interested in DAP exports and is
+            concentrating on the domestic market. In the US, supply is snug. However, end user demand is low especially
+            in Brazil (plus there is plenty of trader length on phosphates heading to Latin America) and Indian demand
+            off-season is muted which could lead to a hiatus in activity at the end of Q1. The market is flat to
+            slightly softer as a result.
+        </div>
+
+        <div class="col-xs-12 col-sm-6 afo-notes">
+            <h4 class="afo-page-subtitle">Tunisia</h4>
+            GCT is understood to have sold 10-12,000t of DAP to Italy in January at $510/t fob. February availability is
+            still unclear but it is understood Tunisian production is running at very low levels. The Tunisian DAP price
+            has been moved upwards notionally to be in line with the Moroccan DAP price and to reflect current
+            theoretical netbacks. However, it is uncertain if GCT is currently offering any tonnes.
+
+            <h4 class="afo-page-subtitle"> Morocco</h4>
+            European buyers believe OCP may have sold as much as 50,000t DAP for January shipment to European markets
+            including Benelux, France and Italy. Importers concur $530-535/t fob is achievable following on from OCP's
+            reported sales last week at this level. The producer is heavily committed for February with NPS headed to
+            Ethiopia, plus a heavy baseload of DAP and MAP for the US. Exports to Latin America are comparatively thin.
+            OCP will bring on line its 1mn t/year granulation facility for the African market at the end of Q1.
+
+            <h4 class="afo-page-subtitle">POTASH</h4>
+            An interesting estimate to come out of the PotashCorp presentation of its Q4 and annual 2014 results is that
+            global shipments were around 61 mn tonnes MOP in 2014. Last year expectations started off at around 56-58 mn
+            then moved upwards to 57-59mn then 58-60 mn and then to 60 mn. A final figure of 61 mn, if proved correct,
+            would reflect substantial growth. Part of it was due to buyers in the second half of 2013 deferring their
+            purchases while prices were tumbling following the split by Uralkali from BPC.
+
+            This could mean that 2015 will not match 2014's figure but this might not necessarily be the case. Two major
+            markets, Brazil and India look set to match or exceed 2014. India's imports turned back up in 2014 and are
+            expected to increase further in 2015, while Brazil is expected to match 2014's record imports. The US market
+            may also be close or, at worst, be only slightly down.
+
+            <h4 class="afo-page-subtitle">Ethiopia</h4>
+            The biggest tender yet closes for this market on 30 January. It calls for 33,011t granular MOP to be shipped
+            in Feb/Mar. It can
+            all be shipped in one cargo apparently.
+
+            It may very well be part of Ethiopia's new ATA (Agricultural Tranformation Agency) initiative and the
+            blending program. The Yargus Nectar blending and bagging system is currently operational in Ethiopia.
+            Delegates to the Argus FMB Africa conference in Addis Ababa 18-20 February can sign up to visit the plant on
+            17 February, the day before the conference starts.
+
+            <h4 class="afo-page-subtitle">South Africa</h4>
+            According to the South African Revenue Service, MOP imports in January-November 2013 were 19pcs higher than
+            2013, up 51,000t. Chile remains the largest supplier, with deliveries stable with the previous year. SQM has
+            operations in South Africa as part of its joint venture with Roullier, SQM VITAS.
 
 
-  </body>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <p class="afo-disclaimer">Copyright © 2015 Argus Media Ltd</p>
+            <br>
+            <hr>
+            <p class="afo-disclaimer-small">Copyright Notice<br>
+                All intellectual property rights in the data and other information published on this page are the
+                exclusive property of Argus, and/or its licensors, and/or IFDC (where applicable) and may only be used
+                under licence.  Without limiting the foregoing, by reading this page you agree that you will not copy,
+                reproduce any part of its contents in any form or for any purpose whatsoever without the prior written
+                consent of Argus.  All rights reserved.
+            </p>
+
+            <p class="afo-disclaimer-small"> Trademark Notice<br>
+                ARGUS, ARGUS MEDIA, the ARGUS LOGO, ARGUS Publication titles and ARGUS index names are trademarks of Argus Media Ltd.  Visit www.argusmedia.com/trademarks for more information.
+            </p>
+            <p class="afo-disclaimer-small">
+                Disclaimer<br>
+                IFDC obtains data from Argus Media under licence, from which data IFDC conducts and publishes its own
+                calculations set out in the tables and graphs on this website.  Argus makes no  warranties, express or
+                implied, as to the accuracy, adequacy, timeliness, or completeness of its data or IFDC’s calculations,
+                or fitness for any particular purpose. Argus shall not be liable for any loss or damage arising from any
+                party’s reliance on Argus’ data or IFDC’s calculations, whether published on this page or otherwise, and
+                disclaims any and all liability related to or arising out of use of the data and/or calculations to the
+                full extent permissible by law.
+            </p>
+
+            <br><br><br><br><br><br>
+        </div>
+
+
+    </div>
+
+
+</div>
+
+<!-- Footer -->
+<div class="container">
+    <div class="footer">
+        <p>AfricaFeritilizer.org - AF Skeleton web application by FENIX</p>
+    </div>
+</div>
+
+<script data-main="prices_international" src="src/lib/require.js"></script>
+
+
+</body>
 </html>

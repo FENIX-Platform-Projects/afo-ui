@@ -2,8 +2,7 @@
 define([
     "underscore",
     "commons/Wds",
-    'text!config/services.json',
-    'webix'
+    'text!config/services.json'
 ], function (_, Wds, C) {
 
     'use strict';
@@ -11,22 +10,19 @@ define([
     var s = {
         PRODUCT: '#dirs_selectProducts',
         COUNTRY: '#dirs_selectCountries',
-        BTN    : '#search-btn',
-        CONTAINER : 'table-result'
+        BTN: '#search-btn',
+        CONTAINER: '#table-result'
     }
 
 
     var CONFIG = {
         "Company": 0,
         "City": 1,
-        "Fertilizer":2,
-        "Others":3
+        "Fertilizer": 2,
+        "Other Fertilizers": 3
     }
 
     var grid;
-
-
-
 
 
     function Selectors() {
@@ -34,10 +30,6 @@ define([
         this.config = JSON.parse(C);
         this._initMapSelector();
         this._applyListener();
-    //    this._initElementSelector();
-    //    this._initProductNutrientSelector();
-    //    this._initCompareSelector();
-    //    this._initShowAsSelector();
     }
 
     Selectors.prototype._initMapSelector = function () {
@@ -54,26 +46,33 @@ define([
 
 
         function createCountryOption(data) {
-            for(var i=0; i < data.length; i++) {
-                $(s.COUNTRY).append("<option value='"+ data[i][0] + "'>"+ data[i][1]+"</option>")
+            for (var i = 0; i < data.length; i++) {
+                if (i == 0) {
+                    $(s.COUNTRY).append("<option value='" + data[i][0] + "' selected>" + data[i][1] + "</option>")
+                    self.startTable(data[i][0])
+                }
+                else {
+                    $(s.COUNTRY).append("<option value='" + data[i][0] + "'>" + data[i][1] + "</option>")
+                }
             }
         }
 
     };
 
 
-    Selectors.prototype._applyListener = function(){
+    Selectors.prototype._applyListener = function () {
 
 
         var self = this;
-        $(s.BTN).on('click', function(e){
+        $(s.COUNTRY).on('change', function (e) {
 
             self.startTable($(s.COUNTRY).val())
         })
 
+
     }
 
-    Selectors.prototype.startTable = function (countrySelected){
+    Selectors.prototype.startTable = function (countrySelected) {
 
         var self = this;
 
@@ -92,13 +91,13 @@ define([
     }
 
 
-    Selectors.prototype.createDataTableModel=  function(){
+    Selectors.prototype.createDataTableModel = function () {
 
         var columns = [];
 
         var titles = Object.keys(CONFIG)
 
-        for(var i = 0; i<titles.length; i++) {
+        for (var i = 0; i < titles.length; i++) {
 
             columns.push({id: "data" + CONFIG[titles[i]], header: titles[i]})
         }
@@ -107,31 +106,46 @@ define([
     }
 
 
-    Selectors.prototype.renderGrid = function( dataSource){
+    Selectors.prototype.renderGrid = function (dataSource) {
 
 
-        var columns = this.createDataTableModel()
+        console.log('here')
 
-        if(grid && grid.destructor){
-            grid.destructor()
+
+        var titles = Object.keys(CONFIG)
+
+        $(s.CONTAINER).empty();
+
+        if (dataSource.length > 0) {
+
+            $(s.CONTAINER).append(' <h3 class="afo-title">table: result</h3><table class="table table-hover" id="tableToAppend"></table>');
+
+            var toAppend;
+
+            for (var i = 0; i < dataSource.length + 1; i++) {
+
+                if (i == 0) {
+                    toAppend += '<thead><tr>';
+                    for (var j = 0; j < titles.length; j++) {
+                        toAppend += '<th>' + titles[j] + '</th>';
+                    }
+                    toAppend += '</tr></thead><tbody>';
+                } else {
+                    toAppend += '<tr>'
+                    for (var j = 0; j < titles.length; j++) {
+                        var value = (dataSource[CONFIG[titles[j]]]) ? dataSource[CONFIG[titles[j]]] : ''
+                        toAppend += '<td>' + value + '</td>';
+                    }
+                    toAppend += '</tr>'
+                }
+            }
+
+            toAppend += '</tbody></table>';
+
+            $('#tableToAppend').append(toAppend);
+
         }
 
-        console.log(columns)
-
-        console.log(dataSource)
-
-
-        grid = webix.ui({
-            container: s.CONTAINER,
-            view: "datatable",
-            rowHeight: 29,
-            columnWidth: 200,
-            clipboard: "selection",
-            columns: columns,
-            datatype: "jsarray",
-            visibleBatch: 1,
-            data: dataSource
-        });
     }
 
     return Selectors;

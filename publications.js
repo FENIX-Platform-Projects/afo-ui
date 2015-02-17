@@ -80,6 +80,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		}
     });
 
+
 	require([
 	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet',
 	    'text!config/services.json',
@@ -155,29 +156,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 	publicationTmpl = Handlebars.compile(publication);
 
 
-	//$.getJSON('data/publications.json', function(json) {
-	
-	sqlCalc="SELECT "+
-"  CONCAT('',publications.category), "+
-"  CONCAT('',publications.title),"+
-"  CONCAT('',publications.description),"+
-"  CONCAT('',publications.publication_date),"+
-"  CONCAT('',publications.posting_date),"+
-"  CONCAT('',publications.source),"+
-"  CONCAT('',publications.author_name), "+
-"  CONCAT('',publications.sector),"+
-"  CONCAT('',publications.language), "+
-"  CONCAT('',publications.region_code), "+
-"  CONCAT('',publications.countries_code), "+
-"  CONCAT('',publications.document_type),"+
-"  CONCAT('',publications.document_size),"+
-"  CONCAT('',publications.document_attachment_name), "+
-"  CONCAT('',publications.document_attachment_title), "+
-"  CONCAT('',publications.document_tags),"+
-"  CONCAT('',publications.publication_rating)"+
-" FROM "+
- " public.publications";
-	
+	//$.getJSON('data/publications.json', function(json) {	
 	
 	function getData(sql){getWDS(sql,null,function(json)	{
 		$('#listPubs').empty();
@@ -210,13 +189,13 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		});		
 	});}
-	getData(sqlCalc);
+	getData(Config.queries.pubs_reformat);
 
 
 	$("#txtSearch").on("input" ,function(){
 	$(".afo-category-list-li").removeClass("active");
 	$(".afo-category-list-li").addClass("noactive");
-	getData(sqlCalc+" where upper(description) like '%"+this.value.toUpperCase().split(" ").join("%")+"%' or upper(title) like '%"+this.value.toUpperCase().split(" ").join("%")+"%' or upper(author_name) like '%"+this.value.toUpperCase().split(" ").join("%")+"%' or upper(source) like '%"+this.value.toUpperCase().split(" ").join("%")+"%'");
+	getData(Config.queries.pubs_reformat+" where upper(description) like '%"+this.value.toUpperCase().split(" ").join("%")+"%' or upper(title) like '%"+this.value.toUpperCase().split(" ").join("%")+"%' or upper(author_name) like '%"+this.value.toUpperCase().split(" ").join("%")+"%' or upper(source) like '%"+this.value.toUpperCase().split(" ").join("%")+"%'");
 	});
 	
 	
@@ -230,8 +209,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 	$(".afo-category-list-li").addClass("noactive");
 	//console.log(this.innerHTML)
 	document.getElementById("txtSearch").value="";
-	getData(sqlCalc+" where upper(category) like '%"+this.innerHTML.toUpperCase()+"%' ");
-	//console.log(sqlCalc+" where upper(category) like '%"+this.innerHTML.toUpperCase()+"%' ")
+	getData(Config.queries.pubs_reformat+" where upper(category) like '%"+this.innerHTML.toUpperCase()+"%' ");
+	//console.log(Config.queries.pubs_reformat+" where upper(category) like '%"+this.innerHTML.toUpperCase()+"%' ")
 	this.className="afo-category-list-li active";
 	})
 	

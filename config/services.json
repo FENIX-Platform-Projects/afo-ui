@@ -46,7 +46,10 @@
     "compare_by_product": "SELECT cc.fertilizer_label, d.year, d.value, d.um FROM compare d, codes_fertilizers cc WHERE d.data_source IN ('{SOURCE}') AND d.country IN ({COUNTRY}) AND d.element IN ({ELEMENT}) AND d.fertilizer IN ({PRODUCT}) AND d.fertilizer = cc.fertilizer_code AND n_p IN ('{KIND}') AND d.value IS NOT NULL ORDER BY cc.fertilizer_label ASC, d.year ASC",
 
     "directory_business_country": "SELECT distinct country_name, country_name FROM dealers order by country_name ASC",
-    "directory_business_result": "select company_name, city, fertilizer, other_fertilizer from dealers where country_name IN ({COUNTRY})"
+    "directory_business_result": "select company_name, city, fertilizer, other_fertilizer from dealers where country_name IN ({COUNTRY})",
+
+    "pubs_reformat": "SELECT CONCAT('',publications.category), CONCAT('',publications.title),  CONCAT('',publications.description),  CONCAT('',publications.publication_date),  CONCAT('',publications.posting_date),  CONCAT('',publications.source),  CONCAT('',publications.author_name),   CONCAT('',publications.sector),  CONCAT('',publications.language),   CONCAT('',publications.region_code),   CONCAT('',publications.countries_code),   CONCAT('',publications.document_type),  CONCAT('',publications.document_size),  CONCAT('',publications.document_attachment_name),   CONCAT('',publications.document_attachment_title),   CONCAT('',publications.document_tags), CONCAT('',publications.publication_rating) FROM public.publications"
+
 
   }
 }

@@ -126,6 +126,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 
         var listProducts$ = $('#prices_selectProduct'),
+        	rangeMonths$ = $('#prices_rangeMonths'),
         	Selection = {
 				fertilizer_code: '3102100000',
 				month_from_yyyymm: '201003',
@@ -199,40 +200,42 @@ require(["submodules/fenix-ui-menu/js/paths",
 			});
 		}
 
-		function pickSelection() {
-			var values = $("#productsRangeMonths").rangeSlider("values"),
+        //JQUERY range slider
+		rangeMonths$.dateRangeSlider();
+
+		rangeMonths$.on('valuesChanged', function(e, data) {
+			var values = data.values,//rangeMonths$.rangeSlider("values"),
 				minD = new Date(values.min),
 				maxD = new Date(values.max),
 				minDate = minD.getFullYear()+(minD.getMonth()+1),
 				maxDate = maxD.getFullYear()+(maxD.getMonth()+1);
 
-			return {
+			Selection = {
 				fertilizer_code: $("#prices_selectProduct").val(),
 				month_from_yyyymm: minDate,
 				month_to_yyyymm: maxDate
 			};
-		}
-        //JQUERY range slider
-		$("#productsRangeMonths").dateRangeSlider();
 
-		$("#productsRangeMonths").on('valuesChanged', function(e) {
-			loadMarkers( pickSelection() );
+console.log('valuesChanged', Selection);
+
+			loadMarkers( Selection );
 		});
 
 		$("#prices_selectProduct").on('change', function(e) {
-			loadMarkers( pickSelection() );
+			Selection.fertilizer_code = $(e.target).val();
+			loadMarkers( Selection );
 		});
 
-		
+		getWDS(Config.queries.prices_detailed_products, null, function(products) {
 
-		getWDS(Config.queries.prices_detailed_products, null,function(products) {
+console.log(products);
 
             for(var r in products)
                 listProducts$.append('<option value="'+products[r][0]+'">'+products[r][1]+'</option>');
 
 		});
 
-		loadMarkers( pickSelection() );
+		//loadMarkers( pickSelection() );
 
 
 		$('#prices_international_grid').load("prices/html/prices_international.html");

@@ -16,17 +16,20 @@
 
     <!-- Third Party CSS -->
     <link href="//fenixapps.fao.org/repository/js/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-
+    <!-- Third Party CSS -->
+    <link rel="stylesheet" href='node_modules/jstree/dist/themes/default/style.min.css'/>
     <link rel="stylesheet" type="text/css" href="submodules/fenix-ui-olap/css/pivot.css">
-    <link rel="stylesheet" type="text/css" href="submodules/fenix-ui-olap/lib/grid/gt_grid_height.css" />
-	
-	<link rel="stylesheet" type="text/css" href="css/components/pivotConfiguration.css"  />
+    <link rel="stylesheet" type="text/css" href="submodules/fenix-ui-olap/lib/grid/gt_grid_height.css"/>
 
-    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet.css" />
-    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/MarkerCluster.css">
-    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/MarkerCluster.Default.css">
- 
- 
+    <link rel="stylesheet" type="text/css" href="css/components/pivotConfiguration.css"/>
+
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet.css"/>
+    <link rel="stylesheet"
+          href="http://fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/MarkerCluster.css">
+    <link rel="stylesheet"
+          href="http://fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/MarkerCluster.Default.css">
+
+
     <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/jquery.rangeslider/5.7.0/css/classic-min.css">
     <!-- FENIX CSS -->
     <link rel="stylesheet" type="text/css" href="css/host.css">
@@ -46,66 +49,92 @@
         <div class="col-xs-12">
             <div class="page-header">
                 <h2>National Prices</h2>
-                <p>This section provides information on monthly national prices for the different types of fertilizers.</p>
+
+                <p>This section provides information on monthly national prices for the different types of
+                    fertilizers.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <h3>Averaged prices calculated from local prices</h3>
+
+        <div class="col-xs-12 col-sm-6">
+            <div class="page-header">
+                <h3 class="afo-title">SELECT FERTILIZER</h3>
+                <br><br><br>
+                <label for="product-search-s"> Filter </label>
+                <input type="text" id="product-search-s" value="" class="input">
+
+                <div id="product-s" style="height: 150px; overflow: auto"></div>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="page-header">
+                <h3 class="afo-title">SELECT TIME RANGE</h3>
+                <br><br><br><br>
+
+                <div class="afo-range"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- search -->
+<!--
+<div class="container">
+
+    <div class="row">
+        <div class="col-xs-12 afo-stat-search-holder">
+            <button type="button" class="btn btn-default pull-right" id="search-btn"> Search</button>
+        </div>
+    </div>
+
+
+</div>
+-->
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="fx-olap-holder">
+
+                <div id="pivot"></div>
+
+                <div id="fx-olap-holder-div"></div>
+                <div id="myGrid1_div"></div>
+                <div id="mesFlags" style="clear:both"></div>
+                <div id="pivot_loader" class="text-center"><i class="icon loader-xs"></i> &nbsp;Loading data...</div>
+                <button id="pivot_download" style="display:none" class="btn btn-default" type="button">
+                    <i class="glyphicon glyphicon-download"></i> Download XLS File
+                </button>
+                <form id="xlsDataForm" action="http://faostat3.fao.org/faostat-olapws/ExportPOI2" method="POST">
+                    <!--textarea id="myJson"  name="myJson" ></textarea-->
+                    <input id="myJson" name="myJson" type="hidden" value=""/>
+                    <input id="myFlags" name="myFlags" type="hidden"
+                           value='{"data":[{"title":"","label":"Official data"}]}'/>
+                </form>
             </div>
         </div>
     </div>
 
 
-<div class="row">
-    <h3>Averaged prices calculated from local prices</h3>
-            <div class="col-xs-12 col-sm-6">
-                <div class="page-header">
-                    <h3 class="afo-title">SELECT FERTILIZER</h3>
-                    <br><br><br>
-		            <label for="dirs_selectCountries">Product:</label>
-		            <select class="form-control" id="prices_selectProduct">
-		            </select>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6">
-                <div class="page-header">
-                    <h3 class="afo-title">SELECT TIME RANGE</h3>
-                    <br><br><br><br>
-                    <div class="afo-range"></div>
-                </div>
-            </div>            
-        </div>
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="fx-olap-holder">
-						
-						<div id="pivot"></div>
+</div>
 
-						<div id="fx-olap-holder-div"></div>
-						<div id="myGrid1_div"></div>
-						<div id="mesFlags" style="clear:both"></div>
-						<div id="pivot_loader" class="text-center"><i class="icon loader-xs"></i> &nbsp;Loading data...</div>
-						<button id="pivot_download" style="display:none" class="btn btn-default" type="button">
-						<i class="glyphicon glyphicon-download"></i> Download XLS File</button>
-						<form id="xlsDataForm" action="http://faostat3.fao.org/faostat-olapws/ExportPOI2" method="POST" >
-                            <!--textarea id="myJson"  name="myJson" ></textarea-->
-                            <input id="myJson"  name="myJson" type="hidden" value="" />
-                            <input id="myFlags"  name="myFlags" type="hidden" value='{"data":[{"title":"","label":"Official data"}]}' />
-                        </form>
-                    </div>
-				</div>
-			</div>
-		
-
-	</div>
-
-    <!-- Footer -->
-    <div class="container">
-      <div class="footer">
+<!-- Footer -->
+<div class="container">
+    <div class="footer">
         <p>AfricaFeritilizer.org - AF Skeleton web application by FENIX</p>
-      </div>
     </div>
+</div>
 
-    <script src="https://www.google.com/jsapi"></script>
+<script src="https://www.google.com/jsapi"></script>
 
-	<script data-main="prices_national" src="src/lib/require.js"></script>
+<script data-main="prices_national" src="src/lib/require.js"></script>
 
 
-  </body>
+</body>
 </html>

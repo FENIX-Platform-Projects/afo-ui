@@ -199,16 +199,12 @@ require(["submodules/fenix-ui-menu/js/paths",
 			});
 		}
 
-		loadMarkers(Selection);
-
 		function pickSelection() {
-			var values = $(".afo-range:first").rangeSlider("values"),
+			var values = $("#productsRangeMonths").rangeSlider("values"),
 				minD = new Date(values.min),
 				maxD = new Date(values.max),
 				minDate = minD.getFullYear()+(minD.getMonth()+1),
 				maxDate = maxD.getFullYear()+(maxD.getMonth()+1);
-
-			console.log(minD, maxD, data);
 
 			return {
 				fertilizer_code: $("#prices_selectProduct").val(),
@@ -216,6 +212,18 @@ require(["submodules/fenix-ui-menu/js/paths",
 				month_to_yyyymm: maxDate
 			};
 		}
+        //JQUERY range slider
+		$("#productsRangeMonths").dateRangeSlider();
+
+		$("#productsRangeMonths").on('valuesChanged', function(e) {
+			loadMarkers( pickSelection() );
+		});
+
+		$("#prices_selectProduct").on('change', function(e) {
+			loadMarkers( pickSelection() );
+		});
+
+		
 
 		getWDS(Config.queries.prices_detailed_products, null,function(products) {
 
@@ -224,14 +232,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		});
 
-        //JQUERY range slider
-		$(".afo-range").dateRangeSlider().on('valuesChanged', function(e) {
-			loadMarkers( pickSelection() );
-		});
+		loadMarkers( pickSelection() );
 
-		$("#prices_selectProduct").on('change', function(e) {
-			loadMarkers( pickSelection() );
-		});
 
 		$('#prices_international_grid').load("prices/html/prices_international.html");
 

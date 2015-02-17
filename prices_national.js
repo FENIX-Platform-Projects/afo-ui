@@ -379,7 +379,7 @@ console.log(data);
 					vals: ["Value", "Flag"],
 					hiddenAttributes:["Month2","Unit","Item"],
 					linkedAttributes:[]
-				});
+				},true);
 
 				$("#pivot_loader").hide();
 				$("#pivot_download").show();

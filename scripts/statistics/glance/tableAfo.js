@@ -4,6 +4,7 @@ define(['webix'], function () {
         "leftColumns": 1,
         "upPosition": 2,
         "valuePosition": 3,
+        "umPosition": 4,
         "arrayLength": 5,
         container: 'table1'
     };
@@ -16,6 +17,8 @@ define(['webix'], function () {
     }
 
     WebixAdapter.prototype.render = function (data) {
+
+        delete this.UM;
 
         if (this.table && this.table.destructor) {
             this.table.destructor();
@@ -43,6 +46,8 @@ define(['webix'], function () {
 
         for (var i = 0; i < data.length; i++) {
 
+            this.checkUM(data[i]);
+
             this.harmonizeArray(data[i]);
 
             this.createUniqueArray('up', data[i], this.upArray);
@@ -66,7 +71,9 @@ define(['webix'], function () {
         if (dataVector[versusPosition] && Object.keys(objectToFill).length == 0  && dataVector[versusPosition] != '-1'||
             (dataVector[versusPosition] && dataVector[versusPosition] != null && !objectToFill[versusPosition] == true
             && dataVector[versusPosition] != 'undefined' && dataVector[versusPosition] != '-1')) {
-            objectToFill[dataVector[versusPosition]] = true;
+
+                objectToFill[dataVector[versusPosition]] = true
+
         }
     };
 
@@ -124,9 +131,9 @@ define(['webix'], function () {
         var result = [];
 
         for (var j = 0; j < arrayLeft.length; j++) {
-            var left = arrayLeft[j]
+            var left = arrayLeft[j] + " ( "+this.UM + " )";
             var element = []
-            element.push(left);
+            element.push(left );
             for (var k = 0; k < arrayUp.length; k++) {
                 for (var n = 0; n < data.length; n++) {
                     if (data[n][POS.upPosition] == arrayUp[k] && data[n][POS.leftColumns] == arrayLeft[j]) {
@@ -150,6 +157,13 @@ define(['webix'], function () {
         }
 
 
+    }
+
+
+    WebixAdapter.prototype.checkUM = function (vector){
+        if(!this.UM && vector[POS.umPosition]){
+            this.UM = vector[POS.umPosition]
+        }
     }
 
     return WebixAdapter;

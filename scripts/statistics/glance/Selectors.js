@@ -15,7 +15,7 @@ define([
         PRODUCT_SEARCH: '#product-search-s',
         N_P: '#n-p-s'
     }, defaultValues = {
-          DATA_SOURCE: 'ftwg',
+          DATA_SOURCE: 'faostat',
           N_P: 'p'
     }, selection = { COUNTRIES: null };
 

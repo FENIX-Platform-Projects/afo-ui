@@ -3,8 +3,8 @@ define([
     'underscore',
     'fx-menu/start',
     'AuthenticationManager',
-    'production/Results',
-    'production/Selectors',
+    'compare/Results',
+    'compare/Selectors',
     'text!config/services.json',
     'amplify'
 ], function (_, Menu, AuthenticationManager, Results, Selectors, Config) {

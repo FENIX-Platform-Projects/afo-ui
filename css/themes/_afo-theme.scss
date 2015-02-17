@@ -13,7 +13,7 @@ body{
 
 
 .obj-box {
-  border: none;
+
 }
 
 // Buttons
@@ -72,6 +72,10 @@ body{
 .page-header{
   margin: 0;
   border-bottom: none;
+  h2{
+    margin-top: 5px;
+  }
+
   p{
     text-align: left;
   }
@@ -302,6 +306,15 @@ thead{
   text-transform: uppercase;
 }
 
+.afo-title-gray{
+  background-color: $afo-hairline;
+  display: inline-block;
+  font: $fx-text-smalltitle-normal;
+  color: $fenix-text;
+  padding: 2px 7px;
+  text-transform: uppercase;
+}
+
 
 
 .modal-dialog  {
@@ -404,3 +417,5 @@ thead{
 .afo-sidebar-first{
   margin-top: 30px;
 }
+
+

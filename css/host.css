@@ -1744,11 +1744,6 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   src: url("fonts/sansation-light-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/sansation-light-webfont.woff2") format("woff2"), url("fonts/sansation-light-webfont.woff") format("woff"), url("fonts/sansation-light-webfont.ttf") format("truetype"), url("fonts/sansation-light-webfont.svg#sansation_lightlight") format("svg");
   font-weight: normal;
   font-style: normal; }
-.afo-page-title {
-  font-family: "sansation_lightlight";
-  font-size: 26px;
-  color: #666666; }
-
 .afo-page-subtitle {
   font-size: 12px;
   font-weight: 500;
@@ -1984,6 +1979,51 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   color: #336600;
   font-size: 24px;
   content: "\eb28"; }
+
+/* Afo Radio Buttons */
+input[type="radio"] {
+  display: none; }
+
+input[type="radio"] + label {
+  cursor: pointer;
+  margin: 0 7px;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 500; }
+  input[type="radio"] + label:before {
+    content: '';
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    background-color: #e4e4e4;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    border-radius: 100%;
+    border: 0 solid #5ba539;
+    position: relative;
+    top: 4px;
+    left: -4px; }
+
+input[type="radio"]:checked + label {
+  color: #5ba539; }
+  input[type="radio"]:checked + label:before {
+    border-width: 5px; }
+
+input[type="radio"] + label,
+input[type="radio"]:checked + label {
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -ms-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s; }
+  input[type="radio"] + label:before,
+  input[type="radio"]:checked + label:before {
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -ms-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s; }
 
 /* Afo Range Slider */
 .ui-rangeSlider-innerBar {
@@ -2604,6 +2644,18 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 .fx-handle {
   border: none; }
 
+#data-sources-s {
+  display: inline-block; }
+
+#n-p-s {
+  display: inline-block; }
+
+.afo-statistics-glance .span12 hr {
+  margin: 0 0 10px 0; }
+
+.afo-stat-sources .afo-title-gray {
+  margin-top: 0; }
+
 /* Africa Fertilizer - Swiper */
 /* Highlights */
 #afo-high-swiper-container-wrapper {
@@ -2826,9 +2878,6 @@ body {
   background-color: whitesmoke;
   color: #666666; }
 
-.obj-box, .obj-box-radius10, .obj-box-title {
-  border: none; }
-
 .btn {
   background-color: transparent;
   color: #5ba539;
@@ -2880,6 +2929,8 @@ body {
 .page-header {
   margin: 0;
   border-bottom: none; }
+  .page-header h2 {
+    margin-top: 5px; }
   .page-header p {
     text-align: left; }
 
@@ -3058,6 +3109,14 @@ thead {
   display: inline-block;
   font: normal normal 400 10px/normal "Roboto";
   color: #5ba539;
+  padding: 2px 7px;
+  text-transform: uppercase; }
+
+.afo-title-gray {
+  background-color: #e4e4e4;
+  display: inline-block;
+  font: normal normal 400 10px/normal "Roboto";
+  color: #666666;
   padding: 2px 7px;
   text-transform: uppercase; }
 

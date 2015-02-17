@@ -30,8 +30,7 @@
 <body>
 
 
-<div class="container"><!-- main Container -->
-
+<div class="container afo-statistics-glance"><!-- main Container -->
 
 
     <!-- breadcrumbs -->
@@ -45,44 +44,64 @@
         <div class="col-xs-12">
             <div class="page-header">
                 <h2>Fertilizer statistics at a glance</h2>
-                <p>Key fertilizer information from the main data sources. Please select a country using one of the African region and display tables and graphs by clicking “Search”.</p>
+
+                <p>Key fertilizer information from the main data sources. Please select a country using one of the
+                    African region and display tables and graphs by clicking “Search”.</p>
             </div>
         </div>
     </div>
 
+
+    <div class='row'>
+        <div class='span12'><hr></div>
+    </div>
+
+
+
     <!-- selectors-->
-    <div class="row">
+
+
+
+    <div class="row afo-stat-sources">
         <!-- Data Sources -->
-        <div class="col-xs-6">
+        <div class="col-xs-12 col-sm-9">
+            <h3 class="afo-title-gray">Data sources</h3>
             <div id="data-sources-s"></div>
         </div>
         <!-- Nutrient Product switch-->
-        <div class="col-xs-6">
+        <div class="col-xs-12 col-sm-3">
+            <h3 class="afo-title-gray">Kind</h3>
             <div id="n-p-s"></div>
         </div>
 
     </div>
 
-    <div class="row">
+    <div class='row'>
+        <div class='span12'><hr></div>
+    </div>
+
+    <div class="row afo-stat-geo">
 
         <!-- Geo List -->
-        <div class="col-xs-3">
-            <label class="">Africa Regions</label>
-            <select id="stats_selectRegions" class="form-control" style="height:300px;width:100%" size="8" >
+        <div class="col-xs-12 col-sm-3">
+            <h3 class="afo-title-gray">AFRICA REGIONS</h3>
+            <select id="stats_selectRegions" class="form-control" style="height:300px;width:100%" size="8">
             </select>
         </div>
         <!-- Geo Map-->
-        <div class="col-xs-6">
+        <div class="col-xs-12 col-sm-6">
 
             <div class="afo-tabs" role="tabpanel">
 
                 <ul id="prices_tabs" class="nav nav-tabs" role="tablist">
                     <li><a href="#stats_selectCountries_tab" role="tab" data-toggle="tab">Countries list</a></li>
-                    <li class="active"><a href="#stats_map_countries_tab" role="tab" data-toggle="tab">Countries map</a></li>
+                    <li class="active"><a href="#stats_map_countries_tab" role="tab" data-toggle="tab">Countries
+                        map</a></li>
                 </ul>
-                <div class="tab-content afo-prices-tab-content obj-box">
+                <div class="tab-content afo-prices-tab-content">
                     <div class="tab-pane" id="stats_selectCountries_tab">
-                        <select id="stats_selectCountries" class="form-control" style="height:300px;width:100%" size="8" >
+                        <select id="stats_selectCountries" class="form-control" style="height:300px;width:100%"
+                                size="8">
                         </select>
                     </div>
                     <div class="tab-pane active" id="stats_map_countries_tab">
@@ -94,13 +113,16 @@
         </div>
 
         <!-- Product list-->
-        <div class="col-xs-3" style="max-height:300px">
+        <div class="col-xs-12 col-sm-3" style="max-height:300px">
             <label for="product-search-s"> Filter </label>
             <input type="text" id="product-search-s" value="" class="input">
-            <div id="product-s"  style="height: 150px; overflow: auto"></div>
+
+            <div id="product-s" style="height: 150px; overflow: auto"></div>
         </div>
 
     </div>
+
+
 
 </div>
 
@@ -110,7 +132,7 @@
 
     <div class="row">
         <div class="col-xs-12">
-            <button type="button" class="btn btn-default" id="search-btn"> Search </button>
+            <button type="button" class="btn btn-default" id="search-btn"> Search</button>
         </div>
     </div>
 
@@ -130,10 +152,12 @@
     <div class="row">
         <div class="col-xs-6">
             <h2>Production</h2>
+
             <div id="chart1"></div>
         </div>
         <div class="col-xs-6">
             <h2>Import / Export</h2>
+
             <div id="chart2"></div>
         </div>
     </div>
@@ -144,7 +168,7 @@
 
     <div class="row">
         <div class="col-xs-12">
-           COURTESY Message
+            COURTESY Message
         </div>
     </div>
 

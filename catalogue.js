@@ -364,7 +364,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		$.ajax({
 			url: Config.sldUrl,
 			data: {
-				stylename: "fenix:gaul0_faostat_3857",
+				stylename: "fenix:"+Config.gaulLayer,
 				style: style
 			},
 			async: false,

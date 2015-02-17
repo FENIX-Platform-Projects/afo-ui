@@ -204,8 +204,12 @@ require(["submodules/fenix-ui-menu/js/paths",
 			});
 		}
 
-        //JQUERY range slider
-		rangeMonths$.dateRangeSlider();
+        //	month_from_yyyymm: '201003',
+		//	month_to_yyyymm: '201501'
+		rangeMonths$.dateRangeSlider({
+			min: new Date(2010, 03, 1),
+    		max: new Date(2015, 01, 1)
+		});
 
 		rangeMonths$.on('valuesChanged', function(e, data) {
 
@@ -227,8 +231,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 				month_from_yyyymm: minDate,
 				month_to_yyyymm: maxDate
 			};
-
-console.log('valuesChanged', Selection);
 
 			loadMarkers( Selection );
 		});	

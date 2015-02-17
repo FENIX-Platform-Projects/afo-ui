@@ -1,0 +1,59 @@
+{
+  "dbName": "africafertilizer",
+  "gaulLayer": "gaul0_faostat_afo_3857",
+  "wdsUrl": "http://faostat3.fao.org/wds/rest/table/json",
+  "mapUrl": "http://fenixapps.fao.org/maps-africaferilizers/api?",
+  "wmsUrl": "http://fenixapps2.fao.org/geoserver-demo",
+  "sldUrl": "http://fenixapps2.fao.org/geoservices/CSS2SLD",
+  
+  "url_geoserver_wms": "http://fenix.fao.org/geoserver",
+  "url_bbox": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/bbox/layer/gaul0_faostat_afo_4326/",
+  "url_spatialquery": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/query/",
+  
+  "url_spatialquery_enc": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/query/<%= sql %>?geojsonEncoding=True",
+
+  "url_geocoding": "http://fenix.fao.org/geo/fenix/geocoding/latlon/",
+  "url_baselayer": "http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}.png",
+  "url_osmlayer": "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
+
+  "queries": {
+    "home_maps": "select ams.country_code, country_label, afo_footprint, manufacturing_plant, blending_plant from afo_map_slider ams, codes_countries cc where ams.country_code = cc.country_code",
+    "fertilizers_tree": "select fc.fertilizer_class as group, fc.fertilizer_code as id, cf.fertilizer_label as text from fertilizers_class fc, codes_fertilizers cf where fc.fertilizer_code = cf.fertilizer_code order by fc.fertilizer_class",
+    "fertilizers_country": "select distinct country_code from fertilizers_country where fertilizer_code in ( <%= fertilizersList %> )",
+    "dealers": "select * from dealers",
+    "regions": "select country_code, country_label from codes_countries where parent_code = '' order by country_code ",
+    "countries": "select DISTINCT country_code, country_label from codes_countries where parent_code <> '' order by country_label",
+    "countries_byregion": "SELECT country_code, country_label FROM codes_countries WHERE parent_code = <%= id %> ",
+    "countries_geojson": "SELECT ST_AsGeoJSON(geom), adm0_code, areanamee FROM spatial.gaul0_faostat_afo_4326 WHERE adm0_code IN ( <%= ids %> ) ",
+    "countries_groups": "SELECT country, name FROM countries WHERE value = 1 AND name IN ( <%= ids %> ) ",
+    "data_sources": "select * from codes_data_sources",
+    "products": "select DISTINCT fertilizer_label, fertilizer_code from codes_fertilizers ORDER BY fertilizer_label",
+    "elements": "select DISTINCT * from codes_elements",
+    "countries": "select country_code, country_label from countries_unique order by country_label",
+    "prices_national" : "select area, item, year, month, to_char(value,'FM999999999999999999.00') as value, unit, '' as flag from prices_national",
+    "prices_national_filter" : "select area, item, year, month, to_char(value,'FM999999999999999999.00') as value, unit, '' as flag from prices_national where fertilizer_code = '<%= fertilizer_code %>' and month_number between <%= month_from_yyyymm %> and <%= month_to_yyyymm %>",
+    "prices_detailed_local_geofilter" : "select market, town_location, to_char(avg(unit_price_usd),'FM999999999999999999.00') as price, 'USD' as unit from prices_local where fertilizer = '<%= fertilizer_code %>' and month between <%= month_from_yyyymm %> and <%= month_to_yyyymm %> group by market, town_location",
+    "prices_detailed_products": "select c.fertilizer_code, c.fertilizer_label from codes_fertilizers c, prices_local d where  c.fertilizer_code = d.fertilizer group by c.fertilizer_code, c.fertilizer_label order by c.fertilizer_label ASC ",
+    "select_from_compare": "select element_code, element_label, year, coalesce(value, -1), um from ( select element, year, value, um from compare where data_source = '{SOURCE}' and fertilizer = '{PRODUCT}' and country = '{COUNTRY}' and n_p = '{KIND}' ) c right join codes_elements on element = element_code ORDER BY element ASC, year ASC",
+    "select_from_compare_chart": "select element_code, element_label, year, value, um from ( select element, year, value, um from compare where data_source = '{SOURCE}' and fertilizer = '{PRODUCT}' and country = '{COUNTRY}' and n_p = '{KIND}' ) c join codes_elements on element = element_code WHERE value is not null ORDER BY element ASC, year ASC",
+    "select_from_compare_cstat": "select element_code, element_label, year, coalesce(value, -1), um from ( select element, year, value, um from country_stat where fertilizer = '{PRODUCT}' and country = '{COUNTRY}' and n_p = '{KIND}' ) c right join codes_elements on element = element_code ORDER BY element ASC, year ASC",
+    "select_from_compare_chart_cstat": "select element_code, element_label, year, value, um from ( select element, year, value, um from country_stat where fertilizer = '{PRODUCT}' and country = '{COUNTRY}' and n_p = '{KIND}' ) c  join codes_elements on element = element_code WHERE value is not null ORDER BY element ASC, year ASC",
+
+    "select_dynamic_compare": "select element_code, element_label, year, coalesce(value, -1), um from ( select element, year, value, um from compare where {WHERE} ) c right join codes_elements on element = element_code ORDER BY element ASC, year ASC" ,
+    "product_by_source" : "select c.fertilizer_code, c.fertilizer_label from codes_fertilizers c, compare d where  d.data_source = '{SOURCE}' and c.fertilizer_code = d.fertilizer group by c.fertilizer_code, c.fertilizer_label order by c.fertilizer_label ASC",
+    "compare_by_country": "SELECT cc.country_label, d.year, d.value, d.um FROM compare d, countries_unique cc WHERE d.data_source IN ('{SOURCE}') AND d.country IN ({COUNTRY}) AND d.country = cc.country_code AND d.element IN ({ELEMENT}) AND d.fertilizer IN ({PRODUCT}) AND n_p IN ('{KIND}') AND d.value IS NOT NULL ORDER BY cc.country_label ASC, d.year ASC",
+    "compare_by_element": "SELECT cc.element_label, d.year, d.value, d.um FROM compare d, codes_elements cc WHERE d.data_source IN ('{SOURCE}') AND d.country IN ({COUNTRY}) AND d.element IN ({ELEMENT}) AND d.element = cc.element_code AND d.fertilizer IN ({PRODUCT}) AND n_p IN ('{KIND}') AND d.value IS NOT NULL ORDER BY cc.element_label ASC, d.year ASC",
+    "compare_by_product": "SELECT cc.fertilizer_label, d.year, d.value, d.um FROM compare d, codes_fertilizers cc WHERE d.data_source IN ('{SOURCE}') AND d.country IN ({COUNTRY}) AND d.element IN ({ELEMENT}) AND d.fertilizer IN ({PRODUCT}) AND d.fertilizer = cc.fertilizer_code AND n_p IN ('{KIND}') AND d.value IS NOT NULL ORDER BY cc.fertilizer_label ASC, d.year ASC"
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

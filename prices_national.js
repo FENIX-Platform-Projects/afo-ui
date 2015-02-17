@@ -393,7 +393,7 @@ getWDS(Config.queries.prices_national_filter, {
 		}
 
 		loadOlapData({
-				fertilizer_code: '2814200000',
+				fertilizer_code: ['2510000002'],
 				month_from_yyyymm: '201003',
 				month_to_yyyymm: '201501'
 			});
@@ -411,12 +411,11 @@ getWDS(Config.queries.prices_national_filter, {
 				minDate = ""+minD.getFullYear()+minMonth,
 				maxDate = ""+maxD.getFullYear()+maxMonth;
 
-
-			loadOlapData({
-					fertilizer_code: $('#product-s').jstree(true).get_selected(),
-					month_from_yyyymm: minDate,
-					month_to_yyyymm: maxDate
-				});
+                loadOlapData({
+                    fertilizer_code: $('#product-s').jstree(true).get_selected().join("', '"),
+                    month_from_yyyymm: minDate,
+                    month_to_yyyymm: maxDate
+                });
 		});
 		
 		getWDS(Config.queries.products, null,function(res) {
@@ -458,6 +457,16 @@ getWDS(Config.queries.prices_national_filter, {
                         show_only_matches: true
                     },
                     "ui": {"initially_select": ['2814200000']}
+                }).on('changed.jstree', function (e, data) {
+
+                    console.log($('#product-s').jstree(true).get_selected())
+
+                    loadOlapData({
+                        fertilizer_code: $('#product-s').jstree(true).get_selected().join("', '"),
+                        month_from_yyyymm: minDate,
+                        month_to_yyyymm: maxDate
+                    });
+
                 });
 
                 $(s_product).jstree(true).select_node('ul > li:first');
@@ -500,48 +509,6 @@ getWDS(Config.queries.prices_national_filter, {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-		$("#prices_selectProduct").on('change', function(e) {
-		
-
-
-			loadOlapData({
-					fertilizer_code: $("#prices_selectProduct").val(),
-					month_from_yyyymm: minDate,
-					month_to_yyyymm: maxDate
-				});
-		});
 		
 
     });

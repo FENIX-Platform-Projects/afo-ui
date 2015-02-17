@@ -167,7 +167,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 			}).addControl(L.control.zoom({position:'bottomright'}))
 
 		var layerRetail = new L.MarkerClusterGroup({
-			maxClusterRadius:30
+			maxClusterRadius: 30,
+		    showCoverageOnHover: false
 		});
 		layerRetail.addTo(map);
 
@@ -190,8 +191,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		loadMarkers({
 				fertilizer_code: '3102100000',
-				month_from_yyyymm: '201201',
-				month_to_yyyymm: '201212'
+				month_from_yyyymm: '201003',
+				month_to_yyyymm: '201501'
 			});
 
         //JQUERY range slider
@@ -204,11 +205,12 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 			console.log(minD, maxD, data);
 
-			loadMarkers({
-					fertilizer_code: $("#prices_selectProduct").val(),
-					month_from_yyyymm: minDate,
-					month_to_yyyymm: maxDate
-				});
+			if(data && data.length)
+				loadMarkers({
+						fertilizer_code: $("#prices_selectProduct").val(),
+						month_from_yyyymm: minDate,
+						month_to_yyyymm: maxDate
+					});
 		});
 
 		getWDS(Config.queries.products, null,function(products) {

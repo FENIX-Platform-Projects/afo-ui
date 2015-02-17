@@ -1,11 +1,83 @@
 /* Afo Pivot */
 
-//#pivot{
-//  table {
-//    border: 0;
-//  }
-//}
-//
+.pvtAxisContainer, .pvtVals{
+
+  background: transparent;
+}
+
+#pivot{
+  >table{
+
+    >tbody{
+      border: 0;
+
+      >tr{
+      position: relative;
+
+
+
+        &:nth-child(2){
+          position: relative;
+
+          &:after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: $afo-hairline;
+
+
+          }
+
+          &:before{
+            content: 'ROW';
+            position: absolute;
+            top: 5px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+          }
+
+        }
+
+
+        &:nth-child(3){
+          position: relative;
+
+          &:after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: $afo-hairline;
+
+
+          }
+
+          &:before{
+            content: 'COLUMN';
+            position: absolute;
+            top: 5px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+          }
+
+
+        }
+
+
+      }
+    }
+
+  }
+
+}
+
 
 .fx-olap-holder{
   overflow: hidden;

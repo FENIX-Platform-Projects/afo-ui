@@ -109,3 +109,23 @@
 
   }
 }
+
+.label{
+  display: inline-block;
+}
+
+.afo-attach{
+
+  a{
+    color: $fenix-text;
+    text-decoration: none;
+
+    &:hover{
+      color: $fenix-text;
+      text-decoration: none;
+    }
+  }
+
+
+
+}

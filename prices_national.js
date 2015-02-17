@@ -374,8 +374,8 @@ console.log(data);
 							return "<span class=\"ordre\">" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
 						},"Indicator":function(mp){return mp["Item"]+" ("+mp["Unit"]+")";}
 					},
-					rows: ["Area", "Indicator"],
-					cols: ["Year", "Month"],
+					rows: ["Area", "Indicator", "Month"],
+					cols: ["Year"],
 					vals: ["Value", "Flag"],
 					hiddenAttributes:["Month2","Unit","Item"],
 					linkedAttributes:[]

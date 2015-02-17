@@ -1813,6 +1813,16 @@ div[data-module="region"] .fx-catalog-modular-form-content {
     font-style: normal;
     color: #5ba539; }
 
+.label {
+  display: inline-block; }
+
+.afo-attach a {
+  color: #666666;
+  text-decoration: none; }
+  .afo-attach a:hover {
+    color: #666666;
+    text-decoration: none; }
+
 /* Components */
 /* AFO  BreadCrumbs */
 #breadcumb_container {
@@ -2044,6 +2054,48 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   content: "\eb28"; }
 
 /* Afo Pivot */
+.pvtAxisContainer, .pvtVals {
+  background: transparent; }
+
+#pivot > table > tbody {
+  border: 0; }
+  #pivot > table > tbody > tr {
+    position: relative; }
+    #pivot > table > tbody > tr:nth-child(2) {
+      position: relative; }
+      #pivot > table > tbody > tr:nth-child(2):after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: #e4e4e4; }
+      #pivot > table > tbody > tr:nth-child(2):before {
+        content: 'ROW';
+        position: absolute;
+        top: 5px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase; }
+    #pivot > table > tbody > tr:nth-child(3) {
+      position: relative; }
+      #pivot > table > tbody > tr:nth-child(3):after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: #e4e4e4; }
+      #pivot > table > tbody > tr:nth-child(3):before {
+        content: 'COLUMN';
+        position: absolute;
+        top: 5px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase; }
+
 .fx-olap-holder {
   overflow: hidden; }
 
@@ -2583,10 +2635,6 @@ input[type="radio"]:checked + label {
 
 .afo-prices-tab-content {
   width: 100%; }
-
-.pvtAxisContainer, .pvtVals {
-  border: none !important;
-  background: #f9f7f3 !important; }
 
 .gt-toolbar-box {
   border-color: transparent !important; }

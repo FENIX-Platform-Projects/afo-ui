@@ -166,7 +166,7 @@ require(["submodules/fenix-ui-menu/js/paths",
         getWDS(Config.queries.products, null, function(products) {
 
             for(var r in products)
-                listProducts$.append('<option value="'+products[r][0]+'">'+products[r][1]+'</option>');
+                listProducts$.append('<option value="'+products[r][1]+'">'+products[r][0]+'</option>');
         });
 
 		$('.footer').load('html/footer.html');

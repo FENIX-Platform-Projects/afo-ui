@@ -125,7 +125,12 @@ require(["submodules/fenix-ui-menu/js/paths",
 		$('.footer').load('html/footer.html');
 
 
-        var listProducts$ = $('#prices_selectProduct');
+        var listProducts$ = $('#prices_selectProduct'),
+        	Selection = {
+				fertilizer_code: '3102100000',
+				month_from_yyyymm: '201003',
+				month_to_yyyymm: '201501'
+			};
 
 		function getWDS(queryTmpl, queryVars, callback) {
 
@@ -174,54 +179,58 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		function loadMarkers(sqlFilter) {
 
-			getWDS(Config.queries.prices_local_geo_filter, sqlFilter,function(data) {
+			getWDS(Config.queries.prices_detailed_local_geofilter, sqlFilter,function(data) {
 
 				layerRetail.clearLayers();
-				for(var i in data)
-					L.marker(data[i][1].split('|'))
-						.bindPopup( L.Util.template('<h4>{title}<h4><big style="color:#2e0">{val}</big>', {
-							title: data[i][0].replace('[Town]',''),
-							val: data[i][2]+' '+data[i][3]+" (avg)"
-						}) )
-						.addTo(layerRetail);
+
+				console.log('getWDS', data);
+
+				if(data.length>0)
+					for(var i in data) {
+						L.marker(data[i][1].split('|'))
+							.bindPopup( L.Util.template('<h4>{title}<h4><big style="color:#2e0">{val}</big>', {
+								title: data[i][0] && data[i][0] ? data[i][0].replace('[Town]','') : '',
+								val: data[i][2]+' '+data[i][3]+" (avg)"
+							}) )
+							.addTo(layerRetail);
+					}
 
 				map.fitBounds( layerRetail.getBounds().pad(-0.8) );
 			});
 		}
 
-		loadMarkers({
-				fertilizer_code: '3102100000',
-				month_from_yyyymm: '201003',
-				month_to_yyyymm: '201501'
-			});
+		loadMarkers(Selection);
 
-        //JQUERY range slider
-		$(".afo-range").dateRangeSlider().on('valuesChanged', function(e, data) {
-			var minD = new Date(data.values.min),
-				maxD = new Date(data.values.max),
+		function pickSelection() {
+			var values = $(".afo-range:first").rangeSlider("values"),
+				minD = new Date(values.min),
+				maxD = new Date(values.max),
 				minDate = minD.getFullYear()+(minD.getMonth()+1),
 				maxDate = maxD.getFullYear()+(maxD.getMonth()+1);
 
-
 			console.log(minD, maxD, data);
 
-			if(data && data.length)
-				loadMarkers({
-						fertilizer_code: $("#prices_selectProduct").val(),
-						month_from_yyyymm: minDate,
-						month_to_yyyymm: maxDate
-					});
-		});
+			return {
+				fertilizer_code: $("#prices_selectProduct").val(),
+				month_from_yyyymm: minDate,
+				month_to_yyyymm: maxDate
+			};
+		}
 
 		getWDS(Config.queries.prices_detailed_products, null,function(products) {
 
             for(var r in products)
-                listProducts$.append('<option value="'+products[r][1]+'">'+products[r][0]+'</option>');
+                listProducts$.append('<option value="'+products[r][0]+'">'+products[r][1]+'</option>');
 
 		});
 
+        //JQUERY range slider
+		$(".afo-range").dateRangeSlider().on('valuesChanged', function(e) {
+			loadMarkers( pickSelection() );
+		});
+
 		$("#prices_selectProduct").on('change', function(e) {
-			console.log( $(e.target).val() );
+			loadMarkers( pickSelection() );
 		});
 
 		$('#prices_international_grid').load("prices/html/prices_international.html");

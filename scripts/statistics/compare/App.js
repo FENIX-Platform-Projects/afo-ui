@@ -80,11 +80,25 @@ define([
         }, this));
     };
 
+    App.prototype.getCode2Label = function (s, i) {
+
+        return  {
+            COUNTRY: _.find(i['COUNTRY'], function (item) { return ("'"+item.code+"'") === s['COUNTRY']; }).text,
+            PRODUCT:_.find(i['PRODUCT'], function (item) { return ("'"+item.code+"'") === s['PRODUCT']; }).text,
+            ELEMENT: _.find(i['ELEMENT'], function (item) { return ("'"+item.code+"'") === s['ELEMENT']; }).text,
+            SOURCE: i['SOURCE'][0].text,
+            KIND: i['KIND'][0].text,
+            COMPARE: i['COMPARE'][0].text
+        };
+
+
+    };
+
     App.prototype.performChartQuery = function (v, results) {
 
         var query;
 
-        switch (results.COMPARE) {
+        switch (results.COMPARE[0].code) {
             case 'ELEMENT' :
                 query = this._replace(this.config.queries.compare_by_element, v);
                 break;
@@ -119,7 +133,7 @@ define([
                     return;
                 }
 
-                this.appendChart(data)
+                this.appendChart(data, this.getCode2Label(v, results))
             }, this),
             error: function (e) {
                 console.error("WDS error: ");
@@ -185,9 +199,9 @@ define([
         this.results.printTable(data);
     };
 
-    App.prototype.appendChart = function (data) {
+    App.prototype.appendChart = function (data, results) {
 
-        this.results.printChart(data);
+        this.results.printChart(data, results);
     };
 
     App.prototype.buildQuery = function (results) {
@@ -198,7 +212,7 @@ define([
         var temp = [];
 
         _.each(results[results.COMPARE], function (a) {
-            temp.push(a);
+            temp.push(a.code);
         });
 
         results[results.COMPARE] = [temp.join("','")];
@@ -209,19 +223,19 @@ define([
                 COUNTRY: '',
                 PRODUCT: '',
                 ELEMENT: '',
-                SOURCE: results['SOURCE'],
-                KIND: results['KIND']
+                SOURCE: results['SOURCE'][0].code,
+                KIND: results['KIND'][0].code
             };
 
-            query.COUNTRY = "'" + c + "'";
+            query.COUNTRY = "'" + c.code + "'";
 
             _.each(results.ELEMENT, function (e) {
 
-                query.ELEMENT = "'" + e + "'";
+                query.ELEMENT = "'" + e.code + "'";
 
                 _.each(results.PRODUCT, function (p) {
 
-                    query.PRODUCT = "'" + p + "'";
+                    query.PRODUCT = "'" + p.code + "'";
 
                     queries.push($.extend({}, query));
                 });
@@ -229,7 +243,6 @@ define([
         });
 
         return queries;
-
     };
 
     App.prototype.queryChart = function (results) {
@@ -254,7 +267,7 @@ define([
             dataType: 'JSON',
             success: _.bind(function (data) {
                 if (data.length > 0) {
-                    this.results.printChart(data)
+                    this.results.printChart(data, results)
                 } else {
                     this.showCourtesyMessage()
                 }

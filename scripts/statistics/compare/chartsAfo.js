@@ -6,13 +6,14 @@ define(['underscore', "commons/fx_chart", 'highcharts'], function (_, FxChartTem
     };
 
 
-    Chart.prototype.render = function(container, data) {
+    Chart.prototype.render = function(container, data, results) {
 
         // render chart
-        this.renderChart(container, data)
+        this.renderChart(container, data, results)
     }
 
-    Chart.prototype.renderChart = function(id, chartData) {
+    Chart.prototype.renderChart = function(id, chartData, results) {
+
         var series = this.getSeries(chartData);
         var measurementUnit = chartData[0][3];
         var chart_id = id;
@@ -20,6 +21,12 @@ define(['underscore', "commons/fx_chart", 'highcharts'], function (_, FxChartTem
         c.chart = {
             renderTo : chart_id,
             type : "line"
+        };
+        c.title = {
+            text: results.ELEMENT + ", " + results.PRODUCT + " (" + results.KIND + "), " +  results.COUNTRY
+        };
+        c.subtitle = {
+            text: "Source: " +results.SOURCE + ", Compared by: " + results.COMPARE
         };
         c.series = series;
         c.yAxis = {

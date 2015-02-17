@@ -37,9 +37,9 @@ define([
         return id;
     };
 
-    Results.prototype.printChart = function (data) {
+    Results.prototype.printChart = function (data, results) {
         var id = this.appendContainer();
-        this.chart.render(id, data);
+        this.chart.render(id, data, results);
     };
 
     Results.prototype.empty = function () {

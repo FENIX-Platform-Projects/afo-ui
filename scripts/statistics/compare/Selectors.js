@@ -480,15 +480,30 @@ define([
         return valid;
     };
 
+    Selectors.prototype.processJsTree = function (data) {
+
+        var r= [];
+        _.each(data, function(i){
+            r.push({code: i.id, text: i.text})
+        });
+
+        return r;
+    };
+
+    Selectors.prototype.processRadioBtn = function ($btn) {
+
+        return [{code: $btn.val(), text: $("label[for='"+$btn.attr('id')+"']").html() }];
+    };
+
     Selectors.prototype.getFilter = function () {
 
         var filter = {
-                ELEMENT: $(s.ELEMENT).jstree(true).get_selected(),
-                COUNTRY: $(s.COUNTRY).jstree(true).get_selected(),
-                SOURCE: $(s.DATA_SOURCES).find('input:checked').val(),
-                KIND: $(s.N_P).find('input:checked').val(),
-                PRODUCT: $(s.PRODUCT).jstree(true).get_selected(),
-                COMPARE: $(s.COMPARE).find('input:checked').val(),
+                ELEMENT: this.processJsTree( $(s.ELEMENT).jstree(true).get_selected('full') ),
+                COUNTRY: this.processJsTree( $(s.COUNTRY).jstree(true).get_selected('full') ),
+                SOURCE: this.processRadioBtn( $(s.DATA_SOURCES).find('input:checked') ),
+                KIND: this.processRadioBtn( $(s.N_P).find('input:checked') ),
+                PRODUCT: this.processJsTree( $(s.PRODUCT).jstree(true).get_selected('full') ),
+                COMPARE: this.processRadioBtn( $(s.COMPARE).find('input:checked') ),
                 SHOW: $(s.SHOW_AS).find('input:checked').val()
             },
             valid = this._validateFilter(filter);

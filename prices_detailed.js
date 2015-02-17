@@ -184,19 +184,23 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 				layerRetail.clearLayers();
 
-				console.log('getWDS', data);
+				var PopupHtml = "<div class='fm-popup'>"+
+					"<div class='fm-popup-join-title'>{fert}</div>"+
+					"<div class='fm-popup-join-content'><b>{title}</b> <i>{val}</i></div>"+
+				"</div>";
 
 				if(data.length>0)
 					for(var i in data) {
 						L.marker(data[i][1].split('|'))
-							.bindPopup( L.Util.template('<h4>{title}<h4><big style="color:#2e0">{val}</big>', {
+							.bindPopup( L.Util.template(PopupHtml, {
 								title: data[i][0] && data[i][0] ? data[i][0].replace('[Town]','') : '',
+								fert: $("#prices_selectProduct option:selected").text(),
 								val: data[i][2]+' '+data[i][3]+" (avg)"
 							}) )
 							.addTo(layerRetail);
 					}
 
-				map.fitBounds( layerRetail.getBounds().pad(-0.8) );
+				map.fitBounds( layerRetail.getBounds().pad(-1) );
 			});
 		}
 
@@ -219,7 +223,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 console.log('valuesChanged', Selection);
 
 			loadMarkers( Selection );
-		});
+		});	
 
 		$("#prices_selectProduct").on('change', function(e) {
 			Selection.fertilizer_code = $(e.target).val();
@@ -235,7 +239,7 @@ console.log(products);
 
 		});
 
-		//loadMarkers( pickSelection() );
+		loadMarkers( Selection );
 
 
 		$('#prices_international_grid').load("prices/html/prices_international.html");

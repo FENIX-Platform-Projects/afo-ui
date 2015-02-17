@@ -1802,6 +1802,11 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   padding: 2px 7px;
   text-transform: uppercase; }
 
+.afo-courtesy-message {
+  color: #e4e4e4;
+  font-size: 12px;
+  text-transform: uppercase; }
+
 /* Components */
 /* AFO  BreadCrumbs */
 #breadcumb_container {

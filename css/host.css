@@ -2206,53 +2206,6 @@ input[type="radio"]:checked + label {
 .afo-dropdown-toggle {
   margin-top: 0; }
 
-/* Afo Tabs component */
-.afo-tabs .nav-tabs {
-  -ms-transform: translateX(-10px);
-  -webkit-transform: translateX(-10px);
-  transform: translateX(-10px); }
-  .afo-tabs .nav-tabs > li {
-    margin-bottom: 10px; }
-    .afo-tabs .nav-tabs > li > a {
-      padding: 0 10px;
-      color: #666666;
-      font-weight: 500;
-      font-size: 12px; }
-      .afo-tabs .nav-tabs > li > a:before {
-        -webkit-transition: all 0.3s ease 0s;
-        -moz-transition: all 0.3s ease 0s;
-        -ms-transition: all 0.3s ease 0s;
-        -o-transition: all 0.3s ease 0s;
-        transition: all 0.3s ease 0s;
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        background-color: #5ba539;
-        left: 0;
-        bottom: -2px;
-        pointer-events: none;
-        -ms-transform: scaleX(0);
-        -webkit-transform: scaleX(0);
-        transform: scaleX(0); }
-    .afo-tabs .nav-tabs > li.active > a {
-      color: #5ba539; }
-      .afo-tabs .nav-tabs > li.active > a:before {
-        -webkit-transition: all 0.3s ease 0s;
-        -moz-transition: all 0.3s ease 0s;
-        -ms-transition: all 0.3s ease 0s;
-        -o-transition: all 0.3s ease 0s;
-        transition: all 0.3s ease 0s;
-        -ms-transform: scaleX(0.8);
-        -webkit-transform: scaleX(0.8);
-        transform: scaleX(0.8); }
-.afo-tabs .tab-content {
-  padding-top: 10px; }
-  .afo-tabs .tab-content > div {
-    padding: 0; }
-.afo-tabs li {
-  margin: 12px 0; }
-
 /* Afo Top Menu */
 .navbar {
   min-height: 50px; }
@@ -2418,6 +2371,85 @@ input[type="radio"]:checked + label {
 
   #login {
     left: 0px; } }
+/* Afo Webix Datatable */
+.webix_ss_body {
+  font-family: 'Roboto Condensed';
+  font-size: 12px;
+  font-weight: 300; }
+
+.webix_view, .webix_dd_drag_column, .webix_ss_header TD, .webix_ss_vscroll_header, .webix_ss_body, .webix_cell {
+  font-family: 'Roboto Condensed';
+  font-size: 12px;
+  font-weight: 300; }
+
+.webix_dd_drag_column, .webix_ss_header TD, .webix_ss_vscroll_header {
+  background-color: #ddf3c2;
+  border-color: #e4e4e4;
+  font-weight: 300; }
+
+.webix_ss_left {
+  /* <-- Left Column */
+  background-color: #ddf3c2;
+  font-weight: 300; }
+
+.webix_view {
+  font-family: 'Roboto Condensed';
+  font-size: 12px; }
+
+.webix_dd_drag_column, .webix_ss_header TD, .webix_ss_vscroll_header {
+  color: #666666; }
+
+.datesColumns {
+  font-weight: normal; }
+
+/* Afo Tabs component */
+.afo-tabs .nav-tabs {
+  -ms-transform: translateX(-10px);
+  -webkit-transform: translateX(-10px);
+  transform: translateX(-10px); }
+  .afo-tabs .nav-tabs > li {
+    margin-bottom: 10px; }
+    .afo-tabs .nav-tabs > li > a {
+      padding: 0 10px;
+      color: #666666;
+      font-weight: 500;
+      font-size: 12px;
+      text-transform: uppercase; }
+      .afo-tabs .nav-tabs > li > a:before {
+        -webkit-transition: all 0.3s ease 0s;
+        -moz-transition: all 0.3s ease 0s;
+        -ms-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #5ba539;
+        left: 0;
+        bottom: -2px;
+        pointer-events: none;
+        -ms-transform: scaleX(0);
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0); }
+    .afo-tabs .nav-tabs > li.active > a {
+      color: #5ba539; }
+      .afo-tabs .nav-tabs > li.active > a:before {
+        -webkit-transition: all 0.3s ease 0s;
+        -moz-transition: all 0.3s ease 0s;
+        -ms-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+        -ms-transform: scaleX(0.8);
+        -webkit-transform: scaleX(0.8);
+        transform: scaleX(0.8); }
+.afo-tabs .tab-content {
+  padding-top: 10px; }
+  .afo-tabs .tab-content > div {
+    padding: 0; }
+.afo-tabs li {
+  margin: 12px 0; }
+
 /* Pages */
 /* Afo - About us Page */
 /* Afo Catalogue Page*/
@@ -2767,6 +2799,11 @@ input[type="radio"]:checked + label {
   border: 0; }
 
 #product-s {
+  border: 1px solid #e4e4e4; }
+
+#stats_selectCountries {
+  height: 300px;
+  overflow: auto;
   border: 1px solid #e4e4e4; }
 
 #stats_selectRegions {

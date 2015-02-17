@@ -1,0 +1,48 @@
+
+
+
+/* Afo Webix Datatable */
+
+.webix_ss_body{
+  font-family: 'Roboto Condensed';
+  font-size: 12px;
+  font-weight: 300  ;
+}
+
+.webix_view, .webix_dd_drag_column, .webix_ss_header TD, .webix_ss_vscroll_header, .webix_ss_body, .webix_cell {
+  font-family: 'Roboto Condensed';
+  font-size: 12px;
+  font-weight: 300  ;
+}
+
+
+
+// Colors
+
+.webix_dd_drag_column, .webix_ss_header TD, .webix_ss_vscroll_header{
+  background-color: $fx-main-color-lighter;
+  border-color: $afo-hairline ;
+  font-weight: 300;
+}
+
+.webix_ss_left{ /* <-- Left Column */
+  background-color: $fx-main-color-lighter;
+  font-weight: 300;
+}
+
+
+
+.webix_view {
+  font-family: 'Roboto Condensed';
+  font-size: 12px;
+}
+
+
+.webix_dd_drag_column, .webix_ss_header TD, .webix_ss_vscroll_header {
+  color:$fenix-text;
+}
+
+.datesColumns{
+  font-weight: normal;
+
+}

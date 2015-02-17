@@ -119,6 +119,12 @@
   border: 1px solid $afo-hairline;
 }
 
+#stats_selectCountries{
+  height: 300px;
+  overflow: auto;
+  border: 1px solid $afo-hairline;
+}
+
 #stats_selectRegions{
 
   padding: 0;

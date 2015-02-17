@@ -103,8 +103,10 @@ define(['webix'], function () {
         this.table = webix.ui({
             container: POS.container,
             view: "datatable",
-            rowHeight: 29,
-            columnWidth: 200,
+            rowHeight: 30,
+            height: 350,
+            headerRowHeight: 30,
+            columnWidth: 150,
             clipboard: "selection",
             columns: columns,
             datatype: "jsarray",

@@ -12,8 +12,8 @@ define([
     };
 
     function Results() {
-        this.table = new Table();
-        this.chart = new Chart();
+    //    this.table = new Table();
+      //  this.chart = new Chart();
     }
 
     Results.prototype.printTable = function (data) {

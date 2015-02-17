@@ -1,5 +1,4 @@
 
-
 require(["submodules/fenix-ui-menu/js/paths",
 		 "submodules/fenix-ui-common/js/Compiler"
 		 ], function(Menu, Compiler) {
@@ -14,6 +13,7 @@ require(["submodules/fenix-ui-menu/js/paths",
         },
         config: {
 			paths: {
+
                 'business': 'scripts/directories/business',
                 'commons': 'scripts/commons',
                 'AuthenticationManager': './scripts/components/AuthenticationManager',
@@ -88,116 +88,16 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 
     require([
-        'business/App',
-        'domready!'
+    'business/App',
+    'domready!'
     ], function (App) {
-
-        var business = new App();
+        var business = new App;
         business.start();
 
 
     }); // end of App.start()
 
-    /*
-	require([
-	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet',
-	    'text!config/services.json',
-		'text!html/accordion.html',
-
-		'fx-menu/start',
-        './scripts/components/AuthenticationManager',
-        'production/App',
-
-		'fenix-map',
-		'fenix-map-config',
-
-        'amplify',
-
-		'domready!'
-	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L,
-		Config,
-		accordion,
-
-		TopMenu,
-		AuthenticationManager,
-        App) {
-
-		Config = JSON.parse(Config);
-
-        var listCountries$ = $('#dirs_selectCountries'),
-            listProducts$ = $('#dirs_selectProducts');
-
-
-        new TopMenu({
-            active: 'directories_prod',        	
-            url: 'config/fenix-ui-menu.json',
-            className : 'fx-top-menu',
-            breadcrumb : {
-                active : true,
-                container : "#breadcumb_container",
-                showHome : true
-            }
-        });
-
-        new AuthenticationManager();
-        amplify.subscribe('login', function (user) {
-            console.warn("Event login intercepted");
-            console.log(amplify.store.sessionStorage('afo.security.user'));
-        });
-
-        function getWDS(queryTmpl, queryVars, callback) {
-
-            var sqltmpl, sql;
-
-            if(queryVars) {
-                sqltmpl = _.template(queryTmpl);
-                sql = sqltmpl(queryVars);
-            }
-            else
-                sql = queryTmpl;
-
-            var	data = {
-                datasource: Config.dbName,
-                thousandSeparator: ',',
-                decimalSeparator: '.',
-                decimalNumbers: 2,
-                cssFilename: '',
-                nowrap: false,
-                valuesIndex: 0,
-                json: JSON.stringify({query: sql})
-            };
-
-            $.ajax({
-                url: Config.wdsUrl,
-                data: data,
-                type: 'POST',
-                dataType: 'JSON',
-                success: callback
-            });
-        }
-
-        window.getWDS=getWDS;
-
-        getWDS(Config.queries.countries, null, function(countries) {
-
-            for(var r in countries)
-                listCountries$.append('<option value="'+countries[r][0]+'">'+countries[r][1]+'</option>');
-        });
-
-        getWDS(Config.queries.products, null, function(products) {
-
-            for(var r in products)
-                listProducts$.append('<option value="'+products[r][1]+'">'+products[r][0]+'</option>');
-        });
-
-		$('.footer').load('html/footer.html');
-
-        var app = new App;
-        app.start();
-
-
-	});
-
-    */
-
 });
+
+
+

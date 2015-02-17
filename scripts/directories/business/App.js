@@ -23,6 +23,8 @@ define([
 
     function App() {
         this.state = {};
+
+        console.log("asdoiujh")
         this.config = JSON.parse(Config);
     }
 
@@ -32,8 +34,8 @@ define([
         this.state.authenticated = amplify.store.sessionStorage('afo.security.user') === undefined;
 
         this._initSecurity();
-        this._bindEventListeners();
-   //     this._initPageStructure();
+   //     this._bindEventListeners();
+        this._initPageStructure();
     };
 
     App.prototype._initPageStructure = function () {
@@ -86,14 +88,11 @@ define([
         var query;
 
         switch (results.COMPARE) {
-            case 'ELEMENT' :
-                query = this._replace(this.config.queries.compare_by_element, v);
-                break;
-            case 'PRODUCT' :
-                query = this._replace(this.config.queries.compare_by_product, v);
+             case 'PRODUCT' :
+                query = this._replace(this.config.queries.directory_business_product, v);
                 break;
             case 'COUNTRY' :
-                query = this._replace(this.config.queries.compare_by_country, v);
+                query = this._replace(this.config.queries.directory_business_country, v);
                 break;
         }
 

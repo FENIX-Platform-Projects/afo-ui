@@ -17,8 +17,12 @@
     <!-- Third Party CSS -->
     <link href="//fenixapps.fao.org/repository/js/bootstrap/3.2/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Webix -->
+    <link rel="stylesheet" href='//fenixapps.fao.org/repository/js/webix/2.2.1/css/webix.css'/>
+
     <!-- FENIX CSS -->
     <link rel="stylesheet" type="text/css" href="css/host.css">
+
 
 </head>
 <body id="page-directories">
@@ -53,12 +57,7 @@
                             <option>...</option>
                         </select>
                     </div>
-                    <div class="form-group col-xs-6">
-                        <label for="dirs_selectProducts">Product:</label>
-                        <select class="form-control" id="dirs_selectProducts">
-                            <option>...</option>
-                        </select>
-                    </div>
+
                 </form>
             </div>
         </div>
@@ -83,9 +82,8 @@
         <!-- table container-->
         <div class="row">
             <div class="col-xs-12">
-                <div id="table-result"></div>
+                <div id="table-result" style="height: 1000px"></div>
             </div>
-
         </div>
 
     </div>
@@ -113,7 +111,7 @@
     </div>
 </div>
 
-<script data-main="directories_prod" src="src/lib/require.js"></script>
+<script data-main="directories_business" src="src/lib/require.js"></script>
 
 </body>
 </html>

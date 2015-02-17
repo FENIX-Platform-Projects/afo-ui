@@ -83,6 +83,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 	require([
 	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet',
 	    'text!config/services.json',
+		
 		'text!html/publication.html',
 
 		'fx-menu/start',
@@ -119,10 +120,44 @@ require(["submodules/fenix-ui-menu/js/paths",
         });
 
 
+		function getWDS(queryTmpl, queryVars, callback) {
+
+			var sqltmpl, sql;
+
+			if(queryVars) {
+				sqltmpl = _.template(queryTmpl);
+				sql = sqltmpl(queryVars);
+			}
+			else
+				sql = queryTmpl;
+
+			var	data = {
+					datasource: Config.dbName,
+					thousandSeparator: ',',
+					decimalSeparator: '.',
+					decimalNumbers: 2,
+					cssFilename: '',
+					nowrap: false,
+					valuesIndex: 0,
+					json: JSON.stringify({query: sql})
+				};
+
+			$.ajax({
+				url: Config.wdsUrl,
+				data: data,
+				type: 'POST',
+				dataType: 'JSON',
+				success: callback
+			});
+		}
+
+
 	publicationTmpl = Handlebars.compile(publication);
 
 
 	$.getJSON('data/publications.json', function(json) {
+
+		$('#listPubs').empty();
 
 		_.each(json, function(pub) {
 

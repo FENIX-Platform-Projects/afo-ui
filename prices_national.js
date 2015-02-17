@@ -219,7 +219,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			return ret.join(",");
 		}
 
-		function myGetData()
+		function myGetData22()
 		{
 			$("#output").empty();
 			$("#output").html("Wait");
@@ -360,42 +360,42 @@ getWDS(Config.queries.prices_national_filter, {
 		*/
 		/*test*/
 		
-		function loadMarkers(sqlFilter) {
+		function loadOlapData(sqlFilter) {
+				
+			getWDS(Config.queries.prices_national_filter,sqlFilter, function(data) {
 
-			
-getWDS(Config.queries.prices_national_filter,sqlFilter, function(data) {
+				data = [["Area","Item","Year","Month2","Value","Unit","Flag"]].concat(data);
 
-		data = [["Area","Item","Year","Month2","Value","Unit","Flag"]].concat(data);
+				FAOSTATNEWOLAP.originalData = data;
+console.log(data);
+				$("#pivot").pivotUI(data, {
+					derivedAttributes: {
+						"Month": function(mp){
+							return "<span class=\"ordre\">" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
+						},"Indicator":function(mp){return mp["Item"]+" ("+mp["Unit"]+")";}
+					},
+					rows: ["Area", "Indicator"],
+					cols: ["Year", "Month"],
+					vals: ["Value", "Flag"],
+					hiddenAttributes:["Month2","Unit","Item"],
+					linkedAttributes:[]
+				});
 
-			FAOSTATNEWOLAP.originalData = data;
+				$("#pivot_loader").hide();
+				$("#pivot_download").show();
 
-			$("#pivot").pivotUI(data, {
-				derivedAttributes: {
-					"Month": function(mp){
-						return "<span class=\"ordre\">" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
-					},"Indicator":function(mp){return mp["Item"]+" ("+mp["Unit"]+")";}
-				},
-				rows: ["Area", "Indicator"],
-				cols: ["Year", "Month"],
-				vals: ["Value", "Flag"],
-				hiddenAttributes:["Month2","Unit","Item"],
-				linkedAttributes:[]
+				$("#pivot_download").on('click', function(e) {
+
+					my_exportNew();
+					//decolrowspanNEW();
+				});
 			});
-
-			$("#pivot_loader").hide();
-			$("#pivot_download").show();
-
-			$("#pivot_download").on('click', function(e) {
-
-				my_exportNew();
-				//decolrowspanNEW();
-			});
-		});
 		}
-		loadMarkers({
-				fertilizer_code: '3102100000',
-				month_from_yyyymm: '201201',
-				month_to_yyyymm: '201212'
+
+		loadOlapData({
+				fertilizer_code: '2814200000',
+				month_from_yyyymm: '201003',
+				month_to_yyyymm: '201501'
 			});
 		
 		var minDate='201201',maxDate='201212';
@@ -412,7 +412,7 @@ getWDS(Config.queries.prices_national_filter,sqlFilter, function(data) {
 				maxDate = ""+maxD.getFullYear()+maxMonth;
 
 
-			loadMarkers({
+			loadOlapData({
 					fertilizer_code: $("#prices_selectProduct").val(),
 					month_from_yyyymm: minDate,
 					month_to_yyyymm: maxDate
@@ -420,7 +420,7 @@ getWDS(Config.queries.prices_national_filter,sqlFilter, function(data) {
 		});
 		
 		getWDS(Config.queries.products, null,function(products) {
-console.log(products)
+
             for(var r in products){
                 $('#prices_selectProduct').append('<option value="'+products[r][1]+'">'+products[r][0]+'</option>');
 				}
@@ -431,13 +431,14 @@ console.log(products)
 		
 
 
-			loadMarkers({
+			loadOlapData({
 					fertilizer_code: $("#prices_selectProduct").val(),
 					month_from_yyyymm: minDate,
 					month_to_yyyymm: maxDate
 				});
 		});
 		
+
     });
 }
 );

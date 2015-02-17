@@ -100,6 +100,9 @@ define([
 
         switch (results.COMPARE[0].code) {
             case 'ELEMENT' :
+/*                if (results.SOURCE === 'cstat'){
+                    query = this._replace(this.config.queries.compare_by_element_cstat, v);
+                }*/
                 query = this._replace(this.config.queries.compare_by_element, v);
                 break;
             case 'PRODUCT' :

@@ -19,8 +19,8 @@ define(['webix'], function () {
 
         if (this.table && this.table.destructor) {
             this.table.destructor();
-            o.errorData = false;
         }
+        o.errorData = false;
 
         this.createUniqueArrays(data)
 

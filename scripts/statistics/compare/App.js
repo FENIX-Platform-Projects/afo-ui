@@ -56,7 +56,11 @@ define([
         $(s.SEARCH_BTN).on('click', _.bind(function () {
             var results = this.selectors.getFilter();
 
-            if (results !== false) {
+            console.log(results)
+
+            this.buildQuery(results);
+
+           /* if (results !== false) {
 
                 $(s.COURTESY).hide();
                 $(s.RESULTS).show();
@@ -67,10 +71,69 @@ define([
 
                 $(s.COURTESY).show();
                 $(s.RESULTS).hide();
-            }
+            }*/
 
         }, this));
     };
+
+    App.prototype.buildQuery = function (results) {
+       /* fertilizer = '{PRODUCT}' and country = '{COUNTRY}' and n_p = '{KIND}'
+       * data_source, element*/
+
+
+        var query = { },
+            queries= [],
+            concat = {
+                COUNTRY: '',
+                PRODUCT: '',
+                ELEMENT: ''
+            };
+
+        _.each(results.COUNTRY, function (a) {
+            concat.COUNTRY += "'"+a+"',"
+        });
+        concat.COUNTRY = concat.COUNTRY.slice(0,  concat.COUNTRY.length -1);
+
+        _.each(results.PRODUCT, function (a) {
+            concat.PRODUCT += "'"+a+"',"
+        });
+        concat.PRODUCT = concat.PRODUCT.slice(0,  concat.PRODUCT.length -1);
+
+        _.each(results.ELEMENT, function (a) {
+            concat.ELEMENT += "'"+a+"',"
+        });
+        concat.ELEMENT = concat.ELEMENT.slice(0,  concat.ELEMENT.length -1);
+
+        results[results.COMPARE] = [concat[results.COMPARE]];
+
+        console.log(results)
+
+        _.each(results.COUNTRY, function (c) {
+
+            query = {
+                COUNTRY: '',
+                PRODUCT: '',
+                ELEMENT: ''
+            };
+
+            query.COUNTRY =  "'"+c+"'";
+
+            _.each(results.ELEMENT, function (e) {
+
+                query.ELEMENT =  "'"+e+"'";
+
+                _.each(results.PRODUCT, function (p) {
+
+                    query.PRODUCT =  "'"+p+"'";
+
+                    queries.push($.extend({}, query));
+                });
+            });
+        });
+
+        console.log(queries)
+
+     };
 
     App.prototype.queryChart = function (results) {
 

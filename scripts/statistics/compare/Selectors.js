@@ -20,7 +20,7 @@ define([
         COUNTRY_SEARCH: '#country-search-s',
         SHOW_AS: '#show-s'
     }, defaultValues = {
-        DATA_SOURCE: 'ifa',
+        DATA_SOURCE: 'ftwg',
         N_P: 'p',
         SHOW_AS: 'table'
     };
@@ -122,6 +122,8 @@ define([
 
     Selectors.prototype._initDataSourceSelector = function () {
 
+        var self = this;
+
         Wds.get({
             query: this.config.queries.data_sources,
             success: function (res) {
@@ -161,7 +163,6 @@ define([
             $radio.on('change', _.bind(function () {
                 self._initProductSelector($(s.DATA_SOURCES).find('input:checked').val())
             }));
-
 
             $container.append($radio).append($label);
 

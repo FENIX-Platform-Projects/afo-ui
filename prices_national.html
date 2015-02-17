@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/MarkerCluster.css">
     <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/MarkerCluster.Default.css">
  
+ 
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/jquery.rangeslider/5.7.0/css/classic-min.css">
     <!-- FENIX CSS -->
     <link rel="stylesheet" type="text/css" href="css/host.css">
 
@@ -52,7 +54,24 @@
         </div>
 
 			<h3>Averaged prices calculated from local prices</h3>
-
+<div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <div class="page-header">
+                    <h3 class="afo-title">SELECT FERTILIZER</h3>
+                    <br><br><br>
+		            <label for="dirs_selectCountries">Product:</label>
+		            <select class="form-control" id="prices_selectProduct">
+		            </select>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <div class="page-header">
+                    <h3 class="afo-title">SELECT TIME RANGE</h3>
+                    <br><br><br><br>
+                    <div class="afo-range"></div>
+                </div>
+            </div>            
+        </div>
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="fx-olap-holder">

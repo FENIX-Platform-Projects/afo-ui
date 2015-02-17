@@ -109,6 +109,7 @@ require([
 
         var initPricesNational = _.once(function () {
             $.getScript('prices/prices_national.js');
+			 
             //require(['../prices/prices_national.js']);
         });
 

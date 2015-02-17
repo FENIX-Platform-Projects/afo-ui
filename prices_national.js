@@ -44,6 +44,9 @@ require(["submodules/fenix-ui-menu/js/paths",
 				'jquery.hoverIntent': "//fenixapps.fao.org/repository/js/jquery.hoverIntent/1.0/jquery.hoverIntent",
 				'jquery.i18n.properties': "//fenixapps.fao.org/repository/js/jquery/1.0.9/jquery.i18n.properties-min",
 				'import-dependencies': "//fenixapps.fao.org/repository/js/FENIX/utils/import-dependencies-1.0",
+				//datarange
+				'jquery.rangeSlider': '//fenixapps.fao.org/repository/js/jquery.rangeslider/5.7.0/jQDateRangeSlider-min',
+				
 				
 				//OLAP
 				'pivot': 'submodules/fenix-ui-olap/js/pivot',
@@ -64,6 +67,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		        'jquery.power.tip': ['jquery'],
 		        'jquery.i18n.properties': ['jquery'],
 		        'jquery.hoverIntent': ['jquery'],
+				'jquery.rangeSlider': ['jquery', 'jquery-ui'],
 		        'underscore': {
 		            exports: '_'
 		        },
@@ -109,9 +113,9 @@ require(["submodules/fenix-ui-menu/js/paths",
 		'./scripts/components/AuthenticationManager',
 
 		'pivot',
-
 		'amplify',
-
+		
+'jquery.rangeSlider',
 		'domready!'
 	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,
 		Config,
@@ -320,7 +324,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 					$.pivotUtilities.renderers
 				);
 		*/
-
+/*
 getWDS(Config.queries.prices_national_filter, {
 	fertilizer_code: '3102100000',
 	month_from_yyyymm: '201201',
@@ -328,15 +332,7 @@ getWDS(Config.queries.prices_national_filter, {
 }, function(data) {
 
 		data = [["Area","Item","Year","Month2","Value","Unit","Flag"]].concat(data);
-/*
-getWDS(Config.queries.regions, null, function(data) {
-		//HERE
-});*/
-/*
-var Q="select area, item, year, month, value, unit, '' as flag from prices_national";
-getWDS(Q ,null, function(data) {
-		//$.getJSON("data/prices_national.json", function(data) {
-		data=[["Area","Item","Year","Month2","Value","Unit","Flag"]].concat(data);*/
+
 			FAOSTATNEWOLAP.originalData = data;
 
 			$("#pivot").pivotUI(data, {
@@ -360,6 +356,86 @@ getWDS(Q ,null, function(data) {
 				my_exportNew();
 				//decolrowspanNEW();
 			});
+		});
+		*/
+		/*test*/
+		
+		function loadMarkers(sqlFilter) {
+
+			
+getWDS(Config.queries.prices_national_filter,sqlFilter, function(data) {
+
+		data = [["Area","Item","Year","Month2","Value","Unit","Flag"]].concat(data);
+
+			FAOSTATNEWOLAP.originalData = data;
+
+			$("#pivot").pivotUI(data, {
+				derivedAttributes: {
+					"Month": function(mp){
+						return "<span class=\"ordre\">" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
+					},"Indicator":function(mp){return mp["Item"]+" ("+mp["Unit"]+")";}
+				},
+				rows: ["Area", "Indicator"],
+				cols: ["Year", "Month"],
+				vals: ["Value", "Flag"],
+				hiddenAttributes:["Month2","Unit","Item"],
+				linkedAttributes:[]
+			});
+
+			$("#pivot_loader").hide();
+			$("#pivot_download").show();
+
+			$("#pivot_download").on('click', function(e) {
+
+				my_exportNew();
+				//decolrowspanNEW();
+			});
+		});
+		}
+		loadMarkers({
+				fertilizer_code: '3102100000',
+				month_from_yyyymm: '201201',
+				month_to_yyyymm: '201212'
+			});
+		
+		var minDate='201201',maxDate='201212';
+		$(".afo-range").dateRangeSlider().on('valuesChanged', function(e, data) {
+		
+			var minD = new Date(data.values.min),
+				maxD = new Date(data.values.max);
+				var minMonth=minD.getMonth()+1;
+				var maxMonth=maxD.getMonth()+1;
+				if(minMonth<10){minMonth="0"+minMonth;}
+				
+				if(maxMonth<10){maxMonth="0"+maxMonth;}
+				minDate = ""+minD.getFullYear()+minMonth,
+				maxDate = ""+maxD.getFullYear()+maxMonth;
+
+
+			loadMarkers({
+					fertilizer_code: $("#prices_selectProduct").val(),
+					month_from_yyyymm: minDate,
+					month_to_yyyymm: maxDate
+				});
+		});
+		
+		getWDS(Config.queries.products, null,function(products) {
+console.log(products)
+            for(var r in products){
+                $('#prices_selectProduct').append('<option value="'+products[r][1]+'">'+products[r][0]+'</option>');
+				}
+
+		});
+		
+		$("#prices_selectProduct").on('change', function(e) {
+		
+
+
+			loadMarkers({
+					fertilizer_code: $("#prices_selectProduct").val(),
+					month_from_yyyymm: minDate,
+					month_to_yyyymm: maxDate
+				});
 		});
 		
     });

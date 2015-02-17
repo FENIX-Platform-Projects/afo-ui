@@ -1,0 +1,45 @@
+/* Afo Pivot */
+
+//#pivot{
+//  table {
+//    border: 0;
+//  }
+//}
+//
+
+.fx-olap-holder{
+  overflow: hidden;
+}
+
+
+#fx-olap-holder-div{
+  overflow: auto;
+}
+
+#pivot #finaltable {
+  overflow: auto;
+  width: 100%;
+  height: 400px;
+}
+//#pivot .pvtHorizList {
+//  padding: 5px !important;
+//}
+
+.fx-olap-holder * {
+  box-sizing: content-box;
+}
+
+//#pivot .ui-sortable-handle:hover {
+//  box-shadow: 1px 1px 4px rgba(80,80,80,0.3)
+//}
+//
+//#pivot td,
+//#pivot tr
+//#pivot th {
+//  padding: 2px !important;
+//  margin: 0 !important;
+//}
+//
+#pivot .invi {
+  display: none;
+}

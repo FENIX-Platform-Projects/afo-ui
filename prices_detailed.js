@@ -213,7 +213,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 					});
 		});
 
-		getWDS(Config.queries.products, null,function(products) {
+		getWDS(Config.queries.prices_detailed_products, null,function(products) {
 
             for(var r in products)
                 listProducts$.append('<option value="'+products[r][1]+'">'+products[r][0]+'</option>');

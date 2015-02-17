@@ -35,9 +35,20 @@
     "select_from_compare_chart_cstat": "select element_code, element_label, year, value, um from ( select element, year, value, um from country_stat where fertilizer = '{PRODUCT}' and country = '{COUNTRY}' and n_p = '{KIND}' ) c  join codes_elements on element = element_code WHERE value is not null ORDER BY element ASC, year ASC",
 
     "select_dynamic_compare": "select element_code, element_label, year, coalesce(value, -1), um from ( select element, year, value, um from compare where {WHERE} ) c right join codes_elements on element = element_code ORDER BY element ASC, year ASC" ,
-    "product_by_source" : "select c.fertilizer_code, c.fertilizer_label from codes_fertilizers c, compare d where  d.data_source = '{SOURCE}' and c.fertilizer_code = d.fertilizer group by c.fertilizer_code, c.fertilizer_label order by c.fertilizer_label ASC"
-
+    "product_by_source" : "select c.fertilizer_code, c.fertilizer_label from codes_fertilizers c, compare d where  d.data_source = '{SOURCE}' and c.fertilizer_code = d.fertilizer group by c.fertilizer_code, c.fertilizer_label order by c.fertilizer_label ASC",
+    "compare_by_country": "SELECT cc.country_label, d.year, d.value, d.um FROM compare d, codes_countries cc WHERE d.country IN ({COUNTRY}) AND d.country = cc.country_code AND d.element IN ({ELEMENT}) AND d.fertilizer IN ({PRODUCT}) AND d.value IS NOT NULL ORDER BY cc.country_label ASC, d.year ASC",
+    "compare_by_element": "SELECT cc.element_label, d.year, d.value, d.um FROM compare d, codes_elements cc WHERE d.country IN ({COUNTRY}) AND d.element IN ({ELEMENT}) AND d.element = cc.element_code AND d.fertilizer IN ({PRODUCT}) AND d.value IS NOT NULL ORDER BY cc.element_label ASC, d.year ASC",
+    "compare_by_product": "SELECT cc.fertilizer_label, d.year, d.value, d.um FROM compare d, codes_fertilizers cc WHERE d.country IN ({COUNTRY}) AND d.element IN ({ELEMENT}) AND d.fertilizer IN ({PRODUCT}) AND d.fertilizer = cc.fertilizer_code AND d.value IS NOT NULL ORDER BY cc.fertilizer_label ASC, d.year ASC"
   }
 }
+
+
+
+
+
+
+
+
+
 
 

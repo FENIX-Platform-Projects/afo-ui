@@ -54,59 +54,80 @@ define([
     App.prototype._bindEventListeners = function () {
 
         $(s.SEARCH_BTN).on('click', _.bind(function () {
-            var results = this.selectors.getFilter();
+            var results = this.selectors.getFilter(),
+                values;
 
-            console.log(results)
+            if (results === false){
+                return;
+            }
 
-            this.buildQuery(results);
+            values = this.buildQuery(results);
 
-           /* if (results !== false) {
-
-                $(s.COURTESY).hide();
-                $(s.RESULTS).show();
-
-                this.queryChart(results);
-
-            } else {
-
-                $(s.COURTESY).show();
-                $(s.RESULTS).hide();
-            }*/
+            _.each(values, _.bind(function (v) {
+                this.performQuery(v, results);
+            }, this));
 
         }, this));
     };
 
+    App.prototype.performQuery = function (v, results) {
+
+        var query;
+
+           switch (results.COMPARE ){
+               case 'ELEMENT' : query = this._replace(this.config.queries.compare_by_element, v); break;
+               case 'PRODUCT' : query = this._replace(this.config.queries.compare_by_product, v); break;
+               case 'COUNTRY' : query = this._replace(this.config.queries.compare_by_country, v); break;
+           }
+
+        var data = {
+            datasource:  this.config.dbName,
+            thousandSeparator: ',',
+            decimalSeparator: '.',
+            decimalNumbers: 2,
+            cssFilename: '',
+            nowrap: false,
+            valuesIndex: 0,
+            json: JSON.stringify({
+                query: query
+            })
+        };
+
+        $.ajax({
+            url:  this.config.wdsUrl,
+            data: data,
+            type: 'POST',
+            dataType: 'JSON',
+            success: _.bind(function (data) {
+
+                this.appendChart(data)
+            } , this),
+            error: function (e) {
+                console.error("WDS error: ");
+                console.log(e)
+            }
+        });
+
+
+    };
+
+    App.prototype.appendChart = function (data) {
+        this.results.printChart(data);
+    };
+
     App.prototype.buildQuery = function (results) {
-       /* fertilizer = '{PRODUCT}' and country = '{COUNTRY}' and n_p = '{KIND}'
-       * data_source, element*/
 
 
         var query = { },
-            queries= [],
-            concat = {
-                COUNTRY: '',
-                PRODUCT: '',
-                ELEMENT: ''
-            };
+            queries= [];
 
-        _.each(results.COUNTRY, function (a) {
-            concat.COUNTRY += "'"+a+"',"
+        var temp = [];
+
+        _.each(results[results.COMPARE], function (a) {
+            temp.push(a);
         });
-        concat.COUNTRY = concat.COUNTRY.slice(0,  concat.COUNTRY.length -1);
 
-        _.each(results.PRODUCT, function (a) {
-            concat.PRODUCT += "'"+a+"',"
-        });
-        concat.PRODUCT = concat.PRODUCT.slice(0,  concat.PRODUCT.length -1);
-
-        _.each(results.ELEMENT, function (a) {
-            concat.ELEMENT += "'"+a+"',"
-        });
-        concat.ELEMENT = concat.ELEMENT.slice(0,  concat.ELEMENT.length -1);
-
-        results[results.COMPARE] = [concat[results.COMPARE]];
-
-        console.log(results)
+        results[results.COMPARE] = [temp.join("','") ];
 
         _.each(results.COUNTRY, function (c) {
 
@@ -131,7 +152,7 @@ define([
             });
         });
 
-        console.log(queries)
+        return queries;
 
      };
 

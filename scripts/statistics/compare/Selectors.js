@@ -20,7 +20,7 @@ define([
         COUNTRY_SEARCH: '#country-search-s',
         SHOW_AS: '#show-s'
     }, defaultValues = {
-        DATA_SOURCE: 'ftwg',
+        DATA_SOURCE: 'faostat',
         N_P: 'p',
         SHOW_AS: 'chart'
     };

@@ -19,64 +19,92 @@
 
     <!-- FENIX CSS -->
     <link rel="stylesheet" type="text/css" href="css/host.css">
-<style type="text/css">
-
-	.form-group {
-		height: auto;
-		overflow: hidden;
-	}
-
-
-::-webkit-input-placeholder {
-	   color: #ddd;
-	   opacity: 0.7;
-	   font-style: italic;
-}
-
-:-moz-placeholder { /* Firefox 18- */
-	   color: #ddd;
-	   opacity: 0.7;
-	   font-style: italic;  
-}
-
-::-moz-placeholder {  /* Firefox 19+ */
-	   color: #ddd;
-	   opacity: 0.7;
-	   font-style: italic;  
-}
-:-ms-input-placeholder {  
-	   color: #ddd;
-	   opacity: 0.7;
-	   font-style: italic;  
-}
-</style>
 
 </head>
 <body id="page-directories">
 
-<div class="container">
+    <div class="container">
 
-    <div class="row">
-        <div class="col-xs-12">
-            <div id="breadcumb_container"></div>
-        </div>
-    </div>
-
-    <div class="row fx-header">
-        <div class="col-xs-12">
-            <div class="page-header">
-                <h2>Directory Business</h2>
-                <p>A tool to query the inventory of the agro-dealers by location, sector and services. The application returns a list of agro-dealers matching the user’s selection.</p>
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="breadcumb_container"></div>
             </div>
         </div>
+
+        <div class="row fx-header">
+            <div class="col-xs-12">
+                <div class="page-header">
+                    <h2>Directory Production</h2>
+                    <p>Allows users to search for agro-dealers operating in a specific geographic area and/or by name. The result is a list of the selected agro-dealers including their contact details and location.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="afo-title">Form control: select</h3>
+                <p>The form below contains two dropdown menus (select lists):</p>
+
+
+                <form role="form">
+                    <div class="form-group col-xs-6">
+                        <label for="dirs_selectCountries">Country:</label>
+                        <select class="form-control" id="dirs_selectCountries">
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-xs-6">
+                        <label for="dirs_selectProducts">Product:</label>
+                        <select class="form-control" id="dirs_selectProducts">
+                            <option>...</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+
     </div>
 
+
+    <!-- search -->
+    <div class="container">
+
+        <div class="row">
+            <div class="col-xs-12 afo-stat-search-holder">
+                <button type="button" class="btn btn-default pull-right" id="search-btn"> Search</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- results -->
+    <div id="afo-results" class="container" >
+
+        <!-- table container-->
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="table-result"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="afo-courtesy" class="container" style="display: none">
+
+        <div class="row">
+            <div class="col-xs-12">
+                COURTESY Message
+            </div>
+        </div>
+
+    </div>
+
+
 </div>
 
 
-<div class="container">
-    <iframe src="http://africafertilizer.mfarms.org/" height="1500px" width="100%" frameborder="no" ></iframe>
-</div>
+
 
 <!-- Footer -->
 <div class="container">
@@ -85,7 +113,7 @@
     </div>
 </div>
 
-<script data-main="directories_business" src="src/lib/require.js"></script>
+<script data-main="directories_prod" src="src/lib/require.js"></script>
 
 </body>
 </html>

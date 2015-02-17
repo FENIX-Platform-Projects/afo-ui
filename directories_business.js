@@ -14,7 +14,9 @@ require(["submodules/fenix-ui-menu/js/paths",
         },
         config: {
 			paths: {
-				'text': "//fenixapps.fao.org/repository/js/requirejs/plugins/text/2.0.12/text",
+                'production': 'scripts/directories/production',
+                'commons': 'scripts/commons',
+                'text': "//fenixapps.fao.org/repository/js/requirejs/plugins/text/2.0.12/text",
 				'i18n': "//fenixapps.fao.org/repository/js/requirejs/plugins/i18n/2.0.4/i18n",
 				'domready': "//fenixapps.fao.org/repository/js/requirejs/plugins/domready/2.0.1/domReady",
 
@@ -33,8 +35,12 @@ require(["submodules/fenix-ui-menu/js/paths",
 				'jquery': "//fenixapps.fao.org/repository/js/jquery/2.1.1/jquery.min",
 				'jqwidgets': "//fenixapps.fao.org/repository/js/jqwidgets/3.1/jqx-light",
 				'jstree': "//fenixapps.fao.org/repository/js/jstree/3.0.8/dist/jstree.min",
+                'webix' : '//fenixapps.fao.org/repository/js/webix/2.2.1/js/webix',
+                'AuthenticationManager': './scripts/components/AuthenticationManager',
 
-				//fenix-map-js
+
+
+                //fenix-map-js
 				'fenix-map': "submodules/fenix-map-js/dist/latest/fenix-map-min",
 				'fenix-map-config': "submodules/fenix-map-js/dist/latest/fenix-map-config",
 				'chosen': "//fenixapps.fao.org/repository/js/chosen/1.0.0/chosen.jquery.min",
@@ -80,6 +86,19 @@ require(["submodules/fenix-ui-menu/js/paths",
 		}
     });
 
+
+    require([
+        'production/App',
+        'domready!'
+    ], function (App) {
+
+        var compare = new App();
+        compare.start();
+
+
+    }); // end of App.start()
+
+    /*
 	require([
 	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet',
 	    'text!config/services.json',
@@ -87,6 +106,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		'fx-menu/start',
         './scripts/components/AuthenticationManager',
+        'production/App',
 
 		'fenix-map',
 		'fenix-map-config',
@@ -99,13 +119,17 @@ require(["submodules/fenix-ui-menu/js/paths",
 		accordion,
 
 		TopMenu,
-		AuthenticationManager
-		) {
+		AuthenticationManager,
+        App) {
 
 		Config = JSON.parse(Config);
 
+        var listCountries$ = $('#dirs_selectCountries'),
+            listProducts$ = $('#dirs_selectProducts');
+
+
         new TopMenu({
-            active: 'directories_business',        	
+            active: 'directories_prod',        	
             url: 'config/fenix-ui-menu.json',
             className : 'fx-top-menu',
             breadcrumb : {
@@ -121,10 +145,59 @@ require(["submodules/fenix-ui-menu/js/paths",
             console.log(amplify.store.sessionStorage('afo.security.user'));
         });
 
-        //HERE NEW CODE
+        function getWDS(queryTmpl, queryVars, callback) {
+
+            var sqltmpl, sql;
+
+            if(queryVars) {
+                sqltmpl = _.template(queryTmpl);
+                sql = sqltmpl(queryVars);
+            }
+            else
+                sql = queryTmpl;
+
+            var	data = {
+                datasource: Config.dbName,
+                thousandSeparator: ',',
+                decimalSeparator: '.',
+                decimalNumbers: 2,
+                cssFilename: '',
+                nowrap: false,
+                valuesIndex: 0,
+                json: JSON.stringify({query: sql})
+            };
+
+            $.ajax({
+                url: Config.wdsUrl,
+                data: data,
+                type: 'POST',
+                dataType: 'JSON',
+                success: callback
+            });
+        }
+
+        window.getWDS=getWDS;
+
+        getWDS(Config.queries.countries, null, function(countries) {
+
+            for(var r in countries)
+                listCountries$.append('<option value="'+countries[r][0]+'">'+countries[r][1]+'</option>');
+        });
+
+        getWDS(Config.queries.products, null, function(products) {
+
+            for(var r in products)
+                listProducts$.append('<option value="'+products[r][1]+'">'+products[r][0]+'</option>');
+        });
 
 		$('.footer').load('html/footer.html');
 
+        var app = new App;
+        app.start();
+
+
 	});
+
+    */
 
 });

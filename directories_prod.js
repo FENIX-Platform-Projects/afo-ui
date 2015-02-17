@@ -99,16 +99,13 @@ require(["submodules/fenix-ui-menu/js/paths",
 		accordion,
 
 		TopMenu,
-		AuthenticationManager) {
+		AuthenticationManager
+		) {
 
 		Config = JSON.parse(Config);
 
-        var listCountries$ = $('#dirs_selectCountries'),
-            listProducts$ = $('#dirs_selectProducts');
-
-
         new TopMenu({
-            active: 'directories_prod',        	
+            active: 'directories_business',        	
             url: 'config/fenix-ui-menu.json',
             className : 'fx-top-menu',
             breadcrumb : {
@@ -124,50 +121,7 @@ require(["submodules/fenix-ui-menu/js/paths",
             console.log(amplify.store.sessionStorage('afo.security.user'));
         });
 
-        function getWDS(queryTmpl, queryVars, callback) {
-
-            var sqltmpl, sql;
-
-            if(queryVars) {
-                sqltmpl = _.template(queryTmpl);
-                sql = sqltmpl(queryVars);
-            }
-            else
-                sql = queryTmpl;
-
-            var	data = {
-                datasource: Config.dbName,
-                thousandSeparator: ',',
-                decimalSeparator: '.',
-                decimalNumbers: 2,
-                cssFilename: '',
-                nowrap: false,
-                valuesIndex: 0,
-                json: JSON.stringify({query: sql})
-            };
-
-            $.ajax({
-                url: Config.wdsUrl,
-                data: data,
-                type: 'POST',
-                dataType: 'JSON',
-                success: callback
-            });
-        }
-
-        window.getWDS=getWDS;
-
-        getWDS(Config.queries.countries, null, function(countries) {
-
-            for(var r in countries)
-                listCountries$.append('<option value="'+countries[r][0]+'">'+countries[r][1]+'</option>');
-        });
-
-        getWDS(Config.queries.products, null, function(products) {
-
-            for(var r in products)
-                listProducts$.append('<option value="'+products[r][1]+'">'+products[r][0]+'</option>');
-        });
+        //HERE NEW CODE
 
 		$('.footer').load('html/footer.html');
 

@@ -7,17 +7,17 @@ function changechkTreeview()
    FAOSTATOLAPV3.grouped=document.getElementById('chkTreeview').checked;
    FAOSTATOLAPV3.mygrid="";
 $("#pivot").pivotUI(FAOSTATNEWOLAP.originalData,{
-		derivedAttributes: {
-			"Month": function(mp){
-				return "<span class=\"ordre\">" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
-			}
-		},
-		rows: ["Area", "Item"],
-		cols: ["Year", "Month"],
-		vals: ["Value", "Unit", "Flag"],
-		hiddenAttributes:[],
-		linkedAttributes:[]
-	},false);
+				derivedAttributes: {
+					"Month": function(mp){
+						return "<span class=\"ordre\">" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
+					},"Indicator":function(mp){return mp["Item"]+" ("+mp["Unit"]+")";}
+				},
+				rows: ["Area", "Indicator"],
+				cols: ["Year", "Month"],
+				vals: ["Value", "Flag"],
+				hiddenAttributes:["Month2","Unit","Item"],
+				linkedAttributes:[]
+			});
 	}
 
 	
@@ -102,6 +102,7 @@ var colsOption = [];
 
 for(var i in r.rowAttrs){
  dsOption.fields.push({name : r.rowAttrs[i]  });
+ 
    colsOption.push({id:  r.rowAttrs[i] , header:  r.rowAttrs[i] , frozen : true ,grouped : FAOSTATOLAPV3.grouped});
 }
 

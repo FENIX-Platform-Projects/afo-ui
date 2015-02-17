@@ -22,6 +22,20 @@
         {{/if}}
         </b>
     </div>
+	
+	  <div class="list-group-item item-line">
+        <span class="afo-field-title field">Category</span><b>
+		
+        {{#if Category}}
+
+        {{#each Category}}
+    		<span class="label label-default">{{this}}</span> 
+		{{/each}}
+        {{else}}
+            <span>No Category</span>
+        {{/if}}
+        </b>
+    </div>
 
 
     <div class="list-group-item item-line">
@@ -32,6 +46,6 @@
     </div>
     <div class="list-group-item">
         <span class="afo-field-title sector-theme">ATTACHMENT</span>
-        <a href="#" class="afo-file-type icojam_{{DocumentType}}"></a>
+        <a href="http://fenixrepo.fao.org/afo/publications/attachments/{{DocumentSource}}" class="afo-file-type icojam_{{DocumentType}}" target="_blank"></a>
     </div>
 </li>

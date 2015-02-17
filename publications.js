@@ -155,21 +155,87 @@ require(["submodules/fenix-ui-menu/js/paths",
 	publicationTmpl = Handlebars.compile(publication);
 
 
-	$.getJSON('data/publications.json', function(json) {
-
+	//$.getJSON('data/publications.json', function(json) {
+	
+	sqlCalc="SELECT "+
+"  CONCAT('',publications.category), "+
+"  CONCAT('',publications.title),"+
+"  CONCAT('',publications.description),"+
+"  CONCAT('',publications.publication_date),"+
+"  CONCAT('',publications.posting_date),"+
+"  CONCAT('',publications.source),"+
+"  CONCAT('',publications.author_name), "+
+"  CONCAT('',publications.sector),"+
+"  CONCAT('',publications.language), "+
+"  CONCAT('',publications.region_code), "+
+"  CONCAT('',publications.countries_code), "+
+"  CONCAT('',publications.document_type),"+
+"  CONCAT('',publications.document_size),"+
+"  CONCAT('',publications.document_attachment_name), "+
+"  CONCAT('',publications.document_attachment_title), "+
+"  CONCAT('',publications.document_tags),"+
+"  CONCAT('',publications.publication_rating)"+
+" FROM "+
+ " public.publications";
+	
+	
+	function getData(sql){getWDS(sql,null,function(json)	{
 		$('#listPubs').empty();
 
-		_.each(json, function(pub) {
-
+		_.each(json, function(pub2) {
+			var pub=
+			{
+			"Category":pub2[0],
+				"PublicationName":pub2[1],
+				"PublicationDescription":pub2[2],
+				"PublicationSource":pub2[5],
+				"PublicationAuthorName":pub2[6],
+				"PublicationSector&Theme":pub2[7],
+				"PublicationDate":pub2[3],
+				"DocumentLanguage":pub2[8],
+				"REC":pub2[9],
+				"Countries":pub2[10],
+				"DocumentTags":pub2[15],
+				"PublicationRating":pub2[16],
+				"PublicationComments":"",
+				"DocumentType":pub2[11],
+				 "DocumentSource":pub2[13]
+			  }
 			pub.DocumentTags = pub.DocumentTags ? pub.DocumentTags.split(', ') : '';
+			pub.Category = pub.Category ? pub.Category.split('|') : '';
 			pub.DocumentType = pub.DocumentType.replace('.','');
 
-			console.log(pub);
 
 			$('#listPubs').append(publicationTmpl(pub));
 
 		});		
+	});}
+	getData(sqlCalc);
+
+
+	$("#txtSearch").on("input" ,function(){
+	$(".afo-category-list-li").removeClass("active");
+	$(".afo-category-list-li").addClass("noactive");
+	getData(sqlCalc+" where upper(description) like '%"+this.value.toUpperCase().split(" ").join("%")+"%' or upper(title) like '%"+this.value.toUpperCase().split(" ").join("%")+"%' or upper(author_name) like '%"+this.value.toUpperCase().split(" ").join("%")+"%' or upper(source) like '%"+this.value.toUpperCase().split(" ").join("%")+"%'");
 	});
+	
+	
+	/*getWDS("select * from publications",null,function(data)	{
+	console.log(data);
+	});*/
+	
+	
+	$(".afo-category-list-li").click(function(){
+	$(".afo-category-list-li").removeClass("active");
+	$(".afo-category-list-li").addClass("noactive");
+	//console.log(this.innerHTML)
+	document.getElementById("txtSearch").value="";
+	getData(sqlCalc+" where upper(category) like '%"+this.innerHTML.toUpperCase()+"%' ");
+	//console.log(sqlCalc+" where upper(category) like '%"+this.innerHTML.toUpperCase()+"%' ")
+	this.className="afo-category-list-li active";
+	})
+	
+	
 
 	$('.footer').load('html/footer.html');
 

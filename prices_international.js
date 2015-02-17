@@ -181,7 +181,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 		    },
 		    colors: [ //Colori delle charts
 		        '#336600',
-		        '#336600',
 		        '#744490',
 		        '#E10079',
 		        '#2D1706',
@@ -251,7 +250,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		            },
 		            connectNulls: true,
 		            cropThreshold: 3,
-		            lineWidth: 1, // IMPORTANTE - Cambia lo spessore delle linee della chart
+		            lineWidth: 3, // IMPORTANTE - Cambia lo spessore delle linee della chart
 		            states: {
 		                hover: {
 		                    lineWidth: 1
@@ -334,7 +333,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		        plotLines: [
 		            {
 		                value: 0,
-		                width: 1
+		                width: 3
 		            }
 		        ]
 		    },
@@ -350,6 +349,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		    var lines = data.split('\n');
 		    
 		    $.each(lines, function(lineNo, line) {
+
 		        var items = line.split(';');
 
 		        items = items.splice(1, items.length-3);

@@ -3,16 +3,16 @@
   "brand": {
     "target": "index.html"
   },
-  "languages": [
-    {
-      "lang": "EN",
-      "label": "En"
-    },
-    {
-      "lang": "FR",
-      "label": "Fr"
-    }
-  ],
+    "languages": [
+        {
+            "lang": "FR",
+            "label": "Fr"
+        },
+        {
+            "lang": "EN",
+            "label": "En"
+        }
+    ],
   "items": [
     {
       "attrs": {

@@ -1807,6 +1807,12 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   font-size: 12px;
   text-transform: uppercase; }
 
+.afo-date {
+  font-size: 12px; }
+  .afo-date em {
+    font-style: normal;
+    color: #5ba539; }
+
 /* Components */
 /* AFO  BreadCrumbs */
 #breadcumb_container {
@@ -2504,11 +2510,6 @@ input[type="radio"]:checked + label {
   padding: 15px 0 45px 0;
   border-bottom: 1px solid #e4e4e4; }
 
-.afo-home-item .afo-home-item-date {
-  font-size: 12px; }
-  .afo-home-item .afo-home-item-date em {
-    font-style: normal;
-    color: #5ba539; }
 .afo-home-item .afo-home-item-title {
   font-size: 16px;
   min-height: 45px; }

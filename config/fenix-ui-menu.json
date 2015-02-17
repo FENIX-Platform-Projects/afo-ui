@@ -5,13 +5,13 @@
   },
   "languages": [
     {
-      "lang": "EN",
-      "label": "En"
-    },
-    {
       "lang": "FR",
       "label": "Fr"
-    }
+    },
+      {
+          "lang": "EN",
+          "label": "En"
+      }
   ],
   "items": [
     {

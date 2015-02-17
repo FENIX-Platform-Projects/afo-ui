@@ -208,11 +208,19 @@ require(["submodules/fenix-ui-menu/js/paths",
 		rangeMonths$.dateRangeSlider();
 
 		rangeMonths$.on('valuesChanged', function(e, data) {
+
+			console.log(data.values);
+			
 			var values = data.values,//rangeMonths$.rangeSlider("values"),
+				
 				minD = new Date(values.min),
 				maxD = new Date(values.max),
-				minDate = minD.getFullYear()+(minD.getMonth()+1),
-				maxDate = maxD.getFullYear()+(maxD.getMonth()+1);
+
+				minM = minD.getMonth()+1,
+				maxM = maxD.getMonth()+1;
+			
+			var minDate = ""+minD.getFullYear()+(minM<10 ? '0'+minM : minM),
+				maxDate = ""+maxD.getFullYear()+(maxM<10 ? '0'+maxM : maxM);
 
 			Selection = {
 				fertilizer_code: $("#prices_selectProduct").val(),
@@ -231,8 +239,6 @@ console.log('valuesChanged', Selection);
 		});
 
 		getWDS(Config.queries.prices_detailed_products, null, function(products) {
-
-console.log(products);
 
             for(var r in products)
                 listProducts$.append('<option value="'+products[r][0]+'">'+products[r][1]+'</option>');

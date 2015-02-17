@@ -212,8 +212,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 		});
 
 		rangeMonths$.on('valuesChanged', function(e, data) {
-
-			console.log(data.values);
 			
 			var values = data.values,//rangeMonths$.rangeSlider("values"),
 				

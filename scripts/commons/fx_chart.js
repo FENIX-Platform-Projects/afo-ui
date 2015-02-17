@@ -19,7 +19,7 @@ define(function () {
             plotBorderWidth: 0, //Spessore bordo intorno solo area chart
             //showAxes: false, //Mostra gli assi quando le serie sono aggiunte dinamicamente
             style: {
-                fontFamily: 'Roboto', // Font di tutto
+                fontFamily: 'Roboto Condensed', // Font di tutto
                 fontSize: '12px', // La dimensione qui vale solo per i titoli
                 fontWeight: 300 // Con Roboto è molto bello giocare con i pesi
             },

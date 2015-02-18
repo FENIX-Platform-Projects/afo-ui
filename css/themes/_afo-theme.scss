@@ -352,4 +352,11 @@ thead{
   margin-top: 30px;
 }
 
+.afo-border{
+  border: 1px solid $afo-hairline;
+}
 
+.afo-selector-list {
+  height: 300px;
+  overflow: auto
+}

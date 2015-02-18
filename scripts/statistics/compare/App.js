@@ -62,7 +62,8 @@ define([
             }
 
             values = this.buildQuery(results);
-            this.results.empty();
+
+              this.results.empty();
 
             _.each(values, _.bind(function (v) {
 
@@ -80,18 +81,13 @@ define([
         }, this));
     };
 
-    App.prototype.getCode2Label = function (s, i) {
+    //Chart
 
-        return  {
-            COUNTRY: _.find(i['COUNTRY'], function (item) { return ("'"+item.code+"'") === s['COUNTRY']; }).text,
-            PRODUCT:_.find(i['PRODUCT'], function (item) { return ("'"+item.code+"'") === s['PRODUCT']; }).text,
-            ELEMENT: _.find(i['ELEMENT'], function (item) { return ("'"+item.code+"'") === s['ELEMENT']; }).text,
-            SOURCE: i['SOURCE'][0].text,
-            KIND: i['KIND'][0].text,
-            COMPARE: i['COMPARE'][0].text
-        };
+    App.prototype.prepareChartQuery = function (results) {
 
+        var url = results.SOURCE === 'cstat' ? this.config.queries.select_from_compare_chart : this.config.queries.select_from_compare_chart_cstat
 
+        return this._replace(url, results);
     };
 
     App.prototype.performChartQuery = function (v, results) {
@@ -100,9 +96,9 @@ define([
 
         switch (results.COMPARE[0].code) {
             case 'ELEMENT' :
-/*                if (results.SOURCE === 'cstat'){
-                    query = this._replace(this.config.queries.compare_by_element_cstat, v);
-                }*/
+                /*                if (results.SOURCE === 'cstat'){
+                 query = this._replace(this.config.queries.compare_by_element_cstat, v);
+                 }*/
                 query = this._replace(this.config.queries.compare_by_element, v);
                 break;
             case 'PRODUCT' :
@@ -145,6 +141,55 @@ define([
         });
 
 
+    };
+
+    App.prototype.queryChart = function (results) {
+
+        var data = {
+            datasource: this.config.dbName,
+            thousandSeparator: ',',
+            decimalSeparator: '.',
+            decimalNumbers: 2,
+            cssFilename: '',
+            nowrap: false,
+            valuesIndex: 0,
+            json: JSON.stringify({
+                query: this.prepareChartQuery(results)
+            })
+        };
+
+        $.ajax({
+            url: this.config.wdsUrl,
+            data: data,
+            type: 'POST',
+            dataType: 'JSON',
+            success: _.bind(function (data) {
+                if (data.length > 0) {
+                    this.results.printChart(data, results)
+                } else {
+                    this.showCourtesyMessage()
+                }
+
+            }, this),
+            error: function (e) {
+                console.error("WDS error: ");
+                console.log(e)
+            }
+        });
+
+    }
+
+    App.prototype.appendChart = function (data, results) {
+
+        this.results.printChart(data, results);
+    };
+
+    //Table
+
+    App.prototype.prepareTableQuery = function (results) {
+
+        var url = results.SOURCE === 'cstat' ? this.config.queries.select_from_compare : this.config.queries.select_from_compare_cstat;
+        return this._replace(url, results);
     };
 
     App.prototype.performTableQuery = function (v, results) {
@@ -198,91 +243,6 @@ define([
 
     };
 
-    App.prototype.appendTable = function (data) {
-        this.results.printTable(data);
-    };
-
-    App.prototype.appendChart = function (data, results) {
-
-        this.results.printChart(data, results);
-    };
-
-    App.prototype.buildQuery = function (results) {
-
-        var query = {},
-            queries = [];
-
-        var temp = [];
-
-        _.each(results[results.COMPARE], function (a) {
-            temp.push(a.code);
-        });
-
-        results[results.COMPARE] = [temp.join("','")];
-
-        _.each(results.COUNTRY, function (c) {
-
-            query = {
-                COUNTRY: '',
-                PRODUCT: '',
-                ELEMENT: '',
-                SOURCE: results['SOURCE'][0].code,
-                KIND: results['KIND'][0].code
-            };
-
-            query.COUNTRY = "'" + c.code + "'";
-
-            _.each(results.ELEMENT, function (e) {
-
-                query.ELEMENT = "'" + e.code + "'";
-
-                _.each(results.PRODUCT, function (p) {
-
-                    query.PRODUCT = "'" + p.code + "'";
-
-                    queries.push($.extend({}, query));
-                });
-            });
-        });
-
-        return queries;
-    };
-
-    App.prototype.queryChart = function (results) {
-
-        var data = {
-            datasource: this.config.dbName,
-            thousandSeparator: ',',
-            decimalSeparator: '.',
-            decimalNumbers: 2,
-            cssFilename: '',
-            nowrap: false,
-            valuesIndex: 0,
-            json: JSON.stringify({
-                query: this.prepareChartQuery(results)
-            })
-        };
-
-        $.ajax({
-            url: this.config.wdsUrl,
-            data: data,
-            type: 'POST',
-            dataType: 'JSON',
-            success: _.bind(function (data) {
-                if (data.length > 0) {
-                    this.results.printChart(data, results)
-                } else {
-                    this.showCourtesyMessage()
-                }
-
-            }, this),
-            error: function (e) {
-                console.error("WDS error: ");
-                console.log(e)
-            }
-        });
-
-    };
 
     App.prototype.queryTable = function (results) {
 
@@ -315,22 +275,85 @@ define([
 
     };
 
+
+    App.prototype.appendTable = function (data) {
+        this.results.printTable(data);
+    };
+
+
+
+
+
+
+
+
+    App.prototype.buildQuery = function (results) {
+
+        var query = {},
+            queries = [];
+
+        var compareCode = [],
+            compareText = [];
+
+        _.each(results[results.COMPARE[0].code], function (a) {
+            compareCode.push(a.code);
+            compareText.push(a.text);
+
+        });
+
+        results[results.COMPARE[0].code] = [{code: compareCode.join("','"), text: compareText.join(",") }];
+
+        _.each(results.COUNTRY, function (c) {
+
+            query = {
+                COUNTRY: '',
+                PRODUCT: '',
+                ELEMENT: '',
+                SOURCE: results['SOURCE'][0].code,
+                KIND: results['KIND'][0].code
+            };
+
+            query.COUNTRY = "'" + c.code + "'";
+
+            _.each(results.ELEMENT, function (e) {
+
+                query.ELEMENT = "'" + e.code + "'";
+
+                _.each(results.PRODUCT, function (p) {
+
+                    query.PRODUCT = "'" + p.code + "'";
+
+                    queries.push($.extend({}, query));
+                });
+            });
+        });
+
+        return queries;
+    };
+
+
+
+
+
+
+    //General
     App.prototype.showCourtesyMessage = function () {
         $(s.COURTESY).show();
         $(s.RESULTS).hide();
     };
 
-    App.prototype.prepareTableQuery = function (results) {
+    App.prototype.getCode2Label = function (s, i) {
 
-        var url = results.SOURCE === 'cstat' ? this.config.queries.select_from_compare : this.config.queries.select_from_compare_cstat;
-        return this._replace(url, results);
-    };
+        return  {
+            COUNTRY: _.find(i['COUNTRY'], function (item) { return ("'"+item.code+"'") === s['COUNTRY']; }).text,
+            PRODUCT:_.find(i['PRODUCT'], function (item) { return ("'"+item.code+"'") === s['PRODUCT']; }).text,
+            ELEMENT: _.find(i['ELEMENT'], function (item) { return ("'"+item.code+"'") === s['ELEMENT']; }).text,
+            SOURCE: i['SOURCE'][0].text,
+            KIND: i['KIND'][0].text,
+            COMPARE: i['COMPARE'][0].text
+        };
 
-    App.prototype.prepareChartQuery = function (results) {
 
-        var url = results.SOURCE === 'cstat' ? this.config.queries.select_from_compare_chart : this.config.queries.select_from_compare_chart_cstat
-
-        return this._replace(url, results);
     };
 
     App.prototype._replace = function (str, data) {

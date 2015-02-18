@@ -28,8 +28,11 @@ define(['text!config/services.json'], function (Config) {
             type: 'POST',
             dataType: 'JSON',
             success: $.proxy(o.success, context ||  c),
-            error: $.proxy((o.error || function () {
+            error: $.proxy((o.error || function (a, b, c) {
                 console.error("WDS error: ");
+                console.error(a);
+                console.error(b);
+                console.error(c);
             }), context ||  c)
         });
 

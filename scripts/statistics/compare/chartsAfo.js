@@ -23,7 +23,7 @@ define(['underscore', "commons/fx_chart", 'highcharts'], function (_, FxChartTem
             type : "line"
         };
         c.title = {
-            text: results.ELEMENT + ", " + results.PRODUCT + " (" + results.KIND + "), " +  results.COUNTRY
+            text: "<b>Element:</b> " +results.ELEMENT + ", <br><b>Product:</b> " + results.PRODUCT + " ( as " + results.KIND + " ),<br><b>Country:</b> " +  results.COUNTRY
         };
         c.subtitle = {
             text: "Source: " +results.SOURCE + ", Compared by: " + results.COMPARE

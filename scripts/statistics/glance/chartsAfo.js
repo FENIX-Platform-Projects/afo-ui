@@ -43,8 +43,7 @@ define(['underscore',  "commons/fx_chart", 'highcharts'], function (_, FxChartTe
 
     Chart.prototype.renderChart = function (id, chartData) {
 
-        var series = this.getSeries(chartData);
-        var measurementUnit = chartData[0][4];
+        var measurementUnit = '';
 
         var chart_id = id
         var c = {}
@@ -52,7 +51,14 @@ define(['underscore',  "commons/fx_chart", 'highcharts'], function (_, FxChartTe
             "renderTo": chart_id,
             "type": "line"
         };
-        c.series = series;
+        c.series = [{ "name" : "No Data", data: []}];
+
+        if (chartData.length > 0 ) {
+
+            c.series = this.getSeries(chartData);
+            measurementUnit = chartData[0][4];
+        }
+
         c.yAxis = {
             title: {
                 text: measurementUnit
@@ -61,7 +67,6 @@ define(['underscore',  "commons/fx_chart", 'highcharts'], function (_, FxChartTe
 
         c = $.extend(true, {}, FxChartTemplate, c);
         return new Highcharts.Chart(c);
-        //return new Highcharts.Chart(c);
     }
 
     Chart.prototype.getSeries = function (chartData) {

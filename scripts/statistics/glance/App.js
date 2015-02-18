@@ -53,7 +53,10 @@ define([
 
     App.prototype._bindEventListeners = function () {
 
-        $(s.SEARCH_BTN).on('click', _.bind(function () {
+        $(s.SEARCH_BTN).on('click', _.bind(this.query, this));
+    };
+
+    App.prototype.query = function(){
 
             var results = this.selectors.getFilter();
 
@@ -64,13 +67,12 @@ define([
                 this.queryChart(results);
                 this.queryTable(results);
             }
-
-        }, this));
     };
 
-    App.prototype.showCourtesyMessage = function(){
-        $(s.COURTESY).show();
-        $(s.RESULTS).hide();
+    //Chart
+    App.prototype.prepareChartQuery = function (results) {
+        var url =  results.SOURCE === 'cstat' ? this.config.queries.select_from_compare_chart_cstat : this.config.queries.select_from_compare_chart;
+        return this._replace(url, results);
     };
 
     App.prototype.queryChart = function (results) {
@@ -94,10 +96,11 @@ define([
             type: 'POST',
             dataType: 'JSON',
             success: _.bind(function (data) {
+
                 if (data.length > 0){
                     this.results.printChart(data)
                 } else {
-                   this.showCourtesyMessage()
+                   this._showCourtesyMessage()
                 }
 
             } , this),
@@ -107,6 +110,13 @@ define([
             }
         });
 
+    };
+
+    //Table
+    App.prototype.prepareTableQuery = function (results) {
+
+        var url = results.SOURCE === 'cstat' ? this.config.queries.select_from_compare_cstat : this.config.queries.select_from_compare;
+        return this._replace(url, results);
     };
 
     App.prototype.queryTable = function (results) {
@@ -140,19 +150,7 @@ define([
 
     };
 
-    App.prototype.prepareTableQuery = function (results) {
-
-        var url =  results.SOURCE === 'cstat' ? this.config.queries.select_from_compare : this.config.queries.select_from_compare_cstat;
-        return this._replace(url, results);
-    };
-
-    App.prototype.prepareChartQuery = function (results) {
-
-        var url =  results.SOURCE === 'cstat' ? this.config.queries.select_from_compare_chart : this.config.queries.select_from_compare_chart_cstat
-
-        return this._replace(url, results);
-    };
-
+    // General
     App.prototype._replace = function(str, data) {
         return str.replace(/\{ *([\w_]+) *\}/g, function (str, key) {
             return data[key] || '';
@@ -177,6 +175,11 @@ define([
             self.state.authenticated = true;
             self._initTopMenu()
         });
+    };
+
+    App.prototype._showCourtesyMessage = function(){
+        $(s.COURTESY).show();
+        $(s.RESULTS).hide();
     };
 
     App.prototype._initTopMenu = function () {

@@ -222,10 +222,17 @@ define([
 
     Selectors.prototype._initProductSelector = function ( source ) {
 
-        var self = this;
+        var self = this,
+            q;
+
+        if (source !== 'cstat') {
+            q = this._replace(this.config.queries.product_by_source, {SOURCE: source || defaultValues.DATA_SOURCE});
+        } else {
+            q = this.config.queries.products_by_cstat;
+        }
 
         Wds.get({
-            query: this._replace(this.config.queries.product_by_source, {SOURCE: source || defaultValues.DATA_SOURCE}),
+            query: q,
             success: function (res) {
 
                 var data = [],

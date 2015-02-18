@@ -2863,12 +2863,7 @@ input[type="radio"]:checked + label {
   margin-top: 0; }
 
 #product-s, #stats_selectRegions {
-  height: 300px;
-  overflow: auto;
-  border: 0; }
-
-#product-s {
-  border: 1px solid #e4e4e4; }
+  height: 300px; }
 
 #stats_selectCountries {
   height: 300px;
@@ -3354,3 +3349,10 @@ thead {
 
 .afo-sidebar-first {
   margin-top: 30px; }
+
+.afo-border {
+  border: 1px solid #e4e4e4; }
+
+.afo-selector-list {
+  height: 300px;
+  overflow: auto; }

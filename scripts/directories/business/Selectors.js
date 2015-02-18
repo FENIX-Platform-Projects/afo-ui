@@ -47,7 +47,7 @@ define([
 
         function createCountryOption(data) {
             for (var i = 0; i < data.length; i++) {
-                if (i == 0) {
+                if (i == 5) {
                     $(s.COUNTRY).append("<option value='" + data[i][0] + "' selected>" + data[i][1] + "</option>")
                     self.startTable(data[i][0])
                 }
@@ -83,7 +83,6 @@ define([
         Wds.get({
             query: query,
             success: function (res) {
-                console.log('asdasdasdsa')
                 self.renderGrid(res);
             }
         });
@@ -133,7 +132,7 @@ define([
                 } else {
                     toAppend += '<tr>'
                     for (var j = 0; j < titles.length; j++) {
-                        var value = (dataSource[CONFIG[titles[j]]]) ? dataSource[CONFIG[titles[j]]] : ''
+                        var value = (dataSource[i-1][CONFIG[titles[j]]]) ? dataSource[i-1][CONFIG[titles[j]]] : ''
                         toAppend += '<td>' + value + '</td>';
                     }
                     toAppend += '</tr>'

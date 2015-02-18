@@ -297,7 +297,7 @@ define([
 
         //Top Menu
         this.topMenu = new Menu({
-            active: 'statistics_compare',
+            active: 'directories_business',
             url: this.state.authenticated ? c.MENU_AUTH : c.MENU_PUBLIC,
             className: 'fx-top-menu',
             breadcrumb: {

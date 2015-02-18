@@ -56,40 +56,51 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class='row'>
+        <div class='span12'><hr></div>
+    </div>
+
+    <div class="row afo-comp-timerange">
         <div class="col-xs-12">
-            <h3>Averaged prices calculated from local prices</h3>
+
+            <h3 class="afo-title-gray">SELECT TIME RANGE</h3>
         </div>
+
     </div>
 
     <div class="row">
+        <div class="col-sm-offset-1 col-sm-10">
+
+            <br><br>
+            <div id="prices_rangeMonths" class="afo-range"></div>
+        </div>
+
+    </div>
+
+    <div class='row'>
+        <div class='span12'><hr></div>
+    </div>
+
+    <div class="row afo-national-prices">
 
         <!-- Country list-->
-        <div class="col-xs-12 col-sm-3">
-            <h3 class="afo-title">SELECT COUNTRY</h3><br>
-            <label for="country-search-s"> Filter </label>
-            <input type="text" id="country-search-s" value="" class="input">
+        <div class="col-xs-12 col-sm-6">
+            <h3 class="afo-title-gray">SELECT COUNTRY</h3>
+
+            <input type="text" id="country-search-s" value="" class="input form-control">
 
             <div id="country-s" class="afo-border afo-selector-list"></div>
         </div>
 
         <!-- Element list-->
-        <div class="col-xs-12 col-sm-3">
-            <h3 class="afo-title">SELECT FERTILIZER</h3><br>
-            <label for="product-search-s"> Filter </label>
-            <input type="text" id="product-search-s" value="" class="input">
+        <div class="col-xs-12 col-sm-6">
+            <h3 class="afo-title-gray">SELECT FERTILIZER</h3>
+            <input type="text" id="product-search-s" value="" class="input form-control">
 
             <div id="product-s" class="afo-border afo-selector-list"></div>
         </div>
 
-        <div class="col-xs-12 col-sm-6">
-            <div class="page-header">
-                <h3 class="afo-title">SELECT TIME RANGE</h3>
-                <br><br><br><br>
 
-                <div id="prices_rangeMonths" class="afo-range"></div>
-            </div>
-        </div>
     </div>
 
 </div>

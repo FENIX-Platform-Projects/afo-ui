@@ -1947,6 +1947,10 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   .input-group-btn .btn:hover {
     border-color: #5ba539; }
 
+/* Afo HighCharts */
+.highcharts-title {
+  font-size: 12px !important; }
+
 /* AFO Lang Picker */
 .lang_picker_holder {
   overflow: hidden;
@@ -2703,6 +2707,21 @@ input[type="radio"]:checked + label {
   #prices_international_grid table .afo-table-header {
     background-color: #ddf3c2; }
 
+.afo-national-prices .afo-title-gray {
+  margin-top: 10px;
+  margin-bottom: 15px; }
+.afo-national-prices #country-search-s, .afo-national-prices #product-search-s {
+  float: right;
+  width: 50%;
+  height: 20px;
+  margin-top: 8px;
+  font-size: 10px; }
+
+.afo-comp-timerange .col-xs-12 {
+  overflow: hidden; }
+.afo-comp-timerange .afo-title-gray {
+  margin-top: 0; }
+
 /*//////////////////////////////////////////// Navbar Media queries */
 @media (max-width: 767px) {
   .afo-prices-international-chart {
@@ -2823,15 +2842,16 @@ input[type="radio"]:checked + label {
   height: 25px;
   font-size: 10px; }
 
-.afo-compare-sources .afo-title-gray {
-  margin-top: 0; }
-
 .afo-compare-selectors .afo-title-gray {
-  margin-top: 5px; }
+  margin-top: 10px;
+  margin-bottom: 10px; }
+.afo-compare-selectors label {
+  width: 100%; }
 .afo-compare-selectors #country-search-s, .afo-compare-selectors #element-search-s, .afo-compare-selectors #product-search-s {
   float: right;
   width: 50%;
-  height: 25px;
+  height: 20px;
+  margin-top: 8px;
   font-size: 10px; }
 
 .fx-widget {
@@ -2903,6 +2923,10 @@ input[type="radio"]:checked + label {
   padding-bottom: 5px;
   margin-top: 15px;
   margin-bottom: 15px; }
+
+.results-list {
+  list-style: none;
+  padding-left: 0; }
 
 /* Africa Fertilizer - Swiper */
 /* Highlights */

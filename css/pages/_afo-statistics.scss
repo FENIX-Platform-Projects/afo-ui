@@ -31,24 +31,27 @@
 }
 
 
-.afo-compare-sources{
-  .afo-title-gray{
-    margin-top: 0;
-  }
-
-}
 
 .afo-compare-selectors{
 
 
+
   .afo-title-gray{
-    margin-top: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  label{
+    width: 100%;
+
+
   }
 
   #country-search-s, #element-search-s, #product-search-s{
     float: right;
     width: 50%;
-    height: 25px;
+    height: 20px;
+    margin-top: 8px;
     font-size: 10px;
   }
 
@@ -182,5 +185,10 @@
   padding-bottom: 5px;
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+.results-list{
+  list-style: none;
+  padding-left: 0;
 }
 

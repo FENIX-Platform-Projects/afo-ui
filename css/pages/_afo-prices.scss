@@ -120,6 +120,34 @@
 }
 
 
+.afo-national-prices{
+
+  .afo-title-gray{
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  #country-search-s, #product-search-s{
+    float: right;
+    width: 50%;
+    height: 20px;
+    margin-top: 8px;
+    font-size: 10px;
+  }
+
+
+}
+
+.afo-comp-timerange{
+
+  .col-xs-12{
+    overflow: hidden;
+  }
+  .afo-title-gray{
+    margin-top: 0;
+  }
+}
+
 /*//////////////////////////////////////////// Navbar Media queries */
 
 @media (min-width: 768px) and (max-width: 990px) {

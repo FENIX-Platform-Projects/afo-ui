@@ -55,7 +55,6 @@ var dsOption= {fields :[],recordType : 'array',data : r2d2};
 
 
 r2d2.sort();
-console.log("test"+r2d2);
 var colsOption = [];
 
 for(var i in r.rowAttrs){

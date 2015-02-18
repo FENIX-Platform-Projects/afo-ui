@@ -53,59 +53,60 @@ define([
 
     App.prototype._bindEventListeners = function () {
 
-        $(s.SEARCH_BTN).on('click', _.bind(function () {
-            var results = this.selectors.getFilter(),
-                values;
+        $(s.SEARCH_BTN).on('click', _.bind(this.search, this));
+    };
 
-            if (results === false) {
-                return;
+    App.prototype.search = function () {
+
+        var results = this.selectors.getFilter(),
+            values;
+
+        if (results === false) {
+            return;
+        }
+
+        values = this.buildFilterCombinations(results);
+
+        this.results.empty();
+
+        _.each(values, _.bind(function (v) {
+
+            switch (results.SHOW) {
+                case 'table' :
+                    this.performTableQuery(v, results);
+                    break;
+                case 'chart' :
+                    this.performChartQuery(v, results);
+                    break;
             }
 
-            values = this.buildQuery(results);
-
-              this.results.empty();
-
-            _.each(values, _.bind(function (v) {
-
-                switch (results.SHOW) {
-                    case 'table' :
-                        this.performTableQuery(v, results);
-                        break;
-                    case 'chart' :
-                        this.performChartQuery(v, results);
-                        break;
-                }
-
-            }, this));
-
         }, this));
+
     };
 
     //Chart
-
-    App.prototype.prepareChartQuery = function (results) {
-
-        var url = results.SOURCE === 'cstat' ? this.config.queries.select_from_compare_chart : this.config.queries.select_from_compare_chart_cstat
-
-        return this._replace(url, results);
-    };
 
     App.prototype.performChartQuery = function (v, results) {
 
         var query;
 
+        console.log(results.SOURCE[0].code)
+
         switch (results.COMPARE[0].code) {
             case 'ELEMENT' :
-                /*                if (results.SOURCE === 'cstat'){
-                 query = this._replace(this.config.queries.compare_by_element_cstat, v);
-                 }*/
-                query = this._replace(this.config.queries.compare_by_element, v);
+                results.SOURCE[0].code === 'cstat' ?
+                    query = this._replace(this.config.queries.compare_by_element_cstat, v) :
+                    query = this._replace(this.config.queries.compare_by_element, v);
                 break;
             case 'PRODUCT' :
-                query = this._replace(this.config.queries.compare_by_product, v);
+                results.SOURCE[0].code === 'cstat' ?
+                    query = this._replace(this.config.queries.compare_by_product_cstat, v) :
+                    query = this._replace(this.config.queries.compare_by_product, v);
                 break;
             case 'COUNTRY' :
-                query = this._replace(this.config.queries.compare_by_country, v);
+                results.SOURCE[0].code === 'cstat' ?
+                    query = this._replace(this.config.queries.compare_by_country_cstat, v) :
+                    query = this._replace(this.config.queries.compare_by_country, v);
                 break;
         }
 
@@ -128,10 +129,9 @@ define([
             type: 'POST',
             dataType: 'JSON',
             success: _.bind(function (data) {
-                if (data.length ===0){
+                if (data.length === 0) {
                     return;
                 }
-
                 this.appendChart(data, this.getCode2Label(v, results))
             }, this),
             error: function (e) {
@@ -143,54 +143,12 @@ define([
 
     };
 
-    App.prototype.queryChart = function (results) {
-
-        var data = {
-            datasource: this.config.dbName,
-            thousandSeparator: ',',
-            decimalSeparator: '.',
-            decimalNumbers: 2,
-            cssFilename: '',
-            nowrap: false,
-            valuesIndex: 0,
-            json: JSON.stringify({
-                query: this.prepareChartQuery(results)
-            })
-        };
-
-        $.ajax({
-            url: this.config.wdsUrl,
-            data: data,
-            type: 'POST',
-            dataType: 'JSON',
-            success: _.bind(function (data) {
-                if (data.length > 0) {
-                    this.results.printChart(data, results)
-                } else {
-                    this.showCourtesyMessage()
-                }
-
-            }, this),
-            error: function (e) {
-                console.error("WDS error: ");
-                console.log(e)
-            }
-        });
-
-    }
-
     App.prototype.appendChart = function (data, results) {
 
         this.results.printChart(data, results);
     };
 
     //Table
-
-    App.prototype.prepareTableQuery = function (results) {
-
-        var url = results.SOURCE === 'cstat' ? this.config.queries.select_from_compare : this.config.queries.select_from_compare_cstat;
-        return this._replace(url, results);
-    };
 
     App.prototype.performTableQuery = function (v, results) {
 
@@ -228,7 +186,7 @@ define([
             dataType: 'JSON',
             success: _.bind(function (data) {
 
-                if (data.length ===0){
+                if (data.length === 0) {
                     return;
                 }
 
@@ -243,49 +201,13 @@ define([
 
     };
 
-    App.prototype.queryTable = function (results) {
-
-        var data = {
-            datasource: this.config.dbName,
-            thousandSeparator: ',',
-            decimalSeparator: '.',
-            decimalNumbers: 2,
-            cssFilename: '',
-            nowrap: false,
-            valuesIndex: 0,
-            json: JSON.stringify({
-                query: this.prepareTableQuery(results)
-            })
-        };
-
-        $.ajax({
-            url: this.config.wdsUrl,
-            data: data,
-            type: 'POST',
-            dataType: 'JSON',
-            success: _.bind(function (data) {
-                this.results.printTable(data)
-            }, this),
-            error: function (e) {
-                console.error("WDS error: ");
-                console.log(e)
-            }
-        });
-
-    };
-
     App.prototype.appendTable = function (data) {
         this.results.printTable(data);
     };
 
+    //General
 
-
-
-
-
-
-
-    App.prototype.buildQuery = function (results) {
+    App.prototype.buildFilterCombinations = function (results) {
 
         var query = {},
             queries = [];
@@ -299,7 +221,7 @@ define([
 
         });
 
-        results[results.COMPARE[0].code] = [{code: compareCode.join("','"), text: compareText.join(",") }];
+        results[results.COMPARE[0].code] = [{code: compareCode.join("','"), text: compareText.join(",")}];
 
         _.each(results.COUNTRY, function (c) {
 
@@ -329,12 +251,6 @@ define([
         return queries;
     };
 
-
-
-
-
-
-    //General
     App.prototype.showCourtesyMessage = function () {
         $(s.COURTESY).show();
         $(s.RESULTS).hide();
@@ -342,10 +258,16 @@ define([
 
     App.prototype.getCode2Label = function (s, i) {
 
-        return  {
-            COUNTRY: _.find(i['COUNTRY'], function (item) { return ("'"+item.code+"'") === s['COUNTRY']; }).text,
-            PRODUCT:_.find(i['PRODUCT'], function (item) { return ("'"+item.code+"'") === s['PRODUCT']; }).text,
-            ELEMENT: _.find(i['ELEMENT'], function (item) { return ("'"+item.code+"'") === s['ELEMENT']; }).text,
+        return {
+            COUNTRY: _.find(i['COUNTRY'], function (item) {
+                return ("'" + item.code + "'") === s['COUNTRY'];
+            }).text,
+            PRODUCT: _.find(i['PRODUCT'], function (item) {
+                return ("'" + item.code + "'") === s['PRODUCT'];
+            }).text,
+            ELEMENT: _.find(i['ELEMENT'], function (item) {
+                return ("'" + item.code + "'") === s['ELEMENT'];
+            }).text,
             SOURCE: i['SOURCE'][0].text,
             KIND: i['KIND'][0].text,
             COMPARE: i['COMPARE'][0].text

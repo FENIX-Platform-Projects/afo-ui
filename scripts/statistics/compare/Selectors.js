@@ -37,6 +37,8 @@ define([
         this._initShowAsSelector();
     }
 
+    //Selectors
+
     Selectors.prototype._initMapSelector = function () {
 
         var self = this;
@@ -164,10 +166,17 @@ define([
 
     Selectors.prototype._initProductSelector = function (source) {
 
-        var self = this;
+        var self = this,
+            q;
+
+            if (source !== 'cstat') {
+                q = this._replace(this.config.queries.product_by_source, {SOURCE: source || defaultValues.DATA_SOURCE});
+            } else {
+                q = this.config.queries.products_by_cstat;
+            }
 
         Wds.get({
-            query: this._replace(this.config.queries.product_by_source, {SOURCE: source || defaultValues.DATA_SOURCE}),
+            query:  q,
             success: function (res) {
 
                 var data = [],
@@ -448,37 +457,7 @@ define([
         }
     };
 
-    Selectors.prototype._validateFilter = function (f) {
-        var valid = true,
-            errors = {};
-
-        if (!f.hasOwnProperty('SOURCE') || !f.SOURCE) {
-            errors["sources"] = "invalid";
-            valid = false;
-        }
-
-        if (!f.hasOwnProperty('KIND') || !f.KIND) {
-            errors["kind"] = "invalid";
-            valid = false;
-        }
-
-        if (!f.hasOwnProperty('COUNTRY') || !f.COUNTRY || f.COUNTRY.length === 0) {
-            errors["countries"] = "invalid";
-            valid = false;
-        }
-
-        if (!f.hasOwnProperty('PRODUCT') || !f.PRODUCT || f.PRODUCT.length === 0) {
-            errors["product"] = "invalid";
-            valid = false;
-        }
-
-        if (!f.hasOwnProperty('ELEMENT') || !f.ELEMENT || f.ELEMENT.length === 0) {
-            errors["element"] = "invalid";
-            valid = false;
-        }
-
-        return valid;
-    };
+    //Filter
 
     Selectors.prototype.processJsTree = function (data) {
 
@@ -515,6 +494,40 @@ define([
             this._showValidationErrors(valid);
             return false;
         }
+    };
+
+    //General
+
+    Selectors.prototype._validateFilter = function (f) {
+        var valid = true,
+            errors = {};
+
+        if (!f.hasOwnProperty('SOURCE') || !f.SOURCE) {
+            errors["sources"] = "invalid";
+            valid = false;
+        }
+
+        if (!f.hasOwnProperty('KIND') || !f.KIND) {
+            errors["kind"] = "invalid";
+            valid = false;
+        }
+
+        if (!f.hasOwnProperty('COUNTRY') || !f.COUNTRY || f.COUNTRY.length === 0) {
+            errors["countries"] = "invalid";
+            valid = false;
+        }
+
+        if (!f.hasOwnProperty('PRODUCT') || !f.PRODUCT || f.PRODUCT.length === 0) {
+            errors["product"] = "invalid";
+            valid = false;
+        }
+
+        if (!f.hasOwnProperty('ELEMENT') || !f.ELEMENT || f.ELEMENT.length === 0) {
+            errors["element"] = "invalid";
+            valid = false;
+        }
+
+        return valid;
     };
 
     Selectors.prototype._replace = function(str, data) {

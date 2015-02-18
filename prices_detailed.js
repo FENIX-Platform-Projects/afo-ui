@@ -204,11 +204,10 @@ require(["submodules/fenix-ui-menu/js/paths",
 			});
 		}
 
-        //	month_from_yyyymm: '201003',
-		//	month_to_yyyymm: '201501'
-		rangeMonths$.dateRangeSlider({
-			min: new Date(2010, 03, 1),
-    		max: new Date(2015, 01, 1)
+		rangeMonths$.dateRangeSlider();
+		rangeMonths$.dateRangeSlider("option","bounds", {
+			min: new Date(2010, 2, 0),
+			max: new Date(2015, 0, 0)
 		});
 
 		rangeMonths$.on('valuesChanged', function(e, data) {

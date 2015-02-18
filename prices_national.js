@@ -399,7 +399,17 @@ getWDS(Config.queries.prices_national_filter, {
 			});
 		
 		var minDate='201201',maxDate='201212';
-		$(".afo-range").dateRangeSlider().on('valuesChanged', function(e, data) {
+
+        var listProducts$ = $('#prices_selectProduct'),
+        	rangeMonths$ = $('#prices_rangeMonths');
+		
+		rangeMonths$.dateRangeSlider();
+		rangeMonths$.dateRangeSlider("option","bounds", {
+			min: new Date(2010, 2, 0),
+			max: new Date(2015, 0, 0)
+		});
+
+		rangeMonths$.on('valuesChanged', function(e, data) {
 		
 			var minD = new Date(data.values.min),
 				maxD = new Date(data.values.max);

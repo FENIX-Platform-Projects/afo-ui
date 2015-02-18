@@ -75,6 +75,55 @@ define([
             });
         }
 
+		function loadMapByRegion(regCode) {
+
+			getWDS(self.config.queries.countries_byregion, {id: "'" + regCode + "'"}, function (resp) {
+
+				listCountries$.empty();
+				for (var r in resp)
+				    listCountries$.append('<option value="' + resp[r][0] + '">' + resp[r][1] + '</option>');
+
+				var idsCountries = _.map(resp, function (val) {
+				    return val[0];
+				});
+
+				var sqlTmpl = urlTmpl = _.template(self.config.queries.countries_geojson),
+				    sql = sqlTmpl({ids: idsCountries.join(',')});
+
+				var urlTmpl = _.template(self.config.url_spatialquery_enc),
+				    url = urlTmpl({sql: sql});
+
+				$.getJSON(url, function(data) {
+
+				    geojsonCountries.clearLayers();
+
+				    geojsonDecoder.decodeToLayer(data,
+				        geojsonCountries,
+				        style,
+				        function (feature, layer) {
+				            layer
+				                .setStyle(style)
+				                .on("mouseover", function (e) {
+				                    layer.setStyle(styleHover);
+				                })
+				                .on("mouseout", function (e) {
+				                    layer.setStyle(style);
+				                })
+				                .on("click", function (e) {
+				                    listCountries$.find("option:selected").removeAttr("selected");
+				                    listCountries$.val(feature.properties.prop1);
+				                    $('#stats_selected_countries').text(feature.properties.prop2);
+				                    selection.COUNTRIES = feature.properties.prop1;
+				                });
+				        }
+				    );
+				    var bb = geojsonCountries.getBounds();
+				    mapCountries.fitBounds(bb.pad(-0.8));
+				    geojsonCountries.addTo(mapCountries);
+				});
+			});
+		}
+
         getWDS(this.config.queries.regions, null, function (regs) {
             
             console.log(regs);
@@ -111,54 +160,7 @@ define([
 
         listRegions$.on('click', 'option', function (e) {
 
-            var regCode = parseInt($(e.target).attr('value'));
-
-            getWDS(self.config.queries.countries_byregion, {id: "'" + regCode + "'"}, function (resp) {
-
-                listCountries$.empty();
-                for (var r in resp)
-                    listCountries$.append('<option value="' + resp[r][0] + '">' + resp[r][1] + '</option>');
-
-                var idsCountries = _.map(resp, function (val) {
-                    return val[0];
-                });
-
-                var sqlTmpl = urlTmpl = _.template(self.config.queries.countries_geojson),
-                    sql = sqlTmpl({ids: idsCountries.join(',')});
-
-                var urlTmpl = _.template(self.config.url_spatialquery_enc),
-                    url = urlTmpl({sql: sql});
-
-                $.getJSON(url, function (data) {
-
-                    geojsonCountries.clearLayers();
-
-                    geojsonDecoder.decodeToLayer(data,
-                        geojsonCountries,
-                        style,
-                        function (feature, layer) {
-                            layer
-                                .setStyle(style)
-                                .on("mouseover", function (e) {
-                                    layer.setStyle(styleHover);
-                                })
-                                .on("mouseout", function (e) {
-                                    layer.setStyle(style);
-                                })
-                                .on("click", function (e) {
-                                    listCountries$.find("option:selected").removeAttr("selected");
-                                    listCountries$.val(feature.properties.prop1);
-                                    $('#stats_selected_countries').text(feature.properties.prop2);
-                                    selection.COUNTRIES = feature.properties.prop1;
-                                });
-                        }
-                    );
-                    var bb = geojsonCountries.getBounds();
-                    mapCountries.fitBounds(bb.pad(-0.8));
-                    geojsonCountries.addTo(mapCountries);
-                });
-
-            });
+            loadMapByRegion( $(e.target).attr('value') );
 
         });
 
@@ -175,6 +177,7 @@ define([
             selection.COUNTRIES = $(e.currentTarget).data('id');
         });
 
+        loadMapByRegion("696");
 
     };
 

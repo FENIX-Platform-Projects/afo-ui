@@ -1,5 +1,4 @@
-
-
+/*global require*/
 require(["submodules/fenix-ui-menu/js/paths",
 		 "submodules/fenix-ui-common/js/Compiler"
 		 ], function(Menu, Compiler) {
@@ -263,12 +262,12 @@ require(["submodules/fenix-ui-menu/js/paths",
 
                 $(s_product).jstree({
                     "core": {
-                        "multiple": false,
+                        "multiple": true,
                         "animation": 0,
                         "themes": {"stripes": true},
                         'data': data
                     },
-                    "plugins": ["search", "wholerow", "ui"],
+                    "plugins": ["search", "wholerow", "ui", "checkbox"],
                     "search": {
                         show_only_matches: true
                     },
@@ -377,7 +376,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		}
 
 		function loadOlapData(sqlFilter) {
-				
+
 			getWDS(Config.queries.prices_national_filter, sqlFilter, function(data) {
 
 				data = [["Area","Item","Year","Month2","Value","Unit","Flag","FertCode"]].concat(data);

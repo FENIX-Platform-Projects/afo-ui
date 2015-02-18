@@ -182,32 +182,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 			}
 		});
 	}
-/*
-	function initChartFamilies(resp) {
-
-		var retCodes = {};
-		_.each(resp, function(val) {
-			if(!retCodes[ val[0] ])
-				retCodes[ val[0] ] = 1;
-		});
-
-		var ferts = {};
-		_.each(resp, function(val) {
-			if(!ferts[ val[1] ])
-				ferts[ val[1] ] = 1;
-		});
-		
-		var opacities = {};
-		_.each(resp, function(val) {
-			if(!opacities[ val[0] ])
-				opacities[ val[0] ]= 0;
-			
-			opacities[ val[0] ]+= 1;
-			//opacities[ val[0] ]= parseFloat( opacities[ val[0] ].toFixed(2) );
-			//opacities[ val[0] ]= opacities[val[0]]>1 ? 1 : opacities[val[0]];
-		});
-	}
-//COUNTRIES*/
 
 	function initListCountries() {
 

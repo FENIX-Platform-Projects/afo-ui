@@ -195,8 +195,9 @@ require(["submodules/fenix-ui-menu/js/paths",
 		function setLayerStyle(ccodes, opacities) {
 			var style = '',
 				sld = '';
-			_.each(ccodes, function(val, iso3) {
-				style += "[iso3 = '"+iso3+"'] { fill: #309000; fill-opacity: "+opacities[iso3]+"; stroke: #FFFFFF; }";
+
+			_.each(ccodes, function(val, adm0_code) {
+				style += "[adm0_code = '"+adm0_code+"'] { fill: #309000; fill-opacity: "+opacities[adm0_code]+"; stroke: #FFFFFF; }";
 			});
 
 			$.ajax({
@@ -234,12 +235,15 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 				var opacities = {};
 				_.each(codes, function(val) {
-					if(!opacities[ val[0] ])
-						opacities[ val[0] ]= 0.2;
 					
-					opacities[ val[0] ]+= 0.18;
-					opacities[ val[0] ]= parseFloat( opacities[ val[0] ].toFixed(2) );
-					opacities[ val[0] ]= opacities[val[0]]>1 ? 1 : opacities[val[0]];
+					var gaul = val[0];
+
+					if(!opacities[ gaul ])
+						opacities[ gaul ]= 0.2;
+					
+					opacities[ gaul ]+= 0.18;
+					opacities[ gaul ]= parseFloat( opacities[ gaul ].toFixed(2) );
+					opacities[ gaul ]= opacities[ gaul ]>1 ? 1 : opacities[ gaul ];
 				});
 
 				countriesLayer.wmsParams.sld = setLayerStyle(ccodes, opacities);

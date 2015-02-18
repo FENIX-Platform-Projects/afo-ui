@@ -244,6 +244,12 @@ require(["submodules/fenix-ui-menu/js/paths",
 				url: Config.wdsUrl,				
 				success: function(resp) {
 
+					resp = _.sortBy(resp, function(val) {
+						return val[0];
+					});
+
+					console.log(resp);
+
 					$('#resultsCountries').append(accordionTmpl({
 						id: countryIso3,
 						title: countryName,
@@ -425,10 +431,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 	window.fmMap = fmMap;
 
 	fmMap.createMap(0, 20, 3);
-
-/*	fmMap.addLayer( new FM.layer({
-		urlWMS: Config.url_baselayer
-	}) );*/
 
 	L.tileLayer(Config.url_baselayer).addTo(fmMap.map);
 

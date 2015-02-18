@@ -86,80 +86,27 @@ require(["submodules/fenix-ui-menu/js/paths",
 					'gt_grid_all',
 					'fusionchart'
 				]
-/*		        'fenix-map': {
-		            deps: [
-		                'i18n',
-		                'jquery',
-		                'chosen',
-		                'leaflet',
-		                'jquery-ui',
-		                'jquery.hoverIntent',
-		                'jquery.power.tip',
-		                'jquery.i18n.properties',
-		                'import-dependencies',
-		                'fenix-map-config'
-		            ]
-		        }*/        
 		    }
 		}
     });
 
 	require([
 	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper',
-	    'text!config/services.json',
-		'text!html/publication.html',
-
-		'fx-menu/start',
-		'./scripts/components/AuthenticationManager',
-
-		'pivot',
-		'amplify',
-		
-'jquery.rangeSlider',
-		'domready!'
+	    'text!config/services.json', 'text!html/publication.html', 'fx-menu/start',
+		'./scripts/components/AuthenticationManager', 'pivot', 'amplify',
+        'jquery.rangeSlider', 'domready!'
 	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,
-		Config,
-		publication,
+		Config, publication, TopMenu, AuthenticationManager) {
 
-		TopMenu,
-		AuthenticationManager,
+        var minDate, maxDate;
 
-		Pivot
-		) {
-
-		Config = JSON.parse(Config);
+        Config = JSON.parse(Config);
 
 
-		function getWDS(queryTmpl, queryVars, callback) {
 
-			var sqltmpl, sql;
 
-			if(queryVars) {
-				sqltmpl = _.template(queryTmpl);
-				sql = sqltmpl(queryVars);
-			}
-			else
-				sql = queryTmpl;
 
-			var	data = {
-					datasource: Config.dbName,
-					thousandSeparator: ',',
-					decimalSeparator: '.',
-					decimalNumbers: 2,
-					cssFilename: '',
-					nowrap: false,
-					valuesIndex: 0,
-					json: JSON.stringify({query: sql})
-				};
-
-			$.ajax({
-				url: Config.wdsUrl,
-				data: data,
-				type: 'POST',
-				dataType: 'JSON',
-				success: callback
-			});
-		}
+        /* ================================== PAGE */
 
         new TopMenu({
             active: 'prices_national',
@@ -180,12 +127,222 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		$('.footer').load('html/footer.html');
 
+        //Search button
+        $('#search-btn').on('click', function () {
 
-		//////////////	OLAP COFIGURATION /////////////////
+            var inputs = {
+                fertilizer_code: $('#product-s').jstree(true).get_selected().join("', '"),
+                country_code: $('#country-s').jstree(true).get_selected().join("', '"),
+                month_from_yyyymm: minDate,
+                month_to_yyyymm: maxDate
+            };
+
+            //Validate inputs
+            if (inputs.fertilizer_code === '' || inputs.country_code === '' ||!inputs.month_from_yyyymm || !inputs.month_to_yyyymm){
+                alert("Please select all the fields");
+                return;
+            }
+
+            loadOlapData(inputs);
+
+        });
 
 
-		var mydata;
-		F3DWLD = {
+
+
+
+
+
+
+        /* ================================== SELECTORS */
+
+        // Fertilizers
+        getWDS(Config.queries.prices_national_products, null,function(res) {
+
+            var data = [],
+                list,
+                s_product = '#product-s',
+                s_product_search = '#product-search-s';
+
+            if (Array.isArray(res)) {
+
+                list = res.sort(function (a, b) {
+                    if (a[1] < b[1]) return -1;
+                    if (a[1] > b[1]) return 1;
+                    return 0;
+                });
+
+                _.each(list, function (n) {
+                    data.push(createNode(n));
+                });
+
+            }
+
+            createTree(data);
+            initSearch();
+
+            function createTree(data) {
+
+                $(s_product).jstree({
+                    "core": {
+                        "multiple": true,
+                        "animation": 0,
+                        "themes": {"stripes": true},
+                        'data': data
+                    },
+                    "plugins": ["search", "wholerow", "ui", "checkbox"],
+                    "search": {
+                        show_only_matches: true
+                    },
+                    "ui": {"initially_select": ['2814200000']}
+                });
+
+                $(s_product).jstree(true).select_node('ul > li:first');
+            }
+
+            function initSearch() {
+                var to = false;
+                $(s_product_search).keyup(function () {
+                    if (to) {
+                        clearTimeout(to);
+                    }
+                    to = setTimeout(function () {
+                        var v = $(s_product_search).val();
+                        $(s_product).jstree(true).search(v);
+                    }, 250);
+                });
+            }
+
+            function createNode(item) {
+
+                // Expected format of the node (there are no required fields)
+                var config = {
+                    id: item[0], // will be autogenerated if omitted
+                    text: item[1] + " ["+item[0]+"]" // node text
+                    //icon: "string", // string for custom
+                    /* state: {
+                     opened: boolean,  // is the node open
+                     disabled: boolean,  // is the node disabled
+                     selected: boolean  // is the node selected
+                     },*/
+                    //children    : [],  // array of strings or objects
+                    //li_attr: {},  // attributes for the generated LI node
+                    //a_attr: {}  // attributes for the generated A node
+                };
+
+                return config;
+            }
+        });
+
+        // Country
+        getWDS(Config.queries.countries, null,function(res) {
+
+            var data = [],
+                list,
+                s_product = '#country-s',
+                s_product_search = '#country-search-s';
+
+            if (Array.isArray(res)) {
+
+                list = res.sort(function (a, b) {
+                    if (a[1] < b[1]) return -1;
+                    if (a[1] > b[1]) return 1;
+                    return 0;
+                });
+
+                _.each(list, function (n) {
+                    data.push(createNode(n));
+                });
+
+            }
+
+            createTree(data);
+            initSearch();
+
+            function createTree(data) {
+
+                $(s_product).jstree({
+                    "core": {
+                        "multiple": false,
+                        "animation": 0,
+                        "themes": {"stripes": true},
+                        'data': data
+                    },
+                    "plugins": ["search", "wholerow", "ui"],
+                    "search": {
+                        show_only_matches: true
+                    },
+                    "ui": {"initially_select": ['2814200000']}
+                });
+
+                $(s_product).jstree(true).select_node('ul > li:first');
+            }
+
+            function initSearch() {
+                var to = false;
+                $(s_product_search).keyup(function () {
+                    if (to) {
+                        clearTimeout(to);
+                    }
+                    to = setTimeout(function () {
+                        var v = $(s_product_search).val();
+                        $(s_product).jstree(true).search(v);
+                    }, 250);
+                });
+            }
+
+            function createNode(item) {
+
+                // Expected format of the node (there are no required fields)
+                var config = {
+                    id: item[0], // will be autogenerated if omitted
+                    text: item[1] + " ["+item[0]+"]" // node text
+                    //icon: "string", // string for custom
+                    /* state: {
+                     opened: boolean,  // is the node open
+                     disabled: boolean,  // is the node disabled
+                     selected: boolean  // is the node selected
+                     },*/
+                    //children    : [],  // array of strings or objects
+                    //li_attr: {},  // attributes for the generated LI node
+                    //a_attr: {}  // attributes for the generated A node
+                };
+
+                return config;
+            }
+        });
+
+        // Time
+        var rangeMonths$ = $('#prices_rangeMonths');
+
+        rangeMonths$.dateRangeSlider();
+        rangeMonths$.dateRangeSlider("option","bounds", {
+            min: new Date(2010, 2, 0),
+            max: new Date(2015, 0, 0)
+        });
+
+        rangeMonths$.on('valuesChanged', function(e, data) {
+
+            var minD = new Date(data.values.min),
+                maxD = new Date(data.values.max);
+            var minMonth=minD.getMonth()+1;
+            var maxMonth=maxD.getMonth()+1;
+            if(minMonth<10){ minMonth="0"+minMonth; }
+
+            if(maxMonth<10){ maxMonth="0"+maxMonth; }
+
+                minDate = ""+minD.getFullYear()+minMonth;
+                maxDate = ""+maxD.getFullYear()+maxMonth;
+
+        });
+
+
+
+
+
+        /* ================================== OLAP */
+
+		var F3DWLD = {
 		    CONFIG: {
 		        wdsPayload: {
 		            showCodes: false
@@ -219,12 +376,9 @@ require(["submodules/fenix-ui-menu/js/paths",
 			return ret.join(",");
 		}
 
-		
-	
-		
 		function loadOlapData(sqlFilter) {
 				
-			getWDS(Config.queries.prices_national_filter,sqlFilter, function(data) {
+			getWDS(Config.queries.prices_national_filter, sqlFilter, function(data) {
 
 				data = [["Area","Item","Year","Month2","Value","Unit","Flag","FertCode"]].concat(data);
 
@@ -254,133 +408,43 @@ require(["submodules/fenix-ui-menu/js/paths",
 			});
 		}
 
-		loadOlapData({
-				fertilizer_code: ['2510000002'],
-				month_from_yyyymm: '201003',
-				month_to_yyyymm: '201501'
-			});
-		
-		var minDate='201201',maxDate='201212';
 
-        var listProducts$ = $('#prices_selectProduct'),
-        	rangeMonths$ = $('#prices_rangeMonths');
-		
-		rangeMonths$.dateRangeSlider();
-		rangeMonths$.dateRangeSlider("option","bounds", {
-			min: new Date(2010, 2, 0),
-			max: new Date(2015, 0, 0)
-		});
 
-		rangeMonths$.on('valuesChanged', function(e, data) {
-		
-			var minD = new Date(data.values.min),
-				maxD = new Date(data.values.max);
-				var minMonth=minD.getMonth()+1;
-				var maxMonth=maxD.getMonth()+1;
-				if(minMonth<10){minMonth="0"+minMonth;}
-				
-				if(maxMonth<10){maxMonth="0"+maxMonth;}
-				minDate = ""+minD.getFullYear()+minMonth,
-				maxDate = ""+maxD.getFullYear()+maxMonth;
 
-                loadOlapData({
-                    fertilizer_code: $('#product-s').jstree(true).get_selected().join("', '"),
-                    month_from_yyyymm: minDate,
-                    month_to_yyyymm: maxDate
-                });
-		});
-		
-		getWDS(Config.queries.prices_national_products, null,function(res) {
 
-            var data = [],
-                list,
-                s_product = '#product-s',
-                s_product_search = '#product-search-s';
 
-            if (Array.isArray(res)) {
 
-                list = res.sort(function (a, b) {
-                    if (a[1] < b[1]) return -1;
-                    if (a[1] > b[1]) return 1;
-                    return 0;
-                });
+        /* ================================== GENERAL */
+        function getWDS(queryTmpl, queryVars, callback) {
 
-                _.each(list, function (n) {
-                    data.push(createNode(n));
-                });
+            var sqltmpl, sql;
 
+            if(queryVars) {
+                sqltmpl = _.template(queryTmpl);
+                sql = sqltmpl(queryVars);
             }
+            else
+                sql = queryTmpl;
 
-            createTree(data);
-            initSearch();
+            var	data = {
+                datasource: Config.dbName,
+                thousandSeparator: ',',
+                decimalSeparator: '.',
+                decimalNumbers: 2,
+                cssFilename: '',
+                nowrap: false,
+                valuesIndex: 0,
+                json: JSON.stringify({query: sql})
+            };
 
-
-            function createTree(data) {
-
-                $(s_product).jstree({
-                    "core": {
-                        "multiple": true,
-                        "animation": 0,
-                        "themes": {"stripes": true},
-                        'data': data
-                    },
-                    "plugins": ["search", "wholerow", "ui"],
-                    "search": {
-                        show_only_matches: true
-                    },
-                    "ui": {"initially_select": ['2814200000']}
-                }).on('changed.jstree', function (e, data) {
-
-                   
-                    loadOlapData({
-                        fertilizer_code: $('#product-s').jstree(true).get_selected().join("', '"),
-                        month_from_yyyymm: minDate,
-                        month_to_yyyymm: maxDate
-                    });
-
-                });
-
-                $(s_product).jstree(true).select_node('ul > li:first');
-            }
-
-            function initSearch() {
-                var to = false;
-                $(s_product_search).keyup(function () {
-                    if (to) {
-                        clearTimeout(to);
-                    }
-                    to = setTimeout(function () {
-                        var v = $(s_product_search).val();
-                        $(s_product).jstree(true).search(v);
-                    }, 250);
-                });
-            }
-
-            function createNode(item) {
-
-                // Expected format of the node (there are no required fields)
-                var config = {
-                    id: item[0], // will be autogenerated if omitted
-                    text: item[1], // node text
-                    parent: '#'
-                    //icon: "string", // string for custom
-                    /* state: {
-                     opened: boolean,  // is the node open
-                     disabled: boolean,  // is the node disabled
-                     selected: boolean  // is the node selected
-                     },*/
-                    //children    : [],  // array of strings or objects
-                    //li_attr: {},  // attributes for the generated LI node
-                    //a_attr: {}  // attributes for the generated A node
-                };
-
-                return config;
-            }
-		});
-
-
-
-		
+            $.ajax({
+                url: Config.wdsUrl,
+                data: data,
+                type: 'POST',
+                dataType: 'JSON',
+                success: callback
+            });
+        }
 
     });
 }

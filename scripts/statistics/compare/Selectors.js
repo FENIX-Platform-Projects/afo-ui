@@ -28,7 +28,7 @@ define([
     function Selectors() {
 
         this.config = JSON.parse(C);
-        this._initMapSelector();
+        this._initCountrySelector();
         this._initDataSourceSelector();
         this._initProductSelector();
         this._initElementSelector();
@@ -39,7 +39,7 @@ define([
 
     //Selectors
 
-    Selectors.prototype._initMapSelector = function () {
+    Selectors.prototype._initCountrySelector = function () {
 
         var self = this;
 

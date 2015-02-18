@@ -9,17 +9,47 @@ define([
 
     var s = {
         PRODUCT: '#dirs_selectProducts',
+        SECTOR: '#dirs_selectSector',
         COUNTRY: '#dirs_selectCountries',
+
         BTN: '#search-btn',
         CONTAINER: '#table-result'
     }
+
+    var PRODUCTS = [
+        "Fertilizers",
+        "Seeds",
+        "Crop Protection Products",
+        "Farm Equipment",
+        "Engrais, Pesticides, petits matériel agricole",
+        "All"
+    ]
+
+    var SECTORS =
+        [
+            "Production",
+            "Blending / Granulation",
+            "Logistics",
+            "Logistics (transport, warehouse)",
+            "Import / Export",
+            "Research / Extension",
+            "Research",
+            "Distribution (wholesale, retail)",
+            "Regulations / Policies",
+            "Finance / Insurance",
+            "Training /  Technical Assistance",
+            "Labs / Analysis",
+            "Projects / Consultancy",
+            "Media",
+            "All"
+        ]
 
 
     var CONFIG = {
         "Company": 0,
         "City": 1,
-        "Fertilizer": 2,
-        "Other Fertilizers": 3
+        "Services": 2,
+        "Sector": 3
     }
 
     var grid;
@@ -39,20 +69,49 @@ define([
         Wds.get({
             query: this.config.queries.directory_business_country,
             success: function (res) {
-
                 createCountryOption(res)
             }
         });
+
+
+        createProductOption(PRODUCTS)
+
+        createSectorOption(SECTORS)
 
 
         function createCountryOption(data) {
             for (var i = 0; i < data.length; i++) {
                 if (i == 5) {
                     $(s.COUNTRY).append("<option value='" + data[i][0] + "' selected>" + data[i][1] + "</option>")
-                    self.startTable(data[i][0])
+
                 }
                 else {
                     $(s.COUNTRY).append("<option value='" + data[i][0] + "'>" + data[i][1] + "</option>")
+                }
+            }
+        }
+
+        function createProductOption(data) {
+            data.sort()
+            for (var i = 0; i < data.length; i++) {
+                if (i == 0) {
+                    $(s.PRODUCT).append("<option value='" + data[i] + "' selected>" + data[i] + "</option>")
+                }
+                else {
+                    $(s.PRODUCT).append("<option value='" + data[i] + "'>" + data[i] + "</option>")
+                }
+            }
+        }
+
+        function createSectorOption(data) {
+
+            data.sort()
+            for (var i = 0; i < data.length; i++) {
+                if (i == 0) {
+                    $(s.SECTOR).append("<option value='" + data[i] + "' selected>" + data[i] + "</option>")
+                }
+                else {
+                    $(s.SECTOR).append("<option value='" + data[i] + "'>" + data[i] + "</option>")
                 }
             }
         }
@@ -64,21 +123,68 @@ define([
 
 
         var self = this;
-        $(s.COUNTRY).on('change', function (e) {
+        $(s.BTN).on('click', function (e) {
+            $(s.CONTAINER).empty()
 
-            self.startTable($(s.COUNTRY).val())
+            self.startTable($(s.COUNTRY).val(), $(s.PRODUCT).val(), $(s.SECTOR).val())
         })
 
 
     }
 
-    Selectors.prototype.startTable = function (countrySelected) {
+    Selectors.prototype.startTable = function (countrySelected, productSelected, sectorSelected) {
 
         var self = this;
 
-        var query = this.config.queries.directory_business_result;
 
-        query = query.replace('{COUNTRY}', "'" + countrySelected + "'")
+        if (productSelected != 'All' && sectorSelected != 'All') {
+
+            var query = this.config.queries.directory_business_result;
+
+            query = query.replace('{COUNTRY}', "'" + countrySelected + "'")
+
+            query = query.replace(/{SERVICE}/g, "'" + sectorSelected + "'")
+            query = query.replace(/{SECTOR}/g, "'" + productSelected + "'")
+
+
+
+        }
+
+        // every is product All
+        else if (productSelected == 'All' && sectorSelected == 'All') {
+
+            var query = this.config.queries.directory_business_only_country_all;
+
+            query = query.replace('{COUNTRY}', "'" + countrySelected + "'")
+
+
+        }
+        // only productSelected All
+        else if (productSelected == 'All' && sectorSelected != 'All') {
+
+
+            var query = this.config.queries.directory_business_only_product_all;
+
+            query = query.replace('{COUNTRY}', "'" + countrySelected + "'")
+            query = query.replace(/{SERVICE}/g, "'" + sectorSelected + "'")
+
+
+            //  query = query.replace(/{SECTOR}/g, "'" + productSelected + "'")
+
+        }
+
+        // only productSelected All
+        else {
+
+            var query = this.config.queries.directory_business_only_sector_all;
+
+            query = query.replace('{COUNTRY}', "'" + countrySelected + "'")
+            query = query.replace(/{SECTOR}/g, "'" + productSelected + "'")
+
+            //   query = query.replace(/{SERVICE}/g, "'" + sectorSelected + "'")
+
+        }
+
 
         Wds.get({
             query: query,
@@ -113,7 +219,6 @@ define([
 
         var titles = Object.keys(CONFIG)
 
-        $(s.CONTAINER).empty();
 
         if (dataSource.length > 0) {
 
@@ -132,7 +237,7 @@ define([
                 } else {
                     toAppend += '<tr>'
                     for (var j = 0; j < titles.length; j++) {
-                        var value = (dataSource[i-1][CONFIG[titles[j]]]) ? dataSource[i-1][CONFIG[titles[j]]] : ''
+                        var value = (dataSource[i - 1][CONFIG[titles[j]]]) ? dataSource[i - 1][CONFIG[titles[j]]] : ''
                         toAppend += '<td>' + value + '</td>';
                     }
                     toAppend += '</tr>'
@@ -144,6 +249,41 @@ define([
             $('#tableToAppend').append(toAppend);
 
         }
+
+    }
+
+    Selectors.prototype.createCountryOption = function (data) {
+
+        for (var i = 0; i < data.length; i++) {
+            if (i == 5) {
+                $(s.COUNTRY).append("<option value='" + data[i][0] + "' selected>" + data[i][1] + "</option>")
+                self.startTable(data[i][0])
+            }
+            else {
+                $(s.COUNTRY).append("<option value='" + data[i][0] + "'>" + data[i][1] + "</option>")
+            }
+        }
+
+    }
+
+
+    Selectors.prototype.createProductOption = function (data) {
+
+
+        data.sort()
+        for (var i = 0; i < data.length; i++) {
+            if (i == 5) {
+                $(s.PRODUCT).append("<option value='" + data[i] + "' selected>" + data[i] + "</option>")
+                self.startTable(data[i][0])
+            }
+            else {
+                $(s.PRODUCT).append("<option value='" + data[i] + "'>" + data[i] + "</option>")
+            }
+        }
+    }
+
+
+    Selectors.prototype.createSectorOption = function (data) {
 
     }
 

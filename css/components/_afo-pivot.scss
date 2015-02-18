@@ -14,10 +14,19 @@
       >tr{
       position: relative;
 
-
-
-        &:nth-child(2){
+        #rows{
           position: relative;
+          padding-left: 65px;
+
+          &:before{
+            content: 'ROW';
+            position: absolute;
+            top: 5px;
+            left: 0;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+          }
 
           &:after{
             content: '';
@@ -31,20 +40,12 @@
 
           }
 
-          &:before{
-            content: 'ROW';
-            position: absolute;
-            top: 5px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-          }
-
         }
 
 
-        &:nth-child(3){
+        .pvtCols{
           position: relative;
+          padding-left: 65px;
 
           &:after{
             content: '';
@@ -62,6 +63,7 @@
             content: 'COLUMN';
             position: absolute;
             top: 5px;
+            left: 0;
             font-size: 12px;
             font-weight: 700;
             text-transform: uppercase;
@@ -113,5 +115,9 @@
 //}
 //
 #pivot .invi {
+  display: none;
+}
+
+.pvtTriangle{
   display: none;
 }

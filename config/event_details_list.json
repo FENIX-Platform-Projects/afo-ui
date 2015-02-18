@@ -1,0 +1,9 @@
+{
+  "id": {
+    "picture" : "mypic.jpg",
+    "title": "My Title",
+    "subtitle": "My Subtitle",
+    "text": "My text",
+    "documents" : [ { "url" : "myurl.html", "title" : "Doc Title"}]
+  }
+}

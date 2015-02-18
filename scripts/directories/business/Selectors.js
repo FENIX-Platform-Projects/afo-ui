@@ -130,6 +130,19 @@ define([
         })
 
 
+        $(s.COUNTRY).on('change', function (e) {
+            $(s.BTN).click();
+        })
+
+        $(s.PRODUCT).on('change', function (e) {
+            $(s.BTN).click();
+        })
+
+        $(s.SECTOR).on('change', function (e) {
+            $(s.BTN).click();
+        })
+
+
     }
 
     Selectors.prototype.startTable = function (countrySelected, productSelected, sectorSelected) {
@@ -138,51 +151,33 @@ define([
 
 
         if (productSelected != 'All' && sectorSelected != 'All') {
-
             var query = this.config.queries.directory_business_result;
-
             query = query.replace('{COUNTRY}', "'" + countrySelected + "'")
-
             query = query.replace(/{SERVICE}/g, "'" + sectorSelected + "'")
             query = query.replace(/{SECTOR}/g, "'" + productSelected + "'")
 
-
-
         }
+
 
         // every is product All
         else if (productSelected == 'All' && sectorSelected == 'All') {
-
             var query = this.config.queries.directory_business_only_country_all;
-
             query = query.replace('{COUNTRY}', "'" + countrySelected + "'")
-
-
         }
+
         // only productSelected All
         else if (productSelected == 'All' && sectorSelected != 'All') {
-
-
             var query = this.config.queries.directory_business_only_product_all;
-
             query = query.replace('{COUNTRY}', "'" + countrySelected + "'")
             query = query.replace(/{SERVICE}/g, "'" + sectorSelected + "'")
-
-
-            //  query = query.replace(/{SECTOR}/g, "'" + productSelected + "'")
-
         }
+
 
         // only productSelected All
         else {
-
             var query = this.config.queries.directory_business_only_sector_all;
-
             query = query.replace('{COUNTRY}', "'" + countrySelected + "'")
             query = query.replace(/{SECTOR}/g, "'" + productSelected + "'")
-
-            //   query = query.replace(/{SERVICE}/g, "'" + sectorSelected + "'")
-
         }
 
 
@@ -214,14 +209,10 @@ define([
     Selectors.prototype.renderGrid = function (dataSource) {
 
 
-        console.log('here')
-
-
         var titles = Object.keys(CONFIG)
 
 
         if (dataSource.length > 0) {
-
 
 
             $(s.CONTAINER).append(' <h3 class="afo-title">table: result</h3><table class="table table-hover" id="tableToAppend"></table>');

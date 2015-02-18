@@ -234,7 +234,7 @@ define([
                         value = value.replace(/0 /g, " ")
                         value = value.replace(/0/g, "")
 
-                        toAppend += '<td>' + value + '</td>';
+                        toAppend += '<td class="cellAfoTable">' + value + '</td>';
                     }
                     toAppend += '</tr>'
                 }

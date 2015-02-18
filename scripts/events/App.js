@@ -5,7 +5,8 @@ define([
     'AuthenticationManager',
     'amplify'
 ], function (Event, Menu, AuthenticationManager) {
-   'use strict';
+
+    'use strict';
 
     var s = {
         EVENT_CONTAINER : '#event_container',
@@ -17,7 +18,6 @@ define([
 
     function App(){
         this.state = {};
-
     }
 
     App.prototype.start = function () {
@@ -50,11 +50,10 @@ define([
 
         //Top Menu
         this.topMenu = new Menu({
-            active: 'events',
+/*            active: 'events',*/
             url: this.state.authenticated ? c.MENU_AUTH : c.MENU_PUBLIC,
             className: 'fx-top-menu',
             breadcrumb: {
-                active: true,
                 container: "#breadcumb_container",
                 showHome: true
             }

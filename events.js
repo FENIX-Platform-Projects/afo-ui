@@ -87,6 +87,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		'fx-menu/start',
         './scripts/components/AuthenticationManager',
+        'text!config/event_details_list.json',
 
         'amplify',
 
@@ -96,8 +97,21 @@ require(["submodules/fenix-ui-menu/js/paths",
 		publication,
 
 		TopMenu,
-		AuthenticationManager
+		AuthenticationManager, events
 		) {
+
+
+        /*Events*/
+
+        var e = JSON.parse(events);
+
+
+
+        for(var k in e){
+            var $li = $('<li><a href="events_details.html?event='+k+'">'+e[k].title+'</a></li>')
+            $('#event_list_containers').append($li)
+        }
+
 
 		Config = JSON.parse(Config);
 

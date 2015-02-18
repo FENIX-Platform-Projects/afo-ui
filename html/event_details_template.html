@@ -33,12 +33,9 @@
                 <li><a href="<%= d.url %>"> <%= d.title %></a></li>
                 <% }); %>
             </ul>
+            <% } else { %>
+            <div>No Documents</div>
             <% } %>
-
-
-
-
-
         </div>
         <br>
         <div class="afo-sidebar-item">
@@ -53,6 +50,8 @@
 
             </ul>
 
+            <% } else { %>
+                <div>No Links</div>
             <% } %>
 
 

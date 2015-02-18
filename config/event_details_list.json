@@ -4,6 +4,8 @@
     "title": "My Title",
     "subtitle": "My Subtitle",
     "text": "My text",
-    "documents" : [ { "url" : "myurl.html", "title" : "Doc Title"}]
+    "documents" : [ { "url" : "myurl.html", "title" : "Doc Title"}],
+      "links" : [ { "url" : "myurl.html", "title" : "Doc Title"}]
+
   }
 }

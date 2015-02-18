@@ -243,7 +243,6 @@ define([
 
     };
 
-
     App.prototype.queryTable = function (results) {
 
         var data = {
@@ -274,7 +273,6 @@ define([
         });
 
     };
-
 
     App.prototype.appendTable = function (data) {
         this.results.printTable(data);

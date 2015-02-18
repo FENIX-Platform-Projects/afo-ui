@@ -222,6 +222,8 @@ define([
 
         if (dataSource.length > 0) {
 
+
+
             $(s.CONTAINER).append(' <h3 class="afo-title">table: result</h3><table class="table table-hover" id="tableToAppend"></table>');
 
             var toAppend;
@@ -238,6 +240,9 @@ define([
                     toAppend += '<tr>'
                     for (var j = 0; j < titles.length; j++) {
                         var value = (dataSource[i - 1][CONFIG[titles[j]]]) ? dataSource[i - 1][CONFIG[titles[j]]] : ''
+                        value = value.replace(/0 /g, " ")
+                        value = value.replace(/0/g, "")
+
                         toAppend += '<td>' + value + '</td>';
                     }
                     toAppend += '</tr>'

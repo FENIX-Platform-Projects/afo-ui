@@ -91,9 +91,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		'fenix-map',
 		'fenix-map-config',
 
-        'amplify',
-
-		'domready!'
+        'amplify'
 	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L,
 		Config,
 		accordion,
@@ -105,7 +103,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		Config = JSON.parse(Config);
 
         new TopMenu({
-            active: 'directories_business',        	
+            active: 'directories_prod',
             url: 'config/fenix-ui-menu.json',
             className : 'fx-top-menu',
             breadcrumb : {

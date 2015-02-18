@@ -2078,6 +2078,20 @@ thead {
 
 .intro-holder p{ font-size: 11px;}
 
+.btn-gray{
+    border-color: #666666;
+    color: #666666;
+}
+
+.btn-gray:hover{
+    border-color: #666666;
+    color: #666666;
+}
+
+
+.intro-holder .btn-default{
+    margin-bottom: 15px;
+}
 /* ////////////////// Home Media Queries */
 
 @media (max-width: 767px) {
@@ -2086,9 +2100,7 @@ thead {
         display: none;
     }
 
-    .intro-holder .btn-default{
-        margin-bottom: 15px;
-    }
+
 
 }
 

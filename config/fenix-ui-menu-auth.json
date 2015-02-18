@@ -98,7 +98,7 @@
           },
           "target": "prices_detailed.html",
           "label": {
-            "EN": "Detailed",
+            "EN": "Local prices",
             "FR": ""
           }
         }

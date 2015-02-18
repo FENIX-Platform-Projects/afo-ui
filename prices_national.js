@@ -219,152 +219,14 @@ require(["submodules/fenix-ui-menu/js/paths",
 			return ret.join(",");
 		}
 
-		function myGetData22()
-		{
-			$("#output").empty();
-			$("#output").html("Wait");
-
-			param = {
-				px: returnSelect("IClassification"),
-				y: returnSelect("year"),
-				r: returnTreeview("country"),
-				p: returnTreeview("partner"),
-				cc: returnTreeview("commodity"),
-				Rg: returnSelect("TradeFlow")
-			};
-
-			//console.log(param.px+":" +param.y+":" +param.r+":" +param.p+":" +param.cc+":" +param.Rg);
-			/*console.log(returnTreeview("partner"));
-			console.log(returnTreeview("commodity"));
-			console.log(returnSelect("year"));*/
-			if(param.px!="" && param.y!="" && param.r!="" && param.p!="" && param.cc!="" && param.Rg!=""  )
-			{
-				$.post("data.php", param, function(data) {
-				//$.post("listboxdata/datatest.json",param,function(data){
-
-				data=eval(data);
-				mydata=[];
-				mydataNorm=[["mirror", "pfCode", "yr", "rgCode", "rtCode", "ptCode", "cmdCode", "cmdID", "qtCode", "Type","Value", "estCode", "htCode"] ];
-				mydata.push(data[0]);
-				console.log(data[0])
-
-				for(var i=1;i<data.length;i++)
-				{
-					var t=[];
-					var tNorm=[data[i][0][0],data[i][1][0],data[i][2][0],data[i][3][0],data[i][4][0],data[i][5][0],data[i][6][0],data[i][7][0],data[i][8][0],"TradeQuantity",
-					data[i][9][0],data[i][12][0],data[i][13][0]];
-					mydataNorm.push(tNorm);
-
-					tNorm=[data[i][0][0],data[i][1][0],data[i][2][0],data[i][3][0],data[i][4][0],data[i][5][0],data[i][6][0],data[i][7][0],data[i][8][0],"NetWeight",
-					data[i][10][0],data[i][12][0],data[i][13][0]];
-					mydataNorm.push(tNorm);
-
-					tNorm=[data[i][0][0],data[i][1][0],data[i][2][0],data[i][3][0],data[i][4][0],data[i][5][0],data[i][6][0],data[i][7][0],data[i][8][0],"TradeValue",
-					data[i][11][0],data[i][12][0],data[i][13][0]];
-					mydataNorm.push(tNorm);
-
-					for(j in data[i]){
-						t.push(data[i][j][0]);
-					}
-					mydata.push(t);
-				}
-
-				var derivers = $.pivotUtilities.derivers;
-				var renderers = $.extend($.pivotUtilities.renderers,$.pivotUtilities.gchart_renderers);
-				
-				$("#output").pivotUI(mydataNorm, {
-					hiddenAttributes:[],
-					derivedAttributes: {
-					"country":function(mp){return country[mp["rtCode"]]},
-					"CountryCodeFAOSTAT":function(mp){if (matchCountryHSFAOSTAT[mp["rtCode"]]){return matchCountryHSFAOSTAT[mp["rtCode"]]["FAOSTAT"]}
-					else{return "Nomatching found ("+mp["rtCode"]+")";}
-					},
-					"partner":function(mp){return country[mp["ptCode"]]},
-					"PartnerCodeFAOSTAT":function(mp){if(matchCountryHSFAOSTAT[mp["ptCode"]]){return matchCountryHSFAOSTAT[mp["ptCode"]]["FAOSTAT"]}
-					else{return "Nomatching found ("+mp["ptCode"]+")";}
-					},
-					"commodity":function(mp){return commodity[mp["cmdCode"]]},
-					"flow":function(mp){if(mp["rgCode"]==1){return "Import"}else{return "Export"}},
-					"faostatCode":function(mp)
-					{if(matchHSFAOSTATFertilizer[mp["cmdCode"]])
-					{return matchHSFAOSTATFertilizer[mp["cmdCode"]];}
-					else{
-					if (matchHSFAOSTATFertilizer[mp["cmdCode"].substring(0,4)+"*"])
-					{return matchHSFAOSTATFertilizer[mp["cmdCode"].substring(0,4)+"*"]}
-					return "not matching found ("+mp["cmdCode"]+")";
-					}
-					},
-					"TradeValueFAOSTAT":function(mp){return mp["TradeValue"]/1000}
-
-				 },
-				 aggregators: aggregatorsCountry,
-
-					//rows:["country","rtCode","CountryCodeFAOSTAT","partner","ptCode","PartnerCodeFAOSTAT","flow","commodity","faostatCode"],
-					rows:["CountryCodeFAOSTAT","country","flow","faostatCode","Type"],
-					
-					cols: ["yr","mirror"],
-				//	vals:["TradeValueFAOSTAT","TradeValue","TradeQuantity","NetWeight"],
-					vals:["Value"],
-
-					linkedAttributes:[["country","rtCode","CountryCodeFAOSTAT"]]
-					},true);
-
-				}).fail(function(xhr, textStatus, errorThrown) {
-					$("#output").html("Error in loading data: "+xhr.responseText);
-				});
-			}
-			else
-				alert("missing parameters");
-		}
-
-		//FAOSTATNEWOLAP.rendererV = 2;
-		/*
-				var derivers = $.pivotUtilities.derivers;
-				var renderers = $.extend(
-					$.pivotUtilities.renderers
-				);
-		*/
-/*
-getWDS(Config.queries.prices_national_filter, {
-	fertilizer_code: '3102100000',
-	month_from_yyyymm: '201201',
-	month_to_yyyymm: '201212'
-}, function(data) {
-
-		data = [["Area","Item","Year","Month2","Value","Unit","Flag"]].concat(data);
-
-			FAOSTATNEWOLAP.originalData = data;
-
-			$("#pivot").pivotUI(data, {
-				derivedAttributes: {
-					"Month": function(mp){
-						return "<span class=\"ordre\">" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
-					},"Indicator":function(mp){return mp["Item"]+" ("+mp["Unit"]+")";}
-				},
-				rows: ["Area", "Indicator"],
-				cols: ["Year", "Month"],
-				vals: ["Value", "Flag"],
-				hiddenAttributes:["Month2","Unit","Item"],
-				linkedAttributes:[]
-			});
-
-			$("#pivot_loader").hide();
-			$("#pivot_download").show();
-
-			$("#pivot_download").on('click', function(e) {
-
-				my_exportNew();
-				//decolrowspanNEW();
-			});
-		});
-		*/
-		/*test*/
+		
+	
 		
 		function loadOlapData(sqlFilter) {
 				
 			getWDS(Config.queries.prices_national_filter,sqlFilter, function(data) {
 
-				data = [["Area","Item","Year","Month2","Value","Unit","Flag"]].concat(data);
+				data = [["Area","Item","Year","Month2","Value","Unit","Flag","FertCode"]].concat(data);
 
 				FAOSTATNEWOLAP.originalData = data;
 
@@ -372,7 +234,7 @@ getWDS(Config.queries.prices_national_filter, {
 					derivedAttributes: {
 						"Month": function(mp){
 							return "<span class=\"ordre\">" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
-						},"Indicator":function(mp){return mp["Item"]+" ("+mp["Unit"]+")";}
+						},"Indicator":function(mp){return "<span class=\"ordre\">" + mp["FertCode"] + "</span>"+mp["Item"]+" ("+mp["Unit"]+")";}
 					},
 					rows: ["Area", "Indicator", "Month"],
 					cols: ["Year"],

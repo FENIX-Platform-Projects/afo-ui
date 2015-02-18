@@ -374,7 +374,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 		            chart_options.series.push(series);
 		        }
 		    });
-		    $('#chart_prices_inter').highcharts(chart_options);
+		    
+		    //	$('#chart_prices_inter').highcharts(chart_options);
 		});
 
 		$('#prices_international_grid').load("prices/html/prices_international.html");

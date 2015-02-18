@@ -76,7 +76,15 @@ define([
         }
 
         getWDS(this.config.queries.regions, null, function (regs) {
-            var Regions = regs;
+            
+            console.log(regs);
+
+            regs = _.reject(regs, function(val) {
+            	return val[0]==="696";//remove all countries
+            });
+
+            listRegions$.append('<option value="696" class="afo-list-allcountries" selected>All African Countries</option>');
+
             for (var r in regs)
                 listRegions$.append('<option value="' + regs[r][0] + '">' + regs[r][1] + '</option>');
         });

@@ -459,8 +459,7 @@ getWDS(Config.queries.prices_national_filter, {
                     "ui": {"initially_select": ['2814200000']}
                 }).on('changed.jstree', function (e, data) {
 
-                    console.log($('#product-s').jstree(true).get_selected())
-
+                   
                     loadOlapData({
                         fertilizer_code: $('#product-s').jstree(true).get_selected().join("', '"),
                         month_from_yyyymm: minDate,

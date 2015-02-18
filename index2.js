@@ -200,6 +200,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 				style += "[adm0_code = '"+adm0_code+"'] { fill: #309000; fill-opacity: "+opacities[adm0_code]+"; stroke: #FFFFFF; }";
 			});
 
+			console.log(style);
+
 			$.ajax({
 				url: Config.sldUrl,
 				data: {
@@ -218,30 +220,28 @@ require(["submodules/fenix-ui-menu/js/paths",
 		function getLayerStyled(field) {
 
 			var	countriesLayer = L.tileLayer.wms(Config.wmsUrl, {
-				layers: 'fenix:'+Config.gaulLayer,
+				layers: "fenix:"+Config.gaulLayer,
 				format: 'image/png',
 				transparent: true
 			});
 
 			getWDS(Config.queries.home_maps_filter, {field: field }, function(resp) {
-			
-				console.log(resp);
 
 				var ccodes = [];
 				for(var i in resp)
 					ccodes.push(resp[i][0]);
 	
-				console.log('MAPS', resp, ccodes);
+				console.log(ccodes);
 
 				var opacities = {};
-				_.each(codes, function(val) {
+				_.each(ccodes, function(val) {
 					
 					var gaul = val[0];
 
 					if(!opacities[ gaul ])
 						opacities[ gaul ]= 0.2;
 					
-					opacities[ gaul ]+= 0.18;
+					opacities[ gaul ]+= 0.12;
 					opacities[ gaul ]= parseFloat( opacities[ gaul ].toFixed(2) );
 					opacities[ gaul ]= opacities[ gaul ]>1 ? 1 : opacities[ gaul ];
 				});
@@ -268,7 +268,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			zoomControl: false,
 			attributionControl: false,
 			center: L.latLng(12,18),
-			layers: L.tileLayer(Config.url_osmlayer)
+			layers: L.tileLayer(Config.url_baselayer)
 		})
 		.addControl(L.control.zoom({position:'bottomright'}));
 
@@ -277,7 +277,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			zoomControl: false,
 			attributionControl: false,
 			center: L.latLng(12,18),
-			layers: L.tileLayer(Config.url_osmlayer)
+			layers: L.tileLayer(Config.url_baselayer)
 		})
 		.addControl(L.control.zoom({position:'bottomright'}));
 

@@ -200,7 +200,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 							.addTo(layerRetail);
 					}
 
-				map.fitBounds( layerRetail.getBounds().pad(-1) );
+				map.fitBounds( layerRetail.getBounds().pad(-1.2) );
 			});
 		}
 

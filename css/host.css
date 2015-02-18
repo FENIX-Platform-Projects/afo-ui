@@ -2823,6 +2823,17 @@ input[type="radio"]:checked + label {
   height: 25px;
   font-size: 10px; }
 
+.afo-compare-sources .afo-title-gray {
+  margin-top: 0; }
+
+.afo-compare-selectors .afo-title-gray {
+  margin-top: 5px; }
+.afo-compare-selectors #country-search-s, .afo-compare-selectors #element-search-s, .afo-compare-selectors #product-search-s {
+  float: right;
+  width: 50%;
+  height: 25px;
+  font-size: 10px; }
+
 .fx-widget {
   border: none; }
 
@@ -2835,7 +2846,7 @@ input[type="radio"]:checked + label {
 #n-p-s {
   display: inline-block; }
 
-.afo-statistics-glance .span12 hr {
+.afo-statistics-glance .span12 hr, .afo-statistics-compare .span12 hr {
   margin: 0 0 10px 0; }
 
 #prices_tabs li {

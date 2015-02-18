@@ -31,6 +31,32 @@
 }
 
 
+.afo-compare-sources{
+  .afo-title-gray{
+    margin-top: 0;
+  }
+
+}
+
+.afo-compare-selectors{
+
+
+  .afo-title-gray{
+    margin-top: 5px;
+  }
+
+  #country-search-s, #element-search-s, #product-search-s{
+    float: right;
+    width: 50%;
+    height: 25px;
+    font-size: 10px;
+  }
+
+
+
+}
+
+
 
 .fx-widget{
   border: none;
@@ -49,7 +75,7 @@
 }
 
 
-.afo-statistics-glance{
+.afo-statistics-glance, .afo-statistics-compare{
 
   .span12{
 
@@ -157,3 +183,4 @@
   margin-top: 15px;
   margin-bottom: 15px;
 }
+

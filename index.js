@@ -92,6 +92,37 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		Config = JSON.parse(Config);
 
+		function getWDS(queryTmpl, queryVars, callback) {
+
+			var sqltmpl, sql;
+
+			if(queryVars) {
+				sqltmpl = _.template(queryTmpl);
+				sql = sqltmpl(queryVars);
+			}
+			else
+				sql = queryTmpl;
+
+			var	data = {
+					datasource: Config.dbName,
+					thousandSeparator: ',',
+					decimalSeparator: '.',
+					decimalNumbers: 2,
+					cssFilename: '',
+					nowrap: false,
+					valuesIndex: 0,
+					json: JSON.stringify({query: sql})
+				};
+
+			$.ajax({
+				url: Config.wdsUrl,
+				data: data,
+				type: 'POST',
+				dataType: 'JSON',
+				success: callback
+			});
+		}
+
         var authUser = amplify.store.sessionStorage('afo.security.user'),
             menuUrl,
             publicMenuConfig = 'config/fenix-ui-menu.json',
@@ -140,7 +171,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 			simulateTouch: false,
             onSwiperCreated: updateMainSwiperIndex,
             onSlideChangeEnd: updateMainSwiperIndex
-
 		});
 		$('.swipe-high-prev').on('click', function(e) {
 			e.preventDefault();
@@ -151,84 +181,69 @@ require(["submodules/fenix-ui-menu/js/paths",
 			swiperHigh.swipeNext();
 		});
 
-
-        function updateMainSwiperIndex (swiper) {
+        function updateMainSwiperIndex(swiper) {
             var s = swiper || swiperHigh;
-
            $('.hp-main-swiper-index').html('<span class="swiper-index"><span class="swiper-index-active">'+ (s.activeLoopIndex + 1)+'</span><span class="swiper-index-total"> | '+ (s.slides.length - (s.loopedSlides*2) )+'</span></span>' );
         }
-
 
 
 ///MAPS SLIDER
 		var swiperMaps = {};
 
-var STYLES = [
-	"[iso3 = 'COD'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }"+
-	"[iso3 = 'GHA'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }"+
-	"[iso3 = 'CIV'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }"+
-	"[iso3 = 'KEN'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }"+
-	"[iso3 = 'MWI'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }"+
-	"[iso3 = 'MOZ'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }"+
-	"[iso3 = 'NGA'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }"+
-	"[iso3 = 'SEN'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }"+
-	"[iso3 = 'TZA'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }"+
-	"[iso3 = 'UGA'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }"+
-	"[iso3 = 'ZMB'] { fill: #309000; fill-opacity: 0.92; stroke: #FFFFFF; }"+
-	"[iso3 = 'BFA'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }"+
-	"[iso3 = 'BDI'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }"+
-	"[iso3 = 'MDG'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }"+
-	"[iso3 = 'MLI'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }"+
-	"[iso3 = 'NER'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }"+
-	"[iso3 = 'RWA'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }"+
-	"[iso3 = 'TGO'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }"+
-	"[iso3 = 'BEN'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }",
+		function setLayerStyle(ccodes) {
+			var style = '',
+				sld = '';
 
-	"[iso3 = 'GHA'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }"+
-	"[iso3 = 'MWI'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }"+
-	"[iso3 = 'MOZ'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }"+
-	"[iso3 = 'CMR'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }"+
-	"[iso3 = 'ETH'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }"+
-	"[iso3 = 'NER'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }"+
-	"[iso3 = 'RWA'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }"+
-	"[iso3 = 'TGO'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }"+
-	"[iso3 = 'BEN'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }",
-
-	"[iso3 = 'GHA'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }"+
-	"[iso3 = 'CIV'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }"+
-	"[iso3 = 'SEN'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }"+
-	"[iso3 = 'TZA'] { fill: #309000; fill-opacity: 0.74; stroke: #FFFFFF; }"+
-	"[iso3 = 'ZMB'] { fill: #309000; fill-opacity: 0.92; stroke: #FFFFFF; }"+
-	"[iso3 = 'BFA'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }"+
-	"[iso3 = 'BDI'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }"+
-	"[iso3 = 'CMR'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }"+
-	"[iso3 = 'MDG'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }"+
-	"[iso3 = 'MLI'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }"+
-	"[iso3 = 'RWA'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }"+
-	"[iso3 = 'TGO'] { fill: #309000; fill-opacity: 0.56; stroke: #FFFFFF; }"+
-	"[iso3 = 'BEN'] { fill: #309000; fill-opacity: 0.38; stroke: #FFFFFF; }"
-];
-
-		function getLayerCountries(indexMap) {
-			var countriesLayer = L.tileLayer.wms(Config.wmsUrl, {
-					layers: "fenix:"+Config.gaulLayer,
-					format: 'image/png',
-					transparent: true
-				});
+			_.each(ccodes, function(opacity, adm0_code) {
+				style += " [adm0_code = '"+adm0_code+"'] { "+
+					"fill: #309000; "+
+					"fill-opacity: "+opacity+"; "+
+					"stroke: #FFFFFF; "+
+				"}";
+			});
 
 			$.ajax({
 				url: Config.sldUrl,
 				data: {
 					stylename: "fenix:"+Config.gaulLayer,
-					style: STYLES[ indexMap ]
+					style: style
 				},
 				async: false,
 				type: 'POST',
-				success: function(resp) {
-					countriesLayer.wmsParams.sld = resp;
-					countriesLayer.redraw();
+				success: function(response) {
+					sld = response;
 				}
 			});
+			return sld;
+		}
+
+		function getLayerStyled(field) {
+
+			var	countriesLayer = L.tileLayer.wms(Config.wmsUrl, {
+				layers: "fenix:"+Config.gaulLayer,
+				format: 'image/png',
+				transparent: true
+			});
+
+			getWDS(Config.queries.home_maps_filter, {field: field }, function(resp) {
+
+				var ccodes = {}, val;
+
+				for(var i in resp) {
+					val = parseFloat( resp[i][1] );
+				
+					if(val===-1)
+						val = 0;
+
+					ccodes[ resp[i][0] ] = val / 10;
+				}
+
+				console.log('ccodes',ccodes);
+
+				countriesLayer.wmsParams.sld = setLayerStyle(ccodes);
+				countriesLayer.redraw();
+			});
+
 			return countriesLayer;
 		}
 
@@ -240,7 +255,7 @@ var STYLES = [
 			layers: L.tileLayer(Config.url_baselayer)
 		})
 		.addControl(L.control.zoom({position:'bottomright'}))
-		.addLayer( getLayerCountries(0) );
+		.addLayer( getLayerStyled('afo_footprint') );
 
 		swiperMaps.slide2 = L.map('mapSlide2', {
 			zoom: 3,
@@ -250,7 +265,7 @@ var STYLES = [
 			layers: L.tileLayer(Config.url_baselayer)
 		})
 		.addControl(L.control.zoom({position:'bottomright'}))
-		.addLayer( getLayerCountries(1) );
+		.addLayer( getLayerStyled('manufacturing_plant') );
 
 		swiperMaps.slide3 = L.map('mapSlide3', {
 			zoom: 3,
@@ -260,7 +275,8 @@ var STYLES = [
 			layers: L.tileLayer(Config.url_baselayer)
 		})
 		.addControl(L.control.zoom({position:'bottomright'}))
-		.addLayer( getLayerCountries(2) );
+		.addLayer( getLayerStyled('blending_plant') );
+
 
 		//	SLIDER Maps
 		var mySwiperMap = $('#afo-maps-wrapper').swiper({

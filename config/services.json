@@ -19,7 +19,7 @@
   "queries": {
 	"home_maps_filter": "select country_code, coalesce(<%= field %>, -1) from afo_map_slider",
 
-    "fertilizers_tree": "select fc.fertilizer_class as group, fc.fertilizer_code as id, cf.fertilizer_label as text from fertilizers_class fc, codes_fertilizers cf where fc.fertilizer_code = cf.fertilizer_code order by fc.fertilizer_class",
+    "fertilizers_tree": "select fertilizer_category_code, fertilizer_code, fertilizer_category_label, fertilizer_label from fertilizers_category join codes_fertilizers on (fertilizer = fertilizer_code) join codes_fertilizers_categories on (fertilizer_category = fertilizer_category_code)",
     "fertilizers_country": "select distinct country_code from fertilizers_country where fertilizer_code in ( <%= fertilizersList %> )",
     "dealers": "select * from dealers",
     "regions": "select country_code, country_label from codes_countries where parent_code = '' order by country_code ",

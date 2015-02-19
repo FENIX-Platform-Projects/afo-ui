@@ -248,40 +248,5 @@ define([
 
     }
 
-    Selectors.prototype.createCountryOption = function (data) {
-
-        for (var i = 0; i < data.length; i++) {
-            if (i == 5) {
-                $(s.COUNTRY).append("<option value='" + data[i][0] + "' selected>" + data[i][1] + "</option>")
-                self.startTable(data[i][0])
-            }
-            else {
-                $(s.COUNTRY).append("<option value='" + data[i][0] + "'>" + data[i][1] + "</option>")
-            }
-        }
-
-    }
-
-
-    Selectors.prototype.createProductOption = function (data) {
-
-
-        data.sort()
-        for (var i = 0; i < data.length; i++) {
-            if (i == 5) {
-                $(s.PRODUCT).append("<option value='" + data[i] + "' selected>" + data[i] + "</option>")
-                self.startTable(data[i][0])
-            }
-            else {
-                $(s.PRODUCT).append("<option value='" + data[i] + "'>" + data[i] + "</option>")
-            }
-        }
-    }
-
-
-    Selectors.prototype.createSectorOption = function (data) {
-
-    }
-
     return Selectors;
 });

@@ -337,6 +337,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		var style = '',
 			sld = '';
+			
 		_.each(ccodes, function(val, iso3) {
 			style += "[iso3 = '"+iso3+"'] { fill: #309000; fill-opacity: "+opacities[iso3]+"; stroke: #FFFFFF; }";
 		});

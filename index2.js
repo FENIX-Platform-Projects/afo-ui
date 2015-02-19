@@ -171,7 +171,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 			simulateTouch: false,
             onSwiperCreated: updateMainSwiperIndex,
             onSlideChangeEnd: updateMainSwiperIndex
-
 		});
 		$('.swipe-high-prev').on('click', function(e) {
 			e.preventDefault();
@@ -182,7 +181,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			swiperHigh.swipeNext();
 		});
 
-        function updateMainSwiperIndex (swiper) {
+        function updateMainSwiperIndex(swiper) {
             var s = swiper || swiperHigh;
            $('.hp-main-swiper-index').html('<span class="swiper-index"><span class="swiper-index-active">'+ (s.activeLoopIndex + 1)+'</span><span class="swiper-index-total"> | '+ (s.slides.length - (s.loopedSlides*2) )+'</span></span>' );
         }
@@ -191,16 +190,17 @@ require(["submodules/fenix-ui-menu/js/paths",
 ///MAPS SLIDER
 		var swiperMaps = {};
 
-
 		function setLayerStyle(ccodes, opacities) {
 			var style = '',
 				sld = '';
 
-			_.each(ccodes, function(val, adm0_code) {
-				style += "[adm0_code = '"+adm0_code+"'] { fill: #309000; fill-opacity: "+opacities[adm0_code]+"; stroke: #FFFFFF; }";
+			_.each(ccodes, function(adm0_code) {
+				style += " [adm0_code = '"+adm0_code+"'] { "+
+					"fill: #309000; "+
+					"fill-opacity: "+opacities[adm0_code]+"; "+
+					"stroke: #FFFFFF; "+
+				"}";
 			});
-
-			console.log(style);
 
 			$.ajax({
 				url: Config.sldUrl,
@@ -229,14 +229,10 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 				var ccodes = [];
 				for(var i in resp)
-					ccodes.push(resp[i][0]);
-	
-				console.log(ccodes);
+					ccodes.push( parseFloat(resp[i][0]) );
 
 				var opacities = {};
-				_.each(ccodes, function(val) {
-					
-					var gaul = val[0];
+				_.each(ccodes, function(gaul) {
 
 					if(!opacities[ gaul ])
 						opacities[ gaul ]= 0.2;
@@ -245,6 +241,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 					opacities[ gaul ]= parseFloat( opacities[ gaul ].toFixed(2) );
 					opacities[ gaul ]= opacities[ gaul ]>1 ? 1 : opacities[ gaul ];
 				});
+			
+				console.log('opacities',opacities);
 
 				countriesLayer.wmsParams.sld = setLayerStyle(ccodes, opacities);
 				countriesLayer.redraw();
@@ -270,7 +268,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 			center: L.latLng(12,18),
 			layers: L.tileLayer(Config.url_baselayer)
 		})
-		.addControl(L.control.zoom({position:'bottomright'}));
+		.addControl(L.control.zoom({position:'bottomright'}))
+		.addLayer( getLayerStyled('afo_footprint') );
 
 		swiperMaps.slide3 = L.map('mapSlide3', {
 			zoom: 3,
@@ -279,7 +278,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 			center: L.latLng(12,18),
 			layers: L.tileLayer(Config.url_baselayer)
 		})
-		.addControl(L.control.zoom({position:'bottomright'}));
+		.addControl(L.control.zoom({position:'bottomright'}))
+		.addLayer( getLayerStyled('afo_footprint') );
 
 
 		//	SLIDER Maps

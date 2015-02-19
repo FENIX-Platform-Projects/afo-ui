@@ -190,14 +190,14 @@ require(["submodules/fenix-ui-menu/js/paths",
 ///MAPS SLIDER
 		var swiperMaps = {};
 
-		function setLayerStyle(ccodes, opacities) {
+		function setLayerStyle(ccodes) {
 			var style = '',
 				sld = '';
 
-			_.each(ccodes, function(adm0_code) {
+			_.each(ccodes, function(opacity, adm0_code) {
 				style += " [adm0_code = '"+adm0_code+"'] { "+
 					"fill: #309000; "+
-					"fill-opacity: "+opacities[adm0_code]+"; "+
+					"fill-opacity: "+opacity+"; "+
 					"stroke: #FFFFFF; "+
 				"}";
 			});
@@ -227,24 +227,20 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 			getWDS(Config.queries.home_maps_filter, {field: field }, function(resp) {
 
-				var ccodes = [];
-				for(var i in resp)
-					ccodes.push( parseFloat(resp[i][0]) );
+				var ccodes = {}, val;
 
-				var opacities = {};
-				_.each(ccodes, function(gaul) {
+				for(var i in resp) {
+					val = parseFloat( resp[i][1] );
+				
+					if(val===-1)
+						val = 0;
 
-					if(!opacities[ gaul ])
-						opacities[ gaul ]= 0.2;
-					
-					opacities[ gaul ]+= 0.12;
-					opacities[ gaul ]= parseFloat( opacities[ gaul ].toFixed(2) );
-					opacities[ gaul ]= opacities[ gaul ]>1 ? 1 : opacities[ gaul ];
-				});
-			
-				console.log('opacities',opacities);
+					ccodes[ resp[i][0] ] = val / 10;
+				}
 
-				countriesLayer.wmsParams.sld = setLayerStyle(ccodes, opacities);
+				console.log('ccodes',ccodes);
+
+				countriesLayer.wmsParams.sld = setLayerStyle(ccodes);
 				countriesLayer.redraw();
 			});
 
@@ -269,7 +265,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			layers: L.tileLayer(Config.url_baselayer)
 		})
 		.addControl(L.control.zoom({position:'bottomright'}))
-		.addLayer( getLayerStyled('afo_footprint') );
+		.addLayer( getLayerStyled('manufacturing_plant') );
 
 		swiperMaps.slide3 = L.map('mapSlide3', {
 			zoom: 3,
@@ -279,7 +275,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			layers: L.tileLayer(Config.url_baselayer)
 		})
 		.addControl(L.control.zoom({position:'bottomright'}))
-		.addLayer( getLayerStyled('afo_footprint') );
+		.addLayer( getLayerStyled('blending_plant') );
 
 
 		//	SLIDER Maps

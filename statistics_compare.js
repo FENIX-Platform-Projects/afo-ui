@@ -23,6 +23,8 @@ require([
 
                 'amplify': "//fenixapps.fao.org/repository/js/amplify/1.1.2/amplify.min",
                 'highcharts': "//fenixapps.fao.org/repository/js/highcharts/4.0.4/js/highcharts",
+                //'highcharts.export' : "//fenixapps.fao.org/repository/js/highcharts/4.0.4/js/modules/exporting",
+                'highcharts.export' : "//code.highcharts.com/modules/exporting",
                 'underscore': "//fenixapps.fao.org/repository/js/underscore/1.7.0/underscore.min",
                 'bootstrap': "//fenixapps.fao.org/repository/js/bootstrap/3.3.2/js/bootstrap.min",
                 'jquery': "//fenixapps.fao.org/repository/js/jquery/2.1.1/jquery.min",
@@ -43,6 +45,7 @@ require([
                 'bootstrap': ['jquery'],
 
                 'highcharts': ['jquery'],
+                'highcharts.export': ['highcharts', 'jquery'],
                 'jstree': ['jquery'],
                 'underscore': {
                     exports: '_'

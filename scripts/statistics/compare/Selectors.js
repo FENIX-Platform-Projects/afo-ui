@@ -21,6 +21,7 @@ define([
         SHOW_AS: '#show-s'
     }, defaultValues = {
         DATA_SOURCE: 'faostat',
+        COMPARE: 'COUNTRY',
         N_P: 'p',
         SHOW_AS: 'chart'
     };
@@ -126,7 +127,7 @@ define([
 
                 if (Array.isArray(res)) {
                     _.each(res, function (item, index) {
-                        $form.append(renderRadioBtn(item, index));
+                        $form.append(renderCheckbox(item, index));
                     });
                 }
 
@@ -135,7 +136,7 @@ define([
             }
         });
 
-        function renderRadioBtn(item, index) {
+        function renderCheckbox(item, index) {
 
             var id = 'afo-data-source-' + index,
                 $container = $('<span>'),
@@ -144,18 +145,20 @@ define([
                     for: id
                 }),
                 $radio = $('<input>', {
-                    type: 'radio',
+                    type: 'checkbox',
                     id: id,
                     name: 'afo-data-source',
                     value: item[0]
                 });
 
-            if (index === 0) {
-                $radio.attr("checked", true);
-            }
-
             $radio.on('change', _.bind(function () {
-                self._initProductSelector($(s.DATA_SOURCES).find('input:checked').val())
+
+                var checkboxValues = [];
+                $(s.DATA_SOURCES).find('input:checked').each(function(index, elem) {
+                    checkboxValues.push($(elem).val());
+                });
+
+                self._initProductSelector(checkboxValues.join("','"))
             }));
 
             $container.append($radio).append($label);
@@ -371,10 +374,6 @@ define([
                     value: item[0]
                 });
 
-            if (index === 0) {
-                $radio.attr("checked", true);
-            }
-
             $container.append($radio).append($label);
 
             return $container;
@@ -382,7 +381,7 @@ define([
     };
 
     Selectors.prototype._initCompareSelector = function () {
-        var kind = [['COUNTRY', 'Country'], ['ELEMENT', 'Element'], ['PRODUCT', 'Product']],
+        var kind = [['COUNTRY', 'Country'], ['ELEMENT', 'Element'], ['PRODUCT', 'Product'], ['SOURCE', 'Data Source' ]],
             $form = $('<form>');
 
         if (Array.isArray(kind)) {
@@ -392,7 +391,7 @@ define([
         }
 
         $(s.COMPARE).html($form);
-        $(s.COMPARE).find('input[value="' + defaultValues.N_P + '"]').prop('checked', true);
+        $(s.COMPARE).find('input[value="' + defaultValues.COMPARE + '"]').prop('checked', true);
 
         function renderRadioBtn(item, index) {
 
@@ -409,10 +408,28 @@ define([
                     value: item[0]
                 });
 
-            if (index === 0) {
-                $radio.attr("checked", true);
-            }
 
+            $radio.on('change', function ( e ) {
+                var $dataSourceCountrySTAT = $(s.DATA_SOURCES).find('input[value="cstat"]');
+
+                if ($(e.currentTarget).attr('value') === 'SOURCE') {
+
+                    if ($dataSourceCountrySTAT.is(":checked")) {
+                       $dataSourceCountrySTAT.prop('checked', false);
+                    }
+
+                    $dataSourceCountrySTAT.attr("disabled", true);
+
+                    if ($(s.DATA_SOURCES).find('input:checked').length < 1 ){
+                        $(s.DATA_SOURCES).find('input[value="' + defaultValues.DATA_SOURCE + '"]').prop('checked', true);
+
+                    }
+
+                } else {
+                    $dataSourceCountrySTAT.removeAttr("disabled");
+                }
+
+            });
             $container.append($radio).append($label);
 
             return $container;
@@ -474,20 +491,33 @@ define([
         return [{code: $btn.val(), text: $("label[for='"+$btn.attr('id')+"']").html() }];
     };
 
+    Selectors.prototype.processCheckbox = function ($btn) {
+
+        var checkboxValues = [];
+
+        $btn.each(function(index, elem) {
+            checkboxValues.push({ code: $(elem).val(), text: $("label[for='"+ $(elem).attr('id')+"']").html()});
+        });
+
+        return checkboxValues;
+    };
+
     Selectors.prototype.getFilter = function () {
 
         var filter = {
                 ELEMENT: this.processJsTree( $(s.ELEMENT).jstree(true).get_selected('full') ),
                 COUNTRY: this.processJsTree( $(s.COUNTRY).jstree(true).get_selected('full') ),
-                SOURCE: this.processRadioBtn( $(s.DATA_SOURCES).find('input:checked') ),
+                SOURCE: this.processCheckbox( $(s.DATA_SOURCES).find('input:checked') ),
                 KIND: this.processRadioBtn( $(s.N_P).find('input:checked') ),
                 PRODUCT: this.processJsTree( $(s.PRODUCT).jstree(true).get_selected('full') ),
                 COMPARE: this.processRadioBtn( $(s.COMPARE).find('input:checked') ),
                 SHOW: $(s.SHOW_AS).find('input:checked').val()
             },
-            valid = this._validateFilter(filter);
+            valid;
 
-        if (valid !== false) {
+        valid = this._validateFilter(filter);
+
+        if (valid === true) {
             return filter;
         } else {
 
@@ -527,7 +557,7 @@ define([
             valid = false;
         }
 
-        return valid;
+        return valid ? valid : errors;
     };
 
     Selectors.prototype._replace = function(str, data) {

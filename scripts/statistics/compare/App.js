@@ -90,8 +90,6 @@ define([
 
         var query;
 
-        console.log(results.SOURCE[0].code)
-
         switch (results.COMPARE[0].code) {
             case 'ELEMENT' :
                 results.SOURCE[0].code === 'cstat' ?
@@ -107,6 +105,9 @@ define([
                 results.SOURCE[0].code === 'cstat' ?
                     query = this._replace(this.config.queries.compare_by_country_cstat, v) :
                     query = this._replace(this.config.queries.compare_by_country, v);
+                break;
+            case 'SOURCE' :
+                    query = this._replace(this.config.queries.compare_by_source, v);
                 break;
         }
 

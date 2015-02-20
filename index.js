@@ -188,16 +188,33 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 
 ///MAPS SLIDER
-		var swiperMaps = {};
+		var swiperMaps = {},
+			mapScale = {
+				"-1": { color: "#DDDDDD", label: "NC" },
+				"0":  { color: "#F1EEE8", label: "0" },
+				"1":  { color: "#F1EEE8", label: "1" },
+				"2":  { color: "#BCD5AB", label: "2" },
+				"3":  { color: "#A5C88E", label: "3" },
+				"4":  { color: "#8DBD70", label: "5" },
+				"5":  { color: "#6AAC46", label: "5" },
+				"6":  { color: "#6AAC46", label: "6" },
+				"7":  { color: "#6AAC46", label: "7" },
+				"8":  { color: "#6AAC46", label: "9" },
+				"9":  { color: "#6AAC46", label: "9" },
+				"10": { color: "#6AAC46", label: "10" }
+			};
 
 		function setLayerStyle(ccodes) {
 			var style = '',
 				sld = '';
 
-			_.each(ccodes, function(opacity, adm0_code) {
-				style += " [adm0_code = '"+adm0_code+"'] { "+
-					"fill: #309000; "+
-					"fill-opacity: "+opacity+"; "+
+			_.each(ccodes, function(val, adm0_code) {
+
+				console.log(val);
+
+				style += "[adm0_code = '"+adm0_code+"'] { "+
+					"fill: "+mapScale[val].color+"; "+
+					"fill-opacity: 0.8; "+
 					"stroke: #FFFFFF; "+
 				"}";
 			});
@@ -230,12 +247,12 @@ require(["submodules/fenix-ui-menu/js/paths",
 				var ccodes = {}, val;
 
 				for(var i in resp) {
-					val = parseFloat( resp[i][1] );
+/*					val = parseFloat( resp[i][1] );
 				
 					if(val===-1)
-						val = 0;
+						val = 0;*/
 
-					ccodes[ resp[i][0] ] = val / 10;
+					ccodes[ resp[i][0] ] = resp[i][1];// val / 10;
 				}
 
 				console.log('ccodes',ccodes);

@@ -81,16 +81,23 @@ require(["submodules/fenix-ui-menu/js/paths",
 	require([
 	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet',
 	    'text!config/services.json',
+		'text!html/home_maps_legend.html',
+
 		'fx-menu/start',
         './scripts/components/AuthenticationManager',
+
         'amplify',
 		
 		'domready!'
 	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L,
 		Config,
-		TopMenu, AuthenticationManager) {
+		mapLegend,
+
+		TopMenu, AuthenticationManager
+		) {
 
 		Config = JSON.parse(Config);
+		mapLegendTmpl = Handlebars.compile(mapLegend);
 
 		function getWDS(queryTmpl, queryVars, callback) {
 
@@ -133,7 +140,7 @@ require(["submodules/fenix-ui-menu/js/paths",
         var topMenu = new TopMenu({
             active: 'home',        	
             url: menuUrl,
-            className : 'fx-top-menu',
+            className : 'fx-tomapLegendTmplp-menu',
             breadcrumb : {
                 active : true,
                 container : "#breadcumb_container",
@@ -190,7 +197,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 ///MAPS SLIDER
 		var swiperMaps = {},
 			mapScale = {
-				"-1": { color: "#DDDDDD", label: "NC" },
+				"-1": { color: "#CCCCCC", label: "NC" },
 				"0":  { color: "#F1EEE8", label: "0" },
 				"1":  { color: "#F1EEE8", label: "1" },
 				"2":  { color: "#BCD5AB", label: "2" },
@@ -199,10 +206,13 @@ require(["submodules/fenix-ui-menu/js/paths",
 				"5":  { color: "#6AAC46", label: "5" },
 				"6":  { color: "#6AAC46", label: "6" },
 				"7":  { color: "#6AAC46", label: "7" },
-				"8":  { color: "#6AAC46", label: "9" },
-				"9":  { color: "#6AAC46", label: "9" },
-				"10": { color: "#6AAC46", label: "10" }
+				"8":  { color: "#6AAC46", label: "8" },
+				"9":  { color: "#6AAC46", label: "9" }
 			};
+
+		$('.map-legend').each(function() {
+			$(this).prepend( mapLegendTmpl({values: mapScale }) );
+		});
 
 		function setLayerStyle(ccodes) {
 			var style = '',
@@ -246,16 +256,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 				var ccodes = {}, val;
 
-				for(var i in resp) {
-/*					val = parseFloat( resp[i][1] );
-				
-					if(val===-1)
-						val = 0;*/
-
-					ccodes[ resp[i][0] ] = resp[i][1];// val / 10;
-				}
-
-				console.log('ccodes',ccodes);
+				for(var i in resp)
+					ccodes[ resp[i][0] ] = resp[i][1];
 
 				countriesLayer.wmsParams.sld = setLayerStyle(ccodes);
 				countriesLayer.redraw();

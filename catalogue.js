@@ -121,7 +121,38 @@ require(["submodules/fenix-ui-menu/js/paths",
             console.log(amplify.store.sessionStorage('afo.security.user'));
         });
 
-	accordionTmpl = Handlebars.compile(accordion);
+		accordionTmpl = Handlebars.compile(accordion);
+
+		function getWDS(queryTmpl, queryVars, callback) {
+
+			var sqltmpl, sql;
+
+			if(queryVars) {
+				sqltmpl = _.template(queryTmpl);
+				sql = sqltmpl(queryVars);
+			}
+			else
+				sql = queryTmpl;
+
+			var	data = {
+					datasource: Config.dbName,
+					thousandSeparator: ',',
+					decimalSeparator: '.',
+					decimalNumbers: 2,
+					cssFilename: '',
+					nowrap: false,
+					valuesIndex: 0,
+					json: JSON.stringify({query: sql})
+				};
+
+			$.ajax({
+				url: Config.wdsUrl,
+				data: data,
+				type: 'POST',
+				dataType: 'JSON',
+				success: callback
+			});
+		}
 
 	_.extend(FMCONFIG, {
 		BASEURL: 'submodules/fenix-map-js',
@@ -130,56 +161,68 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 	function initListFamilies(fmLayer) {
 
-		$('#listFamilies').jstree({
-			core: {
-				data: {
-					url: 'data/fertilizers_families.json'
-				},
-				themes: {
-					icons: false
-				}
-			},
-			"plugins": ["checkbox", "wholerow"]
-		}).on('changed.jstree', function (e, data) {
-			e.preventDefault();
-			
-			console.log( data.selected );
 
-			initMapFamilies( data.selected, fmLayer );
+		getWDS(Config.queries.fertilizers_tree, null, function(data) {
+
+			var dataTree = [],
+				lastCatCode = '';
+
+			for(var i in data)
+				dataTree.push({
+					fertilizer_category_code: data[i][0],
+					fertilizer_code: data[i][1],
+					fertilizer_category_label: data[i][2],
+					fertilizer_label: data[i][3]
+				});
+
+			dataTree = _.groupBy(dataTree, 'fertilizer_category_label');
+
+			dataTree = _.map(dataTree, function(cat, catName) {
+				return {
+					id: cat[0].fertilizer_category_code,
+					text: catName,
+					children: _.map(cat, function(fert) {
+						return {
+							id: fert.fertilizer_code,
+							text: fert.fertilizer_label+' <small>('+fert.fertilizer_code+')</small>'
+						};
+					})
+				};
+			});
+
+			var dataOther = _.where(dataTree, {text: 'OTHERS'});
+
+			dataTree = _.reject(dataTree, function(cat) {
+				return cat.text==='OTHERS';
+			});
+
+			dataTree.push(dataOther[0]);
+
+			$('#listFamilies').jstree({
+				core: {
+					data: dataTree,
+					themes: {
+						icons: false
+					}
+				},
+				"plugins": ["checkbox", "wholerow"]
+			}).on('changed.jstree', function (e, data) {
+				e.preventDefault();
+
+				initMapFamilies( data.selected, fmLayer );
+			});
 		});
 	}
 
 	function initMapFamilies(ferts, fmLayer) {
 
-		ferts = $.isArray(ferts) ? ferts : [ferts];
+		getWDS(Config.queries.fertilizers_country, {
+			
+		fertilizersList: "'"+ferts.join("','")+"'"
 
-		var sqltmpl = _.template(Config.queries.countries_groups),
-			sql = sqltmpl({ids: "'"+ferts.join("','")+"'"});
+		}, function(resp) {
 
-		var	data = {
-				datasource: Config.dbName,
-				thousandSeparator: ',',
-				decimalSeparator: '.',
-				decimalNumbers: 2,
-				cssFilename: '',
-				nowrap: false,
-				valuesIndex: 0,
-				json: JSON.stringify({query: sql})
-			};
-
-		$.ajax({
-			url: Config.wdsUrl,
-			data: data,
-			type: 'POST',
-			dataType: 'JSON',
-			success: function(resp) {
-
-				console.log(resp);
-
-				updateLayer(fmLayer, resp);
-
-				//initChartFamilies(resp);
-			}
+			updateLayer(fmLayer, resp);
 		});
 	}
 
@@ -247,8 +290,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 					resp = _.sortBy(resp, function(val) {
 						return val[0];
 					});
-
-					console.log(resp);
 
 					$('#resultsCountries').append(accordionTmpl({
 						id: countryIso3,
@@ -338,8 +379,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 		var style = '',
 			sld = '';
 			
-		_.each(ccodes, function(val, iso3) {
-			style += "[iso3 = '"+iso3+"'] { fill: #309000; fill-opacity: "+opacities[iso3]+"; stroke: #FFFFFF; }";
+		_.each(ccodes, function(val, adm0_code) {
+			style += "[adm0_code = '"+adm0_code+"'] { fill: #309000; fill-opacity: "+opacities[adm0_code]+"; stroke: #FFFFFF; }";
 		});
 
 		$.ajax({
@@ -393,7 +434,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 						"<div class='fm-popup-join-title'>{{"+ fmLayer.layer.joincolumnlabel +"}}</div>"+
 						"<div class='fm-popup-join-content'>"+
 						"<em>Fertilizers:</em><br>"+
-							"{{{iso3}}}"+
+							"{{{adm0_code}}}"+
 						"</div>"+
 					"</div>"
 			}
@@ -404,8 +445,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		retCodes = _.keys(retCodes);
 
-		fmLayer._fenixmap.zoomTo("country", "iso3", retCodes);
-		//TODO convert from iso3 to gaul code(adm0_code)
+		fmLayer._fenixmap.zoomTo("country", "adm0_code", retCodes);
 	};
 
 	var fmMap = new FM.Map('fertMap', {
@@ -444,7 +484,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		opacity: '0.7',		
 		lang: "en",
 		zindex: 500,
-		joincolumn: "iso3",
+		joincolumn: "adm0_code",
 		joincolumnlabel: "areanamee",
 		customgfi: {
 			showpopup: true,

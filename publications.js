@@ -170,7 +170,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 				"PublicationSource":pub2[5],
 				"PublicationAuthorName":pub2[6],
 				"PublicationSector&Theme":pub2[7],
-				"PublicationDate":pub2[3],
+				"PublicationDate":pub2[4],
 				"DocumentLanguage":pub2[8],
 				"REC":pub2[9],
 				"Countries":pub2[10],
@@ -189,13 +189,18 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		});		
 	});}
+	
+	
 	getData(Config.queries.pubs_reformat);
+	Config.queries.pubs_reformat2=Config.queries.pubs_reformat;
 
 
 	$("#txtSearch").on("input" ,function(){
 	$(".afo-category-list-li").removeClass("active");
 	$(".afo-category-list-li").addClass("noactive");
 	getData(Config.queries.pubs_reformat+" where upper(description) like '%"+this.value.toUpperCase().split(" ").join("%")+"%' or upper(title) like '%"+this.value.toUpperCase().split(" ").join("%")+"%' or upper(author_name) like '%"+this.value.toUpperCase().split(" ").join("%")+"%' or upper(source) like '%"+this.value.toUpperCase().split(" ").join("%")+"%'");
+	
+	Config.queries.pubs_reformat2=Config.queries.pubs_reformat+" where upper(description) like '%"+this.value.toUpperCase().split(" ").join("%")+"%' or upper(title) like '%"+this.value.toUpperCase().split(" ").join("%")+"%' or upper(author_name) like '%"+this.value.toUpperCase().split(" ").join("%")+"%' or upper(source) like '%"+this.value.toUpperCase().split(" ").join("%")+"%' "
 	});
 	
 	
@@ -210,9 +215,22 @@ require(["submodules/fenix-ui-menu/js/paths",
 	//console.log(this.innerHTML)
 	document.getElementById("txtSearch").value="";
 	getData(Config.queries.pubs_reformat+" where upper(category) like '%"+this.innerHTML.toUpperCase()+"%' ");
+	Config.queries.pubs_reformat2=Config.queries.pubs_reformat+" where upper(category) like '%"+this.innerHTML.toUpperCase()+"%' ";
 	//console.log(Config.queries.pubs_reformat+" where upper(category) like '%"+this.innerHTML.toUpperCase()+"%' ")
 	this.className="afo-category-list-li active";
-	})
+	});
+	
+	$("#mostRecentOreder").click(function(){
+	
+	getData(Config.queries.pubs_reformat2 +"  order by posting_date DESC");
+	
+	});
+	
+	$("#alphabeticOrder").click(function(){
+	
+	getData(Config.queries.pubs_reformat2 +"  order by title");
+	
+	});
 	
 	
 

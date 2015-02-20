@@ -193,11 +193,10 @@ require(["submodules/fenix-ui-menu/js/paths",
            $('.hp-main-swiper-index').html('<span class="swiper-index"><span class="swiper-index-active">'+ (s.activeLoopIndex + 1)+'</span><span class="swiper-index-total"> | '+ (s.slides.length - (s.loopedSlides*2) )+'</span></span>' );
         }
 
-
 ///MAPS SLIDER
 		var swiperMaps = {},
-			mapScale = {
-				"-1": { color: "#CCCCCC", label: "NC" },
+			mapScales = [{
+				"-1": { color: "#DDDDDD", label: "NC" },
 				"0":  { color: "#F1EEE8", label: "0" },
 				"1":  { color: "#F1EEE8", label: "1" },
 				"2":  { color: "#BCD5AB", label: "2" },
@@ -208,13 +207,37 @@ require(["submodules/fenix-ui-menu/js/paths",
 				"7":  { color: "#6AAC46", label: "7" },
 				"8":  { color: "#6AAC46", label: "8" },
 				"9":  { color: "#6AAC46", label: "9" }
-			};
+			}, {
+				"-1": { color: "#DDDDDD", label: "NC" },
+				"0":  { color: "#deebf7", label: "0" },
+				"1":  { color: "#c6dbef", label: "1" },
+				"2":  { color: "#9ecae1", label: "2" },
+				"3":  { color: "#6baed6", label: "3" },
+				"4":  { color: "#4292c6", label: "5" },
+				"5":  { color: "#2171b5", label: "5" },
+				"6":  { color: "#08519c", label: "6" },
+				"7":  { color: "#08306b", label: "7" },
+				"8":  { color: "#08306b", label: "8" },
+				"9":  { color: "#08306b", label: "9" }
+			}, {		
+				"-1": { color: "#DDDDDD", label: "NC" },
+				"0":  { color: "#e0f3db", label: "0" },
+				"1":  { color: "#ccebc5", label: "1" },
+				"2":  { color: "#a8ddb5", label: "2" },
+				"3":  { color: "#A5C88E", label: "3" },
+				"4":  { color: "#7bccc4", label: "5" },
+				"5":  { color: "#4eb3d3", label: "5" },
+				"6":  { color: "#2b8cbe", label: "6" },
+				"7":  { color: "#0868ac", label: "7" },
+				"8":  { color: "#084081", label: "8" },
+				"9":  { color: "#124485", label: "9" }
+			}];	
 
-		$('.map-legend').each(function() {
-			$(this).prepend( mapLegendTmpl({values: mapScale }) );
-		});
+		$('#mapSlide1').next('.map-legend').prepend( mapLegendTmpl({values: mapScales[0] }) );
+		$('#mapSlide2').next('.map-legend').prepend( mapLegendTmpl({values: mapScales[1] }) );
+		$('#mapSlide3').next('.map-legend').prepend( mapLegendTmpl({values: mapScales[2] }) );
 
-		function setLayerStyle(ccodes) {
+		function setLayerStyle(ccodes, indexMap) {
 			var style = '',
 				sld = '';
 
@@ -223,7 +246,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 				console.log(val);
 
 				style += "[adm0_code = '"+adm0_code+"'] { "+
-					"fill: "+mapScale[val].color+"; "+
+					"fill: "+mapScales[indexMap][val].color+"; "+
 					"fill-opacity: 0.8; "+
 					"stroke: #FFFFFF; "+
 				"}";
@@ -244,7 +267,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			return sld;
 		}
 
-		function getLayerStyled(field) {
+		function getLayerStyled(field, indexMap) {
 
 			var	countriesLayer = L.tileLayer.wms(Config.wmsUrl, {
 				layers: "fenix:"+Config.gaulLayer,
@@ -259,7 +282,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 				for(var i in resp)
 					ccodes[ resp[i][0] ] = resp[i][1];
 
-				countriesLayer.wmsParams.sld = setLayerStyle(ccodes);
+				countriesLayer.wmsParams.sld = setLayerStyle(ccodes, indexMap);
 				countriesLayer.redraw();
 			});
 
@@ -274,7 +297,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			layers: L.tileLayer(Config.url_baselayer)
 		})
 		.addControl(L.control.zoom({position:'bottomright'}))
-		.addLayer( getLayerStyled('afo_footprint') );
+		.addLayer( getLayerStyled('afo_footprint',0) );
 
 		swiperMaps.slide2 = L.map('mapSlide2', {
 			zoom: 3,
@@ -284,7 +307,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			layers: L.tileLayer(Config.url_baselayer)
 		})
 		.addControl(L.control.zoom({position:'bottomright'}))
-		.addLayer( getLayerStyled('manufacturing_plant') );
+		.addLayer( getLayerStyled('manufacturing_plant',1) );
 
 		swiperMaps.slide3 = L.map('mapSlide3', {
 			zoom: 3,
@@ -294,7 +317,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			layers: L.tileLayer(Config.url_baselayer)
 		})
 		.addControl(L.control.zoom({position:'bottomright'}))
-		.addLayer( getLayerStyled('blending_plant') );
+		.addLayer( getLayerStyled('blending_plant',2) );
 
 
 		//	SLIDER Maps

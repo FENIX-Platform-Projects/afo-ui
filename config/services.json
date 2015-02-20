@@ -21,7 +21,6 @@
 
     "fertilizers_tree": "select fertilizer_category_code, fertilizer_code, fertilizer_category_label, fertilizer_label from fertilizers_category join codes_fertilizers on (fertilizer = fertilizer_code) join codes_fertilizers_categories on (fertilizer_category = fertilizer_category_code)",
     "fertilizers_country": "select distinct country_code from fertilizers_country where fertilizer_code in ( <%= fertilizersList %> )",
-    "dealers": "select * from dealers",
     "regions": "select country_code, country_label from codes_countries where parent_code = '' order by country_code ",
     "countries": "select DISTINCT country_code, country_label from codes_countries where parent_code <> '' order by country_label",
     "countries_byregion": "SELECT country_code, country_label FROM codes_countries WHERE parent_code = <%= id %> ",

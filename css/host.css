@@ -1788,6 +1788,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   text-transform: uppercase; }
 
 .afo-title-white.maptitle {
+  font-weight: bold;
   position: absolute;
   margin: 0;
   z-index: 1;

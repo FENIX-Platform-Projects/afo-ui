@@ -196,34 +196,35 @@ require(["submodules/fenix-ui-menu/js/paths",
 ///MAPS SLIDER
 		var swiperMaps = {},
 			mapScales = [{
-				"-1": { color: "#DDDDDD", label: "NC" },
+				"-1": { color: "#DDDDDD", label: "NC"},
 				"0":  { color: "#F1EEE8", label: "0" },
 				"1":  { color: "#BCD5AB", label: "1" },
 				"2":  { color: "#A5C88E", label: "2" },
 				"3":  { color: "#8DBD70", label: "3" },
 				"4":  { color: "#6AAC46", label: "4" }
 			}, {
-				"-1": { color: "#DDDDDD", label: "NC" },
+				"-1": { color: "#DDDDDD", label: "NC"},
 				"0":  { color: "#deebf7", label: "0" },
 				"1":  { color: "#c6dbef", label: "1" },
 				"2":  { color: "#9ecae1", label: "2" },
 				"3":  { color: "#6baed6", label: "3" },
-				"4":  { color: "#4292c6", label: "5" },
-				"5":  { color: "#2171b5", label: "6" },
-				"6":  { color: "#08519c", label: "7" },
-				"7":  { color: "#08306b", label: "8" },
-				"8":  { color: "#08306b", label: "9" }
+				"4":  { color: "#4292c6", label: "4" },
+				"5":  { color: "#2171b5", label: "5" },
+				"6":  { color: "#08519c", label: "6" },
+				"7":  { color: "#08306b", label: "7" },
+				"8":  { color: "#08306b", label: "8" }
 			}, {
-				"-1": { color: "#DDDDDD", label: "NC" },
+				"-1": { color: "#DDDDDD", label: "NC"},
 				"0":  { color: "#e0f3db", label: "0" },
 				"1":  { color: "#ccebc5", label: "1" },
 				"2":  { color: "#a8ddb5", label: "2" },
 				"3":  { color: "#A5C88E", label: "3" },
-				"4":  { color: "#7bccc4", label: "5" },
-				"5":  { color: "#4eb3d3", label: "6" },
-				"6":  { color: "#2b8cbe", label: "7" },
-				"7":  { color: "#0868ac", label: "9" },
-				"8":  { color: "#084081", label: "9" }
+				"4":  { color: "#7bccc4", label: "4" },
+				"5":  { color: "#4eb3d3", label: "5" },
+				"6":  { color: "#2b8cbe", label: "6" },
+				"7":  { color: "#0868ac", label: "7" },
+				"8":  { color: "#084081", label: "8" },
+				"9":  { color: "#063879", label: "9" }
 			}];	
 
 		$('#mapSlide1').next('.map-legend').append( mapLegendTmpl({values: mapScales[0] }) );
@@ -235,8 +236,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 				sld = '';
 
 			_.each(ccodes, function(val, adm0_code) {
-
-				console.log(val);
 
 				style += "[adm0_code = '"+adm0_code+"'] { "+
 					"fill: "+mapScales[indexMap][val].color+"; "+

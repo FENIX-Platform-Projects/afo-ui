@@ -251,7 +251,7 @@ require(["submodules/fenix-ui-menu/js/paths",
             var toAppend =  "<form style='display: none;'"+
                "id='csvFormWithQuotes' name='csvFormWithQuotes'"+
                "method='POST'"+
-               "action='http://168.202.28.57:8080/wds/rest/exporter/streamcsv'"+
+               "action='"+Config.wdsUrlExportCsv+"'"+
                "target='_new'>"+
                "<div><input type='text' value='faostat' name='cssFilename_WQ' id='cssFilename_WQ_csv'/></div>"+
                "<div><input type='text' value='africafertilizer' name='datasource_WQ_csv' id='datasource_WQ_csv'/></div>"+

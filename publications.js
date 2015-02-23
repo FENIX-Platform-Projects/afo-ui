@@ -185,7 +185,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			pub.DocumentType = pub.DocumentType.replace('.','');
 
 
-			$('#listPubs').append(publicationTmpl(pub));
+			$('#listPubs').append( publicationTmpl(pub) );
 
 		});		
 	});}

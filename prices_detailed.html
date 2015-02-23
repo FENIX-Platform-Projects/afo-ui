@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AfricaFertilizer.org</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta name="description" content="FENIX Structure">
+    <meta name="author" content="Stefano Cudini <stefano.cudini [at] fao.org>">
+    <meta name="author" content="Daniele Salvatore <daniele.salvatore [at] fao.org>">
+    <meta name="author" content="Nicola Selleri <nicola.selleri[at]fao.org>">
+
+    <!-- Third Party CSS -->
+    <link href="//fenixapps.fao.org/repository/js/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet.css" />
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/MarkerCluster.css">
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/MarkerCluster.Default.css">
+
+
+    <link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/jquery.rangeslider/5.7.0/css/classic-min.css">
+
+    <!-- FENIX CSS -->
+    <link rel="stylesheet" type="text/css" href="css/host.css">
+
+</head>
+<body id="page-prices_international">
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="breadcumb_container"></div>
+        </div>
+    </div>
+
+    <div class="row fx-header">
+        <div class="col-xs-12">
+            <div class="page-header">
+                <h2>Monthly local listed retail prices</h2>
+                <p>Monthly price data by fertilizer type and location. This section allows to query and retrieve local prices collected at the level of districts and towns</p>
+            </div>
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <div class="page-header">
+                    <h3 class="afo-title-gray">SELECT FERTILIZER</h3>
+                    <br><br><br>
+		            <label>Product:</label>
+		            <select class="form-control" id="prices_selectProduct">
+		            	<option value="3102100000">Urea</option>
+		            </select>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <div class="page-header">
+                    <h3 class="afo-title-gray">SELECT TIME RANGE</h3>
+                    <br><br><br><br>
+                    <div id="prices_rangeMonths" class="afo-range"></div>
+                </div>
+            </div>            
+        </div>
+		    
+		<div class="row">
+			<div class="col-xs-12">
+                <h3 class="afo-title">Georeferenced data</h3>
+				<div id="prices_retail_map" class="afo-simple-map" style="height:420px"></div>
+			</div>
+		</div>
+		<div class="row">
+
+			<div id="prices_retail_grid" class="col-xs-12" style="font-size:12px">
+                <h3 class="afo-title">Aggregated Data</h3>
+				<table id="pesticide" class="table" aria-describedby="pesticide_info">
+				<thead>
+					<tr class="afo-table-header" role="row"><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Country: activate to sort column ascending" style="width: 137px;"><div class="DataTables_sort_wrapper">Country<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Region: activate to sort column ascending" style="width: 121px;"><div class="DataTables_sort_wrapper">Region<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="District: activate to sort column ascending" style="width: 128px;"><div class="DataTables_sort_wrapper">District<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Town: activate to sort column ascending" style="width: 95px;"><div class="DataTables_sort_wrapper">Town<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Product: activate to sort column ascending" style="width: 137px;"><div class="DataTables_sort_wrapper">Product<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Unit: activate to sort column ascending" style="width: 82px;"><div class="DataTables_sort_wrapper">Unit<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Price / Trend: activate to sort column ascending" style="width: 86px;"><div class="DataTables_sort_wrapper">Price / Trend<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui-state-default" role="columnheader" tabindex="0" aria-controls="pesticide" rowspan="1" colspan="1" aria-label="Month: activate to sort column ascending" style="width: 118px;"><div class="DataTables_sort_wrapper">Month<span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th></tr>
+				</thead>
+				<tbody role="alert" aria-live="polite" aria-relevant="all">
+					<tr class="odd"><td class=""> burkina faso</td><td class="">SUD-OUEST</td><td class="">BOUGOURIBA</td><td class="">ouagadougou</td><td class="">other fertilizer</td><td class="">50 kg bag</td><td class="">5000.00 | 0.00</td><td class="">2012-11-03</td></tr>
+					<tr class="even"><td class=""> burkina faso</td><td class="">CASCADES</td><td class="">COMOE</td><td class="">BANFORA</td><td class="">complex fertilizers [NPK]</td><td class="">50 kg bag</td><td class="">17500.00 | 0.00</td><td class="">2012-12-05</td></tr>
+					<tr class="odd"><td class=""> burkina faso</td><td class="">CENTRE-NORD</td><td class="">SANMATENGA</td><td class="">KAYA</td><td class="">nitrogen fertilizer [N]</td><td class="">50 kg bag</td><td class="">18000.00 | 0.00</td><td class="">2013-07-05</td></tr>
+					<tr class="even"><td class=""> burkina faso</td><td class="">SUD-OUEST</td><td class="">BOUGOURIBA</td><td class="">ouagadougou</td><td class="">other fertilizer</td><td class="">50 kg bag</td><td class="">5000.00 | 0.00</td><td class="">2013-08-09</td></tr>
+					<tr class="odd"><td class=""> burkina faso</td><td class="">BOUCLE DU MOUHOUN</td><td class="">MOUHOUN</td><td class="">DEDOUGOU</td><td class="">nitrogen fertilizer [N]</td><td class="">50 kg bag</td><td class="">20000.00 | 0.00</td><td class="">2013-07-01</td></tr>
+					<tr class="even"><td class=""> burkina faso</td><td class="">SUD-OUEST</td><td class="">BOUGOURIBA</td><td class="">ouagadougou</td><td class="">complex fertilizers [NPK]</td><td class="">50 kg bag</td><td class="">18000.00 | 0.00</td><td class="">2013-05-07</td></tr>
+					<tr class="odd"><td class=""> burkina faso</td><td class="">CENTRE-NORD</td><td class="">SANMATENGA</td><td class="">KAYA</td><td class="">complex fertilizers [NPK]</td><td class="">50 kg bag</td><td class="">15.00 | 0.00</td><td class="">2012-11-03</td></tr>
+					<tr class="even"><td class=""> burkina faso</td><td class="">EST</td><td class="">GOURMA</td><td class="">FADA N'GOURMA</td><td class="">other fertilizer</td><td class="">50 kg bag</td><td class="">2.00 | 0.00</td><td class="">2012-11-05</td></tr>
+					<tr class="odd"><td class=""> burkina faso</td><td class="">SAHEL</td><td class="">SENO</td><td class="">DORI</td><td class="">complex fertilizers [NPK]</td><td class="">50 kg bag</td><td class="">50.00 | 0.00</td><td class="">2012-11-03</td></tr>
+					<tr class="even"><td class=""> burkina faso</td><td class="">CENTRE-EST</td><td class="">BOULGOU</td><td class="">TENKODOGO</td><td class="">complex fertilizers [NPK]</td><td class="">50 kg bag</td><td class="">17000.00 | 0.00</td><td class="">2013-03-06</td></tr>
+				</tbody>
+				</table>
+			</div>
+		</div>
+
+	</div>
+
+    <!-- Footer -->
+    <div class="container">
+      <div class="footer">
+        <p>AfricaFeritilizer.org - AF Skeleton web application by FENIX</p>
+      </div>
+    </div>
+
+	<script data-main="prices_detailed" src="src/lib/require.js"></script>
+
+
+  </body>
+</html>

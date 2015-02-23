@@ -244,6 +244,39 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		});
 
+        $('#price_table_download').on('click', function(e){
+
+            var query = {"query":"select market, town_location from prices_local where month between 201002 and 201102 group by market, town_location"};
+
+            var toAppend =  "<form style='display: none;'"+
+               "id='csvFormWithQuotes' name='csvFormWithQuotes'"+
+               "method='POST'"+
+               "action='http://168.202.28.57:8080/wds/rest/exporter/streamcsv'"+
+               "target='_new'>"+
+               "<div><input type='text' value='faostat' name='cssFilename_WQ' id='cssFilename_WQ_csv'/></div>"+
+               "<div><input type='text' value='africafertilizer' name='datasource_WQ_csv' id='datasource_WQ_csv'/></div>"+
+               "<div><input type='text' value='2' name='decimalNumbers_WQ_csv' id='decimalNumbers_WQ_csv'/></div>"+
+               "<div><input type='text' value='.' name='decimalSeparator_WQ_csv' id='decimalSeparator_WQ_csv'/></div>"+
+               "<div><input type='text' value=',' name='thousandSeparator_WQ_csv' id='thousandSeparator_WQ_csv'/></div>"+
+               "<div><input type='text' value='6' name='valueIndex_WQ_csv' id='valueIndex_WQ_csv'/></div>"+
+               "<div><input type='text' value='"+JSON.stringify(query)+"' name='json_WQ_csv' id='json_WQ_csv'/></div>"+
+               "<div><input type='text' value='' name='quote_WQ_csv' id='quote_WQ_csv'/></div>"+
+               "<div><input type='text' value='' name='title_WQ_csv' id='title_WQ_csv'/></div>"+
+               "<div><input type='text' value='' name='subtitle_WQ_csv' id='subtitle_WQ_csv'/></div>"+
+               "</form>";
+
+                $("body").append(toAppend)
+
+
+                document.getElementById("csvFormWithQuotes").submit();
+
+
+            $('#csvFormWithQuotes').empty();
+
+
+
+            })
+
 		loadMarkers( Selection );
 
 

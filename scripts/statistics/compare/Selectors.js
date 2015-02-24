@@ -24,6 +24,8 @@ define([
         COMPARE: 'COUNTRY',
         N_P: 'p',
         SHOW_AS: 'chart'
+    }, ev = {
+        SELECT: 'afo.selector.select'
     };
 
     function Selectors() {
@@ -75,6 +77,8 @@ define([
                     show_only_matches: true
                 },
                 "ui": {"initially_select": ['2814200000']}
+            }).on('changed.jstree', function () {
+                amplify.publish(ev.SELECT);
             });
 
             $(s.COUNTRY).jstree(true).select_node('ul > li:first');
@@ -158,7 +162,8 @@ define([
                     checkboxValues.push($(elem).val());
                 });
 
-                self._initProductSelector(checkboxValues.join("','"))
+                self._initProductSelector(checkboxValues.join("','"));
+                amplify.publish(ev.SELECT);
             }));
 
             $container.append($radio).append($label);
@@ -222,6 +227,8 @@ define([
                     show_only_matches: true
                 },
                 "ui": {"initially_select": ['2814200000']}
+            }).on('changed.jstree', function () {
+                amplify.publish(ev.SELECT);
             });
 
             $(s.PRODUCT).jstree(true).select_node('ul > li:first');
@@ -306,6 +313,8 @@ define([
                     show_only_matches: true
                 },
                 "ui": {"initially_select": ['2814200000']}
+            }).on('changed.jstree', function () {
+                amplify.publish(ev.SELECT);
             });
 
             $(s.ELEMENT).jstree(true).select_node('ul > li:first');
@@ -374,6 +383,11 @@ define([
                     value: item[0]
                 });
 
+            $radio.on('change', _.bind(function () {
+
+                amplify.publish(ev.SELECT);
+            }));
+
             $container.append($radio).append($label);
 
             return $container;
@@ -408,7 +422,6 @@ define([
                     value: item[0]
                 });
 
-
             $radio.on('change', function ( e ) {
                 var $dataSourceCountrySTAT = $(s.DATA_SOURCES).find('input[value="cstat"]');
 
@@ -428,6 +441,8 @@ define([
                 } else {
                     $dataSourceCountrySTAT.removeAttr("disabled");
                 }
+
+                amplify.publish(ev.SELECT);
 
             });
             $container.append($radio).append($label);
@@ -468,6 +483,10 @@ define([
                 $radio.attr("checked", true);
             }
 
+            $radio.on('change', _.bind(function () {
+                amplify.publish(ev.SELECT);
+            }));
+
             $container.append($radio).append($label);
 
             return $container;
@@ -502,17 +521,23 @@ define([
         return checkboxValues;
     };
 
+    Selectors.prototype.getSelection = function () {
+
+        return  {
+            ELEMENT: this.processJsTree( $(s.ELEMENT).jstree(true).get_selected('full') ),
+            COUNTRY: this.processJsTree( $(s.COUNTRY).jstree(true).get_selected('full') ),
+            SOURCE: this.processCheckbox( $(s.DATA_SOURCES).find('input:checked') ),
+            KIND: this.processRadioBtn( $(s.N_P).find('input:checked') ),
+            PRODUCT: this.processJsTree( $(s.PRODUCT).jstree(true).get_selected('full') ),
+            COMPARE: this.processRadioBtn( $(s.COMPARE).find('input:checked') ),
+            SHOW: $(s.SHOW_AS).find('input:checked').val()
+        }
+    };
+
+
     Selectors.prototype.getFilter = function () {
 
-        var filter = {
-                ELEMENT: this.processJsTree( $(s.ELEMENT).jstree(true).get_selected('full') ),
-                COUNTRY: this.processJsTree( $(s.COUNTRY).jstree(true).get_selected('full') ),
-                SOURCE: this.processCheckbox( $(s.DATA_SOURCES).find('input:checked') ),
-                KIND: this.processRadioBtn( $(s.N_P).find('input:checked') ),
-                PRODUCT: this.processJsTree( $(s.PRODUCT).jstree(true).get_selected('full') ),
-                COMPARE: this.processRadioBtn( $(s.COMPARE).find('input:checked') ),
-                SHOW: $(s.SHOW_AS).find('input:checked').val()
-            },
+        var filter = this.getSelection(),
             valid;
 
         valid = this._validateFilter(filter);

@@ -60,154 +60,6 @@
 .icojam_user:before {
   content: "\ebbb"; }
 
-.icojam_exit_1:before {
-  content: "\eaeb"; }
-
-/* Icons */
-.icojam_fla:before {
-  content: "\e777"; }
-
-.icojam_flac:before {
-  content: "\e778"; }
-
-.icojam_gif:before {
-  content: "\e779"; }
-
-.icojam_html:before {
-  content: "\e77a"; }
-
-.icojam_icl:before {
-  content: "\e77b"; }
-
-.icojam_icns:before {
-  content: "\e77c"; }
-
-.icojam_ico:before {
-  content: "\e77d"; }
-
-.icojam_ini:before {
-  content: "\e77e"; }
-
-.icojam_iso:before {
-  content: "\e77f"; }
-
-.icojam_jpg:before {
-  content: "\e780"; }
-
-.icojam_log:before {
-  content: "\e781"; }
-
-.icojam_midi:before {
-  content: "\e782"; }
-
-.icojam_mkv:before {
-  content: "\e783"; }
-
-.icojam_mov:before {
-  content: "\e784"; }
-
-.icojam_mp3:before {
-  content: "\e785"; }
-
-.icojam_mp4:before {
-  content: "\e786"; }
-
-.icojam_mpg:before {
-  content: "\e787"; }
-
-.icojam_ogg:before {
-  content: "\e788"; }
-
-.icojam_ogm:before {
-  content: "\e789"; }
-
-.icojam_otf:before {
-  content: "\e78a"; }
-
-.icojam_pdf:before {
-  content: "\e78b"; }
-
-.icojam_png:before {
-  content: "\e78c"; }
-
-.icojam_ppt:before {
-  content: "\e78d"; }
-
-.icojam_pptx:before {
-  content: "\e78e"; }
-
-.icojam_psd:before {
-  content: "\e78f"; }
-
-.icojam_ra:before {
-  content: "\e790"; }
-
-.icojam_rar:before {
-  content: "\e791"; }
-
-.icojam_raw:before {
-  content: "\e792"; }
-
-.icojam_rm:before {
-  content: "\e793"; }
-
-.icojam_rtf:before {
-  content: "\e794"; }
-
-.icojam_svg:before {
-  content: "\e795"; }
-
-.icojam_svgz:before {
-  content: "\e796"; }
-
-.icojam_swf:before {
-  content: "\e797"; }
-
-.icojam_sys:before {
-  content: "\e798"; }
-
-.icojam_tga:before {
-  content: "\e799"; }
-
-.icojam_tif:before {
-  content: "\e79a"; }
-
-.icojam_ttf:before {
-  content: "\e79b"; }
-
-.icojam_txt:before {
-  content: "\e79c"; }
-
-.icojam_wav:before {
-  content: "\e79d"; }
-
-.icojam_wma:before {
-  content: "\e79e"; }
-
-.icojam_wmv:before {
-  content: "\e79f"; }
-
-.icojam_xls:before {
-  content: "\e7a0"; }
-
-.icojam_xlsx:before {
-  content: "\e7a1"; }
-
-.icojam_xml:before {
-  content: "\e7a2"; }
-
-.icojam_zip:before {
-  content: "\e7a3"; }
-
-.icojam_presentation:before {
-  content: "\e9b1"; }
-
-.icojam_document:before {
-  content: "\ea3c"; }
-
-.icojam_link_1:before {
-  content: "\ea50"; }
-
 /* Roboto */
 /* Roboto Import */
 /* Roboto Regular */
@@ -430,9 +282,6 @@
 
 .fa-th:before {
   content: "\f00a"; }
-
-.fa-th-list:before {
-  content: "\f00b"; }
 
 .fa-home:before {
   content: "\f015"; }
@@ -1729,6 +1578,77 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 /* Leaflet */
 /* Fenix Leaflet Import */
 /* Fenix Leaflet Zoom control 0.7.3*/
+.leaflet-bar {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0; }
+
+.leaflet-bar a, .leaflet-bar a:hover {
+  height: 23px;
+  width: 23px;
+  line-height: 23px; }
+
+.leaflet-bar a:first-child, .leaflet-bar a:last-child {
+  -moz-border-radius-topleft: 0;
+  -webkit-border-top-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-border-radius-topright: 0;
+  -webkit-border-top-right-radius: 0;
+  border-top-right-radius: 0;
+  -moz-border-radius-bottomright: 0;
+  -webkit-border-bottom-right-radius: 0;
+  border-bottom-right-radius: 0;
+  -moz-border-radius-bottomleft: 0;
+  -webkit-border-bottom-left-radius: 0;
+  border-bottom-left-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  border-radius: 100%;
+  border-color: transparent;
+  margin: 5px; }
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+  font-family: 'eldorado_stroke';
+  font-size: 0;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-indent: 0;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.leaflet-control-zoom-out {
+  font-size: 0px; }
+
+.leaflet-touch .leaflet-control-zoom-in {
+  font-size: 0; }
+
+.leaflet-touch .leaflet-control-zoom-out {
+  font-size: 0; }
+
+.leaflet-control-zoom-in:before {
+  color: #336600;
+  font-size: 24px;
+  content: "\eb2a"; }
+
+.leaflet-control-zoom-out:before {
+  color: #336600;
+  font-size: 24px;
+  content: "\eb28"; }
+
 /* Typography */
 /* Afo Typography */
 /* Sansation Font (Africa Fertilizer logo) */

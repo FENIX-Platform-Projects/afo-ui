@@ -18,7 +18,8 @@ define([
         FOOTER: '.footer',
         SEARCH_BTN: '#search-btn',
         COURTESY: '#afo-courtesy',
-        RESULTS: '#afo-results'
+        RESULTS: '#afo-results',
+        RESUME : '#afo-resume'
     };
 
     function App() {
@@ -54,6 +55,51 @@ define([
     App.prototype._bindEventListeners = function () {
 
         $(s.SEARCH_BTN).on('click', _.bind(this.search, this));
+
+        amplify.subscribe('afo.selector.select', _.bind(this.updateResume, this));
+    };
+
+    App.prototype.updateResume = function () {
+
+        var resume = this.selectors.getSelection(),
+            keys = Object.keys(resume);
+
+        $(s.RESUME).empty();
+
+        _.each(keys, function (key ) {
+
+            if (resume.hasOwnProperty(key) && resume[key] && Array.isArray(resume[key]) && resume[key].length > 0){
+
+                var $li = $('<li>'),
+                    $label = $('<span>'),
+                    $value =  $('<span>', {text : getLabel(resume[key]) }),
+                    lab;
+
+                switch(key){
+                    case 'COUNTRY': lab = 'Africa Region'; break;
+                    case 'KIND' :  lab = 'View in'; break;
+                    case 'SOURCE' :  lab = 'Data Source'; break;
+                    case 'PRODUCT' :  lab = 'Fertilizer'; break;
+                    case 'ELEMENT' :  lab = 'Element'; break;
+                    case 'COMPARE' :  lab = 'Compare by'; break;
+                }
+
+                $label.html(lab);
+
+                $li.append($label).append($value);
+                $(s.RESUME).append($li)
+            }
+        });
+
+        function getLabel(array) {
+
+            var r ='';
+            _.each(array, function (a) {
+                r += a.text + ', ';
+            });
+
+            return r.slice(0, r.length - 2);
+        }
     };
 
     App.prototype.search = function () {

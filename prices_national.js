@@ -161,7 +161,8 @@ require(["submodules/fenix-ui-menu/js/paths",
             var data = [],
                 list,
                 s_product = '#product-s',
-                s_product_search = '#product-search-s';
+                s_product_search = '#product-search-s',
+                s_product_sel_all = '#product-sel-all-s';
 
             if (Array.isArray(res)) {
 
@@ -175,10 +176,34 @@ require(["submodules/fenix-ui-menu/js/paths",
                     data.push(createNode(n));
                 });
 
+                // Place ureas as first element and selected
+                var urea = _.findWhere(data, {id: '3102100000' });
+                data = _.without(data, urea);
+                urea['state'] = {};
+                urea.state.selected = true;
+                data.unshift(urea);
+
             }
 
             createTree(data);
             initSearch();
+            initBtns();
+
+            function initBtns () {
+
+                var allChecked = false;
+
+                $(s_product_sel_all).on('click', function () {
+
+                    if (!allChecked){
+                        $(s_product).jstree("check_all");
+                        allChecked = true
+                    } else {
+                        $(s_product).jstree("uncheck_all");
+                        allChecked = false
+                    }
+                })
+            }
 
             function createTree(data) {
 
@@ -239,7 +264,8 @@ require(["submodules/fenix-ui-menu/js/paths",
             var data = [],
                 list,
                 s_product = '#country-s',
-                s_product_search = '#country-search-s';
+                s_product_search = '#country-search-s',
+                s_product_sel_all = '#country-sel-all-s';;
 
             if (Array.isArray(res)) {
 
@@ -257,6 +283,23 @@ require(["submodules/fenix-ui-menu/js/paths",
 
             createTree(data);
             initSearch();
+            initBtns();
+
+            function initBtns () {
+
+                var allChecked = false;
+
+                $(s_product_sel_all).on('click', function () {
+
+                   if (!allChecked){
+                       $(s_product).jstree("check_all");
+                       allChecked = true
+                   } else {
+                       $(s_product).jstree("uncheck_all");
+                       allChecked = false
+                   }
+                })
+            }
 
             function createTree(data) {
 

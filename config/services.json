@@ -23,13 +23,14 @@
 	"home_maps_filter": "select country_code, coalesce(<%= field %>, -1) from afo_map_slider",
 
     "fertilizers_tree": "select fertilizer_category_code, fertilizer_code, fertilizer_category_label, fertilizer_label from fertilizers_category join codes_fertilizers on (fertilizer = fertilizer_code) join codes_fertilizers_categories on (fertilizer_category = fertilizer_category_code) order by fertilizer_label",
-    "fertilizers_country": "select distinct country_code from fertilizers_country where fertilizer_code in ( <%= fertilizersList %> )",
+    "fertilizers_country": "select distinct country_code from fertilizers_country where fertilizer_code in ( <%= ids %> )",
 
     "regions": "select country_code, country_label from codes_countries where parent_code = '' order by country_code ",
     "countries": "select DISTINCT country_code, country_label from codes_countries where parent_code <> '' order by country_label",
     "countries_byregion": "SELECT country_code, country_label FROM codes_countries WHERE parent_code = <%= id %> ",
     "countries_geojson": "SELECT ST_AsGeoJSON(geom), adm0_code, areanamee FROM spatial.gaul0_faostat_afo_4326 WHERE adm0_code IN ( <%= ids %> ) ",
     "countries_groups": "SELECT country, name FROM countries WHERE value = 1 AND name IN ( <%= ids %> ) ",
+    "countries_byfertilizers": "select country_code, string_agg(fertilizer_label,'|') from fertilizers_country join codes_fertilizers on (codes_fertilizers.fertilizer_code = fertilizers_country.fertilizer_code) where fertilizers_country.fertilizer_code in ( <%= ids %> ) group by country_code",
 
     "data_sources": "select * from codes_data_sources",
     "products": "select DISTINCT fertilizer_label, fertilizer_code from codes_fertilizers ORDER BY fertilizer_label",

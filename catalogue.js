@@ -50,7 +50,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		        'bootstrap': ['jquery'],
 		        'chosen': ['jquery'],
 		        'highcharts': ['jquery'],
-		        'jstree': ['jquery'],
+		        'jstr•••••ee': ['jquery'],
 		        'jquery-ui': ['jquery'],
 		        'jquery.power.tip': ['jquery'],
 		        'jquery.i18n.properties': ['jquery'],
@@ -161,7 +161,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 	function initListFamilies(fmLayer) {
 
-
 		getWDS(Config.queries.fertilizers_tree, null, function(data) {
 
 			var dataTree = [],
@@ -216,55 +215,54 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 	function initMapFamilies(ferts, fmLayer) {
 
-		getWDS(Config.queries.fertilizers_country, {
+		getWDS(Config.queries.countries_byfertilizers, {
 			
-		fertilizersList: "'"+ferts.join("','")+"'"
+			ids: "'"+ferts.join("','")+"'"
 
-		}, function(resp) {
+			}, function(resp) {
 
-			updateLayer(fmLayer, resp);
+				resp = _.map(resp, function(val) {
+					val[1] = val[1].split('|');
+					return val;
+				});
+
+				updateLayer(fmLayer, resp);
 		});
 	}
 
 	function initListCountries() {
 
-		var countriesData = [];
+		getWDS(Config.queries.countries, null, function(countriesData) {
 
-		$.ajax({
-			url: 'data/countries_iso3_afo.json',
-			dataType: "json",
-			async: false,
-			success: function(json) {
-				countriesData = json;
-			}
-		});
+			$('#listCountries').jstree({
+				core: {
+					themes: { icons: false },
+					data: countriesData
+				},
+				plugins: ["checkbox", "wholerow"],
+				checkbox: {
+					keep_selected_style: false
+				}
+			}).on('changed.jstree', function (e, data) {
+				e.preventDefault();
 
-		$('#listCountries').jstree({
-			core: {
-				themes: { icons: false },
-				data: countriesData
-			},
-            plugins: ["checkbox", "wholerow"],
-			checkbox: {
-				keep_selected_style: false
-			}
-		}).on('changed.jstree', function (e, data) {
-			e.preventDefault();
+				var res = _.map(data.selected, function(val) {
+					return _.findWhere(countriesData, {id: val});
+				});
 
-			var res = _.map(data.selected, function(val) {
-				return _.findWhere(countriesData, {id: val});
+				$('#resultsCountries').empty();
+				_.each(res, function(val) {
+					initResultsCountries( val.id, val.text );
+				});
+
+				$('#resultsCountries .collapse').collapse();
 			});
-
-			$('#resultsCountries').empty();
-			_.each(res, function(val) {
-				initResultsCountries( val.id, val.text );
-			});
-
-			$('#resultsCountries .collapse').collapse();
-		});
+		});			
 	}
-
 	function initResultsCountries(countryIso3, countryName) {
+
+
+		//TODO USE getWDS
 
 		var data = {
 				datasource: Config.dbName,
@@ -302,7 +300,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 	}
 
 //CROPS
-
 	function initListCrops() {
 
 		var cropsData = [];
@@ -334,7 +331,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 			});
 		});
 	}
-
 	function initResultsCrops(cropId, cropName) {
 
 		var data = {
@@ -359,11 +355,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 				url: Config.wdsUrl,
 				success: function(resp) {
 
-/*					$('#resultsCrops').append('<dt>'+cropName+'</dt>');
-					_.each(resp, function(val) {
-						$('#resultsCrops').append('<dd>&bull; '+val+'</dd>');
-						//TODO add countries
-					});*/
 					$('#resultsCrops').append(accordionTmpl({
 						id: cropId,
 						title: cropName,
@@ -404,28 +395,30 @@ require(["submodules/fenix-ui-menu/js/paths",
 		_.each(codes, function(val) {
 			if(!retCodes[ val[0] ])
 				retCodes[ val[0] ] = '';
-			
-			retCodes[ val[0] ] += '<b>&bull; '+val[1]+'</b><br>';
+			val[1].sort();
+			retCodes[ val[0] ] += '&bull; '+val[1].join('<br>&bull; ');
 		});
 
 		var opacities = {};
 		_.each(codes, function(val) {
+
 			if(!opacities[ val[0] ])
 				opacities[ val[0] ]= 0.2;
 			
-			opacities[ val[0] ]+= 0.18;
-			
-			opacities[ val[0] ]= parseFloat( opacities[ val[0] ].toFixed(2) );
-			opacities[ val[0] ]= opacities[val[0]]>1 ? 1 : opacities[val[0]];
+			opacities[ val[0] ]= parseFloat( val[1].length * 0.18 ).toFixed(2);
+			opacities[ val[0] ]= Math.min(opacities[val[0]], 1);			
 		});
+		
+		console.log(retCodes, opacities)
 
 		var data = [];
 		_.each(retCodes, function(val, key) {
 			var o = _.object([key],[val]);
 			data.push( o );
 		});
+		//'[{"TZA":"testtt<br>iuahsiduh"},{"BDI":"11"}]';
 
-		fmLayer.layer.joindata = JSON.stringify(data);//'[{"TZA":"testtt<br>iuahsiduh"},{"BDI":"11"}]';
+		fmLayer.layer.joindata = JSON.stringify(data);
 
 		fmLayer.layer.customgfi = {
 			showpopup: true,

@@ -2560,7 +2560,7 @@ input[type="checkbox"]:checked + label {
   .afo-home-partner-container .tab-content {
     padding-top: 25px;
     margin-bottom: 40px;
-    min-height: 150px; }
+    min-height: 90px; }
     .afo-home-partner-container .tab-content > div {
       padding: 0 30px; }
   .afo-home-partner-container ul li {

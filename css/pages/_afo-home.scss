@@ -17,8 +17,8 @@
   }
 
   .afo-home-item-content {
-    min-height: 160px;
-    padding-right: 30px;
+//      height: 160px;
+//    padding-right: 30px;
   }
 
 
@@ -109,13 +109,28 @@
 
 @media (max-width: 990px) {
 
-  .afo-home-jumbo{
-    >div {
-      margin-bottom: 50px;
+  .afo-home-items-container{
+    .afo-home-item{
+
+      &:nth-child(2){
+        margin-bottom: 15px;
+      }
+
+      .afo-title{
+
+      }
+
+
+
+
     }
+
   }
 
+
 }
+
+
 
 
 

@@ -2552,9 +2552,6 @@ input[type="checkbox"]:checked + label {
 .afo-home-item .afo-home-item-title {
   font-size: 16px;
   min-height: 30px; }
-.afo-home-item .afo-home-item-content {
-  min-height: 160px;
-  padding-right: 30px; }
 
 .afo-home-partner-container {
   list-style: none;
@@ -2612,8 +2609,8 @@ input[type="checkbox"]:checked + label {
 
 /* ////////////////// Home Media Queries */
 @media (max-width: 990px) {
-  .afo-home-jumbo > div {
-    margin-bottom: 50px; } }
+  .afo-home-items-container .afo-home-item:nth-child(2) {
+    margin-bottom: 15px; } }
 /* AFO - Prices Page Style */
 .afo-prices-international-chart {
   padding-left: 70px; }
@@ -3067,8 +3064,8 @@ input[type="checkbox"]:checked + label {
   border-top: 1px solid #e4e4e4;
   border-left: 1px solid #e4e4e4; }
   .map-legend .afo-title-white {
-    position: relative !important;
-    margin-left: 20px; }
+    margin: 0;
+    width: 250px; }
   .map-legend.active {
     visibility: visible;
     -webkit-transition: all 0.3s ease 0s;
@@ -3079,24 +3076,23 @@ input[type="checkbox"]:checked + label {
     bottom: 0; }
   .map-legend .afo-leg {
     list-style: none;
-    padding-left: 20px; }
+    padding-left: 3px; }
     .map-legend .afo-leg > li {
       float: left;
-      padding: 5px; }
+      padding: 4px; }
 
 .afo-legen-circe {
   display: inline-block;
-  height: 15px;
-  width: 15px;
+  height: 12px;
+  width: 12px;
   background-color: red;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   -ms-border-radius: 100%;
   border-radius: 100%;
-  margin-right: 5px;
-  -ms-transform: translateY(3px);
-  -webkit-transform: translateY(3px);
-  transform: translateY(3px); }
+  -ms-transform: translateY(1px);
+  -webkit-transform: translateY(1px);
+  transform: translateY(1px); }
 
 .leg1 {
   background-color: #F1EEE8; }

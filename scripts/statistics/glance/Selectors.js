@@ -46,6 +46,9 @@ define([
             },
             styleHover = {
                 fill: true, color: '#6AAC46', weight: 1, opacity: 1, fillOpacity: 0.8, fillColor: '#6AAC46'
+            },
+            styleSelect = {
+                fill: true, color: '#6AAC46', weight: 0, opacity: 1, fillOpacity: 1, fillColor: '#6AAC46'
             };
 
         function getWDS(queryTmpl, queryVars, callback) {
@@ -107,20 +110,37 @@ define([
                         function (feature, layer) {
                             layer
                                 .setStyle(style)
-                                .on("mouseover", function (e) {
-                                    layer.setStyle(styleHover);
+/*                                .on("mouseover", function (e) {
+                                	if(!e.target._options.selected)
+                                    	e.target.setStyle(styleHover);
                                 })
                                 .on("mouseout", function (e) {
-                                    layer.setStyle(style);
-                                })
+                                    if(!e.target._options.selected)
+                                    	e.target.setStyle(style);
+                                })*/
                                 .on("click", function (e) {
+                                	//L.DomEvent.stop(e);
+
+									geojsonCountries.eachLayer(function (lay) {
+										lay.setStyle(style);
+										lay._options.selected = false;
+									});
+
+                           			e.target.setStyle(styleHover);
+                           			e.target._options.selected = true;
+
                                     listCountries$.find("option:selected").removeAttr("selected");
                                     listCountries$.val(feature.properties.prop1);
                                     $('#stats_selected_countries').text(feature.properties.prop2);
-                                    selection.COUNTRIES = [{code: feature.properties.prop1, text : feature.properties.prop2}];
+                                    selection.COUNTRIES = [{
+                                    	code: feature.properties.prop1,
+                                    	text : feature.properties.prop2
+                                    }];
 
                                     // leave me as last row!
                                     amplify.publish(ev.SELECT);
+                                    
+	                                console.log(feature.properties.prop2, e.target._options.selected);
                                 });
                         }
                     );
@@ -149,14 +169,9 @@ define([
             attributionControl: false,
             center: L.latLng(20, 0),
             layers: L.tileLayer(this.config.url_baselayer)
-        })
-            .addControl(L.control.zoom({position: 'bottomright'}))
+        }).addControl(L.control.zoom({position: 'bottomright'}))
 
-        var geojsonCountries = L.featureGroup(null, {
-            style: function (feature) {
-                return style;
-            }
-        });
+        var geojsonCountries = L.featureGroup();
 
         mapzoomsCountries$.on('click', '.btn', function (e) {
             var z = parseInt($(this).data('zoom'));

@@ -76,7 +76,7 @@ define([
                     lab;
 
                 switch(key){
-                    case 'COUNTRY': lab = 'Africa Region '; break;
+                    case 'COUNTRY': lab = 'Africa Country '; break;
                     case 'KIND' :  lab = 'View in '; break;
                     case 'SOURCE' :  lab = 'Data Source '; break;
                     case 'PRODUCT' :  lab = 'Fertilizer '; break;

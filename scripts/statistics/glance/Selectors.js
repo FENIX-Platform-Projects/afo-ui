@@ -113,27 +113,31 @@ define([
                         geojsonCountries,
                         style,
                         function (feature, layer) {
-                            layer.on("click", function (e) {
+                            layer
+                            .on("mouseover", function(e) {
+                            	$('#stats_selected_countries').text(feature.properties.prop2);
+                            })
+                            .on("click", function (e) {
 
-									geojsonCountries.eachLayer(function (lay) {
-										lay.setStyle(style);
-										lay._options.selected = false;
-									});
+								geojsonCountries.eachLayer(function (lay) {
+									lay.setStyle(style);
+									lay._options.selected = false;
+								});
 
-                           			e.target.setStyle(styleHover);
-                           			e.target._options.selected = true;
+                       			e.target.setStyle(styleHover);
+                       			e.target._options.selected = true;
 
-                                    listCountries$.find("option:selected").removeAttr("selected");
-                                    listCountries$.val(feature.properties.prop1);
-                                    
-                                    selection.COUNTRIES = [{
-                                    	code: feature.properties.prop1,
-                                    	text : feature.properties.prop2
-                                    }];
+                                listCountries$.find("option:selected").removeAttr("selected");
+                                listCountries$.val(feature.properties.prop1);
+                                
+                                selection.COUNTRIES = [{
+                                	code: feature.properties.prop1,
+                                	text : feature.properties.prop2
+                                }];
 
-                                    // leave me as last row!
-                                    amplify.publish(ev.SELECT);
-                                });
+                                // leave me as last row!
+                                amplify.publish(ev.SELECT);
+                            });
                         }
                     );
                     var bb = geojsonCountries.getBounds();

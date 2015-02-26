@@ -167,6 +167,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		var map = L.map('prices_retail_map', {
 				zoom: 11,
 				zoomControl: false,
+				scrollWheelZoom: false,
 				attributionControl:false,
 				center: L.latLng(0,0),
 				layers: L.tileLayer(Config.url_baselayer)

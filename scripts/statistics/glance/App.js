@@ -72,14 +72,14 @@ define([
 
                 var $li = $('<li>'),
                     $label = $('<span>'),
-                    $value =  $('<span>', {text : resume[key][0].text }),
+                    $value =  $('<b>', {text : resume[key][0].text }),
                     lab;
 
                 switch(key){
-                    case 'COUNTRY': lab = 'Africa Region'; break;
-                    case 'KIND' :  lab = 'View in'; break;
-                    case 'SOURCE' :  lab = 'Data Source'; break;
-                    case 'PRODUCT' :  lab = 'Fertilizer'; break;
+                    case 'COUNTRY': lab = 'Africa Region '; break;
+                    case 'KIND' :  lab = 'View in '; break;
+                    case 'SOURCE' :  lab = 'Data Source '; break;
+                    case 'PRODUCT' :  lab = 'Fertilizer '; break;
                 }
 
                 $label.html(lab);

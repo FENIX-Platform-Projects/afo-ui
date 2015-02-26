@@ -1,5 +1,4 @@
 
-
 require(["submodules/fenix-ui-menu/js/paths",
 		 "submodules/fenix-ui-common/js/Compiler"
 		 ], function(Menu, Compiler) {
@@ -94,7 +93,8 @@ require(["submodules/fenix-ui-menu/js/paths",
         'amplify',
 
 		'domready!'
-	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L,
+], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L,
+
 		Config,
 		accordion,
 
@@ -171,7 +171,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 					fertilizer_category_code: data[i][0],
 					fertilizer_code: data[i][1],
 					fertilizer_category_label: data[i][2],
-					fertilizer_label: data[i][3]
+					fertilizer_lafertilizers_bycountrybel: data[i][3]
 				});
 
 			dataTree = _.groupBy(dataTree, 'fertilizer_category_label');
@@ -234,6 +234,10 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		getWDS(Config.queries.countries, null, function(countriesData) {
 
+			countriesData = _.map(countriesData, function(val) {
+				return { id: val[0], text: val[1] };
+			});
+
 			$('#listCountries').jstree({
 				core: {
 					themes: { icons: false },
@@ -246,25 +250,40 @@ require(["submodules/fenix-ui-menu/js/paths",
 			}).on('changed.jstree', function (e, data) {
 				e.preventDefault();
 
-				var res = _.map(data.selected, function(val) {
+				var selected = _.map(data.selected, function(val) {
 					return _.findWhere(countriesData, {id: val});
 				});
 
+				console.log(selected);
+
 				$('#resultsCountries').empty();
-				_.each(res, function(val) {
+				_.each(selected, function(val) {
 					initResultsCountries( val.id, val.text );
 				});
 
-				$('#resultsCountries .collapse').collapse();
 			});
 		});			
 	}
-	function initResultsCountries(countryIso3, countryName) {
+	function initResultsCountries(adm0_code, countryName) {
 
+		getWDS(Config.queries.fertilizers_bycountry, {id: adm0_code}, function(resp) {
+	
+			if(resp.length>0) {
 
-		//TODO USE getWDS
+				resp = _.sortBy(resp, function(val) {
+					return val[0];
+				});
 
-		var data = {
+				$('#resultsCountries').append( accordionTmpl({
+					id: adm0_code,
+					title: countryName,
+					items: resp,
+					expand: resp.length > 9
+				}) );
+			}
+		});
+
+/*		var data = {
 				datasource: Config.dbName,
 				thousandSeparator: ',',
 				decimalSeparator: '.',
@@ -275,7 +294,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 				json: JSON.stringify({
 					query: "SELECT name "+
 						"FROM countries "+
-						"WHERE country = '"+countryIso3+"' AND value=1 GROUP BY name"
+						"WHERE country = '"+adm0_code+"' AND value=1 GROUP BY name"
 				})
 			};
 
@@ -290,13 +309,13 @@ require(["submodules/fenix-ui-menu/js/paths",
 					});
 
 					$('#resultsCountries').append(accordionTmpl({
-						id: countryIso3,
+						id: adm0_code,
 						title: countryName,
 						items: resp,
 						caret: resp.length > 9
 					}));
 				}
-			});
+			});*/
 	}
 
 //CROPS
@@ -426,7 +445,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 				en: "<div class='fm-popup'>"+
 						"<div class='fm-popup-join-title'>{{"+ fmLayer.layer.joincolumnlabel +"}}</div>"+
 						"<div class='fm-popup-join-content'>"+
-						"<em>Fertilizers:</em><br>"+
+						"<em>Fertilizers usedefaultbaselayers:</em><br>"+
 							"{{{adm0_code}}}"+
 						"</div>"+
 					"</div>"

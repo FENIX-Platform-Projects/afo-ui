@@ -15,10 +15,15 @@ define([
             PRODUCT: '#product-s',
             PRODUCT_SEARCH: '#product-search-s',
             N_P: '#n-p-s'
-        }, defaultValues = {
+        },
+        defaultValues = {
             DATA_SOURCE: 'faostat',
-            N_P: 'p'
-        }, selection = {COUNTRIES: null},
+            N_P: 'p',
+            REGION: '696'
+        },
+        selection = {
+        	COUNTRIES: null
+        },
         ev = {
             SELECT: 'afo.selector.select'
         };
@@ -108,18 +113,7 @@ define([
                         geojsonCountries,
                         style,
                         function (feature, layer) {
-                            layer
-                                .setStyle(style)
-/*                                .on("mouseover", function (e) {
-                                	if(!e.target._options.selected)
-                                    	e.target.setStyle(styleHover);
-                                })
-                                .on("mouseout", function (e) {
-                                    if(!e.target._options.selected)
-                                    	e.target.setStyle(style);
-                                })*/
-                                .on("click", function (e) {
-                                	//L.DomEvent.stop(e);
+                            layer.on("click", function (e) {
 
 									geojsonCountries.eachLayer(function (lay) {
 										lay.setStyle(style);
@@ -131,7 +125,7 @@ define([
 
                                     listCountries$.find("option:selected").removeAttr("selected");
                                     listCountries$.val(feature.properties.prop1);
-                                    $('#stats_selected_countries').text(feature.properties.prop2);
+                                    
                                     selection.COUNTRIES = [{
                                     	code: feature.properties.prop1,
                                     	text : feature.properties.prop2
@@ -139,8 +133,6 @@ define([
 
                                     // leave me as last row!
                                     amplify.publish(ev.SELECT);
-                                    
-	                                console.log(feature.properties.prop2, e.target._options.selected);
                                 });
                         }
                     );
@@ -186,18 +178,16 @@ define([
 
         listCountries$.on('click', 'option', function (e) {
             e.preventDefault();
-            $('#stats_selected_countries').text($(e.target).text());
-            selection.COUNTRIES = $(e.delegateTarget).val();
+
+            selection.COUNTRIES = [{
+				code: $(e.target).attr('value'),
+				text: $(e.target).text()
+			}];
+
+            amplify.publish(ev.SELECT);
         });
 
-        $('#stats_map_countries').on('click', '.popupCountry', function (e) {
-            e.preventDefault();
-            listCountries$.find("option:selected").removeAttr("selected");
-            //$('#stats_selected_countries').text( $(e.currentTarget).data('name') );
-            selection.COUNTRIES = $(e.currentTarget).data('id');
-        });
-
-        loadMapByRegion("696");
+        loadMapByRegion( defaultValues.REGION );
 
     };
 

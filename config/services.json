@@ -16,7 +16,8 @@
   "url_spatialquery_enc": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/query/<%= sql %>?geojsonEncoding=True",
 
   "url_geocoding": "http://fenix.fao.org/geo/fenix/geocoding/latlon/",
-  "url_baselayer": "http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}.png",
+  "url_esrilayer": "http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}.png",
+  "url_baselayer": "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
   "url_osmlayer": "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
 
   "queries": {

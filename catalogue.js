@@ -232,7 +232,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 	function initListCountries() {
 
-		getWDS(Config.queries.countries, null, function(countriesData) {
+		getWDS(Config.queries.countries_withfertizers, null, function(countriesData) {
 
 			countriesData = _.map(countriesData, function(val) {
 				return { id: val[0], text: val[1] };

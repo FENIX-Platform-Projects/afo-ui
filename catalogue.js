@@ -171,7 +171,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 					fertilizer_category_code: data[i][0],
 					fertilizer_code: data[i][1],
 					fertilizer_category_label: data[i][2],
-					fertilizer_lafertilizers_bycountrybel: data[i][3]
+					fertilizer_label: data[i][3]
 				});
 
 			dataTree = _.groupBy(dataTree, 'fertilizer_category_label');
@@ -204,7 +204,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 						icons: false
 					}
 				},
-				"plugins": ["checkbox", "wholerow"]
+				plugins: ["checkbox", "wholerow"]
 			}).on('changed.jstree', function (e, data) {
 				e.preventDefault();
 

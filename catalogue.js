@@ -276,7 +276,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 				$('#resultsCountries').append( accordionTmpl({
 					id: adm0_code,
-					title: countryName,
+					title: countryName+' ('+resp.length+')',
 					items: resp,
 					expand: resp.length > 9
 				}) );

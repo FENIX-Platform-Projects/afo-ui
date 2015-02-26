@@ -207,7 +207,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 				plugins: ["checkbox", "wholerow"]
 			}).on('changed.jstree', function (e, data) {
 				e.preventDefault();
-
 				initMapFamilies( data.selected, fmLayer );
 			});
 		});
@@ -445,7 +444,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 				en: "<div class='fm-popup'>"+
 						"<div class='fm-popup-join-title'>{{"+ fmLayer.layer.joincolumnlabel +"}}</div>"+
 						"<div class='fm-popup-join-content'>"+
-						"<em>Fertilizers usedefaultbaselayers:</em><br>"+
+						"<em>Fertilizers used:</em><br>"+
 							"{{{adm0_code}}}"+
 						"</div>"+
 					"</div>"

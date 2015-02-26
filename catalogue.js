@@ -204,11 +204,28 @@ require(["submodules/fenix-ui-menu/js/paths",
 						icons: false
 					}
 				},
-				plugins: ["checkbox", "wholerow"]
+				"plugins": ["search", "wholerow", "checkbox"],
+				"search": {
+					show_only_matches: true
+				}
 			}).on('changed.jstree', function (e, data) {
 				e.preventDefault();
 				initMapFamilies( data.selected, fmLayer );
 			});
+
+/*        function initSearch() {
+            var to = false;
+            $(s.PRODUCT_SEARCH).keyup(function () {
+                if (to) {
+                    clearTimeout(to);
+                }
+                to = setTimeout(function () {
+                    var v = $(s.PRODUCT_SEARCH).val();
+                    $(s.PRODUCT).jstree(true).search(v);
+                }, 250);
+            });
+        }	*/		
+
 		});
 	}
 

@@ -130,11 +130,10 @@ require(["submodules/fenix-ui-menu/js/paths",
 		
 		var resumeTmpl = Handlebars.compile('<ul id="afo-resume">{{#each items}}<li><span>{{label}} </span><b>{{value}}</b></li>{{/each}}</ul>');
 
-
         var listProducts$ = $('#prices_selectProduct'),
         	rangeMonths$ = $('#prices_rangeMonths'),
         	Selection = {
-				fertilizer_code: '3102100000',
+				fertilizer_code: '3102300000',
 				month_from_yyyymm: '201003',
 				month_to_yyyymm: '201501'
 			};
@@ -173,7 +172,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		var map = L.map('prices_retail_map', {
 				zoom: 11,
 				zoomControl: false,
-				scrollWheelZoom: false,
+				//scrollWheelZoom: false,
 				attributionControl:false,
 				center: L.latLng(0,0),
 				layers: L.tileLayer(Config.url_baselayer)
@@ -206,7 +205,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		function loadMarkers(Selection) {
 
-			getWDS(Config.queries.prices_detailed_local_geofilter, Selection,function(data) {
+			getWDS(Config.queries.prices_detailed_local_geofilter, Selection, function(data) {
 
 				layerRetail.clearLayers();
 
@@ -220,8 +219,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 				if(data.length>0) {
 					for(var i in data) {
 						
+						data[i][0] = data[i][0].replace('[Town]','');
 						data[i][1] = data[i][1].split('|');
-						data[i][0].replace('[Town]','');
 
 						L.marker(data[i][1])
 							.bindPopup( L.Util.template(popupTmpl, {
@@ -235,8 +234,13 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 				map.fitBounds( layerRetail.getBounds().pad(-1.2) );
 
+				data = _.map(data, function(v) {
+					v.splice(1,1);
+					return v;
+				});
+
 				amplify.publish('updateSelection', { 
-					tableHeaders: ['Market', 'Town_location', 'Price', 'Unit'],
+					tableHeaders: ['Market', 'Price', 'Unit'],
 					tableRows: data
 				});
 				
@@ -285,33 +289,31 @@ require(["submodules/fenix-ui-menu/js/paths",
 
         $('#price_table_download').on('click', function(e){
 
-            var query = {"query":"select market, town_location from prices_local where month between 201002 and 201102 group by market, town_location"};
+			var jsonSql = {
+					query: "select market, town_location from prices_local where month between 201002 and 201102 group by market, town_location"
+				};
 
-            $("body").append("<form style='display: none;'"+
-               "id='csvFormWithQuotes' name='csvFormWithQuotes'"+
-               "method='POST'"+
-               "action='"+Config.wdsUrlExportCsv+"'"+
-               "target='_new'>"+
-               "<div><input type='text' value='faostat' name='cssFilename_WQ' id='cssFilename_WQ_csv'/></div>"+
-               "<div><input type='text' value='africafertilizer' name='datasource_WQ_csv' id='datasource_WQ_csv'/></div>"+
-               "<div><input type='text' value='2' name='decimalNumbers_WQ_csv' id='decimalNumbers_WQ_csv'/></div>"+
-               "<div><input type='text' value='.' name='decimalSeparator_WQ_csv' id='decimalSeparator_WQ_csv'/></div>"+
-               "<div><input type='text' value=',' name='thousandSeparator_WQ_csv' id='thousandSeparator_WQ_csv'/></div>"+
-               "<div><input type='text' value='6' name='valueIndex_WQ_csv' id='valueIndex_WQ_csv'/></div>"+
-               "<div><input type='text' value='"+JSON.stringify(query)+"' name='json_WQ_csv' id='json_WQ_csv'/></div>"+
-               "<div><input type='text' value='' name='quote_WQ_csv' id='quote_WQ_csv'/></div>"+
-               "<div><input type='text' value='' name='title_WQ_csv' id='title_WQ_csv'/></div>"+
-               "<div><input type='text' value='' name='subtitle_WQ_csv' id='subtitle_WQ_csv'/></div>"+
-               "</form>");
+			$("body").append("<form style='display: none;'"+
+				"id='csvFormWithQuotes' name='csvFormWithQuotes'"+
+				"method='POST'"+
+				"action='"+Config.wdsUrlExportCsv+"'"+
+				"target='_new'>"+
+				"<div><input type='text' value='faostat' name='cssFilename_WQ' id='cssFilename_WQ_csv'/></div>"+
+				"<div><input type='text' value='africafertilizer' name='datasource_WQ_csv' id='datasource_WQ_csv'/></div>"+
+				"<div><input type='text' value='2' name='decimalNumbers_WQ_csv' id='decimalNumbers_WQ_csv'/></div>"+
+				"<div><input type='text' value='.' name='decimalSeparator_WQ_csv' id='decimalSeparator_WQ_csv'/></div>"+
+				"<div><input type='text' value=',' name='thousandSeparator_WQ_csv' id='thousandSeparator_WQ_csv'/></div>"+
+				"<div><input type='text' value='6' name='valueIndex_WQ_csv' id='valueIndex_WQ_csv'/></div>"+
+				"<div><input type='text' value='"+JSON.stringify(jsonSql)+"' name='json_WQ_csv' id='json_WQ_csv'/></div>"+
+				"<div><input type='text' value='' name='quote_WQ_csv' id='quote_WQ_csv'/></div>"+
+				"<div><input type='text' value='' name='title_WQ_csv' id='title_WQ_csv'/></div>"+
+				"<div><input type='text' value='' name='subtitle_WQ_csv' id='subtitle_WQ_csv'/></div>"+
+				"</form>");
 
-                document.getElementById("csvFormWithQuotes").submit();
-
-           		$('#csvFormWithQuotes').empty();
-            })
+			$("#csvFormWithQuotes").submit().remove();
+		});
 
 		loadMarkers( Selection );
-
-		//$('#prices_international_grid').load("prices/html/prices_international.html");
 
 		amplify.subscribe('updateSelection', function(data) {
 			

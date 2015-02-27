@@ -133,7 +133,7 @@ require(["submodules/fenix-ui-menu/js/paths",
         var listProducts$ = $('#prices_selectProduct'),
         	rangeMonths$ = $('#prices_rangeMonths'),
         	Selection = {
-				fertilizer_code: '3102300000',
+				fertilizer_code: '3105300000',
 				month_from_yyyymm: '201003',
 				month_to_yyyymm: '201501'
 			};
@@ -313,8 +313,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 			$("#csvFormWithQuotes").submit().remove();
 		});
 
-		loadMarkers( Selection );
-
 		amplify.subscribe('updateSelection', function(data) {
 			
 			var table$ = $('#table-result').empty();
@@ -325,6 +323,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 					rows: data.tableRows
 				}) );
 		});
+
+		loadMarkers( Selection );
 
     });
 });

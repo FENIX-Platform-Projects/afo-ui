@@ -172,7 +172,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		var map = L.map('prices_retail_map', {
 				zoom: 11,
 				zoomControl: false,
-				//scrollWheelZoom: false,
+				scrollWheelZoom: false,
 				attributionControl:false,
 				center: L.latLng(0,0),
 				layers: L.tileLayer(Config.url_baselayer)
@@ -216,21 +216,21 @@ require(["submodules/fenix-ui-menu/js/paths",
 										"<i>price:</i> {val}"+
 									"</div>"+
 									"</div>";
-				if(data.length>0) {
-					for(var i in data) {
-						
-						data[i][0] = data[i][0].replace('[Town]','');
-						data[i][1] = data[i][1].split('|');
 
-						L.marker(data[i][1])
-							.bindPopup( L.Util.template(popupTmpl, {
-								title: data[i][0],
-								fert: $("#prices_selectProduct option:selected").text(),
-								val: data[i][2]+" USD/ton (avg)"
-							}) )
-							.addTo(layerRetail);
-					}
+				for(var i in data) {
+					
+					data[i][0] = data[i][0].replace('[Town]','');
+					data[i][1] = data[i][1].split('|');
+
+					L.marker(data[i][1])
+						.bindPopup( L.Util.template(popupTmpl, {
+							title: data[i][0],
+							fert: $("#prices_selectProduct option:selected").text(),
+							val: data[i][2]+" USD/ton (avg)"
+						}) )
+						.addTo(layerRetail);
 				}
+
 
 				map.fitBounds( layerRetail.getBounds().pad(-1.2) );
 

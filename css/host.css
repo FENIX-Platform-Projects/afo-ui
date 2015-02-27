@@ -2641,303 +2641,6 @@ input[type="checkbox"]:checked + label {
 @media (max-width: 990px) {
   .afo-home-items-container .afo-home-item:nth-child(2) {
     margin-bottom: 15px; } }
-/* AFO - Prices Page Style */
-.afo-prices-international-chart {
-  padding-left: 70px; }
-  .afo-prices-international-chart a {
-    color: #666666; }
-
-.afo-prices-tab-content {
-  width: 100%; }
-
-.gt-toolbar-box {
-  border-color: transparent !important; }
-
-.gt-first-page, .gt-prev-page, .gt-next-page, .gt-last-page, .gt-goto-page {
-  background-color: transparent !important;
-  height: 15px !important;
-  width: 15px !important;
-  background-repeat: no-repeat; }
-
-.gt-first-page {
-  height: 15px;
-  width: 15px;
-  background: url("img/fenix-catalog-sprite-small.svg") no-repeat -135px -15px;
-  background-size: 150px 30px; }
-
-.gt-prev-page {
-  height: 15px;
-  width: 15px;
-  background: url("img/fenix-catalog-sprite-small.svg") no-repeat -105px -15px;
-  background-size: 150px 30px; }
-
-.gt-next-page {
-  height: 15px;
-  width: 15px;
-  background: url("img/fenix-catalog-sprite-small.svg") no-repeat -120px -15px;
-  background-size: 150px 30px; }
-
-.gt-last-page {
-  height: 15px;
-  width: 15px;
-  background: url("img/fenix-catalog-sprite-small.svg") no-repeat -135px 0;
-  background-size: 150px 30px; }
-
-.gt-goto-page {
-  height: 15px;
-  width: 15px;
-  background: url("img/fenix-catalog-sprite-small.svg") no-repeat -15px 0;
-  background-size: 150px 30px; }
-
-#prices_retail_grid .afo-table-header th {
-  border-bottom: none !important;
-  font-weight: 100;
-  color: black; }
-#prices_retail_grid tbody tr:hover {
-  cursor: pointer;
-  background-color: #fcfaee; }
-
-#chart_prices_inter {
-  margin-bottom: 20px; }
-
-.afo-notes {
-  text-align: justify;
-  text-justify: inter-word; }
-  .afo-notes:first-child {
-    padding-right: 30px; }
-  .afo-notes:last-child {
-    padding-left: 30px; }
-
-.afo-grid-holder > .afo-title {
-  margin-bottom: 20px;
-  margin-top: 30px; }
-
-#prices_international_grid table {
-  font-family: 'Roboto Condensed'; }
-  #prices_international_grid table .afo-table-header {
-    background-color: #ddf3c2; }
-
-.afo-national-prices .afo-title-gray {
-  margin-top: 10px;
-  margin-bottom: 15px; }
-.afo-national-prices #country-search-s, .afo-national-prices #product-search-s {
-  float: right;
-  width: 50%;
-  height: 20px;
-  margin-top: 8px;
-  font-size: 10px; }
-
-.afo-comp-timerange .col-xs-12 {
-  overflow: hidden; }
-.afo-comp-timerange .afo-title-gray {
-  margin-top: 0; }
-
-/*//////////////////////////////////////////// Navbar Media queries */
-@media (max-width: 767px) {
-  .afo-prices-international-chart {
-    padding-left: 0px; }
-
-  .afo-notes:first-child {
-    padding-right: 15px; }
-  .afo-notes:last-child {
-    padding-left: 15px; } }
-/* AFO - Publication Page Style */
-#page-publications .list-group-item {
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  border-radius: 0;
-  border-top-color: transparent;
-  border-left-color: transparent;
-  border-right-color: transparent;
-  border-bottom-color: transparent;
-  margin-bottom: 0; }
-#page-publications .list-group-item.item-line {
-  border-bottom-color: #e4e4e4; }
-#page-publications .list-group-item:first-child {
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  border-radius: 0; }
-#page-publications .list-group-item:last-child {
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  border-radius: 0;
-  padding-bottom: 20px; }
-
-.afo-pub-holder {
-  background-color: #e5e5e5; }
-
-#listPubs {
-  list-style: none;
-  padding-left: 0; }
-  #listPubs .title {
-    color: #5ba539; }
-    #listPubs .title:hover {
-      text-decoration: none;
-      color: #5ba539; }
-  #listPubs li {
-    margin: 20px 0; }
-
-.afo-pub-category-title {
-  margin-top: 0; }
-
-.afo-pub-category-list {
-  list-style: none;
-  padding-left: 0; }
-  .afo-pub-category-list > li {
-    padding: 6px 15px;
-    border-bottom: 1px solid #e4e4e4; }
-    .afo-pub-category-list > li > a {
-      color: #666666;
-      text-transform: uppercase;
-      font-size: 10px;
-      font-weight: 500;
-      position: relative; }
-      .afo-pub-category-list > li > a.active:before {
-        content: '';
-        position: absolute;
-        height: 15px;
-        width: 15px;
-        background-image: url("img/afo-arrow-right-on.svg");
-        background-position: -16px 32px;
-        left: -18px;
-        top: -1px;
-        display: block; }
-      .afo-pub-category-list > li > a:hover:before {
-        content: '';
-        position: absolute;
-        height: 15px;
-        width: 15px;
-        background-image: url("img/afo-arrow-right-on.svg");
-        background-position: -16px 32px;
-        left: -18px;
-        top: -1px;
-        display: block; }
-      .afo-pub-category-list > li > aactive {
-        color: #5ba539; }
-      .afo-pub-category-list > li > a:hover {
-        text-decoration: none;
-        color: #5ba539; }
-
-.afo-pub-order {
-  position: relative;
-  top: 5px; }
-
-.afo-field-title {
-  font-size: 10px;
-  font-weight: 500;
-  display: inline-block;
-  width: 90px; }
-
-.afo-file-type {
-  font-size: 24px; }
-
-/* AFO - Statistics Page Style */
-.fx-catalog-modular-menu .panel-body .btn {
-  border: none;
-  border-color: transparent; }
-
-#fx-catalog-submit-btn.disabled {
-  border: none;
-  background-color: whitesmoke; }
-
-#stats_map_countries_tab {
-  position: relative; }
-
-.afo-fert-selector #product-search-s {
-  float: right;
-  width: 50%;
-  height: 25px;
-  font-size: 10px; }
-
-.afo-compare-selectors .afo-title-gray {
-  margin-top: 10px;
-  margin-bottom: 10px; }
-.afo-compare-selectors label {
-  width: 100%; }
-.afo-compare-selectors #country-search-s, .afo-compare-selectors #element-search-s, .afo-compare-selectors #product-search-s {
-  float: right;
-  width: 50%;
-  height: 20px;
-  margin-top: 8px;
-  font-size: 10px; }
-
-.fx-widget {
-  border: none; }
-
-.fx-handle {
-  border: none; }
-
-#data-sources-s {
-  display: inline-block; }
-
-#n-p-s {
-  display: inline-block; }
-
-.afo-statistics-glance .span12 hr, .afo-statistics-compare .span12 hr {
-  margin: 0 0 10px 0; }
-
-#prices_tabs li {
-  margin: 0;
-  margin-top: 5px;
-  margin-bottom: 5px; }
-  #prices_tabs li a {
-    border: 0; }
-
-.afo-stat-geo h3 {
-  margin-top: 5px;
-  margin-bottom: 15px; }
-.afo-stat-geo .form-control {
-  font-size: 12px;
-  font-weight: 300; }
-  .afo-stat-geo .form-control .jstree-anchor {
-    font: 300 9px "Roboto" !important; }
-
-.afo-fert-selector {
-  position: relative; }
-  .afo-fert-selector .jstree-anchor {
-    font: 300 12px "Roboto"; }
-
-.afo-stat-sources .afo-title-gray {
-  margin-top: 0; }
-
-#product-s, #stats_selectRegions {
-  height: 300px; }
-
-#stats_selectCountries {
-  height: 300px;
-  overflow: auto;
-  border: 1px solid #e4e4e4; }
-
-#stats_selectRegions {
-  padding: 0;
-  border: 1px solid #e4e4e4; }
-  #stats_selectRegions > option {
-    height: 24px;
-    line-height: 24px;
-    padding-left: 24px; }
-    #stats_selectRegions > option:nth-child(odd) {
-      background-color: #f2f2f2; }
-    #stats_selectRegions > option:checked {
-      background-color: #ddf3c2; }
-
-#stats_map_countries {
-  height: 300px; }
-
-.afo-stat-search-holder {
-  border-top: 1px solid #e4e4e4;
-  border-bottom: 1px solid #e4e4e4;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin-top: 15px;
-  margin-bottom: 15px; }
-
-.results-list {
-  list-style: none;
-  padding-left: 0; }
-
 /* Africa Fertilizer - Swiper */
 /* Highlights */
 #afo-high-swiper-container-wrapper {
@@ -3143,6 +2846,308 @@ input[type="checkbox"]:checked + label {
 @media (max-width: 767px) {
   #afo-high-swiper-container-wrapper .afo-slider-content {
     width: 100%; } }
+/* AFO - Prices Page Style */
+.afo-prices-international-chart {
+  padding-left: 70px; }
+  .afo-prices-international-chart a {
+    color: #666666; }
+
+.afo-prices-tab-content {
+  width: 100%; }
+
+.gt-toolbar-box {
+  border-color: transparent !important; }
+
+.gt-first-page, .gt-prev-page, .gt-next-page, .gt-last-page, .gt-goto-page {
+  background-color: transparent !important;
+  height: 15px !important;
+  width: 15px !important;
+  background-repeat: no-repeat; }
+
+.gt-first-page {
+  height: 15px;
+  width: 15px;
+  background: url("img/fenix-catalog-sprite-small.svg") no-repeat -135px -15px;
+  background-size: 150px 30px; }
+
+.gt-prev-page {
+  height: 15px;
+  width: 15px;
+  background: url("img/fenix-catalog-sprite-small.svg") no-repeat -105px -15px;
+  background-size: 150px 30px; }
+
+.gt-next-page {
+  height: 15px;
+  width: 15px;
+  background: url("img/fenix-catalog-sprite-small.svg") no-repeat -120px -15px;
+  background-size: 150px 30px; }
+
+.gt-last-page {
+  height: 15px;
+  width: 15px;
+  background: url("img/fenix-catalog-sprite-small.svg") no-repeat -135px 0;
+  background-size: 150px 30px; }
+
+.gt-goto-page {
+  height: 15px;
+  width: 15px;
+  background: url("img/fenix-catalog-sprite-small.svg") no-repeat -15px 0;
+  background-size: 150px 30px; }
+
+#prices_retail_grid .afo-table-header th {
+  border-bottom: none !important;
+  font-weight: 100;
+  color: black; }
+#prices_retail_grid tbody tr:hover {
+  cursor: pointer;
+  background-color: #fcfaee; }
+
+#chart_prices_inter {
+  margin-bottom: 20px; }
+
+.afo-notes {
+  text-align: justify;
+  text-justify: inter-word; }
+  .afo-notes:first-child {
+    padding-right: 30px; }
+  .afo-notes:last-child {
+    padding-left: 30px; }
+
+.afo-grid-holder > .afo-title {
+  margin-bottom: 20px;
+  margin-top: 30px; }
+
+#prices_international_grid table {
+  font-family: 'Roboto Condensed'; }
+  #prices_international_grid table .afo-table-header {
+    background-color: #ddf3c2; }
+
+.afo-national-prices .afo-title-gray {
+  margin-top: 10px;
+  margin-bottom: 15px; }
+.afo-national-prices #country-search-s, .afo-national-prices #product-search-s {
+  float: right;
+  width: 50%;
+  height: 20px;
+  margin-top: 8px;
+  font-size: 10px; }
+
+.afo-comp-timerange .col-xs-12 {
+  overflow: hidden; }
+.afo-comp-timerange .afo-title-gray {
+  margin-top: 0; }
+
+/*//////////////////////////////////////////// Navbar Media queries */
+@media (max-width: 767px) {
+  .afo-prices-international-chart {
+    padding-left: 0px; }
+
+  .afo-notes:first-child {
+    padding-right: 15px; }
+  .afo-notes:last-child {
+    padding-left: 15px; } }
+/* AFO - Publication Page Style */
+#page-publications .list-group-item {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  margin-bottom: 0; }
+#page-publications .list-group-item.item-line {
+  border-bottom-color: #e4e4e4; }
+#page-publications .list-group-item:first-child {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0; }
+#page-publications .list-group-item:last-child {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+  padding-bottom: 20px; }
+
+.afo-pub-holder {
+  background-color: #e5e5e5; }
+
+#listPubs {
+  list-style: none;
+  padding-left: 0; }
+  #listPubs .title {
+    color: #5ba539; }
+    #listPubs .title:hover {
+      text-decoration: none;
+      color: #5ba539; }
+  #listPubs li {
+    margin: 20px 0; }
+
+.afo-pub-category-title {
+  margin-top: 0; }
+
+.afo-pub-category-list {
+  list-style: none;
+  padding-left: 0; }
+  .afo-pub-category-list > li {
+    padding: 6px 15px;
+    border-bottom: 1px solid #e4e4e4; }
+    .afo-pub-category-list > li > a {
+      color: #666666;
+      text-transform: uppercase;
+      font-size: 10px;
+      font-weight: 500;
+      position: relative; }
+      .afo-pub-category-list > li > a.active:before {
+        content: '';
+        position: absolute;
+        height: 15px;
+        width: 15px;
+        background-image: url("img/afo-arrow-right-on.svg");
+        background-position: -16px 32px;
+        left: -18px;
+        top: -1px;
+        display: block; }
+      .afo-pub-category-list > li > a:hover:before {
+        content: '';
+        position: absolute;
+        height: 15px;
+        width: 15px;
+        background-image: url("img/afo-arrow-right-on.svg");
+        background-position: -16px 32px;
+        left: -18px;
+        top: -1px;
+        display: block; }
+      .afo-pub-category-list > li > aactive {
+        color: #5ba539; }
+      .afo-pub-category-list > li > a:hover {
+        text-decoration: none;
+        color: #5ba539; }
+
+.afo-pub-order {
+  position: relative;
+  top: 5px; }
+
+.afo-field-title {
+  font-size: 10px;
+  font-weight: 500;
+  display: inline-block;
+  width: 90px; }
+
+.afo-file-type {
+  font-size: 24px; }
+
+/* Afo Site Map Page */
+.afo-sitemap-list {
+  list-style: none;
+  padding-left: 0; }
+
+/* AFO - Statistics Page Style */
+.fx-catalog-modular-menu .panel-body .btn {
+  border: none;
+  border-color: transparent; }
+
+#fx-catalog-submit-btn.disabled {
+  border: none;
+  background-color: whitesmoke; }
+
+#stats_map_countries_tab {
+  position: relative; }
+
+.afo-fert-selector #product-search-s {
+  float: right;
+  width: 50%;
+  height: 25px;
+  font-size: 10px; }
+
+.afo-compare-selectors .afo-title-gray {
+  margin-top: 10px;
+  margin-bottom: 10px; }
+.afo-compare-selectors label {
+  width: 100%; }
+.afo-compare-selectors #country-search-s, .afo-compare-selectors #element-search-s, .afo-compare-selectors #product-search-s {
+  float: right;
+  width: 50%;
+  height: 20px;
+  margin-top: 8px;
+  font-size: 10px; }
+
+.fx-widget {
+  border: none; }
+
+.fx-handle {
+  border: none; }
+
+#data-sources-s {
+  display: inline-block; }
+
+#n-p-s {
+  display: inline-block; }
+
+.afo-statistics-glance .span12 hr, .afo-statistics-compare .span12 hr {
+  margin: 0 0 10px 0; }
+
+#prices_tabs li {
+  margin: 0;
+  margin-top: 5px;
+  margin-bottom: 5px; }
+  #prices_tabs li a {
+    border: 0; }
+
+.afo-stat-geo h3 {
+  margin-top: 5px;
+  margin-bottom: 15px; }
+.afo-stat-geo .form-control {
+  font-size: 12px;
+  font-weight: 300; }
+  .afo-stat-geo .form-control .jstree-anchor {
+    font: 300 9px "Roboto" !important; }
+
+.afo-fert-selector {
+  position: relative; }
+  .afo-fert-selector .jstree-anchor {
+    font: 300 12px "Roboto"; }
+
+.afo-stat-sources .afo-title-gray {
+  margin-top: 0; }
+
+#product-s, #stats_selectRegions {
+  height: 300px; }
+
+#stats_selectCountries {
+  height: 300px;
+  overflow: auto;
+  border: 1px solid #e4e4e4; }
+
+#stats_selectRegions {
+  padding: 0;
+  border: 1px solid #e4e4e4; }
+  #stats_selectRegions > option {
+    height: 24px;
+    line-height: 24px;
+    padding-left: 24px; }
+    #stats_selectRegions > option:nth-child(odd) {
+      background-color: #f2f2f2; }
+    #stats_selectRegions > option:checked {
+      background-color: #ddf3c2; }
+
+#stats_map_countries {
+  height: 300px; }
+
+.afo-stat-search-holder {
+  border-top: 1px solid #e4e4e4;
+  border-bottom: 1px solid #e4e4e4;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 15px;
+  margin-bottom: 15px; }
+
+.results-list {
+  list-style: none;
+  padding-left: 0; }
+
 /* Theme */
 /* AFO Theme */
 html {

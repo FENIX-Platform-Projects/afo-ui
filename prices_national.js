@@ -442,7 +442,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 					linkedAttributes:[]
 				},true);
 
-				$("#pivot_loader").hide();
 				$("#pivot_download").show();
 
 				$("#pivot_download").on('click', function(e) {

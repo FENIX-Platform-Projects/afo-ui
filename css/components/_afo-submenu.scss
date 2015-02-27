@@ -60,6 +60,8 @@
         font: $afo-text-menu-item;
         position: relative;
         top: 50%;
+        height:100%;
+        padding-top: 16px;
         @include fx-transfor-me(translateY(-50%));
 
         &:hover{

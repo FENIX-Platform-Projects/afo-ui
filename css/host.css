@@ -2268,9 +2268,11 @@ input[type="checkbox"]:checked + label {
     .dropdown .dropdown-menu > li > a {
       text-transform: uppercase;
       color: #666666;
-      font: normal normal 500 12px/normal "Roboto";
+      font: normal normal 300 12px/normal "Roboto";
       position: relative;
       top: 50%;
+      height: 100%;
+      padding-top: 16px;
       -ms-transform: translateY(-50%);
       -webkit-transform: translateY(-50%);
       transform: translateY(-50%); }
@@ -2328,7 +2330,7 @@ input[type="checkbox"]:checked + label {
   .navbar-default .navbar-nav > li {
     border-right: 1px solid #457f25; }
     .navbar-default .navbar-nav > li > a {
-      font: normal normal 500 12px/normal "Roboto";
+      font: normal normal 300 12px/normal "Roboto";
       text-transform: uppercase;
       height: 50px; }
 

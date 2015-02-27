@@ -197,11 +197,11 @@ require(["submodules/fenix-ui-menu/js/paths",
 		var swiperMaps = {},
 			mapScales = [{
 				"-1": { color: "#DDDDDD", label: "NC"},
-				"0":  { color: "#F1EEE8", label: "0" },
-				"1":  { color: "#BCD5AB", label: "1" },
+				"4":  { color: "#F1EEE8", label: "4" },
+				"3":  { color: "#BCD5AB", label: "3" },
 				"2":  { color: "#A5C88E", label: "2" },
-				"3":  { color: "#8DBD70", label: "3" },
-				"4":  { color: "#6AAC46", label: "4" }
+				"1":  { color: "#8DBD70", label: "1" },
+				"0":  { color: "#6AAC46", label: "0" }
 			}, {
 				"-1": { color: "#DDDDDD", label: "NC"},
 				"0":  { color: "#deebf7", label: "0" },

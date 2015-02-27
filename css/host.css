@@ -2899,8 +2899,7 @@ input[type="checkbox"]:checked + label {
   font-weight: 100;
   color: black; }
 #prices_retail_grid tbody tr:hover {
-  cursor: pointer;
-  background-color: #fcfaee; }
+  background-color: transparent; }
 
 #chart_prices_inter {
   margin-bottom: 20px; }

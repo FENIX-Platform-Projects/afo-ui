@@ -60,8 +60,9 @@
   }
   tbody{
     tr:hover{
-      cursor: pointer;
-      background-color: $custom-color3;
+     // cursor: pointer;
+     // background-color: $custom-color3;
+      background-color: transparent;
     }
   }
 }

@@ -89,6 +89,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 	require([
 	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet', 'leaflet-markercluster',
 	    'text!config/services.json',
+	    'text!html/table.html',
 
 		'fx-menu/start',
         './scripts/components/AuthenticationManager',
@@ -98,6 +99,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		'domready!'
 	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L,LeafletMarkecluster,
 		Config,
+		table,
 
 		TopMenu,
 		AuthenticationManager
@@ -123,6 +125,10 @@ require(["submodules/fenix-ui-menu/js/paths",
         });
 
 		$('.footer').load('html/footer.html');
+
+		tableTmpl = Handlebars.compile(table);
+		
+		var resumeTmpl = Handlebars.compile('<ul id="afo-resume">{{#each items}}<li><span>{{label}} </span><b>{{value}}</b></li>{{/each}}</ul>');
 
 
         var listProducts$ = $('#prices_selectProduct'),
@@ -179,29 +185,62 @@ require(["submodules/fenix-ui-menu/js/paths",
 		});
 		layerRetail.addTo(map);
 
-		function loadMarkers(sqlFilter) {
+		function updateResume(Selection) {
 
-			getWDS(Config.queries.prices_detailed_local_geofilter, sqlFilter,function(data) {
+			var from = Selection.month_from_yyyymm,
+				to = Selection.month_to_yyyymm,
+				timeRange = [from.slice(0,4),'/',from.slice(4)].join('')+
+							' - '+
+							[to.slice(0,4),'/',to.slice(4)].join('');
+
+			$('#afo-resume-wrap').html(resumeTmpl({
+				items: [{
+					label:'Product',
+					value: $("#prices_selectProduct option:selected").text()
+				},{
+					label:'Time Range',
+					value: timeRange
+				}]
+			}));
+		}
+
+		function loadMarkers(Selection) {
+
+			getWDS(Config.queries.prices_detailed_local_geofilter, Selection,function(data) {
 
 				layerRetail.clearLayers();
 
-				var PopupHtml = "<div class='fm-popup'>"+
-					"<div class='fm-popup-join-title'>{fert}</div>"+
-					"<div class='fm-popup-join-content'><b>{title}</b> <i>{val}</i></div>"+
-				"</div>";
-
-				if(data.length>0)
+				var popupTmpl = "<div class='fm-popup'>"+
+									"<div class='fm-popup-join-title'><b>{title}</b></div>"+
+									"<div class='fm-popup-join-content'>"+
+										"<i>product:</i> {fert}<br />"+
+										"<i>price:</i> {val}"+
+									"</div>"+
+									"</div>";
+				if(data.length>0) {
 					for(var i in data) {
-						L.marker(data[i][1].split('|'))
-							.bindPopup( L.Util.template(PopupHtml, {
-								title: data[i][0] && data[i][0] ? data[i][0].replace('[Town]','') : '',
+						
+						data[i][1] = data[i][1].split('|');
+						data[i][0].replace('[Town]','');
+
+						L.marker(data[i][1])
+							.bindPopup( L.Util.template(popupTmpl, {
+								title: data[i][0],
 								fert: $("#prices_selectProduct option:selected").text(),
 								val: data[i][2]+" USD/ton (avg)"
 							}) )
 							.addTo(layerRetail);
 					}
+				}
 
 				map.fitBounds( layerRetail.getBounds().pad(-1.2) );
+
+				amplify.publish('updateSelection', { 
+					tableHeaders: ['Market', 'Town_location', 'Price', 'Unit'],
+					tableRows: data
+				});
+				
+				updateResume( Selection );
 			});
 		}
 
@@ -242,14 +281,13 @@ require(["submodules/fenix-ui-menu/js/paths",
 
             for(var r in products)
                 listProducts$.append('<option value="'+products[r][0]+'">'+products[r][1]+'</option>');
-
 		});
 
         $('#price_table_download').on('click', function(e){
 
             var query = {"query":"select market, town_location from prices_local where month between 201002 and 201102 group by market, town_location"};
 
-            var toAppend =  "<form style='display: none;'"+
+            $("body").append("<form style='display: none;'"+
                "id='csvFormWithQuotes' name='csvFormWithQuotes'"+
                "method='POST'"+
                "action='"+Config.wdsUrlExportCsv+"'"+
@@ -264,24 +302,27 @@ require(["submodules/fenix-ui-menu/js/paths",
                "<div><input type='text' value='' name='quote_WQ_csv' id='quote_WQ_csv'/></div>"+
                "<div><input type='text' value='' name='title_WQ_csv' id='title_WQ_csv'/></div>"+
                "<div><input type='text' value='' name='subtitle_WQ_csv' id='subtitle_WQ_csv'/></div>"+
-               "</form>";
-
-                $("body").append(toAppend)
-
+               "</form>");
 
                 document.getElementById("csvFormWithQuotes").submit();
 
-
-            $('#csvFormWithQuotes').empty();
-
-
-
+           		$('#csvFormWithQuotes').empty();
             })
 
 		loadMarkers( Selection );
 
+		//$('#prices_international_grid').load("prices/html/prices_international.html");
 
-		$('#prices_international_grid').load("prices/html/prices_international.html");
+		amplify.subscribe('updateSelection', function(data) {
+			
+			var table$ = $('#table-result').empty();
+
+			if(data && data.tableRows && data.tableRows.length>0)
+				table$.append( tableTmpl({
+					headers: data.tableHeaders,
+					rows: data.tableRows
+				}) );
+		});
 
     });
 });

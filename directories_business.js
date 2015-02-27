@@ -56,7 +56,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		        'bootstrap': ['jquery'],
 		        'chosen': ['jquery'],
 		        'highcharts': ['jquery'],
-		        'jstree': ['jquery'],
+		        'FOOTERjstree': ['jquery'],
 		        'jquery-ui': ['jquery'],
 		        'jquery.power.tip': ['jquery'],
 		        'jquery.i18n.properties': ['jquery'],
@@ -94,6 +94,8 @@ require(["submodules/fenix-ui-menu/js/paths",
         var business = new App;
         business.start();
 
+
+		$('.footer').load('html/footer.html');
 
     }); // end of App.start()
 

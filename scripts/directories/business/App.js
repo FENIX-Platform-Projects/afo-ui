@@ -15,7 +15,6 @@ define([
         MENU_AUTH: 'config/fenix-ui-menu.json',
         MENU_PUBLIC: 'config/fenix-ui-menu-auth.json'
     }, s = {
-        FOOTER: '.footer',
         SEARCH_BTN: '#search-btn',
         COURTESY: '#afo-courtesy',
         RESULTS: '#afo-results'
@@ -48,9 +47,6 @@ define([
 
         //Results: table and charts
         this.results = new Results();
-
-        //Footer
-        $(s.FOOTER).load('html/footer.html');
     };
 
     App.prototype._bindEventListeners = function () {

@@ -3,6 +3,20 @@
 /* Stefano's original CSS from main.css */
 
 
+#page-catalogue{
+
+  .afo-title-gray{
+    margin-top: 0;
+  }
+
+  .panel-left {
+    height: 473px;
+    overflow-y:auto;
+  }
+
+
+}
+
 #page-catalogue #fertMap {
   min-height: 500px;
 }
@@ -23,3 +37,5 @@
 #page-catalogue #crops{
   min-height: 500px;
 }
+
+

@@ -1978,6 +1978,28 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   font-size: 24px;
   content: "\eb28"; }
 
+#fertMap {
+  /* Specif override for the calogue map - TO BE REVIEWED */ }
+  #fertMap .leaflet-control-zoom.leaflet-bar.leaflet-control {
+    background-color: transparent !important;
+    border-color: transparent !important; }
+    #fertMap .leaflet-control-zoom.leaflet-bar.leaflet-control .leaflet-control-zoom-in,
+    #fertMap .leaflet-control-zoom.leaflet-bar.leaflet-control .leaflet-control-zoom-out {
+      height: 23px !important;
+      width: 23px !important;
+      font-size: 0px !important;
+      background-image: none;
+      position: relative;
+      top: 40px !important; }
+  #fertMap .fm-controller-box-icons-container {
+    display: none !important; }
+  #fertMap .fm-fullscreen {
+    display: none !important; }
+  #fertMap .fm-disclaimerfao {
+    display: none !important; }
+  #fertMap .leaflet-control-scale {
+    left: 5px !important; }
+
 /* Afo Pivot */
 .pvtAxisContainer, .pvtVals {
   background: transparent; }
@@ -2512,6 +2534,12 @@ input[type="checkbox"]:checked + label {
 /* Afo - About us Page */
 /* Afo Catalogue Page*/
 /* Stefano's original CSS from main.css */
+#page-catalogue .afo-title-gray {
+  margin-top: 0; }
+#page-catalogue .panel-left {
+  height: 473px;
+  overflow-y: auto; }
+
 #page-catalogue #fertMap {
   min-height: 500px; }
 
@@ -3251,10 +3279,6 @@ table {
 
 .panel-title a:hover {
   text-decoration: none; }
-
-.panel-left {
-  height: 530px;
-  overflow-y: auto; }
 
 #resultsCountries .collapse, #resultsCrops .collapse {
   display: block;

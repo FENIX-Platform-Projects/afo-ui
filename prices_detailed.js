@@ -109,6 +109,10 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		Config = JSON.parse(Config);
 
+		tableTmpl = Handlebars.compile(table);
+
+		var resumeTmpl = Handlebars.compile('<ul id="afo-resume">{{#each items}}<li><span>{{label}} </span><b>{{value}}</b></li>{{/each}}</ul>');
+
         new TopMenu({
             active: 'prices_detailed',
             url: 'config/fenix-ui-menu.json',
@@ -127,11 +131,7 @@ require(["submodules/fenix-ui-menu/js/paths",
         });
 
 		$('.footer').load('html/footer.html');
-
-		tableTmpl = Handlebars.compile(table);
-		
-		var resumeTmpl = Handlebars.compile('<ul id="afo-resume">{{#each items}}<li><span>{{label}} </span><b>{{value}}</b></li>{{/each}}</ul>');
-
+	
         var listProducts$ = $('#prices_selectProduct'),
         	rangeMonths$ = $('#prices_rangeMonths'),
         	Selection = {
@@ -170,6 +170,10 @@ require(["submodules/fenix-ui-menu/js/paths",
 				success: callback
 			});
 		}
+	
+		function formatMonth(date) {
+			return [date.slice(0,4),'/',date.slice(4)].join('')
+		}
 
 		var map = L.map('prices_retail_map', {
 				zoom: 11,
@@ -185,10 +189,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 		    showCoverageOnHover: false
 		});
 		layerRetail.addTo(map);
-
-		function formatMonth(date) {
-			return [date.slice(0,4),'/',date.slice(4)].join('')
-		}
 
 		function updateResume(Selection) {
 

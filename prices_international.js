@@ -166,7 +166,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		$('.footer').load('html/footer.html');
 
 		//$('#prices_international_grid').load("prices/html/prices_international.html");
-
+		table$.html('<big class="text-center">Loading data...<br /><br /></big>');
 		getWDS(Config.queries.prices_international, null, function(data) {
 
 			var cols = data[0][2].split('|'),
@@ -184,7 +184,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 					return [val[0], val[1]].concat( vv );
 				});
 
-			table$.append( tableTmpl({
+			table$.html( tableTmpl({
 				headers: headers,
 				rows: rows
 			}) );

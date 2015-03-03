@@ -161,7 +161,15 @@ require(["submodules/fenix-ui-menu/js/paths",
             console.log(amplify.store.sessionStorage('afo.security.user'));
         });
 
-		var table$ = $('#prices_international_grid');
+		var table$ = $('#prices_international_grid'),
+			chart$ = $('#prices_international_chart');
+
+		var date = new Date();
+		chart$.attr({
+			src:'http://classic.africafertilizer.org/AF-media/Docs-for-international-prices-pages/AfricaFertilizer-price-trend-graphs-('+
+				//date.toString().toLowerCase().substr(4,3) + date.getFullYear()+
+				'jan2015'+
+				').aspx'});
 
 		$('.footer').load('html/footer.html');
 

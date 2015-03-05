@@ -1859,12 +1859,17 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 .afp-footer-social li {
   float: right;
   margin: 20px 6px;
-  border: 1px solid #666666;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   -ms-border-radius: 100%;
   border-radius: 100%;
   cursor: pointer; }
+.afp-footer-social .afo-footer-social-facebook {
+  background-color: #48649f; }
+.afp-footer-social .afo-footer-social-youtube {
+  background-color: #cc181e; }
+.afp-footer-social .afo-footer-social-twitter {
+  background-color: #61a8d8; }
 
 .afo-footer-item {
   width: 50%;

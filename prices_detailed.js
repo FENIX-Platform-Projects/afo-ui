@@ -298,11 +298,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 				sql = sqltmpl(Selection),
 				query = JSON.stringify({query: sql }).replace(/[']/g,"`");
 
-			$("<form style='display: none;'"+
-			"id='csvFormWithQuotes' name='csvFormWithQuotes'"+
-			"method='POST'"+
-			"action='"+Config.wdsUrlExportCsv+"'"+
-			"target='_new'>"+
+			$("<form style='display:none;' id='csvFormWithQuotes' name='csvFormWithQuotes'"+
+			"method='POST' action='"+Config.wdsUrlExportCsv+"' target='_new'>"+
 			"<div><input type='text' value='faostat' name='cssFilename_WQ' id='cssFilename_WQ_csv'/></div>"+
 			"<div><input type='text' value='africafertilizer' name='datasource_WQ_csv' id='datasource_WQ_csv'/></div>"+
 			"<div><input type='text' value='2' name='decimalNumbers_WQ_csv' id='decimalNumbers_WQ_csv'/></div>"+

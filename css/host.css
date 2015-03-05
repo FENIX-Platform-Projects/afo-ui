@@ -2659,6 +2659,9 @@ input[type="checkbox"]:checked + label {
   padding: 15px 0 45px 0;
   border-bottom: 1px solid #e4e4e4; }
 
+.afo-home-item .afo-home-item-holder {
+  border: 1px solid #e8e8e8 !important;
+  padding: 12px; }
 .afo-home-item .afo-home-item-title {
   font-size: 16px;
   min-height: 30px; }

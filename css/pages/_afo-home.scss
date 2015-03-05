@@ -9,7 +9,10 @@
 
 .afo-home-item{
 
-
+  .afo-home-item-holder {
+    border: 1px solid #e8e8e8 !important;
+    padding: 12px;
+  }
 
   .afo-home-item-title{
     font-size: 16px;
@@ -17,8 +20,7 @@
   }
 
   .afo-home-item-content {
-//      height: 160px;
-//    padding-right: 30px;
+
   }
 
 

@@ -237,22 +237,31 @@ require(["submodules/fenix-ui-menu/js/paths",
 						.addTo(layerRetail);
 				}
 
-
 				map.fitBounds( layerRetail.getBounds().pad(-1.2) );
 
-				data = _.map(data, function(v) {
-					v.splice(1,1);
-					return v;
-				});
-
-				amplify.publish('updateSelection', { 
-					tableHeaders: ['Market', 'Price', 'Date'],
-					tableRows: data
-				});
-				
-				updateResume( Selection );
+				loadGrid(Selection);
+				updateResume(Selection);
 			});
 		}
+
+		function loadGrid(Selection) {
+
+			getWDS(Config.queries.prices_detailed_local_grid, Selection, function(data) {
+
+				for(var i in data) {
+					data[i][0] = data[i][0].replace('[Town]','');
+					data[i][2] += ' USD/tons';
+					data[i][3] = formatMonth(data[i][3]);
+				}
+				
+				var table$ = $('#table-result').empty();
+				if(data && data.length>0)
+					table$.append( tableTmpl({
+						headers: ['Market', 'Country', 'Price', 'Date'],
+						rows: data
+					}) );
+			});
+		}		
 
 		rangeMonths$.dateRangeSlider();
 		rangeMonths$.dateRangeSlider("option","bounds", {
@@ -279,7 +288,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 				month_to_yyyymm: maxDate
 			};
 
-			loadMarkers( Selection );
+			loadMarkers(Selection);
 		});
 
 		$("#prices_selectProduct").on('change', function(e) {
@@ -312,17 +321,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 			"<div><input type='text' value='' name='title_WQ_csv' id='title_WQ_csv'/></div>"+
 			"<div><input type='text' value='' name='subtitle_WQ_csv' id='subtitle_WQ_csv'/></div>"+
 			"</form>").insertAfter(this).submit();
-		});
-
-		amplify.subscribe('updateSelection', function(data) {
-			
-			var table$ = $('#table-result').empty();
-
-			if(data && data.tableRows && data.tableRows.length>0)
-				table$.append( tableTmpl({
-					headers: data.tableHeaders,
-					rows: data.tableRows
-				}) );
 		});
 
 		loadMarkers( Selection );

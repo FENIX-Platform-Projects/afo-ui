@@ -36,8 +36,7 @@
     "countries_groups": "SELECT country, name FROM countries WHERE value = 1 AND name IN ( <%= ids %> ) ",
     "countries_byfertilizers": "select country_code, string_agg(fertilizer_label,'|') from fertilizers_country join codes_fertilizers on (codes_fertilizers.fertilizer_code = fertilizers_country.fertilizer_code) where fertilizers_country.fertilizer_code in ( <%= ids %> ) group by country_code",
 
-    "COMMENTED data_sources": "select * from codes_data_sources",
-    
+    "//COMMENTED data_sources": "select * from codes_data_sources",
     "data_sources": "select * from codes_data_sources where data_source_code <> 'ifa' ",
 
     "products": "select DISTINCT fertilizer_label, fertilizer_code from codes_fertilizers ORDER BY fertilizer_label",
@@ -49,10 +48,11 @@
 
 	"prices_national_products": "select c.fertilizer_code, c.fertilizer_label from codes_fertilizers c, prices_local d where  c.fertilizer_code = d.fertilizer group by c.fertilizer_code, c.fertilizer_label order by c.fertilizer_label ASC ",
    
-    "COMMENT prices_detailed_local_geofilter" : "select market, town_location, round(cast(avg(unit_price_usd) AS numeric), 2) as price, month from prices_local where fertilizer = <%= fertilizer_code %> and month between <%= month_from_yyyymm %> and <%= month_to_yyyymm %> group by market, town_location, month",
-    "prices_detailed_local_geofilter": "select market, town_location, round(cast(avg(unit_price_usd) AS numeric), 2) as price, month from prices_local where fertilizer =cast(<%= fertilizer_code %> AS varchar) and month between 201002 and 201102 group by market, town_location, month",
-
+    "prices_detailed_local_geofilter": "select market, town_location, round(cast(avg(unit_price_usd) AS numeric), 2) as price, month from prices_local where fertilizer = cast(<%= fertilizer_code %> AS varchar) and month between <%= month_from_yyyymm %> and <%= month_to_yyyymm %> group by market, town_location, month",
+	"prices_detailed_local_grid": "select market, country_label, price, month from (select market, country, round(cast(avg(unit_price_usd) AS numeric), 2) as price, month from prices_local where fertilizer = cast(<%= fertilizer_code %> AS varchar) and month between <%= month_from_yyyymm %> and <%= month_to_yyyymm %> group by market, country, month) data join codes_countries on (country = country_code)",
+    
     "prices_detailed_products": "select c.fertilizer_code, c.fertilizer_label from codes_fertilizers c, prices_local d where  c.fertilizer_code = d.fertilizer group by c.fertilizer_code, c.fertilizer_label order by c.fertilizer_label ASC ",
+
     "prices_international" : "select nutrient, fob, string_agg(period,'|') as period, string_agg(''||value,'|') as value from prices_international group by index, nutrient, fob order by index",
 
     "select_from_compare": "select element_code, element_label, year, coalesce(value, -1), um from ( select element, year, value, um from compare where data_source = '{SOURCE}' and fertilizer = '{PRODUCT}' and country = '{COUNTRY}' and n_p = '{KIND}' ) c right join codes_elements on element = element_code ORDER BY element ASC, year ASC",

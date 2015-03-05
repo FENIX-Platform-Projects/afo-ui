@@ -296,13 +296,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 			var sqltmpl = _.template(Config.queries.prices_detailed_local_geofilter);
 				sql = sqltmpl(Selection),
-				query = JSON.stringify({query: sql }).replace(/[']/g,"\\'");
-
-			//console.log(query);
-			
-			//TODO BUGFIX
-
-			query = JSON.stringify({query: "select market, town_location from prices_local where month between 201002 and 201102 group by market, town_location" });
+				query = JSON.stringify({query: sql }).replace(/[']/g,"`");
 
 			$("<form style='display: none;'"+
 			"id='csvFormWithQuotes' name='csvFormWithQuotes'"+

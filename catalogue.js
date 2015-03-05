@@ -177,6 +177,10 @@ require(["submodules/fenix-ui-menu/js/paths",
 			dataTree = _.groupBy(dataTree, 'fertilizer_category_label');
 
 			dataTree = _.map(dataTree, function(cat, catName) {
+
+				if(catName.toUpperCase()!=='OTHERS')
+					catName += ' <small>('+(''+cat[0].fertilizer_code).substr(0,4)+')</small>';
+
 				return {
 					id: cat[0].fertilizer_category_code,
 					text: catName,
@@ -189,13 +193,12 @@ require(["submodules/fenix-ui-menu/js/paths",
 				};
 			});
 
-			var dataOther = _.where(dataTree, {text: 'OTHERS'});
-
+/*			var dataOther = _.where(dataTree, {text: 'OTHERS'});
 			dataTree = _.reject(dataTree, function(cat) {
 				return cat.text==='OTHERS';
 			});
-
 			dataTree.push(dataOther[0]);
+			//MOVE OTHER CLASS ON TOP*/
 
 			$('#listFamilies').jstree({
 				core: {
@@ -269,8 +272,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 				var selected = _.map(data.selected, function(val) {
 					return _.findWhere(countriesData, {id: val});
 				});
-
-				console.log(selected);
 
 				$('#resultsCountries').empty();
 				_.each(selected, function(val) {

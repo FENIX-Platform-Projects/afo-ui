@@ -296,7 +296,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 			var sqltmpl = _.template(Config.queries.prices_detailed_local_geofilter);
 				sql = sqltmpl(Selection),
-				query = JSON.stringify({query: sql }).replace(/[']/g,"`");
+				query = JSON.stringify({query: sql });
+			//.replace(/[']/g,"\'");//.replace(/[']/g,"`");
 
 			$("<form style='display:none;' id='csvFormWithQuotes' name='csvFormWithQuotes'"+
 			"method='POST' action='"+Config.wdsUrlExportCsv+"' target='_new'>"+

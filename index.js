@@ -172,12 +172,12 @@ require(["submodules/fenix-ui-menu/js/paths",
         }
 
         //HIGLIGHTS SLIDER
-		//	SLIDER Highltights
 		var swiperHigh = $('#afo-high-wrapper').swiper({
 			loop: true,
 			simulateTouch: false,
             onSwiperCreated: updateMainSwiperIndex,
-            onSlideChangeEnd: updateMainSwiperIndex
+            onSlideChangeEnd: updateMainSwiperIndex,
+            autoplay: 5000
 		});
 		$('.swipe-high-prev').on('click', function(e) {
 			e.preventDefault();

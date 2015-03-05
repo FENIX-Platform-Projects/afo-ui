@@ -224,15 +224,21 @@ table{
 
 /* Tables */
 
-.afo-table-header{
-  background-color: $custom-color1;
 
+
+.afo-table-header{
+  background-color: $fx-main-color-lighter;
   color: $fenix-text;
   cursor: default;
   font-size: 11px;
   font-weight: 500 !important;
   text-transform: uppercase;
-  border: none;
+
+
+
+
+
+
 
   td{
     border-top: none;
@@ -246,7 +252,17 @@ thead{
 
 
 
+.table {
 
+  thead{
+
+    tr {
+      th{
+        @include fx-no-border;
+      }
+    }
+  }
+}
 
 .modal-dialog  {
   z-index: 1041;

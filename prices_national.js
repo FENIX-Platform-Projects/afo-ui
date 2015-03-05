@@ -357,14 +357,15 @@ require(["submodules/fenix-ui-menu/js/paths",
         // Time
         var rangeMonths$ = $('#prices_rangeMonths');
 
-        rangeMonths$.dateRangeSlider();
-        rangeMonths$.dateRangeSlider("option","bounds", {
-            min: new Date(2010, 2, 0),
-            max: new Date(2015, 1, 0)
-/*            ,range: {
-	            min: new Date(2014, 1, 0),
-	            max: new Date(2015, 1, 0)
-            }*/
+        rangeMonths$.dateRangeSlider({
+        	defaultValues: {
+	            min: new Date(2014, 2, 0),
+	            max: new Date(2015, 1, 0)        		
+        	},
+        	bounds: {
+            	min: new Date(2010, 2, 0),
+            	max: new Date(2015, 1, 0)
+            }
         });
         rangeMonths$.on('valuesChanged', function(e, data) {
 

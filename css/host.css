@@ -2074,8 +2074,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
       width: 23px !important;
       font-size: 0px !important;
       background-image: none;
-      position: relative;
-      top: 40px !important; }
+      position: relative; }
   #fertMap .fm-controller-box-icons-container {
     display: none !important; }
   #fertMap .fm-fullscreen {

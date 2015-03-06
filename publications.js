@@ -231,6 +231,12 @@ require(["submodules/fenix-ui-menu/js/paths",
 	getData(Config.queries.pubs_reformat2 +"  order by title");
 	
 	});
+	$("#alphabeticOrderInv").click(function(){
+	
+	getData(Config.queries.pubs_reformat2 +"  order by title DESC");
+	
+	});	
+	
 	
 	
 

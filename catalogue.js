@@ -299,40 +299,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 				}) );
 			}
 		});
-
-/*		var data = {
-				datasource: Config.dbName,
-				thousandSeparator: ',',
-				decimalSeparator: '.',
-				decimalNumbers: 2,
-				cssFilename: '',
-				nowrap: false,
-				valuesIndex: 0,
-				json: JSON.stringify({
-					query: "SELECT name "+
-						"FROM countries "+
-						"WHERE country = '"+adm0_code+"' AND value=1 GROUP BY name"
-				})
-			};
-
-			$.ajax({
-				data: data,
-				type: 'POST',
-				url: Config.wdsUrl,				
-				success: function(resp) {
-
-					resp = _.sortBy(resp, function(val) {
-						return val[0];
-					});
-
-					$('#resultsCountries').append(accordionTmpl({
-						id: adm0_code,
-						title: countryName,
-						items: resp,
-						caret: resp.length > 9
-					}));
-				}
-			});*/
 	}
 
 //CROPS
@@ -445,8 +411,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 			opacities[ val[0] ]= Math.min(opacities[val[0]], 1);			
 		});
 		
-		console.log(retCodes, opacities)
-
 		var data = [];
 		_.each(retCodes, function(val, key) {
 			var o = _.object([key],[val]);
@@ -495,10 +459,10 @@ require(["submodules/fenix-ui-menu/js/paths",
 		usedefaultbaselayers: false
 	}, {
 		zoomControl: false,
-		attributionControl: false
+		attributionControl: true
 	});
-
-	window.fmMap = fmMap;
+	
+	fmMap.map.attributionControl.setPrefix(Config.map_attribution);
 
 	fmMap.createMap(0, 20, 3);
 

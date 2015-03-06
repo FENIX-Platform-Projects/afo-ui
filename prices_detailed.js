@@ -179,10 +179,11 @@ require(["submodules/fenix-ui-menu/js/paths",
 				zoom: 11,
 				zoomControl: false,
 				scrollWheelZoom: false,
-				attributionControl:false,
 				center: L.latLng(0,0),
 				layers: L.tileLayer(Config.url_baselayer)
-			}).addControl(L.control.zoom({position:'bottomright'}))
+			}).addControl(L.control.zoom({position:'bottomright'}));
+
+		map.attributionControl.setPrefix(Config.map_attribution);
 
 		var layerRetail = new L.MarkerClusterGroup({
 			maxClusterRadius: 30,
@@ -249,7 +250,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			getWDS(Config.queries.prices_detailed_local_grid, Selection, function(data) {
 
 				for(var i in data) {
-					data[i][0] = data[i][0].replace('[Town]','');
+					data[i][1] = data[i][1].replace('[Town]','');
 					data[i][2] += ' USD/tons';
 					data[i][3] = formatMonth(data[i][3]);
 				}
@@ -257,7 +258,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 				var table$ = $('#table-result').empty();
 				if(data && data.length>0)
 					table$.append( tableTmpl({
-						headers: ['Market', 'Country', 'Price', 'Date'],
+						headers: ['Country', 'Market', 'Price', 'Date'],
 						rows: data
 					}) );
 			});

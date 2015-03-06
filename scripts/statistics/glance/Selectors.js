@@ -162,10 +162,11 @@ define([
         var mapCountries = L.map('stats_map_countries', {
             zoom: 4,
             zoomControl: false,
-            attributionControl: false,
             center: L.latLng(20, 0),
             layers: L.tileLayer(this.config.url_baselayer)
         }).addControl(L.control.zoom({position: 'bottomright'}))
+
+        mapCountries.attributionControl.setPrefix(this.config.map_attribution);
 
         var geojsonCountries = L.featureGroup();
 

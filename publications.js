@@ -214,8 +214,17 @@ require(["submodules/fenix-ui-menu/js/paths",
 	$(".afo-category-list-li").addClass("noactive");
 	//console.log(this.innerHTML)
 	document.getElementById("txtSearch").value="";
+	if(this.innerHTML=="All")
+	{
+		getData(Config.queries.pubs_reformat);
+	Config.queries.pubs_reformat2=Config.queries.pubs_reformat;
+	
+		
+	}
+	else{
 	getData(Config.queries.pubs_reformat+" where upper(category) like '%"+this.innerHTML.toUpperCase()+"%' ");
 	Config.queries.pubs_reformat2=Config.queries.pubs_reformat+" where upper(category) like '%"+this.innerHTML.toUpperCase()+"%' ";
+	}
 	//console.log(Config.queries.pubs_reformat+" where upper(category) like '%"+this.innerHTML.toUpperCase()+"%' ")
 	this.className="afo-category-list-li active";
 	});

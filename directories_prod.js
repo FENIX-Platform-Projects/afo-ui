@@ -32,18 +32,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 				'isotope': "//fenixapps.fao.org/repository/js/isotope/2.1.0/dist/isotope.pkgd.min",
 				'jquery': "//fenixapps.fao.org/repository/js/jquery/2.1.1/jquery.min",
 				'jqwidgets': "//fenixapps.fao.org/repository/js/jqwidgets/3.1/jqx-light",
-				'jstree': "//fenixapps.fao.org/repository/js/jstree/3.0.8/dist/jstree.min",
-
-				//fenix-map-js
-				'fenix-map': "submodules/fenix-map-js/dist/latest/fenix-map-min",
-				'fenix-map-config': "submodules/fenix-map-js/dist/latest/fenix-map-config",
-				'chosen': "//fenixapps.fao.org/repository/js/chosen/1.0.0/chosen.jquery.min",
-				'leaflet': "//fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet",
-				'jquery.power.tip': "//fenixapps.fao.org/repository/js/jquery.power.tip/1.1.0/jquery.powertip.min",
-				'jquery-ui': "//fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min",
-				'jquery.hoverIntent': "//fenixapps.fao.org/repository/js/jquery.hoverIntent/1.0/jquery.hoverIntent",
-				'jquery.i18n.properties': "//fenixapps.fao.org/repository/js/jquery/1.0.9/jquery.i18n.properties-min",
-				'import-dependencies': "//fenixapps.fao.org/repository/js/FENIX/utils/import-dependencies-1.0"
+				'jstree': "//fenixapps.fao.org/repository/js/jstree/3.0.8/dist/jstree.min"
 			},
 
 		    shim: {
@@ -61,38 +50,21 @@ require(["submodules/fenix-ui-menu/js/paths",
                 'amplify': {
                     deps: ['jquery'],
                     exports: 'amplifyjs'
-                },		        
-		        'fenix-map': {
-		            deps: [
-		                'i18n',
-		                'jquery',
-		                'chosen',
-		                'leaflet',
-		                'jquery-ui',
-		                'jquery.hoverIntent',
-		                'jquery.power.tip',
-		                'jquery.i18n.properties',
-		                'import-dependencies',
-		                'fenix-map-config'
-		            ]
-		        }	        
+                }	        
 		    }
 		}
     });
 
 	require([
-	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet',
+	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper',
 	    'text!config/services.json',
 		'text!html/accordion.html',
 
 		'fx-menu/start',
         './scripts/components/AuthenticationManager',
 
-		'fenix-map',
-		'fenix-map-config',
-
         'amplify'
-	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L,
+	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,
 		Config,
 		accordion,
 

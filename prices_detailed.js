@@ -36,8 +36,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 				'jstree': "//fenixapps.fao.org/repository/js/jstree/3.0.8/dist/jstree.min",
 
 				//fenix-map-js
-				'fenix-map': "submodules/fenix-map-js/dist/latest/fenix-map-min",
-				'fenix-map-config': "submodules/fenix-map-js/dist/latest/fenix-map-config",
+				'fenix-map': "submodules/fenix-ui-map/dist/fenix-ui-map.min",
+				'fenix-map-config': "submodules/fenix-ui-map/dist/fenix-ui-map-config",
 				'chosen': "//fenixapps.fao.org/repository/js/chosen/1.0.0/chosen.jquery.min",
 				'leaflet': "//fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet",
 				'leaflet-markercluster': '//fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.markecluster/1.1/leaflet.markercluster',

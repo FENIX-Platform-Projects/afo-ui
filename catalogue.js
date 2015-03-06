@@ -155,8 +155,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 		}
 
 	_.extend(FMCONFIG, {
-		BASEURL: 'submodules/fenix-map-js',
-		BASEURL_LANG: 'submodules/fenix-map-js/dist/I18N/'
+		BASEURL: 'submodules/fenix-ui-map',
+		BASEURL_LANG: 'submodules/fenix-ui-map/dist/i18n/'
 	});
 
 	function initListFamilies(fmLayer) {

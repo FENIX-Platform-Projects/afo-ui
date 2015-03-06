@@ -33,17 +33,11 @@ require(["submodules/fenix-ui-menu/js/paths",
 				'jqwidgets': "//fenixapps.fao.org/repository/js/jqwidgets/3.1/jqx-light",
 				'jstree': "//fenixapps.fao.org/repository/js/jstree/3.0.8/dist/jstree.min",
 
-				//fenix-map-js
-				'fenix-map': "submodules/fenix-map-js/dist/latest/fenix-map-min",
-				'fenix-map-config': "submodules/fenix-map-js/dist/latest/fenix-map-config",
-				'chosen': "//fenixapps.fao.org/repository/js/chosen/1.0.0/chosen.jquery.min",
-				'leaflet': "//fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet",
-				'jquery.power.tip': "//fenixapps.fao.org/repository/js/jquery.power.tip/1.1.0/jquery.powertip.min",
+
 				'jquery-ui': "//fenixapps.fao.org/repository/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min",
 				'jquery.hoverIntent': "//fenixapps.fao.org/repository/js/jquery.hoverIntent/1.0/jquery.hoverIntent",
 				'jquery.i18n.properties': "//fenixapps.fao.org/repository/js/jquery/1.0.9/jquery.i18n.properties-min",
-				'import-dependencies': "//fenixapps.fao.org/repository/js/FENIX/utils/import-dependencies-1.0",
-				//datarange
+
 				'jquery.rangeSlider': '//fenixapps.fao.org/repository/js/jquery.rangeslider/5.7.0/jQDateRangeSlider-min',
 				
 				

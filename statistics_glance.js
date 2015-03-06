@@ -30,8 +30,8 @@ require([
                 'webix' : '//fenixapps.fao.org/repository/js/webix/2.2.1/js/webix',
 
                 //fenix-map-js
-                'fenix-map': "submodules/fenix-map-js/dist/latest/fenix-map-min",
-                'fenix-map-config': "submodules/fenix-map-js/dist/latest/fenix-map-config",
+                'fenix-map': "submodules/fenix-ui-map/dist/fenix-ui-map.min",
+                'fenix-map-config': "submodules/fenix-ui-map/dist/fenix-map-config",
                 'chosen': "//fenixapps.fao.org/repository/js/chosen/1.0.0/chosen.jquery.min",
                 'leaflet': "//fenixapps.fao.org/repository/js/leaflet/0.7.3/leaflet",
                 'leaflet.encoded': "//fenixapps.fao.org/repository/js/leaflet/plugins/leaflet.encoded/0.0.5/Polyline.encoded",

@@ -30,6 +30,23 @@
     <link rel="stylesheet" type="text/css" href="submodules/fenix-ui-olap/css/pivot.css">
     <link rel="stylesheet" type="text/css" href="submodules/fenix-ui-olap/lib/grid/gt_grid_height.css"/>
     <link rel="stylesheet" type="text/css" href="css/host.css">
+    <style type="text/css">
+	::-webkit-input-placeholder {
+	   color: #ddd;
+	}
+
+	:-moz-placeholder { /* Firefox 18- */
+	   color: #ddd;  
+	}
+
+	::-moz-placeholder {  /* Firefox 19+ */
+	   color: #ddd;  
+	}
+
+	:-ms-input-placeholder {  
+	   color: #ddd;  
+	}    
+    </style>
 </head>
 <body id="page-catalogue">
 
@@ -84,7 +101,7 @@
 								GROUP BY CLASSES
 							</label>
 						</div> -->
-						<input type="text" id="product-search-c" value="" class="input form-control">
+						<input type="text" id="product-search-c" value="" class="input form-control" placeholder="Search by Name or hscose">
                         <div id="listFamilies" class="panel-left afo-border"></div>
                     </div>
 

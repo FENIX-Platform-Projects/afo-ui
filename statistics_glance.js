@@ -24,6 +24,7 @@ require([
                 'amplify': "//fenixapps.fao.org/repository/js/amplify/1.1.2/amplify.min",
                 'highcharts': "//fenixapps.fao.org/repository/js/highcharts/4.0.4/js/highcharts",
                 'underscore': "//fenixapps.fao.org/repository/js/underscore/1.7.0/underscore.min",
+                'underscore-string': "//fenixapps.fao.org/repository/js/underscore-string/3.0.3/underscore.string.min",
                 'bootstrap': "//fenixapps.fao.org/repository/js/bootstrap/3.3.2/js/bootstrap.min",
                 'jquery': "//fenixapps.fao.org/repository/js/jquery/2.1.1/jquery.min",
                 'jstree': "//fenixapps.fao.org/repository/js/jstree/3.0.8/dist/jstree.min",
@@ -47,6 +48,7 @@ require([
                 'underscore': {
                     exports: '_'
                 },
+                'underscore-string': ['underscore'],
                 'amplify': {
                     deps: ['jquery'],
                     exports: 'amplifyjs'

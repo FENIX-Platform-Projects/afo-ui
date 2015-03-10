@@ -133,18 +133,23 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 	//$.getJSON('data/publications.json', function(json) {	
 	
-	function getData(sql){getWDS(sql,null,function(json)	{
+	function getData(sql){getWDS(sql, null, function(json)	{
 		$('#listPubs').empty();
+			
+			console.log(json);
+
+		var idPub = 0;
 
 		_.each(json, function(pub2) {
-			var pub=
-			{
-			"Category":pub2[0],
-				"PublicationName":pub2[1],
-				"PublicationDescription":pub2[2],
-				"PublicationSource":pub2[5],
-				"PublicationAuthorName":pub2[6],
-				"PublicationSector&Theme":pub2[7],
+
+			var pub = {
+				"PublicationId": idPub++,
+				"Category": pub2[0],
+				"PublicationName": pub2[1],
+				"PublicationDescription": pub2[2],
+				"PublicationSource": pub2[5],
+				"PublicationAuthorName": pub2[6],
+				"PublicationSector&Theme": pub2[7],
 				"PublicationDate":pub2[4],
 				"DocumentLanguage":pub2[8],
 				"REC":pub2[9],
@@ -153,12 +158,12 @@ require(["submodules/fenix-ui-menu/js/paths",
 				"PublicationRating":pub2[16],
 				"PublicationComments":"",
 				"DocumentType":pub2[11],
-				 "DocumentSource":pub2[13]
-			  }
+				"DocumentSource":pub2[13]
+			};
+
 			pub.DocumentTags = pub.DocumentTags ? pub.DocumentTags.split(', ') : '';
 			pub.Category = pub.Category ? pub.Category.split('|') : '';
 			pub.DocumentType = pub.DocumentType.replace('.','');
-
 
 			$('#listPubs').append( publicationTmpl(pub) );
 

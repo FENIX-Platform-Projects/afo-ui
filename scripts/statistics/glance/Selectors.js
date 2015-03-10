@@ -1,12 +1,13 @@
 /*global define*/
 define([
-    "underscore",
-    "commons/Wds",
+    'underscore',
+    'underscore-string',
+    'commons/Wds',
     'text!config/services.json',
     'geojson_decoder',
     'jstree',
     'amplify'
-], function (_, Wds, C, geojsonDecoder) {
+], function (_, _str, Wds, C, geojsonDecoder) {
 
     'use strict';
 

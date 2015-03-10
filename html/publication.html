@@ -10,42 +10,55 @@
         </p>
     </div>
 
-    <div class="list-group-item item-line">
-        <span class="afo-field-title field">TAGS</span><b>
-        {{#if DocumentTags}}
 
-        {{#each DocumentTags}}
-    		<span class="label label-default">{{this}}</span> 
-		{{/each}}
-        {{else}}
-            <span>No tags</span>
-        {{/if}}
-        </b>
-    </div>
-	
-	  <div class="list-group-item item-line">
-        <span class="afo-field-title field">Category</span><b>
-		
-        {{#if Category}}
+	<div class="panel panel-default">
+	<div class="panel-heading" role="tab" id="headingOne">
+	  <h4 class="panel-title">
+	    <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{PublicationId}}" aria-expanded="true" aria-controls="collapseOne">
+	    	<span class="caret"></span> <small>Details</small>
+	    </a>
+	  </h4>
+	</div>
+	<div id="collapse{{PublicationId}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+	  <div class="panel-body">
 
-        {{#each Category}}
-    		<span class="label label-default">{{this}}</span> 
-		{{/each}}
-        {{else}}
-            <span>No Category</span>
-        {{/if}}
-        </b>
-    </div>
+		    <div class="list-group-item item-line">
+		        <span class="afo-field-title field">TAGS</span><b>
+		        {{#if DocumentTags}}
 
+		        {{#each DocumentTags}}
+		    		<span class="label label-default">{{this}}</span> 
+				{{/each}}
+		        {{else}}
+		            <span>No tags</span>
+		        {{/if}}
+		        </b>
+		    </div>
+			<div class="list-group-item item-line">
+		        <span class="afo-field-title field">Category</span><b>
+				
+		        {{#if Category}}
 
-    <div class="list-group-item item-line">
-        <span class="afo-field-title field">LANGUAGE</span><span>{{DocumentLanguage}}</span>
-    </div>
-    <div class="list-group-item item-line">
-        <span class="afo-field-title auth">AUTHOR</span><span>{{PublicationAuthorName}}</span>
-    </div>
-    <div class="list-group-item afo-attach">
-        <span class="afo-field-title sector-theme">ATTACHMENT</span>
-        <a href="http://fenixrepo.fao.org/afo/publications/attachments/{{DocumentSource}}" class="afo-file-type icojam_{{DocumentType}}" target="_blank"></a>
-    </div>
+		        {{#each Category}}
+		    		<span class="label label-default">{{this}}</span> 
+				{{/each}}
+		        {{else}}
+		            <span>No Category</span>
+		        {{/if}}
+		        </b>
+		    </div>
+		    <div class="list-group-item item-line">
+		        <span class="afo-field-title field">LANGUAGE</span><span>{{DocumentLanguage}}</span>
+		    </div>
+		    <div class="list-group-item item-line">
+		        <span class="afo-field-title auth">AUTHOR</span><span>{{PublicationAuthorName}}</span>
+		    </div>
+		    <div class="list-group-item afo-attach">
+		        <span class="afo-field-title sector-theme">ATTACHMENT</span>
+		        <a href="http://fenixrepo.fao.org/afo/publications/attachments/{{DocumentSource}}" class="afo-file-type icojam_{{DocumentType}}" target="_blank"></a>
+		    </div>
+
+	  </div>
+	</div>
+	</div>
 </li>

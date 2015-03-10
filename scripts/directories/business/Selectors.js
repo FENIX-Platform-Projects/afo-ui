@@ -80,40 +80,21 @@ define([
 
 
         function createCountryOption(data) {
-            for (var i = 0; i < data.length; i++) {
-                if (i == 5) {
-                    $(s.COUNTRY).append("<option value='" + data[i][0] + "' selected>" + data[i][1] + "</option>")
-
-                }
-                else {
-                    $(s.COUNTRY).append("<option value='" + data[i][0] + "'>" + data[i][1] + "</option>")
-                }
-            }
+        	data.unshift([0,'All']);
+            for (var i = 0; i < data.length; i++)
+				$(s.COUNTRY).append("<option value='" + data[i][0] + "'>" + data[i][1] + "</option>");
         }
 
         function createProductOption(data) {
-            data.sort()
-            for (var i = 0; i < data.length; i++) {
-                if (i == 0) {
-                    $(s.PRODUCT).append("<option value='" + data[i] + "' selected>" + data[i] + "</option>")
-                }
-                else {
-                    $(s.PRODUCT).append("<option value='" + data[i] + "'>" + data[i] + "</option>")
-                }
-            }
+            data.sort();
+            for (var i = 0; i < data.length; i++)
+                $(s.PRODUCT).append("<option value='" + data[i] + "'>" + data[i] + "</option>");
         }
 
         function createSectorOption(data) {
-
-            data.sort()
-            for (var i = 0; i < data.length; i++) {
-                if (i == 0) {
-                    $(s.SECTOR).append("<option value='" + data[i] + "' selected>" + data[i] + "</option>")
-                }
-                else {
-                    $(s.SECTOR).append("<option value='" + data[i] + "'>" + data[i] + "</option>")
-                }
-            }
+            data.sort();
+            for (var i = 0; i < data.length; i++)
+                $(s.SECTOR).append("<option value='" + data[i] + "'>" + data[i] + "</option>");
         }
 
     };

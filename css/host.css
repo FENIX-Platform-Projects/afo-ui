@@ -646,6 +646,68 @@ fieldset {
   fieldset .fx-fieldset-subtitle label {
     font-size: 12px; }
 
+/* Fenix - Bootstrap fixed Height */
+/*The Markup
+You have to add the class .row-same-height inside the row, and also add .col-xs-height to the columns.
+<div class="row">
+    <div class="row-same-height">
+        <div class="col-xs-6 col-xs-height"></div>
+        <div class="col-xs-3 col-xs-height col-top"></div>
+        <div class="col-xs-2 col-xs-height col-middle"></div>
+        <div class="col-xs-1 col-xs-height col-bottom"></div>
+    </div>
+</div>
+If you want to restrict the effect to a certain media query, just use .col-sm-height or .col-md-height or .col-lg-height. You can also use different column sizes on each media query.
+<div class="row">
+    <div class="row-same-height">
+        <div class="col-xs-12 col-sm-6 col-sm-height"></div>
+        <div class="col-xs-6 col-sm-3 col-sm-height col-top"></div>
+        <div class="col-xs-6 col-sm-2 col-sm-height col-middle"></div>
+        <div class="col-xs-6 col-sm-1 col-sm-height col-bottom"></div>
+    </div>
+</div>
+You choose the aligment of each column by using the classes .col-top or .col-middle or .col-bottom.
+*/
+/* vertical alignment styles */
+.col-top {
+  vertical-align: top; }
+
+.col-middle {
+  vertical-align: middle; }
+
+.col-bottom {
+  vertical-align: bottom; }
+
+/* columns of same height styles */
+.row-full-height {
+  height: 100%; }
+
+.col-full-height {
+  height: 100%;
+  vertical-align: middle; }
+
+.row-same-height {
+  display: table;
+  width: 100%;
+  /* fix overflow */
+  table-layout: fixed; }
+
+.col-xs-height {
+  display: table-cell;
+  float: none !important; }
+
+@media (min-width: 768px) {
+  .col-sm-height {
+    display: table-cell;
+    float: none !important; } }
+@media (min-width: 992px) {
+  .col-md-height {
+    display: table-cell;
+    float: none !important; } }
+@media (min-width: 1200px) {
+  .col-lg-height {
+    display: table-cell;
+    float: none !important; } }
 /* Fenix - Inputs Component */
 /* remove x icon in IE 10+ */
 input[type=text]::-ms-clear {
@@ -1271,6 +1333,14 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   position: relative; }
 
 /* Vendor */
+/* Fenix - Facebook Patch */
+#fb-root {
+  display: none; }
+
+/* To fill the container and nothing else */
+.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
+  width: 100% !important; }
+
 /* Fenix - Intro Js */
 .introjs-helperNumberLayer {
   background: none;
@@ -2665,7 +2735,9 @@ input[type="checkbox"]:checked + label {
 
 .afo-home-item .afo-home-item-holder {
   border: 1px solid #e8e8e8 !important;
-  padding: 12px; }
+  padding: 12px;
+  width: 100%;
+  height: 100%; }
 .afo-home-item .afo-home-item-title {
   font-size: 16px;
   min-height: 30px; }

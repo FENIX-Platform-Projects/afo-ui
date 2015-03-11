@@ -130,6 +130,15 @@ require(["submodules/fenix-ui-menu/js/paths",
 			});
 		}
 
+//        $(window).bind("load resize", function(){
+//            var container_width = $('#afo-facebook-widget').width();
+//            $('#afo-facebook-widget').html('<div class="fb-like-box" ' +
+//                'data-href="https://www.facebook.com/AfricaFertilizer.org"' +
+//                ' data-width="' + container_width + '" data-height="250" data-show-faces="false" ' +
+//                'data-stream="true" data-header="true"></div>');
+//            FB.XFBML.parse( );
+//        });
+
         var authUser = amplify.store.sessionStorage('afo.security.user'),
             menuUrl,
             publicMenuConfig = 'config/fenix-ui-menu.json',

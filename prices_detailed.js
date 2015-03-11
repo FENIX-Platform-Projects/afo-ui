@@ -227,7 +227,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 					data[i][0] = data[i][0].replace('[Town]','');
 					data[i][1] = data[i][1].split('|');
 					data[i][2] += ' USD/tons';
-					//data[i][3] = formatMonth(data[i][3]);
 
 					L.marker(data[i][1])
 						.bindPopup( L.Util.template(popupTmpl, {

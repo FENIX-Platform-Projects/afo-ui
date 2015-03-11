@@ -271,7 +271,12 @@ define(function () {
             valueSuffix: 'M',
             backgroundColor: 'rgba(255, 255, 255, 0.95)',
             borderWidth: 1,
-            shadow: false
+            shadow: false,
+            shared: true,
+			crosshairs: {
+		        color: 'green',
+		        dashStyle: 'solid'
+		    }
         }
     };
 });

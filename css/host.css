@@ -2359,7 +2359,7 @@ input[type="checkbox"]:checked + label {
 .twitter-timeline {
   min-width: 100px !important;
   width: 100% !important;
-  max-height: 250px !important;
+  max-height: 270px !important;
   padding-right: 2px; }
 
 .fb_iframe_widget {

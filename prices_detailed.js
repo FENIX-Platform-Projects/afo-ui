@@ -217,8 +217,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 				var popupTmpl = "<div class='fm-popup'>"+
 									"<div class='fm-popup-join-title'><b>{title}</b></div>"+
 									"<div class='fm-popup-join-content'>"+
-										"<i>product:</i> {fert}<br />"+
-										"<i>price:</i> {val}"+
+										"<i>product name:</i> {fert}<br />"+
+										"<i>average price:</i> {val}"+
 									"</div>"+
 									"</div>";
 
@@ -227,7 +227,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 					data[i][0] = data[i][0].replace('[Town]','');
 					data[i][1] = data[i][1].split('|');
 					data[i][2] += ' USD/tons';
-					data[i][3] = formatMonth(data[i][3]);
+					//data[i][3] = formatMonth(data[i][3]);
 
 					L.marker(data[i][1])
 						.bindPopup( L.Util.template(popupTmpl, {

@@ -303,65 +303,55 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		var cropsData = [];
 
-		$.ajax({
-			url: 'data/crops.json',
-			dataType: "json",
-			async: false,
-			success: function(json) {
-				cropsData = json;
-			}
-		});
+		getWDS(Config.queries.crops_withfertizers, null, function(cropsData) {
 
-		$('#listCrops').jstree({
-			core: {
-				themes: { icons: false },
-				data: cropsData
-			},
-			plugins: ["checkbox", "wholerow"],
-			checkbox: {
-				keep_selected_style: false
-			}
-		}).on('changed.jstree', function (e, data) {
-			e.preventDefault();
-
-			$('#resultsCrops').empty();
-			_.each(data.selected, function(val) {
-				initResultsCrops( val, val);
+			cropsData = _.map(cropsData, function(val) {
+				return { id: val[0], text: val[1] };
 			});
+
+			$('#listCrops').jstree({
+				core: {
+					themes: { icons: false },
+					data: cropsData
+				},
+				plugins: ["checkbox", "wholerow"],
+				checkbox: {
+					keep_selected_style: false
+				}
+			}).on('changed.jstree', function (e, data) {
+				e.preventDefault();
+
+				var selected = _.map(data.selected, function(val) {
+					return _.findWhere(cropsData, {id: val});
+				});
+
+				$('#resultsCrops').empty();
+				_.each(selected, function(val) {
+					initResultsCrops( val.id, val.text );
+				});
+			});
+
 		});
 	}
+
 	function initResultsCrops(cropId, cropName) {
 
-		var data = {
-				datasource: Config.dbName,
-				thousandSeparator: ',',
-				decimalSeparator: '.',
-				decimalNumbers: 2,
-				cssFilename: '',
-				nowrap: false,
-				valuesIndex: 0,
-				json: JSON.stringify({
-					query: "SELECT DISTINCT name "+
-						"FROM fertilizers_crops_faostatcodes "+
-						"WHERE crop = '"+cropId+"' "
-						//TODO use LIKE
-				})
-			};
+		getWDS(Config.queries.fertilizers_bycrop, {id: cropId}, function(resp) {
 
-			$.ajax({
-				data: data,
-				type: 'POST',
-				url: Config.wdsUrl,
-				success: function(resp) {
+			if(resp.length>0) {
 
-					$('#resultsCrops').append(accordionTmpl({
-						id: cropId,
-						title: cropName,
-						items: resp,
-						caret: resp.length > 9
-					}));			
-				}
-			});
+				resp = _.sortBy(resp, function(val) {
+					return val[0];
+				});
+
+				$('#resultsCrops').append( accordionTmpl({
+					id: cropId,
+					title: cropName+' ('+resp.length+')',
+					items: resp,
+					expand: resp.length > 9
+				}) );
+			}
+		});
 	}
 
 	var setLayerStyle = function(ccodes, opacities) {

@@ -11,6 +11,7 @@
 
   .afo-home-item-holder {
     border: 1px solid #e8e8e8 !important;
+    @include fx-border-radius(5px);
     padding: 12px;
     width: 100%;
     height:100%;
@@ -28,6 +29,17 @@
 }
 
 
+
+@mixin colored-logo() {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  pointer-events:none;
+}
 
 .afo-home-partner-container{
   list-style: none;
@@ -52,28 +64,30 @@
       a{
         background-size: contain;
         width: 100%;
-        height: 50px;
+        height: 70px;
         display: inline-block;
         background-repeat: no-repeat;
         background-position: 50% 50%;
         border-color: transparent;
+        position: relative;
+        padding: 0;
       }
 
 
 
-      a[href="#part-ifdc"]{background-image: url("img/partners-logos/IFDC_logo.svg");}
+      a[href="#part-ifdc"]{background-image: url("img/partners-logos/IFDC_logo.svg"); &:hover{ &:before{@include colored-logo; background-image: url("img/partners-logos/IFDC_logo-color.svg"); }}}
 
-      a[href="#part-au"]{background-image: url("img/partners-logos/AU_AfricanUnion_logo.svg");}
+      a[href="#part-au"]{background-image: url("img/partners-logos/AU_AfricanUnion_logo.svg"); &:hover{ &:before{@include colored-logo; background-image: url("img/partners-logos/AU_AfricanUnion_logo-color.svg"); }}}
 
-      a[href="#part-afap"]{background-image: url("img/partners-logos/AFAP_new-logo.svg");}
+      a[href="#part-afap"]{background-image: url("img/partners-logos/AFAP_new-logo.svg"); &:hover{ &:before{@include colored-logo; background-image: url("img/partners-logos/AFAP_new-logo-color.svg"); }}}
 
-      a[href="#part-ifia"]{background-image: url("img/partners-logos/ifa.svg");}
+      a[href="#part-ifia"]{background-image: url("img/partners-logos/ifa.svg"); &:hover{ &:before{@include colored-logo; background-image: url("img/partners-logos/ifa-color.svg"); }}}
 
-      a[href="#part-fao"]{background-image: url("img/partners-logos/FAO_logo.svg");}
+      a[href="#part-fao"]{background-image: url("img/partners-logos/FAO_logo.svg"); &:hover{ &:before{@include colored-logo; background-image: url("img/partners-logos/FAO_logo-color.svg"); }}}
 
-      a[href="#part-argus"]{background-image: url("img/partners-logos/argus-logo.svg");}
+      a[href="#part-argus"]{background-image: url("img/partners-logos/argus-logo.svg"); &:hover{ &:before{@include colored-logo; background-image: url("img/partners-logos/argus-logo-color.svg"); }}}
 
-      a[href="#part-cs"]{background-image: url("img/partners-logos/cs-logo.svg");}
+      a[href="#part-cs"]{background-image: url("img/partners-logos/cs-logo.svg"); &:hover{ &:before{@include colored-logo; background-image: url("img/partners-logos/cs-logo-color.svg"); }}}
 
 
 

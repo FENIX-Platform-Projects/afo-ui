@@ -2735,6 +2735,10 @@ input[type="checkbox"]:checked + label {
 
 .afo-home-item .afo-home-item-holder {
   border: 1px solid #e8e8e8 !important;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
   padding: 12px;
   width: 100%;
   height: 100%; }
@@ -2757,25 +2761,97 @@ input[type="checkbox"]:checked + label {
     .afo-home-partner-container ul li a {
       background-size: contain;
       width: 100%;
-      height: 50px;
+      height: 70px;
       display: inline-block;
       background-repeat: no-repeat;
       background-position: 50% 50%;
-      border-color: transparent; }
+      border-color: transparent;
+      position: relative;
+      padding: 0; }
     .afo-home-partner-container ul li a[href="#part-ifdc"] {
       background-image: url("img/partners-logos/IFDC_logo.svg"); }
+      .afo-home-partner-container ul li a[href="#part-ifdc"]:hover:before {
+        content: '';
+        display: block;
+        height: 100%;
+        width: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        pointer-events: none;
+        background-image: url("img/partners-logos/IFDC_logo-color.svg"); }
     .afo-home-partner-container ul li a[href="#part-au"] {
       background-image: url("img/partners-logos/AU_AfricanUnion_logo.svg"); }
+      .afo-home-partner-container ul li a[href="#part-au"]:hover:before {
+        content: '';
+        display: block;
+        height: 100%;
+        width: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        pointer-events: none;
+        background-image: url("img/partners-logos/AU_AfricanUnion_logo-color.svg"); }
     .afo-home-partner-container ul li a[href="#part-afap"] {
       background-image: url("img/partners-logos/AFAP_new-logo.svg"); }
+      .afo-home-partner-container ul li a[href="#part-afap"]:hover:before {
+        content: '';
+        display: block;
+        height: 100%;
+        width: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        pointer-events: none;
+        background-image: url("img/partners-logos/AFAP_new-logo-color.svg"); }
     .afo-home-partner-container ul li a[href="#part-ifia"] {
       background-image: url("img/partners-logos/ifa.svg"); }
+      .afo-home-partner-container ul li a[href="#part-ifia"]:hover:before {
+        content: '';
+        display: block;
+        height: 100%;
+        width: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        pointer-events: none;
+        background-image: url("img/partners-logos/ifa-color.svg"); }
     .afo-home-partner-container ul li a[href="#part-fao"] {
       background-image: url("img/partners-logos/FAO_logo.svg"); }
+      .afo-home-partner-container ul li a[href="#part-fao"]:hover:before {
+        content: '';
+        display: block;
+        height: 100%;
+        width: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        pointer-events: none;
+        background-image: url("img/partners-logos/FAO_logo-color.svg"); }
     .afo-home-partner-container ul li a[href="#part-argus"] {
       background-image: url("img/partners-logos/argus-logo.svg"); }
+      .afo-home-partner-container ul li a[href="#part-argus"]:hover:before {
+        content: '';
+        display: block;
+        height: 100%;
+        width: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        pointer-events: none;
+        background-image: url("img/partners-logos/argus-logo-color.svg"); }
     .afo-home-partner-container ul li a[href="#part-cs"] {
       background-image: url("img/partners-logos/cs-logo.svg"); }
+      .afo-home-partner-container ul li a[href="#part-cs"]:hover:before {
+        content: '';
+        display: block;
+        height: 100%;
+        width: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        pointer-events: none;
+        background-image: url("img/partners-logos/cs-logo-color.svg"); }
 
 .nav-tabs {
   border-color: transparent; }

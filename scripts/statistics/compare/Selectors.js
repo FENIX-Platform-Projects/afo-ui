@@ -57,8 +57,12 @@ define([
                     _.each(res, function (n) {
                         data.push(createNode(n));
                     });
-                    console.log(data);
                 }
+                
+                //_(data).chain().flatten().pluck('text').unique().value();
+                //data = _.uniq(_.pluck(_.flatten(data), "text"))
+
+                console.log('data',data);
 
                 createTree(data);
                 initSearch();

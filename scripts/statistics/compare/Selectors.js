@@ -59,15 +59,11 @@ define([
                     });
                 }
                 
-                //_(data).chain().flatten().pluck('text').unique().value();
-                //data = _.uniq(_.pluck(_.flatten(data), "text"))
-
-
+                //PATCH
 				data = _.uniq(data, function(data) {
 					return data.id;
 				});
-
-                console.log('data',data);
+                console.log('patch duplicates countries', data);
 
                 createTree(data);
                 initSearch();

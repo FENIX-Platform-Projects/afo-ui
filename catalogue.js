@@ -448,7 +448,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		guiController: {
 			overlay : true,
 			baselayer: false,
-			wmsLoader: false
+			wmsLoader: true
 		},
 		gui: {
 			disclaimerfao: true

@@ -62,6 +62,11 @@ define([
                 //_(data).chain().flatten().pluck('text').unique().value();
                 //data = _.uniq(_.pluck(_.flatten(data), "text"))
 
+
+				data = _.uniq(data, function(data) {
+					return data.id;
+				});
+
                 console.log('data',data);
 
                 createTree(data);

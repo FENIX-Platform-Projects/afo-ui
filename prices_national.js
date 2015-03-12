@@ -85,19 +85,21 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 	require([
 	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper',
-	    'text!config/services.json', 'text!html/publication.html', 'fx-menu/start',
-		'./scripts/components/AuthenticationManager', 'pivot', 'amplify',
-        'jquery.rangeSlider', 'domready!'
-	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,
+ 		'amplify','jquery.rangeSlider',
+
+	    'text!config/services.json',
+	    'text!html/publication.html',
+	    'fx-menu/start',
+
+		'./scripts/components/AuthenticationManager',
+		'pivot',
+		'domready!'
+	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,Amplify,rangeSlider,
 		Config, publication, TopMenu, AuthenticationManager) {
 
         var minDate, maxDate;
 
         Config = JSON.parse(Config);
-
-
-
-
 
         /* ================================== PAGE */
 
@@ -132,7 +134,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
             //Validate inputs
             if (inputs.fertilizer_code === '' || inputs.country_code === '' ||!inputs.month_from_yyyymm || !inputs.month_to_yyyymm){
-                alert("Please select all the fields");
+                alert("Please select Countries and Fertilizers");
                 return;
             }
 
@@ -351,6 +353,7 @@ require(["submodules/fenix-ui-menu/js/paths",
         // Time
         var rangeMonths$ = $('#prices_rangeMonths');
 
+
         rangeMonths$.dateRangeSlider({
         	defaultValues: {
 	            min: new Date(2014, 2, 0),
@@ -361,6 +364,18 @@ require(["submodules/fenix-ui-menu/js/paths",
             	max: new Date(2015, 1, 0)
             }
         });
+
+        var minD = new Date(2014, 2, 0),
+            maxD = new Date(2015, 1, 0);
+        var minMonth=minD.getMonth()+1;
+        var maxMonth=maxD.getMonth()+1;
+        
+        if(minMonth<10){ minMonth="0"+minMonth; }
+        if(maxMonth<10){ maxMonth="0"+maxMonth; }
+
+        minDate = ""+minD.getFullYear()+minMonth;
+        maxDate = ""+maxD.getFullYear()+maxMonth;
+
         rangeMonths$.on('valuesChanged', function(e, data) {
 
             var minD = new Date(data.values.min),
@@ -371,8 +386,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 
             if(maxMonth<10){ maxMonth="0"+maxMonth; }
 
-                minDate = ""+minD.getFullYear()+minMonth;
-                maxDate = ""+maxD.getFullYear()+maxMonth;
+            minDate = ""+minD.getFullYear()+minMonth;
+            maxDate = ""+maxD.getFullYear()+maxMonth;
 
         });
 

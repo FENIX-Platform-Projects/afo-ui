@@ -359,7 +359,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 				$(e.target).trigger('click');
 			},50))
 			.on('mousedown','a', function(e) {
-				location.href = $(e.target).attr('href');
+				//location.href = $(e.target).attr('href');
+				window.open($(e.target).attr('href'),'_blank');
 			});			
 /*		$('.afo-home-partner-container .nav-tabs .active a').on('click.go', function(e) {
 			location.href = $(e.target).data('link');

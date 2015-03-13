@@ -2768,9 +2768,9 @@ input[type="checkbox"]:checked + label {
       border-color: transparent;
       position: relative;
       padding: 0; }
-    .afo-home-partner-container ul li a[href="#part-ifdc"] {
+    .afo-home-partner-container ul li a[data-target="#part-ifdc"] {
       background-image: url("img/partners-logos/IFDC_logo.svg"); }
-      .afo-home-partner-container ul li a[href="#part-ifdc"]:hover:before {
+      .afo-home-partner-container ul li a[data-target="#part-ifdc"]:hover:before {
         content: '';
         display: block;
         height: 100%;
@@ -2780,9 +2780,9 @@ input[type="checkbox"]:checked + label {
         background-position: 50% 50%;
         pointer-events: none;
         background-image: url("img/partners-logos/IFDC_logo-color.svg"); }
-    .afo-home-partner-container ul li a[href="#part-au"] {
+    .afo-home-partner-container ul li a[data-target="#part-au"] {
       background-image: url("img/partners-logos/AU_AfricanUnion_logo.svg"); }
-      .afo-home-partner-container ul li a[href="#part-au"]:hover:before {
+      .afo-home-partner-container ul li a[data-target="#part-au"]:hover:before {
         content: '';
         display: block;
         height: 100%;
@@ -2792,9 +2792,9 @@ input[type="checkbox"]:checked + label {
         background-position: 50% 50%;
         pointer-events: none;
         background-image: url("img/partners-logos/AU_AfricanUnion_logo-color.svg"); }
-    .afo-home-partner-container ul li a[href="#part-afap"] {
+    .afo-home-partner-container ul li a[data-target="#part-afap"] {
       background-image: url("img/partners-logos/AFAP_new-logo.svg"); }
-      .afo-home-partner-container ul li a[href="#part-afap"]:hover:before {
+      .afo-home-partner-container ul li a[data-target="#part-afap"]:hover:before {
         content: '';
         display: block;
         height: 100%;
@@ -2804,9 +2804,9 @@ input[type="checkbox"]:checked + label {
         background-position: 50% 50%;
         pointer-events: none;
         background-image: url("img/partners-logos/AFAP_new-logo-color.svg"); }
-    .afo-home-partner-container ul li a[href="#part-ifia"] {
+    .afo-home-partner-container ul li a[data-target="#part-ifia"] {
       background-image: url("img/partners-logos/ifa.svg"); }
-      .afo-home-partner-container ul li a[href="#part-ifia"]:hover:before {
+      .afo-home-partner-container ul li a[data-target="#part-ifia"]:hover:before {
         content: '';
         display: block;
         height: 100%;
@@ -2816,9 +2816,9 @@ input[type="checkbox"]:checked + label {
         background-position: 50% 50%;
         pointer-events: none;
         background-image: url("img/partners-logos/ifa-color.svg"); }
-    .afo-home-partner-container ul li a[href="#part-fao"] {
+    .afo-home-partner-container ul li a[data-target="#part-fao"] {
       background-image: url("img/partners-logos/FAO_logo.svg"); }
-      .afo-home-partner-container ul li a[href="#part-fao"]:hover:before {
+      .afo-home-partner-container ul li a[data-target="#part-fao"]:hover:before {
         content: '';
         display: block;
         height: 100%;
@@ -2828,9 +2828,9 @@ input[type="checkbox"]:checked + label {
         background-position: 50% 50%;
         pointer-events: none;
         background-image: url("img/partners-logos/FAO_logo-color.svg"); }
-    .afo-home-partner-container ul li a[href="#part-argus"] {
+    .afo-home-partner-container ul li a[data-target="#part-argus"] {
       background-image: url("img/partners-logos/argus-logo.svg"); }
-      .afo-home-partner-container ul li a[href="#part-argus"]:hover:before {
+      .afo-home-partner-container ul li a[data-target="#part-argus"]:hover:before {
         content: '';
         display: block;
         height: 100%;
@@ -2840,9 +2840,9 @@ input[type="checkbox"]:checked + label {
         background-position: 50% 50%;
         pointer-events: none;
         background-image: url("img/partners-logos/argus-logo-color.svg"); }
-    .afo-home-partner-container ul li a[href="#part-cs"] {
+    .afo-home-partner-container ul li a[data-target="#part-cs"] {
       background-image: url("img/partners-logos/cs-logo.svg"); }
-      .afo-home-partner-container ul li a[href="#part-cs"]:hover:before {
+      .afo-home-partner-container ul li a[data-target="#part-cs"]:hover:before {
         content: '';
         display: block;
         height: 100%;

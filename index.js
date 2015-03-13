@@ -354,7 +354,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		$('.afo-home-partner-container .nav-tabs')
 			.on('mouseenter','a', _.debounce(function(e) {
-				e.preventDefault();
+				//e.preventDefault();
 				e.stopPropagation();
 				//$(e.delegateTarget).trigger('mouseout'); 
 				$(e.delegateTarget).next('.tab-content').find('.tab-pane').removeClass('active in');

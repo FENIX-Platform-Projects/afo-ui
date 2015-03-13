@@ -354,12 +354,16 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		$('.afo-home-partner-container .nav-tabs')
 			.on('mouseenter','a', _.debounce(function(e) {
-				//e.preventDefault();
-				e.stopPropagation();
 				//$(e.delegateTarget).trigger('mouseout'); 
 				$(e.delegateTarget).next('.tab-content').find('.tab-pane').removeClass('active in');
 				$(e.target).trigger('click');
-			},50));
+			},50))
+			.on('mousedown','a', function(e) {
+				location.href = $(e.target).attr('href');
+			});			
+/*		$('.afo-home-partner-container .nav-tabs .active a').on('click.go', function(e) {
+			location.href = $(e.target).data('link');
+		});*/
 	});
 
 

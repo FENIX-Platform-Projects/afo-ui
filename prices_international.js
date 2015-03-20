@@ -154,6 +154,9 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 		$('.footer').load('html/footer.html');
 
+		var mdate = (new Date()).toDateString().split(' ');
+		$('#market_date').text(mdate[1]+' '+mdate[3]);
+
 		//$('#prices_international_grid').load("prices/html/prices_international.html");
 		table$.html('<big class="text-center">Loading data...<br /><br /></big>');
 		getWDS(Config.queries.prices_international, null, function(data) {

@@ -119,8 +119,16 @@ require(["submodules/fenix-ui-menu/js/paths",
 			});
 		}
 
-		function formatMonth(date) {
-			return [date.slice(0,4),'/',date.slice(4)].join('')
+		function formatMonth(date, str) {
+			var year = date.slice(0,4),
+				month = date.slice(4);
+
+			if(!!str) {
+				var mdate = (new Date(year,month)).toDateString().split(' ');
+				return mdate[1]+' '+mdate[3];
+			}
+
+			return [year, '/', month].join('');
 		}
         //JQUERY range slider
         $(".afo-range").dateRangeSlider();
@@ -164,7 +172,7 @@ console.log(data);
 				year = cols.pop(),
 				month = cols.pop(),
 				months = _.map(cols, function(val) {
-					return formatMonth(val);
+					return formatMonth(val,true);
 				});
 
 			var	headers = _.union(['Nutrient','Fertilizer'], months, [month, year]),
@@ -179,9 +187,6 @@ console.log(data);
 				headers: headers,
 				rows: rows
 			}) );
-
-			//var mdate = (new Date()).toDateString().split(' ');
-			//$('#market_date').text(mdate[1]+' '+mdate[3]);
 
 			console.log(rows);
 

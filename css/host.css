@@ -500,7 +500,7 @@ body {
   font: normal normal 300 13px/normal "Roboto"; }
 
 a {
-  color: #336600; }
+  color: #5ba539; }
   a:focus {
     outline: none; }
   a:active {
@@ -512,24 +512,24 @@ a {
 
 h1 {
   font: normal normal 100 36px/normal "Roboto";
-  color: #336600; }
+  color: #5ba539; }
 
 h2 {
   font: normal normal 100 18px/normal "sansation_lightlight";
-  color: #33570f; }
+  color: #67845a; }
 
 h3 {
   font: normal normal 500 14px/normal "Roboto";
-  color: #334d19; }
+  color: #6f6f6f; }
 
 h4 {
   font: normal normal 500 14px/normal "Roboto";
-  color: #334224; }
+  color: #6f6f6f; }
 
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {
   font-family: Roboto;
   font-weight: 700;
-  color: #336600;
+  color: #5ba539;
   text-transform: uppercase;
   font-size: 12px; }
 
@@ -556,18 +556,18 @@ input[type="button"]::-moz-focus-inner {
   border: 0; }
 
 .btn {
-  background-color: #336600;
+  background-color: #5ba539;
   color: white;
   border-color: transparent;
   font: normal normal 300 13px/normal "Roboto"; }
   .btn:hover {
     background-color: transparent;
-    color: #336600;
-    border-color: #336600; }
+    color: #5ba539;
+    border-color: #5ba539; }
   .btn:active {
     background-color: transparent;
-    color: #336600;
-    border-color: #336600;
+    color: #5ba539;
+    border-color: #5ba539;
     -webkit-box-shadow: 0 0 0 white;
     -moz-box-shadow: 0 0 0 white;
     box-shadow: 0 0 0 white; }
@@ -604,8 +604,8 @@ input[type="button"]::-moz-focus-inner {
 , .btn-primary.disabled.active
 , .btn-primary[disabled].active
 , fieldset[disabled] .btn-primary.active {
-  background-color: #334d19;
-  border-color: #334d19; }
+  background-color: #6f6f6f;
+  border-color: #6f6f6f; }
 
 /* Fenix - Circle Number Component */
 .fx-circle-number {
@@ -616,7 +616,7 @@ input[type="button"]::-moz-focus-inner {
   width: 20px;
   line-height: 20px;
   text-align: center;
-  background-color: #336600;
+  background-color: #5ba539;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   -ms-border-radius: 100%;
@@ -634,9 +634,9 @@ input[type="button"]::-moz-focus-inner {
     -ms-border-radius: 0;
     border-radius: 0; }
   .datepicker .datepicker-days .day.active {
-    background-color: #336600; }
+    background-color: #5ba539; }
   .datepicker .datepicker-days .day.today:before {
-    border-bottom-color: #336600; }
+    border-bottom-color: #5ba539; }
   .datepicker .datepicker-days .day.active.today:before {
     border-bottom-color: white; }
 
@@ -712,6 +712,23 @@ You choose the aligment of each column by using the classes .col-top or .col-mid
 /* remove x icon in IE 10+ */
 input[type=text]::-ms-clear {
   display: none; }
+
+/* Input Placeholder*/
+.form-control::-webkit-input-placeholder {
+  /* WebKit browsers */
+  opacity: .5; }
+
+.form-control:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  opacity: .5; }
+
+.form-control::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  opacity: .5; }
+
+.form-control:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  opacity: .5; }
 
 /* Fenix - Labels Component */
 label {
@@ -794,7 +811,7 @@ legend {
   top: 4px;
   left: 30px;
   font-weight: 300;
-  color: #334d19; }
+  color: #6f6f6f; }
 
 .fx-catalog-modular-form-content {
   padding: 10px 10px 10px 10px;
@@ -809,17 +826,17 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   border-width: 0; }
 
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
-  border-color: #336600; }
+  border-color: #5ba539; }
 
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
   background-color: transparent;
   color: #666666; }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-  color: #336600; }
+  color: #5ba539; }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-  border-bottom: 1px solid #336600; }
+  border-bottom: 1px solid #5ba539; }
 
 /* Fenix - Object Box Component */
 .obj-box, .obj-box-radius10, .obj-box-title {
@@ -849,7 +866,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 .obj-box-title {
   padding-top: 5px; }
   .obj-box-title h4 {
-    color: #336600;
+    color: #5ba539;
     font: normal normal 500 14px/normal "Roboto"; }
 
 /* Fenix - Panel Component */
@@ -888,7 +905,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
         .panel-group .panel-heading .panel-title a:focus {
           text-decoration: none; }
   .panel-group .panel-heading.fx-active-panel .panel-title a {
-    color: #336600; }
+    color: #5ba539; }
   .panel-group .panel-body .btn {
     background-color: transparent;
     color: #666666;
@@ -961,6 +978,96 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 .popover {
   width: 200px; }
 
+/* Radio Buttons */
+input[type="radio"] {
+  display: none; }
+
+input[type="radio"] + label {
+  cursor: pointer;
+  margin: 0 7px;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 500; }
+  input[type="radio"] + label:before {
+    content: '';
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    background-color: #dddddd;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    border-radius: 100%;
+    border: 0 solid #5ba539;
+    position: relative;
+    top: 4px;
+    left: -4px; }
+
+input[type="radio"]:checked + label {
+  color: #5ba539; }
+  input[type="radio"]:checked + label:before {
+    border-width: 5px; }
+
+input[type="radio"] + label,
+input[type="radio"]:checked + label {
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -ms-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s; }
+  input[type="radio"] + label:before,
+  input[type="radio"]:checked + label:before {
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -ms-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s; }
+
+/* Checkbox Buttons */
+input[type="checkbox"] {
+  display: none; }
+
+input[type="checkbox"] + label {
+  cursor: pointer;
+  margin: 0 7px;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 500; }
+  input[type="checkbox"] + label:before {
+    content: '';
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    background-color: #dddddd;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    border-radius: 100%;
+    border: 0 solid #5ba539;
+    position: relative;
+    top: 4px;
+    left: -4px; }
+
+input[type="checkbox"]:checked + label {
+  color: #5ba539; }
+  input[type="checkbox"]:checked + label:before {
+    border-width: 5px; }
+
+input[type="checkbox"] + label,
+input[type="checkbox"]:checked + label {
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -ms-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s; }
+  input[type="checkbox"] + label:before,
+  input[type="checkbox"]:checked + label:before {
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -ms-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s; }
+
 /* Fenix - Resume Bar Component */
 .fx-resume-bar {
   padding-right: 150px;
@@ -973,7 +1080,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   min-height: 60px; }
 
 .fx-resume-title {
-  color: #336600;
+  color: #5ba539;
   padding-left: 15px;
   padding-top: 5px;
   font: normal normal 400 10px/normal "Roboto";
@@ -988,7 +1095,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 #fx-catalog-submit-btn {
   color: white;
   text-transform: uppercase;
-  background-color: #336600;
+  background-color: #5ba539;
   width: 150px;
   position: absolute;
   bottom: 0;
@@ -1011,7 +1118,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
     padding-left: 15px; }
     .fx-resume-item-selected .fx-resume-module-title em {
       font: normal normal 400 10px/normal "Roboto";
-      color: #336600;
+      color: #5ba539;
       font-size: 12px;
       /* Not expected */
       position: absolute;
@@ -1092,14 +1199,14 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 
 .bs-docs-sidebar .nav > li > a:hover, .bs-docs-sidebar .nav > li > a:focus {
   background-color: transparent;
-  border-left: 1px solid #336600;
-  color: #336600;
+  border-left: 1px solid #5ba539;
+  color: #5ba539;
   text-decoration: none; }
 
 .bs-docs-sidebar .nav > .active > a, .bs-docs-sidebar .nav > .active:hover > a, .bs-docs-sidebar .nav > .active:focus > a {
   background-color: transparent;
-  border-left: 1px solid #336600;
-  color: #336600;
+  border-left: 1px solid #5ba539;
+  color: #5ba539;
   font-weight: 700; }
 
 .bs-docs-sidebar .nav .nav {
@@ -1156,11 +1263,11 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   position: relative; }
   .fx-widget .nav-tabs > li > a:hover, .fx-widget .nav-tabs > li > a:focus, .fx-widget .nav-tabs > li > a:active {
     background-color: transparent;
-    color: #336600;
+    color: #5ba539;
     border-color: transparent; }
   .fx-widget .nav-tabs > li.active > a, .fx-widget .nav-tabs > li.active > a:hover, .fx-widget .nav-tabs > li.active > a:focus {
     background-color: white;
-    color: #336600;
+    color: #5ba539;
     border-left-color: #d8d8d8;
     border-top-color: #d8d8d8;
     border-right-color: #d8d8d8;
@@ -1273,15 +1380,15 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   display: none; }
 
 .fx-closepanel-container {
-  border-bottom: 1px solid #336600;
+  border-bottom: 1px solid #5ba539;
   padding: 5px 10px; }
   .fx-closepanel-container .fx-widget-icons {
-    color: #336600;
+    color: #5ba539;
     margin-right: 5px;
     cursor: pointer; }
   .fx-closepanel-container #fx-ws-close-btn {
     text-transform: uppercase;
-    color: #336600;
+    color: #5ba539;
     cursor: pointer;
     line-height: 1;
     display: inline-block;
@@ -1306,7 +1413,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   list-style-type: none;
   padding: 16px 16px 35px 16px;
   position: relative;
-  border-bottom: 1px solid #336600; }
+  border-bottom: 1px solid #5ba539; }
 
 .fx-sessionstore-item-title {
   text-transform: uppercase;
@@ -1351,7 +1458,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
   width: 20px;
   line-height: 20px;
   text-align: center;
-  background-color: #336600;
+  background-color: #5ba539;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   -ms-border-radius: 100%;
@@ -1370,7 +1477,7 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 
 .introjs-button:hover, .introjs-button:active, .introjs-button:focus {
   text-shadow: none;
-  color: #336600;
+  color: #5ba539;
   text-decoration: none; }
 
 /* Fenix - JQwidgets */
@@ -2125,11 +2232,11 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 .afo-simple-map .leaflet-touch .leaflet-control-zoom-out {
   font-size: 0; }
 .afo-simple-map .leaflet-control-zoom-in:before {
-  color: #336600;
+  color: #5ba539;
   font-size: 24px;
   content: "\eb2a"; }
 .afo-simple-map .leaflet-control-zoom-out:before {
-  color: #336600;
+  color: #5ba539;
   font-size: 24px;
   content: "\eb28"; }
 
@@ -2220,96 +2327,6 @@ div[data-module="region"] .fx-catalog-modular-form-content {
 
 .pvtTriangle {
   display: none; }
-
-/* Afo Radio Buttons */
-input[type="radio"] {
-  display: none; }
-
-input[type="radio"] + label {
-  cursor: pointer;
-  margin: 0 7px;
-  font-size: 10px;
-  text-transform: uppercase;
-  font-weight: 500; }
-  input[type="radio"] + label:before {
-    content: '';
-    display: inline-block;
-    height: 15px;
-    width: 15px;
-    background-color: #e4e4e4;
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    -ms-border-radius: 100%;
-    border-radius: 100%;
-    border: 0 solid #5ba539;
-    position: relative;
-    top: 4px;
-    left: -4px; }
-
-input[type="radio"]:checked + label {
-  color: #5ba539; }
-  input[type="radio"]:checked + label:before {
-    border-width: 5px; }
-
-input[type="radio"] + label,
-input[type="radio"]:checked + label {
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -ms-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s; }
-  input[type="radio"] + label:before,
-  input[type="radio"]:checked + label:before {
-    -webkit-transition: all 0.3s ease 0s;
-    -moz-transition: all 0.3s ease 0s;
-    -ms-transition: all 0.3s ease 0s;
-    -o-transition: all 0.3s ease 0s;
-    transition: all 0.3s ease 0s; }
-
-/* Afo Checkbox Buttons */
-input[type="checkbox"] {
-  display: none; }
-
-input[type="checkbox"] + label {
-  cursor: pointer;
-  margin: 0 7px;
-  font-size: 10px;
-  text-transform: uppercase;
-  font-weight: 500; }
-  input[type="checkbox"] + label:before {
-    content: '';
-    display: inline-block;
-    height: 15px;
-    width: 15px;
-    background-color: #e4e4e4;
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    -ms-border-radius: 100%;
-    border-radius: 100%;
-    border: 0 solid #5ba539;
-    position: relative;
-    top: 4px;
-    left: -4px; }
-
-input[type="checkbox"]:checked + label {
-  color: #5ba539; }
-  input[type="checkbox"]:checked + label:before {
-    border-width: 5px; }
-
-input[type="checkbox"] + label,
-input[type="checkbox"]:checked + label {
-  -webkit-transition: all 0.3s ease 0s;
-  -moz-transition: all 0.3s ease 0s;
-  -ms-transition: all 0.3s ease 0s;
-  -o-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s; }
-  input[type="checkbox"] + label:before,
-  input[type="checkbox"]:checked + label:before {
-    -webkit-transition: all 0.3s ease 0s;
-    -moz-transition: all 0.3s ease 0s;
-    -ms-transition: all 0.3s ease 0s;
-    -o-transition: all 0.3s ease 0s;
-    transition: all 0.3s ease 0s; }
 
 /* Afo Range Slider */
 .ui-rangeSlider-innerBar {

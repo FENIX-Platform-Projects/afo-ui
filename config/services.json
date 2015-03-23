@@ -58,7 +58,9 @@
     
     "prices_detailed_products": "select c.fertilizer_code, c.fertilizer_label from codes_fertilizers c, prices_local d where  c.fertilizer_code = d.fertilizer group by c.fertilizer_code, c.fertilizer_label order by c.fertilizer_label ASC ",
 
-    "prices_international" : "select nutrient, fob, string_agg(period,'|') as period, string_agg(''||value,'|') as value from prices_international group by index, nutrient, fob order by index",
+    "//COMMENTED prices_international": "select nutrient, fob, string_agg(period,'|') as period, string_agg(''||value,'|') as value from prices_international group by index, nutrient, fob order by index",
+
+    "prices_international": "select nutrient, fob, string_agg(period,'|') as period, string_agg(''||value,'|') as value from (select * from prices_international where period in (select distinct period from prices_international order by period desc limit 14) order by period, index) origin group by index, nutrient, fob order by index",
 
     "select_from_compare": "select element_code, element_label, year, coalesce(value, -1), um from ( select element, year, value, um from compare where data_source = '{SOURCE}' and fertilizer = '{PRODUCT}' and country = '{COUNTRY}' and n_p = '{KIND}' ) c right join codes_elements on element = element_code ORDER BY element ASC, year ASC",
     "select_from_compare_chart": "select element_code, element_label, year, value, um from ( select element, year, value, um from compare where data_source = '{SOURCE}' and fertilizer = '{PRODUCT}' and country = '{COUNTRY}' and n_p = '{KIND}' ) c join codes_elements on element = element_code and element in ('appcons', 'imp', 'exp') WHERE value is not null ORDER BY element ASC, year ASC",

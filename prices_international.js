@@ -124,7 +124,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 				month = date.slice(4);
 
 			if(!!str) {
-				var mdate = (new Date(year,month)).toDateString().split(' ');
+				var mdate = (new Date(year,month-1)).toDateString().split(' ');
 				return mdate[1]+' '+mdate[3];
 			}
 
@@ -166,7 +166,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 		table$.html('<big class="text-center">Loading data...<br /><br /></big>');
 		getWDS(Config.queries.prices_international, null, function(data) {
 
-console.log(data);
 
 			var cols = data[0][2].split('|'),
 				year = cols.pop(),
@@ -174,6 +173,8 @@ console.log(data);
 				months = _.map(cols, function(val) {
 					return formatMonth(val,true);
 				});
+
+			$('#market_date').text(_.last(months));
 
 			var	headers = _.union(['Nutrient','Fertilizer'], months, [month, year]),
 				rows = _.map(data, function(val) {

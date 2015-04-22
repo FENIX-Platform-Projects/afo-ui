@@ -154,11 +154,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 			chart$ = $('#prices_international_chart');
 
 		var date = new Date();
-		chart$.attr({
-			src:'http://classic.africafertilizer.org/AF-media/Docs-for-international-prices-pages/AfricaFertilizer-price-trend-graphs-('+
-				//date.toString().toLowerCase().substr(4,3) + date.getFullYear()+
-				'jan2015'+
-				').aspx'});
+		chart$.attr({src: 'images/prices_international_'+'jan2015'+'.png'});
+		//'http://classic.africafertilizer.org/AF-media/Docs-for-international-prices-pages/AfricaFertilizer-price-trend-graphs-('+
 
 		$('.footer').load('html/footer.html');
 

@@ -87,7 +87,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
         'amplify',
 		
-		'domready!'
+		'domReady!'
 	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L,
 		Config,
 		mapLegend,

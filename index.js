@@ -1,10 +1,8 @@
 
 require(["submodules/fenix-ui-menu/js/paths",
 		 "submodules/fenix-ui-common/js/Compiler"
-		 ], function(Menu, Compiler) {
+		 ], function(menuConfig, Compiler) {
 
-    var menuConfig = Menu;
-    
     menuConfig['baseUrl'] = "submodules/fenix-ui-menu/js";
 
     Compiler.resolve([menuConfig], {

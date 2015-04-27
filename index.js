@@ -15,7 +15,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			paths: {
 				'text': "//fenixapps.fao.org/repository/js/requirejs/plugins/text/2.0.12/text",
 				'i18n': "//fenixapps.fao.org/repository/js/requirejs/plugins/i18n/2.0.4/i18n",
-				'domReady': "//fenixapps.fao.org/repository/js/requirejs/plugins/domready/2.0.1/domReady",
+				'domready': "//fenixapps.fao.org/repository/js/requirejs/plugins/domready/2.0.1/domReady",
 
 				'amplify' : "//fenixapps.fao.org/repository/js/amplify/1.1.2/amplify.min",
 				'highcharts': "//fenixapps.fao.org/repository/js/highcharts/4.0.4/js/highcharts",
@@ -87,7 +87,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
         'amplify',
 		
-		'domReady!'
+		'domready!'
 	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L,
 		Config,
 		mapLegend,

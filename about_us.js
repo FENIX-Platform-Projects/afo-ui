@@ -23,7 +23,6 @@ require(["submodules/fenix-ui-menu/js/paths",
                 'underscore': "//fenixapps.fao.org/repository/js/underscore/1.7.0/underscore.min",
                 'handlebars': "//fenixapps.fao.org/repository/js/handlebars/2.0.0/handlebars",
 
-                'domReady': "//fenixapps.fao.org/repository/js/requirejs/plugins/domready/2.0.1/domReady",
                 'swiper': "//fenixapps.fao.org/repository/js/swiper/2.7.5/dist/idangerous.swiper.min",
                 'bootstrap': "//fenixapps.fao.org/repository/js/bootstrap/3.3.2/js/bootstrap.min",
                 'draggabilly': "//fenixapps.fao.org/repository/js/draggabilly/dist/draggabilly.pkgd.min",

@@ -55,7 +55,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		        },
                 'amplify': {
                     deps: ['jquery'],
-                    exports: 'amplifyjs'
+                    exports: 'amplify'
                 },
 				'swiper': ['jquery'],
 		        'fenix-map': {
@@ -75,66 +75,21 @@ require(["submodules/fenix-ui-menu/js/paths",
 		}
     });
 
+//LOAD MENU BEFORE ALL
 	require([
-	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet',
-	    'text!config/services.json',
-		'text!html/home_maps_legend.html',
-
 		'fx-menu/start',
         './scripts/components/AuthenticationManager',
-
         'amplify',
-		
+
 		'domready!'
-	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L,
-		Config,
-		mapLegend,
+	], function(
+		TopMenu,
+		AuthenticationManager,
+		amplify
+	) {
 
-		TopMenu, AuthenticationManager
-		) {
-
-		Config = JSON.parse(Config);
-		mapLegendTmpl = Handlebars.compile(mapLegend);
-
-		function getWDS(queryTmpl, queryVars, callback) {
-
-			var sqltmpl, sql;
-
-			if(queryVars) {
-				sqltmpl = _.template(queryTmpl);
-				sql = sqltmpl(queryVars);
-			}
-			else
-				sql = queryTmpl;
-
-			var	data = {
-					datasource: Config.dbName,
-					thousandSeparator: ',',
-					decimalSeparator: '.',
-					decimalNumbers: 2,
-					cssFilename: '',
-					nowrap: false,
-					valuesIndex: 0,
-					json: JSON.stringify({query: sql})
-				};
-
-			$.ajax({
-				url: Config.wdsUrl,
-				data: data,
-				type: 'POST',
-				dataType: 'JSON',
-				success: callback
-			});
-		}
-
-//        $(window).bind("load resize", function(){
-//            var container_width = $('#afo-facebook-widget').width();
-//            $('#afo-facebook-widget').html('<div class="fb-like-box" ' +
-//                'data-href="https://www.facebook.com/AfricaFertilizer.org"' +
-//                ' data-width="' + container_width + '" data-height="250" data-show-faces="false" ' +
-//                'data-stream="true" data-header="true"></div>');
-//            FB.XFBML.parse( );
-//        });
+		//BUG  amplify = undefined
+		console.log(amplify);
 
         var authUser = amplify.store.sessionStorage('afo.security.user'),
             menuUrl,
@@ -177,6 +132,51 @@ require(["submodules/fenix-ui-menu/js/paths",
             })
         }
 
+
+	require([
+	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet',
+	    'text!config/services.json',
+		'text!html/home_maps_legend.html'
+		
+	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L,
+		Config,
+		mapLegend
+		) {
+
+		Config = JSON.parse(Config);
+		mapLegendTmpl = Handlebars.compile(mapLegend);
+
+		function getWDS(queryTmpl, queryVars, callback) {
+
+			var sqltmpl, sql;
+
+			if(queryVars) {
+				sqltmpl = _.template(queryTmpl);
+				sql = sqltmpl(queryVars);
+			}
+			else
+				sql = queryTmpl;
+
+			var	data = {
+					datasource: Config.dbName,
+					thousandSeparator: ',',
+					decimalSeparator: '.',
+					decimalNumbers: 2,
+					cssFilename: '',
+					nowrap: false,
+					valuesIndex: 0,
+					json: JSON.stringify({query: sql})
+				};
+
+			$.ajax({
+				url: Config.wdsUrl,
+				data: data,
+				type: 'POST',
+				dataType: 'JSON',
+				success: callback
+			});
+		}
+
         //HIGLIGHTS SLIDER
 		var swiperHigh = $('#afo-high-wrapper').swiper({
 			loop: true,
@@ -199,170 +199,170 @@ require(["submodules/fenix-ui-menu/js/paths",
            $('.hp-main-swiper-index').html('<span class="swiper-index"><span class="swiper-index-active">'+ (s.activeLoopIndex + 1)+'</span><span class="swiper-index-total"> | '+ (s.slides.length - (s.loopedSlides*2) )+'</span></span>' );
         }
 
-///MAPS SLIDER
-		var swiperMaps = {},
-			mapScales = [{
-				"-1": { color: "#DDDDDD", label: "NC"},
-				"4":  { color: "#F1EEE8", label: "4" },
-				"3":  { color: "#BCD5AB", label: "3" },
-				"2":  { color: "#A5C88E", label: "2" },
-				"1":  { color: "#8DBD70", label: "1" },
-				"0":  { color: "#6AAC46", label: "0" }
-			}, {
-				"-1": { color: "#DDDDDD", label: "NC"},
-				"0":  { color: "#deebf7", label: "0" },
-				"1":  { color: "#c6dbef", label: "1" },
-				"2":  { color: "#9ecae1", label: "2" },
-				"3":  { color: "#6baed6", label: "3" },
-				"4":  { color: "#4292c6", label: "4" },
-				"5":  { color: "#2171b5", label: "5" },
-				"6":  { color: "#08519c", label: "6" },
-				"7":  { color: "#08306b", label: "7" },
-				"8":  { color: "#08306b", label: "8" }
-			}, {
-				"-1": { color: "#DDDDDD", label: "NC"},
-				"0":  { color: "#e0f3db", label: "0" },
-				"1":  { color: "#ccebc5", label: "1" },
-				"2":  { color: "#a8ddb5", label: "2" },
-				"3":  { color: "#A5C88E", label: "3" },
-				"4":  { color: "#7bccc4", label: "4" },
-				"5":  { color: "#4eb3d3", label: "5" },
-				"6":  { color: "#2b8cbe", label: "6" },
-				"7":  { color: "#0868ac", label: "7" },
-				"8":  { color: "#084081", label: "8" },
-				"9":  { color: "#063879", label: "9" }
-			}];	
+		///MAPS SLIDER
+				var swiperMaps = {},
+					mapScales = [{
+						"-1": { color: "#DDDDDD", label: "NC"},
+						"4":  { color: "#F1EEE8", label: "4" },
+						"3":  { color: "#BCD5AB", label: "3" },
+						"2":  { color: "#A5C88E", label: "2" },
+						"1":  { color: "#8DBD70", label: "1" },
+						"0":  { color: "#6AAC46", label: "0" }
+					}, {
+						"-1": { color: "#DDDDDD", label: "NC"},
+						"0":  { color: "#deebf7", label: "0" },
+						"1":  { color: "#c6dbef", label: "1" },
+						"2":  { color: "#9ecae1", label: "2" },
+						"3":  { color: "#6baed6", label: "3" },
+						"4":  { color: "#4292c6", label: "4" },
+						"5":  { color: "#2171b5", label: "5" },
+						"6":  { color: "#08519c", label: "6" },
+						"7":  { color: "#08306b", label: "7" },
+						"8":  { color: "#08306b", label: "8" }
+					}, {
+						"-1": { color: "#DDDDDD", label: "NC"},
+						"0":  { color: "#e0f3db", label: "0" },
+						"1":  { color: "#ccebc5", label: "1" },
+						"2":  { color: "#a8ddb5", label: "2" },
+						"3":  { color: "#A5C88E", label: "3" },
+						"4":  { color: "#7bccc4", label: "4" },
+						"5":  { color: "#4eb3d3", label: "5" },
+						"6":  { color: "#2b8cbe", label: "6" },
+						"7":  { color: "#0868ac", label: "7" },
+						"8":  { color: "#084081", label: "8" },
+						"9":  { color: "#063879", label: "9" }
+					}];	
 
-		$('#mapSlide1').next('.map-legend').append( mapLegendTmpl({values: mapScales[0] }) );
-		$('#mapSlide2').next('.map-legend').append( mapLegendTmpl({values: mapScales[1] }) );
-		$('#mapSlide3').next('.map-legend').append( mapLegendTmpl({values: mapScales[2] }) );
+				$('#mapSlide1').next('.map-legend').append( mapLegendTmpl({values: mapScales[0] }) );
+				$('#mapSlide2').next('.map-legend').append( mapLegendTmpl({values: mapScales[1] }) );
+				$('#mapSlide3').next('.map-legend').append( mapLegendTmpl({values: mapScales[2] }) );
 
-		function setLayerStyle(ccodes, indexMap) {
-			var style = '',
-				sld = '';
+				function setLayerStyle(ccodes, indexMap) {
+					var style = '',
+						sld = '';
 
-			_.each(ccodes, function(val, adm0_code) {
+					_.each(ccodes, function(val, adm0_code) {
 
-				style += "[adm0_code = '"+adm0_code+"'] { "+
-					"fill: "+mapScales[indexMap][val].color+"; "+
-					"fill-opacity: 0.8; "+
-					"stroke: #FFFFFF; "+
-				"}";
-			});
+						style += "[adm0_code = '"+adm0_code+"'] { "+
+							"fill: "+mapScales[indexMap][val].color+"; "+
+							"fill-opacity: 0.8; "+
+							"stroke: #FFFFFF; "+
+						"}";
+					});
 
-			$.ajax({
-				url: Config.sldUrl,
-				data: {
-					stylename: "fenix:"+Config.gaulLayer,
-					style: style
-				},
-				async: false,
-				type: 'POST',
-				success: function(response) {
-					sld = response;
+					$.ajax({
+						url: Config.sldUrl,
+						data: {
+							stylename: "fenix:"+Config.gaulLayer,
+							style: style
+						},
+						async: false,
+						type: 'POST',
+						success: function(response) {
+							sld = response;
+						}
+					});
+					return sld;
 				}
-			});
-			return sld;
-		}
 
-		function getLayerStyled(field, indexMap) {
+				function getLayerStyled(field, indexMap) {
 
-			var	countriesLayer = L.tileLayer.wms(Config.wmsUrl, {
-				layers: "fenix:"+Config.gaulLayer,
-				format: 'image/png',
-				transparent: true
-			});
+					var	countriesLayer = L.tileLayer.wms(Config.wmsUrl, {
+						layers: "fenix:"+Config.gaulLayer,
+						format: 'image/png',
+						transparent: true
+					});
 
-			getWDS(Config.queries.home_maps_filter, {field: field }, function(resp) {
+					getWDS(Config.queries.home_maps_filter, {field: field }, function(resp) {
 
-				var ccodes = {}, val;
+						var ccodes = {}, val;
 
-				for(var i in resp)
-					ccodes[ resp[i][0] ] = resp[i][1];
+						for(var i in resp)
+							ccodes[ resp[i][0] ] = resp[i][1];
 
-				countriesLayer.wmsParams.sld = setLayerStyle(ccodes, indexMap);
-				countriesLayer.redraw();
-			});
+						countriesLayer.wmsParams.sld = setLayerStyle(ccodes, indexMap);
+						countriesLayer.redraw();
+					});
 
-			return countriesLayer;
-		}
+					return countriesLayer;
+				}
 
-		swiperMaps.slide1 = L.map('mapSlide1', {
-			zoom: 3,
-			zoomControl: false,
-			attributionControl: false,
-			center: L.latLng(12,18),
-			layers: L.tileLayer(Config.url_baselayer)
-		})
-		.addControl(L.control.zoom({position:'bottomright'}))
-		.addLayer( getLayerStyled('afo_footprint',0) );
+				swiperMaps.slide1 = L.map('mapSlide1', {
+					zoom: 3,
+					zoomControl: false,
+					attributionControl: false,
+					center: L.latLng(12,18),
+					layers: L.tileLayer(Config.url_baselayer)
+				})
+				.addControl(L.control.zoom({position:'bottomright'}))
+				.addLayer( getLayerStyled('afo_footprint',0) );
 
-		swiperMaps.slide2 = L.map('mapSlide2', {
-			zoom: 3,
-			zoomControl: false,
-			attributionControl: false,
-			center: L.latLng(12,18),
-			layers: L.tileLayer(Config.url_baselayer)
-		})
-		.addControl(L.control.zoom({position:'bottomright'}))
-		.addLayer( getLayerStyled('manufacturing_plant',1) );
+				swiperMaps.slide2 = L.map('mapSlide2', {
+					zoom: 3,
+					zoomControl: false,
+					attributionControl: false,
+					center: L.latLng(12,18),
+					layers: L.tileLayer(Config.url_baselayer)
+				})
+				.addControl(L.control.zoom({position:'bottomright'}))
+				.addLayer( getLayerStyled('manufacturing_plant',1) );
 
-		swiperMaps.slide3 = L.map('mapSlide3', {
-			zoom: 3,
-			zoomControl: false,
-			attributionControl: false,
-			center: L.latLng(12,18),
-			layers: L.tileLayer(Config.url_baselayer)
-		})
-		.addControl(L.control.zoom({position:'bottomright'}))
-		.addLayer( getLayerStyled('blending_plant',2) );
+				swiperMaps.slide3 = L.map('mapSlide3', {
+					zoom: 3,
+					zoomControl: false,
+					attributionControl: false,
+					center: L.latLng(12,18),
+					layers: L.tileLayer(Config.url_baselayer)
+				})
+				.addControl(L.control.zoom({position:'bottomright'}))
+				.addLayer( getLayerStyled('blending_plant',2) );
 
 
-		//	SLIDER Maps
-		var mySwiperMap = $('#afo-maps-wrapper').swiper({
-			loop: false,
-			simulateTouch: false,
-			mode: 'vertical',
-			onSwiperCreated: function() {
-				swiperMaps.slide1.invalidateSize();
-                $('#afo-maps-wrapper').find(".map-legend").removeClass("active");
-			},
-			onSlideChangeEnd: function() {
-				swiperMaps.slide1.invalidateSize();
-				swiperMaps.slide2.invalidateSize();
-				swiperMaps.slide3.invalidateSize();
-                $('#afo-maps-wrapper').find(".map-legend").removeClass("active");
-			}
-		});
-		$('.swipe-maps-prev').on('click', function(e) {
-			e.preventDefault();
-			mySwiperMap.swipePrev();
-		});
-		$('.swipe-maps-next').on('click', function(e) {
-			e.preventDefault();
-			mySwiperMap.swipeNext();
-		});
+				//	SLIDER Maps
+				var mySwiperMap = $('#afo-maps-wrapper').swiper({
+					loop: false,
+					simulateTouch: false,
+					mode: 'vertical',
+					onSwiperCreated: function() {
+						swiperMaps.slide1.invalidateSize();
+		                $('#afo-maps-wrapper').find(".map-legend").removeClass("active");
+					},
+					onSlideChangeEnd: function() {
+						swiperMaps.slide1.invalidateSize();
+						swiperMaps.slide2.invalidateSize();
+						swiperMaps.slide3.invalidateSize();
+		                $('#afo-maps-wrapper').find(".map-legend").removeClass("active");
+					}
+				});
+				$('.swipe-maps-prev').on('click', function(e) {
+					e.preventDefault();
+					mySwiperMap.swipePrev();
+				});
+				$('.swipe-maps-next').on('click', function(e) {
+					e.preventDefault();
+					mySwiperMap.swipeNext();
+				});
 
-        $('#afo-maps-legend-btn').on('click', function() {
-            $('#afo-maps-wrapper').find(".map-legend[data-legend='"+mySwiperMap.activeIndex+"']").toggleClass("active");
-        });
+		        $('#afo-maps-legend-btn').on('click', function() {
+		            $('#afo-maps-wrapper').find(".map-legend[data-legend='"+mySwiperMap.activeIndex+"']").toggleClass("active");
+		        });
 
-		$('.footer').load('html/footer.html');
+				$('.footer').load('html/footer.html');
 
-		$('.afo-home-partner-container .nav-tabs')
-			.on('mouseenter','a', _.debounce(function(e) {
-				//$(e.delegateTarget).trigger('mouseout'); 
-				$(e.delegateTarget).next('.tab-content').find('.tab-pane').removeClass('active in');
-				$(e.target).trigger('click');
-			},50))
-			.on('mousedown','a', function(e) {
-				//location.href = $(e.target).attr('href');
-				window.open($(e.target).attr('href'),'_blank');
-			});			
-/*		$('.afo-home-partner-container .nav-tabs .active a').on('click.go', function(e) {
-			location.href = $(e.target).data('link');
-		});*/
+				$('.afo-home-partner-container .nav-tabs')
+					.on('mouseenter','a', _.debounce(function(e) {
+						//$(e.delegateTarget).trigger('mouseout'); 
+						$(e.delegateTarget).next('.tab-content').find('.tab-pane').removeClass('active in');
+						$(e.target).trigger('click');
+					},50))
+					.on('mousedown','a', function(e) {
+						//location.href = $(e.target).attr('href');
+						window.open($(e.target).attr('href'),'_blank');
+					});			
+		/*		$('.afo-home-partner-container .nav-tabs .active a').on('click.go', function(e) {
+					location.href = $(e.target).data('link');
+				});*/
 	});
-
+});
 
 });

@@ -75,22 +75,66 @@ require(["submodules/fenix-ui-menu/js/paths",
 		}
     });
 
-
-//LOAD MENU BEFORE ALL
 	require([
+	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet',
+	    'text!config/services.json',
+		'text!html/home_maps_legend.html',
+
 		'fx-menu/start',
         './scripts/components/AuthenticationManager',
+
         'amplify',
-
+		
 		'domready!'
-	], function(
-		TopMenu,
-		AuthenticationManager,
-		amplify
-	) {
+	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L,
+		Config,
+		mapLegend,
 
-//BUG  amplify = undefined
-		console.log(amplify);
+		TopMenu, AuthenticationManager
+		) {
+
+		Config = JSON.parse(Config);
+		mapLegendTmpl = Handlebars.compile(mapLegend);
+
+		function getWDS(queryTmpl, queryVars, callback) {
+
+			var sqltmpl, sql;
+
+			if(queryVars) {
+				sqltmpl = _.template(queryTmpl);
+				sql = sqltmpl(queryVars);
+			}
+			else
+				sql = queryTmpl;
+
+			var	data = {
+					datasource: Config.dbName,
+					thousandSeparator: ',',
+					decimalSeparator: '.',
+					decimalNumbers: 2,
+					cssFilename: '',
+					nowrap: false,
+					valuesIndex: 0,
+					json: JSON.stringify({query: sql})
+				};
+
+			$.ajax({
+				url: Config.wdsUrl,
+				data: data,
+				type: 'POST',
+				dataType: 'JSON',
+				success: callback
+			});
+		}
+
+//        $(window).bind("load resize", function(){
+//            var container_width = $('#afo-facebook-widget').width();
+//            $('#afo-facebook-widget').html('<div class="fb-like-box" ' +
+//                'data-href="https://www.facebook.com/AfricaFertilizer.org"' +
+//                ' data-width="' + container_width + '" data-height="250" data-show-faces="false" ' +
+//                'data-stream="true" data-header="true"></div>');
+//            FB.XFBML.parse( );
+//        });
 
         var authUser = amplify.store.sessionStorage('afo.security.user'),
             menuUrl,
@@ -132,51 +176,6 @@ require(["submodules/fenix-ui-menu/js/paths",
                 }
             })
         }
-
-
-	require([
-	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet',
-	    'text!config/services.json',
-		'text!html/home_maps_legend.html'
-		
-	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L,
-		Config,
-		mapLegend
-		) {
-
-		Config = JSON.parse(Config);
-		mapLegendTmpl = Handlebars.compile(mapLegend);
-
-		function getWDS(queryTmpl, queryVars, callback) {
-
-			var sqltmpl, sql;
-
-			if(queryVars) {
-				sqltmpl = _.template(queryTmpl);
-				sql = sqltmpl(queryVars);
-			}
-			else
-				sql = queryTmpl;
-
-			var	data = {
-					datasource: Config.dbName,
-					thousandSeparator: ',',
-					decimalSeparator: '.',
-					decimalNumbers: 2,
-					cssFilename: '',
-					nowrap: false,
-					valuesIndex: 0,
-					json: JSON.stringify({query: sql})
-				};
-
-			$.ajax({
-				url: Config.wdsUrl,
-				data: data,
-				type: 'POST',
-				dataType: 'JSON',
-				success: callback
-			});
-		}
 
         //HIGLIGHTS SLIDER
 		var swiperHigh = $('#afo-high-wrapper').swiper({
@@ -364,6 +363,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 			location.href = $(e.target).data('link');
 		});*/
 	});
-});
+
 
 });

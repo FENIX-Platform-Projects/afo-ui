@@ -9,8 +9,7 @@ define([
     'use strict';
 
     var s = {
-        EVENT_CONTAINER : '#event_container',
-        FOOTER: '.footer'
+        EVENT_CONTAINER : '#event_container'
     }, c = {
         MENU_AUTH: 'config/fenix-ui-menu.json',
         MENU_PUBLIC: 'config/fenix-ui-menu-auth.json'
@@ -41,9 +40,6 @@ define([
         this.event = new Event({
             el: s.EVENT_CONTAINER
         });
-
-        //Footer
-        $(s.FOOTER).load('html/footer.html');
     };
 
     App.prototype._initTopMenu = function () {

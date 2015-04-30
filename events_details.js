@@ -67,6 +67,7 @@ require(["submodules/fenix-ui-menu/js/paths",
         var compare = new App();
         compare.start();
 
+        $('.footer').load('html/footer.html');
 	});
 
 });

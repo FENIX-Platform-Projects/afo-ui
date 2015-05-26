@@ -56,7 +56,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 	require([
 	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 
-	    'text!config/services.json',
+	    'config/services',
 		'text!html/publication.html',
 
 		'fx-menu/start',
@@ -85,9 +85,6 @@ require(["submodules/fenix-ui-menu/js/paths",
             var $li = $('<li><a href="events_details.html?event='+k+'">'+e[k].title+'</a></li>')
             $('#event_list_containers').append($li)
         }
-
-
-		Config = JSON.parse(Config);
 
         new TopMenu({
             active: 'events',

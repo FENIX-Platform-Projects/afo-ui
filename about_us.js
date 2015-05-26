@@ -54,44 +54,20 @@ require(["submodules/fenix-ui-menu/js/paths",
         }
     });
 
-    require([
-        'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper',
-        'config/services',
+	//LOAD MENU BEFORE ALL
+	require(['src/renderAuthMenu'], function(renderAuthMenu) {
 
-        'fx-menu/start',
-        './scripts/components/AuthenticationManager',
-        'amplify',
+		renderAuthMenu('about_us');
 
-        'domready!'
-    ], function($,_,bts,highcharts,jstree,Handlebars,Swiper,
-                Config,
-                TopMenu, AuthenticationManager) {
-
-        new TopMenu({
-            active: 'about_us',
-            url: 'config/fenix-ui-menu.json',
-            className : 'fx-top-menu',
-            breadcrumb : {
-                active : true,
-                container : "#breadcumb_container",
-                showHome : true
-            }
-        });
-
-        /*Login*/
-        new AuthenticationManager();
-        //How to intercept Login event
-        amplify.subscribe('login', function (user) {
-            console.warn("Event login intercepted");
-            console.log(user);
-            console.warn('User from local storage');
-            console.log(amplify.store.sessionStorage('afo.security.user'));
-        });
+		require([
+		    'jquery', 'underscore', 'bootstrap', 'handlebars',
+		    'config/services'
+		], function($,_,bts,Handlebars,
+			Config) {
 
 
-        $('.footer').load('html/footer.html');
-
+        	$('.footer').load('html/footer.html');
+		});
     });
-
 
 });

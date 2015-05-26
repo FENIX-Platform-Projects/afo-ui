@@ -74,14 +74,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 		}
     });
 
-//LOAD MENU BEFORE ALL
-	require([
-		'fx-menu/start',
-        'src/renderAuthMenu'
-	], function(
-		TopMenu,
-		renderAuthMenu
-	) {
+	//LOAD MENU BEFORE ALL
+	require(['src/renderAuthMenu'], function(renderAuthMenu) {
 
 		renderAuthMenu('home');
 

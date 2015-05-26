@@ -80,7 +80,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 	require([
 	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet',
-	    'text!config/services.json',
+	    'config/services',
 		'text!html/accordion.html',
 
 		'fx-menu/start',
@@ -100,8 +100,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 		TopMenu,
 		AuthenticationManager
 		) {
-
-		Config = JSON.parse(Config);
 
         new TopMenu({
             active: 'catalogue',        	

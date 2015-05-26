@@ -89,7 +89,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 	require([
 	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet', 'leaflet-markercluster',
-	    'text!config/services.json',
+	    'config/services',
 	    'text!html/table.html',
 
 		'fx-menu/start',
@@ -105,8 +105,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 		TopMenu,
 		AuthenticationManager
 		) {
-
-		Config = JSON.parse(Config);
 
 		tableTmpl = Handlebars.compile(table);
 

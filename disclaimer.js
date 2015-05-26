@@ -56,7 +56,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
     require([
         'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper',
-        'text!config/services.json',
+        'config/services',
         'fx-menu/start',
         './scripts/components/AuthenticationManager',
         'amplify',
@@ -65,8 +65,6 @@ require(["submodules/fenix-ui-menu/js/paths",
     ], function($,_,bts,highcharts,jstree,Handlebars,Swiper,
                 Config,
                 TopMenu, AuthenticationManager) {
-
-        Config = JSON.parse(Config);
 
         new TopMenu({
             active: 'home',

@@ -1,10 +1,10 @@
 /*global define*/
-define(['text!config/services.json'], function (Config) {
+define(['config/services'], function (Config) {
 
     'use strict';
 
     function WDS() {
-        this.config = JSON.parse(Config)
+        this.config = Config:
     }
 
     WDS.prototype.get = function( o, context ){

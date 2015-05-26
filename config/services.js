@@ -1,4 +1,4 @@
-{
+define({
   "dbName": "africafertilizer",
   "gaulLayer": "gaul0_faostat_afo_3857",
   "wdsUrl": "http://faostat3.fao.org/wds/rest/table/json",
@@ -94,15 +94,4 @@
 
 
   }
-}
-
-
-
-
-
-
-
-
-
-
-
+});

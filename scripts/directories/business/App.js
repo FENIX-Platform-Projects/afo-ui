@@ -5,7 +5,7 @@ define([
     'AuthenticationManager',
     'business/Results',
     'business/Selectors',
-    'text!config/services.json',
+    'config/services',
     'amplify'
 ], function (_, Menu, AuthenticationManager, Results, Selectors, Config) {
 
@@ -24,7 +24,7 @@ define([
         this.state = {};
 
         console.log("asdoiujh")
-        this.config = JSON.parse(Config);
+        this.config = Config;
     }
 
     App.prototype.start = function () {

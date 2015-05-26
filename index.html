@@ -19,6 +19,18 @@
     <link rel="stylesheet" href="css/host.css">
 
 </head>
+
+<script id="home_maps_legend" type="text/x-handlebars-template">
+	<ul class="afo-leg clearfix">
+	{{#each values}}
+	    <li>
+	    <span class="afo-legen-circe" style="background:{{color}}"></span>
+	    <small>{{label}}</small>
+	    </li>
+	{{/each}}
+	</ul>
+</script>
+
 <body>
 
 <!-- Content -->
@@ -30,6 +42,9 @@
             <div class="fx-menu-breadcrumb"></div>
         </div>
     </div>
+</div>
+
+<div class="container"> <!-- main Container -->
 
     <div class="row afo-home-jumbo">
 

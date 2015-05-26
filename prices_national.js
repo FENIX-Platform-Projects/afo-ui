@@ -85,8 +85,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 	require([
 	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper',
  		'amplify','jquery.rangeSlider',
+	    'config/services',
 
-	    'text!config/services.json',
 	    'text!html/publication.html',
 	    'fx-menu/start',
 
@@ -97,8 +97,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 		Config, publication, TopMenu, AuthenticationManager) {
 
         var minDate, maxDate;
-
-        Config = JSON.parse(Config);
 
         /* ================================== PAGE */
 

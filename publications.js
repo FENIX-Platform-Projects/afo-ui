@@ -57,7 +57,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 	require([
 	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 
-	    'text!config/services.json',
+	    'config/services',
 		
 		'text!html/publication.html',
 
@@ -74,8 +74,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 		TopMenu,
 		AuthenticationManager
 		) {
-
-		Config = JSON.parse(Config);
 
         new TopMenu({
             active: 'publications',        	

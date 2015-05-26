@@ -5,7 +5,7 @@ define([
     'AuthenticationManager',
     'glance/Results',
     'glance/Selectors',
-    'text!config/services.json',
+    'config/services',
     'amplify'
 ], function (_, Menu, AuthenticationManager, Results, Selectors, Config) {
 
@@ -24,7 +24,7 @@ define([
 
     function App() {
         this.state = {};
-        this.config = JSON.parse(Config);
+        this.config = Config;
     }
 
     App.prototype.start = function () {

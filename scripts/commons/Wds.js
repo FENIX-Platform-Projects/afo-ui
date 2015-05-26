@@ -4,7 +4,7 @@ define(['config/services'], function (Config) {
     'use strict';
 
     function WDS() {
-        this.config = Config:
+        this.config = Config;
     }
 
     WDS.prototype.get = function( o, context ){

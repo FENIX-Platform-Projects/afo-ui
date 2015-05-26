@@ -2,9 +2,9 @@
 define([
     "underscore",
     "commons/Wds",
-    'text!config/services.json',
+    'config/services',
     'jstree'
-], function (_, Wds, C) {
+], function (_, Wds, Config) {
 
     'use strict';
 
@@ -30,7 +30,7 @@ define([
 
     function Selectors() {
 
-        this.config = JSON.parse(C);
+        this.config = Config;
         this._initCountrySelector();
         this._initDataSourceSelector();
         this._initProductSelector();

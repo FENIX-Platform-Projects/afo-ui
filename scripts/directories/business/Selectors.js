@@ -2,8 +2,8 @@
 define([
     "underscore",
     "commons/Wds",
-    'text!config/services.json'
-], function (_, Wds, C) {
+    'config/services'
+], function (_, Wds, Config) {
 
     'use strict';
 
@@ -57,7 +57,7 @@ define([
 
     function Selectors() {
 
-        this.config = JSON.parse(C);
+        this.config = Config;
         this._initMapSelector();
         this._applyListener();
     }

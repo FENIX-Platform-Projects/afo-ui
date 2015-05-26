@@ -3,11 +3,11 @@ define([
     'underscore',
     'underscore-string',
     'commons/Wds',
-    'text!config/services.json',
+    'config/services',
     'geojson_decoder',
     'jstree',
     'amplify'
-], function (_, _str, Wds, C, geojsonDecoder) {
+], function (_, _str, Wds, Config, geojsonDecoder) {
 
     'use strict';
 
@@ -31,7 +31,7 @@ define([
 
     function Selectors() {
 
-        this.config = JSON.parse(C);
+        this.config = Config;
         this._initMapSelector();
         this._initDataSourceSelector();
         this._initProductSelector();

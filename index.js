@@ -173,7 +173,13 @@ require(["submodules/fenix-ui-menu/js/paths",
 					"7":  { color: "#0868ac", label: "7" },
 					"8":  { color: "#084081", label: "8" },
 					"9":  { color: "#063879", label: "9" }
-				}];	
+				}],
+				mapsLayerJoins = {
+					'afo_footprint': 0,
+					'manufacturing_plant': 1,
+					'blending_plant': 2
+				};
+
 
 			$('#mapSlide1').next('.map-legend').append( mapLegendTmpl({values: mapScales[0] }) );
 			$('#mapSlide2').next('.map-legend').append( mapLegendTmpl({values: mapScales[1] }) );
@@ -228,7 +234,18 @@ require(["submodules/fenix-ui-menu/js/paths",
 				return countriesLayer;
 			}
 
-			swiperMaps.slide1 = L.map('mapSlide1', {
+			function initSlideMap(id, joinField) {
+				return L.map(id, {
+					zoom: 3,
+					zoomControl: false,
+					attributionControl: false,
+					center: L.latLng(12,18),
+					layers: L.tileLayer( Config.url_baselayer )
+				})
+				.addControl( L.control.zoom({position:'bottomright'}) )
+				.addLayer( getLayerStyled(joinField, mapsLayerJoins[joinField] ) );
+			}
+/*			swiperMaps.slide1 = L.map('mapSlide1', {
 				zoom: 3,
 				zoomControl: false,
 				attributionControl: false,
@@ -257,7 +274,11 @@ require(["submodules/fenix-ui-menu/js/paths",
 			})
 			.addControl(L.control.zoom({position:'bottomright'}))
 			.addLayer( getLayerStyled('blending_plant',2) );
+*/
 
+			swiperMaps.slide1 = initSlideMap('mapSlide1', 'afo_footprint');
+			swiperMaps.slide2 = initSlideMap('mapSlide2', 'manufacturing_plant');
+			swiperMaps.slide3 = initSlideMap('mapSlide3', 'blending_plant');
 
 			//	SLIDER Maps
 			var mySwiperMap = $('#afo-maps-wrapper').swiper({
@@ -274,6 +295,9 @@ require(["submodules/fenix-ui-menu/js/paths",
 					swiperMaps.slide3.invalidateSize();
 	                $('#afo-maps-wrapper').find(".map-legend").removeClass("active");
 				}
+				/*,onSlideChangeStart: function(sw) {
+					console.log('onSlideChangeStart',sw.activeIndex-1);
+				}*/
 			});
 			$('.swipe-maps-prev').on('click', function(e) {
 				e.preventDefault();

@@ -36,7 +36,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 				'chosen':                 "{FENIX_CDN}/js/chosen/1.0.0/chosen.jquery.min",
 				'leaflet':                "{FENIX_CDN}/js/leaflet/0.7.3/leaflet",
 				'jquery.power.tip':       "{FENIX_CDN}/js/jquery.power.tip/1.1.0/jquery.powertip.min",
-				'jquery-ui':              "{FENIX_CDN}/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min",
+				//'jquery-ui':              "{FENIX_CDN}/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min",
 				'jquery.hoverIntent':     "{FENIX_CDN}/js/jquery.hoverIntent/1.0/jquery.hoverInten",
 				'jquery.i18n.properties': "{FENIX_CDN}/js/jquery/1.0.9/jquery.i18n.properties-min"
 			},
@@ -279,7 +279,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			swiperMaps.slide1 = initSlideMap('mapSlide1', 'afo_footprint');
 			swiperMaps.slide2 = initSlideMap('mapSlide2', 'manufacturing_plant');
 			swiperMaps.slide3 = initSlideMap('mapSlide3', 'blending_plant');
-
+			
 			//	SLIDER Maps
 			var mySwiperMap = $('#afo-maps-wrapper').swiper({
 				loop: false,
@@ -296,6 +296,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 	                $('#afo-maps-wrapper').find(".map-legend").removeClass("active");
 				}
 				/*,onSlideChangeStart: function(sw) {
+					_.once(swiperMaps.slide1 = initSlideMap('mapSlide1', 'afo_footprint')
 					console.log('onSlideChangeStart',sw.activeIndex-1);
 				}*/
 			});

@@ -2,9 +2,7 @@
 
 require(["submodules/fenix-ui-menu/js/paths",
 		 "submodules/fenix-ui-common/js/Compiler"
-		 ], function(Menu, Compiler) {
-
-    var menuConfig = Menu;
+		 ], function(menuConfig, Compiler) {
     
     menuConfig['baseUrl'] = "submodules/fenix-ui-menu/js";
 
@@ -54,44 +52,21 @@ require(["submodules/fenix-ui-menu/js/paths",
 		}
     });
 
-	require([
-	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper',
-	    'config/services',
-		'text!html/accordion.html',
+	//LOAD MENU BEFORE ALL
+	require(['src/renderAuthMenu'], function(renderAuthMenu) {
 
-		'fx-menu/start',
-        './scripts/components/AuthenticationManager',
+		renderAuthMenu('directories_prod');
 
-        'amplify'
-	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,
-		Config,
-		accordion,
+		require([
+		    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper',
+		    'config/services',
+			'text!html/accordion.html'
+		], function($,_,bts,highcharts,jstree,Handlebars,Swiper,
+			Config,
+			accordion) {
 
-		TopMenu,
-		AuthenticationManager
-		) {
+			$('.footer').load('html/footer.html');
 
-        new TopMenu({
-            active: 'directories_prod',
-            url: 'config/fenix-ui-menu.json',
-            className : 'fx-top-menu',
-            breadcrumb : {
-                active : true,
-                container : "#breadcumb_container",
-                showHome : true
-            }
-        });
-
-        new AuthenticationManager();
-        amplify.subscribe('login', function (user) {
-            console.warn("Event login intercepted");
-            console.log(amplify.store.sessionStorage('afo.security.user'));
-        });
-
-        //HERE NEW CODE
-
-		$('.footer').load('html/footer.html');
-
+		});
 	});
-
 });

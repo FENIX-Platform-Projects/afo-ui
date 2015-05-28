@@ -2,10 +2,8 @@
 
 require(["submodules/fenix-ui-menu/js/paths",
 		 "submodules/fenix-ui-common/js/Compiler"
-		 ], function(Menu, Compiler) {
+		 ], function(menuConfig, Compiler) {
 
-    var menuConfig = Menu;
-    
     menuConfig['baseUrl'] = "submodules/fenix-ui-menu/js";
 
     Compiler.resolve([menuConfig], {
@@ -54,57 +52,35 @@ require(["submodules/fenix-ui-menu/js/paths",
 		}
     });
 
-	require([
-	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 
-	    'config/services',
-		'text!html/publication.html',
 
-		'fx-menu/start',
-        './scripts/components/AuthenticationManager',
-        'text!config/event_details_list.json',
+	//LOAD MENU BEFORE ALL
+	require(['src/renderAuthMenu'], function(renderAuthMenu) {
 
-        'amplify',
+		renderAuthMenu('events');
 
-		'domready!'
-	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,
-		Config,
-		publication,
-
-		TopMenu,
-		AuthenticationManager, events
-		) {
+		require([
+		    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 
+		    'config/services',
+			'text!html/publication.html',
+	        'text!config/event_details_list.json'
+		], function($,_,bts,highcharts,jstree,Handlebars,Swiper,
+			Config,
+			publication,
+			events
+			) {
 
 
-        /*Events*/
+	        /*Events*/
 
-        var e = JSON.parse(events);
+	        var e = JSON.parse(events);
 
+	        for(var k in e){
+	            var $li = $('<li><a href="events_details.html?event='+k+'">'+e[k].title+'</a></li>')
+	            $('#event_list_containers').append($li)
+	        }
 
+			$('.footer').load('html/footer.html');
 
-        for(var k in e){
-            var $li = $('<li><a href="events_details.html?event='+k+'">'+e[k].title+'</a></li>')
-            $('#event_list_containers').append($li)
-        }
-
-        new TopMenu({
-            active: 'events',
-            url: 'config/fenix-ui-menu.json',
-            className : 'fx-top-menu',
-            breadcrumb : {
-                active : true,
-                container : "#breadcumb_container",
-                showHome : true
-            }
-        });
-
-        new AuthenticationManager();
-        amplify.subscribe('login', function (user) {
-            console.warn("Event login intercepted");
-            console.log(amplify.store.sessionStorage('afo.security.user'));
-        });
-
-	$('.footer').load('html/footer.html');
-
+		});
 	});
-
 });

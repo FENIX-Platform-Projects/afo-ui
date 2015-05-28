@@ -85,7 +85,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 		], function($,_,bts,Handlebars,Swiper,L,
 			Config) {
 			
-			//mapLegendTmpl = Handlebars.compile(mapLegend);
 			mapLegendTmpl = Handlebars.compile( $('#home_maps_legend').html() );
 
 			function getWDS(queryTmpl, queryVars, callback) {
@@ -279,7 +278,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			swiperMaps.slide1 = initSlideMap('mapSlide1', 'afo_footprint');
 			swiperMaps.slide2 = initSlideMap('mapSlide2', 'manufacturing_plant');
 			swiperMaps.slide3 = initSlideMap('mapSlide3', 'blending_plant');
-			
+
 			//	SLIDER Maps
 			var mySwiperMap = $('#afo-maps-wrapper').swiper({
 				loop: false,

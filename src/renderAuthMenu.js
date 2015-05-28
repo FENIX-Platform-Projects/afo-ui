@@ -4,9 +4,11 @@ define(['underscore',
 	'config/fenix-ui-menu'
 ], function (_,	AuthManager, Menu, menuConf) {
 
+
 	return function(menuId) {
 		//AUTH & TOP MENU
 		menuConf.active = menuId;
+		menuConf.template = $('.fx-menu');
 
 		var menuConfAuth = _.extend({}, menuConf, {
 				hiddens: ['login']

@@ -2,9 +2,7 @@
 
 require(["submodules/fenix-ui-menu/js/paths",
 		 "submodules/fenix-ui-common/js/Compiler"
-		 ], function(Menu, Compiler) {
-
-    var menuConfig = Menu;
+		 ], function(menuConfig, Compiler) {
     
     menuConfig['baseUrl'] = "submodules/fenix-ui-menu/js";
 
@@ -64,127 +62,108 @@ require(["submodules/fenix-ui-menu/js/paths",
 		}
     });
 
-	require([
-	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 
-	    'config/services',
-		'text!html/table.html',
+	//LOAD MENU BEFORE ALL
+	require(['src/renderAuthMenu'], function(renderAuthMenu) {
 
-		'fx-menu/start',
-        './scripts/components/AuthenticationManager',
+		renderAuthMenu('prices_international');
 
-        'amplify',
-        'jquery.rangeSlider',
-		'domready!'
-	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,
-		Config,
-		table,
+		require([
+		    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 
+		    'config/services',
+			'text!html/table.html',
 
-		TopMenu,
-		AuthenticationManager
-		) {
+	        'jquery.rangeSlider'
+		], function($,_,bts,highcharts,jstree,Handlebars,Swiper,
+			Config,
+			table) {
 
-		tableTmpl = Handlebars.compile(table);
+			tableTmpl = Handlebars.compile(table);
 
-		function getWDS(queryTmpl, queryVars, callback) {
+			function getWDS(queryTmpl, queryVars, callback) {
 
-			var sqltmpl, sql;
+				var sqltmpl, sql;
 
-			if(queryVars) {
-				sqltmpl = _.template(queryTmpl);
-				sql = sqltmpl(queryVars);
+				if(queryVars) {
+					sqltmpl = _.template(queryTmpl);
+					sql = sqltmpl(queryVars);
+				}
+				else
+					sql = queryTmpl;
+
+				var	data = {
+						datasource: Config.dbName,
+						thousandSeparator: ',',
+						decimalSeparator: '.',
+						decimalNumbers: 2,
+						cssFilename: '',
+						nowrap: false,
+						valuesIndex: 0,
+						json: JSON.stringify({query: sql})
+					};
+
+				$.ajax({
+					url: Config.wdsUrl,
+					data: data,
+					type: 'POST',
+					dataType: 'JSON',
+					success: callback
+				});
 			}
-			else
-				sql = queryTmpl;
 
-			var	data = {
-					datasource: Config.dbName,
-					thousandSeparator: ',',
-					decimalSeparator: '.',
-					decimalNumbers: 2,
-					cssFilename: '',
-					nowrap: false,
-					valuesIndex: 0,
-					json: JSON.stringify({query: sql})
-				};
+			function formatMonth(date, str) {
+				var year = date.slice(0,4),
+					month = date.slice(4);
 
-			$.ajax({
-				url: Config.wdsUrl,
-				data: data,
-				type: 'POST',
-				dataType: 'JSON',
-				success: callback
+				if(!!str) {
+					var mdate = (new Date(year,month-1)).toDateString().split(' ');
+					return mdate[1]+' '+mdate[3];
+				}
+
+				return [year, '/', month].join('');
+			}
+	        //JQUERY range slider
+	        $(".afo-range").dateRangeSlider();
+
+			var table$ = $('#prices_international_grid'),
+				chart$ = $('#prices_international_chart');
+
+	//CHART IMAGE
+
+			chart$.attr({src: 'images/prices_international_chart_feb2015.png'});
+
+			$('.footer').load('html/footer.html');
+
+			//$('#prices_international_grid').load("prices/html/prices_international.html");
+			table$.html('<big class="text-center">Loading data...<br /><br /></big>');
+			getWDS(Config.queries.prices_international, null, function(data) {
+
+
+				var cols = data[0][2].split('|'),
+					year = cols.pop(),
+					month = cols.pop(),
+					months = _.map(cols, function(val) {
+						return formatMonth(val,true);
+					});
+
+				$('#market_date').text(_.last(months));
+
+				var	headers = _.union(['Nutrient','Fertilizer'], months, [month, year]),
+					rows = _.map(data, function(val) {
+						var vv = val[3].split('|');
+						vv[vv.length-1] += '%';
+						vv[vv.length-2] += '%';
+						return [val[0], val[1]].concat( vv );
+					});
+
+				table$.html( tableTmpl({
+					headers: headers,
+					rows: rows
+				}) );
+
+				console.log(rows);
+
 			});
-		}
+	    });
+	});
 
-		function formatMonth(date, str) {
-			var year = date.slice(0,4),
-				month = date.slice(4);
-
-			if(!!str) {
-				var mdate = (new Date(year,month-1)).toDateString().split(' ');
-				return mdate[1]+' '+mdate[3];
-			}
-
-			return [year, '/', month].join('');
-		}
-        //JQUERY range slider
-        $(".afo-range").dateRangeSlider();
-
-        new TopMenu({
-            active: 'prices_international',
-            url: 'config/fenix-ui-menu.json',
-            className : 'fx-top-menu',
-            breadcrumb : {
-                active : true,
-                container : "#breadcumb_container",
-                showHome : true
-            }
-        });
-
-        new AuthenticationManager();
-        amplify.subscribe('login', function (user) {
-            console.warn("Event login intercepted");
-            console.log(amplify.store.sessionStorage('afo.security.user'));
-        });
-
-		var table$ = $('#prices_international_grid'),
-			chart$ = $('#prices_international_chart');
-
-		var date = new Date();
-		chart$.attr({src: 'images/prices_international_chart_'+'jan2015'+'.png'});
-		//'http://classic.africafertilizer.org/AF-media/Docs-for-international-prices-pages/AfricaFertilizer-price-trend-graphs-('+
-
-		$('.footer').load('html/footer.html');
-
-		//$('#prices_international_grid').load("prices/html/prices_international.html");
-		table$.html('<big class="text-center">Loading data...<br /><br /></big>');
-		getWDS(Config.queries.prices_international, null, function(data) {
-
-
-			var cols = data[0][2].split('|'),
-				year = cols.pop(),
-				month = cols.pop(),
-				months = _.map(cols, function(val) {
-					return formatMonth(val,true);
-				});
-
-			$('#market_date').text(_.last(months));
-
-			var	headers = _.union(['Nutrient','Fertilizer'], months, [month, year]),
-				rows = _.map(data, function(val) {
-					var vv = val[3].split('|');
-					vv[vv.length-1] += '%';
-					vv[vv.length-2] += '%';
-					return [val[0], val[1]].concat( vv );
-				});
-
-			table$.html( tableTmpl({
-				headers: headers,
-				rows: rows
-			}) );
-
-			console.log(rows);
-
-		});
-    });
 });

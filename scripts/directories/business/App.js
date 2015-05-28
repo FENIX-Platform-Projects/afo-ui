@@ -296,6 +296,7 @@ define([
             active: 'directories_business',
             url: this.state.authenticated ? c.MENU_AUTH : c.MENU_PUBLIC,
             className: 'fx-top-menu',
+            template: $('.fx-menu'),
             breadcrumb: {
                 active: true,
                 container: "#breadcumb_container",

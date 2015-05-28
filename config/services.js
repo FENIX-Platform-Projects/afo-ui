@@ -8,7 +8,6 @@ define({
   "wmsUrl": "http://fenixapps2.fao.org/geoserver-demo",
   "sldUrl": "http://fenixapps2.fao.org/geoservices/CSS2SLD",
  
-
   "url_geoserver_wms": "http://fenix.fao.org/geoserver",
   "url_bbox": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/bbox/layer/gaul0_faostat_afo_4326/",
   "url_spatialquery": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/query/",

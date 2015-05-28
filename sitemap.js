@@ -1,9 +1,7 @@
 
 require(["submodules/fenix-ui-menu/js/paths",
     "submodules/fenix-ui-common/js/Compiler"
-], function(Menu, Compiler) {
-
-    var menuConfig = Menu;
+], function(menuConfig, Compiler) {
 
     menuConfig['baseUrl'] = "submodules/fenix-ui-menu/js";
 
@@ -54,43 +52,49 @@ require(["submodules/fenix-ui-menu/js/paths",
         }
     });
 
-    require([
-        'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 
-        'config/services',
-        'fx-menu/start',
-        './scripts/components/AuthenticationManager',
-        'amplify',
 
-        'domready!'
-    ], function($,_,bts,highcharts,jstree,Handlebars,Swiper,
-                Config,
-                TopMenu, AuthenticationManager) {
+	//LOAD MENU BEFORE ALL
+	require(['src/renderAuthMenu'], function(renderAuthMenu) {
 
-        new TopMenu({
-            active: 'home',
-            url: 'config/fenix-ui-menu.json',
-            className : 'fx-top-menu',
-            breadcrumb : {
-                active : true,
-                container : "#breadcumb_container",
-                showHome : true
-            }
-        });
+		renderAuthMenu('sitemap');
 
-        /*Login*/
-        new AuthenticationManager();
-        //How to intercept Login event
-        amplify.subscribe('login', function (user) {
-            console.warn("Event login intercepted");
-            console.log(user);
-            console.warn('User from local storage');
-            console.log(amplify.store.sessionStorage('afo.security.user'));
-        });
+	    require([
+	        'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 
+	        'config/services',
+	        'fx-menu/start',
+	        './scripts/components/AuthenticationManager',
+	        'amplify',
+
+	        'domready!'
+	    ], function($,_,bts,highcharts,jstree,Handlebars,Swiper,
+	                Config,
+	                TopMenu, AuthenticationManager) {
+
+	        new TopMenu({
+	            active: 'home',
+	            url: 'config/fenix-ui-menu.json',
+	            className : 'fx-top-menu',
+	            breadcrumb : {
+	                active : true,
+	                container : "#breadcumb_container",
+	                showHome : true
+	            }
+	        });
+
+	        /*Login*/
+	        new AuthenticationManager();
+	        //How to intercept Login event
+	        amplify.subscribe('login', function (user) {
+	            console.warn("Event login intercepted");
+	            console.log(user);
+	            console.warn('User from local storage');
+	            console.log(amplify.store.sessionStorage('afo.security.user'));
+	        });
 
 
-        $('.footer').load('html/footer.html');
+	        $('.footer').load('html/footer.html');
 
-    });
-
+	    });
+	});
 
 });

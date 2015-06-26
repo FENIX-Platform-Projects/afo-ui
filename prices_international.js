@@ -160,8 +160,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 					rows: rows
 				}) );
 
-				console.log(rows);
-
 			});
 	    });
 	});

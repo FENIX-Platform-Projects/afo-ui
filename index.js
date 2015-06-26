@@ -85,7 +85,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		], function($,_,bts,Handlebars,Swiper,L,
 			Config) {
 			
-			mapLegendTmpl = Handlebars.compile( $('#home_maps_legend').html() );
+			var mapLegendTmpl = Handlebars.compile( $('#home_maps_legend').html() );
 
 			function getWDS(queryTmpl, queryVars, callback) {
 
@@ -244,36 +244,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 				.addControl( L.control.zoom({position:'bottomright'}) )
 				.addLayer( getLayerStyled(joinField, mapsLayerJoins[joinField] ) );
 			}
-/*			swiperMaps.slide1 = L.map('mapSlide1', {
-				zoom: 3,
-				zoomControl: false,
-				attributionControl: false,
-				center: L.latLng(12,18),
-				layers: L.tileLayer(Config.url_baselayer)
-			})
-			.addControl(L.control.zoom({position:'bottomright'}))
-			.addLayer( getLayerStyled('afo_footprint',0) );
-
-			swiperMaps.slide2 = L.map('mapSlide2', {
-				zoom: 3,
-				zoomControl: false,
-				attributionControl: false,
-				center: L.latLng(12,18),
-				layers: L.tileLayer(Config.url_baselayer)
-			})
-			.addControl(L.control.zoom({position:'bottomright'}))
-			.addLayer( getLayerStyled('manufacturing_plant',1) );
-
-			swiperMaps.slide3 = L.map('mapSlide3', {
-				zoom: 3,
-				zoomControl: false,
-				attributionControl: false,
-				center: L.latLng(12,18),
-				layers: L.tileLayer(Config.url_baselayer)
-			})
-			.addControl(L.control.zoom({position:'bottomright'}))
-			.addLayer( getLayerStyled('blending_plant',2) );
-*/
 
 			swiperMaps.slide1 = initSlideMap('mapSlide1', 'afo_footprint');
 			swiperMaps.slide2 = initSlideMap('mapSlide2', 'manufacturing_plant');

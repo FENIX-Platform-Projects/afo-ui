@@ -129,14 +129,12 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 	//CHART IMAGE
 
-			chart$.attr({src: 'images/prices_international_chart_feb2015.png'});
+			chart$.attr({src: 'images/prices_international_chart_may2015.png'});
 
 			$('.footer').load('html/footer.html');
 
-			//$('#prices_international_grid').load("prices/html/prices_international.html");
 			table$.html('<big class="text-center">Loading data...<br /><br /></big>');
 			getWDS(Config.queries.prices_international, null, function(data) {
-
 
 				var cols = data[0][2].split('|'),
 					year = cols.pop(),

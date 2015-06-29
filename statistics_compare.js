@@ -74,8 +74,7 @@ require([
     });
 
     require([
-        'compare/App',
-        'domready!'
+        'compare/App'
     ], function (App) {
 
         var compare = new App();

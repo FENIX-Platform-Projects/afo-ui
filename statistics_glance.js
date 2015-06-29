@@ -73,8 +73,7 @@ require([
     });
 
     require([
-        'glance/App',
-        'domready!'
+        'glance/App'
     ], function (App) {
 
         var glance = new App();

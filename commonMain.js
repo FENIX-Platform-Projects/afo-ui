@@ -16,7 +16,7 @@ require([
 
 	require(['src/renderAuthMenu'], function(renderAuthMenu) {
 
-		renderAuthMenu('about_us');
+		renderAuthMenu(true);
 
     });
 

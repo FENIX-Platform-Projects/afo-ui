@@ -155,13 +155,25 @@ define([
     //Table
     App.prototype.prepareTableQuery = function (results) {
 
-        var url = results.SOURCE[0].code === 'cstat' ? this.config.queries.select_from_compare_cstat : this.config.queries.select_from_compare;
-        return this._replace(url, {
+        var sql,res;
+
+        if(results.SOURCE[0].code === 'cstat')
+            sql = this.config.queries.select_from_compare_cstat;
+        else if(results.SOURCE[0].code === 'ifa')
+            sql = this.config.queries.select_from_compare_ifa;
+        else
+            sql = this.config.queries.select_from_compare;
+
+        res = this._replace(sql, {
             COUNTRY: results.COUNTRY[0].code,
             SOURCE: results.SOURCE[0].code,
             KIND: results.KIND[0].code,
             PRODUCT: results.PRODUCT[0].code
         });
+        
+        console.log(res);
+
+        return res;
     };
 
     App.prototype.queryTable = function (results) {

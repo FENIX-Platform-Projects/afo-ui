@@ -16,6 +16,8 @@ define({
             {label: "Sum", func: "Sum"},
             {label: "Average", func: "Average"}
         ],
+                "linkedAttributes": [["Elements","Unit"]],
+
         "hiddenAttributes": ["Value","code","Flag"],
         "showRender": true,
         "showFlags": false,

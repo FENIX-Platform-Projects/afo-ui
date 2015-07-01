@@ -5,9 +5,12 @@ define({
     "cols": ["a3"],
     "vals": ["Value"  ],
     "InstanceRenderers": [
-        {label: "TABLE", func: "Table2"}
+     {label: "Grid", func: "Table"},
+        {label: "TABLE", func: "Table2"},
+        {label: "barchart", func: "barchart"}
     ],
     "InstanceAggregators": [
+     {label: "SumUnit", func: "Sum2"},
         {label: "Sum", func: "Sum"},
         {label: "Average", func: "Average"}
     ],
@@ -15,9 +18,9 @@ define({
        "Value"
     ],
     "showAgg": false,
-    "showRender": false,
+    "showRender": true,
     "showUnit":false,
-    "showCode":true,
-    "showFlags":true
+    "showCode":false,
+    "showFlags":false
 });		
 //"NoRecords","RecordOrder","Domain Code","Domain","Country Code","Country","Element Code","Element","Item Code","Item","Year Code","Year","Unit","Value","Flag","Flag Description","Var1Order","Var2Order","Var3Order","Var4Order"

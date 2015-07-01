@@ -9,14 +9,19 @@ define({
         "vals": ["Value"  ],
         "InstanceRenderers": [
             {label: "Grid", func: "Table"},
-            {label: "barchart", func: "barchart"}
+            {label: "barchart", func: "barchart"} ,
+            {label: "Stacked barchart", func: "Stacked barchart"}
+            ,
+            {label: "line chart", func: "line chart"},
+            {label: "Area", func: "Area"}
+           
         ],
         "InstanceAggregators": [
             {label: "SumUnit", func: "Sum2"},
             {label: "Sum", func: "Sum"},
             {label: "Average", func: "Average"}
         ],
-                "linkedAttributes": [["Elements","Unit"]],
+        "linkedAttributes": [["Elements","Unit"]],
 
         "hiddenAttributes": ["Value","code","Flag"],
         "showRender": true,
@@ -35,7 +40,12 @@ define({
         "vals": ["Value"  ],
         "InstanceRenderers": [
             {label: "Grid", func: "Table"},
-            {label: "barchart", func: "barchart"}
+            {label: "barchart", func: "barchart"} ,
+            {label: "Stacked barchart", func: "Stacked barchart"}
+            ,
+            {label: "line chart", func: "line chart"},
+            {label: "Area", func: "Area"}
+           
         ],
         "InstanceAggregators": [
             {label: "SumUnit", func: "Sum2"},

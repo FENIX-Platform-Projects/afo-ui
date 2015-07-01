@@ -170,24 +170,30 @@
         <div class="col-xs-12">
             <h3 class="afo-title">RESULT TABLE</h3>
             <div id="table1"></div>
+
+            <br /><br />
+            <div class="pull-right">
+                <h3 class="afo-title">Download data</h3>
+                <br />
+                
+                <div class="btn-group">
+                <button id="pivot_download_xls" class="btn btn-default" type="button">
+                    <i class="glyphicon glyphicon-download"></i> Download XLS File
+                </button>
+                <button id="pivot_download_csv" class="btn btn-default" type="button">
+                    <i class="glyphicon glyphicon-download"></i> Download CSV File
+                </button>                
+                </div>
+
+                <form id="xlsDataForm" action="http://faostat3.fao.org/faostat-olapws/ExportPOI2" method="POST">
+                 <input id="myJson" name="myJson" type="hidden" value="">
+                 <input id="myFlags" name="myFlags" type="hidden" value="{&quot;data&quot;:[{&quot;title&quot;:&quot;&quot;,&quot;label&quot;:&quot;Official data&quot;}]}">
+                </form>
+            </div>
         </div>
     </div>
 
     <br><br>
-
-    <!-- charts container-->
-    <div class="row">
-        <div class="col-xs-6">
-            <h3 class="afo-title">APPARENT CONSUMPTION</h3>
-
-            <div id="chart1"></div>
-        </div>
-        <div class="col-xs-6">
-            <h3 class="afo-title">Import / Export</h3>
-
-            <div id="chart2"></div>
-        </div>
-    </div>
 
 </div>
 

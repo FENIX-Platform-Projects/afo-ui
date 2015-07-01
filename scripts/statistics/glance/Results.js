@@ -17,7 +17,9 @@ define(['underscore',
 
     function Results() {
 
-        this.s = {
+        var self = this;
+
+        self.s = {
             TABLE: "#table1",
             COURTESY: '#afo-courtesy',
             RESULTS: '#afo-results'
@@ -25,6 +27,15 @@ define(['underscore',
         //this.table = new Table();
         this.pivot = new Pivot();
         //this.chart = new Chart();
+        
+        $("#pivot_download_xls").on('click', function(e) {
+            console.log(self.pivot);
+            self.pivot.exportExcel();
+        });
+        $("#pivot_download_csv").on('click', function(e) {
+            console.log(self.pivot);
+            self.pivot.exportCSV();
+        });        
     }
 
     Results.prototype.printTable = function (data, filter) {
@@ -38,7 +49,7 @@ define(['underscore',
         //add DATA HEADER
         data.unshift(conf.header);   
 
-console.log(data, conf);
+
 
         this.pivot.render(this.s.TABLE.replace('#',''), data, _.extend(conf, {
             rendererDisplay: pivotRenderers,

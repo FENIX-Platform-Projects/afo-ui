@@ -28,7 +28,8 @@ define({
         "showFlags": false,
         "showUnit": false,
         "showCode": false,
-        "showAgg": false
+        "showAgg": false,
+		"csvText":"AFO"
     },
 
     IFA: {
@@ -58,7 +59,8 @@ define({
         "showFlags": false,
         "showUnit": false,
         "showCode": false,
-        "showAgg": false
+        "showAgg": false,
+		"csvText":"AFO"
     }
 });		
 //"NoRecords","RecordOrder","Domain Code","Domain","Country Code","Country","Element Code","Element","Item Code","Item","Year Code","Year","Unit","Value","Flag","Flag Description","Var1Order","Var2Order","Var3Order","Var4Order"

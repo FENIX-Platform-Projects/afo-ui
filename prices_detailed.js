@@ -225,13 +225,13 @@ require(["submodules/fenix-ui-menu/js/paths",
 					for(var i in data) {
 						data[i][1] = data[i][1].replace('[Town]','');
 						data[i][2] += ' USD/tons';
-						data[i][3] = formatMonth(data[i][3]);
+						data[i][4] = formatMonth(data[i][4]);
 					}
 					
 					var table$ = $('#table-result').empty();
 					if(data && data.length>0)
 						table$.append( tableTmpl({
-							headers: ['Country', 'Market', 'Price', 'Date'],
+							headers: ['Country', 'Market', 'Price', 'Type', 'Date'],
 							rows: data
 						}) );
 				});

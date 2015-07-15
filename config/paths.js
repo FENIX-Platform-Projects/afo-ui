@@ -40,18 +40,18 @@ define(function() {
             'jquery.i18n.properties': FX_CDN+"/js/jquery/1.0.9/jquery.i18n.properties-min",
 
 
-            'fx-pivot/start':         FX_CDN+"/fenix/fenix-ui-olap/4.0/js/pivot",
-            'fx-pivot/nls':           FX_CDN+"/fenix/fenix-ui-olap/4.0/nls",
+            'fx-pivot/start':         "submodules/fenix-ui-olap/js/pivot",
+            'fx-olap/nls':           "submodules/fenix-ui-olap/nls",
 
-            'pivot':                  FX_CDN+"/fenix/fenix-ui-olap/4.0/js/pivot",
-            'pivotPaths':             FX_CDN+"/fenix/fenix-ui-olap/4.0/js/paths",
+            'pivot':                  "submodules/fenix-ui-olap/js/pivot",
+           // 'pivotPaths':             "submodules/fenix-ui-olap/js/paths",
 
-            'gt_msg':                 FX_CDN+"/fenix/fenix-ui-olap/4.0/lib/grid/gt_msg_en",
-            'gt_msg_grid':            FX_CDN+"/fenix/fenix-ui-olap/4.0/lib/grid/gt_grid_all",
-            'pivotRenderers':         FX_CDN+"/fenix/fenix-ui-olap/4.0/js/rend/rendererers",
-            'pivotAggregators':       FX_CDN+"/fenix/fenix-ui-olap/4.0/js/rend/aggregators",
-            'pivotRenderersFuncs':    FX_CDN+"/fenix/fenix-ui-olap/4.0/js/rend/function_rendererers",
-            'pivotAggregatorsFuncs':  FX_CDN+"/fenix/fenix-ui-olap/4.0/js/rend/function_aggregators",
+            'gt_msg':                 "submodules/fenix-ui-olap/lib/grid/gt_msg_en",
+            'gt_msg_grid':            "submodules/fenix-ui-olap/lib/grid/gt_grid_all",
+            'pivotRenderers':         "submodules/fenix-ui-olap/js/rend/rendererers",
+            'pivotAggregators':       "submodules/fenix-ui-olap/js/rend/aggregators",
+            'pivotRenderersFuncs':    "submodules/fenix-ui-olap/js/rend/function_rendererers",
+            'pivotAggregatorsFuncs':  "submodules/fenix-ui-olap/js/rend/function_aggregators",
 
 
             //"pivotConfig":            FX_CDN+"/fenix/fenix-ui-olap/4.0/config/dataConfig1",

@@ -439,8 +439,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 					data = [["Area","Item","Year","Month2","Value","Unit","Flag","FertCode"]].concat(data);
 
 					//FAOSTATNEWOLAP.originalData = data;
-					var pivot=new Pivot();
-					pivot.render("pivot", data,{
+					var pp1=new Pivot();
+					pp1.render("pivot", data,{
 						derivedAttributes: {
 							"Month": function(mp){
 								return "<span class=\"ordre\">" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
@@ -472,7 +472,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 					$("#pivot_download").on('click', function(e) {
 
-						my_exportNew();
+						pp1.exportExcel();
 						//decolrowspanNEW();
 					});
 				});

@@ -160,11 +160,13 @@
                     <i class="glyphicon glyphicon-download"></i> Download XLS File
                 </button>
 
-                <form id="xlsDataForm" action="http://faostat3.fao.org/faostat-olapws/ExportPOI2" method="POST">
+                <form id="xlsDataForm" action="http://hqlprfenixapp2.hq.un.fao.org:10100/fenix-olap-webs/go/ExportPOI2" method="POST">
                     <!--textarea id="myJson"  name="myJson" ></textarea-->
                     <input id="myJson" name="myJson" type="hidden" value=""/>
                     <input id="myFlags" name="myFlags" type="hidden"
                            value='{"data":[{"title":"","label":"Official data"}]}'/>
+						                       <input id="footer" name="footer" type="hidden" value="AFO"/>
+
                 </form>
 
                 <br />

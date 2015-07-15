@@ -15,6 +15,7 @@
     <meta name="author" content="Daniele Salvatore <daniele.salvatore [at] fao.org>">
     <meta name="author" content="Nicola Selleri <nicola.selleri[at]fao.org>">
 
+<link rel="stylesheet" href="http://fenixapps.fao.org/repository/js/jstree/3.0.8/dist/themes/default/style.min.css" />   
     <!-- Third Party CSS -->
     <link href="//fenixapps.fao.org/repository/js/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Third Party CSS -->
@@ -149,9 +150,9 @@
 
                 <div id="pivot"></div>
 
-                <div id="fx-olap-holder-div"></div>
+                <!--div id="fx-olap-holder-div"></div>
                 <div id="myGrid1_div"></div>
-                <div id="mesFlags" style="clear:both"></div>
+                <div id="mesFlags" style="clear:both"></div-->
 
 				<br /><br />
 				
@@ -159,11 +160,13 @@
                     <i class="glyphicon glyphicon-download"></i> Download XLS File
                 </button>
 
-                <form id="xlsDataForm" action="http://faostat3.fao.org/faostat-olapws/ExportPOI2" method="POST">
+                <form id="xlsDataForm" action="http://hqlprfenixapp2.hq.un.fao.org:10100/fenix-olap-webs/go/ExportPOI2" method="POST">
                     <!--textarea id="myJson"  name="myJson" ></textarea-->
                     <input id="myJson" name="myJson" type="hidden" value=""/>
                     <input id="myFlags" name="myFlags" type="hidden"
                            value='{"data":[{"title":"","label":"Official data"}]}'/>
+						                       <input id="footer" name="footer" type="hidden" value="AFO"/>
+
                 </form>
 
                 <br />

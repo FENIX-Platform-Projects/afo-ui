@@ -140,7 +140,7 @@ define([
                 if (data.length > 0) {
                     this.results.printChart(data)
                 } else {
-                    this._showCourtesyMessage()
+                    this._showqueriesCourtesyMessage()
                 }
 
             }, this),
@@ -159,8 +159,10 @@ define([
 
         if(results.SOURCE[0].code === 'cstat')
             sql = this.config.queries.select_from_compare_cstat;
+
         else if(results.SOURCE[0].code === 'ifa')
             sql = this.config.queries.select_from_compare_ifa;
+
         else
             sql = this.config.queries.select_from_compare;
 
@@ -170,8 +172,9 @@ define([
             KIND: results.KIND[0].code,
             PRODUCT: results.PRODUCT[0].code
         });
-        
-        console.log(res);
+
+        //DEGBUG IFA res = "select element_code, element_label, CASE WHEN year is null then '' else cast ( year as character varying) end as year,CASE WHEN nutrient is null then '' else cast ( nutrient as character varying) end  as nutrient,CASE WHEN value is null then '' else cast ( value as character varying) end  as Value,  CASE WHEN um is null then '' else cast ( um as character varying) end  as Unit, '' as Flag  from (     select element, year, value, nutrient, um   from ifa_data   where data_source = 'ifa' and       fertilizer = '2814100000' and       country = '227' and n_p = 'n'       ) c   right join codes_elements on element = element_code   ORDER BY element ASC, year ASC";
+console.log(res);
 
         return res;
     };
@@ -197,7 +200,9 @@ define([
             type: 'POST',
             dataType: 'JSON',
             success: _.bind(function (data) {
-                this.results.printTable(data)
+                console.log("data",data)
+                this.results.printTable(data, this.selectors.getFilter() );
+
             }, this),
             error: function (e) {
                 console.error("WDS error: ");

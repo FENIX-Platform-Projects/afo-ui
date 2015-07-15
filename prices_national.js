@@ -39,13 +39,27 @@ require(["submodules/fenix-ui-menu/js/paths",
 				
 				
 				//OLAP
+				 //'fx-pivot/start':         "submodules/fenix-ui-olap/js/pivot",
+				'fx-olap/nls':           "submodules/fenix-ui-olap/nls",
+
 				'pivot': 'submodules/fenix-ui-olap/js/pivot',
-				'countriesAgg': '//faostat3.fao.org/faostat-download-js/pivotAgg/countriesAgg',
+				//'countriesAgg': '//faostat3.fao.org/faostat-download-js/pivotAgg/countriesAgg',
 				'olap-config': 'prices/configuration',
-				'gt_msg_en': "submodules/fenix-ui-olap/lib/grid/gt_msg_en",
+				'gt_msg': "submodules/fenix-ui-olap/lib/grid/gt_msg_en",
 				//'gt_const': 'submodules/fenix-ui-olap/grid/gt_const',
-				'gt_grid_all': 'submodules/fenix-ui-olap/lib/grid/gt_grid_all',
-				'fusionchart': 'submodules/fenix-ui-olap/lib/grid/flashchart/fusioncharts/FusionCharts'
+				'gt_msg_grid': 'submodules/fenix-ui-olap/lib/grid/gt_grid_all',
+				//'fusionchart': 'submodules/fenix-ui-olap/lib/grid/flashchart/fusioncharts/FusionCharts'
+				
+			  'pivotRenderers':         "submodules/fenix-ui-olap/js/rend/rendererers",
+            'pivotAggregators':       "submodules/fenix-ui-olap/js/rend/aggregators",
+            'pivotRenderersFuncs':    "submodules/fenix-ui-olap/js/rend/function_rendererers",
+            'pivotAggregatorsFuncs':  "submodules/fenix-ui-olap/js/rend/function_aggregators",
+
+
+            //"pivotConfig":            FX_CDN+"/fenix/fenix-ui-olap/4.0/config/dataConfig1",
+            "pivotConfig":            "config/pivotConfig"
+				
+				
 			},
 
 		    shim: {
@@ -69,13 +83,18 @@ require(["submodules/fenix-ui-menu/js/paths",
 					'jquery',
 					'jquery-ui',
 					'jquery.i18n.properties',
-					'countriesAgg',
+					//'countriesAgg',
 					'olap-config',
-					'gt_msg_en',
+					'gt_msg',
 					//'gtgetWDS_const',
-					'gt_grid_all',
-					'fusionchart'
-				]
+					'gt_msg_grid',
+					//'fusionchart'
+				],
+				  "gt_msg": ['jquery'],
+            "gt_msg_grid": ['jquery','gt_msg'],
+            "HPivot": ['jquery','jqueryui'],            
+            "pivotRenderers": ['pivotRenderersFuncs'],  
+            "pivotAggregators": ['pivotAggregatorsFuncs','jquery']   
 		    }
 		}
     });
@@ -91,11 +110,19 @@ require(["submodules/fenix-ui-menu/js/paths",
 		    'config/services',
 
 		    'text!html/publication.html',
-			'pivot'
+			'pivot',
+			 'pivotConfig',
+    'pivotRenderers',
+    'pivotAggregators'
 		], function($,_,bts,highcharts,jstree,Handlebars,Swiper,
 			rangeSlider,
 			Config,
-			publication) {
+			publication,
+			Pivot,
+			PivotConfig,
+			pivotRenderers,
+			pivotAggregators
+			) {
 
 	        var minDate, maxDate;
 
@@ -331,16 +358,16 @@ require(["submodules/fenix-ui-menu/js/paths",
 	        rangeMonths$.dateRangeSlider({
 	        	defaultValues: {
 		            min: new Date(2014, 2, 0),
-		            max: new Date(2015, 1, 0)        		
+		            max: new Date(2015, 4, 0)        		
 	        	},
 	        	bounds: {
 	            	min: new Date(2010, 2, 0),
-	            	max: new Date(2015, 1, 0)
+	            	max: new Date(2015, 4, 0)
 	            }
 	        });
 
 	        var minD = new Date(2014, 2, 0),
-	            maxD = new Date(2015, 1, 0);
+	            maxD = new Date(2015, 4, 0);
 	        var minMonth=minD.getMonth()+1;
 	        var maxMonth=maxD.getMonth()+1;
 	        
@@ -378,9 +405,9 @@ require(["submodules/fenix-ui-menu/js/paths",
 			        }
 			    }
 			};
-			FAOSTATNEWOLAP.showUnits = "false";
+		/*	FAOSTATNEWOLAP.showUnits = "false";
 			FAOSTATNEWOLAP.showFlags = "false";
-			/*function init() {
+			*//*function init() {
 				$('#country').checkboxTree({initializeUnchecked: 'collapsed'});
 				$('#partner').checkboxTree({initializeUnchecked: 'collapsed'});
 				$('#commodity').checkboxTree({initializeUnchecked: 'collapsed'});
@@ -411,8 +438,23 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 					data = [["Area","Item","Year","Month2","Value","Unit","Flag","FertCode"]].concat(data);
 
-					FAOSTATNEWOLAP.originalData = data;
-
+					//FAOSTATNEWOLAP.originalData = data;
+					var pp1=new Pivot();
+					pp1.render("pivot", data,{
+						derivedAttributes: {
+							"Month": function(mp){
+								return "<span class=\"ordre\">" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
+							},"Indicator":function(mp){return "<span class=\"ordre\">" + mp["FertCode"] + "</span>"+mp["Item"]+" ("+mp["Unit"]+")";}
+						},
+						rows: ["Area", "Indicator", "Month"],
+						cols: ["Year"],
+						vals: ["Value", "Flag"],
+						hiddenAttributes:["Month2","Unit","Item","Value","Flag","FertCode"],
+						linkedAttributes:[],
+						 rendererDisplay: pivotRenderers,
+						aggregatorDisplay: pivotAggregators
+					})
+/*
 					$("#pivot").pivotUI(data, {
 						derivedAttributes: {
 							"Month": function(mp){
@@ -425,12 +467,12 @@ require(["submodules/fenix-ui-menu/js/paths",
 						hiddenAttributes:["Month2","Unit","Item"],
 						linkedAttributes:[]
 					},true);
-
+*/
 					$("#pivot_download").show();
 
 					$("#pivot_download").on('click', function(e) {
 
-						my_exportNew();
+						pp1.exportExcel();
 						//decolrowspanNEW();
 					});
 				});

@@ -164,16 +164,7 @@ define({
                 "EN": "About Us",
                 "FR": ""
             }
-        }, {
-			"attrs": {
-				"id": "createdataset"
-			},
-			"target": "createdataset.html",
-			"label": {
-				"EN": "Manager",
-				"FR": ""
-			}
-		}],
+        }],
 	    "rightItems": [
 			{
 				"attrs": {

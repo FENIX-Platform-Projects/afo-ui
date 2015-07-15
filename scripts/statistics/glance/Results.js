@@ -25,15 +25,15 @@ define(['underscore',
             RESULTS: '#afo-results'
         };        
         //this.table = new Table();
-        this.pivot = new Pivot();
+        self.pivot = new Pivot();
         //this.chart = new Chart();
         
         $("#pivot_download_xls").on('click', function(e) {
-            console.log(self.pivot);
+            //console.log(self.pivot);
             self.pivot.exportExcel();
         });
         $("#pivot_download_csv").on('click', function(e) {
-            console.log(self.pivot);
+            //console.log(self.pivot);
             self.pivot.exportCSV();
         });        
     }
@@ -48,8 +48,6 @@ define(['underscore',
 
         //add DATA HEADER
         data.unshift(conf.header);   
-
-
 
         this.pivot.render(this.s.TABLE.replace('#',''), data, _.extend(conf, {
             rendererDisplay: pivotRenderers,

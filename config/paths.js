@@ -64,6 +64,7 @@ define(function() {
             'jquery-ui': ['jquery'],
             'bootstrap': ['jquery'],
             'highcharts': ['jquery'],
+            'highcharts.export': ['jquery','highcharts'],
             'jquery.power.tip': ['jquery'],
             'jquery.hoverIntent': ['jquery'],
             'jquery.i18n.properties': ['jquery'],

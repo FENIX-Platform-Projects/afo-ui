@@ -358,16 +358,16 @@ require(["submodules/fenix-ui-menu/js/paths",
 	        rangeMonths$.dateRangeSlider({
 	        	defaultValues: {
 		            min: new Date(2014, 2, 0),
-		            max: new Date(2015, 1, 0)        		
+		            max: new Date(2015, 4, 0)        		
 	        	},
 	        	bounds: {
 	            	min: new Date(2010, 2, 0),
-	            	max: new Date(2015, 1, 0)
+	            	max: new Date(2015, 4, 0)
 	            }
 	        });
 
 	        var minD = new Date(2014, 2, 0),
-	            maxD = new Date(2015, 1, 0);
+	            maxD = new Date(2015, 4, 0);
 	        var minMonth=minD.getMonth()+1;
 	        var maxMonth=maxD.getMonth()+1;
 	        

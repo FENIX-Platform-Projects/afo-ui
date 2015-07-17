@@ -237,11 +237,13 @@ require(["submodules/fenix-ui-menu/js/paths",
 				});
 			}		
 
-			rangeMonths$.dateRangeSlider();
+/*			rangeMonths$.dateRangeSlider();
 			rangeMonths$.dateRangeSlider("option","bounds", {
 				min: new Date(2010, 2, 0),
 				max: new Date(2015, 4, 0)
-			});
+			});*/
+
+			rangeMonths$.dateRangeSlider(Config.dateRangeSlider.prices_detailed);
 
 			rangeMonths$.on('valuesChanged', function(e, data) {
 				

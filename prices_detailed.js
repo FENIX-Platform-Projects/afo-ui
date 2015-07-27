@@ -243,7 +243,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 				max: new Date(2015, 4, 0)
 			});*/
 
-			rangeMonths$.dateRangeSlider(Config.dateRangeSlider.prices_detailed);
+			rangeMonths$.dateRangeSlider(Config.dateRangeSlider.prices_detaild);
 
 			rangeMonths$.on('valuesChanged', function(e, data) {
 				

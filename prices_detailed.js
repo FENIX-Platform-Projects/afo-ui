@@ -222,6 +222,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 				getWDS(Config.queries.prices_detailed_local_grid, Selection, function(data) {
 
+
 					for(var i in data) {
 						data[i][1] = data[i][1].replace('[Town]','');
 						data[i][2] += ' USD/tons';

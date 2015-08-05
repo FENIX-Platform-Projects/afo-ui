@@ -129,7 +129,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 	//CHART IMAGE
 
-			chart$.attr({src: 'images/prices_international_chart_may2015.png'});
+			chart$.attr({src: 'images/prices_international_chart_june2015.png'});
 
 			$('.footer').load('html/footer.html');
 

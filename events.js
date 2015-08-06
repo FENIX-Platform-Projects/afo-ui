@@ -70,8 +70,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,
 		Config,
 		event,
-	matchingCategory,
-		
+		matchingCategory,
 		TopMenu,
 		AuthenticationManager
 		) {
@@ -92,7 +91,9 @@ require(["submodules/fenix-ui-menu/js/paths",
             console.log(amplify.store.sessionStorage('afo.security.user'));
         });
 
-
+		eventsTmpl = Handlebars.compile(event);
+		
+		
 		function getWDS(queryTmpl, queryVars, callback) {
 
 			var sqltmpl, sql;
@@ -127,7 +128,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		}
 
 
-	eventsTmpl = Handlebars.compile(event);
+	
 
 
 	//$.getJSON('data/publications.json', function(json) {	
@@ -230,7 +231,7 @@ console.log(eve);
 		Config.queries.events_reformat2=Config.queries.events_reformat;
 	}
 	else{
-		console.log(Config.queries.events_reformat);
+		
 	getData(Config.queries.events_reformat+" where category = '"+tempCategory+"'");
 	Config.queries.events_reformat2=Config.queries.events_reformat+" where category = '"+tempCategory+"' ";
 	}
@@ -249,10 +250,7 @@ console.log(eve);
 	
 	});
 	$("#alphabeticOrderInv").click(function(){
-	
-	getData(Config.queries.events_reformat2 +"  order by title DESC");
-	
-	});	
+		getData(Config.queries.events_reformat2 +"  order by title DESC");	});	
 	
 	
 	

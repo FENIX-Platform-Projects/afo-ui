@@ -48,8 +48,9 @@
 			<div class="list-group-item item-line">
 		        <span class="afo-field-title field">Pictures</span><ul class="afo-category-list">
 		       {{#each attachments.PI}}
-			   <li><img src="{{this.file_name}}" target="blank" onerror="this.src='images/nopic.jpg'"/>
-			   {{this.attachment_title}}
+			   <li>
+				   <img src="{{this.file_name}}" style="max-height:120px;width:auto" target="blank" />
+				   <br />{{this.attachment_title}}
 			   </li>	
 			   {{/each}}
 		       </ul>
@@ -74,9 +75,9 @@
 		        <span class="afo-field-title field">Links</span>
 				<ul class="afo-category-list">
 		       {{#each attachments.L}}
-		    					<li><a href="{{this.file_name}}" target="blank">{{this.attachment_title}}</a>
-						 {{#if this.attachment_description}}<ul>{{this.attachment_description}}</ul>{{/if}}
-						</li>	
+		    		<li><a href="{{this.file_name}}" target="blank">{{this.attachment_title}}</a>
+					 {{#if this.attachment_description}}<ul>{{this.attachment_description}}</ul>{{/if}}
+					</li>	
 				{{/each}}
 		       </ul>
 		       

@@ -92,6 +92,8 @@ require(["submodules/fenix-ui-menu/js/paths",
         });
 
 		eventsTmpl = Handlebars.compile(event);
+
+		Config.url_events_attachments = '//fenixrepo.fao.org/afo/events/attachments/';
 		
 		
 		function getWDS(queryTmpl, queryVars, callback) {
@@ -174,10 +176,10 @@ require(["submodules/fenix-ui-menu/js/paths",
 			for (var nd=0;nd<nbDoc;nd++)
 			{
 				
-				attachments[EA_type[nd]].push(
+			attachments[EA_type[nd]].push(
 			{
 				"type":EA_type[nd],
-				"file_name":Config["url_attachment_"+EA_type[nd]]+EA_file_name[nd],
+				"file_name": (EA_type[nd]!=='L'?Config.url_events_attachments:'')+EA_file_name[nd],
 				"attachment_title":EA_attachment_title[nd],
 				"attachment_size":EA_attachment_size[nd],
 				"attachment_description":EA_attachment_description[nd],
@@ -191,7 +193,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 				}
 	/*		pub.DocumentType = pub.DocumentType.replace('.','');
 */
-console.log(eve);
+//console.log(eve);
 			$('#listPubs').append( eventsTmpl(eve) );
 			//alert('ok');
 			//$('#content_'+eve.id).html(eve.description);

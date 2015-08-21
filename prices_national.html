@@ -47,6 +47,9 @@
 input[type="radio"] {
   display: inline-block;
 }    
+.control-label {
+    cursor: pointer;
+}
 
 </style>
 
@@ -108,11 +111,12 @@ input[type="radio"] {
     <div class="row">
         <div class="col-sm-offset-1 col-sm-10">
 
-<!--             <div class="row">
-                <label class="col-sm-4 control-label"><input name="prices_range_radio" type="radio" value="1" /> 1 months</label>
-                <label class="col-sm-4 control-label"><input name="prices_range_radio" type="radio" value="3" /> 3 months</label>
-                <label class="col-sm-4 control-label"><input name="prices_range_radio" type="radio" value="6" /> 6 months</label>
-            </div> -->
+            <div class="row">
+                <label class="col-sm-3 control-label"><input name="prices_range_radio" type="radio" value="1" /> 1 months</label>
+                <label class="col-sm-3 control-label"><input name="prices_range_radio" type="radio" value="3" /> 3 months</label>
+                <label class="col-sm-3 control-label"><input name="prices_range_radio" type="radio" value="6" /> 6 months</label>
+                <label class="col-sm-3 control-label"><input name="prices_range_radio" type="radio" value="12" /> 12 months</label>
+            </div>
             <br /><br />
             <div id="prices_rangeMonths" class="afo-range"></div>
         </div>

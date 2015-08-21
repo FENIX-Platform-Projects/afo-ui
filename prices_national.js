@@ -384,7 +384,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 	        });
 
-/*
+
 			$('input[name=prices_range_radio]').on('click', function (e) {
 				e.preventDefault();
 
@@ -394,14 +394,27 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 				var preValues = {
 					"1": {
-						min: minD = new Date(),
-						max:
+						min: new Date(2010, 2, 0),
+						max: new Date(2010, 3, 0),
+					},
+					"3": {
+						min: new Date(2010, 2, 0),
+						max: new Date(2010, 6, 0),
+					},
+					"6": {
+						min: new Date(2010, 2, 0),
+						max: new Date(2010, 9, 0),
+					},
+					"12": {
+						min: new Date(2010, 2, 0),
+						max: new Date(2010, 12, 0),
 					}
 				}
 
-				rangeMonths$.dateRangeSlider("bounds", preValues[val].min, preValues[val].max);
+				rangeMonths$.dateRangeSlider('min', preValues[val].min);
+				rangeMonths$.dateRangeSlider('max', preValues[val].max);
 
-			});*/
+			});//*/
 
 
 	        /* ================================== OLAP */

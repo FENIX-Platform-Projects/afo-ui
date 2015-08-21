@@ -33,18 +33,16 @@ define(function() {
             'fenix-map':              FX_CDN+"/fenix/fenix-ui-map/0.0.1/fenix-ui-map.min",
             'fenix-map-config':       FX_CDN+"/fenix/fenix-ui-map/0.0.1/fenix-ui-map-config",
             'jquery.power.tip':       FX_CDN+"/js/jquery.power.tip/1.1.0/jquery.powertip.min",
-            
             'jquery-ui':              FX_CDN+"/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min",
-
             'jquery.hoverIntent':     FX_CDN+"/js/jquery.hoverIntent/1.0/jquery.hoverInten",
             'jquery.i18n.properties': FX_CDN+"/js/jquery/1.0.9/jquery.i18n.properties-min",
-
+            'moment':                 FX_CDN+"/js/moment/2.9.0/moment.min",
 
             'fx-pivot/start':         "submodules/fenix-ui-olap/js/pivot",
             'fx-olap/nls':           "submodules/fenix-ui-olap/nls",
 
             'pivot':                  "submodules/fenix-ui-olap/js/pivot",
-           // 'pivotPaths':             "submodules/fenix-ui-olap/js/paths",
+            //'pivotPaths':             "submodules/fenix-ui-olap/js/paths",
 
             'gt_msg':                 "submodules/fenix-ui-olap/lib/grid/gt_msg_en",
             'gt_msg_grid':            "submodules/fenix-ui-olap/lib/grid/gt_grid_all",
@@ -52,7 +50,6 @@ define(function() {
             'pivotAggregators':       "submodules/fenix-ui-olap/js/rend/aggregators",
             'pivotRenderersFuncs':    "submodules/fenix-ui-olap/js/rend/function_rendererers",
             'pivotAggregatorsFuncs':  "submodules/fenix-ui-olap/js/rend/function_aggregators",
-
 
             //"pivotConfig":            FX_CDN+"/fenix/fenix-ui-olap/4.0/config/dataConfig1",
             "pivotConfig":            "config/pivotConfig"

@@ -44,9 +44,9 @@
     <link rel="stylesheet" href="css/host.css">
 <style type="text/css">
 
-input[type="radio"] {
+/*input[type="radio"] {
   display: inline-block;
-}    
+}    */
 .control-label {
     cursor: pointer;
 }
@@ -109,13 +109,14 @@ input[type="radio"] {
     </div>
 
     <div class="row">
-        <div class="col-sm-offset-1 col-sm-10">
+        <div class="col-sm-10">
 
             <div class="row">
-                <label class="col-sm-3 control-label"><input name="prices_range_radio" type="radio" value="1" /> 1 months</label>
-                <label class="col-sm-3 control-label"><input name="prices_range_radio" type="radio" value="3" /> 3 months</label>
-                <label class="col-sm-3 control-label"><input name="prices_range_radio" type="radio" value="6" /> 6 months</label>
-                <label class="col-sm-3 control-label"><input name="prices_range_radio" type="radio" value="12" /> 12 months</label>
+                <input id="prices_range1" name="prices_range_radio" type="radio" value="36" /><label for="prices_range1" class="col-sm-2 control-label"> 3 year</label>
+                <input id="prices_range2" name="prices_range_radio" type="radio" value="12" checked /><label for="prices_range2" class="col-sm-2 control-label"> 1 year</label>
+                <input id="prices_range3" name="prices_range_radio" type="radio" value="6" /><label for="prices_range3" class="col-sm-2 control-label"> 6 months</label>
+                <input id="prices_range4" name="prices_range_radio" type="radio" value="3" /><label for="prices_range4" class="col-sm-2 control-label"> 3 months</label>
+                <input id="prices_range5" name="prices_range_radio" type="radio" value="1" /><label for="prices_range5" class="col-sm-2 control-label"> 1 months</label>
             </div>
             <br /><br />
             <div id="prices_rangeMonths" class="afo-range"></div>

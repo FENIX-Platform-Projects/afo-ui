@@ -36,7 +36,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 				'jquery.i18n.properties': "//fenixrepo.fao.org/cdn/js/jquery/1.0.9/jquery.i18n.properties-min",
 
 				'jquery.rangeSlider': '//fenixrepo.fao.org/cdn/js/jquery.rangeslider/5.7.0/jQDateRangeSlider-min',
-				
+				'moment':             '//fenixrepo.fao.org/cdn/js/moment/2.9.0/moment.min',
 				
 				//OLAP
 				 //'fx-pivot/start':         "submodules/fenix-ui-olap/js/pivot",
@@ -50,15 +50,15 @@ require(["submodules/fenix-ui-menu/js/paths",
 				'gt_msg_grid': 'submodules/fenix-ui-olap/lib/grid/gt_grid_all',
 				//'fusionchart': 'submodules/fenix-ui-olap/lib/grid/flashchart/fusioncharts/FusionCharts'
 				
-			  'pivotRenderers':         "submodules/fenix-ui-olap/js/rend/rendererers",
-            'pivotAggregators':       "submodules/fenix-ui-olap/js/rend/aggregators",
-            'pivotRenderersFuncs':    "submodules/fenix-ui-olap/js/rend/function_rendererers",
-            'pivotAggregatorsFuncs':  "submodules/fenix-ui-olap/js/rend/function_aggregators",
+				'pivotRenderers':         "submodules/fenix-ui-olap/js/rend/rendererers",
+				'pivotAggregators':       "submodules/fenix-ui-olap/js/rend/aggregators",
+				'pivotRenderersFuncs':    "submodules/fenix-ui-olap/js/rend/function_rendererers",
+				'pivotAggregatorsFuncs':  "submodules/fenix-ui-olap/js/rend/function_aggregators",
 
 
-            //"pivotConfig":            FX_CDN+"/fenix/fenix-ui-olap/4.0/config/dataConfig1",
-            "pivotConfig":            "config/pivotConfig"
-				
+				//"pivotConfig":            FX_CDN+"/fenix/fenix-ui-olap/4.0/config/dataConfig1",
+				"pivotConfig":            "config/pivotConfig"
+
 				
 			},
 
@@ -105,7 +105,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		renderAuthMenu('prices_national');
 
 		require([
-		    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper',
+		    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'moment',
 	 		'jquery.rangeSlider',
 		    'config/services',
 
@@ -114,7 +114,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 			 'pivotConfig',
     'pivotRenderers',
     'pivotAggregators'
-		], function($,_,bts,highcharts,jstree,Handlebars,Swiper,
+		], function($,_,bts,highcharts,jstree,Handlebars,Swiper,moment,
 			rangeSlider,
 			Config,
 			publication,
@@ -386,34 +386,37 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 
 			$('input[name=prices_range_radio]').on('click', function (e) {
-				e.preventDefault();
 
-				var val = $(this).val();
+				var val = parseInt( $(this).val() );
 
-				console.log(val);
-
-				var preValues = {
+/*				var preValues = {
 					"1": {
 						min: new Date(2010, 2, 0),
-						max: new Date(2010, 3, 0),
+						max: new Date(2010, 3, 0)
 					},
 					"3": {
 						min: new Date(2010, 2, 0),
-						max: new Date(2010, 6, 0),
+						max: new Date(2010, 6, 0)
 					},
 					"6": {
 						min: new Date(2010, 2, 0),
-						max: new Date(2010, 9, 0),
+						max: new Date(2010, 9, 0)
 					},
 					"12": {
 						min: new Date(2010, 2, 0),
-						max: new Date(2010, 12, 0),
+						max: new Date(2010, 12, 0)
 					}
-				}
+				}*/
 
-				rangeMonths$.dateRangeSlider('min', preValues[val].min);
-				rangeMonths$.dateRangeSlider('max', preValues[val].max);
+				var max = moment(Config.dateRangeSlider.prices_national.bounds.max);
 
+				console.log(max);
+
+				var min = max.subtract(val,'months').toDate();
+
+				console.log(max,min);
+
+				rangeMonths$.dateRangeSlider('min', min);
 			});//*/
 
 

@@ -20,33 +20,14 @@
 
     <!-- FENIX CSS -->
     <link rel="stylesheet" type="text/css" href="css/host.css">
+	<style>
+	.invi{display:none !important}
+	</style>
 
 </head>
 <body id="page-events">
 
-<nav  id="fx-menu-tmpl" class="navbar navbar-default fx-menu navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#fx-navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#"></a>
-    </div>
-    <div class="collapse navbar-collapse" id="fx-navbar-collapse">
-      <ul class="nav navbar-nav fx-ul">
-      </ul>
-      <ul class="nav navbar-nav navbar-right fx-ul-right">
-      </ul>
-    </div>
-  </div>
-</nav>
-
-
 <div class="container">
-
 
     <div class="row">
         <div class="col-xs-12">
@@ -58,177 +39,89 @@
         <div class="col-xs-12">
             <div class="page-header">
                 <h2>Events</h2>
-
-                <p>Information about past, recent and future events related to fertilizer availability, management
-                    practices
-                    and future trends.</p>
+                <p>
+                    A collection of documents (research papers, presentation, analysis, charts, statistics, maps, etc.)
+                    published by scientists and technical experts on fertilizers, soil fertility and the general
+                    situation
+                    of agriculture in Africa.
+                    Publication search can be done by using several options which includes categories, keywords,
+                    popularity,
+                    title, date of publication or degree of interest.
+                </p>
             </div>
         </div>
     </div>
 
+<br>
 
+    <!-- Content -->
     <div class="row">
-
         <div class="col-xs-12 col-sm-8">
 
-            <div class="afo-tabs" role="tabpanel">
-
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
-
-                    <li class="active"><a href="#afo-workshops" data-toggle="tab" > WORKSHOPS</a></li>
-                    <li><a href="#afo-partnevent" data-toggle="tab"> PARTNER EVENTS</a></li>
-
-                </ul>
-
-                <!-- Tab panes -->
-                <div class="tab-content">
-
-                    <div role="tabpanel" class="tab-pane fade active in" id="afo-workshops">
-
-                        <ul id="event_list_containers" class="afo-category-list"></ul>
-
-                    </div>
-
-                    <div role="tabpanel" class="tab-pane fade in" id="afo-partnevent">
-
-
-                        <h3 class="afo-title"> Argus FMB Africa Fertilizer 2015</h3><br>
-
-
-                        Argus FMB Africa Fertilizer Conference is an annual event held in Africa. The conference provides you with the
-                        opportunity to meet representatives from the whole supply chain - from leading producers to major buyers and
-                        distributors, and all categories of essential service providers. The conference attracts over 450 attendees from 70
-                        companies and over 60 countries.
-                        Each year we acquire high profile speakers from leading fertilizer production facilities, government members and
-                        NGO’s, providing discussions on the latest market issues to help develop the African agriculture and fertilizer
-                        sectors.
-
-                        The 2015 brings H.E. Tefera Derbew, the Minister of Agriculture for Ethiopia updating the audience on the
-                        development strategies for 2015, Khalid Bomba, CEO at the Agricultural Transformation Agency will discuss the need
-                        for transforming agriculture in Africa, Bashir Jama, the Soil Health Programme Director at AGRA will be covering the
-                        importance of complete fertilization of smallholder Aagriculture in Africa and Jean Bakole the Regional Director of
-                        Ethiopia from the United Nations Industrial Development Organization discusses available mineral resources in
-                        Africa.
-
-                        What you'll get at Africa’s only dedicated fertilizer conference:
-
-
-                        <ul>
-                            <li>400+ attendees from across the fertilizer supply chain</li>
-                            <li>The chance to meet fertilizer producers and traders from over 20+ African countries</li>
-                            <li>20+ hours of networking</li>
-                            <li>Opening cocktail reception and gala dinner - exclusive to registered delegates</li>
-                            <li>20+ expert speakers</li>
-                            <li>3 days of discussions with senior decision makers</li>
-
+            <div class="row" style="/*display:none*/">
+                <div class="col-xs-12">
+                    <span class="afo-pub-order">ORDER BY:</span>
+                    <div class="dropdown pull-right">
+                        <button class="btn btn-default dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                            Select Sort Order
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu afo-dropdown-toggle dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="mostRecentOreder">Most recent</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="alphabeticOrder">Publication title A-Z</a></li>
+							 <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="alphabeticOrderInv">Publication title Z-A</a></li>
                         </ul>
-
-
-                        Join the 6th Argus FMB Africa Fertilizer conference and discuss the future of Africa’s agriculture with the most
-                        influential players in the market. The 2015 event will be held on 18-20 February in Addis Ababa, Ethiopia.
-
-                        For more information about Argus or attending the Argus FMB Africa Fertilizer conference:<br><br><br>
-                        Visit: www.argusmedia.com/fertilizer-africa<br>
-                        Call: +44 20 7780 4200<br>
-                        Email: fmb.conferences@argusmedia.com<br>
-                        <br><br><br>
-
-
-                        <h3 class="afo-title"> Argus Media </h3><br>
-
-
-                        Argus is an independent media organisation with over 700 full time staff. It is headquartered in London and has
-                        offices in each of the world’s principal commodity centres. Its main activities comprise publishing market reports
-                        containing price assessments, market commentary and news, and business intelligence reports that analyse market and
-                        industry trends.
-
-                        More than half of Argus employees are commodity journalists who specialise in reporting news and price information
-                        relating to physical energy and related commodity markets. They operate according to a rigorous Editorial Code of
-                        Conduct and a Compliance and Ethics Policy that align with best journalistic practice, including the avoidance of
-                        conflicts of interest.
-
-                        Argus is a leading provider of data on prices and fundamentals, news, analysis, consultancy services and conferences
-                        for the global crude, oil products, LPG, natural gas, electricity, coal, emissions, bioenergy, fertilizer,
-                        petrochemical, metals and transportation industries. Data provided by Argus are widely used for indexation of
-                        physical trade. Companies, governments and international agencies use Argus information for analysis and planning
-                        purposes.
-
-                        Argus has 20 offices globally, including London, Houston, Washington, New York, Calgary, Rio de Janeiro, Singapore,
-                        Dubai, Beijing, Tokyo, Sydney, Moscow, Astana, Riga and other key centres of the commodity industries. Argus was
-                        founded in 1970 and is a privately held UK-registered company.
-
-                        <br><br><br><br>
-
                     </div>
+                    <!--<hr class="afo-pub-filter-header">-->
+
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-xs-12 afo-pub-holder">
+                    <ul id="listPubs">
+                        <!-- CONTENT DYNAMIC -->
+                    </ul>
                 </div>
             </div>
 
-        </div>
 
+
+        </div>
         <div class="col-xs-12 col-sm-4">
 
+            <h3 class="afo-title afo-pub-category-title">Search</h3>
 
-            <div class="afo-sidebar-item afo-sidebar-first">
+                <div class="input-group">
+                    <input type="text" id="txtSearch" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-search"></i></button></span>
+                </div>
+                <!-- /input-group -->
+<br><br>
 
-                <h3 class="afo-title">MINUTES</h3><span class="icojam_document afo-sidebar-img"></span>
-
-                <ul class="afo-category-list">
-                    <li>
-						<a href="http://fenixrepo.fao.org/afo/events/Minuties/FEPSAN FDD - report fertilizer consumption and FUBC in Nigeria (02 2014).pdf">
-						FEPSAN FDD - report fertilizer consumption and FUBC in Nigeria (02 2014).pdf
-						</a>
-                    </li>
-                    <li>
-                    	<a href="http://fenixrepo.fao.org/afo/events/Minuties/IFDC AFO-Tanzania Fertilizer Consumption and FUBC Report.pdf">
-                    	IFDC AFO-Tanzania Fertilizer Consumption and FUBC Report.pdf
-                    	</a>
-                    </li>
-                </ul>
-            </div>
-            <br>
-
-            <div class="afo-sidebar-item">
-                <h3 class="afo-title">PRESENTATIONS</h3><span
-                    class="icojam_presentation afo-sidebar-img"></span>
+            <h3 class="afo-title afo-pub-category-title">Events by category</h3>
 
                 <ul class="afo-category-list">
-                    <li><a href="http://fenixrepo.fao.org/afo/events/Presentations/Ghana overview 2013.pptx">Ghana overview 2013.pptx</a></li>
-                    <li><a href="http://fenixrepo.fao.org/afo/events/Presentations/Kenya overview 2013.pptx">Kenya overview 2013.pptx</a></li>
-                    <li><a href="http://fenixrepo.fao.org/afo/events/Presentations/Tanzania overview 2013.pptx">Tanzania overview 2013.pptx</a></li>
-                    <li><a href="http://fenixrepo.fao.org/afo/events/Presentations/Uganda Fertilizer Overview 2013.pptx">Uganda Fertilizer Overview 2013.pptx</a></li>
+				
+                    <li><a href="#" class="afo-category-list-li active" cat="All"><span class="invi">A</span>All</a></li>
+                    <li><a href="#" class="afo-category-list-li noactive" cat="1"><span class="invi">1</span>AFO technical workshops (e.g. trainings, validation workshops)</a></li>
+                    <li><a href="#" class="afo-category-list-li noactive" cat="2"><span class="invi">2</span>AFO conferences & events (e.g. launching of new website in Addis)</a></li>
+                    <li><a href="#" class="afo-category-list-li noactive" cat="3"><span class="invi">3</span>AFO partners’ events (e.g. CountrySTAT launch, IFA annual conference)</a></li>
+                    <li><a href="#" class="afo-category-list-li noactive" cat="4"><span class="invi">4</span>AFO partners’ corner (access restricted to selected/registered users)</a></li>
                 </ul>
-            </div>
-            <br>
-
-            <div class="afo-sidebar-item">
-
-                <h3 class="afo-title">LINKS</h3><span class="icojam_link_1 afo-sidebar-img"></span>
-
-                <ul class="afo-category-list">
-                    <li><a href="http://www.argusmedia.com/Events/Argus-Events/Europe/Fert-Africa/Home">Argus
-                        Fertilizer
-                        Conference 2015</a></li>
-                </ul>
-            </div>
-
-            <br><br><br>
 
         </div>
-
-
     </div>
-
 
 
 </div>
 
-            <!-- Footer -->
-            <div class="container">
-                <div class="footer">
-                    <p>AfricaFeritilizer.org - AF Skeleton web application by FENIX</p>
-                </div>
-            </div>
+<!-- Footer -->
+<div class="container">
+    <div class="footer">
+        <p>AfricaFeritilizer.org - AF Skeleton web application by FENIX</p>
+    </div>
+</div>
 
 <script data-main="events" src="//fenixrepo.fao.org/cdn/js/requirejs/2.1.8/require.min.js"></script>
 <script src="src/analitycs.js"></script>

@@ -435,8 +435,9 @@ require(["submodules/fenix-ui-menu/js/paths",
 					pp1.render("pivot", data,{
 						derivedAttributes: {
 							"Month": function(mp){
-								return "<span class=\"ordre\">" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
-							},"Indicator":function(mp){return "<span class=\"ordre\">" + mp["FertCode"] + "</span>"+mp["Item"]+" ("+mp["Unit"]+")";}
+								return "<span class=ordre>" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
+							},
+							"Indicator":function(mp){return "<span class=ordre>" + mp["FertCode"] + "</span>"+mp["Item"]+" ("+mp["Unit"]+")";}
 						},
 						rows: ["Area", "Indicator", "Month"],
 						cols: ["Year"],

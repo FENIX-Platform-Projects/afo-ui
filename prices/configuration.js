@@ -9,7 +9,7 @@ function changechkTreeview()
 $("#pivot").pivotUI(FAOSTATNEWOLAP.originalData,{
 				derivedAttributes: {
 					"Month": function(mp){
-						return "<span class=\"ordre\">" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
+						return "<span class=ordre>" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
 					},"Indicator":function(mp){return mp["Item"]+" ("+mp["Unit"]+")";}
 				},
 				rows: ["Area", "Indicator"],

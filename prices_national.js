@@ -387,35 +387,9 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 			$('input[name=prices_range_radio]').on('click', function (e) {
 
-				var val = parseInt( $(this).val() );
-
-/*				var preValues = {
-					"1": {
-						min: new Date(2010, 2, 0),
-						max: new Date(2010, 3, 0)
-					},
-					"3": {
-						min: new Date(2010, 2, 0),
-						max: new Date(2010, 6, 0)
-					},
-					"6": {
-						min: new Date(2010, 2, 0),
-						max: new Date(2010, 9, 0)
-					},
-					"12": {
-						min: new Date(2010, 2, 0),
-						max: new Date(2010, 12, 0)
-					}
-				}*/
-
-				var max = moment(Config.dateRangeSlider.prices_national.bounds.max);
-
-				console.log(max);
-
-				var min = max.subtract(val,'months').toDate();
-
-				console.log(max,min);
-
+				var val = parseInt( $(this).val() ),
+					max = moment(Config.dateRangeSlider.prices_national.bounds.max),
+					min = max.subtract(val,'months').toDate();
 				rangeMonths$.dateRangeSlider('min', min);
 			});//*/
 

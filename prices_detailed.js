@@ -46,6 +46,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 				'import-dependencies': "//fenixapps.fao.org/repository/js/FENIX/utils/import-dependencies-1.0",
 
                 'jquery.rangeSlider': '//fenixapps.fao.org/repository/js/jquery.rangeslider/5.7.0/jQDateRangeSlider-min',
+				'moment':             '//fenixrepo.fao.org/cdn/js/moment/2.9.0/moment.min',                
 			},
 
 		    shim: {
@@ -91,11 +92,11 @@ require(["submodules/fenix-ui-menu/js/paths",
 		renderAuthMenu('prices_detailed');
 
 		require([
-		    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet', 'leaflet-markercluster',
+		    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet', 'leaflet-markercluster','moment',
 		    'config/services',
 		    'text!html/table.html',
 	        'jquery.rangeSlider',
-		], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L,LeafletMarkecluster,
+		], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L,LeafletMarkecluster,moment,
 			Config,
 			table
 			) {
@@ -267,6 +268,14 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 				loadMarkers(Selection);
 			});
+
+			$('input[name=prices_range_radio]').on('click', function (e) {
+
+				var val = parseInt( $(this).val() ),
+					max = moment(Config.dateRangeSlider.prices_detaild.bounds.max),
+					min = max.subtract(val,'months').toDate();
+				rangeMonths$.dateRangeSlider('min', min);
+			});//*/
 
 			$("#prices_selectProduct").on('change', function(e) {
 				Selection.fertilizer_code = $(e.target).val();

@@ -67,7 +67,6 @@ define({
                       "data_source_code <> 'ifdc' ",
 
         "products": "select DISTINCT fertilizer_label, fertilizer_code from codes_fertilizers ORDER BY fertilizer_label",
-
         "elements": "select DISTINCT * from codes_elements WHERE element_code NOT IN ('rexp','rimp') ",
 
       "prices_national_countries": "select c.country_code, c.country_label from prices_national d, codes_countries c where c.country_code  = d.country_code group by c.country_code, c.country_label order by c.country_label",

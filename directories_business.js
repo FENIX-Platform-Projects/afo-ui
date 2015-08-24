@@ -14,7 +14,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 
                 'business': 'scripts/directories/business',
                 'commons': 'scripts/commons',
-                'AuthenticationManager': './scripts/components/AuthenticationManager',
                 'text': "//fenixrepo.fao.org/cdn/js/requirejs/plugins/text/2.0.12/text",
 				'i18n': "//fenixrepo.fao.org/cdn/js/requirejs/plugins/i18n/2.0.4/i18n",
 				'domready': "//fenixrepo.fao.org/cdn/js/requirejs/plugins/domready/2.0.1/domReady",

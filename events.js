@@ -61,8 +61,8 @@ require(["submodules/fenix-ui-menu/js/paths",
 		
 		'text!html/events.html',
 		'config/event_category',
-		'fx-menu/start',
-        './scripts/components/AuthenticationManager',
+		
+        'src/renderAuthMenu',
 
         'amplify',
 
@@ -71,21 +71,10 @@ require(["submodules/fenix-ui-menu/js/paths",
 		Config,
 		tmplEvents,
 		matchingCategory,
-		TopMenu,
-		AuthenticationManager
+		renderAuthMenu
 		) {
-        new TopMenu({
-            active: 'events',        	
-            url: 'config/fenix-ui-menu.json',
-            className : 'fx-top-menu',
-            breadcrumb : {
-                active : true,
-                container : "#breadcumb_container",
-                showHome : true
-            }
-        });
 
-        new AuthenticationManager();
+        renderAuthMenu('events');
         
 
 		eventsTmpl = Handlebars.compile(tmplEvents);

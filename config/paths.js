@@ -10,7 +10,7 @@ define(function() {
             'text':                   FX_CDN+"/js/requirejs/plugins/text/2.0.12/text",
             'i18n':                   FX_CDN+"/js/requirejs/plugins/i18n/2.0.4/i18n",
             'domready':               FX_CDN+"/js/requirejs/plugins/domready/2.0.1/domReady",
-            'jquery':                 FX_CDN+"/js/jquery/2.1.1/jquery.min",            
+            'jquery':                 FX_CDN+"/js/jquery/2.1.1/jquery.min",
             'amplify' :               FX_CDN+"/js/amplify/1.1.2/amplify.min",
             'highcharts':             FX_CDN+"/js/highcharts/4.0.4/js/highcharts",
             'highcharts.export':      FX_CDN+"/js/highcharts/4.0.4/js/modules/exporting",
@@ -88,9 +88,9 @@ define(function() {
             ],
             "gt_msg": ['jquery'],
             "gt_msg_grid": ['jquery','gt_msg'],
-            "HPivot": ['jquery','jqueryui'],            
-            "pivotRenderers": ['pivotRenderersFuncs'],  
-            "pivotAggregators": ['pivotAggregatorsFuncs','jquery']            
+            "HPivot": ['jquery','jqueryui'],
+            "pivotRenderers": ['pivotRenderersFuncs'],
+            "pivotAggregators": ['pivotAggregatorsFuncs','jquery']
         }
     };
 });

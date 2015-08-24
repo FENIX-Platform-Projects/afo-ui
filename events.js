@@ -22,9 +22,7 @@ require([
 		'text!html/events.html',
 		'config/event_category',
 
-        'amplify',
-
-		'domready!'
+        'amplify'
 	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,
 		Config,
 		renderAuthMenu,

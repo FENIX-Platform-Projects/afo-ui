@@ -28,6 +28,7 @@ define(function() {
             'webix':                  FX_CDN+"/js/webix/2.2.1/js/webix",
             'leaflet':                FX_CDN+"/js/leaflet/0.7.3/leaflet",
             'leaflet.encoded':        FX_CDN+"/js/leaflet/plugins/leaflet.encoded/0.0.5/Polyline.encoded",
+            'leaflet-markercluster':  FX_CDN+"/js/leaflet/plugins/leaflet.markecluster/1.1/leaflet.markercluster",
             'geojson_decoder':        FX_CDN+"/js/leaflet/plugins/geojson_decoder",
 
             'fenix-map':              FX_CDN+"/fenix/fenix-ui-map/0.0.1/fenix-ui-map.min",
@@ -36,10 +37,12 @@ define(function() {
             'jquery-ui':              FX_CDN+"/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min",
             'jquery.hoverIntent':     FX_CDN+"/js/jquery.hoverIntent/1.0/jquery.hoverIntent",
             'jquery.i18n.properties': FX_CDN+"/js/jquery/1.0.9/jquery.i18n.properties-min",
+
+            'jquery.rangeSlider':     FX_CDN+"/js/jquery.rangeslider/5.7.0/jQDateRangeSlider-min",
             'moment':                 FX_CDN+"/js/moment/2.9.0/moment.min",
 
             'fx-pivot/start':         "submodules/fenix-ui-olap/js/pivot",
-            'fx-olap/nls':           "submodules/fenix-ui-olap/nls",
+            'fx-olap/nls':            "submodules/fenix-ui-olap/nls",
 
             'pivot':                  "submodules/fenix-ui-olap/js/pivot",
             //'pivotPaths':             "submodules/fenix-ui-olap/js/paths",
@@ -49,9 +52,9 @@ define(function() {
             'pivotRenderers':         "submodules/fenix-ui-olap/js/rend/rendererers",
             'pivotAggregators':       "submodules/fenix-ui-olap/js/rend/aggregators",
             'pivotRenderersFuncs':    "submodules/fenix-ui-olap/js/rend/function_rendererers",
-            'pivotAggregatorsFuncs':  "submodules/fenix-ui-olap/js/rend/function_aggregators",
-
-            //"pivotConfig":            FX_CDN+"/fenix/fenix-ui-olap/4.0/config/dataConfig1",
+            'pivotAggregatorsFuncs':  "submodules/fenix-ui-olap/js/rend/function_aggregators",            
+            
+            //"pivotConfig":          FX_CDN+"/fenix/fenix-ui-olap/4.0/config/dataConfig1",
             "pivotConfig":            "config/pivotConfig"
         },
         shim: {
@@ -65,11 +68,13 @@ define(function() {
             'jquery.power.tip': ['jquery'],
             'jquery.hoverIntent': ['jquery'],
             'jquery.i18n.properties': ['jquery'],
+            'jquery.rangeSlider': ['jquery', 'jquery-ui'],
             'underscore-string': ['underscore'],
             'underscore': { exports: '_' },            
             'amplify': { deps: ['jquery'], exports: 'amplifyjs' },
             'geojson_decoder': ['leaflet','leaflet.encoded'],
             'leaflet.encoded': ['leaflet'],
+            'leaflet-markercluster': ['leaflet'],
            // 'pivot': ['pivotPaths'],
             'fenix-map': [
                 'leaflet',

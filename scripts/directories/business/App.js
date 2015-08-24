@@ -1,8 +1,8 @@
 /*global define*/
 define([
     'underscore',
-    'business/Results',
-    'business/Selectors',
+    'scripts/directories/business/Results',
+    'scripts/directories/business/Selectors',
     'config/services',
     'amplify'
 ], function (_, Results, Selectors, Config) {

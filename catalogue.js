@@ -18,6 +18,7 @@ require([
 	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet',
 	    'config/services',
 	    'src/renderAuthMenu',
+	    
 		'text!html/accordion.html',
 
 		'fenix-map',

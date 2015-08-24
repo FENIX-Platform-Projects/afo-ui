@@ -1,7 +1,5 @@
 /*global define*/
-define([
-    'business/tableAfo'
-], function ( Table) {
+define(function () {
 
     'use strict';
 

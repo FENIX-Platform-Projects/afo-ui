@@ -4,7 +4,8 @@ define({
   "wdsUrl": "http://faostat3.fao.org/wds/rest/table/json",
   "wdsUrlExportCsv": "http://faostat3.fao.org/wds/rest/exporter/streamcsv",
 
-  "mapUrl": "http://fenixapps.fao.org/maps-africaferilizers/api?",
+//TODO update to fenix.fao.org/geoserver...
+
   "wmsUrl": "http://fenixapps2.fao.org/geoserver-demo",
   "sldUrl": "http://fenixapps2.fao.org/geoservices/CSS2SLD",
  

@@ -512,7 +512,7 @@
                     },
                     "info": {
                         "remote-html": {
-                            "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/info/contentDescription_EN.html"
+                            "EN": "//fenixrepo.fao.org/cdn/fenix/scripts/metadata/conf/html/info/contentDescription_EN.html"
                         }
                     }
                 },
@@ -528,7 +528,7 @@
                     },
                     "info": {
                         "remote-html": {
-                            "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/info/contentStatisticalConcepts_EN.html"
+                            "EN": "//fenixrepo.fao.org/cdn/fenix/scripts/metadata/conf/html/info/contentStatisticalConcepts_EN.html"
                         }
                     }
                 }
@@ -637,7 +637,7 @@
                             },
                             "info": {
                                 "remote-html": {
-                                    "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/info/contentReferenceArea_EN.html"
+                                    "EN": "//fenixrepo.fao.org/cdn/fenix/scripts/metadata/conf/html/info/contentReferenceArea_EN.html"
                                 }
                             }
 
@@ -651,7 +651,7 @@
                     "icon": "fa fa-database fa-lg fa-fw",
                     "info": {
                         "remote-html": {
-                            "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/info/contentCoverage_EN.html"
+                            "EN": "//fenixrepo.fao.org/cdn/fenix/scripts/metadata/conf/html/info/contentCoverage_EN.html"
                         }
                     },
                     "properties": {
@@ -710,7 +710,7 @@
                             },
                             "info": {
                                 "remote-html": {
-                                    "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/info/contentCoverageSectorDetails_EN.html"
+                                    "EN": "//fenixrepo.fao.org/cdn/fenix/scripts/metadata/conf/html/info/contentCoverageSectorDetails_EN.html"
                                 }
                             }
                         },
@@ -752,7 +752,7 @@
 
                             "info": {
                                 "remote-html": {
-                                    "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/info/contentCoverageGeographic_EN.html"
+                                    "EN": "//fenixrepo.fao.org/cdn/fenix/scripts/metadata/conf/html/info/contentCoverageGeographic_EN.html"
                                 }
                             }
                         }
@@ -871,7 +871,7 @@
             },
             "intro": {
                 "remote-html": {
-                    "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/intro/statisticalProcessing_EN.html"
+                    "EN": "//fenixrepo.fao.org/cdn/fenix/scripts/metadata/conf/html/intro/statisticalProcessing_EN.html"
                 }
             },
             "modules": [
@@ -1163,7 +1163,7 @@
                             },
                             "info": {
                                 "remote-html": {
-                                    "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/info/statisticalProDataCollection_EN.html"
+                                    "EN": "//fenixrepo.fao.org/cdn/fenix/scripts/metadata/conf/html/info/statisticalProDataCollection_EN.html"
                                 }
                             }
                         },
@@ -1269,7 +1269,7 @@
                             },
                             "info": {
                                 "remote-html": {
-                                    "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/info/statisticalProRawDataDesc_EN.html"
+                                    "EN": "//fenixrepo.fao.org/cdn/fenix/scripts/metadata/conf/html/info/statisticalProRawDataDesc_EN.html"
                                 }
                             }
                         }
@@ -1558,7 +1558,7 @@
                     "icon": "fa fa-database fa-lg fa-fw",
                     "info": {
                         "remote-html": {
-                            "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/info/dataQualityAccuracy_EN.html"
+                            "EN": "//fenixrepo.fao.org/cdn/fenix/scripts/metadata/conf/html/info/dataQualityAccuracy_EN.html"
                         }
                     },
                     "properties": {
@@ -1574,7 +1574,7 @@
                             },
                             "info": {
                                 "remote-html": {
-                                    "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/info/dataQualityAccuracyNonSampling_EN.html"
+                                    "EN": "//fenixrepo.fao.org/cdn/fenix/scripts/metadata/conf/html/info/dataQualityAccuracyNonSampling_EN.html"
                                 }
                             }
                         },
@@ -1590,7 +1590,7 @@
                             },
                             "info": {
                                 "remote-html": {
-                                    "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/info/dataQualityAccuracySampling_EN.html"
+                                    "EN": "//fenixrepo.fao.org/cdn/fenix/scripts/metadata/conf/html/info/dataQualityAccuracySampling_EN.html"
                                 }
                             }
                         }
@@ -1636,7 +1636,7 @@
                             },
                             "info": {
                                 "remote-html": {
-                                    "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/info/dataQualityRevisionPractice_EN.html"
+                                    "EN": "//fenixrepo.fao.org/cdn/fenix/scripts/metadata/conf/html/info/dataQualityRevisionPractice_EN.html"
                                 }
                             }
                         }
@@ -1831,7 +1831,7 @@
             },
             "intro": {
                 "remote-html": {
-                    "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/intro/accessibility_EN.html"
+                    "EN": "//fenixrepo.fao.org/cdn/fenix/scripts/metadata/conf/html/intro/accessibility_EN.html"
                 }
             },
             "modules": [
@@ -1842,7 +1842,7 @@
                     },
                     "intro": {
                         "remote-html": {
-                            "EN": "http://fenixapps.fao.org/repository/fenix/scripts/metadata/conf/html/intro/dataDissemination_EN.html"
+                            "EN": "//fenixrepo.fao.org/cdn/fenix/scripts/metadata/conf/html/intro/dataDissemination_EN.html"
                         }
                     },
                     "icon": "fa fa-database fa-lg fa-fw",

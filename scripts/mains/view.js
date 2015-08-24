@@ -9,15 +9,15 @@ requirejs.config({
         "fenix-ui-topmenu" : '../components/fenix-ui-topmenu',
         jquery: "//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min",
         bootstrap : "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min",
-        jqwidgets: "//fenixapps.fao.org/repository/js/jqwidgets/3.1/jqx-all",
+        jqwidgets: "//fenixrepo.fao.org/cdn/js/jqwidgets/3.1/jqx-all",
         highcharts : '//code.highcharts.com/highcharts',
         highstocks : '//code.highcharts.com/stock/highstock',
         "highcharts.export" : '//code.highcharts.com/modules/exporting',
-        i18n : '//fenixapps.fao.org/repository/js/jquery/1.0.9/jquery.i18n.properties-min',
+        i18n : '//fenixrepo.fao.org/cdn/js/jquery/1.0.9/jquery.i18n.properties-min',
 
         //OLAP DEPENDENCIES
 		"pivot": "../../submodules/fenix-ui-olap/pivotNew",        
-		"jquery-i18n": "//fenixapps.fao.org/repository/js/jquery/1.0.9/jquery.i18n.properties-min",
+		"jquery-i18n": "//fenixrepo.fao.org/cdn/js/jquery/1.0.9/jquery.i18n.properties-min",
 		"jquery-ui": "../../submodules/fenix-ui-olap/jquery-ui-1.9.2.custom.min",
 		"jssc3": "../../submodules/fenix-ui-olap/highlight/jssc3",
 		"grid_calendar": "../../submodules/fenix-ui-olap/grid/calendar/calendar",

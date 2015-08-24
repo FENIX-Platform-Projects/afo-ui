@@ -10,28 +10,28 @@ require(["submodules/fenix-ui-menu/js/paths",
 
     Compiler.resolve([menuConfig], {
         placeholders : {
-            FENIX_CDN: "//fenixapps.fao.org/repository"
+            FENIX_CDN: "//fenixrepo.fao.org/cdn"
         },
         config: {
 			paths: {
-				'text': "//fenixapps.fao.org/repository/js/requirejs/plugins/text/2.0.12/text",
-				'i18n': "//fenixapps.fao.org/repository/js/requirejs/plugins/i18n/2.0.4/i18n",
-				'domready': "//fenixapps.fao.org/repository/js/requirejs/plugins/domready/2.0.1/domReady",
+				'text': "//fenixrepo.fao.org/cdn/js/requirejs/plugins/text/2.0.12/text",
+				'i18n': "//fenixrepo.fao.org/cdn/js/requirejs/plugins/i18n/2.0.4/i18n",
+				'domready': "//fenixrepo.fao.org/cdn/js/requirejs/plugins/domready/2.0.1/domReady",
 
-				'amplify' : "//fenixapps.fao.org/repository/js/amplify/1.1.2/amplify.min",
-				'highcharts': "//fenixapps.fao.org/repository/js/highcharts/4.0.4/js/highcharts",
+				'amplify' : "//fenixrepo.fao.org/cdn/js/amplify/1.1.2/amplify.min",
+				'highcharts': "//fenixrepo.fao.org/cdn/js/highcharts/4.0.4/js/highcharts",
 
-				'underscore': "//fenixapps.fao.org/repository/js/underscore/1.7.0/underscore.min",
-				'handlebars': "//fenixapps.fao.org/repository/js/handlebars/2.0.0/handlebars",
+				'underscore': "//fenixrepo.fao.org/cdn/js/underscore/1.7.0/underscore.min",
+				'handlebars': "//fenixrepo.fao.org/cdn/js/handlebars/2.0.0/handlebars",
 
-				'swiper': "//fenixapps.fao.org/repository/js/swiper/2.7.5/dist/idangerous.swiper.min",
-				'bootstrap': "//fenixapps.fao.org/repository/js/bootstrap/3.3.2/js/bootstrap.min",
-				'draggabilly': "//fenixapps.fao.org/repository/js/draggabilly/dist/draggabilly.pkgd.min",
-				'intro': "//fenixapps.fao.org/repository/js/introjs/1.0.0/intro",
-				'isotope': "//fenixapps.fao.org/repository/js/isotope/2.1.0/dist/isotope.pkgd.min",
-				'jquery': "//fenixapps.fao.org/repository/js/jquery/2.1.1/jquery.min",
-				'jqwidgets': "//fenixapps.fao.org/repository/js/jqwidgets/3.1/jqx-light",
-				'jstree': "//fenixapps.fao.org/repository/js/jstree/3.0.8/dist/jstree.min"
+				'swiper': "//fenixrepo.fao.org/cdn/js/swiper/2.7.5/dist/idangerous.swiper.min",
+				'bootstrap': "//fenixrepo.fao.org/cdn/js/bootstrap/3.3.2/js/bootstrap.min",
+				'draggabilly': "//fenixrepo.fao.org/cdn/js/draggabilly/dist/draggabilly.pkgd.min",
+				'intro': "//fenixrepo.fao.org/cdn/js/introjs/1.0.0/intro",
+				'isotope': "//fenixrepo.fao.org/cdn/js/isotope/2.1.0/dist/isotope.pkgd.min",
+				'jquery': "//fenixrepo.fao.org/cdn/js/jquery/2.1.1/jquery.min",
+				'jqwidgets': "//fenixrepo.fao.org/cdn/js/jqwidgets/3.1/jqx-light",
+				'jstree': "//fenixrepo.fao.org/cdn/js/jstree/3.0.8/dist/jstree.min"
 			},
 
 		    shim: {

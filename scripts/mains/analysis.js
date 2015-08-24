@@ -8,7 +8,7 @@ require([
     var override = {
         lib: '../lib',
         "fenix-ui-topmenu": '../components/fenix-ui-topmenu',
-        'jqwidgets': "http://fenixapps.fao.org/repository/js/jqwidgets/3.1/jqx-all",
+        'jqwidgets': "//fenixrepo.fao.org/cdn/js/jqwidgets/3.1/jqx-all",
         'jqueryui': "http://code.jquery.com/ui/1.10.3/jquery-ui.min",
         'jquery': '../../node_modules/jquery/dist/jquery.min',
         'nprogress': '../../node_modules/nprogress/nprogress',

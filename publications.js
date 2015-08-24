@@ -108,8 +108,6 @@ require(["submodules/fenix-ui-menu/js/paths",
 		
 		function getData(sql){getWDS(sql, null, function(json)	{
 			$('#listPubs').empty();
-				
-				console.log(json);
 
 			var idPub = 0;
 

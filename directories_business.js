@@ -58,14 +58,15 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 
     require([
+    'src/renderAuthMenu',
     'business/App',
     'domready!'
-    ], function (App) {
+    ], function (renderAuthMenu, App) {
+
+		renderAuthMenu('directories_business');
+
         var business = new App;
         business.start();
-
-
-		$('.footer').load('html/footer.html');
 
     }); // end of App.start()
 

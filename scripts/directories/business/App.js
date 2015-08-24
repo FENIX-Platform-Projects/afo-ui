@@ -1,20 +1,15 @@
 /*global define*/
 define([
     'underscore',
-    'fx-menu/start',
-    'AuthenticationManager',
     'business/Results',
     'business/Selectors',
     'config/services',
     'amplify'
-], function (_, Menu, AuthenticationManager, Results, Selectors, Config) {
+], function (_, Results, Selectors, Config) {
 
     'use strict';
 
-    var c = {
-        MENU_AUTH: 'config/fenix-ui-menu.json',
-        MENU_PUBLIC: 'config/fenix-ui-menu-auth.json'
-    }, s = {
+    var s = {
         SEARCH_BTN: '#search-btn',
         COURTESY: '#afo-courtesy',
         RESULTS: '#afo-results'
@@ -22,25 +17,16 @@ define([
 
     function App() {
         this.state = {};
-
-        console.log("asdoiujh")
         this.config = Config;
     }
 
     App.prototype.start = function () {
 
-        //check if session is authenticated
-        this.state.authenticated = amplify.store.sessionStorage('afo.security.user') === undefined;
-
-        this._initSecurity();
    //     this._bindEventListeners();
         this._initPageStructure();
     };
 
     App.prototype._initPageStructure = function () {
-
-        //Top menu
-        this._initTopMenu();
 
         //Selectors: map and others
         this.selectors = new Selectors();
@@ -266,42 +252,6 @@ define([
     App.prototype._replace = function (str, data) {
         return str.replace(/\{ *([\w_]+) *\}/g, function (str, key) {
             return data[key] || '';
-        });
-    };
-
-    App.prototype._initSecurity = function () {
-
-        var self = this;
-
-        /*Login*/
-        this.authManager = new AuthenticationManager();
-
-        amplify.subscribe('login', function () {
-            console.warn("Event login intercepted");
-            self.state.authenticated = true;
-            self._initTopMenu()
-        });
-
-        amplify.subscribe('logout', function () {
-            console.warn("Event logout intercepted");
-            self.state.authenticated = true;
-            self._initTopMenu()
-        });
-    };
-
-    App.prototype._initTopMenu = function () {
-
-        //Top Menu
-        this.topMenu = new Menu({
-            active: 'directories_business',
-            url: this.state.authenticated ? c.MENU_AUTH : c.MENU_PUBLIC,
-            className: 'fx-top-menu',
-            template: $('.fx-menu'),
-            breadcrumb: {
-                active: true,
-                container: "#breadcumb_container",
-                showHome: true
-            }
         });
     };
 

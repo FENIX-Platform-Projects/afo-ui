@@ -24,9 +24,10 @@
     <link rel="stylesheet" type="text/css" href="css/host.css">
 
 </head>
+
 <body id="page-directories">
 
-<nav  id="fx-menu-tmpl" class="navbar navbar-default fx-menu navbar-fixed-top" role="navigation">
+<nav id="fx-menu-tmpl" class="navbar navbar-default fx-menu navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#fx-navbar-collapse">
@@ -46,97 +47,91 @@
   </div>
 </nav>
 
+<div class="container"> <!-- main Container -->
+    <div class="row">
+        <div class="col-xs-12 ">
+            <div class="fx-menu-breadcrumb"></div>
+        </div>
+    </div>
+</div>
 
-    <div class="container">
+<div class="container">
 
-        <div class="row">
-            <div class="col-xs-12">
-                <div id="breadcumb_container"></div>
+    <div class="row fx-header">
+        <div class="col-xs-12">
+            <div class="page-header">
+                <h2>Directory Business</h2>
+                <p>A tool to query the inventory of the agro-dealers by location, sector and services. The application returns a list of agro-dealers matching the user’s selection.</p>
             </div>
         </div>
+    </div>
 
-        <div class="row fx-header">
-            <div class="col-xs-12">
-                <div class="page-header">
-	                <h2>Directory Business</h2>
-	                <p>A tool to query the inventory of the agro-dealers by location, sector and services. The application returns a list of agro-dealers matching the user’s selection.</p>
+    <div class="row">
+        <div class="col-xs-12">
+            <h3 class="afo-title">Form control: select</h3>
+            <p>Select a country, a service and a sector:</p>
+
+
+            <form role="form">
+                <div class="form-group col-xs-4">
+                    <label for="dirs_selectCountries">Country:</label>
+                    <select class="form-control" id="dirs_selectCountries">
+                    </select>
                 </div>
-            </div>
+
+            </form>
+
+
+
+            <form role="form">
+                <div class="form-group col-xs-4">
+                    <label for="dirs_selectProducts">Services:</label>
+                    <select class="form-control" id="dirs_selectSector">
+                    </select>
+                </div>
+
+            </form>
+
+            <form role="form">
+                <div class="form-group col-xs-4">
+                    <label for="dirs_selectProducts">Sector:</label>
+                    <select class="form-control" id="dirs_selectProducts">
+                    </select>
+                </div>
+
+            </form>
         </div>
-
-        <div class="row">
-            <div class="col-xs-12">
-                <h3 class="afo-title">Form control: select</h3>
-                <p>Select a country, a service and a sector:</p>
-
-
-                <form role="form">
-                    <div class="form-group col-xs-4">
-                        <label for="dirs_selectCountries">Country:</label>
-                        <select class="form-control" id="dirs_selectCountries">
-                        </select>
-                    </div>
-
-                </form>
-
-
-
-                <form role="form">
-                    <div class="form-group col-xs-4">
-                        <label for="dirs_selectProducts">Services:</label>
-                        <select class="form-control" id="dirs_selectSector">
-                        </select>
-                    </div>
-
-                </form>
-
-                <form role="form">
-                    <div class="form-group col-xs-4">
-                        <label for="dirs_selectProducts">Sector:</label>
-                        <select class="form-control" id="dirs_selectProducts">
-                        </select>
-                    </div>
-
-                </form>
-            </div>
-        </div>
-
-
-        <div class="row ">
-            <div class="col-xs-12 afo-stat-search-holder">
-                <button type="button" class="btn btn-default pull-right" id="search-btn"> Search</button>
-            </div>
-        </div>
-
     </div>
 
-
-    <!-- results -->
-    <div id="afo-results" class="container" >
-
-        <!-- table container-->
-        <div class="row">
-            <div class="col-xs-12">
-                <div id="table-result"></div>
-            </div>
+    <div class="row">
+        <div class="col-xs-12 afo-stat-search-holder">
+            <button type="button" class="btn btn-default pull-right" id="search-btn"> Search</button>
         </div>
-
     </div>
-
-    <div id="afo-courtesy" class="container" style="display: none">
-
-        <div class="row">
-            <div class="col-xs-12">
-                COURTESY Message
-            </div>
-        </div>
-
-    </div>
-
 
 </div>
 
+<!-- results -->
+<div id="afo-results" class="container" >
 
+    <!-- table container-->
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="table-result"></div>
+        </div>
+    </div>
+
+</div>
+
+<div id="afo-courtesy" class="container" style="display: none">
+
+    <div class="row">
+        <div class="col-xs-12">
+            COURTESY Message
+        </div>
+    </div>
+
+</div>
 
 
 <!-- Footer -->
@@ -145,6 +140,7 @@
         <p>AfricaFeritilizer.org - AF Skeleton web application by FENIX</p>
     </div>
 </div>
+
 
 <script data-main="directories_business" src="//fenixrepo.fao.org/cdn/js/requirejs/2.1.8/require.min.js"></script>
 <script src="src/analitycs.js"></script>

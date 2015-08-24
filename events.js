@@ -69,7 +69,7 @@ require(["submodules/fenix-ui-menu/js/paths",
 		'domready!'
 	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,
 		Config,
-		event,
+		tmplEvents,
 		matchingCategory,
 		TopMenu,
 		AuthenticationManager
@@ -86,12 +86,9 @@ require(["submodules/fenix-ui-menu/js/paths",
         });
 
         new AuthenticationManager();
-        amplify.subscribe('login', function (user) {
-            console.warn("Event login intercepted");
-            console.log(amplify.store.sessionStorage('afo.security.user'));
-        });
+        
 
-		eventsTmpl = Handlebars.compile(event);
+		eventsTmpl = Handlebars.compile(tmplEvents);
 
 		Config.url_events_attachments = '//fenixrepo.fao.org/afo/events/attachments/';
 		
@@ -101,14 +98,11 @@ require(["submodules/fenix-ui-menu/js/paths",
 			var sqltmpl, sql;
 
 			if(queryVars) {
-				console.log('un');
 				sqltmpl = _.template(queryTmpl);
 				sql = sqltmpl(queryVars);
 			}
 			else{
-
-				console.log('deux',queryTmpl);
-			sql = queryTmpl;
+				sql = queryTmpl;
 			}
 			var	data = {
 					datasource: Config.dbName,
@@ -135,13 +129,12 @@ require(["submodules/fenix-ui-menu/js/paths",
 
 	//$.getJSON('data/publications.json', function(json) {	
 	
-	function getData(sql){
-		var test=2;
+	function getData(sql) {
+		var test = 2;
+
 		getWDS(sql, null, function(json)	{
 			
 		$('#listPubs').empty();
-			
-		//	console.log('listPubs',json);
 
 		var idPub = 0;
  
@@ -158,46 +151,39 @@ require(["submodules/fenix-ui-menu/js/paths",
 				"venue": pub2[13],
 				"country": pub2[14]
 			};
-			//,"long_description": pub2[6]
-			console.log(matchingCategory);
 
-			if(pub2[4]==pub2[6]){console.log("no long");}
-			else{eve["long_description"]=pub2[6];}
+			if(pub2[4]==pub2[6])
+				console.log("no long");
+			else
+				eve["long_description"] = pub2[6];
 			
 			var nbDoc=pub2[7];
 			attachments={L:[],PR:[],D:[],PI:[]};
-			
 			
 			var EA_type=pub2[8].split('@|');
 			var EA_file_name=pub2[9].split('@|');
 			var EA_attachment_title=pub2[10].split('@|');
 			var EA_attachment_size=pub2[11].split('@|');
 			var EA_attachment_description=pub2[12].split('@|');
-			for (var nd=0;nd<nbDoc;nd++)
+			for (var nd=0; nd<nbDoc; nd++)
 			{
-				
-			attachments[EA_type[nd]].push(
-			{
-				"type":EA_type[nd],
-				"file_name": (EA_type[nd]!=='L'?Config.url_events_attachments:'')+EA_file_name[nd],
-				"attachment_title":EA_attachment_title[nd],
-				"attachment_size":EA_attachment_size[nd],
-				"attachment_description":EA_attachment_description[nd],
-			});}
+				attachments[EA_type[nd]].push({
+					"type":EA_type[nd],
+					"file_name": (EA_type[nd]!=='L'?Config.url_events_attachments:'')+EA_file_name[nd],
+					"attachment_title":EA_attachment_title[nd],
+					"attachment_size":EA_attachment_size[nd],
+					"attachment_description":EA_attachment_description[nd],
+				});
+			}
+			
 			eve.attachments=attachments;
 			
-		/*	pub.DocumentTags = pub.DocumentTags ? pub.DocumentTags.split(', ') : '';*/
 			eve.category = eve.category ? eve.category.split('|') : '';
-			for(var cat in eve.category){
-				eve.category[cat]=matchingCategory[eve.category[cat]];
-				}
-	/*		pub.DocumentType = pub.DocumentType.replace('.','');
-*/
-//console.log(eve);
-			$('#listPubs').append( eventsTmpl(eve) );
-			//alert('ok');
-			//$('#content_'+eve.id).html(eve.description);
+			
+			for(var cat in eve.category)
+				eve.category[cat]= matchingCategory[eve.category[cat]];
 
+			$('#listPubs').append( eventsTmpl(eve) );
 		});		
 	});}
 	
@@ -215,18 +201,15 @@ require(["submodules/fenix-ui-menu/js/paths",
 	});
 	
 	
-	/*getWDS("select * from publications",null,function(data)	{
-	console.log(data);
-	});*/
-	
-	
 	$(".afo-category-list-li").click(function(){
 	$(".afo-category-list-li").removeClass("active");
 	$(".afo-category-list-li").addClass("noactive");
 	//console.log(this.innerHTML)
 	document.getElementById("txtSearch").value="";
 	var tempCategory = $(this).attr('cat');
-	console.log('tempCategory',tempCategory)
+	
+	//console.log('tempCategory',tempCategory)
+
 	if(tempCategory=="All")
 	{
 		getData(Config.queries.events_reformat);

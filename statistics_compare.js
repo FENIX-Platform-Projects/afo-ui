@@ -12,18 +12,21 @@ require([
     Paths.paths.AuthenticationManager = 'scripts/components/AuthenticationManager';
 
     Compiler.resolve([menuConfig], {
-        placeholders : {
+        placeholders: {
             FENIX_CDN: Paths.FENIX_CDN
         },
         config: Paths
     });
 
     require([
-        'compare/App'
-    ], function (App) {
+        'compare/App',
+        'src/renderAuthMenu'
+    ], function (App, renderAuthMenu) {
 
-        var compare = new App();
-        compare.start();
+        renderAuthMenu('statistics_compare');
+
+        var app = new App();
+        app.start();
 
     });
 

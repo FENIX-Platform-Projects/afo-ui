@@ -1,20 +1,15 @@
 /*global define*/
 define([
     'underscore',
-    'fx-menu/start',
-    'AuthenticationManager',
     'glance/Results',
     'glance/Selectors',
     'config/services',
     'amplify'
-], function (_, Menu, AuthenticationManager, Results, Selectors, Config) {
+], function (_, Results, Selectors, Config) {
 
     'use strict';
 
-    var c = {
-        MENU_AUTH: 'config/fenix-ui-menu.json',
-        MENU_PUBLIC: 'config/fenix-ui-menu-auth.json'
-    }, s = {
+    var s = {
         FOOTER: '.footer',
         SEARCH_BTN: '#search-btn',
         COURTESY: '#afo-courtesy',
@@ -29,18 +24,11 @@ define([
 
     App.prototype.start = function () {
 
-        //check if session is authenticated
-        this.state.authenticated = amplify.store.sessionStorage('afo.security.user') === undefined;
-
-        this._initSecurity();
         this._bindEventListeners();
         this._initPageStructure();
     };
 
     App.prototype._initPageStructure = function () {
-
-        //Top menu
-        this._initTopMenu();
 
         //Selectors: map and others
         this.selectors = new Selectors();
@@ -48,8 +36,6 @@ define([
         //Results: table and charts
         this.results = new Results();
 
-        //Footer
-        $(s.FOOTER).load('html/footer.html');
     };
 
     App.prototype._bindEventListeners = function () {
@@ -173,9 +159,6 @@ define([
             PRODUCT: results.PRODUCT[0].code
         });
 
-        //DEGBUG IFA res = "select element_code, element_label, CASE WHEN year is null then '' else cast ( year as character varying) end as year,CASE WHEN nutrient is null then '' else cast ( nutrient as character varying) end  as nutrient,CASE WHEN value is null then '' else cast ( value as character varying) end  as Value,  CASE WHEN um is null then '' else cast ( um as character varying) end  as Unit, '' as Flag  from (     select element, year, value, nutrient, um   from ifa_data   where data_source = 'ifa' and       fertilizer = '2814100000' and       country = '227' and n_p = 'n'       ) c   right join codes_elements on element = element_code   ORDER BY element ASC, year ASC";
-console.log(res);
-
         return res;
     };
 
@@ -219,45 +202,9 @@ console.log(res);
         });
     };
 
-    App.prototype._initSecurity = function () {
-
-        var self = this;
-
-        /*Login*/
-        this.authManager = new AuthenticationManager();
-
-        amplify.subscribe('login', function () {
-            console.warn("Event login intercepted");
-            self.state.authenticated = true;
-            self._initTopMenu()
-        });
-
-        amplify.subscribe('logout', function () {
-            console.warn("Event logout intercepted");
-            self.state.authenticated = true;
-            self._initTopMenu()
-        });
-    };
-
     App.prototype._showCourtesyMessage = function () {
         $(s.COURTESY).show();
         $(s.RESULTS).hide();
-    };
-
-    App.prototype._initTopMenu = function () {
-
-        //Top Menu
-        this.topMenu = new Menu({
-            active: 'statistics_glance',
-            url: this.state.authenticated ? c.MENU_AUTH : c.MENU_PUBLIC,
-            className: 'fx-top-menu',
-            template: $('.fx-menu'),
-            breadcrumb: {
-                active: true,
-                container: "#breadcumb_container",
-                showHome: true
-            }
-        });
     };
 
     return App;

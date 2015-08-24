@@ -3,11 +3,11 @@ require([
     "config/paths",
     "submodules/fenix-ui-menu/js/paths",
     "submodules/fenix-ui-common/js/Compiler"
-], function(Paths, menuConfig,Compiler) {
+], function(Paths, menuConfig, Compiler) {
 
     menuConfig['baseUrl'] = "submodules/fenix-ui-menu/js";
 
-    Paths.paths.glance = 'scripts/statistics/glance';
+    Paths.paths.glance  = 'scripts/statistics/glance';
     Paths.paths.commons = 'scripts/commons';
     Paths.paths.AuthenticationManager = 'scripts/components/AuthenticationManager';
 
@@ -19,11 +19,14 @@ require([
     });
 
     require([
-        'glance/App'
-    ], function (App) {
+        'glance/App',
+        'src/renderAuthMenu'
+    ], function (App, renderAuthMenu) {
 
-        var glance = new App();
-        glance.start();
+        renderAuthMenu('statistics_glance');
+
+        var app = new App();
+        app.start();
 
     });
 

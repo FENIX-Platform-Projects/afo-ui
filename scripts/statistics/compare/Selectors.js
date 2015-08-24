@@ -63,7 +63,8 @@ define([
 				data = _.uniq(data, function(data) {
 					return data.id;
 				});
-                console.log('patch duplicates countries', data);
+                
+                //console.log('patch duplicates countries', data);
 
                 createTree(data);
                 initSearch();

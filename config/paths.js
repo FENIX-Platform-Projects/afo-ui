@@ -34,7 +34,7 @@ define(function() {
             'fenix-map-config':       FX_CDN+"/fenix/fenix-ui-map/0.0.1/fenix-ui-map-config",
             'jquery.power.tip':       FX_CDN+"/js/jquery.power.tip/1.1.0/jquery.powertip.min",
             'jquery-ui':              FX_CDN+"/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min",
-            'jquery.hoverIntent':     FX_CDN+"/js/jquery.hoverIntent/1.0/jquery.hoverInten",
+            'jquery.hoverIntent':     FX_CDN+"/js/jquery.hoverIntent/1.0/jquery.hoverIntent",
             'jquery.i18n.properties': FX_CDN+"/js/jquery/1.0.9/jquery.i18n.properties-min",
             'moment':                 FX_CDN+"/js/moment/2.9.0/moment.min",
 
@@ -75,7 +75,7 @@ define(function() {
                 'leaflet',
                 'jquery',
                 'chosen',
-                //'jquery-ui',
+                'jquery-ui',
                 'jquery.power.tip',
                 'fenix-map-config',
                 'jquery.hoverIntent',

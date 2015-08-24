@@ -25,8 +25,6 @@ require([
 		renderAuthMenu,			
 		table) {
 
-console.log(L)
-
 		renderAuthMenu(true);
 
 		tableTmpl = Handlebars.compile(table);

@@ -55,7 +55,7 @@ define(function() {
             'pivotAggregatorsFuncs':  "submodules/fenix-ui-olap/js/rend/function_aggregators",            
             
             //"pivotConfig":          FX_CDN+"/fenix/fenix-ui-olap/4.0/config/dataConfig1",
-            "pivotConfig":            "config/pivotConfig"
+            "pivotConfig":            "config/pivotConfig",
         },
         shim: {
             'jstree': ['jquery'],

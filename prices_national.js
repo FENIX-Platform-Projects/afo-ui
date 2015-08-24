@@ -1,134 +1,43 @@
-/*global require*/
-require(["submodules/fenix-ui-menu/js/paths",
-		 "submodules/fenix-ui-common/js/Compiler"
-		 ], function(menuConfig, Compiler) {
-    
+
+require([
+    "config/paths",
+    "submodules/fenix-ui-menu/js/paths",
+    "submodules/fenix-ui-common/js/Compiler"    
+], function(Paths, menuConfig, Compiler) {
+
     menuConfig['baseUrl'] = "submodules/fenix-ui-menu/js";
 
     Compiler.resolve([menuConfig], {
-        placeholders: {
-            FENIX_CDN: "//fenixrepo.fao.org/cdn"
+        placeholders : {
+            FENIX_CDN: Paths.FENIX_CDN
         },
-        config: {
-			paths: {
-				'text': "//fenixrepo.fao.org/cdn/js/requirejs/plugins/text/2.0.12/text",
-				'i18n': "//fenixrepo.fao.org/cdn/js/requirejs/plugins/i18n/2.0.4/i18n",
-				'domready': "//fenixrepo.fao.org/cdn/js/requirejs/plugins/domready/2.0.1/domReady",
-
-				'amplify' : "//fenixrepo.fao.org/cdn/js/amplify/1.1.2/amplify.min",
-				'highcharts': "//fenixrepo.fao.org/cdn/js/highcharts/4.0.4/js/highcharts",
-
-				'underscore': "//fenixrepo.fao.org/cdn/js/underscore/1.7.0/underscore.min",
-				'handlebars': "//fenixrepo.fao.org/cdn/js/handlebars/2.0.0/handlebars",
-
-				'swiper': "//fenixrepo.fao.org/cdn/js/swiper/2.7.5/dist/idangerous.swiper.min",
-				'bootstrap': "//fenixrepo.fao.org/cdn/js/bootstrap/3.3.2/js/bootstrap.min",
-				'draggabilly': "//fenixrepo.fao.org/cdn/js/draggabilly/dist/draggabilly.pkgd.min",
-				'intro': "//fenixrepo.fao.org/cdn/js/introjs/1.0.0/intro",
-				'isotope': "//fenixrepo.fao.org/cdn/js/isotope/2.1.0/dist/isotope.pkgd.min",
-				'jquery': "//fenixrepo.fao.org/cdn/js/jquery/2.1.1/jquery.min",
-				'jqwidgets': "//fenixrepo.fao.org/cdn/js/jqwidgets/3.1/jqx-light",
-				'jstree': "//fenixrepo.fao.org/cdn/js/jstree/3.0.8/dist/jstree.min",
-
-
-				'jquery-ui': "//fenixrepo.fao.org/cdn/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min",
-				'jquery.hoverIntent': "//fenixrepo.fao.org/cdn/js/jquery.hoverIntent/1.0/jquery.hoverIntent",
-				'jquery.i18n.properties': "//fenixrepo.fao.org/cdn/js/jquery/1.0.9/jquery.i18n.properties-min",
-
-				'jquery.rangeSlider': '//fenixrepo.fao.org/cdn/js/jquery.rangeslider/5.7.0/jQDateRangeSlider-min',
-				'moment':             '//fenixrepo.fao.org/cdn/js/moment/2.9.0/moment.min',
-				
-				//OLAP
-				 //'fx-pivot/start':         "submodules/fenix-ui-olap/js/pivot",
-				'fx-olap/nls':           "submodules/fenix-ui-olap/nls",
-
-				'pivot': 'submodules/fenix-ui-olap/js/pivot',
-				//'countriesAgg': '//faostat3.fao.org/faostat-download-js/pivotAgg/countriesAgg',
-				'olap-config': 'prices/configuration',
-				'gt_msg': "submodules/fenix-ui-olap/lib/grid/gt_msg_en",
-				//'gt_const': 'submodules/fenix-ui-olap/grid/gt_const',
-				'gt_msg_grid': 'submodules/fenix-ui-olap/lib/grid/gt_grid_all',
-				//'fusionchart': 'submodules/fenix-ui-olap/lib/grid/flashchart/fusioncharts/FusionCharts'
-				
-				'pivotRenderers':         "submodules/fenix-ui-olap/js/rend/rendererers",
-				'pivotAggregators':       "submodules/fenix-ui-olap/js/rend/aggregators",
-				'pivotRenderersFuncs':    "submodules/fenix-ui-olap/js/rend/function_rendererers",
-				'pivotAggregatorsFuncs':  "submodules/fenix-ui-olap/js/rend/function_aggregators",
-
-
-				//"pivotConfig":            FX_CDN+"/fenix/fenix-ui-olap/4.0/config/dataConfig1",
-				"pivotConfig":            "config/pivotConfig"
-
-				
-			},
-
-		    shim: {
-		        'bootstrap': ['jquery'],
-		        'chosen': ['jquery'],
-		        'highcharts': ['jquery'],
-		        'jstree': ['jquery'],
-		        'jquery-ui': ['jquery'],
-		        'jquery.power.tip': ['jquery'],
-		        'jquery.i18n.properties': ['jquery'],
-		        'jquery.hoverIntent': ['jquery'],
-				'jquery.rangeSlider': ['jquery', 'jquery-ui'],
-		        'underscore': {
-		            exports: '_'
-		        },
-                'amplify': {
-                    deps: ['jquery'],
-                    exports: 'amplifyjs'
-                },
-				'pivot': [
-					'jquery',
-					'jquery-ui',
-					'jquery.i18n.properties',
-					//'countriesAgg',
-					'olap-config',
-					'gt_msg',
-					//'gtgetWDS_const',
-					'gt_msg_grid',
-					//'fusionchart'
-				],
-				  "gt_msg": ['jquery'],
-            "gt_msg_grid": ['jquery','gt_msg'],
-            "HPivot": ['jquery','jqueryui'],            
-            "pivotRenderers": ['pivotRenderersFuncs'],  
-            "pivotAggregators": ['pivotAggregatorsFuncs','jquery']   
-		    }
-		}
+        config: Paths
     });
 
-	//LOAD MENU BEFORE ALL
-	require(['src/renderAuthMenu'], function(renderAuthMenu) {
+	require([
+	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars','moment','jquery.rangeSlider',
+	    'config/services',
+	    'src/renderAuthMenu',
 
-		renderAuthMenu('prices_national');
+		'pivot',
+		'pivotConfig',
+		'pivotRenderers',
+		'pivotAggregators'
+	], function($,_,bts,highcharts,jstree,Handlebars,moment,rangeSlider,
+		Config,
+		renderAuthMenu,
 
-		require([
-		    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'moment',
-	 		'jquery.rangeSlider',
-		    'config/services',
+		Pivot,
+		PivotConfig,
+		pivotRenderers,
+		pivotAggregators
+		) {
 
-		    'text!html/publication.html',
-			'pivot',
-			 'pivotConfig',
-    'pivotRenderers',
-    'pivotAggregators'
-		], function($,_,bts,highcharts,jstree,Handlebars,Swiper,moment,
-			rangeSlider,
-			Config,
-			publication,
-			Pivot,
-			PivotConfig,
-			pivotRenderers,
-			pivotAggregators
-			) {
+			renderAuthMenu(true);
 
 	        var minDate, maxDate;
 
 	        /* ================================== PAGE */
-
-			$('.footer').load('html/footer.html');
 
 	        //Search button
 	        $('#search-btn').on('click', function () {
@@ -516,5 +425,4 @@ require(["submodules/fenix-ui-menu/js/paths",
 	        }
 
 	    });
-    });
 });

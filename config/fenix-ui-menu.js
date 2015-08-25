@@ -172,7 +172,7 @@ define({
 					"class": "afo-eldorado-icons"
 				},
 				"label": {
-					"EN": "LOGIN <span class='icojam_user'></span>",
+					"EN": "<span class='icojam_user'></span>",
 					"FR": ""
 				}
 			},
@@ -182,7 +182,7 @@ define({
 					"class": "afo-eldorado-icons"
 				},
 				"label": {
-					"EN": "LOGOUT <span class='icojam_user'></span>",
+					"EN": "<span class='icojam_user'></span>",
 					"FR": ""
 				}
 			}			

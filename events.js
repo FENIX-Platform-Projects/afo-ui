@@ -20,19 +20,23 @@ require([
 	    'src/renderAuthMenu',
 
 		'text!html/events.html',
-		'config/event_category',
 
         'amplify'
 	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,
 		Config,
 		renderAuthMenu,
 
-		tmplEvents,
-		matchingCategory
+		tmplEvents
 		) {
 
         renderAuthMenu(true);
         
+        var eventCategories = {
+			"1":"AFO technical workshops",
+			"2":"AFO conferences &amp; events",
+			"3":"AFO partners events",
+			"4":"AFO partners corner"
+		};
 
 		eventsTmpl = Handlebars.compile(tmplEvents);
 
@@ -127,7 +131,7 @@ require([
 			eve.category = eve.category ? eve.category.split('|') : '';
 			
 			for(var cat in eve.category)
-				eve.category[cat]= matchingCategory[eve.category[cat]];
+				eve.category[cat]= eventCategories[ eve.category[cat] ];
 
 			$('#listPubs').append( eventsTmpl(eve) );
 		});		

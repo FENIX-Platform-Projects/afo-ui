@@ -185,7 +185,44 @@
 </div>
 
 <!-- Javascript-->
-<script data-main="statistics_compare" src="//fenixrepo.fao.org/cdn/js/requirejs/2.1.8/require.min.js"></script>
+<script src="//fenixrepo.fao.org/cdn/js/requirejs/2.1.8/require.min.js"></script>
+<script type="text/javascript">
+    
+require([
+    "config/paths",
+    "submodules/fenix-ui-menu/js/paths",
+    "submodules/fenix-ui-common/js/Compiler"    
+], function(Paths, menuConfig, Compiler) {
+
+    menuConfig['baseUrl'] = "submodules/fenix-ui-menu/js";
+
+    Paths.paths.compare = 'scripts/statistics/compare';
+    Paths.paths.commons = 'scripts/commons';
+    Paths.paths.AuthenticationManager = 'scripts/components/AuthenticationManager';
+
+    Compiler.resolve([menuConfig], {
+        placeholders: {
+            FENIX_CDN: Paths.FENIX_CDN
+        },
+        config: Paths
+    });
+
+    require([
+        'compare/App',
+        'src/renderAuthMenu'
+    ], function (App, renderAuthMenu) {
+
+        renderAuthMenu(true);
+
+        var app = new App();
+        app.start();
+
+    });
+
+});
+
+
+</script>
 <script src="src/analitycs.js"></script>
 </body>
 </html>

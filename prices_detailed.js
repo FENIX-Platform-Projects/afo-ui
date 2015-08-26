@@ -18,15 +18,14 @@ require([
 	    'jquery','underscore','bootstrap','jstree','handlebars','leaflet','leaflet-markercluster','jquery.rangeSlider','moment',
 	    'config/services',
 	    'src/renderAuthMenu',
-	    'text!html/table.html',
+	    'scripts/prices/local/results'
 	],function($,_,bts,jstree,Handlebars,L,LeafletMarkecluster,rangeSlider,moment,
 		Config,
-		renderAuthMenu,			
-		table) {
+		renderAuthMenu,
+		resultsTable
+	) {
 
 		renderAuthMenu(true);
-
-		tableTmpl = Handlebars.compile(table);
 
 		var resumeTmpl = Handlebars.compile('<ul id="afo-resume">{{#each items}}<li><span>{{label}} </span><b>{{value}}</b></li>{{/each}}</ul>');
 	
@@ -137,30 +136,12 @@ require([
 
 				map.fitBounds( layerRetail.getBounds().pad(-1.2) );
 
-				loadGrid(Selection);
+				resultsTable(Selection, $('#table-result') );
+				//RENDER Table or Olap
+
 				updateResume(Selection);
 			});
-		}
-
-		function loadGrid(Selection) {
-
-			getWDS(Config.queries.prices_detailed_local_grid, Selection, function(data) {
-
-
-				for(var i in data) {
-					data[i][1] = data[i][1].replace('[Town]','');
-					data[i][2] += ' USD/tons';
-					data[i][4] = formatMonth(data[i][4]);
-				}
-				
-				var table$ = $('#table-result').empty();
-				if(data && data.length>0)
-					table$.append( tableTmpl({
-						headers: ['Country', 'Market', 'Price', 'Type', 'Date'],
-						rows: data
-					}) );
-			});
-		}		
+		}	
 
 /*			rangeMonths$.dateRangeSlider();
 		rangeMonths$.dateRangeSlider("option","bounds", {

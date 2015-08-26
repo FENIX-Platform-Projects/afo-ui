@@ -75,10 +75,10 @@ define([
 			}
 			
 			var $table = $target.empty();
-			console.log(data);
+			
 			if(data && data.length>0){
 			$target.attr("class","fx-olap-holder");
-			$target.css("height","500px")
+			$target.css("height","500px");
 			/*
 			$table.append( tableTmpl({
 					headers: ['Country', 'Market', 'Price', 'Type', 'Date'],

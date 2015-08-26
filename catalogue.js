@@ -18,6 +18,8 @@ require([
 	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet',
 	    'config/services',
 	    'src/renderAuthMenu',
+
+	    'fx-common/js/WDSClient',
 	    
 		'text!html/accordion.html',
 
@@ -27,13 +29,15 @@ require([
 
 		Config,
 		renderAuthMenu,
+		WDSClient,
+
 		accordion) {
 
 		renderAuthMenu(true);
 
 		accordionTmpl = Handlebars.compile(accordion);
 
-		function getWDS(queryTmpl, queryVars, callback) {
+/*		function getWDS(queryTmpl, queryVars, callback) {
 
 			var sqltmpl, sql;
 
@@ -62,8 +66,26 @@ require([
 				dataType: 'JSON',
 				success: callback
 			});
-		}
+		}*/
 
+var wdsClient = new WDSClient({
+	datasource: Config.dbName,
+	collection: Config.dbCollectionData,
+	outputType: 'array'
+});
+
+function getWDS(queryTmpl, queryVars, callback) {
+
+	return wdsClient.retrieve({
+		payload: {
+			query: queryTmpl,
+			queryVars: queryVars
+		},
+		success: function(data) {
+			callback(data);
+		}
+	});	
+}
 		_.extend(FMCONFIG, {
 			BASEURL: 'submodules/fenix-ui-map',
 			BASEURL_LANG: 'submodules/fenix-ui-map/dist/i18n/'
@@ -72,7 +94,6 @@ require([
 		function initListFamilies(fmLayer) {
 
 			getWDS(Config.queries.fertilizers_tree, null, function(data) {
-
 				var dataTree = [],
 					lastCatCode = '';
 

@@ -41,7 +41,9 @@ define(function() {
             'jquery.rangeSlider':     FX_CDN+"/js/jquery.rangeslider/5.7.0/jQDateRangeSlider-min",
             'moment':                 FX_CDN+"/js/moment/2.9.0/moment.min",
 
-            'fx-pivot/start':         "submodules/fenix-ui-olap/js/pivot",
+            'fx-common':              "submodules/fenix-ui-common",
+            'fx-common/config/auth_users' : "config/auth_users.json",
+
             'fx-olap/nls':            "submodules/fenix-ui-olap/nls",
 
             'pivot':                  "submodules/fenix-ui-olap/js/pivot",

@@ -60,7 +60,7 @@ define({
         "countries_byregion": "SELECT country_code, country_label FROM codes_countries WHERE parent_code = <%= id %> ",
         "countries_geojson": "SELECT ST_AsGeoJSON(geom), adm0_code, areanamee FROM spatial.gaul0_faostat_afo_4326 WHERE adm0_code IN ( <%= ids %> ) ",
         "countries_groups": "SELECT country, name FROM countries WHERE value = 1 AND name IN ( <%= ids %> ) ",
-        "countries_byfertilizers": "select country_code, string_agg(fertilizer_label,'|') from fertilizers_country join codes_fertilizers on (codes_fertilizers.fertilizer_code = fertilizers_country.fertilizer_code) where fertilizers_country.fertilizer_code in ( <%= ids %> ) group by country_code",
+        "countries_byfertilizers": "select country_code, string_agg(fertilizer_label,'|') from fertilizers_country join codes_fertilizers on (codes_fertilizers.fertilizer_code = fertilizers_country.fertilizer_code) where fertilizers_country.fertilizer_code in ( {ids} ) group by country_code",
 
       "data_sources": "select * from codes_data_sources "+
                       "where data_source_code <> 'ifa' AND "+

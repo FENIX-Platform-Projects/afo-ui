@@ -15,12 +15,11 @@ require([
     });
 
 	require([
-	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet', 'leaflet-markercluster','moment',
+	    'jquery','underscore','bootstrap','jstree','handlebars','leaflet','leaflet-markercluster','jquery.rangeSlider','moment',
 	    'config/services',
 	    'src/renderAuthMenu',
 	    'text!html/table.html',
-        'jquery.rangeSlider',
-	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L,LeafletMarkecluster,moment,
+	],function($,_,bts,jstree,Handlebars,L,LeafletMarkecluster,rangeSlider,moment,
 		Config,
 		renderAuthMenu,			
 		table) {

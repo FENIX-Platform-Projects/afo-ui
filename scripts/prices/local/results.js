@@ -46,7 +46,17 @@ define([
 
 	return function(Selection, $target) {
 
-		getWDS(Config.queries.prices_detailed_local_grid, Selection, function(data) {
+//DEBUG
+    	Selection = {
+    	    fertilizer_code: '3102100000',
+    	    country_code: '270',
+    	    month_from_yyyymm: '201203',
+    	    month_to_yyyymm: '201501'
+    	};
+            
+        var sql = "select DISTINCT country_label, market, price, type, month from (select market, country, round(cast(avg(unit_price_usd) AS numeric), 2) as price, type, month from prices_local where fertilizer = cast(<%= fertilizer_code %> AS varchar) and month between <%= month_from_yyyymm %> and <%= month_to_yyyymm %> group by market, country, month, type) data join codes_countries on (country = country_code) order by month,country_label,market asc";
+
+		getWDS(sql, Selection, function(data) {
 
 			for(var i in data) {
 				data[i][1] = data[i][1].replace('[Town]','');

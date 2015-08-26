@@ -2,9 +2,19 @@ define([
 	'jquery','underscore','bootstrap','handlebars',
 	'config/services',
 	'text!html/table.html',
+	
+	'pivot',
+		'pivotConfig',
+		'pivotRenderers',
+		'pivotAggregators'
+	
 	], function($,_,bts,Handlebars,
 		Config,
-		table
+		table,
+		Pivot,
+		PivotConfig,
+		pivotRenderers,
+		pivotAggregators
 	) {
 
 	var tableTmpl = Handlebars.compile(table);
@@ -65,11 +75,41 @@ define([
 			}
 			
 			var $table = $target.empty();
-			if(data && data.length>0)
-				$table.append( tableTmpl({
+			console.log(data);
+			if(data && data.length>0){
+			$target.attr("class","fx-olap-holder");
+			$target.css("height","500px")
+			/*
+			$table.append( tableTmpl({
 					headers: ['Country', 'Market', 'Price', 'Type', 'Date'],
 					rows: data
 				}) );
+			*/
+			
+			data = [['Country', 'Market', 'Price', 'Type', 'Date']].concat(data);
+
+			var pp1=new Pivot();
+			
+			pp1.render($target.attr('id'), data,{
+						derivedAttributes: {
+							"Value": function(mp){
+							
+							return mp["Price"].split(" ")[0];
+								
+							},
+							"Unit":function(mp){return mp["Price"].split(" ")[1];}
+						},
+						rows: ["Country", "Market", "Type","Unit"],
+						cols: ["Date"],
+						vals: ["Value"],
+						hiddenAttributes:["Price","Value"],
+						linkedAttributes:[],
+						 rendererDisplay: pivotRenderers,
+						aggregatorDisplay: pivotAggregators
+					});
+				
+				
+				}
 		});
 	};
 });

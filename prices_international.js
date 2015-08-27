@@ -15,51 +15,27 @@ require([
     });
 
 	require([
-	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet', 'leaflet-markercluster','moment',
+	    'jquery', 'underscore', 'bootstrap', 'handlebars',
 	    'config/services',
 	    'src/renderAuthMenu',
+	    'fx-common/js/WDSClient',
 	    'text!html/table.html',
         'jquery.rangeSlider',
-	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L,LeafletMarkecluster,moment,
+	], function($,_,bts,Handlebars,
 		Config,
 		renderAuthMenu,
-		table) {
+		WDSClient,
+		table
+	) {
 
 		renderAuthMenu(true);
 
+		var wdsClient = new WDSClient({
+			datasource: Config.dbName,
+			outputType: 'array'
+		});
 
 		tableTmpl = Handlebars.compile(table);
-
-		function getWDS(queryTmpl, queryVars, callback) {
-
-			var sqltmpl, sql;
-
-			if(queryVars) {
-				sqltmpl = _.template(queryTmpl);
-				sql = sqltmpl(queryVars);
-			}
-			else
-				sql = queryTmpl;
-
-			var	data = {
-					datasource: Config.dbName,
-					thousandSeparator: ',',
-					decimalSeparator: '.',
-					decimalNumbers: 2,
-					cssFilename: '',
-					nowrap: false,
-					valuesIndex: 0,
-					json: JSON.stringify({query: sql})
-				};
-
-			$.ajax({
-				url: Config.wdsUrl,
-				data: data,
-				type: 'POST',
-				dataType: 'JSON',
-				success: callback
-			});
-		}
 
 		function formatMonth(date, str) {
 			var year = date.slice(0,4),
@@ -72,41 +48,42 @@ require([
 
 			return [year, '/', month].join('');
 		}
-        //JQUERY range slider
-        $(".afo-range").dateRangeSlider();
 
-		var table$ = $('#prices_international_grid'),
-			chart$ = $('#prices_international_chart');
+		var chart$ = $('#prices_international_chart'),
+			table$ = $('#prices_international_grid');
 
-//CHART IMAGE
-
-		chart$.attr({src: 'images/prices_international_chart_july2015.png'});
+		chart$.attr({src: Config.prices_international_chart});
 
 		table$.html('<big class="text-center">Loading data...<br /><br /></big>');
-		getWDS(Config.queries.prices_international, null, function(data) {
+		
+		wdsClient.retrieve({
+			payload: {
+				query: Config.queries.prices_international
+			},
+			success: function(data) {
 
-			var cols = data[0][2].split('|'),
-				year = cols.pop(),
-				month = cols.pop(),
-				months = _.map(cols, function(val) {
-					return formatMonth(val,true);
-				});
+				var cols = data[0][2].split('|'),
+					year = cols.pop(),
+					month = cols.pop(),
+					months = _.map(cols, function(val) {
+						return formatMonth(val,true);
+					});
 
-			$('#market_date').text(_.last(months));
+				$('#market_date').text(_.last(months));
 
-			var	headers = _.union(['Nutrient','Fertilizer'], months, [month, year]),
-				rows = _.map(data, function(val) {
-					var vv = val[3].split('|');
-					vv[vv.length-1] += '%';
-					vv[vv.length-2] += '%';
-					return [val[0], val[1]].concat( vv );
-				});
+				var	headers = _.union(['Nutrient','Fertilizer'], months, [month, year]),
+					rows = _.map(data, function(val) {
+						var vv = val[3].split('|');
+						vv[vv.length-1] += '%';
+						vv[vv.length-2] += '%';
+						return [val[0], val[1]].concat( vv );
+					});
 
-			table$.html( tableTmpl({
-				headers: headers,
-				rows: rows
-			}) );
-
+				table$.html( tableTmpl({
+					headers: headers,
+					rows: rows
+				}) );
+			}
 		});
 	});
 });

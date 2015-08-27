@@ -23,6 +23,8 @@ define({
   "url_events_attachments": "//fenixrepo.fao.org/afo/events/attachments/",
   
   "map_attribution": "&copy; <a href='http://www.openstreetmap.org/copyright'>OSM contrib</a>",
+  
+  "prices_international_chart": "images/prices_international_chart_july2015.png",
 
   "dateRangeSlider": {
     "prices_national": {

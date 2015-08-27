@@ -36,9 +36,6 @@ require([
 
 		publicationTmpl = Handlebars.compile(tmplPublication);
 
-
-		//$.getJSON('data/publications.json', function(json) {	
-		
 		function getData(sql) {
 
 			wdsClient.retrieve({
@@ -87,7 +84,6 @@ require([
 		getData(Config.queries.pubs_reformat);
 
 		Config.queries.pubs_reformat2 = Config.queries.pubs_reformat;
-
 
 		$("#txtSearch").on("input", function() {
 			$(".afo-category-list-li").removeClass("active");

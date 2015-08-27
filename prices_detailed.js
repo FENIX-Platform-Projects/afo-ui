@@ -17,14 +17,21 @@ require([
 	    'jquery', 'underscore', 'bootstrap', 'jstree', 'handlebars', 'leaflet', 'leaflet-markercluster', 'jquery.rangeSlider', 'moment',
 	    'config/services',
 	    'src/renderAuthMenu',
+        'fx-common/js/WDSClient',
         'scripts/prices/local/results'
     ], function ($, _, bts, jstree, Handlebars, L, LeafletMarkecluster, rangeslider, moment,
 		Config,
 		renderAuthMenu,
+        WDSClient,
         resultsTable
         ) {
 
         renderAuthMenu(true);
+        
+        var wdsClient = new WDSClient({
+            datasource: Config.dbName,
+            outputType: 'array'
+        });
 
         var resumeTmpl = Handlebars.compile('<ul id="afo-resume">{{#each items}}<li><span>{{label}} </span><b>{{value}}</b></li>{{/each}}</ul>');
 
@@ -38,37 +45,6 @@ require([
         	    month_from_yyyymm: '201003',
         	    month_to_yyyymm: '201501'
         	};
-
-        function getWDS(queryTmpl, queryVars, callback) {
-
-            var sqltmpl, sql;
-
-            if (queryVars) {
-                sqltmpl = _.template(queryTmpl);
-                sql = sqltmpl(queryVars);
-            }
-            else
-                sql = queryTmpl;
-
-            var data = {
-                datasource: Config.dbName,
-                thousandSeparator: ',',
-                decimalSeparator: '.',
-                decimalNumbers: 2,
-                cssFilename: '',
-                nowrap: false,
-                valuesIndex: 0,
-                json: JSON.stringify({ query: sql })
-            };
-
-            $.ajax({
-                url: Config.wdsUrl,
-                data: data,
-                type: 'POST',
-                dataType: 'JSON',
-                success: callback
-            });
-        }
 
         function formatMonth(date) {
             return [date.slice(0, 4), '/', date.slice(4)].join('')
@@ -144,37 +120,43 @@ require([
 
         function loadMarkers(Selection) {
 
-            getWDS(Config.queries.prices_detailed_local_geofilter, Selection, function (data) {
+            wdsClient.retrieve({
+                payload: {
+                    query: Config.queries.prices_detailed_local_geofilter,
+                    queryVars: Selection
+                },
+                success: function(data) {                
 
-                layerRetail.clearLayers();
+                    layerRetail.clearLayers();
 
-                var popupTmpl = "<div class='fm-popup'>" +
-									"<div class='fm-popup-join-title'><b>{title}</b></div>" +
-									"<div class='fm-popup-join-content'>" +
-										"<i>product name:</i> {fert}<br />" +
-										"<i>average price:</i> {val}" +
-									"</div>" +
-									"</div>";
+                    var popupTmpl = "<div class='fm-popup'>" +
+    									"<div class='fm-popup-join-title'><b>{title}</b></div>" +
+    									"<div class='fm-popup-join-content'>" +
+    										"<i>product name:</i> {fert}<br />" +
+    										"<i>average price:</i> {val}" +
+    									"</div>" +
+    									"</div>";
 
-                for (var i in data) {
+                    for (var i in data) {
 
-                    data[i][0] = data[i][0].replace('[Town]', '');
-                    data[i][1] = data[i][1].split('|');
-                    data[i][2] += ' USD/tons';
+                        data[i][0] = data[i][0].replace('[Town]', '');
+                        data[i][1] = data[i][1].split('|');
+                        data[i][2] += ' USD/tons';
 
-                    L.marker(data[i][1])
-						.bindPopup(L.Util.template(popupTmpl, {
-						    title: data[i][0],
-						    fert: $("#prices_selectProduct option:selected").text(),
-						    val: data[i][2]
-						}))
-						.addTo(layerRetail);
+                        L.marker(data[i][1])
+    						.bindPopup(L.Util.template(popupTmpl, {
+    						    title: data[i][0],
+    						    fert: $("#prices_selectProduct option:selected").text(),
+    						    val: data[i][2]
+    						}))
+    						.addTo(layerRetail);
+                    }
+
+                    map.fitBounds(layerRetail.getBounds().pad(-1.2));
+
+                    resultsTable(Selection, $('#table-result'));
+                    updateResume(Selection);
                 }
-
-                map.fitBounds(layerRetail.getBounds().pad(-1.2));
-
-                resultsTable(Selection, $('#table-result'));
-                updateResume(Selection);
             });
         }
 
@@ -229,18 +211,26 @@ require([
             loadMarkers(getSelection());
         });
 
-        getWDS(Config.queries.prices_detailed_products, null, function (products) {
-            for (var r in products)
-                listProducts$.append('<option value="' + products[r][0] + '">' + products[r][1] + '</option>');
+        wdsClient.retrieve({
+            payload: {
+                query: Config.queries.prices_detailed_products
+            },
+            success: function(data) {      
+                for(var r in data)
+                    listProducts$.append('<option value="' + data[r][0] + '">' + data[r][1] + '</option>');
+            }
         });
-        getWDS(Config.queries.countries, null, function (countries) {
-            /*for (var r in countries)
-                listCountries$.append('<option value="' + countries[r][0] + '">' + countries[r][1] + '</option>');*/
 
-            var treeData = [];
-            for (var r in countries)
-                treeData.push({ id: countries[r][0], text: countries[r][1], state: { selected: true } });
-            createTree($('#country-s'), treeData);
+        wdsClient.retrieve({
+            payload: {
+                query: Config.queries.countries
+            },
+            success: function(data) {   
+                var treeData = [];
+                for (var r in data)
+                    treeData.push({ id: data[r][0], text: data[r][1], state: { selected: true } });
+                createTree( $('#country-s'), treeData);
+            }
         });
 
         $('#price_table_download').on('click', function (e) {

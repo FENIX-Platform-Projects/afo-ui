@@ -45,7 +45,7 @@ define({
   },
 
   "queries": {
-      "home_maps_filter": "select country_code, coalesce(<%= field %>, -1) from afo_map_slider",
+      "home_maps_filter": "select country_code, coalesce( {field} , -1) from afo_map_slider",
 
         "fertilizers_tree": "select fertilizer_category_code, fertilizer_code, fertilizer_category_label, fertilizer_label from fertilizers_category join codes_fertilizers on (fertilizer = fertilizer_code) join codes_fertilizers_categories on (fertilizer_category = fertilizer_category_code) order by fertilizer_label",
         "fertilizers_country": "select distinct country_code from fertilizers_country where fertilizer_code in ( <%= ids %> )",

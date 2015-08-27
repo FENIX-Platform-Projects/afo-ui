@@ -17,18 +17,20 @@ require([
 	require([
 	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars', 'swiper', 'leaflet',
 	    'config/services',
-	    'src/renderAuthMenu'
-
+	    'src/renderAuthMenu',
+		'fx-common/js/WDSClient'
 	], function($,_,bts,highcharts,jstree,Handlebars,Swiper,L,
 
 		Config,
-		renderAuthMenu) {
+		renderAuthMenu,
+		WDSClient
+	) {
 
 		renderAuthMenu('home');
 
 		var mapLegendTmpl = Handlebars.compile( $('#home_maps_legend').html() );
 
-		function getWDS(queryTmpl, queryVars, callback) {
+/*		function getWDS(queryTmpl, queryVars, callback) {
 
 			var sqltmpl, sql;
 
@@ -57,7 +59,13 @@ require([
 				dataType: 'JSON',
 				success: callback
 			});
-		}
+		}*/
+
+		var wdsClient = new WDSClient({
+			datasource: Config.dbName,
+			collection: Config.dbCollectionData,
+			outputType: 'array'
+		});
 
         //HIGLIGHTS SLIDER
 		var swiperHigh = $('#afo-high-wrapper').swiper({
@@ -159,16 +167,21 @@ require([
 				format: 'image/png',
 				transparent: true
 			});
+		
+			wdsClient.retrieve({
+				payload: {
+					query: Config.queries.home_maps_filter,
+					queryVars: {field: field }
+				},
+				success: function(data) {
+					var ccodes = {}, val;
 
-			getWDS(Config.queries.home_maps_filter, {field: field }, function(resp) {
+					for(var i in data)
+						ccodes[ data[i][0] ] = data[i][1];
 
-				var ccodes = {}, val;
-
-				for(var i in resp)
-					ccodes[ resp[i][0] ] = resp[i][1];
-
-				countriesLayer.wmsParams.sld = setLayerStyle(ccodes, indexMap);
-				countriesLayer.redraw();
+					countriesLayer.wmsParams.sld = setLayerStyle(ccodes, indexMap);
+					countriesLayer.redraw();
+				}
 			});
 
 			return countriesLayer;

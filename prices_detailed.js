@@ -158,34 +158,9 @@ require([
             });
         }
 
-        /*			rangeMonths$.dateRangeSlider();
-                rangeMonths$.dateRangeSlider("option","bounds", {
-                    min: new Date(2010, 2, 0),
-                    max: new Date(2015, 4, 0)
-                });*/
-
         rangeMonths$.dateRangeSlider(Config.dateRangeSlider.prices_detaild);
 
         rangeMonths$.on('valuesChanged', function (e, data) {
-
-            /*var values = data.values,
-
-				minD = new Date(values.min),
-				maxD = new Date(values.max),
-
-				minM = minD.getMonth() + 1,
-				maxM = maxD.getMonth() + 1;
-
-            var minDate = "" + minD.getFullYear() + (minM < 10 ? '0' + minM : minM),
-				maxDate = "" + maxD.getFullYear() + (maxM < 10 ? '0' + maxM : maxM);
-
-            Selection = {
-                fertilizer_code: $("#prices_selectProduct").val(),
-                country_code: listCountries$.val(),
-                month_from_yyyymm: minDate,
-                month_to_yyyymm: maxDate
-            };
-            loadMarkers(Selection);*/
             loadMarkers(getSelection());
         });
 
@@ -198,14 +173,10 @@ require([
         });
 
         $(listProducts$).on('change', function (e) {
-            /*Selection.fertilizer_code = $(e.target).val();
-            loadMarkers(Selection);*/
             loadMarkers(getSelection());
         });
 
         listCountries$.on('change', function (e) {
-            /*Selection.country_code = $(e.target).val();
-            loadMarkers(Selection);*/
             loadMarkers(getSelection());
         });
 
@@ -277,9 +248,8 @@ require([
 
             //cnt$.jstree(true).select_node('ul > li:first');
         }
+
+       // $(function () { loadMarkers(getSelection()); });
         /*END ORGANIZE*/
-
-        loadMarkers(Selection);
-
     });
 });

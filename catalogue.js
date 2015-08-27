@@ -39,7 +39,6 @@ require([
 
 		var wdsClient = new WDSClient({
 			datasource: Config.dbName,
-			collection: Config.dbCollectionData,
 			outputType: 'array'
 		});
 

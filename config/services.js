@@ -19,6 +19,9 @@ define({
   "url_esrilayer": "http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}.png",
   "url_baselayer": "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
   "url_osmlayer": "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
+  
+  "url_events_attachments": "//fenixrepo.fao.org/afo/events/attachments/",
+  
   "map_attribution": "&copy; <a href='http://www.openstreetmap.org/copyright'>OSM contrib</a>",
 
   "dateRangeSlider": {

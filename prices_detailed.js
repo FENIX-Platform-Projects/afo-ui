@@ -27,7 +27,7 @@ require([
         ) {
 
         renderAuthMenu(true);
-        
+
         var wdsClient = new WDSClient({
             datasource: Config.dbName,
             outputType: 'array'
@@ -61,19 +61,17 @@ require([
                 maxDate = "" + maxD.getFullYear() + (maxM < 10 ? '0' + maxM : maxM);
 
             var mType = "";
-            if ($('#marketTypeOpen').is(':checked')) {
+            if ($('#marketTypeAll').is(':checked'))
+                mType = $('#marketTypeAll').val();
+            if ($('#marketTypeOpen').is(':checked'))
                 mType = $('#marketTypeOpen').val();
-            }
-            if ($('#marketTypeSub').is(':checked')) {
-                if (mType != '')
-                    mType += ",";
-                mType += $('#marketTypeSub').val();
-            }
+            if ($('#marketTypeSub').is(':checked'))
+                mType = $('#marketTypeSub').val();
 
             var toRet = {
                 fertilizer_code: listProducts$.val(),
                 country_code: $('#country-s').jstree(true).get_selected().join("', '"),
-                marketType: mType,
+                market_type: mType,
                 month_from_yyyymm: minDate,
                 month_to_yyyymm: maxDate
             }
@@ -125,7 +123,7 @@ require([
                     query: Config.queries.prices_detailed_local_geofilter,
                     queryVars: Selection
                 },
-                success: function(data) {                
+                success: function (data) {
 
                     layerRetail.clearLayers();
 
@@ -215,8 +213,8 @@ require([
             payload: {
                 query: Config.queries.prices_detailed_products
             },
-            success: function(data) {      
-                for(var r in data)
+            success: function (data) {
+                for (var r in data)
                     listProducts$.append('<option value="' + data[r][0] + '">' + data[r][1] + '</option>');
             }
         });
@@ -225,11 +223,11 @@ require([
             payload: {
                 query: Config.queries.countries
             },
-            success: function(data) {   
+            success: function (data) {
                 var treeData = [];
                 for (var r in data)
                     treeData.push({ id: data[r][0], text: data[r][1], state: { selected: true } });
-                createTree( $('#country-s'), treeData);
+                createTree($('#country-s'), treeData);
             }
         });
 
@@ -274,10 +272,10 @@ require([
                 "search": {
                     show_only_matches: true
                 },
-                "ui": { "initially_select": ['2814200000'] }
+                //"ui": { "initially_select": ['2814200000'] }
             });
 
-            cnt$.jstree(true).select_node('ul > li:first');
+            //cnt$.jstree(true).select_node('ul > li:first');
         }
         /*END ORGANIZE*/
 

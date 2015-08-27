@@ -49,8 +49,8 @@ define({
 
         "fertilizers_tree": "select fertilizer_category_code, fertilizer_code, fertilizer_category_label, fertilizer_label from fertilizers_category join codes_fertilizers on (fertilizer = fertilizer_code) join codes_fertilizers_categories on (fertilizer_category = fertilizer_category_code) order by fertilizer_label",
         "fertilizers_country": "select distinct country_code from fertilizers_country where fertilizer_code in ( <%= ids %> )",
-      "fertilizers_bycountry": "select fertilizer_label from fertilizers_country join codes_fertilizers on (codes_fertilizers.fertilizer_code = fertilizers_country.fertilizer_code) where fertilizers_country.country_code = '<%= id %>' order by fertilizer_label",
-      "fertilizers_bycrop": "select fertilizer_label from fertilizers_crop join codes_fertilizers on (codes_fertilizers.fertilizer_code = fertilizers_crop.fertilizer_code) where fertilizers_crop.crop_code = '<%= id %>' order by fertilizer_label",
+      "fertilizers_bycountry": "select fertilizer_label from fertilizers_country join codes_fertilizers on (codes_fertilizers.fertilizer_code = fertilizers_country.fertilizer_code) where fertilizers_country.country_code = '{id}' order by fertilizer_label",
+      "fertilizers_bycrop": "select fertilizer_label from fertilizers_crop join codes_fertilizers on (codes_fertilizers.fertilizer_code = fertilizers_crop.fertilizer_code) where fertilizers_crop.crop_code = '{id}' order by fertilizer_label",
 
         "regions": "select country_code, country_label from codes_countries where parent_code = '' order by country_code ",
         "countries": "select country_code, country_label from codes_countries where parent_code <> '' group by country_code, country_label order by country_label",	

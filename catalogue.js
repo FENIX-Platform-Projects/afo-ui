@@ -37,55 +37,12 @@ require([
 
 		accordionTmpl = Handlebars.compile(accordion);
 
-/*		function getWDS(queryTmpl, queryVars, callback) {
+		var wdsClient = new WDSClient({
+			datasource: Config.dbName,
+			collection: Config.dbCollectionData,
+			outputType: 'array'
+		});
 
-			var sqltmpl, sql;
-
-			if(queryVars) {
-				sqltmpl = _.template(queryTmpl);
-				sql = sqltmpl(queryVars);
-			}
-			else
-				sql = queryTmpl;
-
-			var	data = {
-					datasource: Config.dbName,
-					thousandSeparator: ',',
-					decimalSeparator: '.',
-					decimalNumbers: 2,
-					cssFilename: '',
-					nowrap: false,
-					valuesIndex: 0,
-					json: JSON.stringify({query: sql})
-				};
-
-			$.ajax({
-				url: Config.wdsUrl,
-				data: data,
-				type: 'POST',
-				dataType: 'JSON',
-				success: callback
-			});
-		}*/
-
-var wdsClient = new WDSClient({
-	datasource: Config.dbName,
-	collection: Config.dbCollectionData,
-	outputType: 'array'
-});
-
-function getWDS(queryTmpl, queryVars, callback) {
-
-	return wdsClient.retrieve({
-		payload: {
-			query: queryTmpl,
-			queryVars: queryVars
-		},
-		success: function(data) {
-			callback(data);
-		}
-	});	
-}
 		_.extend(FMCONFIG, {
 			BASEURL: 'submodules/fenix-ui-map',
 			BASEURL_LANG: 'submodules/fenix-ui-map/dist/i18n/'
@@ -93,130 +50,160 @@ function getWDS(queryTmpl, queryVars, callback) {
 
 		function initListFamilies(fmLayer) {
 
-			getWDS(Config.queries.fertilizers_tree, null, function(data) {
-				var dataTree = [],
-					lastCatCode = '';
+			wdsClient.retrieve({
+				payload: {
+					query: Config.queries.fertilizers_tree
+				},
+				success: function(data) {
 
-				for(var i in data)
-					dataTree.push({
-						fertilizer_category_code: data[i][0],
-						fertilizer_code: data[i][1],
-						fertilizer_category_label: data[i][2],
-						fertilizer_label: data[i][3]
+					var dataTree = [],
+						lastCatCode = '';
+
+					for(var i in data)
+						dataTree.push({
+							fertilizer_category_code: data[i][0],
+							fertilizer_code: data[i][1],
+							fertilizer_category_label: data[i][2],
+							fertilizer_label: data[i][3]
+						});
+
+					dataTree = _.groupBy(dataTree, 'fertilizer_category_label');
+
+					dataTree = _.map(dataTree, function(cat, catName) {
+
+						if(catName.toUpperCase()!=='OTHERS')
+							catName += ' <small>('+(''+cat[0].fertilizer_code).substr(0,4)+')</small>';
+
+						return {
+							id: cat[0].fertilizer_category_code,
+							text: catName,
+							children: _.map(cat, function(fert) {
+								return {
+									id: fert.fertilizer_code,
+									text: fert.fertilizer_label+' <small>('+fert.fertilizer_code+')</small>'
+								};
+							})
+						};
 					});
 
-				dataTree = _.groupBy(dataTree, 'fertilizer_category_label');
-
-				dataTree = _.map(dataTree, function(cat, catName) {
-
-					if(catName.toUpperCase()!=='OTHERS')
-						catName += ' <small>('+(''+cat[0].fertilizer_code).substr(0,4)+')</small>';
-
-					return {
-						id: cat[0].fertilizer_category_code,
-						text: catName,
-						children: _.map(cat, function(fert) {
-							return {
-								id: fert.fertilizer_code,
-								text: fert.fertilizer_label+' <small>('+fert.fertilizer_code+')</small>'
-							};
-						})
-					};
-				});
-
-				$('#listFamilies').jstree({
-					core: {
-						data: dataTree,
-						themes: {
-							icons: false
+					$('#listFamilies').jstree({
+						core: {
+							data: dataTree,
+							themes: {
+								icons: false
+							}
+						},
+						plugins: ['search', 'wholerow', 'checkbox'],
+						search: {
+							show_only_matches: true
 						}
-					},
-					"plugins": ["search", "wholerow", "checkbox"],
-					"search": {
-						show_only_matches: true
-					}
-				}).on('changed.jstree', function (e, data) {
-					e.preventDefault();
-					initMapFamilies( data.selected, fmLayer );
-				});		
+					}).on('changed.jstree', function (e, data) {
+						e.preventDefault();
+						initMapFamilies( data.selected, fmLayer );
+					});		
 
-	            var to = false;
-	            $('#product-search-c').keyup(function (e) {
-	                if (to) {
-	                    clearTimeout(to);
-	                }
-	                to = setTimeout(function () {
-	                    var v = $(e.target).val();
-	                    $('#listFamilies').jstree(true).search(v);
-	                }, 250);
-	            });
+					var to = false;
+					$('#product-search-c').keyup(function (e) {
+					    if (to) {
+					        clearTimeout(to);
+					    }
+					    to = setTimeout(function () {
+					        var v = $(e.target).val();
+					        $('#listFamilies').jstree(true).search(v);
+					    }, 250);
+					});
+				}
 			});
 		}
 
 		function initMapFamilies(ferts, fmLayer) {
+			wdsClient.retrieve({
+				payload: {
+					query: Config.queries.countries_byfertilizers,
+					queryVars: {ids: "'"+ferts.join("','")+"'"}
+				},
+				success: function(data) {
 
-			getWDS(Config.queries.countries_byfertilizers, {
-				
-				ids: "'"+ferts.join("','")+"'"
-
-				}, function(resp) {
-
-					resp = _.map(resp, function(val) {
+					data = _.map(data, function(val) {
 						val[1] = val[1].split('|');
 						return val;
 					});
 
-					updateLayer(fmLayer, resp);
+					updateLayer(fmLayer, data);
+				}
 			});
 		}
 
 		function initListCountries() {
 
-			getWDS(Config.queries.countries_withfertizers, null, function(countriesData) {
+			wdsClient.retrieve({
+				payload: {
+					query: Config.queries.countries_withfertizers
+				},
+				success: function(data) {
 
-				countriesData = _.map(countriesData, function(val) {
-					return { id: val[0], text: val[1] };
-				});
-
-				$('#listCountries').jstree({
-					core: {
-						themes: { icons: false },
-						data: countriesData
-					},
-					plugins: ["checkbox", "wholerow"],
-					checkbox: {
-						keep_selected_style: false
-					}
-				}).on('changed.jstree', function (e, data) {
-					e.preventDefault();
-
-					var selected = _.map(data.selected, function(val) {
-						return _.findWhere(countriesData, {id: val});
+					data = _.map(data, function(val) {
+						return { id: val[0], text: val[1] };
 					});
 
-					$('#resultsCountries').empty();
-					_.each(selected, function(val) {
-						initResultsCountries( val.id, val.text );
-					});
+					$('#listCountries').jstree({
+						core: {
+							data: data,
+							themes: { icons: false }
+						},
+						plugins: ['search','checkbox', 'wholerow'],
+						checkbox: {
+							keep_selected_style: false
+						},
+						search: {
+							show_only_matches: true
+						}
+					}).on('changed.jstree', function (e, seldata) {
+						e.preventDefault();
 
-				});
-			});			
+						var selected = _.map(seldata.selected, function(val) {
+							return _.findWhere(data, {id: val});
+						});
+
+						$('#resultsCountries').empty();
+						_.each(selected, function(val) {
+							initResultsCountries( val.id, val.text );
+						});
+					});
+					var to = false;
+					$('#country-search-c').keyup(function (e) {
+					    if (to) {
+					        clearTimeout(to);
+					    }
+					    to = setTimeout(function () {
+					        var v = $(e.target).val();
+					        $('#listCountries').jstree(true).search(v);
+					    }, 250);
+					});
+				}
+			});	
 		}
+
 		function initResultsCountries(adm0_code, countryName) {
+						search: {
+							show_only_matches: true
+						}
+			wdsClient.retrieve({
+				payload: {
+					query: Config.queries.fertilizers_bycountry,
+					queryVars: {id: adm0_code}
+				},
+				success: function(data) {
 
-			getWDS(Config.queries.fertilizers_bycountry, {id: adm0_code}, function(resp) {
-		
-				if(resp.length>0) {
-
-					resp = _.sortBy(resp, function(val) {
+					data = _.sortBy(data, function(val) {
 						return val[0];
 					});
 
 					$('#resultsCountries').append( accordionTmpl({
 						id: adm0_code,
-						title: countryName+' ('+resp.length+')',
-						items: resp,
-						expand: resp.length > 9
+						title: countryName+' ('+data.length+')',
+						items: data,
+						expand: true
 					}) );
 				}
 			});
@@ -225,55 +212,74 @@ function getWDS(queryTmpl, queryVars, callback) {
 	//CROPS
 		function initListCrops() {
 
-			var cropsData = [];
+			wdsClient.retrieve({
+				payload: {
+					query: Config.queries.crops_withfertizers
+				},
+				success: function(data) {				
 
-			getWDS(Config.queries.crops_withfertizers, null, function(cropsData) {
-
-				cropsData = _.map(cropsData, function(val) {
-					return { id: val[0], text: val[1] };
-				});
-
-				$('#listCrops').jstree({
-					core: {
-						themes: { icons: false },
-						data: cropsData
-					},
-					plugins: ["checkbox", "wholerow"],
-					checkbox: {
-						keep_selected_style: false
-					}
-				}).on('changed.jstree', function (e, data) {
-					e.preventDefault();
-
-					var selected = _.map(data.selected, function(val) {
-						return _.findWhere(cropsData, {id: val});
+					data = _.map(data, function(val) {
+						return { id: val[0], text: val[1] };
 					});
 
-					$('#resultsCrops').empty();
-					_.each(selected, function(val) {
-						initResultsCrops( val.id, val.text );
-					});
-				});
+					$('#listCrops').jstree({
+						core: {
+							themes: { icons: false },
+							data: data
+						},
+						plugins: ['search','checkbox', 'wholerow'],
+						checkbox: {
+							keep_selected_style: false
+						},
+						search: {
+							show_only_matches: true
+						}
+					}).on('changed.jstree', function (e, seldata) {
+						e.preventDefault();
 
+						var selected = _.map(seldata.selected, function(val) {
+							return _.findWhere(data, {id: val});
+						});
+
+						$('#resultsCrops').empty();
+						_.each(selected, function(val) {
+							initResultsCrops( val.id, val.text );
+						});
+					});
+					var to = false;
+					$('#crop-search-c').keyup(function (e) {
+					    if (to) {
+					        clearTimeout(to);
+					    }
+					    to = setTimeout(function () {
+					        var v = $(e.target).val();
+					        $('#listCrops').jstree(true).search(v);
+					    }, 250);
+					});
+				}
 			});
 		}
 
 		function initResultsCrops(cropId, cropName) {
 
-			getWDS(Config.queries.fertilizers_bycrop, {id: cropId}, function(resp) {
+			wdsClient.retrieve({
+				payload: {
+					query: Config.queries.fertilizers_bycrop,
+					queryVars: {id: cropId }
+				},
+				success: function(data) {	
+					if(data.length > 0 ) {
+						data = _.sortBy(data, function(val) {
+							return val[0];
+						});
 
-				if(resp.length>0) {
-
-					resp = _.sortBy(resp, function(val) {
-						return val[0];
-					});
-
-					$('#resultsCrops').append( accordionTmpl({
-						id: cropId,
-						title: cropName+' ('+resp.length+')',
-						items: resp,
-						expand: resp.length > 9
-					}) );
+						$('#resultsCrops').append( accordionTmpl({
+							id: cropId,
+							title: cropName+' ('+data.length+')',
+							items: data,
+							expand: data.length > 9
+						}) );
+					}
 				}
 			});
 		}

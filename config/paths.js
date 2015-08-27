@@ -27,6 +27,7 @@ define(function() {
             'chosen':                 FX_CDN+"/js/chosen/1.0.0/chosen.jquery.min",
             'webix':                  FX_CDN+"/js/webix/2.2.1/js/webix",
             'leaflet':                FX_CDN+"/js/leaflet/0.7.3/leaflet",
+            'leafletsrc':             FX_CDN+"/js/leaflet/0.7.3/leaflet-src",
             'leaflet.encoded':        FX_CDN+"/js/leaflet/plugins/leaflet.encoded/0.0.5/Polyline.encoded",
             'leaflet-markercluster':  FX_CDN+"/js/leaflet/plugins/leaflet.markecluster/1.1/leaflet.markercluster",
             'geojson_decoder':        FX_CDN+"/js/leaflet/plugins/geojson_decoder",

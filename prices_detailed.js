@@ -1,4 +1,3 @@
-
 require([
     "config/paths",
     "submodules/fenix-ui-menu/js/paths",
@@ -77,24 +76,32 @@ require([
 
         function getSelection() {
             var dates = rangeMonths$.dateRangeSlider('values');
+            minD = new Date(dates.min),
+            maxD = new Date(dates.max),
+            minM = minD.getMonth() + 1,
+            maxM = maxD.getMonth() + 1;
 
-            /*var values = data.values,//rangeMonths$.rangeSlider("values"),
+            var minDate = "" + minD.getFullYear() + (minM < 10 ? '0' + minM : minM),
+                maxDate = "" + maxD.getFullYear() + (maxM < 10 ? '0' + maxM : maxM);
 
-				minD = new Date(values.min),
-				maxD = new Date(values.max),
+            var mType = "";
+            if ($('#marketTypeOpen').is(':checked')) {
+                mType = $('#marketTypeOpen').val();
+            }
+            if ($('#marketTypeSub').is(':checked')) {
+                if (mType != '')
+                    mType += ",";
+                mType += $('#marketTypeSub').val();
+            }
 
-				minM = minD.getMonth() + 1,
-				maxM = maxD.getMonth() + 1;
-
-		    var minDate = "" + minD.getFullYear() + (minM < 10 ? '0' + minM : minM),
-				maxDate = "" + maxD.getFullYear() + (maxM < 10 ? '0' + maxM : maxM);
-
-		    Selection = {
-		        fertilizer_code: $("#prices_selectProduct").val(),
-		        country_code: listCountries$.val(),
-		        month_from_yyyymm: minDate,
-		        month_to_yyyymm: maxDate
-		    };*/
+            var toRet = {
+                fertilizer_code: listProducts$.val(),
+                country_code: $('#country-s').jstree(true).get_selected().join("', '"),
+                marketType: mType,
+                month_from_yyyymm: minDate,
+                month_to_yyyymm: maxDate
+            }
+            return toRet;
         }
 
         var map = L.map('prices_retail_map', {
@@ -113,6 +120,7 @@ require([
         });
         layerRetail.addTo(map);
 
+        //TODO: Add the other fields (Country, market)
         function updateResume(Selection) {
 
             var from = Selection.month_from_yyyymm,
@@ -126,7 +134,11 @@ require([
                 }, {
                     label: 'Time Range',
                     value: timeRange
-                }]
+                }/*, {
+                    label: 'Country',
+                    value:'CCC'
+                }*/
+                ]
             }));
         }
 
@@ -176,7 +188,7 @@ require([
 
         rangeMonths$.on('valuesChanged', function (e, data) {
 
-            var values = data.values,//rangeMonths$.rangeSlider("values"),
+            /*var values = data.values,
 
 				minD = new Date(values.min),
 				maxD = new Date(values.max),
@@ -193,8 +205,8 @@ require([
                 month_from_yyyymm: minDate,
                 month_to_yyyymm: maxDate
             };
-
-            loadMarkers(Selection);
+            loadMarkers(Selection);*/
+            loadMarkers(getSelection());
         });
 
         $('input[name=prices_range_radio]').on('click', function (e) {
@@ -203,16 +215,18 @@ require([
 				max = moment(Config.dateRangeSlider.prices_detaild.bounds.max),
 				min = max.subtract(val, 'months').toDate();
             rangeMonths$.dateRangeSlider('min', min);
-        });//*/
+        });
 
-        $("#prices_selectProduct").on('change', function (e) {
-            Selection.fertilizer_code = $(e.target).val();
-            loadMarkers(Selection);
+        $(listProducts$).on('change', function (e) {
+            /*Selection.fertilizer_code = $(e.target).val();
+            loadMarkers(Selection);*/
+            loadMarkers(getSelection());
         });
 
         listCountries$.on('change', function (e) {
-            Selection.country_code = $(e.target).val();
-            loadMarkers(Selection);
+            /*Selection.country_code = $(e.target).val();
+            loadMarkers(Selection);*/
+            loadMarkers(getSelection());
         });
 
         getWDS(Config.queries.prices_detailed_products, null, function (products) {
@@ -220,8 +234,13 @@ require([
                 listProducts$.append('<option value="' + products[r][0] + '">' + products[r][1] + '</option>');
         });
         getWDS(Config.queries.countries, null, function (countries) {
+            /*for (var r in countries)
+                listCountries$.append('<option value="' + countries[r][0] + '">' + countries[r][1] + '</option>');*/
+
+            var treeData = [];
             for (var r in countries)
-                listCountries$.append('<option value="' + countries[r][0] + '">' + countries[r][1] + '</option>');
+                treeData.push({ id: countries[r][0], text: countries[r][1], state: { selected: true } });
+            createTree($('#country-s'), treeData);
         });
 
         $('#price_table_download').on('click', function (e) {
@@ -245,6 +264,32 @@ require([
 			"<div><input type='text' value='' name='subtitle_WQ_csv' id='subtitle_WQ_csv'/></div>" +
 			"</form>").insertAfter(this).submit();
         });
+
+
+
+
+
+
+
+        /*ORGANIZE*/
+        function createTree(cnt$, data) {
+            cnt$.jstree({
+                "core": {
+                    "multiple": true,
+                    "animation": 0,
+                    "themes": { "stripes": true },
+                    'data': data
+                },
+                "plugins": ["search", "wholerow", "ui", "checkbox"],
+                "search": {
+                    show_only_matches: true
+                },
+                "ui": { "initially_select": ['2814200000'] }
+            });
+
+            cnt$.jstree(true).select_node('ul > li:first');
+        }
+        /*END ORGANIZE*/
 
         loadMarkers(Selection);
 

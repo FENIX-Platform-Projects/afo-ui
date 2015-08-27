@@ -76,7 +76,7 @@ define({
 
       "prices_national_countries": "select c.country_code, c.country_label from prices_national d, codes_countries c where c.country_code  = d.country_code group by c.country_code, c.country_label order by c.country_label",
         "prices_national" : "select area, item, year, month, round(cast(value AS numeric), 2) as value, unit, '' as flag, fertilizer_code from prices_national",
-        "prices_national_filter" : "select area, item, year, month,  round(cast(value AS numeric), 2) as value, unit, '' as flag, fertilizer_code from prices_national where fertilizer_code in ('<%= fertilizer_code %>') AND country_code in ('<%= country_code %>')  and month_number between <%= month_from_yyyymm %> and <%= month_to_yyyymm %>",
+        "prices_national_filter" : "select area, item, year, month,  round(cast(value AS numeric), 2) as value, unit, '' as flag, fertilizer_code from prices_national where fertilizer_code in ('{fertilizer_code}') AND country_code in ('{country_code}')  and month_number between {month_from_yyyymm} and {month_to_yyyymm} ",
 
       "prices_national_products": "select c.fertilizer_code, c.fertilizer_label from codes_fertilizers c, prices_local d where  c.fertilizer_code = d.fertilizer group by c.fertilizer_code, c.fertilizer_label order by c.fertilizer_label ASC ",
        

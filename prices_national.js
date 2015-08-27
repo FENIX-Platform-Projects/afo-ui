@@ -18,6 +18,7 @@ require([
 	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'jstree', 'handlebars','moment','jquery.rangeSlider',
 	    'config/services',
 	    'src/renderAuthMenu',
+	    'fx-common/js/WDSClient',
 
 		'pivot',
 		'pivotConfig',
@@ -26,45 +27,55 @@ require([
 	], function($,_,bts,highcharts,jstree,Handlebars,moment,rangeSlider,
 		Config,
 		renderAuthMenu,
+		WDSClient,
 
 		Pivot,
 		PivotConfig,
 		pivotRenderers,
 		pivotAggregators
-		) {
+	) {
 
-			renderAuthMenu(true);
+		renderAuthMenu(true);
 
-	        var minDate, maxDate;
-			
-			
+		var wdsClient = new WDSClient({
+			datasource: Config.dbName,
+			outputType: 'array'
+		});
 
-	        /* ================================== PAGE */
+        var minDate, maxDate;
+		
+		
 
-	        //Search button
-	        $('#search-btn').on('click', function () {
+        /* ================================== PAGE */
 
-	            var inputs = {
-	                fertilizer_code: $('#product-s').jstree(true).get_selected().join("', '"),
-	                country_code: $('#country-s').jstree(true).get_selected().join("', '"),
-	                month_from_yyyymm: minDate,
-	                month_to_yyyymm: maxDate
-	            };
+        //Search button
+        $('#search-btn').on('click', function () {
 
-	            //Validate inputs
-	            if (inputs.fertilizer_code === '' || inputs.country_code === '' ||!inputs.month_from_yyyymm || !inputs.month_to_yyyymm){
-	                alert("Please select Countries and Fertilizers");
-	                return;
-	            }
+            var inputs = {
+                fertilizer_code: $('#product-s').jstree(true).get_selected().join("', '"),
+                country_code: $('#country-s').jstree(true).get_selected().join("', '"),
+                month_from_yyyymm: minDate,
+                month_to_yyyymm: maxDate
+            };
 
-	            loadOlapData(inputs);
+            //Validate inputs
+            if (inputs.fertilizer_code === '' || inputs.country_code === '' ||!inputs.month_from_yyyymm || !inputs.month_to_yyyymm){
+                alert("Please select Countries and Fertilizers");
+                return;
+            }
 
-	        });
+            loadOlapData(inputs);
 
-	        /* ================================== SELECTORS */
+        });
 
-	        // Fertilizers
-	        getWDS(Config.queries.prices_national_products, null,function(res) {
+        /* ================================== SELECTORS */
+
+	    // Fertilizers
+		wdsClient.retrieve({
+			payload: {
+				query: Config.queries.prices_national_products
+			},
+			success: function(res) {
 
 	            var data = [],
 	                list,
@@ -164,10 +175,15 @@ require([
 
 	                return config;
 	            }
-	        });
+	        }
+	    });
 
-	        // Country
-	        getWDS(Config.queries.prices_national_countries, null,function(res) {
+	    // Country
+		wdsClient.retrieve({
+			payload: {
+				query: Config.queries.prices_national_countries
+			},
+			success: function(res) {
 
 	            var data = [],
 	                list,
@@ -260,7 +276,8 @@ require([
 
 	                return config;
 	            }
-	        });
+	        }
+	    });
 
 	        // Time
 	        var rangeMonths$ = $('#prices_rangeMonths');
@@ -343,90 +360,58 @@ require([
 
 			function loadOlapData(sqlFilter) {
 
-				getWDS(Config.queries.prices_national_filter, sqlFilter, function(data) {
+				wdsClient.retrieve({
+					payload: {
+						query: Config.queries.prices_national_filter,
+						queryVars: sqlFilter
+					},
+					success: function(data) {
 
-					data = [["Area","Item","Year","Month2","Value","Unit","Flag","FertCode"]].concat(data);
+						data = [["Area","Item","Year","Month2","Value","Unit","Flag","FertCode"]].concat(data);
 
-					//FAOSTATNEWOLAP.originalData = data;
-					var pp1=new Pivot();
-					pp1.render("pivot", data,{
-						derivedAttributes: {
-							"Month": function(mp){
-							
-							var matchMonth = {"Jan":"01","Feb":"02","Mar":"03","Apr":"04","May":"05","Jun":"06","Jul":"07","Aug":"08","Sep":"09","Oct":"10","Nov":"11","Dec":"12"};
-								return "<span class=ordre>" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
+						//FAOSTATNEWOLAP.originalData = data;
+						var pp1=new Pivot();
+						pp1.render("pivot", data,{
+							derivedAttributes: {
+								"Month": function(mp){
+								
+								var matchMonth = {"Jan":"01","Feb":"02","Mar":"03","Apr":"04","May":"05","Jun":"06","Jul":"07","Aug":"08","Sep":"09","Oct":"10","Nov":"11","Dec":"12"};
+									return "<span class=ordre>" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
+								},
+								"Indicator":function(mp){return "<span class=ordre>" + mp["FertCode"] + "</span>"+mp["Item"]+" ("+mp["Unit"]+")";}
 							},
-							"Indicator":function(mp){return "<span class=ordre>" + mp["FertCode"] + "</span>"+mp["Item"]+" ("+mp["Unit"]+")";}
-						},
-						rows: ["Area", "Indicator", "Month"],
-						cols: ["Year"],
-						vals: ["Value", "Flag"],
-						hiddenAttributes:["Month2","Unit","Item","Value","Flag","FertCode"],
-						linkedAttributes:[],
-						 rendererDisplay: pivotRenderers,
-						aggregatorDisplay: pivotAggregators
-					})
-/*
-					$("#pivot").pivotUI(data, {
-						derivedAttributes: {
-							"Month": function(mp){
-								return "<span class=\"ordre\">" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
-							},"Indicator":function(mp){return "<span class=\"ordre\">" + mp["FertCode"] + "</span>"+mp["Item"]+" ("+mp["Unit"]+")";}
-						},
-						rows: ["Area", "Indicator", "Month"],
-						cols: ["Year"],
-						vals: ["Value", "Flag"],
-						hiddenAttributes:["Month2","Unit","Item"],
-						linkedAttributes:[]
-					},true);
-*/
-					$("#pivot_download").show();
+							rows: ["Area", "Indicator", "Month"],
+							cols: ["Year"],
+							vals: ["Value", "Flag"],
+							hiddenAttributes:["Month2","Unit","Item","Value","Flag","FertCode"],
+							linkedAttributes:[],
+							 rendererDisplay: pivotRenderers,
+							aggregatorDisplay: pivotAggregators
+						})
+	/*
+						$("#pivot").pivotUI(data, {
+							derivedAttributes: {
+								"Month": function(mp){
+									return "<span class=\"ordre\">" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
+								},"Indicator":function(mp){return "<span class=\"ordre\">" + mp["FertCode"] + "</span>"+mp["Item"]+" ("+mp["Unit"]+")";}
+							},
+							rows: ["Area", "Indicator", "Month"],
+							cols: ["Year"],
+							vals: ["Value", "Flag"],
+							hiddenAttributes:["Month2","Unit","Item"],
+							linkedAttributes:[]
+						},true);
+	*/
+						$("#pivot_download").show();
 
-					$("#pivot_download").on('click', function(e) {
+						$("#pivot_download").on('click', function(e) {
 
-						pp1.exportExcel();
-						//decolrowspanNEW();
-					});
+							pp1.exportExcel();
+							//decolrowspanNEW();
+						});
+					}
 				});
 			}
-
-
-
-
-
-
-
-	        /* ================================== GENERAL */
-	        function getWDS(queryTmpl, queryVars, callback) {
-
-	            var sqltmpl, sql;
-
-	            if(queryVars) {
-	                sqltmpl = _.template(queryTmpl);
-	                sql = sqltmpl(queryVars);
-	            }
-	            else
-	                sql = queryTmpl;
-
-	            var	data = {
-	                datasource: Config.dbName,
-	                thousandSeparator: ',',
-	                decimalSeparator: '.',
-	                decimalNumbers: 2,
-	                cssFilename: '',
-	                nowrap: false,
-	                valuesIndex: 0,
-	                json: JSON.stringify({query: sql})
-	            };
-
-	            $.ajax({
-	                url: Config.wdsUrl,
-	                data: data,
-	                type: 'POST',
-	                dataType: 'JSON',
-	                success: callback
-	            });
-	        }
 
 	    });
 });

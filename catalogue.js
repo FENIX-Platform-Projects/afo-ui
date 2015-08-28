@@ -35,12 +35,16 @@ require([
 
 		renderAuthMenu(true);
 
-		accordionTmpl = Handlebars.compile(accordion);
-
 		var wdsClient = new WDSClient({
 			datasource: Config.dbName,
 			outputType: 'array'
 		});
+
+
+		var accordionTmpl = Handlebars.compile(accordion);
+
+		DataSelected = [];
+		//data selected in jstree
 
 		_.extend(FMCONFIG, {
 			BASEURL: 'submodules/fenix-ui-map',
@@ -165,9 +169,13 @@ require([
 						});
 
 						$('#resultsCountries').empty();
+
+						DataSelected = [];
 						_.each(selected, function(val) {
 							initResultsCountries( val.id, val.text );
 						});
+
+
 					});
 					var to = false;
 					$('#country-search-c').keyup(function (e) {
@@ -184,9 +192,7 @@ require([
 		}
 
 		function initResultsCountries(adm0_code, countryName) {
-						search: {
-							show_only_matches: true
-						}
+
 			wdsClient.retrieve({
 				payload: {
 					query: Config.queries.fertilizers_bycountry,
@@ -204,6 +210,13 @@ require([
 						items: data,
 						expand: true
 					}) );
+
+					for(var i in data)
+						DataSelected.push({
+							adm0_code: adm0_code,
+							countryName: countryName,
+							fertilizer: data[i][0]
+						});
 				}
 			});
 		}
@@ -241,6 +254,7 @@ require([
 						});
 
 						$('#resultsCrops').empty();
+						DataSelected = [];
 						_.each(selected, function(val) {
 							initResultsCrops( val.id, val.text );
 						});
@@ -278,6 +292,12 @@ require([
 							items: data,
 							expand: data.length > 9
 						}) );
+						for(var i in data)
+							DataSelected.push({
+								crop_code: cropId,
+								cropName: cropName,
+								fertilizer: data[i][0]
+							});
 					}
 				}
 			});
@@ -424,6 +444,9 @@ require([
 			}
 		});
 
+		$('#down_selection').on('click', function(e) {
+			$('#down_selection_view').text( JSON.stringify(DataSelected) ).slideDown()
+		})
 		initListFamilies(fmLayer);
 
 	});

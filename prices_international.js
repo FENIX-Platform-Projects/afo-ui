@@ -37,6 +37,17 @@ require([
 
 		tableTmpl = Handlebars.compile(table);
 
+		var banner$ = $('#prices_international_banner'),
+			chart$ = $('#prices_international_chart'),
+			table$ = $('#prices_international_grid');
+
+		banner$.attr('href', Config.prices_international_link )
+			.find('img').attr('src', Config.prices_international_banner );
+
+		chart$.attr('src', Config.prices_international_chart );
+
+		table$.html('<big class="text-center">Loading data...<br /><br /></big>');
+
 		function formatMonth(date, str) {
 			var year = date.slice(0,4),
 				month = date.slice(4);
@@ -49,13 +60,6 @@ require([
 			return [year, '/', month].join('');
 		}
 
-		var chart$ = $('#prices_international_chart'),
-			table$ = $('#prices_international_grid');
-
-		chart$.attr({src: Config.prices_international_chart});
-
-		table$.html('<big class="text-center">Loading data...<br /><br /></big>');
-		
 		wdsClient.retrieve({
 			payload: {
 				query: Config.queries.prices_international

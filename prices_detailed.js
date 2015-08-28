@@ -43,14 +43,13 @@ require([
         	rangeMonths$ = $('#prices_rangeMonths'),
             tableresult$ = $('#table-result');
         //,
-        /*Selection = {
+        defSelection = {
             fertilizer_code: '3105300000',
-            country_code: '',
-            mType: radioMarketTypeAll$.val(),
-            month_from_yyyymm: '201003',
-            month_to_yyyymm: '201501'
-
-        };*/
+            country_code: [133]
+            //mType: radioMarketTypeAll$.val(),
+            //month_from_yyyymm: '201003',
+            //month_to_yyyymm: '201501'
+        };
 
         function formatMonth(date) {
             return [date.slice(0, 4), '/', date.slice(4)].join('')
@@ -68,11 +67,11 @@ require([
 
             var mType = "";
             if (radioMarketTypeAll$.is(':checked'))
-                mType = radioMarketTypeAll$.val();
+                mType = [radioMarketTypeOpen$.val(), radioMarketTypeSub$.val()];
             if (radioMarketTypeOpen$.is(':checked'))
-                mType = radioMarketTypeOpen$.val();
+                mType = [radioMarketTypeOpen$.val()];
             if (radioMarketTypeSub$.is(':checked'))
-                mType = radioMarketTypeSub$.val();
+                mType = [radioMarketTypeSub$.val()];
 
             var toRet = {
                 fertilizer_code: listProducts$.val(),
@@ -82,6 +81,15 @@ require([
                 month_to_yyyymm: maxDate
             }
             return toRet;
+        }
+
+        function setSelection(sel) {
+            if (sel.country_code && sel.country_code.length > 0) {
+                listCountries$.jstree(true).check_node(sel.country_code);
+            }
+
+            if (sel.fertilizer_code)
+                listProducts$.val(sel.fertilizer_code);
         }
 
         var map = L.map('prices_retail_map', {
@@ -128,6 +136,10 @@ require([
         }
 
         function updateUI(selection) {
+            if (selection.country_code)
+                selection.country_code = selection.country_code.join("', '");
+            if (selection.market_type)
+                selection.market_type = selection.market_type.join("', '");
             loadMarkers(selection);
             resultsTable(selection, tableresult$);
             updateResume(selection);
@@ -174,7 +186,7 @@ require([
 
         //TODO: Set it at the end of the range as default
         rangeMonths$.dateRangeSlider(Config.dateRangeSlider.prices_detaild);
-        
+
 
         //Events
         rangeMonths$.on('valuesChanged', function (e, data) {
@@ -196,6 +208,10 @@ require([
         listCountries$.on('changed.jstree', function (e) {
             updateUI(getSelection());
         });
+        listCountries$.on('ready.jstree', function (e) {
+            setSelection(defSelection);
+            updateUI();
+        });
 
         $('input[type=radio][name=mType_radio]').change(function () {
             updateUI(getSelection());
@@ -203,6 +219,7 @@ require([
         $('#country-sel-all-s').on('click', function () {
             listCountries$.jstree(true).check_all();
         });
+
         //Events end
 
         wdsClient.retrieve({
@@ -227,35 +244,7 @@ require([
             }
         });
 
-        $('#price_table_download').on('click', function (e) {
 
-            var sqltmpl = _.template(Config.queries.prices_detailed_local_geofilter);
-            sql = sqltmpl(Selection),
-            query = JSON.stringify({ query: sql });
-            //.replace(/[']/g,"\'");//.replace(/[']/g,"`");
-
-            $("<form style='display:none;' id='csvFormWithQuotes' name='csvFormWithQuotes'" +
-            "method='POST' action='" + Config.wdsUrlExportCsv + "' target='_new'>" +
-            "<div><input type='text' value='faostat' name='cssFilename_WQ' id='cssFilename_WQ_csv'/></div>" +
-            "<div><input type='text' value='africafertilizer' name='datasource_WQ_csv' id='datasource_WQ_csv'/></div>" +
-            "<div><input type='text' value='2' name='decimalNumbers_WQ_csv' id='decimalNumbers_WQ_csv'/></div>" +
-            "<div><input type='text' value='.' name='decimalSeparator_WQ_csv' id='decimalSeparator_WQ_csv'/></div>" +
-            "<div><input type='text' value=',' name='thousandSeparator_WQ_csv' id='thousandSeparator_WQ_csv'/></div>" +
-            "<div><input type='text' value='6' name='valueIndex_WQ_csv' id='valueIndex_WQ_csv'/></div>" +
-            "<div><input type='text' value='" + query + "' name='json_WQ_csv' id='json_WQ_csv'/></div>" +
-            "<div><input type='text' value='' name='quote_WQ_csv' id='quote_WQ_csv'/></div>" +
-            "<div><input type='text' value='' name='title_WQ_csv' id='title_WQ_csv'/></div>" +
-            "<div><input type='text' value='' name='subtitle_WQ_csv' id='subtitle_WQ_csv'/></div>" +
-            "</form>").insertAfter(this).submit();
-        });
-
-
-
-
-
-
-
-        /*ORGANIZE*/
         function createTree(cnt$, data) {
             cnt$.jstree({
                 "core": {
@@ -273,8 +262,5 @@ require([
 
             //cnt$.jstree(true).select_node('ul > li:first');
         }
-
-        // $(function () { loadMarkers(getSelection()); });
-        /*END ORGANIZE*/
     });
 });

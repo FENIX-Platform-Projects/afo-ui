@@ -2943,27 +2943,27 @@ input[type="checkbox"]:checked + label {
       background: url(img/afo-arrow-right-off.svg) no-repeat; }
 
 .afo-slider-1 {
-  background: url(../src/images/slider-home-1.jpg) no-repeat;
+  background: url(../images/home/slider-home-1.jpg) no-repeat;
   background-size: cover;
   background-position: 50% 50%; }
 
 .afo-slider-2 {
-  background: url(../src/images/slider-home-2.jpg) no-repeat;
+  background: url(../images/home/slider-home-2.jpg) no-repeat;
   background-size: cover;
   background-position: 50% 50%; }
 
 .afo-slider-3 {
-  background: url(../src/images/slider-home-3.jpg) no-repeat;
+  background: url(../images/home/slider-home-3.jpg) no-repeat;
   background-size: cover;
   background-position: 50% 50%; }
 
 .afo-slider-4 {
-  background: url(../src/images/slider-home-4.jpg) no-repeat;
+  background: url(../images/home/slider-home-4.jpg) no-repeat;
   background-size: cover;
   background-position: 50% 50%; }
 
 .afo-slider-5 {
-  background: url(../src/images/slider-home-5.jpg) no-repeat;
+  background: url(../images/home/slider-home-5.jpg) no-repeat;
   background-size: cover;
   background-position: 50% 50%; }
 

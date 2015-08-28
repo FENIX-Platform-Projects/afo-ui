@@ -27,7 +27,9 @@ define([
         outputType: 'array'
     });
 
-	return function(Selection, $target) {
+    return function (Selection, $target) {
+
+        console.log(Selection, $target);
 
 		//DEBUG
     	/*Selection = {

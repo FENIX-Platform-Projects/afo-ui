@@ -36,15 +36,21 @@ require([
         var resumeTmpl = Handlebars.compile('<ul id="afo-resume">{{#each items}}<li><span>{{label}} </span><b>{{value}}</b></li>{{/each}}</ul>');
 
         var listProducts$ = $('#prices_selectProduct'),
-            listCountries$ = $('#prices_selectCountry'),
-            listMarkets$ = $('#prices_selectMarket'),
+            listCountries$ = $('#country-s'),
+            radioMarketTypeAll$ = $('#marketTypeAll'),
+            radioMarketTypeOpen$ = $('#marketTypeOpen'),
+            radioMarketTypeSub$ = $('#marketTypeSub'),
         	rangeMonths$ = $('#prices_rangeMonths'),
-        	Selection = {
-        	    fertilizer_code: '3105300000',
-        	    country_code: '270',
-        	    month_from_yyyymm: '201003',
-        	    month_to_yyyymm: '201501'
-        	};
+            tableresult$ = $('#table-result');
+        //,
+        /*Selection = {
+            fertilizer_code: '3105300000',
+            country_code: '',
+            mType: radioMarketTypeAll$.val(),
+            month_from_yyyymm: '201003',
+            month_to_yyyymm: '201501'
+
+        };*/
 
         function formatMonth(date) {
             return [date.slice(0, 4), '/', date.slice(4)].join('')
@@ -61,16 +67,16 @@ require([
                 maxDate = "" + maxD.getFullYear() + (maxM < 10 ? '0' + maxM : maxM);
 
             var mType = "";
-            if ($('#marketTypeAll').is(':checked'))
-                mType = $('#marketTypeAll').val();
-            if ($('#marketTypeOpen').is(':checked'))
-                mType = $('#marketTypeOpen').val();
-            if ($('#marketTypeSub').is(':checked'))
-                mType = $('#marketTypeSub').val();
+            if (radioMarketTypeAll$.is(':checked'))
+                mType = radioMarketTypeAll$.val();
+            if (radioMarketTypeOpen$.is(':checked'))
+                mType = radioMarketTypeOpen$.val();
+            if (radioMarketTypeSub$.is(':checked'))
+                mType = radioMarketTypeSub$.val();
 
             var toRet = {
                 fertilizer_code: listProducts$.val(),
-                country_code: $('#country-s').jstree(true).get_selected().join("', '"),
+                country_code: listCountries$.jstree(true).get_selected().join("', '"),
                 market_type: mType,
                 month_from_yyyymm: minDate,
                 month_to_yyyymm: maxDate
@@ -94,26 +100,37 @@ require([
         });
         layerRetail.addTo(map);
 
-        //TODO: Add the other fields (Country, market)
-        function updateResume(Selection) {
+        function updateResume(selection) {
+            var from = selection.month_from_yyyymm,
+                to = selection.month_to_yyyymm,
+                timeRange = formatMonth(from) + ' - ' + formatMonth(to);
 
-            var from = Selection.month_from_yyyymm,
-				to = Selection.month_to_yyyymm,
-				timeRange = formatMonth(from) + ' - ' + formatMonth(to);
+            var countries = listCountries$.jstree(true).get_selected(true).map(
+                function (c) {
+                    return c.text;
+                });
 
             $('#afo-resume-wrap').html(resumeTmpl({
                 items: [{
-                    label: 'Product',
+                    label: 'Product: ',
                     value: $("#prices_selectProduct option:selected").text()
                 }, {
-                    label: 'Time Range',
+                    label: 'Time Range: ',
                     value: timeRange
-                }/*, {
-                    label: 'Country',
-                    value:'CCC'
-                }*/
-                ]
+                }, {
+                    label: 'Country: ',
+                    value: countries
+                }, {
+                    label: 'Market type: ',
+                    value: selection.market_type
+                }]
             }));
+        }
+
+        function updateUI(selection) {
+            loadMarkers(selection);
+            resultsTable(selection, tableresult$);
+            updateResume(selection);
         }
 
         function loadMarkers(Selection) {
@@ -128,12 +145,12 @@ require([
                     layerRetail.clearLayers();
 
                     var popupTmpl = "<div class='fm-popup'>" +
-    									"<div class='fm-popup-join-title'><b>{title}</b></div>" +
-    									"<div class='fm-popup-join-content'>" +
-    										"<i>product name:</i> {fert}<br />" +
-    										"<i>average price:</i> {val}" +
-    									"</div>" +
-    									"</div>";
+                                        "<div class='fm-popup-join-title'><b>{title}</b></div>" +
+                                        "<div class='fm-popup-join-content'>" +
+                                            "<i>product name:</i> {fert}<br />" +
+                                            "<i>average price:</i> {val}" +
+                                        "</div>" +
+                                        "</div>";
 
                     for (var i in data) {
 
@@ -142,43 +159,49 @@ require([
                         data[i][2] += ' USD/tons';
 
                         L.marker(data[i][1])
-    						.bindPopup(L.Util.template(popupTmpl, {
-    						    title: data[i][0],
-    						    fert: $("#prices_selectProduct option:selected").text(),
-    						    val: data[i][2]
-    						}))
-    						.addTo(layerRetail);
+                            .bindPopup(L.Util.template(popupTmpl, {
+                                title: data[i][0],
+                                fert: $("#prices_selectProduct option:selected").text(),
+                                val: data[i][2]
+                            }))
+                            .addTo(layerRetail);
                     }
 
                     map.fitBounds(layerRetail.getBounds().pad(-1.2));
-
-                    resultsTable(Selection, $('#table-result'));
-                    updateResume(Selection);
                 }
             });
         }
 
         rangeMonths$.dateRangeSlider(Config.dateRangeSlider.prices_detaild);
 
+        //Events
         rangeMonths$.on('valuesChanged', function (e, data) {
-            loadMarkers(getSelection());
+            updateUI(getSelection());
         });
 
         $('input[name=prices_range_radio]').on('click', function (e) {
 
             var val = parseInt($(this).val()),
-				max = moment(Config.dateRangeSlider.prices_detaild.bounds.max),
-				min = max.subtract(val, 'months').toDate();
+                max = moment(Config.dateRangeSlider.prices_detaild.bounds.max),
+                min = max.subtract(val, 'months').toDate();
             rangeMonths$.dateRangeSlider('min', min);
         });
 
         $(listProducts$).on('change', function (e) {
-            loadMarkers(getSelection());
+            updateUI(getSelection());
         });
 
-        listCountries$.on('change', function (e) {
-            loadMarkers(getSelection());
+        listCountries$.on('changed.jstree', function (e) {
+            updateUI(getSelection());
         });
+
+        $('input[type=radio][name=mType_radio]').change(function () {
+            updateUI(getSelection());
+        });
+        $('#country-sel-all-s').on('click', function () {
+            listCountries$.jstree(true).check_all();
+        });
+        //Events end
 
         wdsClient.retrieve({
             payload: {
@@ -197,8 +220,8 @@ require([
             success: function (data) {
                 var treeData = [];
                 for (var r in data)
-                    treeData.push({ id: data[r][0], text: data[r][1], state: { selected: true } });
-                createTree($('#country-s'), treeData);
+                    treeData.push({ id: data[r][0], text: data[r][1],/*state: { selected: true }*/ });
+                createTree(listCountries$, treeData);
             }
         });
 
@@ -210,18 +233,18 @@ require([
             //.replace(/[']/g,"\'");//.replace(/[']/g,"`");
 
             $("<form style='display:none;' id='csvFormWithQuotes' name='csvFormWithQuotes'" +
-			"method='POST' action='" + Config.wdsUrlExportCsv + "' target='_new'>" +
-			"<div><input type='text' value='faostat' name='cssFilename_WQ' id='cssFilename_WQ_csv'/></div>" +
-			"<div><input type='text' value='africafertilizer' name='datasource_WQ_csv' id='datasource_WQ_csv'/></div>" +
-			"<div><input type='text' value='2' name='decimalNumbers_WQ_csv' id='decimalNumbers_WQ_csv'/></div>" +
-			"<div><input type='text' value='.' name='decimalSeparator_WQ_csv' id='decimalSeparator_WQ_csv'/></div>" +
-			"<div><input type='text' value=',' name='thousandSeparator_WQ_csv' id='thousandSeparator_WQ_csv'/></div>" +
-			"<div><input type='text' value='6' name='valueIndex_WQ_csv' id='valueIndex_WQ_csv'/></div>" +
-			"<div><input type='text' value='" + query + "' name='json_WQ_csv' id='json_WQ_csv'/></div>" +
-			"<div><input type='text' value='' name='quote_WQ_csv' id='quote_WQ_csv'/></div>" +
-			"<div><input type='text' value='' name='title_WQ_csv' id='title_WQ_csv'/></div>" +
-			"<div><input type='text' value='' name='subtitle_WQ_csv' id='subtitle_WQ_csv'/></div>" +
-			"</form>").insertAfter(this).submit();
+            "method='POST' action='" + Config.wdsUrlExportCsv + "' target='_new'>" +
+            "<div><input type='text' value='faostat' name='cssFilename_WQ' id='cssFilename_WQ_csv'/></div>" +
+            "<div><input type='text' value='africafertilizer' name='datasource_WQ_csv' id='datasource_WQ_csv'/></div>" +
+            "<div><input type='text' value='2' name='decimalNumbers_WQ_csv' id='decimalNumbers_WQ_csv'/></div>" +
+            "<div><input type='text' value='.' name='decimalSeparator_WQ_csv' id='decimalSeparator_WQ_csv'/></div>" +
+            "<div><input type='text' value=',' name='thousandSeparator_WQ_csv' id='thousandSeparator_WQ_csv'/></div>" +
+            "<div><input type='text' value='6' name='valueIndex_WQ_csv' id='valueIndex_WQ_csv'/></div>" +
+            "<div><input type='text' value='" + query + "' name='json_WQ_csv' id='json_WQ_csv'/></div>" +
+            "<div><input type='text' value='' name='quote_WQ_csv' id='quote_WQ_csv'/></div>" +
+            "<div><input type='text' value='' name='title_WQ_csv' id='title_WQ_csv'/></div>" +
+            "<div><input type='text' value='' name='subtitle_WQ_csv' id='subtitle_WQ_csv'/></div>" +
+            "</form>").insertAfter(this).submit();
         });
 
 
@@ -249,7 +272,7 @@ require([
             //cnt$.jstree(true).select_node('ul > li:first');
         }
 
-       // $(function () { loadMarkers(getSelection()); });
+        // $(function () { loadMarkers(getSelection()); });
         /*END ORGANIZE*/
     });
 });

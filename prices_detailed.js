@@ -76,7 +76,7 @@ require([
 
             var toRet = {
                 fertilizer_code: listProducts$.val(),
-                country_code: listCountries$.jstree(true).get_selected().join("', '"),
+                country_code: listCountries$.jstree(true).get_selected(),
                 market_type: mType,
                 month_from_yyyymm: minDate,
                 month_to_yyyymm: maxDate
@@ -172,7 +172,9 @@ require([
             });
         }
 
+        //TODO: Set it at the end of the range as default
         rangeMonths$.dateRangeSlider(Config.dateRangeSlider.prices_detaild);
+        
 
         //Events
         rangeMonths$.on('valuesChanged', function (e, data) {

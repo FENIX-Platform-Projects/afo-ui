@@ -29,8 +29,6 @@ define([
 
     return function (Selection, $target) {
 
-        console.log(Selection, $target);
-
 		//DEBUG
     	/*Selection = {
     	    fertilizer_code: '3102100000',

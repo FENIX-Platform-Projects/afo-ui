@@ -39,8 +39,8 @@ define({
     },
     "prices_detaild": {
       defaultValues: {
-          min: new Date(2010, 2, 0),
-          max: new Date(2011, 2, 0)           
+          min: new Date(2014, 7, 0),
+          max: new Date(2015, 7, 0)
       },
       bounds: {
           min: new Date(2010, 2, 0),

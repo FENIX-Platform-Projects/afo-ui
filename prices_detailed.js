@@ -42,13 +42,11 @@ require([
             radioMarketTypeSub$ = $('#marketTypeSub'),
         	rangeMonths$ = $('#prices_rangeMonths'),
             tableresult$ = $('#table-result');
-        //,
+
+        //rangeMonths$.dateRangeSlider(Config.dateRangeSlider.prices_detaild);
         defSelection = {
             fertilizer_code: '3105300000',
-            country_code: [133]
-            //mType: radioMarketTypeAll$.val(),
-            //month_from_yyyymm: '201003',
-            //month_to_yyyymm: '201501'
+            country_code: [133],
         };
 
         function formatMonth(date) {
@@ -82,12 +80,10 @@ require([
             }
             return toRet;
         }
-
+        //TODO: add the other set-s if needed
         function setSelection(sel) {
-            if (sel.country_code && sel.country_code.length > 0) {
+            if (sel.country_code && sel.country_code.length > 0)
                 listCountries$.jstree(true).check_node(sel.country_code);
-            }
-
             if (sel.fertilizer_code)
                 listProducts$.val(sel.fertilizer_code);
         }
@@ -184,7 +180,6 @@ require([
             });
         }
 
-        //TODO: Set it at the end of the range as default
         rangeMonths$.dateRangeSlider(Config.dateRangeSlider.prices_detaild);
 
 
@@ -216,9 +211,8 @@ require([
         $('input[type=radio][name=mType_radio]').change(function () {
             updateUI(getSelection());
         });
-        $('#country-sel-all-s').on('click', function () {
-            listCountries$.jstree(true).check_all();
-        });
+        $('#country-sel-all-s').on('click', function () { listCountries$.jstree(true).check_all(); });
+        $('#country-unsel-all-s').on('click', function () { listCountries$.jstree(true).uncheck_all(); });
 
         //Events end
 

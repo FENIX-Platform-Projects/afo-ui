@@ -100,7 +100,8 @@ require([
 						search: {
 							show_only_matches: true
 						}
-					}).on('changed.jstree', function (e, data) {
+					})
+					.on('changed.jstree', function (e, data) {
 						e.preventDefault();
 						initMapFamilies( data.selected, fmLayer );
 					});		

@@ -292,14 +292,16 @@ define([
             }
 
             self.productTree = $(s.PRODUCT).jstree({
-                "core": {
-                    "multiple": false,
-                    "animation": 0,
-                    "themes": {"stripes": true},
-                    'data': data
+                core: {
+                    multiple: true,
+                    data: data,
+                    themes: {
+                        icons: false,
+                        stripes: true
+                    }
                 },
-                "plugins": ["search", "wholerow", "ui"],
-                "search": {
+                plugins: ['search', 'wholerow', 'checkbox', 'ui'],
+                search: {
                     show_only_matches: true
                 }
             }).on('changed.jstree', function () {

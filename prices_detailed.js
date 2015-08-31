@@ -42,7 +42,10 @@ require([
             radioMarketTypeOpen$ = $('#marketTypeOpen'),
             radioMarketTypeSub$ = $('#marketTypeSub'),
         	rangeMonths$ = $('#prices_rangeMonths'),
-            tableresult$ = $('#table-result');
+            tableresult$ = $('#table-result'),
+            afoResumeWrap$ = $('#afo-resume-wrap'),
+            pricesRangeRadio$ = $('input[name=prices_range_radio]'),
+            pricesTypeRadio$ = $('input[type=radio][name=mType_radio]');
 
         function formatMonth(date) {
             return [date.slice(0, 4), '/', date.slice(4)].join('')
@@ -115,7 +118,7 @@ require([
 
         function updateResume(selection) {
             if(!selection) {
-                $('#afo-resume-wrap').empty();
+                afoResumeWrap$.empty();
                 return false;
             }
             var from = selection.month_from_yyyymm,
@@ -126,7 +129,7 @@ require([
                 function (c) {
                     return c.text;
                 });
-            $('#afo-resume-wrap').html(resumeTmpl({
+            afoResumeWrap$.html(resumeTmpl({
                 items: [{
                     label: 'Product: ',
                     value: $("#prices_selectProduct option:selected").text()
@@ -197,7 +200,7 @@ require([
             updateUI(getSelection());
         });
 
-        $('input[name=prices_range_radio]').on('click', function (e) {
+        pricesRangeRadio$.on('click', function (e) {
 
             var val = parseInt($(this).val()),
                 max = moment(Config.dateRangeSlider.prices_detaild.bounds.max),
@@ -205,7 +208,7 @@ require([
             rangeMonths$.dateRangeSlider('min', min);
         });
 
-        $(listProducts$).on('change', function (e) {
+        listProducts$.on('change', function (e) {
             updateUI(getSelection());
         });
 
@@ -217,7 +220,7 @@ require([
             updateUI();
         });
 
-        $('input[type=radio][name=mType_radio]').change(function () {
+        pricesTypeRadio$.change(function () {
             updateUI(getSelection());
         });
         $('#country-sel-all-s').on('click', function () { listCountries$.jstree(true).check_all(); });

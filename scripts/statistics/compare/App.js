@@ -99,12 +99,16 @@ define([
         values = this.buildFilterCombinations(results);
 
         this.results.empty();
-
+this.globalData=[];
+console.log(values.length);
         _.each(values, _.bind(function (v) {
-
             switch (results.SHOW) {
                 case 'table' :
                     this.performTableQuery(v, results);
+                    break;
+					case 'pivot' :
+                    this.performPivotQuery(v, results);
+					
                     break;
                 case 'chart' :
                     this.performChartQuery(v, results);
@@ -112,7 +116,9 @@ define([
             }
 
         }, this));
-
+	/*	if(results.SHOW=="pivot"){
+			console.log("fin",this.globalData);
+			this.results.printOlap(this.globalData)}*/
     };
 
     //Chart
@@ -185,9 +191,11 @@ define([
     App.prototype.performTableQuery = function (v, results) {
 
         var query;
-
-        switch (results.COMPARE) {
-            case 'ELEMENT' :
+console.log(results.COMPARE[0].code);
+        //switch (results.COMPARE) {
+switch (results.COMPARE[0].code) {
+                    
+		  case 'ELEMENT' :
                 query = this._replace(this.config.queries.compare_by_element, v);
                 break;
             case 'PRODUCT' :
@@ -197,7 +205,6 @@ define([
                 query = this._replace(this.config.queries.compare_by_country, v);
                 break;
         }
-
         var data = {
             datasource: this.config.dbName,
             thousandSeparator: ',',
@@ -221,7 +228,7 @@ define([
                 if (data.length === 0) {
                     return;
                 }
-
+console.log(data,this)
                 this.appendTable(data)
             }, this),
             error: function (e) {
@@ -232,10 +239,67 @@ define([
 
 
     };
+  App.prototype.performPivotQuery = function (v, results) {
 
+        var query;
+        //switch (results.COMPARE) {
+switch (results.COMPARE[0].code) {
+                    
+		  case 'ELEMENT' :
+                query = this._replace(this.config.queries.compare_by_element, v);
+                break;
+            case 'PRODUCT' :
+                query = this._replace(this.config.queries.compare_by_product, v);
+                break;
+            case 'COUNTRY' :
+                query = this._replace(this.config.queries.compare_by_country, v);
+                break;
+        }
+        var data = {
+            datasource: this.config.dbName,
+            thousandSeparator: ',',
+            decimalSeparator: '.',
+            decimalNumbers: 2,
+            cssFilename: '',
+            nowrap: false,
+            valuesIndex: 0,
+            json: JSON.stringify({
+                query: query
+            })
+        };
+
+        $.ajax({
+            url: this.config.wdsUrl,
+            data: data,
+            type: 'POST',
+            dataType: 'JSON',
+            success: _.bind(function (data) {
+
+                if (data.length === 0) {
+                    return;
+                }
+              this.globalData=this.globalData.concat(data);
+			 this.results.printOlap(this.globalData);
+		
+		}, this),
+            error: function (e) {
+                console.error("WDS error: ");
+                console.log(e)
+            }
+        });
+
+
+    };
     App.prototype.appendTable = function (data) {
         this.results.printTable(data);
-    };
+    // this.results.printOlap(data);
+    
+	};
+	 App.prototype.appendPivot = function (data) {
+        this.results.printOlap(data);
+    
+    
+	};
 
     //General
 

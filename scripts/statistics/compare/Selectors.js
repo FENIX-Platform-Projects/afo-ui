@@ -459,7 +459,7 @@ define([
     };
 
     Selectors.prototype._initShowAsSelector = function () {
-        var kind = [['table', 'Table'], ['chart', 'Chart']],
+        var kind = [['table', 'Table'], ['chart', 'Chart'], ['pivot', 'Pivot']],
             $form = $('<form>');
 
         if (Array.isArray(kind)) {

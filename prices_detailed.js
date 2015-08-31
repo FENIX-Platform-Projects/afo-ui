@@ -182,7 +182,8 @@ require([
                             .bindPopup(popupTmpl({
                                 title: data[i][0],
                                 fert: $("#prices_selectProduct option:selected").text(),
-                                val: data[i][2]
+                                val: data[i][2],
+                                type: data[i][3],
                             }))
                             .addTo(layerRetail);
                     }

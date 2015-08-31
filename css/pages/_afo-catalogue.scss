@@ -10,7 +10,7 @@
   }
 
   .panel-left {
-    height: 473px;
+    height: 400px;
     overflow-y:auto;
   }
 
@@ -18,10 +18,9 @@
 }
 
 #page-catalogue #fertMap {
-  min-height: 500px;
-}
-#page-catalogue #fertMap {
-  height: 500px;
+  min-height: 400px;
+  margin-top: 30px;
+  height: 400px;
   position: relative;
 }
 
@@ -31,11 +30,11 @@
 }
 
 #page-catalogue #resultsCountries{
-  min-height: 500px;
+  min-height: 400px;
 }
 
 #page-catalogue #crops{
-  min-height: 500px;
+  min-height: 400px;
 }
 
 

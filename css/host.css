@@ -2710,14 +2710,15 @@ input[type="checkbox"]:checked + label {
 #page-catalogue .afo-title-gray {
   margin-top: 0; }
 #page-catalogue .panel-left {
-  height: 473px;
+  height: 400px;
   overflow-y: auto; }
 
 #page-catalogue #fertMap {
-  min-height: 500px; }
+  margin-top: 30px;
+  min-height: 400px; }
 
 #page-catalogue #fertMap {
-  height: 500px;
+  height: 400px;
   position: relative; }
 
 #page-catalogue #chartFamilies {
@@ -2725,10 +2726,10 @@ input[type="checkbox"]:checked + label {
   width: auto; }
 
 #page-catalogue #resultsCountries {
-  min-height: 500px; }
+  min-height: 400px; }
 
 #page-catalogue #crops {
-  min-height: 500px; }
+  min-height: 400px; }
 
 /* AFO - Data Management Page Style */
 #metadataEditorContainer h3.panel-title {

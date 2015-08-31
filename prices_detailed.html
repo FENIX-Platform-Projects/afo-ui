@@ -29,6 +29,25 @@
     <link rel="stylesheet" href="submodules/fenix-ui-olap/lib/grid/gt_grid_height.css" />
     <link rel="stylesheet" href="css/components/pivotConfiguration.css" />
 </head>
+
+<script id="resumeTmpl" type="text/x-handlebars-template">
+    <ul id="afo-resume">
+    {{#each items}}
+        <li><span>{{label}} </span><b>{{value}}</b></li>
+    {{/each}}
+    </ul>
+</script>
+
+<script id="popupTmpl" type="text/x-handlebars-template">
+    <div class='fm-popup'>
+        <div class='fm-popup-join-title'><b>{{title}}</b></div>
+        <div class='fm-popup-join-content'>
+            <i>Product:</i> {{fert}}<br />
+            <i>Average price:</i> {{val}}
+        </div>
+    </div>
+</script>
+
 <body id="page-prices_international">
     <nav id="fx-menu-tmpl" class="navbar navbar-default fx-menu navbar-fixed-top" role="navigation">
         <div class="container">
@@ -71,20 +90,11 @@
         <div class="row">
             <div class="col-xs-12 col-sm-6">
                 <div class="page-header">
-                    <h3 class="afo-title-gray">SELECT FERTILIZER</h3>
-                    <br><br><br>
-                    <label>Product:</label>
+                    <h3 class="afo-title-gray">SELECT PRODUCT</h3>
                     <select class="form-control" id="prices_selectProduct">
                         <option value="3105300000" selected>DAP</option>
                     </select>
-                    <label>Market type:</label>
-                    <div class="afo-border">
-                        <input id="marketTypeAll" type="radio" name="mType_radio" value="all" checked="checked" /><label for="marketTypeAll">Both</label>
-                        <input id="marketTypeOpen" type="radio" name="mType_radio" value="open" /><label for="marketTypeOpen">Open</label>
-                        <input id="marketTypeSub" type="radio" name="mType_radio" value="subsidized" /><label for="marketTypeSub">Subsidized</label>
-                    </div>
-
-                    <label>Country:</label>
+                    <h3 class="afo-title-gray">SELECT COUNTRY</h3>
                     <div id="country-s" class="afo-border afo-selector-list" style="max-height:100px"></div>
                     <button type="button" class="btn btn-default pull-right" id="country-unsel-all-s">Unselect all</button>
                     <button type="button" class="btn btn-default pull-right" id="country-sel-all-s">Select all</button>
@@ -102,8 +112,22 @@
                     </div>
                     <br /><br />
                     <div id="prices_rangeMonths" class="afo-range"></div>
+                    <br /><br />
+                    <h3 class="afo-title-gray">MARKET TYPE</h3>
+                    <div class="">
+                        <input id="marketTypeOpen" type="radio" name="mType_radio" value="open" /><label for="marketTypeOpen">Open</label>
+                        <input id="marketTypeSub" type="radio" name="mType_radio" value="subsidized" /><label for="marketTypeSub">Subsidized</label>
+                        <input id="marketTypeAll" type="radio" name="mType_radio" value="all" checked="checked" /><label for="marketTypeAll">Both</label>
+                    </div>
+
                 </div>
             </div>
+        </div>
+        
+        <br />
+
+        <div class="row afo-border" id="afo-resume-wrap">
+            <!-- FILLED BY JS -->
         </div>
 
         <div class="row">
@@ -111,9 +135,6 @@
                 <h3 class="afo-title">Georeferenced data</h3>
                 <div id="prices_retail_map" class="afo-simple-map" style="height:250px"></div>
             </div>
-        </div>
-        <div class="row" id="afo-resume-wrap">
-            <!-- FILLED BY JS -->
         </div>
         <div class="row">
             <!--div id="pivot"></div-->

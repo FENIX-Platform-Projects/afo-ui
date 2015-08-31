@@ -33,7 +33,8 @@ require([
             outputType: 'array'
         });
 
-        var resumeTmpl = Handlebars.compile('<ul id="afo-resume">{{#each items}}<li><span>{{label}} </span><b>{{value}}</b></li>{{/each}}</ul>');
+        var resumeTmpl = Handlebars.compile($('#resumeTmpl').html()),
+            popupTmpl = Handlebars.compile($('#popupTmpl').html());
 
         var listProducts$ = $('#prices_selectProduct'),
             listCountries$ = $('#country-s'),
@@ -43,15 +44,23 @@ require([
         	rangeMonths$ = $('#prices_rangeMonths'),
             tableresult$ = $('#table-result');
 
-        //rangeMonths$.dateRangeSlider(Config.dateRangeSlider.prices_detaild);
-        defSelection = {
-            fertilizer_code: '3105300000',
-            country_code: [133],
-        };
-
         function formatMonth(date) {
             return [date.slice(0, 4), '/', date.slice(4)].join('')
         }
+
+        function formatMonthStr(date) {
+           var yyyy = date.getFullYear().toString();
+           var mm = (date.getMonth()+1).toString();
+           return yyyy + (mm[1]?mm:"0"+mm[0]); // padding
+        }        
+
+        var defDates = Config.dateRangeSlider.prices_detaild.defaultValues,
+            defSelection = {
+                fertilizer_code: '3105300000',
+                country_code: ['42'],
+                month_from_yyyymm: formatMonthStr( defDates.min ),
+                month_to_yyyymm: formatMonthStr( defDates.max )
+            };
 
         function getSelection() {
             var dates = rangeMonths$.dateRangeSlider('values');
@@ -105,6 +114,10 @@ require([
         layerRetail.addTo(map);
 
         function updateResume(selection) {
+            if(!selection) {
+                $('#afo-resume-wrap').empty();
+                return false;
+            }
             var from = selection.month_from_yyyymm,
                 to = selection.month_to_yyyymm,
                 timeRange = formatMonth(from) + ' - ' + formatMonth(to);
@@ -113,7 +126,6 @@ require([
                 function (c) {
                     return c.text;
                 });
-
             $('#afo-resume-wrap').html(resumeTmpl({
                 items: [{
                     label: 'Product: ',
@@ -123,7 +135,7 @@ require([
                     value: timeRange
                 }, {
                     label: 'Country: ',
-                    value: countries
+                    value: countries.join(', ')
                 }, {
                     label: 'Market type: ',
                     value: selection.market_type
@@ -132,12 +144,17 @@ require([
         }
 
         function updateUI(selection) {
-            if (selection.country_code)
+
+            if (selection && selection.country_code)
                 selection.country_code = selection.country_code.join("', '");
-            if (selection.market_type)
+            
+            if (selection && selection.market_type)
                 selection.market_type = selection.market_type.join("', '");
+        
             loadMarkers(selection);
+            
             resultsTable(selection, tableresult$);
+            
             updateResume(selection);
         }
 
@@ -152,14 +169,6 @@ require([
 
                     layerRetail.clearLayers();
 
-                    var popupTmpl = "<div class='fm-popup'>" +
-                                        "<div class='fm-popup-join-title'><b>{title}</b></div>" +
-                                        "<div class='fm-popup-join-content'>" +
-                                            "<i>product name:</i> {fert}<br />" +
-                                            "<i>average price:</i> {val}" +
-                                        "</div>" +
-                                        "</div>";
-
                     for (var i in data) {
 
                         data[i][0] = data[i][0].replace('[Town]', '');
@@ -167,7 +176,7 @@ require([
                         data[i][2] += ' USD/tons';
 
                         L.marker(data[i][1])
-                            .bindPopup(L.Util.template(popupTmpl, {
+                            .bindPopup(popupTmpl({
                                 title: data[i][0],
                                 fert: $("#prices_selectProduct option:selected").text(),
                                 val: data[i][2]
@@ -234,6 +243,7 @@ require([
                 var treeData = [];
                 for (var r in data)
                     treeData.push({ id: data[r][0], text: data[r][1],/*state: { selected: true }*/ });
+                
                 createTree(listCountries$, treeData);
             }
         });
@@ -241,17 +251,19 @@ require([
 
         function createTree(cnt$, data) {
             cnt$.jstree({
-                "core": {
-                    "multiple": true,
-                    "animation": 0,
-                    "themes": { "stripes": true },
-                    'data': data
+                core: {
+                    multiple: true,
+                    animation: 0,
+                    themes: { stripes: true },
+                    data: data
                 },
-                "plugins": ["search", "wholerow", "ui", "checkbox"],
-                "search": {
+                plugins: ['search', 'wholerow', 'ui', 'checkbox'],
+                search: {
                     show_only_matches: true
                 },
-                //"ui": { "initially_select": ['2814200000'] }
+                ui: {
+                    initially_select: defSelection.country_code
+                }
             });
 
             //cnt$.jstree(true).select_node('ul > li:first');

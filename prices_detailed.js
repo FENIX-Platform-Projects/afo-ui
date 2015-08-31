@@ -33,8 +33,8 @@ require([
             outputType: 'array'
         });
 
-        var resumeTmpl = Handlebars.compile($('#resumeTmpl').html()),
-            popupTmpl = Handlebars.compile($('#popupTmpl').html());
+        var resumeTmpl = Handlebars.compile($('script#resumeTmpl').html()),
+            popupTmpl = Handlebars.compile($('script#popupTmpl').html());
 
         var listProducts$ = $('#prices_selectProduct'),
             listCountries$ = $('#country-s'),

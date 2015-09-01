@@ -160,10 +160,11 @@ define([
                 listRegions$.append('<option value="' + regs[r][0] + '">' + regs[r][1] + '</option>');
         });
 
-        var mapCountries = L.map('stats_map_countries', {
-            zoom: 4,
+        window.mapCountries = L.map('stats_map_countries', {
+            zoom: 3,
+            minZoom: 2,            
             zoomControl: false,
-            center: L.latLng(20, 0),
+            center: L.latLng(Config.map_center),            
             layers: L.tileLayer(this.config.url_baselayer)
         }).addControl(L.control.zoom({position: 'bottomright'}))
 

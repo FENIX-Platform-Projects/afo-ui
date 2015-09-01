@@ -60,6 +60,7 @@ require([
         var defDates = Config.dateRangeSlider.prices_detaild.defaultValues,
             defSelection = {
                 fertilizer_code: '3105300000',
+                fertilizer_name: '',
                 country_code: ['42'],
                 month_from_yyyymm: formatMonthStr( defDates.min ),
                 month_to_yyyymm: formatMonthStr( defDates.max )
@@ -85,6 +86,7 @@ require([
 
             var toRet = {
                 fertilizer_code: listProducts$.val(),
+                fertilizer_name: listProducts$.find("option:selected").text(),
                 country_code: listCountries$.jstree(true).get_selected(),
                 market_type: mType,
                 month_from_yyyymm: minDate,
@@ -172,18 +174,30 @@ require([
 
                     layerRetail.clearLayers();
 
-                    var loc, title;
+                    var loc, title, value, type, prod;
 
                     for (var i in data) {
 
                         loc = data[i][1].split('|');
                         title = data[i][0].replace('[Town]','');
+                        prod = Selection.fertilizer_name;
+                        
+                        vals = data[i][2].split(',');
+                        types = data[i][3].split(',');
+
+                        values = _.map(vals, function(val,k) {
+                            return {
+                                val: val,
+                                type: types[k]
+                            };
+                        });
+
+                        console.log(title, values)
 
                         L.marker(loc).bindPopup(popupTmpl({
                                 title: title,
-                                val: data[i][2],
-                                type: data[i][3],
-                                prod: $("#prices_selectProduct option:selected").text()                                
+                                values: values,
+                                prod: prod
                             }))
                             .addTo(layerRetail);
                     }

@@ -44,11 +44,16 @@
             <b>{{title}}</b>
         </div>
         <div class="fm-popup-join-content">
-            <i>Product:</i> {{prod}}
-            <br />
-            <i>Market Type:</i> {{type}}
-            <br />
-            <i>Average price:</i> {{val}} USD/tons
+            <i>Product:</i> <b>{{prod}}</b>
+            <div class="list-group">
+            {{#each values}}
+            <div class="list-group-item">
+                <i>Market type:</i> {{type}}
+                <br />
+                <i>Average price:</i> {{val}} <i>USD/tons</i>
+            </div>
+            {{/each}}
+            </div>
         </div>
     </div>
 </script>
@@ -138,7 +143,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <h3 class="afo-title">Georeferenced data</h3>
-                <div id="prices_retail_map" class="afo-simple-map" style="height:250px"></div>
+                <div id="prices_retail_map" class="afo-simple-map" style="height:300px"></div>
             </div>
         </div>
         <div class="row">

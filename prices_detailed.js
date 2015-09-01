@@ -14,7 +14,7 @@ require([
     });
 
     require([
-	    'jquery', 'underscore', 'bootstrap', 'jstree', 'handlebars', 'leaflet', 'leaflet-markercluster', 'jquery.rangeSlider', 'moment',
+	    'jquery','underscore','bootstrap','jstree','handlebars','leaflet','leaflet-markercluster','jquery.rangeSlider','moment',
 	    'config/services',
 	    'src/renderAuthMenu',
         'fx-common/js/WDSClient',
@@ -141,7 +141,7 @@ require([
                     value: countries.join(', ')
                 }, {
                     label: 'Market type: ',
-                    value: selection.market_type
+                    value: selection.market_type.replace(/'/g,' ')
                 }]
             }));
         }
@@ -174,7 +174,7 @@ require([
 
                     for (var i in data) {
 
-                        data[i][0] = data[i][0].replace('[Town]', '');
+                        data[i][0] = data[i][0].replace('[Town]','');
                         data[i][1] = data[i][1].split('|');
                         data[i][2] += ' USD/tons';
 
@@ -261,7 +261,7 @@ require([
                     themes: { stripes: true },
                     data: data
                 },
-                plugins: ['search', 'wholerow', 'ui', 'checkbox'],
+                plugins: ['search','wholerow','ui','checkbox'],
                 search: {
                     show_only_matches: true
                 },

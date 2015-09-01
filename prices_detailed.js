@@ -164,6 +164,8 @@ require([
         }
 
         function loadMarkers(Selection) {
+            
+            //L.Icon.Default.imagePath = 'images';
 
             wdsClient.retrieve({
                 payload: {
@@ -192,7 +194,10 @@ require([
                             };
                         });
 
-                        L.marker(loc).bindPopup( popupTmpl({
+                        L.marker(loc, {
+                            icon: L.icon({iconUrl: Config.map_marker})
+                        })
+                        .bindPopup( popupTmpl({
                             title: title,
                             values: values,
                             prod: prod

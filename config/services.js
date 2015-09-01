@@ -26,6 +26,7 @@ define({
 
 "map_attribution": "&copy; <a href='http://www.openstreetmap.org/copyright'>OSM contrib</a>",
 "map_center": [7.18810087117902,22.236328125],
+"map_marker": "images/marker-icon.png",
 
 "dateRangeSlider": {
     prices_national: {

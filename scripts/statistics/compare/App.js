@@ -95,7 +95,7 @@ define([
 
         values = this.buildFilterCombinations(results);
 		
-		
+		/*jacques code*/
 		var valuesPivot={SOURCE:'',COUNTRY:'',ELEMENT:'',KIND:'',PRODUCT:''};
 		var tempArray=[];
 		for(var vv in results["SOURCE"])
@@ -117,7 +117,7 @@ define([
 		for(var vv in results["PRODUCT"])
 		{tempArray.push(results["PRODUCT"][vv].code)}
 	valuesPivot.PRODUCT="'"+tempArray.join("','")+"'";
-		
+		/*end jacques code*/
         this.results.empty();
 			if(results.SHOW=="pivot")
 			{this.performPivotQuery(valuesPivot, results);}

@@ -69,9 +69,8 @@ define([
                     case 'COMPARE' :  lab = 'Compare by'; break;
                 }
 
-                $label.html(lab);
-
-                $li.append($label).append($value);
+                $label.html(lab+': ');
+                $li.append($label).append( '<b>'+$value.html()+'</b>' );
                 $(s.RESUME).append($li)
             }
         });

@@ -125,20 +125,20 @@ require([
                 to = selection.month_to_yyyymm,
                 timeRange = formatMonth(from) + ' - ' + formatMonth(to);
 
-            var countries = listCountries$.jstree(true).get_selected(true).map(
-                function (c) {
+            var countries = listCountries$.jstree(true).get_selected(true).map(function (c) {
                     return c.text;
                 });
+
             afoResumeWrap$.html(resumeTmpl({
                 items: [{
                     label: 'Product: ',
                     value: $("#prices_selectProduct option:selected").text()
                 }, {
-                    label: 'Time Range: ',
-                    value: timeRange
-                }, {
                     label: 'Country: ',
                     value: countries.join(', ')
+                }, {                    
+                    label: 'Time Range: ',
+                    value: timeRange
                 }, {
                     label: 'Market type: ',
                     value: selection.market_type.replace(/'/g,' ')
@@ -172,18 +172,18 @@ require([
 
                     layerRetail.clearLayers();
 
+                    var loc, title;
+
                     for (var i in data) {
 
                         loc = data[i][1].split('|');
-
-                        data[i][0] = data[i][0].replace('[Town]','');
-                        data[i][2] += ' USD/tons';
+                        title = data[i][0].replace('[Town]','');
 
                         L.marker(loc).bindPopup(popupTmpl({
-                                title: data[i][0],
-                                fert: $("#prices_selectProduct option:selected").text(),
+                                title: title,
                                 val: data[i][2],
                                 type: data[i][3],
+                                prod: $("#prices_selectProduct option:selected").text()                                
                             }))
                             .addTo(layerRetail);
                     }

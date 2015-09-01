@@ -45,6 +45,20 @@ define([
 						linkedAttributes:[],
 						rendererDisplay: pivotRenderers,
 						aggregatorDisplay: pivotAggregators,
+						
+						 "InstanceRenderers": [
+        {label: "Grid", func: "Table"},
+		  {label: "Barchart", func: "barchart"},
+		   {label: "Line chart", func: "line chart"},
+		    {label: "Area", func: "Area"},
+			 {label: "Stacked barchart", func: "Stacked barchart"}
+    ],
+    "InstanceAggregators": [
+        {label: "SOMME", func: "Sum2"},
+        
+    ],
+						
+						
 						derivedAttributes: {},
 						"showRender": true,
 						"showFlags": false,

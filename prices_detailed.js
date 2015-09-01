@@ -174,12 +174,12 @@ require([
 
                     for (var i in data) {
 
+                        loc = data[i][1].split('|');
+
                         data[i][0] = data[i][0].replace('[Town]','');
-                        data[i][1] = data[i][1].split('|');
                         data[i][2] += ' USD/tons';
 
-                        L.marker(data[i][1])
-                            .bindPopup(popupTmpl({
+                        L.marker(loc).bindPopup(popupTmpl({
                                 title: data[i][0],
                                 fert: $("#prices_selectProduct option:selected").text(),
                                 val: data[i][2],

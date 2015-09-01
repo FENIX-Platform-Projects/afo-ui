@@ -14,14 +14,14 @@ require([
     });
 
     require([
-	    'jquery','underscore','bootstrap','jstree','handlebars','leaflet','leaflet-markercluster','jquery.rangeSlider','moment',
-	    'config/services',
-	    'src/renderAuthMenu',
+        'jquery','underscore','bootstrap','jstree','handlebars','leaflet','leaflet-markercluster','jquery.rangeSlider','moment',
+        'config/services',
+        'src/renderAuthMenu',
         'fx-common/js/WDSClient',
         'scripts/prices/local/results'
     ], function ($, _, bts, jstree, Handlebars, L, LeafletMarkecluster, rangeslider, moment,
-		Config,
-		renderAuthMenu,
+        Config,
+        renderAuthMenu,
         WDSClient,
         resultsTable
         ) {
@@ -41,7 +41,7 @@ require([
             radioMarketTypeAll$ = $('#marketTypeAll'),
             radioMarketTypeOpen$ = $('#marketTypeOpen'),
             radioMarketTypeSub$ = $('#marketTypeSub'),
-        	rangeMonths$ = $('#prices_rangeMonths'),
+            rangeMonths$ = $('#prices_rangeMonths'),
             tableresult$ = $('#table-result'),
             afoResumeWrap$ = $('#afo-resume-wrap'),
             pricesRangeRadio$ = $('input[name=prices_range_radio]'),
@@ -117,31 +117,19 @@ require([
         layerRetail.addTo(map);
 
         function updateResume(selection) {
-<<<<<<< ee971d305b174878cac49d5196c78302ad755e3a
             if(!selection) {
                 afoResumeWrap$.empty();
                 return false;
             }
-=======
-            if (!selection)
-                return;
->>>>>>> df9bd057ac302f2caebc2b2bf7b7ba2da189b6b8
             var from = selection.month_from_yyyymm,
                 to = selection.month_to_yyyymm,
                 timeRange = formatMonth(from) + ' - ' + formatMonth(to);
 
-<<<<<<< ee971d305b174878cac49d5196c78302ad755e3a
             var countries = listCountries$.jstree(true).get_selected(true).map(
                 function (c) {
                     return c.text;
                 });
             afoResumeWrap$.html(resumeTmpl({
-=======
-            var countries = listCountries$.jstree(true).get_selected(true).map(function (c) { return c.text; });
-            var marketType = selection.market_type;
-
-            $('#afo-resume-wrap').html(resumeTmpl({
->>>>>>> df9bd057ac302f2caebc2b2bf7b7ba2da189b6b8
                 items: [{
                     label: 'Product: ',
                     value: $("#prices_selectProduct option:selected").text()
@@ -153,28 +141,14 @@ require([
                     value: countries.join(', ')
                 }, {
                     label: 'Market type: ',
-<<<<<<< ee971d305b174878cac49d5196c78302ad755e3a
                     value: selection.market_type.replace(/'/g,' ')
-=======
-                    value: marketType
->>>>>>> df9bd057ac302f2caebc2b2bf7b7ba2da189b6b8
                 }]
             }));
         }
 
-<<<<<<< ee971d305b174878cac49d5196c78302ad755e3a
         function updateUI(selection) {
 
             if (selection && selection.country_code)
-=======
-        function updateUI(selection)
-        {
-            if (!selection)
-                return;
-            updateResume(selection);//update the resume and then prepare for the query
-            //Move the joins of the array in the WDS calls
-            if (selection.country_code)
->>>>>>> df9bd057ac302f2caebc2b2bf7b7ba2da189b6b8
                 selection.country_code = selection.country_code.join("', '");
             
             if (selection && selection.market_type)
@@ -183,11 +157,8 @@ require([
             loadMarkers(selection);
             
             resultsTable(selection, tableresult$);
-<<<<<<< ee971d305b174878cac49d5196c78302ad755e3a
             
             updateResume(selection);
-=======
->>>>>>> df9bd057ac302f2caebc2b2bf7b7ba2da189b6b8
         }
 
         function loadMarkers(Selection) {
@@ -230,12 +201,8 @@ require([
             updateUI(getSelection());
         });
 
-<<<<<<< ee971d305b174878cac49d5196c78302ad755e3a
         pricesRangeRadio$.on('click', function (e) {
 
-=======
-        $('input[name=prices_range_radio]').on('click', function (e) {
->>>>>>> df9bd057ac302f2caebc2b2bf7b7ba2da189b6b8
             var val = parseInt($(this).val()),
                 max = moment(Config.dateRangeSlider.prices_detaild.bounds.max),
                 min = max.subtract(val, 'months').toDate();
@@ -259,6 +226,7 @@ require([
         });
         $('#country-sel-all-s').on('click', function () { listCountries$.jstree(true).check_all(); });
         $('#country-unsel-all-s').on('click', function () { listCountries$.jstree(true).uncheck_all(); });
+
         //Events end
 
         wdsClient.retrieve({
@@ -301,6 +269,8 @@ require([
                     initially_select: defSelection.country_code
                 }
             });
+
+            //cnt$.jstree(true).select_node('ul > li:first');
         }
     });
 });

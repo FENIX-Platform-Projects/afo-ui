@@ -119,7 +119,6 @@ define([
 		{tempArray.push(results["PRODUCT"][vv].code)}
 	valuesPivot.PRODUCT="'"+tempArray.join("','")+"'";
 		
-console.log( valuesPivot,	  results,     this._replace(this.config.queries.compare_pivot,valuesPivot))
         this.results.empty();
 			if(results.SHOW=="pivot")
 			{this.performPivotQuery(valuesPivot, results);}

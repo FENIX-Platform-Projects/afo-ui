@@ -480,7 +480,9 @@ define([
         }
 
         $(s.SHOW_AS).html($form);
-        $(s.SHOW_AS).find('input[value="' + defaultValues.SHOW_AS + '"]').prop('checked', true);
+		
+        
+		$(s.SHOW_AS).find('input[value="' + defaultValues.SHOW_AS + '"]').prop('checked', true);
 
         function renderRadioBtn(item, index) {
 
@@ -502,6 +504,8 @@ define([
             }
 
             $radio.on('change', _.bind(function () {
+				if( $(s.SHOW_AS).find('input:checked').val()=="pivot"){document.getElementById("exportOlap").style.display="block";}
+				else{document.getElementById("exportOlap").style.display="none";}
                 amplify.publish(ev.SELECT);
             }));
 

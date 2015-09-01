@@ -305,7 +305,6 @@ switch (results.COMPARE[0].code) {
     };
     App.prototype.appendTable = function (data) {
         this.results.printTable(data);
-    // this.results.printOlap(data);
     
 	};
 	 App.prototype.appendPivot = function (data) {

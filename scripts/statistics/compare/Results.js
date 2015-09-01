@@ -12,7 +12,7 @@ define([
 		pivotAggregators) {
 
     'use strict';
-
+var monPivot;
     var s = {
         COURTESY: '#afo-courtesy',
         RESULTS: '#afo-results',
@@ -22,9 +22,17 @@ define([
     function Results() {
         this.table = new Table();
 		 this.Pivot = new Pivot();
-        this.chart = new Chart();
+        monPivot=this.Pivot;
+		this.chart = new Chart();
     }
 
+	  Results.prototype.exportExcel = function (data) {
+       this.Pivot.exportExcel();
+    };
+	 Results.prototype.exportCSV = function (data) {
+       this.Pivot.exportCSV();
+    };
+	
     Results.prototype.printTable = function (data) {
         var id = this.appendContainer();
         this.table.render(id, data);
@@ -45,20 +53,16 @@ define([
 						linkedAttributes:[],
 						rendererDisplay: pivotRenderers,
 						aggregatorDisplay: pivotAggregators,
-						
-						 "InstanceRenderers": [
-        {label: "Grid", func: "Table"},
-		  {label: "Barchart", func: "barchart"},
-		   {label: "Line chart", func: "line chart"},
-		    {label: "Area", func: "Area"},
-			 {label: "Stacked barchart", func: "Stacked barchart"}
-    ],
-    "InstanceAggregators": [
-        {label: "SOMME", func: "Sum2"},
-        
-    ],
-						
-						
+						"InstanceRenderers": [
+						{label: "Grid", func: "Table"},
+						{label: "Barchart", func: "barchart"},
+						{label: "Line chart", func: "line chart"},
+						{label: "Area", func: "Area"},
+						{label: "Stacked barchart", func: "Stacked barchart"}
+						],
+						"InstanceAggregators": [
+						{label: "SOMME", func: "Sum2"},
+						],
 						derivedAttributes: {},
 						"showRender": true,
 						"showFlags": false,
@@ -67,6 +71,10 @@ define([
 						"showAgg": false,
 						"csvText":"AFO"
 	   });
+	   //monPivot.exportExcel();
+		$("#downloadxls").on("click",monPivot.exportExcel);//monPivot.exportExcel
+		
+		$("#downloadcsv").click(monPivot.exportCSV)
     };
 
     Results.prototype.appendContainer = function () {

@@ -192,14 +192,12 @@ require([
                             };
                         });
 
-                        console.log(title, values)
-
-                        L.marker(loc).bindPopup(popupTmpl({
-                                title: title,
-                                values: values,
-                                prod: prod
-                            }))
-                            .addTo(layerRetail);
+                        L.marker(loc).bindPopup( popupTmpl({
+                            title: title,
+                            values: values,
+                            prod: prod
+                        }) )
+                        .addTo(layerRetail);
                     }
 
                     map.fitBounds(layerRetail.getBounds().pad(-1.2));

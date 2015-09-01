@@ -30,30 +30,29 @@ define([
         this.table.render(id, data);
     };
 	  Results.prototype.printOlap = function (data) {
-        var id = this.appendContainer();
+       
+     
+	    var id = this.appendContainer();
 		
 		$("#"+id).attr("class","fx-olap-holder");
-					$("#"+id).css("height","500px");
-		data = [['Country', 'Year', 'Value', 'Unit']].concat(data);
-        this.Pivot.render(id, data,{
-					
-						rows: ["Country"],
+		$("#"+id).css("height","1500px");
+	//cs.data_source_label,cc.country_label,ce.element_label, cc.fertilizer_label, d.year, d.value, d.um
+	   data = [['Source','Country','Element','Product', 'Year', 'Value', 'Unit']].concat(data);
+	   this.Pivot.render(id, data,{	rows: ["Source","Country","Element","Product"],
 						cols: ["Year"],
 						vals: ["Value"],
 						hiddenAttributes:["Unit","Value"],
 						linkedAttributes:[],
 						rendererDisplay: pivotRenderers,
-						aggregatorDisplay: pivotAggregators
-						,
-
-        "hiddenAttributes": ["Value","code","Flag"],
-        "showRender": true,
-        "showFlags": false,
-        "showUnit": true,
-        "showCode": false,
-        "showAgg": false,
-		"csvText":"AFO"
-					});
+						aggregatorDisplay: pivotAggregators,
+						derivedAttributes: {},
+						"showRender": true,
+						"showFlags": false,
+						"showUnit": true,
+						"showCode": false,
+						"showAgg": false,
+						"csvText":"AFO"
+	   });
     };
 
     Results.prototype.appendContainer = function () {

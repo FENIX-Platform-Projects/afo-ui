@@ -92,33 +92,55 @@ define([
         var results = this.selectors.getFilter(),
             values;
 
-        if (results === false) {
-            return;
-        }
+        if (results === false) {return;}
 
         values = this.buildFilterCombinations(results);
-
+		
+		
+		var valuesPivot={SOURCE:'',COUNTRY:'',ELEMENT:'',KIND:'',PRODUCT:''};
+		var tempArray=[];
+		for(var vv in results["SOURCE"])
+		{tempArray.push(results["SOURCE"][vv].code)}
+	valuesPivot.SOURCE="'"+tempArray.join("','")+"'";
+	 tempArray=[];
+		for(var vv in results["COUNTRY"])
+		{tempArray.push(results["COUNTRY"][vv].code)}
+	valuesPivot.COUNTRY="'"+tempArray.join("','")+"'";
+	 tempArray=[];
+		for(var vv in results["ELEMENT"])
+		{tempArray.push(results["ELEMENT"][vv].code)}
+	valuesPivot.ELEMENT="'"+tempArray.join("','")+"'";
+	 tempArray=[];
+		for(var vv in results["KIND"])
+		{tempArray.push(results["KIND"][vv].code)}
+	valuesPivot.KIND="'"+tempArray.join("','")+"'";
+	tempArray=[];
+		for(var vv in results["PRODUCT"])
+		{tempArray.push(results["PRODUCT"][vv].code)}
+	valuesPivot.PRODUCT="'"+tempArray.join("','")+"'";
+		
+console.log( valuesPivot,	  results,     this._replace(this.config.queries.compare_pivot,valuesPivot))
         this.results.empty();
-this.globalData=[];
-console.log(values.length);
-        _.each(values, _.bind(function (v) {
-            switch (results.SHOW) {
-                case 'table' :
-                    this.performTableQuery(v, results);
-                    break;
-					case 'pivot' :
-                    this.performPivotQuery(v, results);
-					
-                    break;
-                case 'chart' :
-                    this.performChartQuery(v, results);
-                    break;
-            }
+			if(results.SHOW=="pivot")
+			{this.performPivotQuery(valuesPivot, results);}
+		else{		
+			_.each(values, _.bind(function (v) {
+				switch (results.SHOW) {
+					case 'table' :
+						this.performTableQuery(v, results);
+						break;
+						case 'pivot' :
+					//	this.performPivotQuery(valuesPivot, results,values.length);
+						
+						break;
+					case 'chart' :
+						this.performChartQuery(v, results);
+						break;
+				}
 
-        }, this));
-	/*	if(results.SHOW=="pivot"){
-			console.log("fin",this.globalData);
-			this.results.printOlap(this.globalData)}*/
+			}, this));
+		}
+	
     };
 
     //Chart
@@ -191,7 +213,6 @@ console.log(values.length);
     App.prototype.performTableQuery = function (v, results) {
 
         var query;
-console.log(results.COMPARE[0].code);
         //switch (results.COMPARE) {
 switch (results.COMPARE[0].code) {
                     
@@ -224,11 +245,9 @@ switch (results.COMPARE[0].code) {
             type: 'POST',
             dataType: 'JSON',
             success: _.bind(function (data) {
-
                 if (data.length === 0) {
                     return;
                 }
-console.log(data,this)
                 this.appendTable(data)
             }, this),
             error: function (e) {
@@ -241,9 +260,9 @@ console.log(data,this)
     };
   App.prototype.performPivotQuery = function (v, results) {
 
-        var query;
+        var query=this._replace(this.config.queries.compare_pivot,v);
         //switch (results.COMPARE) {
-switch (results.COMPARE[0].code) {
+/*switch (results.COMPARE[0].code) {
                     
 		  case 'ELEMENT' :
                 query = this._replace(this.config.queries.compare_by_element, v);
@@ -254,7 +273,7 @@ switch (results.COMPARE[0].code) {
             case 'COUNTRY' :
                 query = this._replace(this.config.queries.compare_by_country, v);
                 break;
-        }
+        }*/
         var data = {
             datasource: this.config.dbName,
             thousandSeparator: ',',
@@ -274,12 +293,8 @@ switch (results.COMPARE[0].code) {
             type: 'POST',
             dataType: 'JSON',
             success: _.bind(function (data) {
-
-                if (data.length === 0) {
-                    return;
-                }
-              this.globalData=this.globalData.concat(data);
-			 this.results.printOlap(this.globalData);
+			
+			 this.results.printOlap(data);
 		
 		}, this),
             error: function (e) {

@@ -459,7 +459,7 @@ require([
 			for (i in DataSelected)
 			{ret+='"'+DataSelected[i].crop_code+'","'+DataSelected[i].cropName+'","'+DataSelected[i].fertilizer+'"\n'}
 			}
-			
+			if(DataSelected.length>0){
 			   var link = document.createElement("a");
         if (link.download !== undefined) { // feature detection
             // Browsers that support HTML5 download attribute
@@ -478,6 +478,7 @@ require([
 			 document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+			}
 		})
 		initListFamilies(fmLayer);
 

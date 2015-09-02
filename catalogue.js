@@ -447,7 +447,7 @@ require([
 
 		$('#down_selection').on('click', function(e) {
 			//$('#down_selection_view').text( JSON.stringify(DataSelected) ).slideDown();
-			
+				if(DataSelected.length>0){
 			if(DataSelected[0].adm0_code){
 			var ret="adm0_code,countryName,fertilizer\n";
 			for (i in DataSelected)
@@ -459,7 +459,7 @@ require([
 			for (i in DataSelected)
 			{ret+='"'+DataSelected[i].crop_code+'","'+DataSelected[i].cropName+'","'+DataSelected[i].fertilizer+'"\n'}
 			}
-			if(DataSelected.length>0){
+		
 			   var link = document.createElement("a");
         if (link.download !== undefined) { // feature detection
             // Browsers that support HTML5 download attribute

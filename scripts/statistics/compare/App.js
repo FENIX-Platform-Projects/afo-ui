@@ -35,7 +35,6 @@ define([
 
         //Results: table and charts
         this.results = new Results();
-		console.log(this.results)
 $("#downloadxls").on("click",_.bind(this.results.Pivot.exportExcel, this.results.Pivot));//monPivot.exportExcel
 $("#downloadcsv").on("click",_.bind(this.results.Pivot.exportCSV, this.results.Pivot));//monPivot.exportExcel
     };
@@ -43,7 +42,6 @@ $("#downloadcsv").on("click",_.bind(this.results.Pivot.exportCSV, this.results.P
     App.prototype._bindEventListeners = function () {
 
         $(s.SEARCH_BTN).on('click', _.bind(this.search, this));
-console.log("ok",this.results)
 		//$("#downloadxls").on("click",_.bind(this.results.Pivot.exportExcel, this));//monPivot.exportExcel
 		/*$("#downloadcsv").on("click",_.bind(this.results.Pivot.exportCSV, this));//monPivot.exportExcel
 		*/

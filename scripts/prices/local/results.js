@@ -60,7 +60,7 @@ define([
 					$target.attr("class","fx-olap-holder");
 					$target.css("height","500px");
 					
-					data = [['Country', 'Market', 'Price', 'Type', 'Date']].concat(data);
+					data = [['Country', 'Market', 'Price', 'Price type', 'Date']].concat(data);
 
 					var pp1 = new Pivot();
 					
@@ -73,7 +73,7 @@ define([
 								return mp["Price"].split(" ")[1];
 							}
 						},
-						rows: ["Country", "Market", "Type","Unit"],
+						rows: ["Country", "Market", "Price type","Unit"],
 						cols: ["Date"],
 						vals: ["Value"],
 						hiddenAttributes:["Price","Value"],

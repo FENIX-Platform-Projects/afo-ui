@@ -35,12 +35,19 @@ define([
 
         //Results: table and charts
         this.results = new Results();
+		console.log(this.results)
+$("#downloadxls").on("click",_.bind(this.results.Pivot.exportExcel, this.results.Pivot));//monPivot.exportExcel
+$("#downloadcsv").on("click",_.bind(this.results.Pivot.exportCSV, this.results.Pivot));//monPivot.exportExcel
     };
 
     App.prototype._bindEventListeners = function () {
 
         $(s.SEARCH_BTN).on('click', _.bind(this.search, this));
-
+console.log("ok",this.results)
+		//$("#downloadxls").on("click",_.bind(this.results.Pivot.exportExcel, this));//monPivot.exportExcel
+		/*$("#downloadcsv").on("click",_.bind(this.results.Pivot.exportCSV, this));//monPivot.exportExcel
+		*/
+		//$("#downloadcsv").click(this.results.Pivot.exportCSV)
         amplify.subscribe('afo.selector.select', _.bind(this.updateResume, this));
     };
 
@@ -126,10 +133,6 @@ define([
 				switch (results.SHOW) {
 					case 'table' :
 						this.performTableQuery(v, results);
-						break;
-						case 'pivot' :
-					//	this.performPivotQuery(valuesPivot, results,values.length);
-						
 						break;
 					case 'chart' :
 						this.performChartQuery(v, results);
@@ -243,9 +246,7 @@ switch (results.COMPARE[0].code) {
             type: 'POST',
             dataType: 'JSON',
             success: _.bind(function (data) {
-                if (data.length === 0) {
-                    return;
-                }
+                if (data.length === 0) {return;}
                 this.appendTable(data)
             }, this),
             error: function (e) {
@@ -259,19 +260,7 @@ switch (results.COMPARE[0].code) {
   App.prototype.performPivotQuery = function (v, results) {
 
         var query=this._replace(this.config.queries.compare_pivot,v);
-        //switch (results.COMPARE) {
-/*switch (results.COMPARE[0].code) {
-                    
-		  case 'ELEMENT' :
-                query = this._replace(this.config.queries.compare_by_element, v);
-                break;
-            case 'PRODUCT' :
-                query = this._replace(this.config.queries.compare_by_product, v);
-                break;
-            case 'COUNTRY' :
-                query = this._replace(this.config.queries.compare_by_country, v);
-                break;
-        }*/
+    
         var data = {
             datasource: this.config.dbName,
             thousandSeparator: ',',
@@ -280,9 +269,7 @@ switch (results.COMPARE[0].code) {
             cssFilename: '',
             nowrap: false,
             valuesIndex: 0,
-            json: JSON.stringify({
-                query: query
-            })
+            json: JSON.stringify({query: query})
         };
 
         $.ajax({
@@ -290,49 +277,31 @@ switch (results.COMPARE[0].code) {
             data: data,
             type: 'POST',
             dataType: 'JSON',
-            success: _.bind(function (data) {
-			
-			 this.results.printOlap(data);
-		
-		}, this),
+            success: _.bind(function (data) {this.results.printOlap(data);}, this),
             error: function (e) {
                 console.error("WDS error: ");
                 console.log(e)
             }
         });
-
-
     };
-    App.prototype.appendTable = function (data) {
-        this.results.printTable(data);
-    
-	};
-	 App.prototype.appendPivot = function (data) {
-        this.results.printOlap(data);
-    
-    
-	};
+    App.prototype.appendTable = function (data) {this.results.printTable(data);	};
+	App.prototype.appendPivot = function (data) {this.results.printOlap(data);  };
 
     //General
 
     App.prototype.buildFilterCombinations = function (results) {
 
-        var query = {},
-            queries = [];
+        var query = {},queries = [];
 
-        var compareCode = [],
-            compareText = [];
+        var compareCode = [],compareText = [];
 
         _.each(results[results.COMPARE[0].code], function (a) {
             compareCode.push(a.code);
             compareText.push(a.text);
-
         });
 
         results[results.COMPARE[0].code] = [{code: compareCode.join("','"), text: compareText.join(",")}];
-
         _.each(results.COUNTRY, function (c) {
-
             query = {
                 COUNTRY: '',
                 PRODUCT: '',
@@ -340,17 +309,11 @@ switch (results.COMPARE[0].code) {
                 SOURCE: results['SOURCE'][0].code,
                 KIND: results['KIND'][0].code
             };
-
             query.COUNTRY = "'" + c.code + "'";
-
             _.each(results.ELEMENT, function (e) {
-
                 query.ELEMENT = "'" + e.code + "'";
-
                 _.each(results.PRODUCT, function (p) {
-
                     query.PRODUCT = "'" + p.code + "'";
-
                     queries.push($.extend({}, query));
                 });
             });
@@ -380,8 +343,6 @@ switch (results.COMPARE[0].code) {
             KIND: i['KIND'][0].text,
             COMPARE: i['COMPARE'][0].text
         };
-
-
     };
 
     App.prototype._replace = function (str, data) {

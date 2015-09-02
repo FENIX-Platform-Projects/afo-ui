@@ -44,13 +44,17 @@ var monPivot;
 		
 		$("#"+id).attr("class","fx-olap-holder");
 		$("#"+id).css("height","1500px");
-	//cs.data_source_label,cc.country_label,ce.element_label, cc.fertilizer_label, d.year, d.value, d.um
 	   data = [['Source','Country','Element','Product', 'Year', 'Value', 'Unit']].concat(data);
 	   this.Pivot.render(id, data,{	rows: ["Source","Country","Element","Product"],
 						cols: ["Year"],
 						vals: ["Value"],
-						hiddenAttributes:["Unit","Value"],
+						hiddenAttributes:["Unit","Value","Flag"],
 						linkedAttributes:[],
+						derivedAttributes: {
+                    "Flag": function(mp)
+                    {
+                       return "";
+						}},
 						rendererDisplay: pivotRenderers,
 						aggregatorDisplay: pivotAggregators,
 						"InstanceRenderers": [
@@ -63,7 +67,6 @@ var monPivot;
 						"InstanceAggregators": [
 						{label: "SOMME", func: "Sum2"},
 						],
-						derivedAttributes: {},
 						"showRender": true,
 						"showFlags": false,
 						"showUnit": true,
@@ -72,9 +75,7 @@ var monPivot;
 						"csvText":"AFO"
 	   });
 	   //monPivot.exportExcel();
-		$("#downloadxls").on("click",monPivot.exportExcel);//monPivot.exportExcel
 		
-		$("#downloadcsv").click(monPivot.exportCSV)
     };
 
     Results.prototype.appendContainer = function () {
@@ -84,9 +85,7 @@ var monPivot;
         }
         window.chartCounter++;
         var id = "afo-chart-" + window.chartCounter;
-        var $c = $('<li>', {
-            id: id
-        });
+        var $c = $('<li>', {  id: id});
 
         $(s.LIST).append($c);
         return id;

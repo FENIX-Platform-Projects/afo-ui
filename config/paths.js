@@ -32,8 +32,6 @@ define(function() {
             'leaflet-markercluster':  FX_CDN+"/js/leaflet/plugins/leaflet.markecluster/1.1/leaflet.markercluster",
             'geojson_decoder':        FX_CDN+"/js/leaflet/plugins/geojson_decoder",
 
-            'fenix-map':              FX_CDN+"/fenix/fenix-ui-map/0.0.1/fenix-ui-map.min",
-            'fenix-map-config':       FX_CDN+"/fenix/fenix-ui-map/0.0.1/fenix-ui-map-config",
             'jquery.power.tip':       FX_CDN+"/js/jquery.power.tip/1.1.0/jquery.powertip.min",
             'jquery-ui':              FX_CDN+"/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min",
             'jquery.hoverIntent':     FX_CDN+"/js/jquery.hoverIntent/1.0/jquery.hoverIntent",
@@ -44,6 +42,11 @@ define(function() {
 
             'fx-common':              "submodules/fenix-ui-common",
             'fx-common/config/auth_users' : "config/auth_users.json",
+
+            //'fenix-map':              FX_CDN+"/fenix/fenix-ui-map/0.1.1/dist/fenix-ui-map.min",
+            //'fenix-map-config':       FX_CDN+"/fenix/fenix-ui-map/0.1.1/dist/fenix-ui-map-config",
+            'fenix-map':              "submodules/fenix-ui-map/dist/fenix-ui-map.src",
+            'fenix-map-config':       "submodules/fenix-ui-map/dist/fenix-ui-map-config",
 
             'fx-olap/nls':            "submodules/fenix-ui-olap/nls",
 

@@ -386,7 +386,7 @@ require([
 				zoomControl: 'bottomright'
 			},
 			guiController: {
-				overlay : true,
+				overlay: true,
 				baselayer: false,
 				wmsLoader: true
 			},

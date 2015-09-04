@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>AfricaFertilizer.org</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta name="description" content="FENIX Structure">
+
+    <!-- Third Party CSS -->
+    <link rel="stylesheet" href="//fenixrepo.fao.org/cdn/js/bootstrap/3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href='//fenixrepo.fao.org/cdn/js/chosen/1.0.0/chosen.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="//fenixrepo.fao.org/cdn/css/jquery.power.tip/1.1.0/jquery.powertip.css" type="text/css" />
+    <link rel="stylesheet" href="//fenixrepo.fao.org/cdn/js/jquery-ui/1.10.3/jquery-ui-1.10.3.custom.min.css" />
+    <link rel="stylesheet" href="//fenixrepo.fao.org/cdn/js/leaflet/0.7.3/leaflet.css" />
+    <link rel="stylesheet" href='//fenixrepo.fao.org/cdn/js/jstree/3.0.8/dist/themes/default/style.min.css' />
+
+    <link rel="stylesheet" href="submodules/fenix-ui-map/dist/fenix-ui-map.min.css" />
+
+    <!-- FENIX CSS -->
+    <link rel="stylesheet" type="text/css" href="submodules/fenix-ui-olap/css/pivot.css">
+    <link rel="stylesheet" type="text/css" href="submodules/fenix-ui-olap/lib/grid/gt_grid_height.css" />
+    <link rel="stylesheet" type="text/css" href="css/host.css">
+
+    <!-- DAN test, delete-->
+    <style>
+        .fxTreeAddInfo {
+            color:red;
+        }
+    </style>
+</head>
+<body id="page-catalogue">
+
+
+    <nav id="fx-menu-tmpl" class="navbar navbar-default fx-menu navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#fx-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="fx-navbar-collapse">
+                <ul class="nav navbar-nav fx-ul"></ul>
+                <ul class="nav navbar-nav navbar-right fx-ul-right"></ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- main Container -->
+        <div class="row">
+            <div class="col-xs-12 ">
+                <div class="fx-menu-breadcrumb"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="row fx-header">
+            <div class="col-xs-12">
+                <div class="page-header">
+                    <h2>Catalogue</h2>
+
+                    <p>Find where the different types of fertilizers are used and what fertilizers are used by country. </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row afo-tabs">
+
+            <div class="col-xs-12">
+                <ul id="catalogue_tabs" class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="#families" role="tab" data-toggle="tab">Fertilizers</a></li>
+                    <li><a href="#countries" role="tab" data-toggle="tab">Fertilizer by Country</a></li>
+                    <li><a href="#crops" role="tab" data-toggle="tab">Fertilizer by Crop</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- Tab panes -->
+                <div class="tab-content">
+
+                    <div class="tab-pane active row" id="families">
+
+                        <div class="col-xs-4">
+                            <h3 class="afo-title-gray">SELECT FERTILIZER</h3>
+
+
+
+
+
+
+
+                            <!--<input type="text" id="product-search-c" value="" class="input form-control" placeholder="Search by Name or HS Codes" />
+                            <div id="listFamilies" class="panel-left afo-border"></div>-->
+                            <div id="fxTree1">1</div>
+                            <div id="fxTree2">2</div>
+                        </div>
+
+                        <div class="col-xs-8">
+                            <div id="fertMap" class="afo-simple-map"></div>
+                            <ul id="legendFamilies">
+                                <li style="background:#F1EEE8">0</li>
+                                <li style="background:#BCD5AB">1</li>
+                                <li style="background:#A5C88E">1 - 5</li>
+                                <li style="background:#8DBD70">5 - 10</li>
+                                <li style="background:#6AAC46"> &lt; 10</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="tab-pane row" id="countries">
+
+                        <div class="col-xs-4">
+                            <h3 class="afo-title-gray">SELECT COUNTRY</h3>
+                            <input type="text" id="country-search-c" value="" class="input form-control" placeholder="Search by Country" />
+                            <div id="listCountries" class="panel-left afo-border">
+                            </div>
+                        </div>
+                        <div class="col-xs-8">
+                            <div id="resultsCountries" class="panel-group" role="tablist" aria-multiselectable="true">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane row" id="crops">
+
+                        <div class="col-xs-4">
+                            <h3 class="afo-title-gray">SELECT CROP</h3>
+                            <input type="text" id="crop-search-c" value="" class="input form-control" placeholder="Search by Crop" />
+                            <div id="listCrops" class="panel-left afo-border">
+                            </div>
+                        </div>
+                        <div class="col-xs-8">
+                            <div id="resultsCrops" class="panel-group" role="tablist" aria-multiselectable="true">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button id="down_selection" class="btn btn-default" type="button">
+                        <i class="glyphicon glyphicon-download"></i> Download CSV File
+                    </button>
+                </div>
+                <br />
+                <textarea id="down_selection_view" style="display:none; width:100%;height:100px"></textarea>
+                <br /><br />
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <div class="container">
+        <div class="footer">
+            <p>AfricaFeritilizer.org - AF Skeleton web application by FENIX</p>
+        </div>
+    </div>
+
+    <script data-main="catalogueNewTree2" src="//fenixrepo.fao.org/cdn/js/requirejs/2.1.8/require.min.js"></script>
+    <script src="src/analitycs.js"></script>
+
+</body>
+</html>

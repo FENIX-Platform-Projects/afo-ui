@@ -82,11 +82,17 @@ define({
 
   "prices_national_products": "select c.fertilizer_code, c.fertilizer_label from codes_fertilizers c, prices_local d where  c.fertilizer_code = d.fertilizer group by c.fertilizer_code, c.fertilizer_label order by c.fertilizer_label ASC ",
    
-  "prices_detailed_local_geofilter": "select market, town_location, string_agg(''||price, ',') as price, string_agg(type, ',') as type from (select market, town_location, round(cast(avg(unit_price_usd) AS numeric), 2) as price, type from prices_local where fertilizer = cast( {fertilizer_code} AS varchar) and month between {month_from_yyyymm} and {month_to_yyyymm} and country in ('{country_code}') and type in ('{market_type}') group by market, town_location, type) as data group by market, town_location",
+    "prices_detailed_local_geofilter": "select market, town_location, string_agg(''||price, ',') as price, string_agg(type, ',') as type from (select market, town_location, round(cast(avg(unit_price_usd) AS numeric), 2) as price, type from prices_local where fertilizer = cast( {fertilizer_code} AS varchar) and month between {month_from_yyyymm} and {month_to_yyyymm} and country in ('{country_code}') and type in ('{market_type}') group by market, town_location, type) as data group by market, town_location",
 
     "prices_detailed_local_grid": "select DISTINCT country_label, market, price, type, month from (select market, country, round(cast(avg(unit_price_usd) AS numeric), 2) as price, type, month from prices_local where fertilizer = cast({fertilizer_code} AS varchar) and month between {month_from_yyyymm} and {month_to_yyyymm} and country in ('{country_code}') and type in ('{market_type}') group by market, country, month, type) data join codes_countries on (country = country_code) order by month,country_label,market asc",
     
     "prices_detailed_products": "select c.fertilizer_code, c.fertilizer_label from codes_fertilizers c, prices_local d where  c.fertilizer_code = d.fertilizer group by c.fertilizer_code, c.fertilizer_label order by c.fertilizer_label ASC ",
+
+    "prices_detailed_countries": "select country, country_label from "+
+        "(select distinct country from prices_local) as countries "+
+        "join codes_countries on country = country_code "+
+        "group by country, country_label "+
+        "order by country_label ",
 
     "//COMMENTED prices_international": "select nutrient, fob, string_agg(period,'|') as period, string_agg(''||value,'|') as value from prices_international group by index, nutrient, fob order by index",
 

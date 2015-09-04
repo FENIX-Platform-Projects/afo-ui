@@ -258,7 +258,7 @@ require([
 
         wdsClient.retrieve({
             payload: {
-                query: Config.queries.countries
+                query: Config.queries.prices_detailed_countries
             },
             success: function (data) {
                 var treeData = [];

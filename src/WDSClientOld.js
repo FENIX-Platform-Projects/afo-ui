@@ -4,7 +4,6 @@ define([
 ], function($,_,bts,Handlebars,
 	Config,
 ) {
-
 	function getWDS(queryTmpl, queryVars, callback) {
 
 	    var sqltmpl, sql;
@@ -36,6 +35,20 @@ define([
 	    });
 	}
 
+
+    var defaultOpts = {
+        serviceUrl: 'http://fenixapps2.fao.org/wds_5.1/rest/crud',
+        wdsUrl: 'http://fenixapps2.fao.org/wds_5.1/rest',
+        wdsSchemaUrl: 'http://fenixapps2.fao.org/wds_5.1/schema/services.json',
+        datasource: 'DEMO_FENIX',
+		queryTmpl: '',
+		queryVars: null,
+		outputType: 'array',
+		error: null,
+		always: null,
+		success: null
+    };
+    
 	function wdsInterface(conf) {
         this.opts = $.extend({
             serviceUrl: defaultOpts.serviceUrl,
@@ -64,7 +77,7 @@ define([
         return this;
 	};
 
-	wdsInterface.prototype.retrieve = function() {
+	wdsInterface.prototype.retrieve = function(conf) {
 
 	};
 

@@ -4,9 +4,9 @@ define([
 	'fx-common/js/WDSClient',
 	
 	'pivot',
-		'pivotConfig',
-		'pivotRenderers',
-		'pivotAggregators'
+	'pivotConfig',
+	'pivotRenderers',
+	'pivotAggregators'
 	
 	], function($,_,bts,Handlebars,
 		Config,

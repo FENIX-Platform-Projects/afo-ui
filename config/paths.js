@@ -43,8 +43,8 @@ define(function() {
             'fx-common':              "submodules/fenix-ui-common",
             'fx-common/config/auth_users' : "config/auth_users.json",
             
-            //remove after new wds server support retrieve in POST
-            'fx-common/js/WDSClient': 'src/WDSClientOld',
+            //PATCH!  remove after new wds server support retrieve in POST
+            'fx-common/js/WDSClient': 'src/wdsFakeInterface',
 
             //'fenix-map':              FX_CDN+"/fenix/fenix-ui-map/0.1.1/dist/fenix-ui-map.min",
             //'fenix-map-config':       FX_CDN+"/fenix/fenix-ui-map/0.1.1/dist/fenix-ui-map-config",

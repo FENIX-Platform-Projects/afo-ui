@@ -5,6 +5,12 @@ define([
 	Config
 ) {
 
+	/*
+		Override of wdsClient using HTTP POST for retrieve requests
+
+		It's a Patch for limits of HTTP GET url max length
+	*/
+
 
     function _template(str, data) {
         return str.replace(/\{ *([\w_]+) *\}/g, function (str, key) {

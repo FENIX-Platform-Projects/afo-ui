@@ -18,7 +18,7 @@ require([
         'config/services',
         'src/renderAuthMenu',
         'fx-common/js/WDSClient',
-        'scripts/prices/local/results'
+        'src/prices/local/results'
     ], function ($, _, bts, jstree, Handlebars, L, LeafletMarkecluster, rangeslider, moment,
         Config,
         renderAuthMenu,

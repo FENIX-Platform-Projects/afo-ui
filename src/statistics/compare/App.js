@@ -35,8 +35,8 @@ define([
 
         //Results: table and charts
         this.results = new Results();
-$("#downloadxls").on("click",_.bind(this.results.Pivot.exportExcel, this.results.Pivot));//monPivot.exportExcel
-$("#downloadcsv").on("click",_.bind(this.results.Pivot.exportCSV, this.results.Pivot));//monPivot.exportExcel
+        $("#downloadxls").on("click",_.bind(this.results.Pivot.exportExcel, this.results.Pivot));//monPivot.exportExcel
+        $("#downloadcsv").on("click",_.bind(this.results.Pivot.exportCSV, this.results.Pivot));//monPivot.exportExcel
     };
 
     App.prototype._bindEventListeners = function () {

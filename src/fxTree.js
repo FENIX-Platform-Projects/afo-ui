@@ -4,6 +4,10 @@ define(['jquery',
     'jstree',
     'text!html/fxTree.html'
 ], function ($, _, Handlebars, jstree, fxTreeHTML) {
+    /*
+    $('#country-sel-all-s').on('click', function () { listCountries$.jstree(true).check_all(); });
+    $('#country-unsel-all-s').on('click', function () { listCountries$.jstree(true).uncheck_all(); });
+    */
 
     'use strict';
 

@@ -14,7 +14,8 @@ define(['jquery',
         labelTxt: 'Name',
         labelVal: 'Code',
         textPlaceholder: 'Search...',
-        onChange: null
+        onChange: $.noop,
+        onExpand: $.noop
     };
 
     var compIDs = {
@@ -185,11 +186,15 @@ define(['jquery',
             }, 250);
         });
 
-        this.$t.on('changed.jstree', function (e, data) {
+        this.$t
+        .on('changed.jstree', function (e, data) {
             e.preventDefault();
-            if (me.config.onChange)
-                me.config.onChange(data);
-        });
+            me.config.onChange(data);
+        })
+        .on('open_node.jstree', function(e, data) {
+            e.preventDefault();
+            me.config.onExpand(data);
+        })
     };
 
     fxTree.prototype._changeTxtValMode = function () {
@@ -202,6 +207,7 @@ define(['jquery',
         this.$chkTxt.off('change');
         this.$chkVal.off('change');
         this.$t.off('changed.jstree');
+        this.$t.off('open_node.jstree');
     };
     fxTree.prototype.destroy = function () {
         this._unbindEvents();

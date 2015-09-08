@@ -72,20 +72,17 @@ require([
 							fertilizer_label: data[i][3]
 						});
 
-					dataTree = _.groupBy(dataTree, 'fertilizer_category_label');
+					dataTree = _.groupBy(dataTree, 'fertilizer_category_code');
 
 					dataTree = _.map(dataTree, function(cat, catName) {
 
-						if(catName.toUpperCase()!=='OTHERS')
-							catName += ' <small>('+(''+cat[0].fertilizer_code).substr(0,4)+')</small>';
-
 						return {
 							id: cat[0].fertilizer_category_code,
-							text: catName,
+							text: cat[0].fertilizer_category_label,
 							children: _.map(cat, function(fert) {
 								return {
 									id: fert.fertilizer_code,
-									text: fert.fertilizer_label+' <small>('+fert.fertilizer_code+')</small>'
+									text: fert.fertilizer_label
 								};
 							})
 						};
@@ -95,6 +92,7 @@ require([
                         labelVal: 'HS code',
                         labelTxt: 'Product Name',
                         showTxtValRadio: true,
+                        showValueInTextMode: true,
                         onChange: function (data) {
                         	initMapFamilies(data.selected, fmLayer);
                         }

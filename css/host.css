@@ -3656,3 +3656,8 @@ thead {
 .afo-selector-list {
   height: 300px;
   overflow: auto; }
+
+.fxTreeAddInfo {
+  color: #bbb;
+  font-size: 12px;
+}

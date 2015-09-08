@@ -148,17 +148,19 @@ define(['jquery',
     };
 
     function transformNode(node, mode, cfg) {
-        var toRet = { id: node.id };
+        var toRet = {
+            id: node.id
+        };
+
         if (mode == _modeTxtVal.text) {
             toRet.text = node.text
-
             if (cfg.showValueInTextMode)
-                toRet.text += '<span class="fxTreeAddInfo">[' + node.id + ']</span>';
+                toRet.text += '<span class="fxTreeAddInfo"> (' + node.id + ')</span>';
         }
         else {
             toRet.text = node.id;
             if (cfg.showTextInValueMode)
-                toRet.text += '<small class="fxTreeAddInfo">(' + node.text + ')</span>';
+                toRet.text += '<small class="fxTreeAddInfo"> (' + node.text + ')</span>';
         }
         return toRet;
     };

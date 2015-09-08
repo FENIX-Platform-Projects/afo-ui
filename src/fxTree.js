@@ -11,8 +11,7 @@ define(['jquery',
         showTxtValRadio: false,
         showValueInTextMode: false,
         showTextInValueMode: false,
-        rTxtPlaceholder: 'Search by Name',
-        rValPlaceholder: 'Search by Code',
+        textPlaceholder: 'Filter...',
         onChange: null
     };
 
@@ -59,8 +58,7 @@ define(['jquery',
             rGroupName: compIDs.rGroupName + id,
             rModeText: _modeTxtVal.text,
             rModeVal: _modeTxtVal.value,
-            rTxtPlaceholder: this.config.rTxtPlaceholder,
-            rValPlaceholder: this.config.rValPlaceholder
+            textPlaceholder: this.config.textPlaceholder
         });
         this.$cnt.html(ht);
 

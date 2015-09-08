@@ -93,6 +93,7 @@ require([
 
                     var treeFamilies = new fxTree('#listFamilies', {
                         showTxtValRadio: true,
+                        textPlaceholder: 'Search by Name or HS codes',
                         onChange: function (data) {
                         	initMapFamilies(data.selected, fmLayer);
                         }

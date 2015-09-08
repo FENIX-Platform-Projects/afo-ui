@@ -4,10 +4,6 @@ define(['jquery',
     'jstree',
     'text!html/fxTree.html'
 ], function ($, _, Handlebars, jstree, fxTreeHTML) {
-    /*
-    $('#country-sel-all-s').on('click', function () { listCountries$.jstree(true).check_all(); });
-    $('#country-unsel-all-s').on('click', function () { listCountries$.jstree(true).uncheck_all(); });
-    */
 
     'use strict';
 
@@ -18,6 +14,8 @@ define(['jquery',
         labelTxt: 'Name',
         labelVal: 'Code',
         textPlaceholder: 'Search...',
+        textSelAll: 'All',
+        textUnselAll: 'None',
         onChange: $.noop,
         onExpand: $.noop
     };
@@ -31,7 +29,9 @@ define(['jquery',
 
     var htmlIDs = {
         radiosContainer: '.fxTreeRadios',
-        search: '.fxTreeSearch'
+        search: '.fxTreeSearch',
+        selAll: 'fxTreeSelAll',
+        unselAll: 'fxTreeUnselAll'
     };
 
     var _modeTxtVal = { text: 'text', value: 'val' };
@@ -67,7 +67,9 @@ define(['jquery',
             rModeVal: _modeTxtVal.value,
             rTxtLabel: this.config.labelTxt,
             rValLabel: this.config.labelVal,
-            textPlaceholder: this.config.textPlaceholder
+            textPlaceholder: this.config.textPlaceholder,
+            textSelAll: this.config.textSelAll,
+            textUnselAll: this.config.textUnselAll
         });
         this.$cnt.html(ht);
 
@@ -200,7 +202,11 @@ define(['jquery',
         .on('open_node.jstree', function(e, node) {
             e.preventDefault();
             me.config.onExpand(node);
-        })
+        });
+
+        //$('#country-sel-all-s').on('click', function () { listCountries$.jstree(true).check_all(); });
+        //$('#country-unsel-all-s').on('click', function () { listCountries$.jstree(true).uncheck_all(); });
+    
     };
 
     fxTree.prototype._changeTxtValMode = function () {

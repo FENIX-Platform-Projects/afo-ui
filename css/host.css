@@ -3671,3 +3671,8 @@ thead {
   color: #bbb;
   font-size: 12px;
 }
+.fxTreeSels {
+  position: relative;
+  margin-top: -28px;
+  background: #fff;
+}

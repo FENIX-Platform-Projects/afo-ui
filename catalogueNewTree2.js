@@ -15,22 +15,26 @@ require([
     });
 
     require([
-	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'fx-common/js/fxTree', 'handlebars', 'swiper', 'leaflet',
+	    'jquery', 'underscore', 'bootstrap', 'highcharts', 'handlebars', 'swiper', 'leaflet',
 	    'config/services',
 	    'src/renderAuthMenu',
 
 	    'fx-common/js/WDSClient',
+        
+        'src/fxTree',
 
 		'text!html/accordion.html',
 
 		'fenix-map',
 		'fenix-map-config',
         'amplify'
-    ], function ($, _, bts, highcharts, fxTree, Handlebars, Swiper, L,
+    ], function ($, _, bts, highcharts, Handlebars, Swiper, L,
 
 		Config,
 		renderAuthMenu,
+
 		WDSClient,
+        fxTree,
 
 		accordion) {
 
@@ -117,8 +121,10 @@ require([
 
                     setTimeout(function () { fxT.showTextInValueMode(true); }, 5000);
                     
-
-                    var fxT2 = new fxTree($('#fxTree2'), {});
+console.log(dataTree)
+                    var fxT2 = new fxTree($('#fxTree2'), {
+                        showTxtValRadio: true,
+                    });
                     fxT2.setData(dataTree);
 
                     //fxT.showTxtValSelection(false);

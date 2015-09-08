@@ -20,6 +20,7 @@ require([
 	    'src/renderAuthMenu',
 
 	    'fx-common/js/WDSClient',
+	    'src/fxTree',
 	    
 		'text!html/accordion.html',
 
@@ -30,6 +31,7 @@ require([
 		Config,
 		renderAuthMenu,
 		WDSClient,
+		fxTree,
 
 		accordion) {
 
@@ -89,33 +91,12 @@ require([
 						};
 					});
 
-					$('#listFamilies').jstree({
-						core: {
-							data: dataTree,
-							themes: {
-								icons: false
-							}
-						},
-						plugins: ['search', 'wholerow', 'checkbox'],
-						search: {
-							show_only_matches: true
-						}
-					})
-					.on('changed.jstree', function (e, data) {
-						e.preventDefault();
-						initMapFamilies( data.selected, fmLayer );
-					});		
-
-					var to = false;
-					$('#product-search-c').keyup(function (e) {
-					    if (to) {
-					        clearTimeout(to);
-					    }
-					    to = setTimeout(function () {
-					        var v = $(e.target).val();
-					        $('#listFamilies').jstree(true).search(v);
-					    }, 250);
-					});
+                    var treeFamilies = new fxTree('#listFamilies', {
+                        showTxtValRadio: true,
+                        onChange: function (data) {
+                        	initMapFamilies(data.selected, fmLayer);
+                        }
+                    }).setData(dataTree);
 				}
 			});
 		}

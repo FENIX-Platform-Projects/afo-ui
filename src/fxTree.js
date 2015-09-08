@@ -1,27 +1,37 @@
 define(['jquery',
     'underscore',
+    'handlebars',
     'jstree',
     'text!html/fxTree.html'
-], function ($, _, jstree, fxTreeHTML) {
+], function ($, _, Handlebars, jstree, fxTreeHTML) {
 
     'use strict';
+
     var defConfig = {
         showTxtValRadio: false,
         showValueInTextMode: false,
         showTextInValueMode: false,
+        rTxtPlaceholder: 'Search by Name',
+        rValPlaceholder: 'Search by Code',
         onChange: null
     };
+
     var compIDs = {
         rTxtId: 'fxt_rTxt_',
         rValId: 'fxt_rVal_',
         rGroupName: 'fxt_rg_',
         jsTreeId: 'fxt_jst_'
     };
+
     var htmlIDs = {
         radiosContainer: '#fxTreeRadios',
         search: '#fxTreeSearch'
     };
+
     var _modeTxtVal = { text: 'text', value: 'val' };
+
+    var treeTmpl = Handlebars.compile(fxTreeHTML);
+
 
     function fxTree(cnt, cfg) {
         if (!cnt)
@@ -32,7 +42,7 @@ define(['jquery',
         this.config = {};
         $.extend(true, this.config, defConfig, cfg);
 
-        this.$cnt = cnt;
+        this.$cnt = (cnt instanceof $) ? cnt : $(cnt);
         this.$searchBox;
         this.$t;
         this.$chkTxt;
@@ -42,15 +52,16 @@ define(['jquery',
         this.txtValMode = _modeTxtVal.text;
 
         //templating
-        var tmpl = _.template(fxTreeHTML);
-        var ht = tmpl({
+        var ht = treeTmpl({
+            jsTreeId: compIDs.jsTreeId + id,            
             rTxtId: compIDs.rTxtId + id,
             rValId: compIDs.rValId + id,
             rGroupName: compIDs.rGroupName + id,
-            jsTreeId: compIDs.jsTreeId + id,
             rModeText: _modeTxtVal.text,
-            rModeVal: _modeTxtVal.value
-        })
+            rModeVal: _modeTxtVal.value,
+            rTxtPlaceholder: this.config.rTxtPlaceholder,
+            rValPlaceholder: this.config.rValPlaceholder
+        });
         this.$cnt.html(ht);
 
         this.$searchBox = this.$cnt.find(htmlIDs.search);
@@ -76,6 +87,7 @@ define(['jquery',
     fxTree.prototype.setData = function (data) {
         this.data = data;
         this._updateTreeData();
+        return this;
     };
 
     fxTree.prototype.showTxtValSelection = function (show) {
@@ -83,6 +95,7 @@ define(['jquery',
             this.$cnt.find(htmlIDs.radiosContainer).show();
         else
             this.$cnt.find(htmlIDs.radiosContainer).hide();
+        return this;
     };
     fxTree.prototype.setTxtValMode = function (mode) {
         if (mode != _modeTxtVal.text && mode != _modeTxtVal.value)
@@ -93,14 +106,17 @@ define(['jquery',
             this.$chkVal.prop('checked', true);
         this.txtValMode = mode;
         this._updateTreeData();
+        return this;
     };
     fxTree.prototype.showValueInTextMode = function (show) {
         this.config.showValueInTextMode = show;
         this._updateTreeData();
+        return this;
     };
     fxTree.prototype.showTextInValueMode = function (show) {
         this.config.showTextInValueMode = show;
         this._updateTreeData();
+        return this;
     };
 
     fxTree.prototype._updateTreeData = function () {

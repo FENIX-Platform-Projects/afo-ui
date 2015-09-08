@@ -20,7 +20,6 @@ require([
 	    'src/renderAuthMenu',
 
 	    'fx-common/js/WDSClient',
-        
         'src/fxTree',
 
 		'text!html/accordion.html',

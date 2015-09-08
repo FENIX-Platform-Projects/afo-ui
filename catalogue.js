@@ -131,10 +131,10 @@ require([
 					});
 
                     var treeCountries = new fxTree('#listCountries', {
-                        labelVal: 'Country Code <small>(GAUL0)</small>',
+                        labelVal: 'Country Code <small>(Gaul0)</small>',
                         labelTxt: 'Country Name',
-                        showTxtValRadio: false,
-                        showValueInTextMode: false,
+                        showTxtValRadio: true,
+                        showValueInTextMode: true,
                         onChange: function(seldata) {
 
 							var selected = _.map(seldata, function(val) {
@@ -199,8 +199,8 @@ require([
                     var treeCrops = new fxTree('#listCrops', {
                         labelVal: 'HS Code',
                         labelTxt: 'Crop Name',
-                        showTxtValRadio: false,
-                        showValueInTextMode: false,
+                        showTxtValRadio: true,
+                        showValueInTextMode: true,
                         onChange: function(seldata) {
 
 							var selected = _.map(seldata, function(val) {
@@ -213,8 +213,7 @@ require([
 								initResultsCrops( val.id, val.text );
 							});
 						}
-					})
-					.setData(data);
+					}).setData(data);
 				}
 			});
 		}

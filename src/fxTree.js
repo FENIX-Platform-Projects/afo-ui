@@ -26,8 +26,8 @@ define(['jquery',
     };
 
     var htmlIDs = {
-        radiosContainer: '#fxTreeRadios',
-        search: '#fxTreeSearch'
+        radiosContainer: '.fxTreeRadios',
+        search: '.fxTreeSearch'
     };
 
     var _modeTxtVal = { text: 'text', value: 'val' };

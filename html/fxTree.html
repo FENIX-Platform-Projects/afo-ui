@@ -1,12 +1,12 @@
 ﻿
 <div class="fxTree">
-	<div id="fxTreeRadios" class="pull-left">
+	<div id="fxTreeRadios" class="pull-left"style="margin-bottom:5px">
 	    <input type="radio" id="{{rTxtId}}" name="{{rGroupName}}" value="{{rModeText}}" checked />
-	    <label for="{{rTxtId}}">{{rTxtLabel}}</label>
+	    <label for="{{rTxtId}}">{{{rTxtLabel}}}</label>
 	    <input type="radio" id="{{rValId}}" name="{{rGroupName}}" value="{{rModeVal}}" />
-	    <label for="{{rValId}}">{{rValLabel}}</label>
+	    <label for="{{rValId}}">{{{rValLabel}}}</label>
 	</div>
-	<input type="text" id="fxTreeSearch" class="input form-control pull-left" style="margin-top:5px" placeholder="{{textPlaceholder}}" />
+	<input type="text" id="fxTreeSearch" class="input form-control pull-left" placeholder="{{textPlaceholder}}" />
 	<div id="{{jsTreeId}}" class="fxTreeList">
 		<!-- FILL BY JS -->
 	</div>

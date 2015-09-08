@@ -75,7 +75,6 @@ require([
 					dataTree = _.groupBy(dataTree, 'fertilizer_category_code');
 
 					dataTree = _.map(dataTree, function(cat, catName) {
-
 						return {
 							id: cat[0].fertilizer_category_code,
 							text: cat[0].fertilizer_category_label,
@@ -89,12 +88,12 @@ require([
 					});
 
                     var treeFamilies = new fxTree('#listFamilies', {
-                        labelVal: 'HS code',
+                        labelVal: 'HS Code',
                         labelTxt: 'Product Name',
                         showTxtValRadio: true,
                         showValueInTextMode: true,
-                        onChange: function (data) {
-                        	initMapFamilies(data.selected, fmLayer);
+                        onChange: function (seldata) {
+                        	initMapFamilies(seldata, fmLayer);
                         }
                     }).setData(dataTree);
 				}
@@ -131,44 +130,25 @@ require([
 						return { id: val[0], text: val[1] };
 					});
 
-					$('#listCountries').jstree({
-						core: {
-							data: data,
-							themes: { icons: false }
-						},
-						plugins: ['search','checkbox', 'wholerow'],
-						checkbox: {
-							keep_selected_style: false
-						},
-						search: {
-							show_only_matches: true
+                    var treeCountries = new fxTree('#listCountries', {
+                        labelVal: 'Country Code <small>(GAUL0)</small>',
+                        labelTxt: 'Country Name',
+                        showTxtValRadio: false,
+                        showValueInTextMode: false,
+                        onChange: function(seldata) {
+
+							var selected = _.map(seldata, function(val) {
+								return _.findWhere(data, {id: val});
+							});
+
+							$('#resultsCountries').empty();
+
+							DataSelected = [];
+							_.each(selected, function(val) {
+								initResultsCountries( val.id, val.text );
+							});
 						}
-					}).on('changed.jstree', function (e, seldata) {
-						e.preventDefault();
-
-						var selected = _.map(seldata.selected, function(val) {
-							return _.findWhere(data, {id: val});
-						});
-
-						$('#resultsCountries').empty();
-
-						DataSelected = [];
-						_.each(selected, function(val) {
-							initResultsCountries( val.id, val.text );
-						});
-
-
-					});
-					var to = false;
-					$('#country-search-c').keyup(function (e) {
-					    if (to) {
-					        clearTimeout(to);
-					    }
-					    to = setTimeout(function () {
-					        var v = $(e.target).val();
-					        $('#listCountries').jstree(true).search(v);
-					    }, 250);
-					});
+					}).setData(data);
 				}
 			});	
 		}
@@ -210,47 +190,31 @@ require([
 				payload: {
 					query: Config.queries.crops_withfertizers
 				},
-				success: function(data) {				
+				success: function(data) {
 
 					data = _.map(data, function(val) {
 						return { id: val[0], text: val[1] };
 					});
 
-					$('#listCrops').jstree({
-						core: {
-							themes: { icons: false },
-							data: data
-						},
-						plugins: ['search','checkbox', 'wholerow'],
-						checkbox: {
-							keep_selected_style: false
-						},
-						search: {
-							show_only_matches: true
+                    var treeCrops = new fxTree('#listCrops', {
+                        labelVal: 'HS Code',
+                        labelTxt: 'Crop Name',
+                        showTxtValRadio: false,
+                        showValueInTextMode: false,
+                        onChange: function(seldata) {
+
+							var selected = _.map(seldata, function(val) {
+								return _.findWhere(data, {id: val});
+							});
+
+							$('#resultsCrops').empty();
+							DataSelected = [];
+							_.each(selected, function(val) {
+								initResultsCrops( val.id, val.text );
+							});
 						}
-					}).on('changed.jstree', function (e, seldata) {
-						e.preventDefault();
-
-						var selected = _.map(seldata.selected, function(val) {
-							return _.findWhere(data, {id: val});
-						});
-
-						$('#resultsCrops').empty();
-						DataSelected = [];
-						_.each(selected, function(val) {
-							initResultsCrops( val.id, val.text );
-						});
-					});
-					var to = false;
-					$('#crop-search-c').keyup(function (e) {
-					    if (to) {
-					        clearTimeout(to);
-					    }
-					    to = setTimeout(function () {
-					        var v = $(e.target).val();
-					        $('#listCrops').jstree(true).search(v);
-					    }, 250);
-					});
+					})
+					.setData(data);
 				}
 			});
 		}

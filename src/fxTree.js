@@ -191,11 +191,11 @@ define(['jquery',
         this.$t
         .on('changed.jstree', function (e, data) {
             e.preventDefault();
-            me.config.onChange(data);
+            me.config.onChange(data.selected, data);
         })
-        .on('open_node.jstree', function(e, data) {
+        .on('open_node.jstree', function(e, node) {
             e.preventDefault();
-            me.config.onExpand(data);
+            me.config.onExpand(node);
         })
     };
 

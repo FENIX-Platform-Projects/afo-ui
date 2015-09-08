@@ -11,7 +11,9 @@ define(['jquery',
         showTxtValRadio: false,
         showValueInTextMode: false,
         showTextInValueMode: false,
-        textPlaceholder: 'Filter...',
+        labelTxt: 'Name',
+        labelVal: 'Code',
+        textPlaceholder: 'Search...',
         onChange: null
     };
 
@@ -58,6 +60,8 @@ define(['jquery',
             rGroupName: compIDs.rGroupName + id,
             rModeText: _modeTxtVal.text,
             rModeVal: _modeTxtVal.value,
+            rTxtLabel: this.config.labelTxt,
+            rValLabel: this.config.labelVal,
             textPlaceholder: this.config.textPlaceholder
         });
         this.$cnt.html(ht);

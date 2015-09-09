@@ -43,7 +43,7 @@ var monPivot;
 	    var id = this.appendContainer();
 		
 		$("#"+id).attr("class","fx-olap-holder");
-		$("#"+id).css("height","1500px");
+	//	$("#"+id).css("height","1500px");
 	   data = [['Source','Country','Element','Product', 'Year', 'Value', 'Unit']].concat(data);
 	   this.Pivot.render(id, data,{	rows: ["Source","Country","Element","Product"],
 						cols: ["Year"],

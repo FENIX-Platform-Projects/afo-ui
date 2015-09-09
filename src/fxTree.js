@@ -16,6 +16,7 @@ define(['jquery',
         textPlaceholder: 'Search...',
         textSelAll: 'All',
         textUnselAll: 'None',
+        selectFirst: false,
         onChange: $.noop,
         onExpand: $.noop
     };
@@ -92,6 +93,10 @@ define(['jquery',
 
         if (!this.config.showTxtValRadio)
             this.showTxtValSelection(false);
+
+        if (this.config.selectFirst)
+            this.$t.jstree(true).select_node('ul > li:first');
+
         this._bindEvents();
     };
 
@@ -100,6 +105,10 @@ define(['jquery',
         this._updateTreeData();
         return this;
     };
+
+    fxTree.prototype.getSelection = function () {
+        return this.$t.jstree(true).get_selected();
+    };    
 
     fxTree.prototype.showTxtValSelection = function (show) {
         if (show)

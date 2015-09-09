@@ -282,7 +282,6 @@ define([
                 }
 
                 createTree(data);
-                initSearch();
             }
         });
 
@@ -308,20 +307,17 @@ define([
             }).on('changed.jstree', function () {
                 amplify.publish(ev.SELECT);
             });
+/* TODO            self.productTree = new fxTree(s.PRODUCT, {
+                labelVal: 'HS Code',
+                labelTxt: 'Product Name',
+                showTxtValRadio: true,
+                showValueInTextMode: true,
+                onChange: function (seldata) {
+                    initMapFamilies(seldata, fmLayer);
+                }
+            }).setData(dataTree);*/
         }
 
-        function initSearch() {
-            var to = false;
-            $(s.PRODUCT_SEARCH).keyup(function () {
-                if (to) {
-                    clearTimeout(to);
-                }
-                to = setTimeout(function () {
-                    var v = $(s.PRODUCT_SEARCH).val();
-                    $(s.PRODUCT).jstree(true).search(v);
-                }, 250);
-            });
-        }
 
         function createNode(item) {
 

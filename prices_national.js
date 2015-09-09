@@ -47,7 +47,7 @@ require([
 		var minDate, maxDate;
 
 	    var treeCountry =  new fxTree('#country-s', {
-            labelVal: 'Country Code <small>(Gaul0)</small>',
+            labelVal: 'Country Code <small>( Gaul )</small>',
             labelTxt: 'Country Name',
             showTxtValRadio: true,
             showValueInTextMode: true

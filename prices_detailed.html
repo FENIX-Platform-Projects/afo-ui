@@ -165,6 +165,15 @@
                             <div id="table-result" style="height:400px">
                                 <!-- FILLED BY JS -->
                             </div>
+							<fieldset id="exportOlap" style="float:right;display:block">
+			 <button type="button" class="btn btn-default " id="downloadxls"> Download as XLS</button>
+			 <button type="button" class="btn btn-default" id="downloadcsv"> Download as CSV</button>
+			   <form id="xlsDataForm" action="http://fenixapps2.fao.org/fenix-olap-webs/go/ExportPOI2" method="POST">
+                 <input id="myJson" name="myJson" type="hidden" value="">
+                 <input id="myFlags" name="myFlags" type="hidden" value="{&quot;data&quot;:[{&quot;title&quot;:&quot;&quot;,&quot;label&quot;:&quot;Official data&quot;}]}">
+				   <input id="footer" name="footer" type="hidden" value="AFO">
+                </form>
+			</fieldset><br><br>
                         </div>          
                     </div>      
                 </div>

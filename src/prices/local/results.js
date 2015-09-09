@@ -71,6 +71,9 @@ define([
 							},
 							"Unit": function(mp) {
 								return mp["Price"].split(" ")[1];
+							},
+							"Flag": function(mp) {
+								return "";
 							}
 						},
 						rows: ["Country", "Market", "Type","Unit"],
@@ -79,8 +82,17 @@ define([
 						hiddenAttributes:["Price","Value"],
 						linkedAttributes:[],
 						rendererDisplay: pivotRenderers,
-						aggregatorDisplay: pivotAggregators
+						aggregatorDisplay: pivotAggregators,"showRender": true,
+						"showFlags": false,
+						"showUnit": false,
+						"showCode": false,
+						"showAgg": false,
+						"csvText":"AFO"
 					});
+					$("#downloadxls").on("click",_.bind(pp1.exportExcel, pp1));//monPivot.exportExcel
+        $("#downloadcsv").on("click",_.bind(pp1.exportCSV,pp1));//monPivot.exportExcel
+  
+					
 				}
 			}
 		});

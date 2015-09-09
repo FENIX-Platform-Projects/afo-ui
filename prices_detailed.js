@@ -243,8 +243,9 @@ require([
         });
         $('#country-sel-all-s').on('click', function () { listCountries$.jstree(true).check_all(); });
         $('#country-unsel-all-s').on('click', function () { listCountries$.jstree(true).uncheck_all(); });
-
-        //Events end
+ 
+ //
+       //Events end
 
         wdsClient.retrieve({
             payload: {

@@ -77,6 +77,8 @@ define(['jquery',
         this.$chkTxt = this.$cnt.find('#' + compIDs.rTxtId + id);
         this.$chkVal = this.$cnt.find('#' + compIDs.rValId + id);
         this.$t = this.$cnt.find('#' + compIDs.jsTreeId + id);
+        this.$SelAll = this.$cnt.find(htmlIDs.selAll);
+        this.$UnselAll = this.$cnt.find(htmlIDs.unselAll);
 
         this.tree = this.$t.jstree({
             core: {
@@ -194,8 +196,7 @@ define(['jquery',
             }, 250);
         });
 
-        this.$t
-        .on('changed.jstree', function (e, data) {
+        this.$t.on('changed.jstree', function (e, data) {
             e.preventDefault();
             me.config.onChange(data.selected, data);
         })
@@ -204,12 +205,15 @@ define(['jquery',
             me.config.onExpand(node);
         });
 
-/*        this.$('#country-sel-all-s').on('click', function () {
-            listCountries$.jstree(true).check_all();
+        this.$SelAll.on('click', function (e) {
+            e.preventDefault();
+            console.log(e)
+            me.$t.jstree(true).check_all();
         });
-        $('#country-unsel-all-s').on('click', function () {
-            listCountries$.jstree(true).uncheck_all();
-        });*/
+        this.$UnselAll.on('click', function (e) {
+            e.preventDefault();
+            me.$t.jstree(true).uncheck_all();
+        });
     
     };
 

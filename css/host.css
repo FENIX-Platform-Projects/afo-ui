@@ -3673,6 +3673,21 @@ thead {
 }
 .fxTreeSels {
   position: relative;
-  margin-top: -28px;
+  margin-top: -23px;
+  margin-right: 6px;
   background: #fff;
+}
+.fxTreeSels .btn:hover,
+.fxTreeSels .btn {
+  height: 18px;
+  font-size: 11px;
+  line-height: 10px;
+  border: 1px solid #e4e4e4;
+  background-color: #E9F7D8;
+}
+.fxTreeSels .btn:focus {
+  background-color: #d9e7c8; 
+}
+.fxTreeSels .btn:first-child {
+  border-right: none;
 }

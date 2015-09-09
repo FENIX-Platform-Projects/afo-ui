@@ -30,8 +30,8 @@ define(['jquery',
     var htmlIDs = {
         radiosContainer: '.fxTreeRadios',
         search: '.fxTreeSearch',
-        selAll: 'fxTreeSelAll',
-        unselAll: 'fxTreeUnselAll'
+        selAll: '.fxTreeSelAll',
+        unselAll: '.fxTreeUnselAll'
     };
 
     var _modeTxtVal = { text: 'text', value: 'val' };
@@ -204,8 +204,12 @@ define(['jquery',
             me.config.onExpand(node);
         });
 
-        //$('#country-sel-all-s').on('click', function () { listCountries$.jstree(true).check_all(); });
-        //$('#country-unsel-all-s').on('click', function () { listCountries$.jstree(true).uncheck_all(); });
+/*        this.$('#country-sel-all-s').on('click', function () {
+            listCountries$.jstree(true).check_all();
+        });
+        $('#country-unsel-all-s').on('click', function () {
+            listCountries$.jstree(true).uncheck_all();
+        });*/
     
     };
 

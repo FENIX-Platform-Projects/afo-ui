@@ -87,7 +87,7 @@ require([
 						};
 					});
 
-                    window.treeFamilies = new fxTree('#listFamilies', {
+                    var treeFamilies = new fxTree('#listFamilies', {
                         labelVal: 'HS Code',
                         labelTxt: 'Product Name',
                         showTxtValRadio: true,

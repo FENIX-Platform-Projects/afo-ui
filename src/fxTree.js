@@ -216,7 +216,6 @@ define(['jquery',
 
         this.$SelAll.on('click', function (e) {
             e.preventDefault();
-            console.log(e)
             me.$t.jstree(true).check_all();
         });
         this.$UnselAll.on('click', function (e) {

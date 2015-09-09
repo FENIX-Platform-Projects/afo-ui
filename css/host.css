@@ -3661,7 +3661,7 @@ thead {
 /* fxTree Widget */
 
 .fxTreeRadios {
-  padding-bottom:5px;
+  padding:5px;
   background-color: #E9F7D8
 }
 .fxTree input {
@@ -3692,7 +3692,8 @@ thead {
   border-right: none;
 }
 .fxTreeSearch {
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: normal;
   border: 2px solid #E9F7D8;
   box-shadow: inset 0 0 2px rgba(0,0,0,0.3)
 }

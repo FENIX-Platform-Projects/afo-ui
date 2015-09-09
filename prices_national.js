@@ -46,24 +46,19 @@ require([
 
 		var minDate, maxDate;
 
-        //Search button
-        $('#search-btn').on('click', function () {
-
-            var inputs = {
-                country_code:      $('#country-s').jstree(true).get_selected().join("', '"),
-                fertilizer_code:   $('#product-s').jstree(true).get_selected().join("', '"),
-                month_to_yyyymm:   maxDate,
-                month_from_yyyymm: minDate           
-            };
-
-            if(inputs.fertilizer_code === '' || inputs.country_code === '' || !inputs.month_from_yyyymm || !inputs.month_to_yyyymm) {
-                alert("Please select Countries and Fertilizers");
-                return;
-            }
-
-            loadOlapData(inputs);
-
+	    var treeCountry =  new fxTree('#country-s', {
+            labelVal: 'Country Code <small>(Gaul0)</small>',
+            labelTxt: 'Country Name',
+            showTxtValRadio: true,
+            showValueInTextMode: true
         });
+
+	    var treeProduct =  new fxTree('#product-s', {
+            labelVal: 'HS Code',
+            labelTxt: 'Product Name',
+            showTxtValRadio: true,
+            showValueInTextMode: true
+        });        
 
         /* ================================== SELECTORS */
 
@@ -104,57 +99,7 @@ require([
 
 	            }
 
-	            createTree(data);
-	            initSearch();
-	            initBtns();
-
-	            function initBtns () {
-
-	                var allChecked = false;
-
-	                $(s_product_sel_all).on('click', function () {
-
-	                    if (!allChecked){
-	                        $(s_product).jstree("check_all");
-	                        allChecked = true
-	                    } else {
-	                        $(s_product).jstree("uncheck_all");
-	                        allChecked = false
-	                    }
-	                })
-	            }
-
-	            function createTree(data) {
-
-	                $(s_product).jstree({
-	                    "core": {
-	                        "multiple": true,
-	                        "animation": 0,
-	                        "themes": {"stripes": true},
-	                        'data': data
-	                    },
-	                    "plugins": ["search", "wholerow", "ui", "checkbox"],
-	                    "search": {
-	                        show_only_matches: true
-	                    },
-	                    "ui": {"initially_select": ['2814200000']}
-	                });
-
-	                $(s_product).jstree(true).select_node('ul > li:first');
-	            }
-/*
-	            function initSearch() {
-	                var to = false;
-	                $(s_product_search).keyup(function () {
-	                    if (to) {
-	                        clearTimeout(to);
-	                    }
-	                    to = setTimeout(function () {
-	                        var v = $(s_product_search).val();
-	                        $(s_product).jstree(true).search(v);
-	                    }, 250);
-	                });
-	            }*/
+	            treeProduct.setData(data);
 	        }
 	    });
 
@@ -188,191 +133,164 @@ require([
 
 	            }
 
-	            createTree(data);
-	            initSearch();
-	            initBtns();
-
-	            function initBtns () {
-
-	                var allChecked = false;
-
-	                $(s_product_sel_all).on('click', function () {
-
-	                   if (!allChecked){
-	                       $(s_product).jstree("check_all");
-	                       allChecked = true
-	                   } else {
-	                       $(s_product).jstree("uncheck_all");
-	                       allChecked = false
-	                   }
-	                })
-	            }
-
-	            function createTree(data) {
-
-	                $(s_product).jstree({
-	                    "core": {
-	                        "multiple": true,
-	                        "animation": 0,
-	                        "themes": {"stripes": true},
-	                        'data': data
-	                    },
-	                    "plugins": ["search", "wholerow", "ui", "checkbox"],
-	                    "search": {
-	                        show_only_matches: true
-	                    },
-	                    "ui": {"initially_select": ['2814200000']}
-	                });
-
-	                $(s_product).jstree(true).select_node('ul > li:first');
-	            }
-
-	            function initSearch() {
-	                var to = false;
-	                $(s_product_search).keyup(function () {
-	                    if (to) {
-	                        clearTimeout(to);
-	                    }
-	                    to = setTimeout(function () {
-	                        var v = $(s_product_search).val();
-	                        $(s_product).jstree(true).search(v);
-	                    }, 250);
-	                });
-	            }
+	            treeCountry.setData(data);
 	        }
 	    });
 
-	        // Time
-	        var rangeMonths$ = $('#prices_rangeMonths');
+        // Time
+        var rangeMonths$ = $('#prices_rangeMonths');
 
 
-	        rangeMonths$.dateRangeSlider(Config.dateRangeSlider.prices_national);
+        rangeMonths$.dateRangeSlider(Config.dateRangeSlider.prices_national);
 
-	        var minD = Config.dateRangeSlider.prices_national.bounds.min,
-	            maxD = Config.dateRangeSlider.prices_national.bounds.max;
+        var minD = Config.dateRangeSlider.prices_national.bounds.min,
+            maxD = Config.dateRangeSlider.prices_national.bounds.max;
 
-	        var minMonth=minD.getMonth()+1;
-	        var maxMonth=maxD.getMonth()+1;
-	        
-	        if(minMonth<10){ minMonth="0"+minMonth; }
-	        if(maxMonth<10){ maxMonth="0"+maxMonth; }
+        var minMonth=minD.getMonth()+1;
+        var maxMonth=maxD.getMonth()+1;
+        
+        if(minMonth<10){ minMonth="0"+minMonth; }
+        if(maxMonth<10){ maxMonth="0"+maxMonth; }
 
-	        minDate = ""+minD.getFullYear()+minMonth;
-	        maxDate = ""+maxD.getFullYear()+maxMonth;
+        minDate = ""+minD.getFullYear()+minMonth;
+        maxDate = ""+maxD.getFullYear()+maxMonth;
 
-	        rangeMonths$.on('valuesChanged', function(e, data) {
+        rangeMonths$.on('valuesChanged', function(e, data) {
 
-	            var minD = new Date(data.values.min),
-	                maxD = new Date(data.values.max);
-	            var minMonth = minD.getMonth()+1;
-	            var maxMonth = maxD.getMonth()+1;
-	            if(minMonth<10){ minMonth="0"+minMonth; }
+            var minD = new Date(data.values.min),
+                maxD = new Date(data.values.max);
+            var minMonth = minD.getMonth()+1;
+            var maxMonth = maxD.getMonth()+1;
+            if(minMonth<10){ minMonth="0"+minMonth; }
 
-	            if(maxMonth<10){ maxMonth="0"+maxMonth; }
+            if(maxMonth<10){ maxMonth="0"+maxMonth; }
 
-	            minDate = ""+minD.getFullYear()+minMonth;
-	            maxDate = ""+maxD.getFullYear()+maxMonth;
+            minDate = ""+minD.getFullYear()+minMonth;
+            maxDate = ""+maxD.getFullYear()+maxMonth;
 
-	        });
-
-
-			$('input[name=prices_range_radio]').on('click', function (e) {
-
-				var val = parseInt( $(this).val() ),
-					max = moment(Config.dateRangeSlider.prices_national.bounds.max),
-					min = max.subtract(val,'months').toDate();
-				rangeMonths$.dateRangeSlider('min', min);
-			});//*/
+        });
 
 
-	        /* ================================== OLAP */
+		$('input[name=prices_range_radio]').on('click', function (e) {
 
-			var F3DWLD = {
-			    CONFIG: {
-			        wdsPayload: {
-			            showCodes: false
-			        }
-			    }
-			};
-		/*	FAOSTATNEWOLAP.showUnits = "false";
-			FAOSTATNEWOLAP.showFlags = "false";
-			*//*function init() {
-				$('#country').checkboxTree({initializeUnchecked: 'collapsed'});
-				$('#partner').checkboxTree({initializeUnchecked: 'collapsed'});
-				$('#commodity').checkboxTree({initializeUnchecked: 'collapsed'});
-			}*/
+			var val = parseInt( $(this).val() ),
+				max = moment(Config.dateRangeSlider.prices_national.bounds.max),
+				min = max.subtract(val,'months').toDate();
+			rangeMonths$.dateRangeSlider('min', min);
+		});//*/
 
-			function returnTreeview(id) {
-				var ret=[];
-				var checkedCheckboxes = $('#'+id+' input[type="checkbox"]:checked');
-				for(var i=0;i< checkedCheckboxes.length ; i++){
+
+        /* ================================== OLAP */
+
+		var F3DWLD = {
+		    CONFIG: {
+		        wdsPayload: {
+		            showCodes: false
+		        }
+		    }
+		};
+	/*	FAOSTATNEWOLAP.showUnits = "false";
+		FAOSTATNEWOLAP.showFlags = "false";
+		*//*function init() {
+			$('#country').checkboxTree({initializeUnchecked: 'collapsed'});
+			$('#partner').checkboxTree({initializeUnchecked: 'collapsed'});
+			$('#commodity').checkboxTree({initializeUnchecked: 'collapsed'});
+		}*/
+
+		function returnTreeview(id) {
+			var checkedCheckboxes = $('#'+id+' input[type="checkbox"]:checked'),
+				ret = [];
+			
+			for(var i=0;i< checkedCheckboxes.length ; i++)
 				ret.push(checkedCheckboxes[i].getAttribute("value"));
-				//console.log(checkedCheckboxes[i].getAttribute("value"));
-				}
-				return ret.join(",");
-			}
 
-			function returnSelect(id) {
-				var ret=[];
-				checkedCheckboxes=$("#"+id+" :selected");
-				for(var i=0;i< checkedCheckboxes.length ; i++){
-					ret.push(checkedCheckboxes[i].getAttribute("value"));
-				}
-				return ret.join(",");
-			}
+			return ret.join(",");
+		}
 
-			function loadOlapData(sqlFilter) {
+		function returnSelect(id) {
+			var checkedCheckboxes=$("#"+id+" :selected"),
+				ret = [];
 
-				wdsClient.retrieve({
-					payload: {
-						query: Config.queries.prices_national_filter,
-						queryVars: sqlFilter
-					},
-					success: function(data) {
+			for(var i=0;i< checkedCheckboxes.length ; i++)
+				ret.push(checkedCheckboxes[i].getAttribute("value"));
 
-						data = [["Area","Item","Year","Month2","Value","Unit","Flag","FertCode"]].concat(data);
+			return ret.join(",");
+		}
 
-						var pp1 = new Pivot();
-						pp1.render("pivot", data,{
-							derivedAttributes: {
-								"Month": function(mp){
-									var matchMonth = {"Jan":"01","Feb":"02","Mar":"03","Apr":"04","May":"05","Jun":"06","Jul":"07","Aug":"08","Sep":"09","Oct":"10","Nov":"11","Dec":"12"};
-									return '<span class="ordre">' +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
-								},
-								"Indicator":function(mp){return "<span class=ordre>" + mp["FertCode"] + "</span>"+mp["Item"]+" ("+mp["Unit"]+")";}
+		function loadOlapData(sqlFilter) {
+
+			wdsClient.retrieve({
+				payload: {
+					query: Config.queries.prices_national_filter,
+					queryVars: sqlFilter
+				},
+				success: function(data) {
+
+					data = [["Area","Item","Year","Month2","Value","Unit","Flag","FertCode"]].concat(data);
+
+					var pp1 = new Pivot();
+					pp1.render("pivot", data,{
+						derivedAttributes: {
+							"Month": function(mp){
+								var matchMonth = {"Jan":"01","Feb":"02","Mar":"03","Apr":"04","May":"05","Jun":"06","Jul":"07","Aug":"08","Sep":"09","Oct":"10","Nov":"11","Dec":"12"};
+								return '<span class="ordre">' +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
 							},
-							rows: ["Area", "Indicator", "Month"],
-							cols: ["Year"],
-							vals: ["Value", "Flag"],
-							hiddenAttributes:["Month2","Unit","Item","Value","Flag","FertCode"],
-							linkedAttributes:[],
-							rendererDisplay: pivotRenderers,
-							aggregatorDisplay: pivotAggregators
-						})
-	/*
-						$("#pivot").pivotUI(data, {
-							derivedAttributes: {
-								"Month": function(mp){
-									return "<span class=\"ordre\">" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
-								},"Indicator":function(mp){return "<span class=\"ordre\">" + mp["FertCode"] + "</span>"+mp["Item"]+" ("+mp["Unit"]+")";}
-							},
-							rows: ["Area", "Indicator", "Month"],
-							cols: ["Year"],
-							vals: ["Value", "Flag"],
-							hiddenAttributes:["Month2","Unit","Item"],
-							linkedAttributes:[]
-						},true);
-	*/
-						$("#pivot_download").show();
+							"Indicator":function(mp){return "<span class=ordre>" + mp["FertCode"] + "</span>"+mp["Item"]+" ("+mp["Unit"]+")";}
+						},
+						rows: ["Area", "Indicator", "Month"],
+						cols: ["Year"],
+						vals: ["Value", "Flag"],
+						hiddenAttributes:["Month2","Unit","Item","Value","Flag","FertCode"],
+						linkedAttributes:[],
+						rendererDisplay: pivotRenderers,
+						aggregatorDisplay: pivotAggregators
+					})
+/*
+					$("#pivot").pivotUI(data, {
+						derivedAttributes: {
+							"Month": function(mp){
+								return "<span class=\"ordre\">" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
+							},"Indicator":function(mp){return "<span class=\"ordre\">" + mp["FertCode"] + "</span>"+mp["Item"]+" ("+mp["Unit"]+")";}
+						},
+						rows: ["Area", "Indicator", "Month"],
+						cols: ["Year"],
+						vals: ["Value", "Flag"],
+						hiddenAttributes:["Month2","Unit","Item"],
+						linkedAttributes:[]
+					},true);
+*/
+					$("#pivot_download").show();
 
-						$("#pivot_download").on('click', function(e) {
+					$("#pivot_download").on('click', function(e) {
 
-							pp1.exportExcel();
-							//decolrowspanNEW();
-						});
-					}
-				});
-			}
+						pp1.exportExcel();
+						//decolrowspanNEW();
+					});
+				}
+			});
+		}
 
-	    });
+
+		        //Search button
+        $('#search-btn').on('click', function () {
+
+            var Selection = {
+                country_code:      treeCountry.getSelection().join("', '"),
+                fertilizer_code:   treeProduct.getSelection().join("', '"),
+                month_to_yyyymm:   maxDate,
+                month_from_yyyymm: minDate           
+            };
+
+            console.log(Selection)
+
+            if(Selection.fertilizer_code === '' || Selection.country_code === '' || !Selection.month_from_yyyymm || !Selection.month_to_yyyymm) {
+                alert("Please select Countries and Fertilizers");
+                return;
+            }
+
+            loadOlapData(Selection);
+
+        });
+
+    });
 });

@@ -70,10 +70,7 @@ require([
 			success: function(res) {
 
 	            var data = [],
-	                list,
-	                s_product = '#product-s',
-	                s_product_search = '#product-search-s',
-	                s_product_sel_all = '#product-sel-all-s';
+	                list;
 
 	            if (Array.isArray(res)) {
 
@@ -111,10 +108,7 @@ require([
 			success: function(res) {
 
 	            var data = [],
-	                list,
-	                s_product = '#country-s',
-	                s_product_search = '#country-search-s',
-	                s_product_sel_all = '#country-sel-all-s';;
+	                list;
 
 	            if (Array.isArray(res)) {
 

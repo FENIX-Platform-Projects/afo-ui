@@ -70,7 +70,8 @@ define(['jquery',
             rValLabel: this.config.labelVal,
             textPlaceholder: this.config.textPlaceholder,
             textSelAll: this.config.textSelAll,
-            textUnselAll: this.config.textUnselAll
+            textUnselAll: this.config.textUnselAll,
+            multiple: this.config.multiple
         });
         this.$cnt.html(ht);
 

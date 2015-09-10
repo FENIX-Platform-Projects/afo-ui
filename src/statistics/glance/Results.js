@@ -29,11 +29,9 @@ define(['underscore',
         //this.chart = new Chart();
         
         $("#pivot_download_xls").on('click', function(e) {
-            //console.log(self.pivot);
             self.pivot.exportExcel();
         });
         $("#pivot_download_csv").on('click', function(e) {
-            //console.log(self.pivot);
             self.pivot.exportCSV();
         });        
     }

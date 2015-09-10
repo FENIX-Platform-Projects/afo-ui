@@ -102,8 +102,8 @@ define(['jquery',
         return this;
     };
 
-    fxTree.prototype.getSelection = function () {
-        return this.$t.jstree(true).get_selected();
+    fxTree.prototype.getSelection = function (arg) {
+        return this.$t.jstree(true).get_selected(arg);
     };    
 
     fxTree.prototype.selectFirst = function() {

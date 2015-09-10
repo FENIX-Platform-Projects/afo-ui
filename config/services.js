@@ -11,7 +11,7 @@ define({
 "url_bbox": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/bbox/layer/gaul0_faostat_afo_4326/",
 "url_spatialquery": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/query/",
 
-"url_spatialquery_enc": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/query/<%= sql %>?geojsonEncoding=True",
+"url_spatialquery_enc": "http://fenix.fao.org/geo/fenix/spatialquery/db/spatial/query/{sql}?geojsonEncoding=True",
 
 "url_geocoding": "http://fenix.fao.org/geo/fenix/geocoding/latlon/",
 "url_esrilayer": "http://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}.png",
@@ -65,7 +65,8 @@ define({
   "crops_withfertizers": "select DISTINCT codes_crops.crop_code, codes_crops.crop_label from fertilizers_crop, codes_crops where codes_crops.crop_code = fertilizers_crop.crop_code order by codes_crops.crop_label",
 
     "countries_byregion": "SELECT country_code, country_label FROM codes_countries WHERE parent_code = '{id}' ",
-    "countries_geojson": "SELECT ST_AsGeoJSON(geom), adm0_code, areanamee FROM spatial.gaul0_faostat_afo_4326 WHERE adm0_code IN ('{ids}') ",
+    "countries_geojson": "SELECT ST_AsGeoJSON(geom), adm0_code, areanamee FROM spatial.gaul0_faostat_afo_4326 WHERE adm0_code IN ({ids}) ",
+    
     "countries_groups": "SELECT country, name FROM countries WHERE value = 1 AND name IN ( <%= ids %> ) ",
     "countries_byfertilizers": "select country_code, string_agg(fertilizer_label,'|') from fertilizers_country join codes_fertilizers on (codes_fertilizers.fertilizer_code = fertilizers_country.fertilizer_code) where fertilizers_country.fertilizer_code in ( {ids} ) group by country_code",
 

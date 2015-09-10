@@ -18,7 +18,6 @@ define(['underscore','underscore-string',
     var s = {
             DATA_SOURCES: '#data-sources-s',
             PRODUCT: '#product-s',
-            PRODUCT_SEARCH: '#product-search-s',
             N_P: '#n-p-s'
         },
         defaultValues = {
@@ -31,7 +30,8 @@ define(['underscore','underscore-string',
         },
         ev = {
             SELECT: 'afo.selector.select'
-        };
+        },
+        mapCountries;
 
 
     var wdsClient = new WDSClient({
@@ -73,40 +73,8 @@ define(['underscore','underscore-string',
                 fill: true, color: '#6AAC46', weight: 0, opacity: 1, fillOpacity: 1, fillColor: '#6AAC46'
             };
 
-/*        function getWDS(queryTmpl, queryVars, callback) {
-
-            var sqltmpl, sql;
-
-            if (queryVars) {
-                sqltmpl = _.template(queryTmpl);
-                sql = sqltmpl(queryVars);
-            }
-            else
-                sql = queryTmpl;
-
-            var data = {
-                datasource: self.config.dbName,
-                thousandSeparator: ',',
-                decimalSeparator: '.',
-                decimalNumbers: 2,
-                cssFilename: '',
-                nowrap: false,
-                valuesIndex: 0,
-                json: JSON.stringify({query: sql})
-            };
-
-            $.ajax({
-                url: self.config.wdsUrl,
-                data: data,
-                type: 'POST',
-                dataType: 'JSON',
-                success: callback
-            });
-        }*/
-
         function loadMapByRegion(regCode) {
 
-            //getWDS(self.config.queries.countries_byregion, {id: "'" + regCode + "'"}, function (resp) {
             wdsClient.retrieve({
                 payload: {
                     query: Config.queries.countries_byregion,
@@ -131,7 +99,6 @@ define(['underscore','underscore-string',
                             sql: sql
                         });
 
-console.log(sql,url);
                     $.getJSON(url, function (data) {
 
                         geojsonCountries.clearLayers();
@@ -175,26 +142,24 @@ console.log(sql,url);
             });
         }
 
-        //getWDS(this.config.queries.regions, null, function (regs) {
+        wdsClient.retrieve({
+            payload: {
+                query: Config.queries.regions
+            },
+            success: function(regs) {            
 
-            wdsClient.retrieve({
-                payload: {
-                    query: Config.queries.regions
-                },
-                success: function(regs) {            
+                regs = _.reject(regs, function (val) {
+                    return val[0] === "696";//remove all countries
+                });
 
-                    regs = _.reject(regs, function (val) {
-                        return val[0] === "696";//remove all countries
-                    });
+                listRegions$.append('<option value="696" class="afo-list-allcountries" selected>All African Countries</option>');
 
-                    listRegions$.append('<option value="696" class="afo-list-allcountries" selected>All African Countries</option>');
-
-                    for (var r in regs)
-                        listRegions$.append('<option value="' + regs[r][0] + '">' + regs[r][1] + '</option>');
-                }
+                for (var r in regs)
+                    listRegions$.append('<option value="' + regs[r][0] + '">' + regs[r][1] + '</option>');
+            }
         });
 
-        window.mapCountries = L.map('stats_map_countries', {
+        mapCountries = L.map('stats_map_countries', {
             zoom: 3,
             minZoom: 2,            
             zoomControl: false,
@@ -309,70 +274,26 @@ console.log(sql,url);
                         return 0;
                     });
 
-                    _.each(list, function (n) {
-                        data.push(createNode(n));
+                    _.each(list, function (item) {
+                        data.push({
+                            id: item[0],
+                            text: item[1],
+                            parent: '#'
+                        });
                     });
-
                 }
 
-                createTree(data);
+                self.productTree = new fxTree(s.PRODUCT, {
+                    labelVal: 'HS Code',
+                    labelTxt: 'Product Name',
+                    showTxtValRadio: true,
+                    showValueInTextMode: true,
+                    onChange: function (seldata) {
+                        amplify.publish(ev.SELECT);
+                    }
+                }).setData(data);
             }
         });
-
-        function createTree(data) {
-
-            if ($(s.PRODUCT).jstree(true) && $(s.PRODUCT).jstree(true).destroy) {
-                $(s.PRODUCT).jstree(true).destroy()
-            }
-
-            self.productTree = $(s.PRODUCT).jstree({
-                core: {
-                    multiple: true,
-                    data: data,
-                    themes: {
-                        icons: false,
-                        stripes: true
-                    }
-                },
-                plugins: ['search', 'wholerow', 'checkbox', 'ui'],
-                search: {
-                    show_only_matches: true
-                }
-            }).on('changed.jstree', function () {
-                amplify.publish(ev.SELECT);
-            });
-/* TODO            self.productTree = new fxTree(s.PRODUCT, {
-                labelVal: 'HS Code',
-                labelTxt: 'Product Name',
-                showTxtValRadio: true,
-                showValueInTextMode: true,
-                onChange: function (seldata) {
-                    initMapFamilies(seldata, fmLayer);
-                }
-            }).setData(dataTree);*/
-        }
-
-
-        function createNode(item) {
-
-            // Expected format of the node (there are no required fields)
-            var config = {
-                id: item[0], // will be autogenerated if omitted
-                text: item[1] + " [" + item[0] + "]", // node text
-                parent: '#'
-                //icon: "string", // string for custom
-                /* state: {
-                 opened: boolean,  // is the node open
-                 disabled: boolean,  // is the node disabled
-                 selected: boolean  // is the node selected
-                 },*/
-                //children    : [],  // array of strings or objects
-                //li_attr: {},  // attributes for the generated LI node
-                //a_attr: {}  // attributes for the generated A node
-            };
-
-            return config;
-        }
     };
 
     Selectors.prototype._initProductNutrientSelector = function () {
@@ -445,13 +366,9 @@ console.log(sql,url);
     };
 
     Selectors.prototype.processJsTree = function (data) {
-
-        var r= [];
-        _.each(data, function(i){
-            r.push({code: i.id, text: i.text})
+        return _.map(data, function(i){
+            return {code: i.id, text: i.text};
         });
-
-        return r;
     };
 
     Selectors.prototype.processRadioBtn = function ($btn) {
@@ -472,12 +389,13 @@ console.log(sql,url);
 
     Selectors.prototype.getSelection = function () {
 
-        return {
+        var SEL = {
             COUNTRY: selection.COUNTRIES,
             SOURCE: this.processCheckbox( $(s.DATA_SOURCES).find('input:checked') ),
             KIND: this.processRadioBtn( $(s.N_P).find('input:checked') ),
-            PRODUCT: this.processJsTree( $(s.PRODUCT).jstree(true).get_selected('full') ),
+            PRODUCT: this.processJsTree( this.productTree.getSelection('full') )
         };
+        return SEL;
     };
 
     Selectors.prototype.getFilter = function () {
@@ -501,10 +419,7 @@ console.log(sql,url);
     };
 
     Selectors.prototype._showValidationErrors = function (errors) {
-
-        alert("Please select all the fields");
-
-        console.error(errors)
+        alert("Please select Country and Product");
     };
 
     return Selectors;

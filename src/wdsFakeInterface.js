@@ -38,8 +38,6 @@ define([
 			    })
 			};
 
-	console.log(data.json)
-
 		    $.ajax({
 		        url: Config.wdsUrl,
 		        data: data,

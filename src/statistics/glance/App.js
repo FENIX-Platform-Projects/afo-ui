@@ -131,11 +131,15 @@ define([
 
             }, this),
             error: function (e) {
-                console.error("WDS error: ");
-                console.log(e)
+                /*console.error("WDS error: ");
+                console.log(e)*/
             }
         });
 
+    };
+
+    App.prototype._showqueriesCourtesyMessage = function() {
+        alert('no results')
     };
 
     //Table
@@ -183,14 +187,14 @@ define([
             type: 'POST',
             dataType: 'JSON',
             success: _.bind(function (data) {
-                console.log("data",data)
+
                 this.results.printTable(data, this.selectors.getFilter() );
 
             }, this),
-            error: function (e) {
+/*            error: function (e) {
                 console.error("WDS error: ");
                 console.log(e)
-            }
+            }*/
         });
 
     };

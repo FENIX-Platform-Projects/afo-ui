@@ -129,17 +129,19 @@ define([
                     this._showqueriesCourtesyMessage()
                 }
 
-            }, this),
-            error: function (e) {
-                /*console.error("WDS error: ");
-                console.log(e)*/
-            }
+            }, this)
         });
 
     };
 
     App.prototype._showqueriesCourtesyMessage = function() {
-        alert('no results')
+        var $btn = $('#search-btn'),
+            t = $btn.text();
+
+        $btn.text('No Results Found!');
+        setTimeout(function() {
+            $btn.text(t);
+        }, 2000);
     };
 
     //Table
@@ -209,6 +211,7 @@ define([
     App.prototype._showCourtesyMessage = function () {
         $(s.COURTESY).show();
         $(s.RESULTS).hide();
+
     };
 
     return App;

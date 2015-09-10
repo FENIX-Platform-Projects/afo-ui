@@ -18,6 +18,7 @@ define(['underscore','underscore-string',
     var s = {
             DATA_SOURCES: '#data-sources-s',
             PRODUCT: '#product-s',
+            REGION: '#region-s',
             N_P: '#n-p-s'
         },
         defaultValues = {
@@ -58,8 +59,7 @@ define(['underscore','underscore-string',
 
         var self = this;
 
-        var listRegions$ = $('#stats_selectRegions'),
-            listCountries$ = $('#stats_selectCountries'),
+        var listCountries$ = $('#stats_selectCountries'),
             mapzoomsRegions$ = $('#stats_map_regions').next('.map-zooms'),
             mapzoomsCountries$ = $('#stats_map_countries').next('.map-zooms');
 
@@ -149,13 +149,23 @@ define(['underscore','underscore-string',
             success: function(regs) {            
 
                 regs = _.reject(regs, function (val) {
-                    return val[0] === "696";//remove all countries
+                    return val[0] === "696";    //remove all countries
                 });
 
-                listRegions$.append('<option value="696" class="afo-list-allcountries" selected>All African Countries</option>');
-
-                for (var r in regs)
-                    listRegions$.append('<option value="' + regs[r][0] + '">' + regs[r][1] + '</option>');
+                regs = _.map(regs, function (val) {
+                    return {id: val[0], text: val[1] };
+                })
+                
+                self.regionTree = new fxTree(s.REGION, {
+                    labelVal: 'Region Code',
+                    labelTxt: 'Region Name',
+                    multiple: false,
+                    showTxtValRadio: true,
+                    showValueInTextMode: true,
+                    onChange: function (seldata) {
+                        loadMapByRegion(seldata[0])
+                    }
+                }).setData(regs);
             }
         });
 
@@ -174,12 +184,6 @@ define(['underscore','underscore-string',
         mapzoomsCountries$.on('click', '.btn', function (e) {
             var z = parseInt($(this).data('zoom'));
             mapCountries[z > 0 ? 'zoomIn' : 'zoomOut']();
-        });
-
-        listRegions$.on('click', 'option', function (e) {
-
-            loadMapByRegion($(e.target).attr('value'));
-
         });
 
         listCountries$.on('click', 'option', function (e) {

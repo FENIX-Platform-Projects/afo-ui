@@ -16,6 +16,7 @@ define(['jquery',
         textPlaceholder: 'Search...',
         textSelAll: 'All',
         textUnselAll: 'None',
+        multiple: true,
         onChange: $.noop,
         onExpand: $.noop
     };
@@ -84,7 +85,7 @@ define(['jquery',
             core: {
                 themes: { icons: false }
             },
-            plugins: ['search', 'wholerow', 'checkbox'],
+            plugins: ['search', 'wholerow', this.config.multiple?'checkbox':''],
             search: {
                 show_only_matches: true
             }

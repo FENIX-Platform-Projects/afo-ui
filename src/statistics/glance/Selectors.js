@@ -1,13 +1,17 @@
 /*global define*/
-define([
-    'underscore',
-    'underscore-string',
+define(['underscore','underscore-string',
     'commons/Wds',
-    'config/services',
+    'fx-common/js/WDSClient',
+    'src/fxTree',    
     'geojson_decoder',
-    'jstree',
+    'config/services',    
     'amplify'
-], function (_, _str, Wds, Config, geojsonDecoder) {
+], function (_, _str,
+    Wds,
+    WDSClient,
+    fxTree,    
+    geojsonDecoder,
+    Config) {
 
     'use strict';
 
@@ -28,6 +32,18 @@ define([
         ev = {
             SELECT: 'afo.selector.select'
         };
+
+
+    var wdsClient = new WDSClient({
+        datasource: Config.dbName,
+        outputType: 'array'
+    });
+
+    function _template(str, data) {
+        return str.replace(/\{ *([\w_]+) *\}/g, function (str, key) {
+            return data[key] || '';
+        });
+    }
 
     function Selectors() {
 
@@ -57,7 +73,7 @@ define([
                 fill: true, color: '#6AAC46', weight: 0, opacity: 1, fillOpacity: 1, fillColor: '#6AAC46'
             };
 
-        function getWDS(queryTmpl, queryVars, callback) {
+/*        function getWDS(queryTmpl, queryVars, callback) {
 
             var sqltmpl, sql;
 
@@ -86,78 +102,96 @@ define([
                 dataType: 'JSON',
                 success: callback
             });
-        }
+        }*/
 
         function loadMapByRegion(regCode) {
 
-            getWDS(self.config.queries.countries_byregion, {id: "'" + regCode + "'"}, function (resp) {
+            //getWDS(self.config.queries.countries_byregion, {id: "'" + regCode + "'"}, function (resp) {
+            wdsClient.retrieve({
+                payload: {
+                    query: Config.queries.countries_byregion,
+                    queryVars: {id: regCode }
+                },
+                success: function(resp) {
 
-                listCountries$.empty();
-                for (var r in resp)
-                    listCountries$.append('<option value="' + resp[r][0] + '">' + resp[r][1] + '</option>');
 
-                var idsCountries = _.map(resp, function (val) {
-                    return val[0];
-                });
+                    listCountries$.empty();
+                    for (var r in resp)
+                        listCountries$.append('<option value="' + resp[r][0] + '">' + resp[r][1] + '</option>');
 
-                var sqlTmpl = urlTmpl = _.template(self.config.queries.countries_geojson),
-                    sql = sqlTmpl({ids: idsCountries.join(',')});
+                    var idsCountries = _.map(resp, function (val) {
+                        return val[0];
+                    });
 
-                var urlTmpl = _.template(self.config.url_spatialquery_enc),
-                    url = urlTmpl({sql: sql});
+                    var sql = _template(self.config.queries.countries_geojson, {
+                            ids: idsCountries.join(',')
+                        });
 
-                $.getJSON(url, function (data) {
+                    var url = _template(self.config.url_spatialquery_enc, {
+                            sql: sql
+                        });
 
-                    geojsonCountries.clearLayers();
+console.log(sql,url);
+                    $.getJSON(url, function (data) {
 
-                    geojsonDecoder.decodeToLayer(data,
-                        geojsonCountries,
-                        style,
-                        function (feature, layer) {
-                            layer
-                            .on("mouseover", function(e) {
-                            	$('#stats_selected_countries').text(feature.properties.prop2);
-                            })
-                            .on("click", function (e) {
+                        geojsonCountries.clearLayers();
 
-								geojsonCountries.eachLayer(function (lay) {
-									lay.setStyle(style);
-									lay._options.selected = false;
-								});
+                        geojsonDecoder.decodeToLayer(data,
+                            geojsonCountries,
+                            style,
+                            function (feature, layer) {
+                                layer
+                                .on("mouseover", function(e) {
+                                	$('#stats_selected_countries').text(feature.properties.prop2);
+                                })
+                                .on("click", function (e) {
 
-                       			e.target.setStyle(styleHover);
-                       			e.target._options.selected = true;
+    								geojsonCountries.eachLayer(function (lay) {
+    									lay.setStyle(style);
+    									lay._options.selected = false;
+    								});
 
-                                listCountries$.find("option:selected").removeAttr("selected");
-                                listCountries$.val(feature.properties.prop1);
-                                
-                                selection.COUNTRIES = [{
-                                	code: feature.properties.prop1,
-                                	text : feature.properties.prop2
-                                }];
+                           			e.target.setStyle(styleHover);
+                           			e.target._options.selected = true;
 
-                                // leave me as last row!
-                                amplify.publish(ev.SELECT);
-                            });
-                        }
-                    );
-                    var bb = geojsonCountries.getBounds();
-                    mapCountries.fitBounds(bb.pad(-0.8));
-                    geojsonCountries.addTo(mapCountries);
-                });
+                                    listCountries$.find("option:selected").removeAttr("selected");
+                                    listCountries$.val(feature.properties.prop1);
+                                    
+                                    selection.COUNTRIES = [{
+                                    	code: feature.properties.prop1,
+                                    	text : feature.properties.prop2
+                                    }];
+
+                                    // leave me as last row!
+                                    amplify.publish(ev.SELECT);
+                                });
+                            }
+                        );
+                        var bb = geojsonCountries.getBounds();
+                        mapCountries.fitBounds(bb.pad(-0.8));
+                        geojsonCountries.addTo(mapCountries);
+                    });
+                }
             });
         }
 
-        getWDS(this.config.queries.regions, null, function (regs) {
+        //getWDS(this.config.queries.regions, null, function (regs) {
 
-            regs = _.reject(regs, function (val) {
-                return val[0] === "696";//remove all countries
-            });
+            wdsClient.retrieve({
+                payload: {
+                    query: Config.queries.regions
+                },
+                success: function(regs) {            
 
-            listRegions$.append('<option value="696" class="afo-list-allcountries" selected>All African Countries</option>');
+                    regs = _.reject(regs, function (val) {
+                        return val[0] === "696";//remove all countries
+                    });
 
-            for (var r in regs)
-                listRegions$.append('<option value="' + regs[r][0] + '">' + regs[r][1] + '</option>');
+                    listRegions$.append('<option value="696" class="afo-list-allcountries" selected>All African Countries</option>');
+
+                    for (var r in regs)
+                        listRegions$.append('<option value="' + regs[r][0] + '">' + regs[r][1] + '</option>');
+                }
         });
 
         window.mapCountries = L.map('stats_map_countries', {

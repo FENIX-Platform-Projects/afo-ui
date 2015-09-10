@@ -64,8 +64,8 @@ define({
   "countries_withfertizers": "select DISTINCT codes_countries.country_code, codes_countries.country_label from fertilizers_country, codes_countries where codes_countries.country_code = fertilizers_country.country_code order by codes_countries.country_label",
   "crops_withfertizers": "select DISTINCT codes_crops.crop_code, codes_crops.crop_label from fertilizers_crop, codes_crops where codes_crops.crop_code = fertilizers_crop.crop_code order by codes_crops.crop_label",
 
-    "countries_byregion": "SELECT country_code, country_label FROM codes_countries WHERE parent_code = <%= id %> ",
-    "countries_geojson": "SELECT ST_AsGeoJSON(geom), adm0_code, areanamee FROM spatial.gaul0_faostat_afo_4326 WHERE adm0_code IN ( <%= ids %> ) ",
+    "countries_byregion": "SELECT country_code, country_label FROM codes_countries WHERE parent_code = '{id}' ",
+    "countries_geojson": "SELECT ST_AsGeoJSON(geom), adm0_code, areanamee FROM spatial.gaul0_faostat_afo_4326 WHERE adm0_code IN ('{ids}') ",
     "countries_groups": "SELECT country, name FROM countries WHERE value = 1 AND name IN ( <%= ids %> ) ",
     "countries_byfertilizers": "select country_code, string_agg(fertilizer_label,'|') from fertilizers_country join codes_fertilizers on (codes_fertilizers.fertilizer_code = fertilizers_country.fertilizer_code) where fertilizers_country.fertilizer_code in ( {ids} ) group by country_code",
 

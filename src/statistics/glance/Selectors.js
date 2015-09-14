@@ -22,10 +22,10 @@ define(['underscore','underscore-string',
         defaultValues = {
             DATA_SOURCE: 'faostat',
             N_P: 'p',
-            REGION: '696'
+            REGION: '649'
         },
         selection = {
-        	COUNTRIES: null
+        	COUNTRY: null
         },
         ev = {
             SELECT: 'afo.selector.select'
@@ -80,7 +80,6 @@ define(['underscore','underscore-string',
                 },
                 success: function(resp) {
 
-
                     listCountries$.empty();
                     for (var r in resp)
                         listCountries$.append('<option value="' + resp[r][0] + '">' + resp[r][1] + '</option>');
@@ -122,9 +121,9 @@ define(['underscore','underscore-string',
                                     listCountries$.find("option:selected").removeAttr("selected");
                                     listCountries$.val(feature.properties.prop1);
                                     
-                                    selection.COUNTRIES = [{
+                                    selection.COUNTRY = [{
                                     	code: feature.properties.prop1,
-                                    	text : feature.properties.prop2
+                                    	text: feature.properties.prop2
                                     }];
 
                                     // leave me as last row!
@@ -187,15 +186,18 @@ define(['underscore','underscore-string',
         listCountries$.on('click', 'option', function (e) {
             e.preventDefault();
 
-            selection.COUNTRIES = [{
-				code: $(e.target).attr('value'),
-				text: $(e.target).text()
-			}];
+            selection.COUNTRY = [];
+            listCountries$.find("option:selected").map(function() {
+                selection.COUNTRY.push({
+    				code: $(this).attr('value'),
+    				text: $(this).text()
+                });
+			});
 
             amplify.publish(ev.SELECT);
         });
 
-        loadMapByRegion( defaultValues.REGION );
+        //loadMapByRegion( defaultValues.REGION );
 
     };
 
@@ -396,7 +398,7 @@ define(['underscore','underscore-string',
     Selectors.prototype.getSelection = function () {
 
         var SEL = {
-            COUNTRY: selection.COUNTRIES,
+            COUNTRY: selection.COUNTRY,
             SOURCE: this.processCheckbox( $(s.DATA_SOURCES).find('input:checked') ),
             KIND: this.processRadioBtn( $(s.N_P).find('input:checked') ),
             PRODUCT: this.processJsTree( this.productTree.getSelection('full') )

@@ -1,11 +1,14 @@
-/*global define*/
-define([
-    'underscore',
+define(['underscore',
+    'fx-common/js/WDSClient',
     'glance/Results',
     'glance/Selectors',
     'config/services',
     'amplify'
-], function (_, Results, Selectors, Config) {
+], function (_, 
+    WDSClient,
+    Results,
+    Selectors,
+    Config) {
 
     'use strict';
 
@@ -16,6 +19,11 @@ define([
         RESULTS: '#afo-results',
         RESUME : '#afo-resume'
     };
+
+    var wdsClient = new WDSClient({
+        datasource: Config.dbName,
+        outputType: 'array'
+    });
 
     function App() {
         this.state = {};
@@ -51,18 +59,20 @@ define([
 
         _.each(keys, function (key ) {
 
-            if (resume.hasOwnProperty(key) && resume[key] && Array.isArray(resume[key]) && resume[key].length > 0){
-
-                var $li = $('<li>'),
+            if (resume.hasOwnProperty(key) && resume[key] && Array.isArray(resume[key]) && resume[key].length > 0)
+            {
+                var v = resume[key][0].text,
+                    text = (_.isArray(v) ? v.join(',') : v),
+                    $li = $('<li>'),
                     $label = $('<span>'),
-                    $value =  $('<b>', {text : resume[key][0].text }),
+                    $value =  $('<b>', {text: text }),
                     lab;
 
-                switch(key){
-                    case 'COUNTRY': lab = 'Africa Country '; break;
-                    case 'KIND' :  lab = 'View in '; break;
-                    case 'SOURCE' :  lab = 'Data Source '; break;
-                    case 'PRODUCT' :  lab = 'Fertilizer '; break;
+                switch(key) {
+                    case 'COUNTRY':   lab = 'Africa Countries '; break;
+                    case 'KIND':      lab = 'View in '; break;
+                    case 'SOURCE':    lab = 'Data Source '; break;
+                    case 'PRODUCT':   lab = 'Fertilizer '; break;
                 }
 
                 $label.html(lab);
@@ -85,18 +95,6 @@ define([
         }
     };
 
-    //Chart
-    App.prototype.prepareChartQuery = function (results) {
-        var url = results.SOURCE[0].code === 'cstat' ? this.config.queries.select_from_compare_chart_cstat : this.config.queries.select_from_compare_chart;
-
-        return this._replace(url, {
-            COUNTRY: results.COUNTRY[0].code,
-            SOURCE: results.SOURCE[0].code,
-            KIND: results.KIND[0].code,
-            PRODUCT: results.PRODUCT[0].code
-        });
-    };
-
     App.prototype._showqueriesCourtesyMessage = function() {
         var $btn = $('#search-btn'),
             t = $btn.text();
@@ -108,7 +106,7 @@ define([
     };
 
     //Table
-    App.prototype.prepareTableQuery = function (results) {
+    App.prototype.selectQuery = function (results) {
 
         var sql,res;
 
@@ -121,60 +119,29 @@ define([
         else
             sql = this.config.queries.select_from_compare;
 
-        res = this._replace(sql, {
-            COUNTRY: results.COUNTRY[0].code,
-            SOURCE: results.SOURCE[0].code,
-            KIND: results.KIND[0].code,
-            PRODUCT: results.PRODUCT[0].code
-        });
-
-        return res;
+        return sql;
     };
 
     App.prototype.queryTable = function (results) {
 
-        var data = {
-            datasource: this.config.dbName,
-            thousandSeparator: ',',
-            decimalSeparator: '.',
-            decimalNumbers: 2,
-            cssFilename: '',
-            nowrap: false,
-            valuesIndex: 0,
-            json: JSON.stringify({
-                query: this.prepareTableQuery(results)
-            })
-        };
 
-        $.ajax({
-            url: this.config.wdsUrl,
-            data: data,
-            type: 'POST',
-            dataType: 'JSON',
-            success: _.bind(function (data) {
+//TODO REWRITE FOR MULTIPLE SELECTION, remove [0]
+        wdsClient.retrieve({
+            payload: {
+                query: this.selectQuery(results),
+                queryVars: {
+                    COUNTRY: results.COUNTRY[0].code,
+                    SOURCE: results.SOURCE[0].code,
+                    KIND: results.KIND[0].code,
+                    PRODUCT: results.PRODUCT[0].code
+                }
+            },
+            success: _.bind(function(data) {
 
                 this.results.printTable(data, this.selectors.getFilter() );
 
-            }, this),
-/*            error: function (e) {
-                console.error("WDS error: ");
-                console.log(e)
-            }*/
+            }, this)
         });
-
-    };
-
-    // General
-    App.prototype._replace = function (str, data) {
-        return str.replace(/\{ *([\w_]+) *\}/g, function (str, key) {
-            return data[key] || '';
-        });
-    };
-
-    App.prototype._showCourtesyMessage = function () {
-        $(s.COURTESY).show();
-        $(s.RESULTS).hide();
-
     };
 
     return App;

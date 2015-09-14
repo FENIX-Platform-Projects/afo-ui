@@ -1,14 +1,10 @@
 /*global define*/
 define(['underscore',
-    'glance/chartsAfo',
-    //'glance/tableAfo',
     'pivotConfig',
     'pivotRenderers',
     'pivotAggregators',
     'pivot'
 ], function (_,
-    Chart,
-    //Table,
     pivotConfig,
     pivotRenderers,
     pivotAggregators,
@@ -23,10 +19,8 @@ define(['underscore',
             TABLE: "#table1",
             COURTESY: '#afo-courtesy',
             RESULTS: '#afo-results'
-        };        
-        //this.table = new Table();
+        };
         self.pivot = new Pivot();
-        //this.chart = new Chart();
         
         $("#pivot_download_xls").on('click', function(e) {
             self.pivot.exportExcel();
@@ -51,10 +45,6 @@ define(['underscore',
             rendererDisplay: pivotRenderers,
             aggregatorDisplay: pivotAggregators
         }) );
-    };
-
-    Results.prototype.printChart = function (data) {
-        //this.chart.render(data, {});
     };
 
     return Results;

@@ -1,13 +1,11 @@
 /*global define*/
 define(['underscore','underscore-string',
-    'commons/Wds',
     'fx-common/js/WDSClient',
     'src/fxTree',    
     'geojson_decoder',
     'config/services',    
     'amplify'
 ], function (_, _str,
-    Wds,
     WDSClient,
     fxTree,    
     geojsonDecoder,
@@ -205,10 +203,11 @@ define(['underscore','underscore-string',
 
         var self = this;
 
-        Wds.get({
-            query: this.config.queries.data_sources,
-            success: function (res) {
-
+        wdsClient.retrieve({
+            payload: {
+                query: Config.queries.data_sources
+            },
+            success: function(res) {     
                 var $form = $('<form>');
 
                 if (Array.isArray(res)) {
@@ -255,18 +254,21 @@ define(['underscore','underscore-string',
     Selectors.prototype._initProductSelector = function (source) {
 
         var self = this,
-            q;
+            payload;
 
-        if (source !== 'cstat') {
-            q = this._replace(this.config.queries.product_by_source, {SOURCE: source || defaultValues.DATA_SOURCE});
-        } else {
-            q = this.config.queries.products_by_cstat;
-        }
+        if (source !== 'cstat')
+            payload = {
+                query: this.config.queries.product_by_source,
+                queryVars: { SOURCE: source || defaultValues.DATA_SOURCE }
+            };
+        else
+            payload = {
+                query: this.config.queries.products_by_cstat
+            };
 
-        Wds.get({
-            query: q,
-            success: function (res) {
-
+        wdsClient.retrieve({
+            payload: payload,
+            success: function(res) {    
                 var data = [],
                     list;
 
@@ -414,12 +416,6 @@ define(['underscore','underscore-string',
             this._showValidationErrors(valid);
             return false;
         }
-    };
-
-    Selectors.prototype._replace = function (str, data) {
-        return str.replace(/\{ *([\w_]+) *\}/g, function (str, key) {
-            return data[key] || '';
-        });
     };
 
     Selectors.prototype._showValidationErrors = function (errors) {

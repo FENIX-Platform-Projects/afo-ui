@@ -74,9 +74,7 @@ return {
         "countries_groups": "SELECT country, name FROM countries WHERE value = 1 AND name IN ( <%= ids %> ) ",
         "countries_byfertilizers": "select country_code, string_agg(fertilizer_label,'|') from fertilizers_country join codes_fertilizers on (codes_fertilizers.fertilizer_code = fertilizers_country.fertilizer_code) where fertilizers_country.fertilizer_code in ( {ids} ) group by country_code",
 
-        "data_sources": "select * from codes_data_sources "+
-                      "where data_source_code <> 'ifa' AND "+
-                      "data_source_code <> 'ifdc' ",
+        "data_sources": "select * from codes_data_sources where data_source_code <> 'ifa' AND data_source_code <> 'ifdc' ",
 
         "products": "select DISTINCT fertilizer_label, fertilizer_code from codes_fertilizers ORDER BY fertilizer_label",
         "elements": "select DISTINCT * from codes_elements WHERE element_code NOT IN ('rexp','rimp') ",
@@ -97,7 +95,7 @@ return {
 
         "prices_international": "select nutrient, fob, string_agg(period,'|') as period, string_agg(''||value,'|') as value from (select * from prices_international where period in (select distinct period from prices_international order by period desc limit 14) order by period, index) origin group by index, nutrient, fob order by index",
 
-        "select_from_compare": "select element_code, element_label, CASE WHEN year is null then '' else cast ( year as character varying) end as year, CASE WHEN value is null then '' else cast ( value as character varying) end  as value, CASE WHEN um is null then '' else cast ( um as character varying) end  as Unit, '' as Flag from ( select element, year, value, um from compare where data_source = '{SOURCE}' and fertilizer = '{PRODUCT}' and country = '{COUNTRY}' and n_p = '{KIND}' ) c right join codes_elements on element = element_code WHERE element<>'rimp' AND element<>'rexp' ORDER BY element ASC, year ASC",
+        "select_from_compare": "select element_code, element_label, CASE WHEN year is null then '' else cast ( year as character varying) end as year, CASE WHEN value is null then '' else cast ( value as character varying) end  as value, CASE WHEN um is null then '' else cast ( um as character varying) end  as Unit, '' as Flag from ( select element, year, value, um from compare where data_source = '{source}' and fertilizer = '{PRODUCT}' and country = '{COUNTRY}' and n_p = '{KIND}' ) c right join codes_elements on element = element_code WHERE element<>'rimp' AND element<>'rexp' ORDER BY element ASC, year ASC",
         "select_from_compare_cstat": "select element_code, element_label, CASE WHEN year is null then '' else cast ( year as character varying) end as year, CASE WHEN value is null then '' else cast ( value as character varying) end  as value, CASE WHEN um is null then '' else cast ( um as character varying) end  as Unit, '' as Flag from ( select element, year, value, um from country_stat where fertilizer = '{PRODUCT}' and country = '{COUNTRY}' and n_p = '{KIND}' ) c right join codes_elements on element = element_code WHERE element<>'rimp' AND element<>'rexp' ORDER BY element ASC, year ASC",
         "select_from_compare_ifa": "select element_code, element_label, CASE WHEN year is null then '' else cast ( year as character varying) end as year,CASE WHEN nutrient is null then '' else cast ( nutrient as character varying) end  as nutrient,CASE WHEN value is null then '' else cast ( value as character varying) end  as Value,  CASE WHEN um is null then '' else cast ( um as character varying) end  as Unit, '' as Flag  from (     select element, year, nutrient, value, um  from ifa_data   where data_source = 'ifa' and       fertilizer = '{PRODUCT}' and       country = '{COUNTRY}' and n_p = '{KIND}'       ) c   right join codes_elements on element = element_code  WHERE element<>'rimp' AND element<>'rexp' ORDER BY element ASC, year ASC",
 

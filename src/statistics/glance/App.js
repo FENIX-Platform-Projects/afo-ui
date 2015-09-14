@@ -30,12 +30,9 @@ define([
 
     App.prototype._initPageStructure = function () {
 
-        //Selectors: map and others
         this.selectors = new Selectors();
-
-        //Results: table and charts
+        
         this.results = new Results();
-
     };
 
     App.prototype._bindEventListeners = function () {
@@ -84,7 +81,6 @@ define([
             $(s.COURTESY).hide();
             $(s.RESULTS).show();
 
-            this.queryChart(results);
             this.queryTable(results);
         }
     };
@@ -99,39 +95,6 @@ define([
             KIND: results.KIND[0].code,
             PRODUCT: results.PRODUCT[0].code
         });
-    };
-
-    App.prototype.queryChart = function (results) {
-
-        var data = {
-            datasource: this.config.dbName,
-            thousandSeparator: ',',
-            decimalSeparator: '.',
-            decimalNumbers: 2,
-            cssFilename: '',
-            nowrap: false,
-            valuesIndex: 0,
-            json: JSON.stringify({
-                query: this.prepareChartQuery(results)
-            })
-        };
-
-        $.ajax({
-            url: this.config.wdsUrl,
-            data: data,
-            type: 'POST',
-            dataType: 'JSON',
-            success: _.bind(function (data) {
-
-                if (data.length > 0) {
-                    this.results.printChart(data)
-                } else {
-                    this._showqueriesCourtesyMessage()
-                }
-
-            }, this)
-        });
-
     };
 
     App.prototype._showqueriesCourtesyMessage = function() {

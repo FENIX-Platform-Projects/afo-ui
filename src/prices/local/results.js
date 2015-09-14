@@ -76,16 +76,16 @@ define([
 								return "";
 							}
 						},
-						rows: ["Country", "Market", "Type","Unit"],
+						rows: ["Country", "Market", "Type"],
 						cols: ["Date"],
 						vals: ["Value"],
-						hiddenAttributes:["Price","Value"],
+						hiddenAttributes:["Price","Value","Flag","Unit"],
 						linkedAttributes:[],
 						rendererDisplay: pivotRenderers,
 						aggregatorDisplay: pivotAggregators,
 						"showRender": false,
 						"showFlags": false,
-						"showUnit": false,
+						"showUnit": true,
 						"showCode": false,
 						"showAgg": false,
 						"csvText":"AFO"

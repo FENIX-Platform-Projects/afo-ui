@@ -3,7 +3,7 @@ define({
     DEFAULT: {
         "header":["code","Elements","Year","Value","Unit","Flag"],
         "rows": [
-            "Elements","Unit"
+            "Elements"
         ],
         "cols": ["Year"],
         "vals": ["Value"  ],
@@ -18,15 +18,14 @@ define({
         ],
         "InstanceAggregators": [
             {label: "SumUnit", func: "Sum2"},
-            {label: "Sum", func: "Sum"},
-            {label: "Average", func: "Average"}
+            {label: "Sum", func: "Sum"}//used by charts
         ],
-        "linkedAttributes": [["Elements","Unit"]],
+        "linkedAttributes": [],
 
-        "hiddenAttributes": ["Value","code","Flag"],
+        "hiddenAttributes": ["Value","code","Flag","Unit"],
         "showRender": true,
         "showFlags": false,
-        "showUnit": false,
+        "showUnit": true,
         "showCode": false,
         "showAgg": false,
 		"csvText":"AFO"
@@ -35,7 +34,7 @@ define({
     IFA: {
         "header":["code", "Elements","Year","Nutrient","Value","Unit","Flag"],
         "rows": [
-            "Elements","Nutrient","Unit" 
+            "Elements","Nutrient"
         ],
         "cols": ["Year"],
         "vals": ["Value"  ],
@@ -50,14 +49,13 @@ define({
         ],
         "InstanceAggregators": [
             {label: "SumUnit", func: "Sum2"},
-            {label: "Sum", func: "Sum"},
-            {label: "Average", func: "Average"}
+            {label: "Sum", func: "Sum"}
         ],
         "hiddenAttributes": ["Value","Flag" ,"code"],
-        "linkedAttributes": [["Elements","Unit"]],
+        "linkedAttributes": [],
         "showRender": true,
         "showFlags": false,
-        "showUnit": false,
+        "showUnit": true,
         "showCode": false,
         "showAgg": false,
 		"csvText":"AFO"

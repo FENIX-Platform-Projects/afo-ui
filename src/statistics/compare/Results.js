@@ -3,16 +3,21 @@ define([
     'compare/chartsAfo',
     'compare/tableAfo',
 	'pivot',
-		'pivotConfig',
-		'pivotRenderers',
-		'pivotAggregators'
-], function (Chart, Table,Pivot,
-		PivotConfig,
-		pivotRenderers,
-		pivotAggregators) {
+	'pivotConfig',
+	'pivotRenderers',
+	'pivotAggregators'
+], function (
+	Chart,
+	Table,
+	Pivot,
+	PivotConfig,
+	pivotRenderers,
+	pivotAggregators) {
 
     'use strict';
-var monPivot;
+
+	var monPivot;
+	
     var s = {
         COURTESY: '#afo-courtesy',
         RESULTS: '#afo-results',

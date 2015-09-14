@@ -1,404 +1,332 @@
 <?xml version='1.0' encoding='UTF-8'?> 
 <queries>
-
-<q id="home_maps_filter">
-<![CDATA[  
-  select country_code, coalesce( {field} , -1) 
-  from afo_map_slider
-]]>
+<q id="home_maps_filter">  
+  SELECT country_code, coalesce( {field} , -1) 
+  FROM afo_map_slider
 </q>
 
-<q id="fertilizers_tree">
-<![CDATA[  
-  select fertilizer_category_code, fertilizer_code, fertilizer_category_label, fertilizer_label 
-  from fertilizers_category 
-    join codes_fertilizers on (fertilizer = fertilizer_code) 
-    join codes_fertilizers_categories on (fertilizer_category = fertilizer_category_code) 
-  order by fertilizer_label
-]]>
+<q id="fertilizers_tree">  
+  SELECT fertilizer_category_code, fertilizer_code, fertilizer_category_label, fertilizer_label 
+  FROM fertilizers_category 
+    JOIN codes_fertilizers on (fertilizer = fertilizer_code) 
+    JOIN codes_fertilizers_categories on (fertilizer_category = fertilizer_category_code) 
+  ORDER BY fertilizer_label
 </q>
 
-<q id="fertilizers_country">
-<![CDATA[  
-  select distinct country_code 
-  from fertilizers_country 
-  where fertilizer_code in ( {ids} )
-]]>
+<q id="fertilizers_country">  
+  SELECT distinct country_code 
+  FROM fertilizers_country 
+  WHERE fertilizer_code in ( {ids} )
 </q>
   
-<q id="fertilizers_bycountry">
-<![CDATA[  
-  select fertilizer_label 
-  from fertilizers_country 
-  join codes_fertilizers on (codes_fertilizers.fertilizer_code = fertilizers_country.fertilizer_code) 
-  where fertilizers_country.country_code = '{id}' 
-  order by fertilizer_label
-]]>
+<q id="fertilizers_bycountry">  
+  SELECT fertilizer_label 
+  FROM fertilizers_country 
+  JOIN codes_fertilizers on (codes_fertilizers.fertilizer_code = fertilizers_country.fertilizer_code) 
+  WHERE fertilizers_country.country_code = '{id}' 
+  ORDER BY fertilizer_label
 </q>
   
-<q id="fertilizers_bycrop">
-<![CDATA[  
-  select fertilizer_label 
-  from fertilizers_crop 
-  join codes_fertilizers on (codes_fertilizers.fertilizer_code = fertilizers_crop.fertilizer_code) 
-  where fertilizers_crop.crop_code = '{id}' 
-  order by fertilizer_label
-]]>
+<q id="fertilizers_bycrop">  
+  SELECT fertilizer_label 
+  FROM fertilizers_crop 
+  JOIN codes_fertilizers on (codes_fertilizers.fertilizer_code = fertilizers_crop.fertilizer_code) 
+  WHERE fertilizers_crop.crop_code = '{id}' 
+  ORDER BY fertilizer_label
 </q>
 
-<q id="regions">
-<![CDATA[  
-  select country_code, country_label 
-  from codes_countries 
-  where parent_code = '' 
-  order by country_code 
-]]>
+<q id="regions">  
+  SELECT country_code, country_label 
+  FROM codes_countries 
+  WHERE parent_code = '' 
+  ORDER BY country_code 
 </q>
   
 <q id="countries">
-<![CDATA[
-  select country_code, country_label 
-  from codes_countries 
-  where parent_code <> '' 
-  group by country_code, country_label 
-  order by country_label
-]]>
+  SELECT country_code, country_label 
+  FROM codes_countries 
+  WHERE parent_code <> '' 
+  GROUP BY country_code, country_label 
+  ORDER BY country_label
 </q>
 
-<q id="countries_withfertizers">
-<![CDATA[  
-  select DISTINCT codes_countries.country_code, codes_countries.country_label 
-  from fertilizers_country, codes_countries 
-  where codes_countries.country_code = fertilizers_country.country_code 
-  order by codes_countries.country_label
-]]>
+<q id="countries_withfertizers">  
+  SELECT DISTINCT codes_countries.country_code, codes_countries.country_label 
+  FROM fertilizers_country, codes_countries 
+  WHERE codes_countries.country_code = fertilizers_country.country_code 
+  ORDER BY codes_countries.country_label
 </q>
   
-<q id="crops_withfertizers">
-<![CDATA[  
-  select DISTINCT codes_crops.crop_code, codes_crops.crop_label 
-  from fertilizers_crop, codes_crops 
-  where codes_crops.crop_code = fertilizers_crop.crop_code 
-  order by codes_crops.crop_label
-]]>
+<q id="crops_withfertizers">  
+  SELECT DISTINCT codes_crops.crop_code, codes_crops.crop_label 
+  FROM fertilizers_crop, codes_crops 
+  WHERE codes_crops.crop_code = fertilizers_crop.crop_code 
+  ORDER BY codes_crops.crop_label
 </q>
 
-<q id="countries_byregion">
-<![CDATA[  
+<q id="countries_byregion">  
   SELECT country_code, country_label 
   FROM codes_countries 
   WHERE parent_code = '{id}' 
-]]>
 </q>
   
-<q id="countries_geojson">
-<![CDATA[  
+<q id="countries_geojson">  
   SELECT ST_AsGeoJSON(geom), adm0_code, areanamee 
   FROM spatial.gaul0_faostat_afo_4326 
   WHERE adm0_code IN ({ids}) 
-]]>
 </q>
   
-    
-<q id="countries_groups">
-<![CDATA[  
+<q id="countries_groups">  
   SELECT country, name 
   FROM countries 
   WHERE value = 1 AND name IN ( {ids} ) 
-]]>
 </q>
   
-<q id="countries_byfertilizers">
-<![CDATA[  
-  select country_code, string_agg(fertilizer_label,'|') 
-  from fertilizers_country 
-  join codes_fertilizers on (codes_fertilizers.fertilizer_code = fertilizers_country.fertilizer_code) 
-  where fertilizers_country.fertilizer_code in ( {ids} ) 
-  group by country_code
-]]>
+<q id="countries_byfertilizers">  
+  SELECT country_code, string_agg(fertilizer_label,'|') 
+  FROM fertilizers_country 
+  JOIN codes_fertilizers on (codes_fertilizers.fertilizer_code = fertilizers_country.fertilizer_code) 
+  WHERE fertilizers_country.fertilizer_code in ( {ids} ) 
+  GROUP BY country_code
 </q>
 
-<q id="data_sources">
-<![CDATA[  
-  select * from codes_data_sources 
-  where data_source_code <> 'ifa' and data_source_code <> 'ifdc' 
-]]>
+<q id="data_sources">  
+  SELECT * FROM codes_data_sources 
+  WHERE data_source_code <> 'ifa' and data_source_code <> 'ifdc' 
 </q>
 
-<q id="products">
-<![CDATA[  
-  select DISTINCT fertilizer_label, fertilizer_code 
-  from codes_fertilizers 
-  order by fertilizer_label
-]]>
+<q id="products">  
+  SELECT DISTINCT fertilizer_label, fertilizer_code 
+  FROM codes_fertilizers 
+  ORDER BY fertilizer_label
 </q>
   
-<q id="elements">
-<![CDATA[  
-  select DISTINCT * 
-  from codes_elements 
-  where element_code not in ('rexp','rimp') 
-]]>
+<q id="elements">  
+  SELECT DISTINCT * 
+  FROM codes_elements 
+  WHERE element_code not in ('rexp','rimp') 
 </q>
 
-<q id="prices_national_countries">
-<![CDATA[  
-  select c.country_code, c.country_label 
-  from prices_national d, codes_countries c 
-  where c.country_code  = d.country_code 
-  group by c.country_code, c.country_label 
-  order by c.country_label
-]]>
+<q id="prices_national_countries">  
+  SELECT c.country_code, c.country_label 
+  FROM prices_national d, codes_countries c 
+  WHERE c.country_code  = d.country_code 
+  GROUP BY c.country_code, c.country_label 
+  ORDER BY c.country_label
 </q>
   
-<q id="prices_national">
-<![CDATA[  
-  select area, item, year, month, round(cast(value AS numeric), 2) as value, unit, '' as flag, fertilizer_code 
-  from prices_national
-]]>
+<q id="prices_national">  
+  SELECT area, item, year, month, round(cast(value AS numeric), 2) AS value, unit, '' AS flag, fertilizer_code 
+  FROM prices_national
 </q>
 
-<q id="prices_national_filter">
-<![CDATA[  
-  select area, item, year, month, round(cast(value AS numeric), 2) as value, unit, '' as flag, fertilizer_code 
-  from prices_national 
-  where fertilizer_code in ('{fertilizer_code}') 
-    and country_code in ('{country_code}') 
-    and month_number between {month_from_yyyymm} 
-    and {month_to_yyyymm}
-]]>
+<q id="prices_national_filter">  
+  SELECT area, item, year, month, round(cast(value AS numeric), 2) AS value, unit, '' AS flag, fertilizer_code 
+  FROM prices_national 
+  WHERE fertilizer_code in ('{fertilizer_code}') 
+    AND country_code in ('{country_code}') 
+    AND month_number between {month_from_yyyymm} 
+    AND {month_to_yyyymm}
 </q>
 
-<q id="prices_national_products">
-<![CDATA[  
-  select c.fertilizer_code, c.fertilizer_label 
-  from codes_fertilizers c, prices_local d 
-  where c.fertilizer_code = d.fertilizer 
-  group by c.fertilizer_code, c.fertilizer_label 
-  order by c.fertilizer_label ASC 
-]]>
+<q id="prices_national_products">  
+  SELECT c.fertilizer_code, c.fertilizer_label 
+  FROM codes_fertilizers c, prices_local d 
+  WHERE c.fertilizer_code = d.fertilizer 
+  GROUP BY c.fertilizer_code, c.fertilizer_label 
+  ORDER BY c.fertilizer_label ASC 
 </q>
 
-<q id="prices_detailed_local_geofilter">
-<![CDATA[  
-  select market, town_location, string_agg(''||price, ',') as price, string_agg(type, ',') as type 
-  from (
-    select market, town_location, round(cast(avg(unit_price_usd) AS numeric), 2) as price, type 
-    from prices_local 
-    where fertilizer = cast( {fertilizer_code} AS varchar) 
-      and month between {month_from_yyyymm} 
-      and {month_to_yyyymm} 
-      and country in ('{country_code}') 
-      and type in ('{market_type}') 
-    group by market, town_location, type
-    ) as data 
-  group by market, town_location
-]]>
+<q id="prices_detailed_local_geofilter">  
+  SELECT market, town_location, string_agg(''||price, ',') AS price, string_agg(type, ',') AS type 
+  FROM (
+    SELECT market, town_location, round(cast(avg(unit_price_usd) AS numeric), 2) AS price, type 
+    FROM prices_local 
+    WHERE fertilizer = cast( {fertilizer_code} AS varchar) 
+      AND month between {month_from_yyyymm} 
+      AND {month_to_yyyymm} 
+      AND country in ('{country_code}') 
+      AND type in ('{market_type}') 
+    GROUP BY market, town_location, type
+    ) AS data 
+  GROUP BY market, town_location
 </q>
 
-<q id="prices_detailed_local_grid">
-<![CDATA[  
-  select DISTINCT country_label, market, price, type, month 
-  from (
-    select market, country, round(cast(avg(unit_price_usd) AS numeric), 2) as price, type, month 
-    from prices_local 
-    where fertilizer = cast({fertilizer_code} AS varchar) 
-      and month between {month_from_yyyymm} 
-      and {month_to_yyyymm} 
-      and country in ('{country_code}') 
-      and type in ('{market_type}') 
-    group by market, country, month, type) data 
-  join codes_countries on (country = country_code) 
-  order by month, country_label, market asc
-]]>
+<q id="prices_detailed_local_grid">  
+  SELECT DISTINCT country_label, market, price, type, month 
+  FROM (
+    SELECT market, country, round(cast(avg(unit_price_usd) AS numeric), 2) AS price, type, month 
+    FROM prices_local 
+    WHERE fertilizer = cast({fertilizer_code} AS varchar) 
+      AND month between {month_from_yyyymm} 
+      AND {month_to_yyyymm} 
+      AND country in ('{country_code}') 
+      AND type in ('{market_type}') 
+    GROUP BY market, country, month, type) data 
+  JOIN codes_countries on (country = country_code) 
+  ORDER BY month, country_label, market asc
 </q>
 
-<q id="prices_detailed_products">
-<![CDATA[  
-  select c.fertilizer_code, c.fertilizer_label 
-  from codes_fertilizers c, prices_local d 
-  where  c.fertilizer_code = d.fertilizer 
-  group by c.fertilizer_code, c.fertilizer_label 
-  order by c.fertilizer_label ASC 
-]]>
+<q id="prices_detailed_products">  
+  SELECT c.fertilizer_code, c.fertilizer_label 
+  FROM codes_fertilizers c, prices_local d 
+  WHERE  c.fertilizer_code = d.fertilizer 
+  GROUP BY c.fertilizer_code, c.fertilizer_label 
+  ORDER BY c.fertilizer_label ASC 
 </q>
 
-<q id="prices_detailed_countries">
-<![CDATA[  
-  select country, country_label 
-  from (
-    select distinct country from prices_local
-    ) as countries 
-  join codes_countries on country = country_code 
-  group by country, country_label 
-  order by country_label 
-]]>
+<q id="prices_detailed_countries">  
+  SELECT country, country_label 
+  FROM (
+    SELECT distinct country 
+    FROM prices_local
+    ) AS countries 
+  JOIN codes_countries on country = country_code 
+  GROUP BY country, country_label 
+  ORDER BY country_label 
 </q>
 
-<q id="prices_international">
-<![CDATA[  
-  select nutrient, fob, string_agg(period,'|') as period, string_agg(''||value,'|') as value 
-  from (
-    select * 
-    from prices_international 
-    where period in (
-      select distinct period 
-      from prices_international 
-      order by period desc 
-      limit 14) order by period, index
+<q id="prices_international">  
+  SELECT nutrient, fob, string_agg(period,'|') AS period, string_agg(''||value,'|') AS value 
+  FROM (
+    SELECT * 
+    FROM prices_international 
+    WHERE period in (
+      SELECT distinct period 
+      FROM prices_international 
+      ORDER BY period desc 
+      limit 14) ORDER BY period, index
     ) origin 
-  group by index, nutrient, fob 
-  order by index
-]]>
+  GROUP BY index, nutrient, fob 
+  ORDER BY index
 </q>
 
-<q id="select_from_compare">
-<![CDATA[  
-  select element_code, element_label, CASE WHEN year is null then '' else cast ( year as character varying) end as year, CASE WHEN value is null then '' else cast ( value as character varying) end  as value, CASE WHEN um is null then '' else cast ( um as character varying) end  as Unit, '' as Flag 
-  from (
-    select element, year, value, um 
-    from compare 
-    where data_source = '{SOURCE}' 
+<q id="select_from_compare">  
+  SELECT element_code, element_label, CASE WHEN year is null then '' else cast ( year AS character varying) end AS year, CASE WHEN value is null then '' else cast ( value AS character varying) end  AS value, CASE WHEN um is null then '' else cast ( um AS character varying) end  AS Unit, '' AS Flag 
+  FROM (
+    SELECT element, year, value, um 
+    FROM compare 
+    WHERE data_source = '{SOURCE}' 
       and fertilizer = '{PRODUCT}' 
       and country = '{COUNTRY}' 
       and n_p = '{KIND}'
     ) c 
-  right join codes_elements on element = element_code 
-  where element <> 'rimp' and element<>'rexp' 
-  order by element ASC, year ASC
-]]>
+  RIGHT JOIN codes_elements on element = element_code 
+  WHERE element <> 'rimp' and element<>'rexp' 
+  ORDER BY element ASC, year ASC
 </q>
   
-<q id="select_from_compare_cstat">
-<![CDATA[  
-  select element_code, element_label, CASE WHEN year is null then '' else cast ( year as character varying) end as year, CASE WHEN value is null then '' else cast ( value as character varying) end  as value, CASE WHEN um is null then '' else cast ( um as character varying) end  as Unit, '' as Flag 
-  from (
-    select element, year, value, um 
-    from country_stat 
-    where fertilizer = '{PRODUCT}' 
+<q id="select_from_compare_cstat">  
+  SELECT element_code, element_label, CASE WHEN year is null then '' else cast ( year AS character varying) end AS year, CASE WHEN value is null then '' else cast ( value AS character varying) end  AS value, CASE WHEN um is null then '' else cast ( um AS character varying) end  AS Unit, '' AS Flag 
+  FROM (
+    SELECT element, year, value, um 
+    FROM country_stat 
+    WHERE fertilizer = '{PRODUCT}' 
       and country = '{COUNTRY}' 
       and n_p = '{KIND}'
     ) c right 
-  join codes_elements on element = element_code 
-  where element <> 'rimp' 
+  JOIN codes_elements on element = element_code 
+  WHERE element <> 'rimp' 
     and element <> 'rexp' 
-  order by element ASC, year ASC
-]]>
+  ORDER BY element ASC, year ASC
 </q>
   
-<q id="select_from_compare_ifa">
-<![CDATA[  
-  select element_code, element_label, CASE WHEN year is null then '' else cast ( year as character varying) end as year,CASE WHEN nutrient is null then '' else cast ( nutrient as character varying) end  as nutrient,CASE WHEN value is null then '' else cast ( value as character varying) end  as Value,  CASE WHEN um is null then '' else cast ( um as character varying) end  as Unit, '' as Flag  
-  from (
-    select element, year, nutrient, value, um 
-    from ifa_data 
-    where data_source = 'ifa' 
+<q id="select_from_compare_ifa">  
+  SELECT element_code, element_label, CASE WHEN year is null then '' else cast ( year AS character varying) end AS year,CASE WHEN nutrient is null then '' else cast ( nutrient AS character varying) end  AS nutrient,CASE WHEN value is null then '' else cast ( value AS character varying) end  AS Value,  CASE WHEN um is null then '' else cast ( um AS character varying) end  AS Unit, '' AS Flag  
+  FROM (
+    SELECT element, year, nutrient, value, um 
+    FROM ifa_data 
+    WHERE data_source = 'ifa' 
       and fertilizer = '{PRODUCT}' 
       and country = '{COUNTRY}' 
       and n_p = '{KIND}'
     ) c 
-  right join codes_elements on element = element_code 
-  where element <> 'rimp' 
+  RIGHT JOIN codes_elements on element = element_code 
+  WHERE element <> 'rimp' 
     and element <> 'rexp' 
-  order by element ASC, year ASC
-]]>
+  ORDER BY element ASC, year ASC
 </q>
 
-<q id="select_from_compare_chart">
-<![CDATA[  
-  select element_code, element_label, year, value, um 
-  from (
-    select element, year, value, um 
-    from compare 
-    where data_source = '{SOURCE}' 
+<q id="select_from_compare_chart">  
+  SELECT element_code, element_label, year, value, um 
+  FROM (
+    SELECT element, year, value, um 
+    FROM compare 
+    WHERE data_source = '{SOURCE}' 
       and fertilizer = '{PRODUCT}' 
       and country = '{COUNTRY}' 
       and n_p = '{KIND}'
     ) c 
-  join codes_elements on element = element_code and element in ('appcons', 'imp', 'exp') 
-  where value is not null 
-  order by element ASC, year ASC
-]]>
+  JOIN codes_elements on element = element_code and element in ('appcons', 'imp', 'exp') 
+  WHERE value is not null 
+  ORDER BY element ASC, year ASC
 </q>
   
-<q id="select_from_compare_chart_cstat">
-<![CDATA[  
-  select element_code, element_label, year, value, um 
-  from (
-    select element, year, value, um 
-    from country_stat 
-    where fertilizer = '{PRODUCT}' 
+<q id="select_from_compare_chart_cstat">  
+  SELECT element_code, element_label, year, value, um 
+  FROM (
+    SELECT element, year, value, um 
+    FROM country_stat 
+    WHERE fertilizer = '{PRODUCT}' 
       and country = '{COUNTRY}' 
       and n_p = '{KIND}'
     ) c 
-  join codes_elements on element = element_code 
-  where value is not null 
-  order by element ASC, year ASC
-]]>
+  JOIN codes_elements on element = element_code 
+  WHERE value is not null 
+  ORDER BY element ASC, year ASC
 </q>
   
-<q id="select_dynamic_compare">
-<![CDATA[  
-  select element_code, element_label, year, coalesce(value, -1), um 
-  from (
-    select element, year, value, um 
-    from compare 
-    where {WHERE}
+<q id="select_dynamic_compare">  
+  SELECT element_code, element_label, year, coalesce(value, -1), um 
+  FROM (
+    SELECT element, year, value, um 
+    FROM compare 
+    WHERE {WHERE}
   ) c 
-  right join codes_elements on element = element_code 
-  order by element ASC, year ASC
-]]>
+  RIGHT JOIN codes_elements on element = element_code 
+  ORDER BY element ASC, year ASC
 </q>
   
-<q id="product_by_source">
-<![CDATA[  
-  select c.fertilizer_code, c.fertilizer_label 
-  from codes_fertilizers c, compare d 
-  where d.data_source in ('{SOURCE}') 
+<q id="product_by_source">  
+  SELECT c.fertilizer_code, c.fertilizer_label 
+  FROM codes_fertilizers c, compare d 
+  WHERE d.data_source in ('{SOURCE}') 
     and c.fertilizer_code = d.fertilizer 
-  group by c.fertilizer_code, c.fertilizer_label 
-  order by c.fertilizer_label ASC
-]]>
+  GROUP BY c.fertilizer_code, c.fertilizer_label 
+  ORDER BY c.fertilizer_label ASC
 </q>
   
-<q id="products_by_cstat">
-<![CDATA[  
-  select c.cstat_fertilizer_code, c.cstat_fertilizer_label 
-  from codes_fertilizers_cstat c, country_stat d 
-  where c.cstat_fertilizer_code = d.fertilizer 
-  group by c.cstat_fertilizer_code, c.cstat_fertilizer_label 
-  order by c.cstat_fertilizer_label ASC
-]]>
+<q id="products_by_cstat">  
+  SELECT c.cstat_fertilizer_code, c.cstat_fertilizer_label 
+  FROM codes_fertilizers_cstat c, country_stat d 
+  WHERE c.cstat_fertilizer_code = d.fertilizer 
+  GROUP BY c.cstat_fertilizer_code, c.cstat_fertilizer_label 
+  ORDER BY c.cstat_fertilizer_label ASC
 </q>
 
-<q id="compare_countries">
-<![CDATA[  
-  select c.country_code, c.country_label 
-  from prices_national d, codes_countries c 
-  where c.country_code = d.country_code 
-  group by c.country_code, c.country_label 
-  order by c.country_label
-]]>
+<q id="compare_countries">  
+  SELECT c.country_code, c.country_label 
+  FROM prices_national d, codes_countries c 
+  WHERE c.country_code = d.country_code 
+  GROUP BY c.country_code, c.country_label 
+  ORDER BY c.country_label
 </q>
   
-<q id="compare_by_country">
-<![CDATA[  
-  select cc.country_label, d.year, d.value, d.um 
-  from compare d, countries_unique cc 
-  where d.data_source in ('{SOURCE}') 
+<q id="compare_by_country">  
+  SELECT cc.country_label, d.year, d.value, d.um 
+  FROM compare d, countries_unique cc 
+  WHERE d.data_source in ('{SOURCE}') 
     and d.country in ({COUNTRY}) 
     and d.country = cc.country_code 
     and d.element IN ({ELEMENT}) 
     and d.fertilizer IN ({PRODUCT}) 
     and n_p IN ('{KIND}') 
     and d.value IS NOT NULL 
-  order by cc.country_label ASC, d.year ASC
-]]>
+  ORDER BY cc.country_label ASC, d.year ASC
 </q>
   
-<q id="compare_by_element">
-<![CDATA[  
-  select cc.element_label, d.year, d.value, d.um 
+<q id="compare_by_element">  
+  SELECT cc.element_label, d.year, d.value, d.um 
   FROM compare d, codes_elements cc 
   WHERE d.data_source IN ('{SOURCE}') 
     and d.country IN ({COUNTRY}) 
@@ -407,46 +335,40 @@
     and d.fertilizer IN ({PRODUCT}) 
     and n_p IN ('{KIND}') 
     and d.value IS NOT NULL 
-  order by cc.element_label ASC, d.year ASC
-]]>
+  ORDER BY cc.element_label ASC, d.year ASC
 </q>
   
-<q id="compare_by_product">
-<![CDATA[  
-  select cc.fertilizer_label, d.year, d.value, d.um 
-  from compare d, codes_fertilizers cc 
-  where d.data_source in ('{SOURCE}') 
+<q id="compare_by_product">  
+  SELECT cc.fertilizer_label, d.year, d.value, d.um 
+  FROM compare d, codes_fertilizers cc 
+  WHERE d.data_source in ('{SOURCE}') 
     and d.country IN ({COUNTRY}) 
     and d.element IN ({ELEMENT}) 
     and d.fertilizer IN ({PRODUCT}) 
     and d.fertilizer = cc.fertilizer_code 
     and n_p IN ('{KIND}') 
     and d.value IS NOT NULL 
-  order by cc.fertilizer_label ASC, d.year ASC
-]]>
+  ORDER BY cc.fertilizer_label ASC, d.year ASC
 </q>
 
-<q id="compare_pivot">
-<![CDATA[  
-  select cs.data_source_label,cc.country_label,ce.element_label, cf.fertilizer_label, d.year, d.value, d.um 
-  from compare d 
-  inner join countries_unique cc on d.country=cc.country_code 
-  inner join codes_fertilizers cf on d.fertilizer = cf.fertilizer_code 
-  inner join codes_elements ce on d.element = ce.element_code inner 
-  join codes_data_sources cs on d.data_source = cs.data_source_code 
-  where d.data_source IN ({SOURCE}) 
+<q id="compare_pivot">  
+  SELECT cs.data_source_label,cc.country_label,ce.element_label, cf.fertilizer_label, d.year, d.value, d.um 
+  FROM compare d 
+  inner JOIN countries_unique cc on d.country=cc.country_code 
+  inner JOIN codes_fertilizers cf on d.fertilizer = cf.fertilizer_code 
+  inner JOIN codes_elements ce on d.element = ce.element_code 
+  inner JOIN codes_data_sources cs on d.data_source = cs.data_source_code 
+  WHERE d.data_source IN ({SOURCE}) 
     AND d.country IN ({COUNTRY}) 
     AND d.element IN ({ELEMENT}) 
     AND d.fertilizer IN ({PRODUCT}) 
     AND n_p IN ({KIND}) 
     AND d.value IS NOT NULL
-]]>
 </q>
 
     
-<q id="compare_by_source">
-<![CDATA[  
-  select cc.data_source_label, d.year, d.value, d.um 
+<q id="compare_by_source">  
+  SELECT cc.data_source_label, d.year, d.value, d.um 
   FROM compare d, codes_data_sources cc 
   WHERE d.data_source IN ('{SOURCE}') 
     AND d.country IN ({COUNTRY}) 
@@ -456,12 +378,10 @@
     AND n_p IN ('{KIND}') 
     AND d.value IS NOT NULL 
   ORDER BY cc.data_source_label ASC, d.year ASC
-]]>
 </q>
 
-<q id="compare_by_country_cstat">
-<![CDATA[  
-  select cc.country_label, d.year, d.value, d.um 
+<q id="compare_by_country_cstat">  
+  SELECT cc.country_label, d.year, d.value, d.um 
   FROM country_stat d, countries_unique cc 
   WHERE d.country IN ({COUNTRY}) 
     AND d.country = cc.country_code 
@@ -470,12 +390,10 @@
     AND n_p IN ('{KIND}') 
     AND d.value IS NOT NULL 
   ORDER BY cc.country_label ASC, d.year ASC
-]]>
 </q>
   
-<q id="compare_by_element_cstat">
-<![CDATA[  
-  select cc.element_label, d.year, d.value, d.um 
+<q id="compare_by_element_cstat">  
+  SELECT cc.element_label, d.year, d.value, d.um 
   FROM country_stat d, codes_elements cc 
   WHERE d.country IN ({COUNTRY}) 
     AND d.element IN ({ELEMENT}) 
@@ -484,12 +402,10 @@
     AND n_p IN ('{KIND}') 
     AND d.value IS NOT NULL 
   ORDER BY cc.element_label ASC, d.year ASC
-]]>
 </q>
   
-<q id="compare_by_product_cstat">
-<![CDATA[  
-  select cc.cstat_fertilizer_label, d.year, d.value, d.um 
+<q id="compare_by_product_cstat">  
+  SELECT cc.cstat_fertilizer_label, d.year, d.value, d.um 
   FROM country_stat d, codes_fertilizers_cstat cc 
   WHERE d.country IN ({COUNTRY}) 
     AND d.element IN ({ELEMENT}) 
@@ -498,71 +414,54 @@
     AND n_p IN ('{KIND}') 
     AND d.value IS NOT NULL 
   ORDER BY cc.cstat_fertilizer_label ASC, d.year ASC
-]]>
 </q>
 
-<q id="directory_business_country">
-<![CDATA[  
-  select distinct country_code, country_name 
-  FROM directories_business order by country_name ASC
-]]>
+<q id="directory_business_country">  
+  SELECT distinct country_code, country_name 
+  FROM directories_business ORDER BY country_name ASC
 </q>
   
-<q id="directory_business_result">
-<![CDATA[  
-  select full_company_name, company_city, concat(services_0, ' ', services_1, ' ', services_2, ' ', services_3, ' ', services_4, ' ', services_5, ' ', services_6, ' ', services_7, ' ', services_8, ' ', services_9, ' ', services_10, ' ', services_11, ' ', services_12, ' ', services_13, ' ', services_14),  concat(sector_0, ' ', sector_1, ' ', sector_2, sector_3)  
-  from directories_business 
-  where country_code IN ({COUNTRY}) 
+<q id="directory_business_result">  
+  SELECT full_company_name, company_city, concat(services_0, ' ', services_1, ' ', services_2, ' ', services_3, ' ', services_4, ' ', services_5, ' ', services_6, ' ', services_7, ' ', services_8, ' ', services_9, ' ', services_10, ' ', services_11, ' ', services_12, ' ', services_13, ' ', services_14),  concat(sector_0, ' ', sector_1, ' ', sector_2, sector_3)  
+  FROM directories_business 
+  WHERE country_code IN ({COUNTRY}) 
     AND ( sector_0 IN ({SECTOR}) OR sector_1 IN ({SECTOR}) OR sector_2 IN ({SECTOR}) OR sector_3 IN ({SECTOR})) 
     AND ( services_0 IN ({SERVICE}) OR services_1 IN ({SERVICE}) OR services_2 IN ({SERVICE}) OR services_3 IN ({SERVICE}) OR services_4 IN ({SERVICE}) OR services_5 IN ({SERVICE}) OR services_6 IN ({SERVICE}) OR services_7 IN ({SERVICE}) OR services_8 IN ({SERVICE}) OR services_9 IN ({SERVICE}) OR services_10 IN ({SERVICE}) OR services_11 IN ({SERVICE}) OR services_12 IN ({SERVICE}) OR services_13 IN ({SERVICE}) OR services_14 IN ({SERVICE}) )
-]]>
 </q>
   
-<q id="directory_business_only_product_all">
-<![CDATA[  
-  select full_company_name, company_city, concat(services_0, ' ', services_1, ' ', services_2, ' ', services_3, ' ', services_4, ' ', services_5, ' ', services_6, ' ', services_7, ' ', services_8, ' ', services_9, ' ', services_10, ' ', services_11, ' ', services_12, ' ', services_13, ' ', services_14), concat(sector_0, ' ', sector_1, ' ', sector_2, sector_3) 
-  from directories_business 
-  where country_code IN ({COUNTRY}) 
+<q id="directory_business_only_product_all">  
+  SELECT full_company_name, company_city, concat(services_0, ' ', services_1, ' ', services_2, ' ', services_3, ' ', services_4, ' ', services_5, ' ', services_6, ' ', services_7, ' ', services_8, ' ', services_9, ' ', services_10, ' ', services_11, ' ', services_12, ' ', services_13, ' ', services_14), concat(sector_0, ' ', sector_1, ' ', sector_2, sector_3) 
+  FROM directories_business 
+  WHERE country_code IN ({COUNTRY}) 
     AND ( services_0 IN ({SERVICE}) OR services_1 IN ({SERVICE}) OR services_2 IN ({SERVICE}) OR services_3 IN ({SERVICE}) OR services_4 IN ({SERVICE}) OR services_5 IN ({SERVICE}) OR services_6 IN ({SERVICE}) OR services_7 IN ({SERVICE}) OR services_8 IN ({SERVICE}) OR services_9 IN ({SERVICE}) OR services_10 IN ({SERVICE}) OR services_11 IN ({SERVICE}) OR services_12 IN ({SERVICE}) OR services_13 IN ({SERVICE}) OR services_14 IN ({SERVICE}))
-]]>
 </q>
   
-<q id="directory_business_only_sector_all">
-<![CDATA[  
-  select full_company_name, company_city, concat(services_0, ' ', services_1, ' ', services_2, ' ', services_3, ' ', services_4, ' ', services_5, ' ', services_6, ' ', services_7, ' ', services_8, ' ', services_9, ' ', services_10, ' ', services_11, ' ', services_12, ' ', services_13, ' ', services_14), concat(sector_0, ' ', sector_1, ' ', sector_2, sector_3) 
-  from directories_business 
-  where country_code IN ({COUNTRY}) 
+<q id="directory_business_only_sector_all">  
+  SELECT full_company_name, company_city, concat(services_0, ' ', services_1, ' ', services_2, ' ', services_3, ' ', services_4, ' ', services_5, ' ', services_6, ' ', services_7, ' ', services_8, ' ', services_9, ' ', services_10, ' ', services_11, ' ', services_12, ' ', services_13, ' ', services_14), concat(sector_0, ' ', sector_1, ' ', sector_2, sector_3) 
+  FROM directories_business 
+  WHERE country_code IN ({COUNTRY}) 
     AND (sector_0 IN ({SECTOR}) OR sector_1 IN ({SECTOR}) OR sector_2 IN ({SECTOR}) OR sector_3 IN ({SECTOR}))
-]]>
 </q>
   
-<q id="directory_business_only_country_all">
-<![CDATA[  
-  select full_company_name, company_city, concat(services_0, ' ', services_1, ' ', services_2, ' ', services_3, ' ', services_4, ' ', services_5, ' ', services_6, ' ', services_7, ' ', services_8, ' ', services_9, ' ', services_10, ' ', services_11, ' ', services_12, ' ', services_13, ' ', services_14), concat(sector_0, ' ', sector_1, ' ', sector_2, sector_3) 
-  from directories_business 
-  where country_code IN ({COUNTRY})
-]]>
+<q id="directory_business_only_country_all">  
+  SELECT full_company_name, company_city, concat(services_0, ' ', services_1, ' ', services_2, ' ', services_3, ' ', services_4, ' ', services_5, ' ', services_6, ' ', services_7, ' ', services_8, ' ', services_9, ' ', services_10, ' ', services_11, ' ', services_12, ' ', services_13, ' ', services_14), concat(sector_0, ' ', sector_1, ' ', sector_2, sector_3) 
+  FROM directories_business 
+  WHERE country_code IN ({COUNTRY})
 </q>
 
-<q id="pubs_reformat">
-<![CDATA[  
+<q id="pubs_reformat">  
   SELECT CONCAT('',publications.category), CONCAT('',publications.title),  CONCAT('',publications.description),  CONCAT('',publications.publication_date),  CONCAT('',publications.posting_date),  CONCAT('',publications.source),  CONCAT('',publications.author_name),   CONCAT('',publications.sector),  CONCAT('',publications.language),   CONCAT('',publications.region_code),   CONCAT('',publications.countries_code),   CONCAT('',publications.document_type),  CONCAT('',publications.document_size),  CONCAT('',publications.document_attachment_name),   CONCAT('',publications.document_attachment_title),   CONCAT('',publications.document_tags), CONCAT('',publications.publication_rating) 
   FROM public.publications
-]]>
 </q>
   
-<q id="events_reformat">
-<![CDATA[  
+<q id="events_reformat">  
   SELECT events_view.id_events, events_view.category, events_view.date_start,events_view.date_end,events_view.description,events_view.title,events_view.long_description,events_view.nbdocs,events_view.ea_type,events_view.ea_file_name,   events_view.ea_attachment_title,   events_view.ea_attachment_size,  events_view.ea_attachment_description, events_view.venue, events_view.country 
   FROM public.events_view
-]]>
 </q>
   
-<q id="events_reformat_long">
-<![CDATA[  
+<q id="events_reformat_long">  
   SELECT id_events, category, date_start, date_end, description, title 
-  from events
-]]>
+  FROM events
 </q>
 
 </queries>

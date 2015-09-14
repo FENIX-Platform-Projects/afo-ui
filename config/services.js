@@ -1,16 +1,23 @@
-define(['jquery','text!config/queries.xml'],function($, queries){
+define(['jquery','text!config/queries.xml'],function($, queries) {
 
-/*var Queries = $.parseXML(queries);
+var Queries = {};
 
-console.log(Queries)
-*/
+$(queries).find('q').each(function() {
+    var id = $(this).attr('id'),
+        text = $(this).text().replace(/(?:\r\n|\r|\n)/g, ' ');
+    Queries[ id ]= text;
+});
+
+//console.log(Queries);
+
 return {
     "dbName": "africafertilizer",
     "gaulLayer": "gaul0_faostat_afo_3857",
-    "wdsUrl": "http://faostat3.fao.org/wds/rest/table/json",
+    "wdsUrl": "http://faostat3.fao.org/wds/"+
+    "rest/table/json",
     "wdsUrlExportCsv": "http://faostat3.fao.org/wds/rest/exporter/streamcsv",
     //TODO update to fenix.fao.org/geoserver...
-    
+
     "wmsUrl": "http://fenixapps2.fao.org/geoserver-demo",
     "sldUrl": "http://fenixapps2.fao.org/geoservices/CSS2SLD",
 
@@ -46,7 +53,9 @@ return {
         }    
     },
 
-    "queries": {
+    "queries": Queries,
+
+    "//BACKUP queries": {
         "home_maps_filter": "select country_code, coalesce( {field} , -1) from afo_map_slider",
 
         "fertilizers_tree": "select fertilizer_category_code, fertilizer_code, fertilizer_category_label, fertilizer_label from fertilizers_category join codes_fertilizers on (fertilizer = fertilizer_code) join codes_fertilizers_categories on (fertilizer_category = fertilizer_category_code) order by fertilizer_label",
@@ -84,13 +93,7 @@ return {
 
         "prices_detailed_products": "select c.fertilizer_code, c.fertilizer_label from codes_fertilizers c, prices_local d where  c.fertilizer_code = d.fertilizer group by c.fertilizer_code, c.fertilizer_label order by c.fertilizer_label ASC ",
 
-        "prices_detailed_countries": "select country, country_label from "+
-            "(select distinct country from prices_local) as countries "+
-            "join codes_countries on country = country_code "+
-            "group by country, country_label "+
-            "order by country_label ",
-
-        "//COMMENTED prices_international": "select nutrient, fob, string_agg(period,'|') as period, string_agg(''||value,'|') as value from prices_international group by index, nutrient, fob order by index",
+        "prices_detailed_countries": "select country, country_label from (select distinct country from prices_local) as countries join codes_countries on country = country_code group by country, country_label order by country_label ",
 
         "prices_international": "select nutrient, fob, string_agg(period,'|') as period, string_agg(''||value,'|') as value from (select * from prices_international where period in (select distinct period from prices_international order by period desc limit 14) order by period, index) origin group by index, nutrient, fob order by index",
 
@@ -110,7 +113,7 @@ return {
         "compare_by_element": "SELECT cc.element_label, d.year, d.value, d.um FROM compare d, codes_elements cc WHERE d.data_source IN ('{SOURCE}') AND d.country IN ({COUNTRY}) AND d.element IN ({ELEMENT}) AND d.element = cc.element_code AND d.fertilizer IN ({PRODUCT}) AND n_p IN ('{KIND}') AND d.value IS NOT NULL ORDER BY cc.element_label ASC, d.year ASC",
         "compare_by_product": "SELECT cc.fertilizer_label, d.year, d.value, d.um FROM compare d, codes_fertilizers cc WHERE d.data_source IN ('{SOURCE}') AND d.country IN ({COUNTRY}) AND d.element IN ({ELEMENT}) AND d.fertilizer IN ({PRODUCT}) AND d.fertilizer = cc.fertilizer_code AND n_p IN ('{KIND}') AND d.value IS NOT NULL ORDER BY cc.fertilizer_label ASC, d.year ASC",
 
-        "compare_pivot":"SELECT cs.data_source_label,cc.country_label,ce.element_label, cf.fertilizer_label, d.year, d.value, d.um FROM compare d inner join countries_unique cc on d.country=cc.country_code inner join codes_fertilizers cf on d.fertilizer = cf.fertilizer_code inner join codes_elements ce on d.element = ce.element_code inner join codes_data_sources cs on d.data_source = cs.data_source_code  where d.data_source IN ({SOURCE}) AND d.country IN ({COUNTRY}) AND d.element IN ({ELEMENT}) AND d.fertilizer IN ({PRODUCT}) AND n_p IN ({KIND}) AND d.value IS NOT NULL",
+        "compare_pivot": "SELECT cs.data_source_label,cc.country_label,ce.element_label, cf.fertilizer_label, d.year, d.value, d.um FROM compare d inner join countries_unique cc on d.country=cc.country_code inner join codes_fertilizers cf on d.fertilizer = cf.fertilizer_code inner join codes_elements ce on d.element = ce.element_code inner join codes_data_sources cs on d.data_source = cs.data_source_code  where d.data_source IN ({SOURCE}) AND d.country IN ({COUNTRY}) AND d.element IN ({ELEMENT}) AND d.fertilizer IN ({PRODUCT}) AND n_p IN ({KIND}) AND d.value IS NOT NULL",
 
         "compare_by_source": "SELECT cc.data_source_label, d.year, d.value, d.um FROM compare d, codes_data_sources cc WHERE d.data_source IN ('{SOURCE}') AND d.country IN ({COUNTRY}) AND d.element IN ({ELEMENT}) AND d.fertilizer IN ({PRODUCT}) AND d.data_source = cc.data_source_code AND n_p IN ('{KIND}') AND d.value IS NOT NULL ORDER BY cc.data_source_label ASC, d.year ASC",
 

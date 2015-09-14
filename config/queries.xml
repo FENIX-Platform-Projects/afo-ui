@@ -13,12 +13,6 @@
   ORDER BY fertilizer_label
 </q>
 
-<q id="fertilizers_country">  
-  SELECT distinct country_code 
-  FROM fertilizers_country 
-  WHERE fertilizer_code in ( {ids} )
-</q>
-  
 <q id="fertilizers_bycountry">  
   SELECT fertilizer_label 
   FROM fertilizers_country 
@@ -74,12 +68,6 @@
   SELECT ST_AsGeoJSON(geom), adm0_code, areanamee 
   FROM spatial.gaul0_faostat_afo_4326 
   WHERE adm0_code IN ({ids}) 
-</q>
-  
-<q id="countries_groups">  
-  SELECT country, name 
-  FROM countries 
-  WHERE value = 1 AND name IN ( {ids} ) 
 </q>
   
 <q id="countries_byfertilizers">  

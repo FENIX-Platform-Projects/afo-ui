@@ -1,4 +1,7 @@
-define(['underscore', "commons/fx_chart", 'highcharts', 'highcharts.export'], function (_, FxChartTemplate) {
+define(['underscore', 'highcharts', 'highcharts.export',
+    'commons/fx_chart'
+], function (_, highcharts, highchartsExport,
+    FxChartTemplate) {
 
     function Chart(){
 

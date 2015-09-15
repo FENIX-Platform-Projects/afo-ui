@@ -1,7 +1,7 @@
 /*global define*/
 define([
-    "underscore",
-    "commons/Wds",
+    'underscore',
+    'commons/Wds',
     'config/services',
     'jstree'
 ], function (_, Wds, Config) {

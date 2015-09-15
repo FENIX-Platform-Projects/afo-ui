@@ -1,14 +1,12 @@
 /*global define*/
 define([
     'compare/chartsAfo',
-    'compare/tableAfo',
 	'pivot',
 	'pivotConfig',
 	'pivotRenderers',
 	'pivotAggregators'
 ], function (
 	Chart,
-	Table,
 	Pivot,
 	PivotConfig,
 	pivotRenderers,
@@ -25,9 +23,12 @@ define([
     };
 
     function Results() {
-        this.table = new Table();
-		 this.Pivot = new Pivot();
-        monPivot=this.Pivot;
+        //this.table = new Table();
+		
+		this.Pivot = new Pivot();
+        
+        monPivot = this.Pivot;
+
 		this.chart = new Chart();
     }
 
@@ -39,10 +40,10 @@ define([
        this.Pivot.exportCSV();
     };
 	
-    Results.prototype.printTable = function (data) {
+/*    Results.prototype.printTable = function (data) {
         var id = this.appendContainer();
         this.table.render(id, data);
-    };
+    };*/
 	
 	Results.prototype.printOlap = function (data) {
        

@@ -42,7 +42,7 @@ define(['underscore',
         //Selectors: map and others
         this.selectors = new Selectors();
 
-        //Results: table and charts
+        //Results: pivot and charts
         this.results = new Results();
         $("#downloadxls").on("click",_.bind(this.results.Pivot.exportExcel, this.results.Pivot));//monPivot.exportExcel
         $("#downloadcsv").on("click",_.bind(this.results.Pivot.exportCSV, this.results.Pivot));//monPivot.exportExcel
@@ -105,7 +105,7 @@ define(['underscore',
         var results = this.selectors.getFilter(),
             values;
 
-        if (results === false) {return;}
+        if (results === false) return;
 
         values = this.buildFilterCombinations(results);
 		
@@ -137,21 +137,16 @@ define(['underscore',
 	    
         valuesPivot.PRODUCT = "'"+tempArray.join("','")+"'";
 		/*end jacques code*/
+
         this.results.empty();
 		
-        if(results.SHOW=="pivot") {
+        if(results.SHOW==="pivot") {
             this.performPivotQuery(valuesPivot, results);
         }
-		else{		
+		else if(results.SHOW==="chart") {
 			_.each(values, _.bind(function (v) {
-				switch (results.SHOW) {
-					case 'table' :
-						this.performTableQuery(v, results);
-						break;
-					case 'chart' :
-						this.performChartQuery(v, results);
-						break;
-				}
+                
+                this.performChartQuery(v, results);
 
 			}, this));
 		}
@@ -159,8 +154,6 @@ define(['underscore',
     };
 
     //Chart
-
-
     App.prototype.performChartQuery = function (v, results) {
 
         var query;
@@ -222,55 +215,6 @@ define(['underscore',
     App.prototype.appendChart = function (data, results) {
 
         this.results.printChart(data, results);
-    };
-
-    //Table
-
-    App.prototype.performTableQuery = function (v, results) {
-
-        var query;
-        //switch (results.COMPARE) {
-        switch (results.COMPARE[0].code) {
-                    
-		  case 'ELEMENT' :
-                query = this._replace(this.config.queries.compare_by_element, v);
-                break;
-            case 'PRODUCT' :
-                query = this._replace(this.config.queries.compare_by_product, v);
-                break;
-            case 'COUNTRY' :
-                query = this._replace(this.config.queries.compare_by_country, v);
-                break;
-        }
-        var data = {
-            datasource: this.config.dbName,
-            thousandSeparator: ',',
-            decimalSeparator: '.',
-            decimalNumbers: 2,
-            cssFilename: '',
-            nowrap: false,
-            valuesIndex: 0,
-            json: JSON.stringify({
-                query: query
-            })
-        };
-
-        $.ajax({
-            url: this.config.wdsUrl,
-            data: data,
-            type: 'POST',
-            dataType: 'JSON',
-            success: _.bind(function (data) {
-                if (data.length === 0) {return;}
-                this.appendTable(data)
-            }, this),
-            error: function (e) {
-                console.error("WDS error: ");
-                console.log(e)
-            }
-        });
-
-
     };
     
     App.prototype.performPivotQuery = function (v, results) {

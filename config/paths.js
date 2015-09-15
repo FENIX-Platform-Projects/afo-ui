@@ -42,7 +42,7 @@ define(function() {
 
             'fx-common':              "submodules/fenix-ui-common",
             'fx-common/config/auth_users' : "config/auth_users.json",
-            
+
             //PATCH!  remove after new wds server support retrieve in POST
             'fx-common/js/WDSClient': 'src/wdsFakeInterface',
 
@@ -54,17 +54,16 @@ define(function() {
             'fx-olap/nls':            "submodules/fenix-ui-olap/nls",
 
             'pivot':                  "submodules/fenix-ui-olap/js/pivot",
-            //'pivotPaths':             "submodules/fenix-ui-olap/js/paths",
-
             'gt_msg':                 "submodules/fenix-ui-olap/lib/grid/gt_msg_en",
             'gt_msg_grid':            "submodules/fenix-ui-olap/lib/grid/gt_grid_all",
             'pivotRenderers':         "submodules/fenix-ui-olap/js/rend/rendererers",
             'pivotAggregators':       "submodules/fenix-ui-olap/js/rend/aggregators",
             'pivotRenderersFuncs':    "submodules/fenix-ui-olap/js/rend/function_rendererers",
-            'pivotAggregatorsFuncs':  "submodules/fenix-ui-olap/js/rend/function_aggregators",            
-            
-            //"pivotConfig":          FX_CDN+"/fenix/fenix-ui-olap/4.0/config/dataConfig1",
-            "pivotConfig":            "config/pivotConfig",
+            'pivotAggregatorsFuncs':  "submodules/fenix-ui-olap/js/rend/function_aggregators",
+            'pivotConfig':            "config/pivotConfig",
+
+            'compare':                "src/statistics/compare",
+            'commons':                "src/commons"
         },
         shim: {
             'jstree': ['jquery'],
@@ -84,7 +83,6 @@ define(function() {
             'geojson_decoder': ['leaflet','leaflet.encoded'],
             'leaflet.encoded': ['leaflet'],
             'leaflet-markercluster': ['leaflet'],
-           // 'pivot': ['pivotPaths'],
             'fenix-map': [
                 'leaflet',
                 'jquery',

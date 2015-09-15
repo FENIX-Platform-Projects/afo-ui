@@ -31,10 +31,11 @@ define([
 		this.chart = new Chart();
     }
 
-	  Results.prototype.exportExcel = function (data) {
+	Results.prototype.exportExcel = function (data) {
        this.Pivot.exportExcel();
     };
-	 Results.prototype.exportCSV = function (data) {
+
+	Results.prototype.exportCSV = function (data) {
        this.Pivot.exportCSV();
     };
 	
@@ -42,7 +43,8 @@ define([
         var id = this.appendContainer();
         this.table.render(id, data);
     };
-	  Results.prototype.printOlap = function (data) {
+	
+	Results.prototype.printOlap = function (data) {
        
      
 	    var id = this.appendContainer();
@@ -50,34 +52,35 @@ define([
 		$("#"+id).attr("class","fx-olap-holder");
 	//	$("#"+id).css("height","1500px");
 	   data = [['Source','Country','Element','Product', 'Year', 'Value', 'Unit']].concat(data);
-	   this.Pivot.render(id, data,{	rows: ["Source","Country","Element","Product"],
-						cols: ["Year"],
-						vals: ["Value"],
-						hiddenAttributes:["Unit","Value","Flag"],
-						linkedAttributes:[],
-						derivedAttributes: {
-                    "Flag": function(mp)
-                    {
-                       return "";
-						}},
-						rendererDisplay: pivotRenderers,
-						aggregatorDisplay: pivotAggregators,
-						"InstanceRenderers": [
-						{label: "Grid", func: "Table"},
-						{label: "Barchart", func: "barchart"},
-						{label: "Line chart", func: "line chart"},
-						{label: "Area", func: "Area"},
-						{label: "Stacked barchart", func: "Stacked barchart"}
-						],
-						"InstanceAggregators": [
-						{label: "SOMME", func: "Sum2"},
-						],
-						"showRender": true,
-						"showFlags": false,
-						"showUnit": true,
-						"showCode": false,
-						"showAgg": false,
-						"csvText":"AFO"
+	   this.Pivot.render(id, data, {
+	   		rows: ["Source","Country","Element","Product"],
+			cols: ["Year"],
+			vals: ["Value"],
+			hiddenAttributes: ["Unit","Value","Flag"],
+			linkedAttributes: [],
+			derivedAttributes: {
+            	'Flag': function(mp) {
+					return '';
+				}
+			},
+			rendererDisplay: pivotRenderers,
+			aggregatorDisplay: pivotAggregators,
+			InstanceRenderers: [
+				{label: "Grid", func: "Table"},
+				{label: "Barchart", func: "barchart"},
+				{label: "Line chart", func: "line chart"},
+				{label: "Area", func: "Area"},
+				{label: "Stacked barchart", func: "Stacked barchart"}
+			],
+			InstanceAggregators: [
+				{label: "SOMME", func: "Sum2"},
+			],
+			showRender: true,
+			showFlags: false,
+			showCode: false,
+			showUnit: true,			
+			showAgg: false,
+			csvText: "AfricaFertilizer.org"
 	   });
 	   //monPivot.exportExcel();
 		

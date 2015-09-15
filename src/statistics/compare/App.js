@@ -1,11 +1,15 @@
 /*global define*/
-define([
-    'underscore',
+define(['underscore',
+    'fx-common/js/WDSClient',
     'compare/Results',
     'compare/Selectors',
     'config/services',
     'amplify'
-], function (_, Results, Selectors, Config) {
+], function (_,
+    WDSClient,
+    Results,
+    Selectors,
+    Config) {
 
     'use strict';
 
@@ -16,6 +20,11 @@ define([
         RESULTS: '#afo-results',
         RESUME : '#afo-resume'
     };
+
+    var wdsClient = new WDSClient({
+        datasource: Config.dbName,
+        outputType: 'array'
+    });
 
     function App() {
         this.state = {};
@@ -104,28 +113,35 @@ define([
 		var valuesPivot={SOURCE:'',COUNTRY:'',ELEMENT:'',KIND:'',PRODUCT:''};
 		var tempArray=[];
 		for(var vv in results["SOURCE"])
-		{tempArray.push(results["SOURCE"][vv].code)}
-	valuesPivot.SOURCE="'"+tempArray.join("','")+"'";
-	 tempArray=[];
+		  {tempArray.push(results["SOURCE"][vv].code)}
+
+    	valuesPivot.SOURCE="'"+tempArray.join("','")+"'";
+    	 tempArray=[];
 		for(var vv in results["COUNTRY"])
-		{tempArray.push(results["COUNTRY"][vv].code)}
-	valuesPivot.COUNTRY="'"+tempArray.join("','")+"'";
-	 tempArray=[];
+		  {tempArray.push(results["COUNTRY"][vv].code)}
+
+    	valuesPivot.COUNTRY="'"+tempArray.join("','")+"'";
+    	 tempArray=[];
 		for(var vv in results["ELEMENT"])
-		{tempArray.push(results["ELEMENT"][vv].code)}
-	valuesPivot.ELEMENT="'"+tempArray.join("','")+"'";
-	 tempArray=[];
+		  {tempArray.push(results["ELEMENT"][vv].code)}
+
+    	valuesPivot.ELEMENT="'"+tempArray.join("','")+"'";
+    	tempArray=[];
 		for(var vv in results["KIND"])
-		{tempArray.push(results["KIND"][vv].code)}
-	valuesPivot.KIND="'"+tempArray.join("','")+"'";
-	tempArray=[];
+		  {tempArray.push(results["KIND"][vv].code)}
+    	
+        valuesPivot.KIND="'"+tempArray.join("','")+"'";
+    	tempArray=[];
 		for(var vv in results["PRODUCT"])
-		{tempArray.push(results["PRODUCT"][vv].code)}
-	valuesPivot.PRODUCT="'"+tempArray.join("','")+"'";
+		  {tempArray.push(results["PRODUCT"][vv].code)}
+	    
+        valuesPivot.PRODUCT = "'"+tempArray.join("','")+"'";
 		/*end jacques code*/
         this.results.empty();
-			if(results.SHOW=="pivot")
-			{this.performPivotQuery(valuesPivot, results);}
+		
+        if(results.SHOW=="pivot") {
+            this.performPivotQuery(valuesPivot, results);
+        }
 		else{		
 			_.each(values, _.bind(function (v) {
 				switch (results.SHOW) {
@@ -143,6 +159,7 @@ define([
     };
 
     //Chart
+
 
     App.prototype.performChartQuery = function (v, results) {
 
@@ -213,7 +230,7 @@ define([
 
         var query;
         //switch (results.COMPARE) {
-switch (results.COMPARE[0].code) {
+        switch (results.COMPARE[0].code) {
                     
 		  case 'ELEMENT' :
                 query = this._replace(this.config.queries.compare_by_element, v);
@@ -255,33 +272,20 @@ switch (results.COMPARE[0].code) {
 
 
     };
-  App.prototype.performPivotQuery = function (v, results) {
-
-        var query=this._replace(this.config.queries.compare_pivot,v);
     
-        var data = {
-            datasource: this.config.dbName,
-            thousandSeparator: ',',
-            decimalSeparator: '.',
-            decimalNumbers: 2,
-            cssFilename: '',
-            nowrap: false,
-            valuesIndex: 0,
-            json: JSON.stringify({query: query})
-        };
+    App.prototype.performPivotQuery = function (v, results) {
 
-        $.ajax({
-            url: this.config.wdsUrl,
-            data: data,
-            type: 'POST',
-            dataType: 'JSON',
-            success: _.bind(function (data) {this.results.printOlap(data);}, this),
-            error: function (e) {
-                console.error("WDS error: ");
-                console.log(e)
-            }
+        wdsClient.retrieve({
+            payload: {
+                query: Config.queries.compare_pivot,
+                queryVars: v
+            },
+            success: _.bind(function(data) {
+                this.results.printOlap(data);
+            }, this)
         });
     };
+
     App.prototype.appendTable = function (data) {this.results.printTable(data);	};
 	App.prototype.appendPivot = function (data) {this.results.printOlap(data);  };
 

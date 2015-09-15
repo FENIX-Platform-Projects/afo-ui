@@ -83,17 +83,17 @@ define([
 						linkedAttributes:[],
 						rendererDisplay: pivotRenderers,
 						aggregatorDisplay: pivotAggregators,
-						"showRender": false,
-						"showFlags": false,
-						"showUnit": true,
-						"showCode": false,
-						"showAgg": false,
-						"csvText":"AFO"
+						showRender: false,
+						showFlags: false,
+						showCode: false,
+						showUnit: true,						
+						showAgg: false,
+						csvText:"Africafertilizer.org"
 					});
-					$("#downloadxls").on("click",_.bind(pp1.exportExcel, pp1));//monPivot.exportExcel
-        $("#downloadcsv").on("click",_.bind(pp1.exportCSV,pp1));//monPivot.exportExcel
-  
 					
+					$("#downloadxls").on("click",_.bind(pp1.exportExcel, pp1));//monPivot.exportExcel
+       				
+       				$("#downloadcsv").on("click",_.bind(pp1.exportCSV,pp1));//monPivot.exportExcel
 				}
 			}
 		});

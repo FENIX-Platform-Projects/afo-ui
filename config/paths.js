@@ -62,8 +62,9 @@ define(function() {
             'pivotAggregatorsFuncs':  "submodules/fenix-ui-olap/js/rend/function_aggregators",
             'pivotConfig':            "config/pivotConfig",
 
+            'commons':                "src/commons",
             'compare':                "src/statistics/compare",
-            'commons':                "src/commons"
+            'glance':                 "src/statistics/glance"
         },
         shim: {
             'jstree': ['jquery'],

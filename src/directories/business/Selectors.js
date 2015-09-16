@@ -1,9 +1,11 @@
 /*global define*/
 define([
     "underscore",
-    "src/commons/Wds",
+    'fx-common/js/WDSClient',
     'config/services'
-], function (_, Wds, Config) {
+], function (_,
+    WDSClient,
+    Config) {
 
     'use strict';
 
@@ -15,6 +17,11 @@ define([
         BTN: '#search-btn',
         CONTAINER: '#table-result'
     }
+
+    var wdsClient = new WDSClient({
+        datasource: Config.dbName,
+        outputType: 'array'
+    });
 
     var PRODUCTS = [
         "Fertilizers",
@@ -66,9 +73,11 @@ define([
 
         var self = this;
 
-        Wds.get({
-            query: this.config.queries.directory_business_country,
-            success: function (res) {
+        wdsClient.retrieve({
+            payload: {
+                query: Config.queries.directory_business_country
+            },
+            success: function(res) {                  
                 createCountryOption(res)
             }
         });
@@ -132,43 +141,38 @@ define([
 
 
         if (productSelected != 'All' && sectorSelected != 'All') {
-            var query = this.config.queries.directory_business_result;
+            var query = Config.queries.directory_business_result;
             query = query.replace('{COUNTRY}', "'" + countrySelected + "'")
             query = query.replace(/{SERVICE}/g, "'" + sectorSelected + "'")
             query = query.replace(/{SECTOR}/g, "'" + productSelected + "'")
 
         }
-
-
         // every is product All
         else if (productSelected == 'All' && sectorSelected == 'All') {
-            var query = this.config.queries.directory_business_only_country_all;
+            var query = Config.queries.directory_business_only_country_all;
             query = query.replace('{COUNTRY}', "'" + countrySelected + "'")
         }
-
         // only productSelected All
         else if (productSelected == 'All' && sectorSelected != 'All') {
-            var query = this.config.queries.directory_business_only_product_all;
+            var query = Config.queries.directory_business_only_product_all;
             query = query.replace('{COUNTRY}', "'" + countrySelected + "'")
             query = query.replace(/{SERVICE}/g, "'" + sectorSelected + "'")
         }
-
-
         // only productSelected All
         else {
-            var query = this.config.queries.directory_business_only_sector_all;
+            var query = Config.queries.directory_business_only_sector_all;
             query = query.replace('{COUNTRY}', "'" + countrySelected + "'")
             query = query.replace(/{SECTOR}/g, "'" + productSelected + "'")
         }
 
-
-        Wds.get({
-            query: query,
-            success: function (res) {
+        wdsClient.retrieve({
+            payload: {
+                query: query
+            },
+            success: function(res) {                    
                 self.renderGrid(res);
             }
         });
-
     }
 
 
@@ -176,7 +180,7 @@ define([
 
         var columns = [];
 
-        var titles = Object.keys(CONFIG)
+        var titles = _.keys(CONFIG)
 
         for (var i = 0; i < titles.length; i++) {
 
@@ -190,7 +194,7 @@ define([
     Selectors.prototype.renderGrid = function (dataSource) {
 
 
-        var titles = Object.keys(CONFIG)
+        var titles = _.keys(CONFIG)
 
 
         if (dataSource.length > 0) {

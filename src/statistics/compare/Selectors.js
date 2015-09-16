@@ -1,10 +1,12 @@
 /*global define*/
 define([
     'underscore',
-    'commons/Wds',
+    'fx-common/js/WDSClient',
     'config/services',
     'jstree'
-], function (_, Wds, Config) {
+], function (_,
+    WDSClient,
+    Config) {
 
     'use strict';
 
@@ -28,6 +30,11 @@ define([
         SELECT: 'afo.selector.select'
     };
 
+    var wdsClient = new WDSClient({
+        datasource: Config.dbName,
+        outputType: 'array'
+    });
+
     function Selectors() {
 
         this.config = Config;
@@ -46,12 +53,14 @@ define([
 
         var self = this;
 
-        Wds.get({
-            query: this.config.queries.countries,
-            success: function (res) {
+        wdsClient.retrieve({
+            payload: {
+                query: Config.queries.countries
+            },
+            success: function(res) {                
                 var data = [];
 
-                if (Array.isArray(res)) {
+                if (_.isArray(res)) {
 
                     _.each(res, function (n) {
                         data.push(createNode(n));
@@ -133,13 +142,14 @@ define([
 
         var self = this;
 
-        Wds.get({
-            query: this.config.queries.data_sources,
-            success: function (res) {
-
+        wdsClient.retrieve({
+            payload: {
+                query: Config.queries.data_sources
+            },
+            success: function(res) {   
                 var $form = $('<form>');
 
-                if (Array.isArray(res)) {
+                if (_.isArray(res)) {
                     _.each(res, function (item, index) {
                         $form.append(renderCheckbox(item, index));
                     });
@@ -185,22 +195,29 @@ define([
     Selectors.prototype._initProductSelector = function (source) {
 
         var self = this,
-            q;
+            payload;
 
-            if (source !== 'cstat') {
-                q = this._replace(this.config.queries.product_by_source, {SOURCE: source || defaultValues.DATA_SOURCE});
-            } else {
-                q = this.config.queries.products_by_cstat;
-            }
+        if (source !== 'cstat') {
+            payload = {
+                query: Config.queries.product_by_source,
+                queryVars: {
+                    SOURCE: source || defaultValues.DATA_SOURCE
+                }
+            };
+        } else {
+            payload = {
+                query: this.config.queries.products_by_cstat
+            };
+        }
 
-        Wds.get({
-            query:  q,
-            success: function (res) {
+        wdsClient.retrieve({
+            payload: payload,
+            success: function(res) {   
 
                 var data = [],
                     list;
 
-                if (Array.isArray(res)) {
+                if (_.isArray(res)) {
 
                     list = res.sort(function (a, b) {
                         if (a[1] < b[1]) return -1;
@@ -287,14 +304,15 @@ define([
 
         var self = this;
 
-        Wds.get({
-            query: this.config.queries.elements,
-            success: function (res) {
-
+        wdsClient.retrieve({
+            payload: {
+                query: Config.queries.elements
+            },
+            success: function(res) {   
                 var data = [],
                     list;
 
-                if (Array.isArray(res)) {
+                if (_.isArray(res)) {
 
                     list = res.sort(function (a, b) {
                         if (a[1] < b[1]) return -1;
@@ -377,7 +395,7 @@ define([
         var kind = [['n', 'Nutrient'], ['p', 'Product']],
             $form = $('<form>');
 
-        if (Array.isArray(kind)) {
+        if (_.isArray(kind)) {
             _.each(kind, function (item, index) {
                 $form.append(renderRadioBtn(item, index));
             });
@@ -416,7 +434,7 @@ define([
         var kind = [['COUNTRY', 'Country'], ['ELEMENT', 'Element'], ['PRODUCT', 'Product'], ['SOURCE', 'Data Source' ]],
             $form = $('<form>');
 
-        if (Array.isArray(kind)) {
+        if (_.isArray(kind)) {
             _.each(kind, function (item, index) {
                 $form.append(renderRadioBtn(item, index));
             });
@@ -473,7 +491,7 @@ define([
         var kind = [ ['chart', 'Chart'], ['pivot', 'Pivot']],
             $form = $('<form>');
 
-        if (Array.isArray(kind)) {
+        if (_.isArray(kind)) {
             _.each(kind, function (item, index) {
                 $form.append(renderRadioBtn(item, index));
             });

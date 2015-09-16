@@ -4,7 +4,7 @@ define(['underscore',
     'glance/Selectors',
     'config/services',
     'amplify'
-], function (_, 
+], function (_,
     WDSClient,
     Results,
     Selectors,
@@ -17,7 +17,7 @@ define(['underscore',
         SEARCH_BTN: '#search-btn',
         COURTESY: '#afo-courtesy',
         RESULTS: '#afo-results',
-        RESUME : '#afo-resume'
+        RESUME: '#afo-resume'
     };
 
     var wdsClient = new WDSClient({
@@ -39,7 +39,7 @@ define(['underscore',
     App.prototype._initPageStructure = function () {
 
         this.selectors = new Selectors();
-        
+
         this.results = new Results();
     };
 
@@ -57,22 +57,21 @@ define(['underscore',
 
         $(s.RESUME).empty();
 
-        _.each(keys, function (key ) {
+        _.each(keys, function (key) {
 
-            if (resume.hasOwnProperty(key) && resume[key] && Array.isArray(resume[key]) && resume[key].length > 0)
-            {
-                var v = resume[key][0].text,
-                    text = (_.isArray(v) ? v.join(',') : v),
+            if (resume.hasOwnProperty(key) && resume[key] && Array.isArray(resume[key]) && resume[key].length > 0) {
+                var v = resume[key],
+                    text = (_.isArray(v) ? v.map(function (elem) { return elem.text }).join(',') : v),
                     $li = $('<li>'),
                     $label = $('<span>'),
-                    $value =  $('<b>', {text: text }),
+                    $value = $('<b>', { text: text }),
                     lab;
 
-                switch(key) {
-                    case 'COUNTRY':   lab = 'Africa Countries '; break;
-                    case 'KIND':      lab = 'View in '; break;
-                    case 'SOURCE':    lab = 'Data Source '; break;
-                    case 'PRODUCT':   lab = 'Fertilizer '; break;
+                switch (key) {
+                    case 'COUNTRY': lab = 'Africa Countries '; break;
+                    case 'KIND': lab = 'View in '; break;
+                    case 'SOURCE': lab = 'Data Source '; break;
+                    case 'PRODUCT': lab = 'Fertilizer '; break;
                 }
 
                 $label.html(lab);
@@ -95,12 +94,12 @@ define(['underscore',
         }
     };
 
-    App.prototype._showqueriesCourtesyMessage = function() {
+    App.prototype._showqueriesCourtesyMessage = function () {
         var $btn = $('#search-btn'),
             t = $btn.text();
 
         $btn.text('No Results Found!');
-        setTimeout(function() {
+        setTimeout(function () {
             $btn.text(t);
         }, 2000);
     };
@@ -108,12 +107,12 @@ define(['underscore',
     //Table
     App.prototype.selectQuery = function (results) {
 
-        var sql,res;
+        var sql, res;
 
-        if(results.SOURCE[0].code === 'cstat')
+        if (results.SOURCE[0].code === 'cstat')
             sql = this.config.queries.select_from_compare_cstat;
 
-        else if(results.SOURCE[0].code === 'ifa')
+        else if (results.SOURCE[0].code === 'ifa')
             sql = this.config.queries.select_from_compare_ifa;
 
         else
@@ -123,23 +122,19 @@ define(['underscore',
     };
 
     App.prototype.queryTable = function (results) {
-
-
-//TODO REWRITE FOR MULTIPLE SELECTION, remove [0]
+        var qVars = {
+            COUNTRY: results.COUNTRY.map(function (elem) { return "'" + elem.code + "'" }).join(','),
+            SOURCE: results.SOURCE[0].code,
+            KIND: results.KIND[0].code,
+            PRODUCT: results.PRODUCT.map(function (elem) { return "'" + elem.code + "'" }).join(','),
+        };
         wdsClient.retrieve({
             payload: {
                 query: this.selectQuery(results),
-                queryVars: {
-                    COUNTRY: results.COUNTRY[0].code,
-                    SOURCE: results.SOURCE[0].code,
-                    KIND: results.KIND[0].code,
-                    PRODUCT: results.PRODUCT[0].code
-                }
+                queryVars: qVars
             },
-            success: _.bind(function(data) {
-
-                this.results.printTable(data, this.selectors.getFilter() );
-
+            success: _.bind(function (data) {
+                this.results.printTable(data, this.selectors.getFilter());
             }, this)
         });
     };

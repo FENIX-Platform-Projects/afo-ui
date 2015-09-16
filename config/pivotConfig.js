@@ -1,64 +1,95 @@
 define({
 
     DEFAULT: {
-        "header":["code","Elements","Year","Value","Unit","Flag"],
+        "header": ["code", "Elements", "Year", "Value", "Unit", "Flag"],
         "rows": [
             "Elements"
         ],
         "cols": ["Year"],
-        "vals": ["Value"  ],
+        "vals": ["Value"],
         "InstanceRenderers": [
-            {label: "Grid", func: "Table"},
-            {label: "barchart", func: "barchart"} ,
-            {label: "Stacked barchart", func: "Stacked barchart"}
+            { label: "Grid", func: "Table" },
+            { label: "barchart", func: "barchart" },
+            { label: "Stacked barchart", func: "Stacked barchart" }
             ,
-            {label: "line chart", func: "line chart"},
-            {label: "Area", func: "Area"}
-           
+            { label: "line chart", func: "line chart" },
+            { label: "Area", func: "Area" }
+
         ],
         "InstanceAggregators": [
-            {label: "SumUnit", func: "Sum2"},
-            {label: "Sum", func: "Sum"}//used by charts
+            { label: "SumUnit", func: "Sum2" },
+            { label: "Sum", func: "Sum" }//used by charts
         ],
         "linkedAttributes": [],
 
-        "hiddenAttributes": ["Value","code","Flag","Unit"],
+        "hiddenAttributes": ["Value", "code", "Flag", "Unit"],
         "showRender": true,
         "showFlags": false,
         "showUnit": true,
         "showCode": false,
         "showAgg": false,
-		"csvText":"AFO"
+        "csvText": "AFO"
+    },
+
+    AT_GLANCE: {
+        "header": ["code", "Elements", "CountryCode", "Country", "FertilizerCode", "Fertilizer", "Year", "Value", "Unit", "Flag"],
+        "rows": [
+            "Elements", "Country", "Fertilizer"
+        ],
+        "cols": ["Year"],
+        "vals": ["Value"],
+        "InstanceRenderers": [
+            { label: "Grid", func: "Table" },
+            { label: "barchart", func: "barchart" },
+            { label: "Stacked barchart", func: "Stacked barchart" }
+            ,
+            { label: "line chart", func: "line chart" },
+            { label: "Area", func: "Area" }
+
+        ],
+        "InstanceAggregators": [
+            { label: "SumUnit", func: "Sum2" },
+            { label: "Sum", func: "Sum" }//used by charts
+        ],
+        "linkedAttributes": [],
+
+        "hiddenAttributes": ["Value", "code", "CountryCode", "FertilizerCode", "Flag", "Unit"],
+        "showRender": true,
+        "showFlags": false,
+        "showUnit": true,
+        "showCode": false,
+        "showAgg": false,
+        "csvText": "AFO"
     },
 
     IFA: {
-        "header":["code", "Elements","Year","Nutrient","Value","Unit","Flag"],
+        "header": ["code", "Elements", "CountryCode", "Country", "Year", "Nutrient", "Value", "Unit", "Flag"],
         "rows": [
-            "Elements","Nutrient"
+            "Elements", "Contry", "Nutrient"
         ],
         "cols": ["Year"],
-        "vals": ["Value"  ],
+        "vals": ["Value"],
         "InstanceRenderers": [
-            {label: "Grid", func: "Table"},
-            {label: "barchart", func: "barchart"} ,
-            {label: "Stacked barchart", func: "Stacked barchart"}
+            { label: "Grid", func: "Table" },
+            { label: "barchart", func: "barchart" },
+            { label: "Stacked barchart", func: "Stacked barchart" }
             ,
-            {label: "line chart", func: "line chart"},
-            {label: "Area", func: "Area"}
-           
+            { label: "line chart", func: "line chart" },
+            { label: "Area", func: "Area" }
+
         ],
         "InstanceAggregators": [
-            {label: "SumUnit", func: "Sum2"},
-            {label: "Sum", func: "Sum"}
+            { label: "SumUnit", func: "Sum2" },
+            { label: "Sum", func: "Sum" }
         ],
-        "hiddenAttributes": ["Value","Flag" ,"code"],
+        "hiddenAttributes": ["Value", "Flag", "code", "CountryCode"],
         "linkedAttributes": [],
         "showRender": true,
         "showFlags": false,
         "showUnit": true,
         "showCode": false,
         "showAgg": false,
-		"csvText":"AFO"
+        "csvText": "AFO"
     }
-});		
+});
 //"NoRecords","RecordOrder","Domain Code","Domain","Country Code","Country","Element Code","Element","Item Code","Item","Year Code","Year","Unit","Value","Flag","Flag Description","Var1Order","Var2Order","Var3Order","Var4Order"

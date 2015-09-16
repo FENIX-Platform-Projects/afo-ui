@@ -189,48 +189,53 @@
   ORDER BY index
 </q>
 
-<q id="select_from_compare">  
-  SELECT element_code, element_label, CASE WHEN year is null then '' else cast ( year AS character varying) end AS year, CASE WHEN value is null then '' else cast ( value AS character varying) end  AS value, CASE WHEN um is null then '' else cast ( um AS character varying) end  AS Unit, '' AS Flag 
+<q id="select_from_compare">
+  SELECT element_code, element_label, country_code, country_label, fertilizer_code, fertilizer_label, CASE WHEN year is null then '' else cast ( year AS character varying) end AS year, CASE WHEN value is null then '' else cast ( value AS character varying) end  AS value, CASE WHEN um is null then '' else cast ( um AS character varying) end  AS Unit, '' AS Flag
   FROM (
-    SELECT element, year, value, um 
-    FROM compare 
-    WHERE data_source = '{SOURCE}' 
-      and fertilizer = '{PRODUCT}' 
-      and country = '{COUNTRY}' 
-      and n_p = '{KIND}'
-    ) c 
-  RIGHT JOIN codes_elements on element = element_code 
+  SELECT element, country, fertilizer, year, value, um
+  FROM compare
+  WHERE data_source = '{SOURCE}'
+  and fertilizer in ({PRODUCT})
+  and country in ({COUNTRY})
+  and n_p = '{KIND}'
+  ) c
+  RIGHT JOIN codes_elements on element = element_code
+  LEFT JOIN (SELECT DISTINCT country_code, country_label FROM codes_countries) AS cDist on country = country_code
+  LEFT JOIN codes_fertilizers on fertilizer = fertilizer_code
   WHERE element <> 'rimp' and element<>'rexp' 
   ORDER BY element ASC, year ASC
 </q>
   
-<q id="select_from_compare_cstat">  
-  SELECT element_code, element_label, CASE WHEN year is null then '' else cast ( year AS character varying) end AS year, CASE WHEN value is null then '' else cast ( value AS character varying) end  AS value, CASE WHEN um is null then '' else cast ( um AS character varying) end  AS Unit, '' AS Flag 
+<q id="select_from_compare_cstat">
+  SELECT element_code, element_label, country_code, country_label, cstat_fertilizer_code, cstat_fertilizer_label, CASE WHEN year is null then '' else cast ( year AS character varying) end AS year, CASE WHEN value is null then '' else cast ( value AS character varying) end  AS value, CASE WHEN um is null then '' else cast ( um AS character varying) end  AS Unit, '' AS Flag
   FROM (
-    SELECT element, year, value, um 
-    FROM country_stat 
-    WHERE fertilizer = '{PRODUCT}' 
-      and country = '{COUNTRY}' 
-      and n_p = '{KIND}'
-    ) c right 
-  JOIN codes_elements on element = element_code 
+  SELECT element, country, fertilizer, year, value, um
+  FROM country_stat
+  WHERE fertilizer in ({PRODUCT})
+  and country in ({COUNTRY})
+  and n_p = '{KIND}'
+  ) c
+  RIGHT JOIN codes_elements on element = element_code
+  LEFT JOIN (SELECT DISTINCT country_code, country_label FROM codes_countries) AS cDist on country = country_code
+  LEFT JOIN codes_fertilizers_cstat on fertilizer = cstat_fertilizer_code
   WHERE element <> 'rimp' 
     and element <> 'rexp' 
   ORDER BY element ASC, year ASC
 </q>
-  
-<q id="select_from_compare_ifa">  
-  SELECT element_code, element_label, CASE WHEN year is null then '' else cast ( year AS character varying) end AS year,CASE WHEN nutrient is null then '' else cast ( nutrient AS character varying) end  AS nutrient,CASE WHEN value is null then '' else cast ( value AS character varying) end  AS Value,  CASE WHEN um is null then '' else cast ( um AS character varying) end  AS Unit, '' AS Flag  
-  FROM (
-    SELECT element, year, nutrient, value, um 
-    FROM ifa_data 
-    WHERE data_source = 'ifa' 
-      and fertilizer = '{PRODUCT}' 
-      and country = '{COUNTRY}' 
-      and n_p = '{KIND}'
-    ) c 
-  RIGHT JOIN codes_elements on element = element_code 
-  WHERE element <> 'rimp' 
+
+  <q id="select_from_compare_ifa">
+    SELECT element_code, element_label, country_code, country_label, CASE WHEN year is null then '' else cast ( year AS character varying) end AS year,CASE WHEN nutrient is null then '' else cast ( nutrient AS character varying) end  AS nutrient,CASE WHEN value is null then '' else cast ( value AS character varying) end  AS Value,  CASE WHEN um is null then '' else cast ( um AS character varying) end  AS Unit, '' AS Flag
+    FROM (
+    SELECT element, year, country, nutrient, value, um
+    FROM ifa_data
+    WHERE data_source = 'ifa'
+    and fertilizer in ({PRODUCT})
+    and country in ({COUNTRY})
+    and n_p = '{KIND}'
+    ) c
+    RIGHT JOIN codes_elements on element = element_code
+    LEFT JOIN (SELECT DISTINCT country_code, country_label FROM codes_countries) AS cDist on country = country_code
+    WHERE element <> 'rimp' 
     and element <> 'rexp' 
   ORDER BY element ASC, year ASC
 </q>

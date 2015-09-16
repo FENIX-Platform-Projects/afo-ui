@@ -32,7 +32,7 @@ define(['underscore',
 
     Results.prototype.printTable = function (data, filter) {
 
-        var conf = pivotConfig.DEFAULT;
+        var conf = pivotConfig.AT_GLANCE;
 
         if(filter.SOURCE[0].code === 'ifa') {
             conf = pivotConfig.IFA;

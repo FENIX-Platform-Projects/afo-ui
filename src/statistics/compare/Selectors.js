@@ -510,12 +510,12 @@ define([
     Selectors.prototype.getSelection = function () {
 
         return  {
-            ELEMENT: this.processJsTree( $(s.ELEMENT).jstree(true).get_selected('full') ),
-            COUNTRY: this.processJsTree( $(s.COUNTRY).jstree(true).get_selected('full') ),
-            SOURCE: this.processCheckbox( $(s.DATA_SOURCES).find('input:checked') ),
-            KIND: this.processRadioBtn( $(s.N_P).find('input:checked') ),
-            PRODUCT: this.processJsTree( $(s.PRODUCT).jstree(true).get_selected('full') ),
+            ELEMENT: this.processJsTree(   $(s.ELEMENT).jstree(true).get_selected('full') ),
+            COUNTRY: this.processJsTree(   $(s.COUNTRY).jstree(true).get_selected('full') ),
+            PRODUCT: this.processJsTree(   $(s.PRODUCT).jstree(true).get_selected('full') ),
             COMPARE: this.processRadioBtn( $(s.COMPARE).find('input:checked') ),
+            SOURCE:  this.processCheckbox( $(s.DATA_SOURCES).find('input:checked') ),                        
+            KIND:    this.processRadioBtn( $(s.N_P).find('input:checked') ),
             SHOW: $(s.SHOW_AS).find('input:checked').val()
         }
     };

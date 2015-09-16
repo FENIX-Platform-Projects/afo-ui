@@ -38,7 +38,7 @@ define(['jquery',
 
         "prices_international_banner": "images/prices/prices_international_banner_argus_fmb_europe.jpg",  
         "prices_international_link": "http://www.argusmedia.com/Events/Argus-Events/Europe/Fert-Euro/Home",
-        "prices_international_chart": "images/prices/prices_international_chart_july2015.png",
+        "prices_international_chart": "images/prices/prices_international_chart_ago2015.png",
 
         "map_attribution": "&copy; <a href='http://www.openstreetmap.org/copyright'>OSM contrib</a>",
         "map_marker": "images/marker-icon.png",

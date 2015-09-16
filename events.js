@@ -88,11 +88,11 @@ require([
 						for (var nd=0; nd<nbDoc; nd++)
 						{
 							attachments[EA_type[nd]].push({
-								"type":EA_type[nd],
-								"file_name": (EA_type[nd]!=='L'?Config.url_events_attachments:'')+EA_file_name[nd],
-								"attachment_title":EA_attachment_title[nd],
-								"attachment_size":EA_attachment_size[nd],
-								"attachment_description":EA_attachment_description[nd],
+								"type": EA_type[nd],
+								"file_name": (EA_type[nd]!=='L' ? Config.url_events_attachments : '')+EA_file_name[nd],
+								"attachment_title": EA_attachment_title[nd],
+								"attachment_size": EA_attachment_size[nd],
+								"attachment_description": EA_attachment_description[nd],
 							});
 						}
 						

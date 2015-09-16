@@ -103,11 +103,7 @@ define([
                 }
 
                 this.appendTable(data)
-            }, this),
-            error: function (e) {
-                console.error("WDS error: ");
-                console.log(e)
-            }
+            }, this)
         });
 
 
@@ -191,11 +187,7 @@ define([
                     this.showCourtesyMessage()
                 }
 
-            }, this),
-            error: function (e) {
-                console.error("WDS error: ");
-                console.log(e)
-            }
+            }, this)
         });
 
     };
@@ -222,11 +214,7 @@ define([
             dataType: 'JSON',
             success: _.bind(function (data) {
                 this.results.printTable(data)
-            }, this),
-            error: function (e) {
-                console.error("WDS error: ");
-                console.log(e)
-            }
+            }, this)
         });
 
     };

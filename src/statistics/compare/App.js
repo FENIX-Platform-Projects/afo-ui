@@ -202,11 +202,7 @@ define(['underscore',
                     return;
                 }
                 this.appendChart(data, this.getCode2Label(v, results))
-            }, this),
-            error: function (e) {
-                console.error("WDS error: ");
-                console.log(e)
-            }
+            }, this)
         });
 
 

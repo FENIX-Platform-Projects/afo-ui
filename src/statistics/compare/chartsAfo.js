@@ -1,7 +1,7 @@
 define(['underscore', 'highcharts', 'highcharts.export',
-    'commons/fx_chart'
+    'highcharts.config'
 ], function (_, highcharts, highchartsExport,
-    FxChartTemplate) {
+    highchartsConfig) {
 
     function Chart(){
 
@@ -37,7 +37,7 @@ define(['underscore', 'highcharts', 'highcharts.export',
                 text: measurementUnit
             }
         }
-        c = $.extend(true, {}, FxChartTemplate, c);
+        c = $.extend(true, {}, highchartsConfig, c);
         return new Highcharts.Chart(c);
     }
 

@@ -43,6 +43,8 @@ define(function() {
             'fx-common':              "submodules/fenix-ui-common",
             'fx-common/config/auth_users' : "config/auth_users.json",
 
+            'highcharts.config':      'config/highchartsConfig',
+
             //PATCH!  remove after new wds server support retrieve in POST
             'fx-common/js/WDSClient': 'src/wdsFakeInterface',
 

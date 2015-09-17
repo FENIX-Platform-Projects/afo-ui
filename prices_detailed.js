@@ -165,8 +165,6 @@ require([
 
         function loadMarkers(Selection) {
             
-            //L.Icon.Default.imagePath = 'images';
-
             wdsClient.retrieve({
                 payload: {
                     query: Config.queries.prices_detailed_local_geofilter,
@@ -194,9 +192,7 @@ require([
                             };
                         });
 
-                        L.marker(loc, {
-                            icon: L.icon({iconUrl: Config.map_marker})
-                        })
+                        L.marker(loc)
                         .bindPopup( popupTmpl({
                             title: title,
                             values: values,

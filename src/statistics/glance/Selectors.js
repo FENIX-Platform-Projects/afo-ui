@@ -29,8 +29,7 @@ define(['underscore','underscore-string',
         },
         ev = {
             SELECT: 'afo.selector.select'
-        },
-        mapCountries;
+        };
 
 
     var wdsClient = new WDSClient({
@@ -70,6 +69,14 @@ define(['underscore','underscore-string',
             styleSelect = {
                 fill: true, color: '#6AAC46', weight: 0, opacity: 1, fillOpacity: 1, fillColor: '#6AAC46'
             };
+
+        this.mapCountries = new L.Map('stats_map_countries', {
+            zoom: 3,
+            minZoom: 2,            
+            zoomControl: false,
+            center: L.latLng(Config.map_center),            
+            layers: L.tileLayer(Config.url_baselayer)
+        }).addControl( L.control.zoom({position: 'bottomright'}) );
 
         function loadMapByRegion(regCode) {
 
@@ -132,8 +139,8 @@ define(['underscore','underscore-string',
                             }
                         );
                         var bb = geojsonCountries.getBounds();
-                        mapCountries.fitBounds(bb.pad(-0.8));
-                        geojsonCountries.addTo(mapCountries);
+                        self.mapCountries.fitBounds(bb.pad(-0.8));
+                        geojsonCountries.addTo(self.mapCountries);
                     });
                 }
             });
@@ -166,21 +173,15 @@ define(['underscore','underscore-string',
             }
         });
 
-        mapCountries = L.map('stats_map_countries', {
-            zoom: 3,
-            minZoom: 2,            
-            zoomControl: false,
-            center: L.latLng(Config.map_center),            
-            layers: L.tileLayer(this.config.url_baselayer)
-        }).addControl(L.control.zoom({position: 'bottomright'}))
+console.log(self.mapCountries)
 
-        mapCountries.attributionControl.setPrefix(this.config.map_attribution);
+        self.mapCountries.attributionControl.setPrefix(Config.map_attribution);
 
         var geojsonCountries = L.featureGroup();
 
         mapzoomsCountries$.on('click', '.btn', function (e) {
             var z = parseInt($(this).data('zoom'));
-            mapCountries[z > 0 ? 'zoomIn' : 'zoomOut']();
+            self.mapCountries[z > 0 ? 'zoomIn' : 'zoomOut']();
         });
 
         listCountries$.on('click', 'option', function (e) {

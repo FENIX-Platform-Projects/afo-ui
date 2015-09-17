@@ -48,6 +48,13 @@ define(['underscore',
 
         $(s.SEARCH_BTN).on('click', _.bind(this.query, this));
 
+        var self = this;
+        $('#prices_tabs').find('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            if($(e.target).attr('href')==='#stats_map_countries_tab')
+                self.selectors.mapCountries.invalidateSize();
+        });
+
+
         amplify.subscribe('afo.selector.select', _.bind(this.updateResume, this));
     };
 

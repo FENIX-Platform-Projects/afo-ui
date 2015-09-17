@@ -590,7 +590,7 @@ define([
     Selectors.prototype._showValidationErrors = function (errors) {
 
         alert("Please select all the fields");
-        console.error(errors)
+        //console.error(errors)
     };
 
     return Selectors;

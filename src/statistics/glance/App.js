@@ -1,10 +1,11 @@
 define(['underscore',
+    'underscore-string',
     'fx-common/js/WDSClient',
     'glance/Results',
     'glance/Selectors',
     'config/services',
     'amplify'
-], function (_,
+], function (_, _str,
     WDSClient,
     Results,
     Selectors,
@@ -57,15 +58,19 @@ define(['underscore',
 
         $(s.RESUME).empty();
 
+
         _.each(keys, function (key) {
 
-            if (resume.hasOwnProperty(key) && resume[key] && Array.isArray(resume[key]) && resume[key].length > 0) {
+            if (resume.hasOwnProperty(key) && resume[key] && _.isArray(resume[key]) && resume[key].length > 0) {
                 var v = resume[key],
                     text = (_.isArray(v) ? v.map(function (elem) { return elem.text }).join(',') : v),
+                    e = $('<div>').html(text),
                     $li = $('<li>'),
                     $label = $('<span>'),
                     $value = $('<b>', { text: text }),
                     lab;
+
+console.log(text);
 
                 switch (key) {
                     case 'COUNTRY': lab = 'Africa Countries '; break;

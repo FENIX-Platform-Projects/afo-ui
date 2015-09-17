@@ -72,7 +72,7 @@ require([
 	            var data = [],
 	                list;
 
-	            if (Array.isArray(res)) {
+	            if (_.isArray(res)) {
 
 	                list = res.sort(function (a, b) {
 	                    if (a[1] < b[1]) return -1;
@@ -110,7 +110,7 @@ require([
 	            var data = [],
 	                list;
 
-	            if (Array.isArray(res)) {
+	            if (_.isArray(res)) {
 
 	                list = res.sort(function (a, b) {
 	                    if (a[1] < b[1]) return -1;
@@ -274,8 +274,6 @@ require([
                 month_to_yyyymm:   maxDate,
                 month_from_yyyymm: minDate           
             };
-
-            console.log(Selection)
 
             if(Selection.fertilizer_code === '' || Selection.country_code === '' || !Selection.month_from_yyyymm || !Selection.month_to_yyyymm) {
                 alert("Please select Countries and Fertilizers");

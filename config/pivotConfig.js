@@ -34,7 +34,7 @@ define({
     AT_GLANCE: {
         "header": ["code", "Elements", "CountryCode", "Country", "FertilizerCode", "Fertilizer", "Year", "Value", "Unit", "Flag"],
         "rows": [
-            "Elements", "Country", "Fertilizer"
+            "Elements", "Country", "Fertilizer","Unit"
         ],
         "cols": ["Year"],
         "vals": ["Value"],
@@ -56,7 +56,7 @@ define({
         "hiddenAttributes": ["Value", "code", "CountryCode", "FertilizerCode", "Flag", "Unit"],
         "showRender": true,
         "showFlags": false,
-        "showUnit": true,
+        "showUnit": false,
         "showCode": false,
         "showAgg": false,
         "csvText": "AFO"
@@ -65,7 +65,7 @@ define({
     IFA: {
         "header": ["code", "Elements", "CountryCode", "Country", "Year", "Nutrient", "Value", "Unit", "Flag"],
         "rows": [
-            "Elements", "Contry", "Nutrient"
+            "Elements", "Contry", "Nutrient","Unit"
         ],
         "cols": ["Year"],
         "vals": ["Value"],
@@ -86,7 +86,7 @@ define({
         "linkedAttributes": [],
         "showRender": true,
         "showFlags": false,
-        "showUnit": true,
+        "showUnit": false,
         "showCode": false,
         "showAgg": false,
         "csvText": "AFO"

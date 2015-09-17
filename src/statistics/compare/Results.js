@@ -54,10 +54,10 @@ define([
 	//	$("#"+id).css("height","1500px");
 	   data = [['Source','Country','Element','Product', 'Year', 'Value', 'Unit']].concat(data);
 	   this.Pivot.render(id, data, {
-	   		rows: ["Source","Country","Element","Product"],
+	   		rows: ["Source","Country","Element","Product","Unit"],
 			cols: ["Year"],
 			vals: ["Value"],
-			hiddenAttributes: ["Unit","Value","Flag"],
+			hiddenAttributes: ["Value","Flag"],
 			linkedAttributes: [],
 			derivedAttributes: {
             	'Flag': function(mp) {
@@ -79,7 +79,7 @@ define([
 			showRender: true,
 			showFlags: false,
 			showCode: false,
-			showUnit: true,			
+			showUnit: false,			
 			showAgg: false,
 			csvText: "AfricaFertilizer.org"
 	   });

@@ -76,17 +76,17 @@ define([
 								return "";
 							}
 						},
-						rows: ["Country", "Market", "Type"],
+						rows: ["Country", "Market", "Type","Unit"],
 						cols: ["Date"],
 						vals: ["Value"],
-						hiddenAttributes:["Price","Value","Flag","Unit"],
+						hiddenAttributes:["Price","Value","Flag"],
 						linkedAttributes:[],
 						rendererDisplay: pivotRenderers,
 						aggregatorDisplay: pivotAggregators,
 						showRender: false,
 						showFlags: false,
 						showCode: false,
-						showUnit: true,						
+						showUnit: false,						
 						showAgg: false,
 						csvText:"Africafertilizer.org"
 					});

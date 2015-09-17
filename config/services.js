@@ -46,12 +46,28 @@ define(['jquery',
 
         "dateRangeSlider": {
             prices_national: {
-                defaultValues: { min: new Date(2014, 2, 0), max: new Date(2015, 6, 0) },
-                bounds: { min: new Date(2010, 2, 0), max: new Date(2015, 6, 0) }
+                defaultValues: {
+                    min: new Date(2014, 2, 0),
+                    //max: new Date(2015, 6, 0)
+                    max: new Date()
+                },
+                bounds: {
+                    min: new Date(2010, 2, 0),
+                    //max: new Date(2015, 6, 0)
+                    max: new Date()
+                }
             },
             prices_detaild: {
-                defaultValues: { min: new Date(2014, 7, 0), max: new Date(2015, 7, 0) },
-                bounds: { min: new Date(2010, 2, 0), max: new Date(2015, 7, 0) }
+                defaultValues: {
+                    min: new Date(2014, 7, 0),
+                    //max: new Date(2015, 7, 0)
+                    max: new Date()
+                },
+                bounds: {
+                    min: new Date(2010, 2, 0),
+                    //max: new Date(2015, 7, 0)
+                    max: new Date()
+                }
             }    
         },
 

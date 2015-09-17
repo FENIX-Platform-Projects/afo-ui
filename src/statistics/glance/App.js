@@ -63,14 +63,12 @@ define(['underscore',
 
             if (resume.hasOwnProperty(key) && resume[key] && _.isArray(resume[key]) && resume[key].length > 0) {
                 var v = resume[key],
-                    text = (_.isArray(v) ? v.map(function (elem) { return elem.text }).join(',') : v),
+                    text = (_.isArray(v) ? v.map(function (elem) { return elem.text }).join(', ') : v),
                     e = $('<div>').html(text),
                     $li = $('<li>'),
                     $label = $('<span>'),
-                    $value = $('<b>', { text: text }),
+                    $value = $('<b>', { text: e.text() }),
                     lab;
-
-console.log(text);
 
                 switch (key) {
                     case 'COUNTRY': lab = 'Africa Countries '; break;

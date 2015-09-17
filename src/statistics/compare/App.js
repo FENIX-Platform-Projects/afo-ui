@@ -75,16 +75,16 @@ define(['underscore',
                     lab;
 
                 switch(key){
-                    case 'COUNTRY': lab = 'Africa Region'; break;
-                    case 'KIND' :  lab = 'View in'; break;
-                    case 'SOURCE' :  lab = 'Data Source'; break;
+                    case 'COUNTRY':   lab = 'Africa Region'; break;
+                    case 'KIND' :     lab = 'View in'; break;
+                    case 'SOURCE' :   lab = 'Data Source'; break;
                     case 'PRODUCT' :  lab = 'Fertilizer'; break;
                     case 'ELEMENT' :  lab = 'Element'; break;
                     case 'COMPARE' :  lab = 'Compare by'; break;
                 }
 
                 $label.html(lab+': ');
-                $li.append($label).append( '<b>'+$value.html()+'</b>' );
+                $li.append($label).append( '<b>'+$value.text()+'</b>' );
                 $(s.RESUME).append($li)
             }
         });

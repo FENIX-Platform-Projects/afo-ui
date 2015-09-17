@@ -2,11 +2,12 @@
 define([
     'underscore',
     'fx-common/js/WDSClient',
+    'src/fxTree',    
     'config/services',
-    'src/fxTree',
     'jstree'
 ], function (_,
     WDSClient,
+    fxTree,
     Config) {
 
     'use strict';
@@ -216,14 +217,23 @@ define([
 
                 }
 
-                createTree(data);
-                initSearch();
+                self.productTree = new fxTree(s.PRODUCT, {
+                    labelVal: 'HS Code',
+                    labelTxt: 'Product Name',
+                    showTxtValRadio: true,
+                    showValueInTextMode: true,
+                    onChange: function (seldata) {
+                        amplify.publish(ev.SELECT);
+                    }
+                }).setData(data);
+                //createTree(data);
+                //initSearch();
             }
         });
 
         function createTree(data) {
 
-            if ( $(s.PRODUCT).jstree(true) &&  $(s.PRODUCT).jstree(true).destroy){
+/*            if ( $(s.PRODUCT).jstree(true) &&  $(s.PRODUCT).jstree(true).destroy){
                 $(s.PRODUCT).jstree(true).destroy()
             }
 
@@ -247,7 +257,7 @@ define([
                 amplify.publish(ev.SELECT);
             });
 
-            $(s.PRODUCT).jstree(true).select_node('ul > li:first');
+            $(s.PRODUCT).jstree(true).select_node('ul > li:first');*/
         }
 
         function initSearch() {
@@ -512,7 +522,7 @@ define([
         return  {
             ELEMENT: this.processJsTree(   $(s.ELEMENT).jstree(true).get_selected('full') ),
             COUNTRY: this.processJsTree(   $(s.COUNTRY).jstree(true).get_selected('full') ),
-            PRODUCT: this.processJsTree(   $(s.PRODUCT).jstree(true).get_selected('full') ),
+            PRODUCT: this.processJsTree(   this.productTree.getSelection('full') ), //$(s.PRODUCT).jstree(true).get_selected('full') ),
             COMPARE: this.processRadioBtn( $(s.COMPARE).find('input:checked') ),
             SOURCE:  this.processCheckbox( $(s.DATA_SOURCES).find('input:checked') ),                        
             KIND:    this.processRadioBtn( $(s.N_P).find('input:checked') ),

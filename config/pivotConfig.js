@@ -65,7 +65,7 @@ define({
     IFA: {
         "header": ["code", "Elements", "CountryCode", "Country", "Year", "Nutrient", "Value", "Unit", "Flag"],
         "rows": [
-            "Elements", "Contry", "Nutrient","Unit"
+            "Elements", "Country", "Nutrient","Unit"
         ],
         "cols": ["Year"],
         "vals": ["Value"],
@@ -80,15 +80,18 @@ define({
         ],
         "InstanceAggregators": [
             { label: "SumUnit", func: "Sum2" },
-            { label: "Sum", func: "Sum" }
+            { label: "Sum", func: "Sum" },
+             { label: "Count", func: "Count" }
+             ,
+             { label: "List Unique Values", func: "List Unique Values" }
         ],
-        "hiddenAttributes": ["Value", "Flag", "code", "CountryCode"],
+       // "hiddenAttributes": ["Value", "Flag", "code", "CountryCode"],
         "linkedAttributes": [],
         "showRender": true,
         "showFlags": false,
         "showUnit": false,
         "showCode": false,
-        "showAgg": false,
+        "showAgg": true,
         "csvText": "AFO"
     }
 });

@@ -36,7 +36,10 @@ define(['underscore',
 
         if(filter.SOURCE[0].code === 'ifa') {
             conf = pivotConfig.IFA;
+
         }
+
+        
 
         //add DATA HEADER
         data.unshift(conf.header);   

@@ -231,12 +231,12 @@
 <q id="select_from_compare_ifa">
   SELECT element_code, element_label, country_code, country_label, 
     CASE WHEN year IS NULL THEN '' ELSE CAST( year AS character varying) END AS year, 
-    CASE WHEN nutrient IS NULL THEN '' ELSE CAST( nutrient AS character varying) END AS nutrient, 
-    CASE WHEN value IS NULL THEN '' ELSE CAST( value AS character varying) END  AS Value, 
-    CASE WHEN um IS NULL THEN '' ELSE CAST( um AS character varying) END AS Unit, 
+     CASE WHEN nutrient IS NULL THEN '' ELSE CAST( nutrient AS character varying) END  AS nutrient, 
+    CASE WHEN value IS NULL THEN '' ELSE CAST( value AS character varying) END  AS value, 
+    CASE WHEN um IS NULL THEN '' ELSE CAST( um AS character varying) END AS unit, 
     '' AS Flag
   FROM (
-    SELECT element, year, country, nutrient, value, um
+    SELECT element, year, country, nutrient,  ROUND(CAST(value AS numeric), 2) as value, um,fertilizer
     FROM ifa_data
     WHERE data_source = 'ifa'
     AND fertilizer IN ({PRODUCT})
@@ -247,6 +247,7 @@
   LEFT JOIN (SELECT DISTINCT country_code, country_label FROM codes_countries) AS cDist ON country = country_code 
   WHERE element <> 'rimp' 
     AND element <> 'rexp' 
+    AND value IS NOT NULL 
   ORDER BY element ASC, year ASC
 </q>
 

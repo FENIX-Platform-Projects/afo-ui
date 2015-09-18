@@ -132,12 +132,14 @@ define(['underscore',
     };
 
     App.prototype.queryTable = function (results) {
+        
         var qVars = {
             COUNTRY: results.COUNTRY.map(function (elem) { return "'" + elem.code + "'" }).join(','),
             SOURCE: results.SOURCE[0].code,
             KIND: results.KIND[0].code,
             PRODUCT: results.PRODUCT.map(function (elem) { return "'" + elem.code + "'" }).join(','),
         };
+
         wdsClient.retrieve({
             payload: {
                 query: this.selectQuery(results),

@@ -80,7 +80,6 @@
 
 <q id="data_sources">  
   SELECT * FROM codes_data_sources 
-  WHERE data_source_code <> 'ifa' AND data_source_code <> 'ifdc' 
 </q>
 
 <q id="products">  

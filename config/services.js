@@ -12,6 +12,10 @@ define(['jquery',
     });
     //CONVERT XML TO JSON
 
+    Queries.data_sources += " WHERE data_source_code <> 'ifa' ";
+    Queries.data_sources += " AND data_source_code <> 'ifdc' ";
+    //DISABLED datasources
+
     return {
         "dbName": "africafertilizer",
         "gaulLayer": "gaul0_faostat_afo_3857",

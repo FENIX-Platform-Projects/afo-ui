@@ -209,7 +209,11 @@
 </q>
   
 <q id="select_from_compare_cstat">
-  SELECT element_code, element_label, country_code, country_label, cstat_fertilizer_code, cstat_fertilizer_label, CASE WHEN year is null then '' else cast ( year AS character varying) end AS year, CASE WHEN value is null then '' else cast ( value AS character varying) end  AS value, CASE WHEN um is null then '' else cast ( um AS character varying) end  AS Unit, '' AS Flag
+  SELECT element_code, element_label, country_code, country_label, cstat_fertilizer_code, cstat_fertilizer_label, 
+    CASE WHEN year IS NULL THEN '' ELSE CAST( year AS character varying) END AS year, 
+    CASE WHEN value IS NULL THEN '' ELSE CAST( value AS character varying) END AS value, 
+    CASE WHEN um IS NULL THEN '' ELSE CAST( um AS character varying) END AS Unit, 
+    '' AS Flag
   FROM (
     SELECT element, country, fertilizer, year, value, um
     FROM country_stat
@@ -225,19 +229,24 @@
   ORDER BY element ASC, year ASC
 </q>
 
-  <q id="select_from_compare_ifa">
-    SELECT element_code, element_label, country_code, country_label, CASE WHEN year is null then '' else cast ( year AS character varying) end AS year,CASE WHEN nutrient is null then '' else cast ( nutrient AS character varying) end  AS nutrient,CASE WHEN value is null then '' else cast ( value AS character varying) end  AS Value,  CASE WHEN um is null then '' else cast ( um AS character varying) end  AS Unit, '' AS Flag
-    FROM (
-      SELECT element, year, country, nutrient, value, um
-      FROM ifa_data
-      WHERE data_source = 'ifa'
-      AND fertilizer IN ({PRODUCT})
-      AND country IN ({COUNTRY})
-      AND n_p = '{KIND}'
-    ) c
-    RIGHT JOIN codes_elements ON element = element_code
-    LEFT JOIN (SELECT DISTINCT country_code, country_label FROM codes_countries) AS cDist ON country = country_code
-    WHERE element <> 'rimp' 
+<q id="select_from_compare_ifa">
+  SELECT element_code, element_label, country_code, country_label, 
+    CASE WHEN year IS NULL THEN '' ELSE CAST( year AS character varying) END AS year, 
+    CASE WHEN nutrient IS NULL THEN '' ELSE CAST( nutrient AS character varying) END AS nutrient, 
+    CASE WHEN value IS NULL THEN '' ELSE CAST( value AS character varying) END  AS Value, 
+    CASE WHEN um IS NULL THEN '' ELSE CAST( um AS character varying) END AS Unit, 
+    '' AS Flag
+  FROM (
+    SELECT element, year, country, nutrient, value, um
+    FROM ifa_data
+    WHERE data_source = 'ifa'
+    AND fertilizer IN ({PRODUCT})
+    AND country IN ({COUNTRY})
+    AND n_p = '{KIND}'
+  ) c
+  RIGHT JOIN codes_elements ON element = element_code
+  LEFT JOIN (SELECT DISTINCT country_code, country_label FROM codes_countries) AS cDist ON country = country_code 
+  WHERE element <> 'rimp' 
     AND element <> 'rexp' 
   ORDER BY element ASC, year ASC
 </q>
@@ -416,7 +425,9 @@
 </q>
   
 <q id="directory_business_result">  
-  SELECT full_company_name, company_city, CONCAT(services_0, ' ', services_1, ' ', services_2, ' ', services_3, ' ', services_4, ' ', services_5, ' ', services_6, ' ', services_7, ' ', services_8, ' ', services_9, ' ', services_10, ' ', services_11, ' ', services_12, ' ', services_13, ' ', services_14),  CONCAT(sector_0, ' ', sector_1, ' ', sector_2, sector_3)  
+  SELECT full_company_name, company_city, 
+    CONCAT(services_0, ' ', services_1, ' ', services_2, ' ', services_3, ' ', services_4, ' ', services_5, ' ', services_6, ' ', services_7, ' ', services_8, ' ', services_9, ' ', services_10, ' ', services_11, ' ', services_12, ' ', services_13, ' ', services_14), 
+    CONCAT(sector_0, ' ', sector_1, ' ', sector_2, sector_3)  
   FROM directories_business 
   WHERE country_code IN ({COUNTRY}) 
     AND ( sector_0 IN ({SECTOR}) OR 
@@ -441,14 +452,32 @@
 </q>
 
 <q id="directory_business_only_product_all">  
-  SELECT full_company_name, company_city, CONCAT(services_0, ' ', services_1, ' ', services_2, ' ', services_3, ' ', services_4, ' ', services_5, ' ', services_6, ' ', services_7, ' ', services_8, ' ', services_9, ' ', services_10, ' ', services_11, ' ', services_12, ' ', services_13, ' ', services_14), CONCAT(sector_0, ' ', sector_1, ' ', sector_2, sector_3) 
+  SELECT full_company_name, company_city, 
+    CONCAT(services_0, ' ', services_1, ' ', services_2, ' ', services_3, ' ', services_4, ' ', services_5, ' ', services_6, ' ', services_7, ' ', services_8, ' ', services_9, ' ', services_10, ' ', services_11, ' ', services_12, ' ', services_13, ' ', services_14), 
+    CONCAT(sector_0, ' ', sector_1, ' ', sector_2, sector_3) 
   FROM directories_business 
   WHERE country_code IN ({COUNTRY}) 
-    AND ( services_0 IN ({SERVICE}) OR services_1 IN ({SERVICE}) OR services_2 IN ({SERVICE}) OR services_3 IN ({SERVICE}) OR services_4 IN ({SERVICE}) OR services_5 IN ({SERVICE}) OR services_6 IN ({SERVICE}) OR services_7 IN ({SERVICE}) OR services_8 IN ({SERVICE}) OR services_9 IN ({SERVICE}) OR services_10 IN ({SERVICE}) OR services_11 IN ({SERVICE}) OR services_12 IN ({SERVICE}) OR services_13 IN ({SERVICE}) OR services_14 IN ({SERVICE}))
+    AND ( services_0 IN ({SERVICE}) OR 
+          services_1 IN ({SERVICE}) OR 
+          services_2 IN ({SERVICE}) OR 
+          services_3 IN ({SERVICE}) OR 
+          services_4 IN ({SERVICE}) OR 
+          services_5 IN ({SERVICE}) OR 
+          services_6 IN ({SERVICE}) OR 
+          services_7 IN ({SERVICE}) OR 
+          services_8 IN ({SERVICE}) OR 
+          services_9 IN ({SERVICE}) OR 
+          services_10 IN ({SERVICE}) OR 
+          services_11 IN ({SERVICE}) OR 
+          services_12 IN ({SERVICE}) OR 
+          services_13 IN ({SERVICE}) OR 
+          services_14 IN ({SERVICE}) )
 </q>
   
 <q id="directory_business_only_sector_all">  
-  SELECT full_company_name, company_city, CONCAT(services_0, ' ', services_1, ' ', services_2, ' ', services_3, ' ', services_4, ' ', services_5, ' ', services_6, ' ', services_7, ' ', services_8, ' ', services_9, ' ', services_10, ' ', services_11, ' ', services_12, ' ', services_13, ' ', services_14), CONCAT(sector_0, ' ', sector_1, ' ', sector_2, sector_3) 
+  SELECT full_company_name, company_city, 
+    CONCAT(services_0, ' ', services_1, ' ', services_2, ' ', services_3, ' ', services_4, ' ', services_5, ' ', services_6, ' ', services_7, ' ', services_8, ' ', services_9, ' ', services_10, ' ', services_11, ' ', services_12, ' ', services_13, ' ', services_14), 
+    CONCAT(sector_0, ' ', sector_1, ' ', sector_2, sector_3) 
   FROM directories_business 
   WHERE country_code IN ({COUNTRY}) 
     AND ( sector_0 IN ({SECTOR}) OR 

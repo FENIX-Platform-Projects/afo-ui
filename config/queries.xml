@@ -127,7 +127,7 @@
 <q id="prices_detailed_local_geofilter">  
   SELECT market, town_location, STRING_AGG(''||price, ',') AS price, STRING_AGG(type, ',') AS type 
   FROM (
-    SELECT market, town_location, ROUND(CAT(AVG(unit_price_usd) AS numeric), 2) AS price, type 
+    SELECT market, town_location, ROUND(CAST(AVG(unit_price_usd) AS numeric), 2) AS price, type 
     FROM prices_local 
     WHERE fertilizer = cast( {fertilizer_code} AS varchar) 
       AND month BETWEEN {month_from_yyyymm} AND {month_to_yyyymm} 
@@ -141,7 +141,7 @@
 <q id="prices_detailed_local_grid">  
   SELECT DISTINCT country_label, market, price, type, month 
   FROM (
-    SELECT market, country, ROUND(CAST(avg(unit_price_usd) AS numeric), 2) AS price, type, month 
+    SELECT market, country, ROUND(CAST(AVG(unit_price_usd) AS numeric), 2) AS price, type, month 
     FROM prices_local 
     WHERE fertilizer = cast({fertilizer_code} AS varchar) 
       AND month BETWEEN {month_from_yyyymm} AND {month_to_yyyymm} 
@@ -487,7 +487,9 @@
 </q>
   
 <q id="directory_business_only_country_all">  
-  SELECT full_company_name, company_city, CONCAT(services_0, ' ', services_1, ' ', services_2, ' ', services_3, ' ', services_4, ' ', services_5, ' ', services_6, ' ', services_7, ' ', services_8, ' ', services_9, ' ', services_10, ' ', services_11, ' ', services_12, ' ', services_13, ' ', services_14), CONCAT(sector_0, ' ', sector_1, ' ', sector_2, sector_3) 
+  SELECT full_company_name, company_city, 
+    CONCAT(services_0, ' ', services_1, ' ', services_2, ' ', services_3, ' ', services_4, ' ', services_5, ' ', services_6, ' ', services_7, ' ', services_8, ' ', services_9, ' ', services_10, ' ', services_11, ' ', services_12, ' ', services_13, ' ', services_14), 
+    CONCAT(sector_0, ' ', sector_1, ' ', sector_2, sector_3) 
   FROM directories_business 
   WHERE country_code IN ({COUNTRY})
 </q>

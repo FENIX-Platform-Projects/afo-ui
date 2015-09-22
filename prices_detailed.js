@@ -18,11 +18,13 @@ require([
         'config/services',
         'src/renderAuthMenu',
         'fx-common/js/WDSClient',
+        'src/fxTree',
         'src/prices/local/results'
     ], function ($, _, bts, jstree, Handlebars, L, LeafletMarkecluster, rangeslider, moment,
         Config,
         renderAuthMenu,
         WDSClient,
+        fxTree,
         resultsTable
         ) {
 
@@ -37,7 +39,6 @@ require([
             popupTmpl = Handlebars.compile($('script#popupTmpl').html());
 
         var listProducts$ = $('#prices_selectProduct'),
-            listCountries$ = $('#country-s'),
             radioMarketTypeAll$ = $('#marketTypeAll'),
             radioMarketTypeOpen$ = $('#marketTypeOpen'),
             radioMarketTypeSub$ = $('#marketTypeSub'),
@@ -46,6 +47,25 @@ require([
             afoResumeWrap$ = $('#afo-resume-wrap'),
             pricesRangeRadio$ = $('input[name=prices_range_radio]'),
             pricesTypeRadio$ = $('input[type=radio][name=mType_radio]');
+
+
+        var treeProduct = new fxTree('#product-s', {
+            labelVal: 'HS Code',
+            labelTxt: 'Product Name',
+            multiple: false,
+            showTxtValRadio: true,
+            showValueInTextMode: true
+        });
+
+        var treeCountry = new fxTree('#country-s', {
+                labelVal: 'Country Code <small>( Gaul )</small>',
+                labelTxt: 'Country Name',
+                showTxtValRadio: true,
+                showValueInTextMode: false,
+                onChange: function() {
+                    updateUI(getSelection());
+                }
+            });
 
         function formatMonth(date) {
             return [date.slice(0, 4), '/', date.slice(4)].join('')
@@ -87,26 +107,19 @@ require([
             var toRet = {
                 fertilizer_code: listProducts$.val(),
                 fertilizer_name: listProducts$.find("option:selected").text(),
-                country_code: listCountries$.jstree(true).get_selected(),
+                country_code: treeCountry.getSelection(),
                 market_type: mType,
                 month_from_yyyymm: minDate,
                 month_to_yyyymm: maxDate
             }
             return toRet;
         }
-        //TODO: add the other set-s if needed
-        function setSelection(sel) {
-            if (sel.country_code && sel.country_code.length > 0)
-                listCountries$.jstree(true).check_node(sel.country_code);
-            if (sel.fertilizer_code)
-                listProducts$.val(sel.fertilizer_code);
-        }
 
         var map = L.map('prices_retail_map', {
-            zoom: 11,
+            zoom: 3,
             zoomControl: false,
             scrollWheelZoom: false,
-            center: L.latLng(0, 0),
+            center: L.latLng(Config.map_center),            
             layers: L.tileLayer(Config.url_baselayer)
         }).addControl(L.control.zoom({ position: 'bottomright' }));
 
@@ -127,9 +140,12 @@ require([
                 to = selection.month_to_yyyymm,
                 timeRange = formatMonth(from) + ' - ' + formatMonth(to);
 
-            var countries = listCountries$.jstree(true).get_selected(true).map(function (c) {
-                    return c.text;
+            var countries = _.map(treeCountry.getSelection('full'), function(o) {
+                    console.log(o)
+                    return $('<div>').html(o.text).text();
                 });
+
+            console.log(countries);
 
             afoResumeWrap$.html(resumeTmpl({
                 items: [{
@@ -228,22 +244,9 @@ require([
             updateUI(getSelection());
         });
 
-        listCountries$.on('changed.jstree', function (e) {
-            updateUI(getSelection());
-        });
-        listCountries$.on('ready.jstree', function (e) {
-            setSelection(defSelection);
-            updateUI();
-        });
-
         pricesTypeRadio$.change(function () {
             updateUI(getSelection());
         });
-        $('#country-sel-all-s').on('click', function () { listCountries$.jstree(true).check_all(); });
-        $('#country-unsel-all-s').on('click', function () { listCountries$.jstree(true).uncheck_all(); });
- 
- //
-       //Events end
 
         wdsClient.retrieve({
             payload: {
@@ -261,32 +264,16 @@ require([
             },
             success: function (data) {
                 var treeData = [];
-                for (var r in data)
-                    treeData.push({ id: data[r][0], text: data[r][1],/*state: { selected: true }*/ });
                 
-                createTree(listCountries$, treeData);
+                for (var r in data) {
+                    treeData.push({
+                        id: data[r][0],
+                        text: data[r][1]
+                    });
+                }
+
+                treeCountry.setData(treeData);
             }
         });
-
-
-        function createTree(cnt$, data) {
-            cnt$.jstree({
-                core: {
-                    multiple: true,
-                    animation: 0,
-                    themes: { stripes: true },
-                    data: data
-                },
-                plugins: ['search','wholerow','ui','checkbox'],
-                search: {
-                    show_only_matches: true
-                },
-                ui: {
-                    initially_select: defSelection.country_code
-                }
-            });
-
-            //cnt$.jstree(true).select_node('ul > li:first');
-        }
     });
 });

@@ -46,14 +46,14 @@ require([
 
 		var minDate, maxDate;
 
-	    var treeCountry =  new fxTree('#country-s', {
+	    var treeCountry = new fxTree('#country-s', {
             labelVal: 'Country Code <small>( Gaul )</small>',
             labelTxt: 'Country Name',
             showTxtValRadio: true,
             showValueInTextMode: true
         });
 
-	    var treeProduct =  new fxTree('#product-s', {
+	    var treeProduct = new fxTree('#product-s', {
             labelVal: 'HS Code',
             labelTxt: 'Product Name',
             showTxtValRadio: true,

@@ -70,7 +70,7 @@ define(['underscore','underscore-string',
                 fill: true, color: '#6AAC46', weight: 0, opacity: 1, fillOpacity: 1, fillColor: '#6AAC46'
             };
 
-        this.mapCountries = new L.Map('stats_map_countries', {
+        this.mapCountries = L.map('stats_map_countries', {
             zoom: 3,
             minZoom: 2,            
             zoomControl: false,

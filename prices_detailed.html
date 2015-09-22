@@ -41,16 +41,15 @@
 <script id="popupTmpl" type="text/x-handlebars-template">
     <div class="fm-popup">
         <div class="fm-popup-join-title">
-            <b>{{title}}</b>
+            <i>City:</i> <b>{{title}}</b>
         </div>
         <div class="fm-popup-join-content">
             <i>Product:</i> <b>{{prod}}</b>
             <div class="list-group">
             {{#each values}}
             <div class="list-group-item">
-                <i>Price type:</i> {{type}}
-                <br />
-                <i>Average price:</i> {{val}} <i>USD/tons</i>
+                <u>{{type}}</u> average price:<br />
+                {{val}} <i>USD/tons</i>
             </div>
             {{/each}}
             </div>

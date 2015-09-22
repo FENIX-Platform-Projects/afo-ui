@@ -179,13 +179,15 @@ require([
                     for (var i in data) {
 
                         loc = data[i][1].split('|');
-                        title = data[i][0].replace('[Town]','');
+                        city = data[i][0].replace('[Town]','');
                         prod = Selection.fertilizer_name;
                         
                         vals = data[i][2].split(',');
                         types = data[i][3].split(',');
 
-                        values = _.map(vals, function(val,k) {
+                        //console.log(city, vals)
+
+                        values = _.map(vals, function(val, k) {
                             return {
                                 val: val,
                                 type: types[k]
@@ -194,7 +196,7 @@ require([
 
                         L.marker(loc)
                         .bindPopup( popupTmpl({
-                            title: title,
+                            title: city,
                             values: values,
                             prod: prod
                         }) )

@@ -3654,12 +3654,27 @@ thead {
   border: 1px solid #e4e4e4; }
 
 .afo-selector-list {
-  height: 300px;
+  height: 255px;
   overflow: auto; }
 
 
 /* fxTree Widget */
-
+.fxTree {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  background-color: #E9F7D8  
+}
+.fxTree .fxTreeList {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-x:hidden;
+  overflow-y:scroll;
+  background-color: #fff
+}
 .fxTreeRadios {
   padding:5px;
   background-color: #E9F7D8

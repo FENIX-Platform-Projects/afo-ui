@@ -141,11 +141,8 @@ require([
                 timeRange = formatMonth(from) + ' - ' + formatMonth(to);
 
             var countries = _.map(treeCountry.getSelection('full'), function(o) {
-                    console.log(o)
                     return $('<div>').html(o.text).text();
                 });
-
-            console.log(countries);
 
             afoResumeWrap$.html(resumeTmpl({
                 items: [{
@@ -200,8 +197,6 @@ require([
                         
                         vals = data[i][2].split(',');
                         types = data[i][3].split(',');
-
-                        //console.log(city, vals)
 
                         values = _.map(vals, function(val, k) {
                             return {

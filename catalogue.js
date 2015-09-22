@@ -45,6 +45,8 @@ require([
 
 		var accordionTmpl = Handlebars.compile(accordion);
 
+		var fmMap;
+
 		DataSelected = [];
 		//data selected in jstree
 
@@ -322,7 +324,7 @@ require([
 			fmLayer._fenixmap.zoomTo("country", "adm0_code", retCodes);
 		};
 
-		var fmMap = new FM.Map('fertMap', {
+		fmMap = new FM.Map('fertMap', {
 			plugins: {
 				geosearch: false,
 				mouseposition: false,
@@ -374,11 +376,12 @@ require([
 		fmMap.addLayer(fmLayer);
 
 		$('#catalogue_tabs').find('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-
+        
 			switch($(e.target).attr('href'))
 			{
 				case '#families':
 					initListFamilies(fmLayer);
+					fmMap.map.invalidateSize();
 					$('#down_selection').hide();
 				break;
 				case '#countries':

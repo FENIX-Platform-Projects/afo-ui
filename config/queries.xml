@@ -125,11 +125,14 @@
 </q>
 
 <q id="prices_detailed_local_geofilter">  
-  SELECT market, town_location, STRING_AGG(''||price, ',') AS price, STRING_AGG(type, ',') AS type 
+  SELECT market, town_location, 
+    STRING_AGG('' || price, ',') AS price, 
+    STRING_AGG(type, ',') AS type 
   FROM (
-    SELECT market, town_location, ROUND(CAST(AVG(unit_price_usd) AS numeric), 2) AS price, type 
+    SELECT market, town_location, 
+      ROUND(CAST(AVG(unit_price_usd) AS numeric), 2) AS price, type 
     FROM prices_local 
-    WHERE fertilizer = cast( {fertilizer_code} AS varchar) 
+    WHERE fertilizer = CAST( {fertilizer_code} AS varchar) 
       AND month BETWEEN {month_from_yyyymm} AND {month_to_yyyymm} 
       AND country IN ('{country_code}') 
       AND type IN ('{market_type}') 
@@ -143,7 +146,7 @@
   FROM (
     SELECT market, country, ROUND(CAST(AVG(unit_price_usd) AS numeric), 2) AS price, type, month 
     FROM prices_local 
-    WHERE fertilizer = cast({fertilizer_code} AS varchar) 
+    WHERE fertilizer = CAST({fertilizer_code} AS varchar) 
       AND month BETWEEN {month_from_yyyymm} AND {month_to_yyyymm} 
       AND country IN ('{country_code}') 
       AND type IN ('{market_type}') 
@@ -164,7 +167,7 @@
   SELECT country, country_label 
   FROM (
     SELECT distinct country 
-    FROM prices_local
+    FROM prices_local 
     ) AS countries 
   JOIN codes_countries ON country = country_code 
   GROUP BY country, country_label 
@@ -172,7 +175,9 @@
 </q>
 
 <q id="prices_international">  
-  SELECT nutrient, fob, STRING_AGG(period,'|') AS period, STRING_AGG(''||value,'|') AS value 
+  SELECT nutrient, fob,
+    STRING_AGG(period,'|') AS period,
+    STRING_AGG(''||value,'|') AS value 
   FROM (
     SELECT * 
     FROM prices_international 
@@ -231,18 +236,18 @@
 <q id="select_from_compare_ifa">
   SELECT element_code, element_label, country_code, country_label, 
     CASE WHEN year IS NULL THEN '' ELSE CAST( year AS character varying) END AS year, 
-     CASE WHEN nutrient IS NULL THEN '' ELSE CAST( nutrient AS character varying) END  AS nutrient, 
+    CASE WHEN nutrient IS NULL THEN '' ELSE CAST( nutrient AS character varying) END  AS nutrient, 
     CASE WHEN value IS NULL THEN '' ELSE CAST( value AS character varying) END  AS value, 
     CASE WHEN um IS NULL THEN '' ELSE CAST( um AS character varying) END AS unit, 
     '' AS Flag
   FROM (
     SELECT element, year, country, nutrient,  ROUND(CAST(value AS numeric), 2) as value, um,fertilizer
-    FROM ifa_data
+    FROM ifa_data 
     WHERE data_source = 'ifa'
     AND fertilizer IN ({PRODUCT})
     AND country IN ({COUNTRY})
     AND n_p = '{KIND}'
-  ) c
+  ) c 
   RIGHT JOIN codes_elements ON element = element_code
   LEFT JOIN (SELECT DISTINCT country_code, country_label FROM codes_countries) AS cDist ON country = country_code 
   WHERE element <> 'rimp' 
@@ -277,17 +282,6 @@
     ) c 
   JOIN codes_elements ON element = element_code 
   WHERE value is not null 
-  ORDER BY element ASC, year ASC
-</q>
-  
-<q id="select_dynamic_compare">  
-  SELECT element_code, element_label, year, COALESCE(value, -1), um 
-  FROM (
-    SELECT element, year, value, um 
-    FROM compare 
-    WHERE {WHERE}
-  ) c 
-  RIGHT JOIN codes_elements ON element = element_code 
   ORDER BY element ASC, year ASC
 </q>
   
@@ -369,7 +363,7 @@
     AND n_p IN ({KIND}) 
     AND d.value IS NOT NULL
 </q>
-    
+
 <q id="compare_by_source">  
   SELECT cc.data_source_label, d.year, d.value, d.um 
   FROM compare d, codes_data_sources cc 
@@ -421,7 +415,8 @@
 
 <q id="directory_business_country">  
   SELECT distinct country_code, country_name 
-  FROM directories_business ORDER BY country_name ASC
+  FROM directories_business 
+  ORDER BY country_name ASC
 </q>
   
 <q id="directory_business_result">  

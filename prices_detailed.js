@@ -48,13 +48,17 @@ require([
             pricesRangeRadio$ = $('input[name=prices_range_radio]'),
             pricesTypeRadio$ = $('input[type=radio][name=mType_radio]');
 
+        var pricesMap;
 
         var treeProduct = new fxTree('#product-s', {
             labelVal: 'HS Code',
             labelTxt: 'Product Name',
             multiple: false,
             showTxtValRadio: true,
-            showValueInTextMode: true
+            showValueInTextMode: true,
+            onChange: function() {
+                updateUI(getSelection());
+            }
         });
 
         var treeCountry = new fxTree('#country-s', {
@@ -115,7 +119,7 @@ require([
             return toRet;
         }
 
-        var map = L.map('prices_retail_map', {
+        pricesMap = L.map('prices_retail_map', {
             zoom: 3,
             zoomControl: false,
             scrollWheelZoom: false,
@@ -123,13 +127,13 @@ require([
             layers: L.tileLayer(Config.url_baselayer)
         }).addControl(L.control.zoom({ position: 'bottomright' }));
 
-        map.attributionControl.setPrefix(Config.map_attribution);
+        pricesMap.attributionControl.setPrefix(Config.map_attribution);
 
         var layerRetail = new L.MarkerClusterGroup({
             maxClusterRadius: 30,
             showCoverageOnHover: false
         });
-        layerRetail.addTo(map);
+        layerRetail.addTo(pricesMap);
 
         function updateResume(selection) {
             if(!selection) {
@@ -214,7 +218,7 @@ require([
                         .addTo(layerRetail);
                     }
 
-                    map.fitBounds(layerRetail.getBounds().pad(-1.2));
+                    pricesMap.fitBounds(layerRetail.getBounds().pad(-1.2));
                 }
             });
         }

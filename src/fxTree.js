@@ -86,7 +86,7 @@ define(['jquery',
             core: {
                 themes: { icons: false }
             },
-            plugins: ['search', 'wholerow', this.config.multiple?'checkbox':''],
+            plugins: ['search', 'wholerow', this.config.multiple ? 'checkbox' : ''],
             search: {
                 show_only_matches: true
             }
@@ -219,11 +219,11 @@ define(['jquery',
 
         this.$SelAll.on('click', function (e) {
             e.preventDefault();
-            me.$t.jstree(true).check_all();
+            me.$t.jstree(true).select_all();
         });
         this.$UnselAll.on('click', function (e) {
             e.preventDefault();
-            me.$t.jstree(true).uncheck_all();
+            me.$t.jstree(true).deselect_all();
         });
     
     };

@@ -9,12 +9,12 @@
 	<div class="from-group">
 		<input type="text" class="fxTreeSearch input form-control" placeholder="{{textPlaceholder}}" />
 	</div>
-	{{#if multiple}}
 	<div class="fxTreeSels btn-group pull-right">
+		{{#if multiple}}
 		<a class="btn fxTreeSelAll" href="#">{{textSelAll}}</a>
+		{{/if}}
 		<a class="btn fxTreeUnselAll" href="#">{{textUnselAll}}</a>
 	</div>
-	{{/if}}
 	<div id="{{jsTreeId}}" class="fxTreeList">
 		<!-- FILL BY JS -->
 	</div>

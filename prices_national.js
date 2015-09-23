@@ -237,7 +237,8 @@ require([
 						hiddenAttributes:["Month2","Unit","Item","Value","Flag","FertCode"],
 						linkedAttributes:[],
 						rendererDisplay: pivotRenderers,
-						aggregatorDisplay: pivotAggregators
+						aggregatorDisplay: pivotAggregators,showUnit:false,
+						csvText:"AFO"
 					})
 /*
 					$("#pivot").pivotUI(data, {

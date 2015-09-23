@@ -229,13 +229,13 @@ require([
 								var matchMonth = {"Jan":"01","Feb":"02","Mar":"03","Apr":"04","May":"05","Jun":"06","Jul":"07","Aug":"08","Sep":"09","Oct":"10","Nov":"11","Dec":"12"};
 								return "<span class=ordre>" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
 							},
-							"Indicator":function(mp){return "<span class=ordre>" + mp["FertCode"] + "</span>"+mp["Item"]+" ("+mp["Unit"]+")";}
+							"Indicator":function(mp){return "<span class=ordre>" + mp["FertCode"] + "</span>"+mp["Item"];}
 						},
-						rows: ["Area", "Indicator", "Month"],
+						rows: ["Area", "Indicator","Unit", "Month"],
 						cols: ["Year"],
 						vals: ["Value", "Flag"],
 						hiddenAttributes:["Month2","Unit","Item","Value","Flag","FertCode"],
-						linkedAttributes:[],
+						linkedAttributes:[["Indicator","Unit"]],
 						rendererDisplay: pivotRenderers,
 						aggregatorDisplay: pivotAggregators,showUnit:false,
 						csvText:"AFO"

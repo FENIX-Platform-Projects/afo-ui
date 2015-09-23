@@ -233,8 +233,8 @@ require([
 							},
 							"Indicator":function(mp){return "<span class=ordre>" + mp["FertCode"] + "</span>"+mp["Item"];}
 						},
-						rows: ["Area", "Indicator","Unit", "Month"],
-						cols: ["Year"],
+						rows: ["Area", "Indicator","Unit" ],
+						cols: ["Year","Month"],
 						vals: ["Value", "Flag"],
 						hiddenAttributes:["Month2","Unit","Item","Value","Flag","FertCode"],
 						linkedAttributes:[["Indicator","Unit"]],

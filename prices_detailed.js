@@ -127,6 +127,8 @@ require([
             layers: L.tileLayer(Config.url_baselayer)
         }).addControl(L.control.zoom({ position: 'bottomright' }));
 
+        var initBbox = pricesMap.getBounds();
+
         pricesMap.attributionControl.setPrefix(Config.map_attribution);
 
         var layerRetail = new L.MarkerClusterGroup({
@@ -217,8 +219,11 @@ require([
                         }) )
                         .addTo(layerRetail);
                     }
-
-                    pricesMap.fitBounds(layerRetail.getBounds().pad(-1.2));
+                    
+                    if(data.length>0)
+                        pricesMap.fitBounds(layerRetail.getBounds().pad(-1.2));
+                    else
+                        pricesMap.fitBounds(initBbox);
                 }
             });
         }

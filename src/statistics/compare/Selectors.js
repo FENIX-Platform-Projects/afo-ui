@@ -27,7 +27,7 @@ define([
         DATA_SOURCE: 'faostat',
         COMPARE: 'COUNTRY',
         N_P: 'p',
-        SHOW_AS: 'chart'
+        SHOW_AS: 'pivot'
     }, ev = {
         SELECT: 'afo.selector.select'
     };

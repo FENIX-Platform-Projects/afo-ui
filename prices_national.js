@@ -49,15 +49,17 @@ require([
 	    var treeCountry = new fxTree('#country-s', {
             labelVal: 'Country Code <small>( Gaul )</small>',
             labelTxt: 'Country Name',
-            showTxtValRadio: true,
-            showValueInTextMode: true
+            showValueInTextMode: true,
+            showTextInValueMode: true,
+            showTxtValRadio: true            
         });
 
 	    var treeProduct = new fxTree('#product-s', {
             labelVal: 'HS Code',
             labelTxt: 'Product Name',
-            showTxtValRadio: true,
-            showValueInTextMode: true
+            showValueInTextMode: true,
+            showTextInValueMode: true,
+            showTxtValRadio: true            
         });        
 
         /* ================================== SELECTORS */

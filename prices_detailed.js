@@ -38,8 +38,7 @@ require([
         var resumeTmpl = Handlebars.compile($('script#resumeTmpl').html()),
             popupTmpl = Handlebars.compile($('script#popupTmpl').html());
 
-        var listProducts$ = $('#prices_selectProduct'),
-            radioMarketTypeAll$ = $('#marketTypeAll'),
+        var radioMarketTypeAll$ = $('#marketTypeAll'),
             radioMarketTypeOpen$ = $('#marketTypeOpen'),
             radioMarketTypeSub$ = $('#marketTypeSub'),
             rangeMonths$ = $('#prices_rangeMonths'),
@@ -48,14 +47,13 @@ require([
             pricesRangeRadio$ = $('input[name=prices_range_radio]'),
             pricesTypeRadio$ = $('input[type=radio][name=mType_radio]');
 
-        var pricesMap;
-
         var treeProduct = new fxTree('#product-s', {
             labelVal: 'HS Code',
             labelTxt: 'Product Name',
             multiple: false,
             showTxtValRadio: true,
             showValueInTextMode: true,
+            showTextInValueMode: true,
             onChange: function() {
                 updateUI(getSelection());
             }
@@ -66,10 +64,13 @@ require([
                 labelTxt: 'Country Name',
                 showTxtValRadio: true,
                 showValueInTextMode: false,
+                showTextInValueMode: true,
                 onChange: function() {
                     updateUI(getSelection());
                 }
             });
+
+        var pricesMap;
 
         function formatMonth(date) {
             return [date.slice(0, 4), '/', date.slice(4)].join('')
@@ -109,8 +110,8 @@ require([
                 mType = [radioMarketTypeSub$.val()];
 
             var toRet = {
-                fertilizer_code: listProducts$.val(),
-                fertilizer_name: listProducts$.find("option:selected").text(),
+                fertilizer_code: treeProduct.getSelection()[0],
+                fertilizer_name: treeProduct.getSelection()[0],
                 country_code: treeCountry.getSelection(),
                 market_type: mType,
                 month_from_yyyymm: minDate,
@@ -153,7 +154,7 @@ require([
             afoResumeWrap$.html(resumeTmpl({
                 items: [{
                     label: 'Product: ',
-                    value: $("#prices_selectProduct option:selected").text()
+                    value: selection.fertilizer_name
                 }, {
                     label: 'Country: ',
                     value: countries.join(', ')
@@ -174,7 +175,7 @@ require([
             
             if (selection && selection.market_type)
                 selection.market_type = selection.market_type.join("', '");
-        
+
             loadMarkers(selection);
             
             resultsTable(selection, tableresult$);
@@ -244,10 +245,6 @@ require([
             rangeMonths$.dateRangeSlider('min', min);
         });
 
-        listProducts$.on('change', function (e) {
-            updateUI(getSelection());
-        });
-
         pricesTypeRadio$.change(function () {
             updateUI(getSelection());
         });
@@ -257,8 +254,10 @@ require([
                 query: Config.queries.prices_detailed_products
             },
             success: function (data) {
-                for (var r in data)
-                    listProducts$.append('<option value="' + data[r][0] + '">' + data[r][1] + '</option>');
+
+                treeProduct.setData( _.map(data, function(d) {
+                    return { id: d[0], text: d[1] };
+                }) );
             }
         });
 
@@ -267,16 +266,10 @@ require([
                 query: Config.queries.prices_detailed_countries
             },
             success: function (data) {
-                var treeData = [];
-                
-                for (var r in data) {
-                    treeData.push({
-                        id: data[r][0],
-                        text: data[r][1]
-                    });
-                }
 
-                treeCountry.setData(treeData);
+                treeCountry.setData( _.map(data, function(d) {
+                    return { id: d[0], text: d[1] };
+                }) );
             }
         });
     });

@@ -94,6 +94,7 @@ require([
                         labelTxt: 'Product Name',
                         showTxtValRadio: true,
                         showValueInTextMode: true,
+                        showTextInValueMode: true,
                         onChange: function (seldata) {
                         	initMapFamilies(seldata, fmLayer);
                         }

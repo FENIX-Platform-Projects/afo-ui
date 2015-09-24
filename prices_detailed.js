@@ -63,7 +63,7 @@ require([
                 labelVal: 'Country Code <small>( Gaul )</small>',
                 labelTxt: 'Country Name',
                 showTxtValRadio: true,
-                showValueInTextMode: false,
+                showValueInTextMode: true,
                 showTextInValueMode: true,
                 onChange: function() {
                     updateUI(getSelection());

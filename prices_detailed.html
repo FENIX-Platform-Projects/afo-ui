@@ -97,41 +97,49 @@
         </div>
 
         <div class="row">
-            <div class="col-xs-12 col-sm-6">
-                <div class="page-header">
-                    <h3 class="afo-title-gray">SELECT PRODUCT</h3>
-                    <div id="product-s" class="afo-border afo-selector-list" style="height:135px">
-                        <!-- FILL BY JS -->
-                    </div>
-                    <h3 class="afo-title-gray">SELECT COUNTRY</h3>
-                    <div id="country-s" class="afo-border afo-selector-list" style="height:135px">
-                        <!-- FILL BY JS -->
-                    </div>
+            <div class="col-sm-11">
+                <h3 class="afo-title-gray">SELECT TIME RANGE</h3>
+                <div class="row">
+                    <input id="prices_range1" name="prices_range_radio" type="radio" value="72" /><label for="prices_range1" class="col-sm-2 control-label"> 6 years</label>
+                    <input id="prices_range2" name="prices_range_radio" type="radio" value="36" /><label for="prices_range2" class="col-sm-2 control-label"> 3 years</label>
+                    <input id="prices_range3" name="prices_range_radio" type="radio" value="12" checked /><label for="prices_range3" class="col-sm-2 control-label"> 1 year</label>
+                    <input id="prices_range4" name="prices_range_radio" type="radio" value="6" /><label for="prices_range4" class="col-sm-2 control-label"> 6 months</label>
+                    <input id="prices_range5" name="prices_range_radio" type="radio" value="3" /><label for="prices_range5" class="col-sm-2 control-label"> 3 months</label>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-6">
-                <div class="page-header">
-                    <h3 class="afo-title-gray">SELECT TIME RANGE</h3>
-                    <div class="row">
-                        <input id="prices_range1" name="prices_range_radio" type="radio" value="72" /><label for="prices_range1" class="col-sm-2 control-label"> 6 years</label>
-                        <input id="prices_range2" name="prices_range_radio" type="radio" value="36" /><label for="prices_range2" class="col-sm-2 control-label"> 3 years</label>
-                        <input id="prices_range3" name="prices_range_radio" type="radio" value="12" checked /><label for="prices_range3" class="col-sm-2 control-label"> 1 year</label>
-                        <input id="prices_range4" name="prices_range_radio" type="radio" value="6" /><label for="prices_range4" class="col-sm-2 control-label"> 6 months</label>
-                        <input id="prices_range5" name="prices_range_radio" type="radio" value="3" /><label for="prices_range5" class="col-sm-2 control-label"> 3 months</label>
-                    </div>
-                    <br /><br />
-                    <div id="prices_rangeMonths" class="afo-range"></div>
-                    <br /><br />
-                    <h3 class="afo-title-gray">PRICE TYPE</h3>
-                    <div class="">
-                        <input id="marketTypeOpen" type="radio" name="mType_radio" value="open" /><label for="marketTypeOpen">Open</label>
-                        <input id="marketTypeSub" type="radio" name="mType_radio" value="subsidized" /><label for="marketTypeSub">Subsidized</label>
-                        <input id="marketTypeAll" type="radio" name="mType_radio" value="all" checked="checked" /><label for="marketTypeAll">Both</label>
-                    </div>
-
+                <br /><br />
+                <div id="prices_rangeMonths" class="afo-range">
+                <!-- FILL BY JS -->
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <h3 class="afo-title-gray">SELECT PRODUCT</h3>
+                <div id="product-s" class="afo-border afo-selector-list" style="height:135px">
+                    <!-- FILL BY JS -->
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <h3 class="afo-title-gray">SELECT COUNTRY</h3>
+                <div id="country-s" class="afo-border afo-selector-list" style="height:135px">
+                    <!-- FILL BY JS -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-8">
+                <br />
+                <label class="afo-title-gray pull-left">PRICE TYPE</label>
+                <div class="form-group pull-left" style="margin:-2px 0 0 10px">
+                    <input id="marketTypeOpen" type="radio" name="mType_radio" value="open" /><label for="marketTypeOpen">Open</label>
+                    <input id="marketTypeSub" type="radio" name="mType_radio" value="subsidized" /><label for="marketTypeSub">Subsidized</label>
+                    <input id="marketTypeAll" type="radio" name="mType_radio" value="all" checked="checked" /><label for="marketTypeAll">Both</label>
+                </div>
+            </div>
+        </div>
+
         
         <br />
 

@@ -69,36 +69,13 @@ require([
 			payload: {
 				query: Config.queries.prices_national_products
 			},
-			success: function(res) {
+			success: function(data) {
+                
+                var tree = _.map(data, function(d) {
+                    return { id: d[0], text: d[1] };
+                });
 
-	            var data = [],
-	                list;
-
-	            if (_.isArray(res)) {
-
-	                list = res.sort(function (a, b) {
-	                    if (a[1] < b[1]) return -1;
-	                    if (a[1] > b[1]) return 1;
-	                    return 0;
-	                });
-
-	                _.each(list, function (item) {
-	                    data.push({
-							id: item[0],
-	                    	text: item[1]
-	                    });
-	                });
-
-	                // Place ureas as first element and selected
-	                var urea = _.findWhere(data, {id: '3102100000' });
-	                data = _.without(data, urea);
-	                urea['state'] = {};
-	                urea.state.selected = true;
-	                data.unshift(urea);
-
-	            }
-
-	            treeProduct.setData(data);
+	            treeProduct.setData(tree).setFirst({id:'3102100000', text:'Urea'});
 	        }
 	    });
 
@@ -107,29 +84,13 @@ require([
 			payload: {
 				query: Config.queries.prices_national_countries
 			},
-			success: function(res) {
+			success: function(data) {
+                
+                var tree = _.map(data, function(d) {
+                    return { id: d[0], text: d[1] };
+                });
 
-	            var data = [],
-	                list;
-
-	            if (_.isArray(res)) {
-
-	                list = res.sort(function (a, b) {
-	                    if (a[1] < b[1]) return -1;
-	                    if (a[1] > b[1]) return 1;
-	                    return 0;
-	                });
-
-	                _.each(list, function (item) {
-	                    data.push({
-							id: item[0],
-	                    	text: item[1]
-	                    });
-	                });
-
-	            }
-
-	            treeCountry.setData(data);
+	            treeCountry.setData(tree);
 	        }
 	    });
 

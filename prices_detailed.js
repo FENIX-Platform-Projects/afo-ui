@@ -19,13 +19,16 @@ require([
         'src/renderAuthMenu',
         'fx-common/js/WDSClient',
         'src/fxTree',
-        'src/prices/local/results'
+        'src/prices/local/results',
+
+        'fenix-map',
+        'fenix-map-config'        
     ], function ($, _, bts, jstree, Handlebars, L, LeafletMarkecluster, rangeslider, moment,
         Config,
         renderAuthMenu,
         WDSClient,
         fxTree,
-        resultsTable
+        resultsTable      
         ) {
 
         renderAuthMenu(true);

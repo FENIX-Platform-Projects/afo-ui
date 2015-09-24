@@ -41,15 +41,15 @@
 <script id="popupTmpl" type="text/x-handlebars-template">
     <div class="fm-popup">
         <div class="fm-popup-join-title">
-            <i>City:</i> <b>{{title}}</b>
+            <i>Market:</i> <b>{{title}}</b>
         </div>
         <div class="fm-popup-join-content">
             <i>Product:</i> <b>{{prod}}</b>
             <div class="list-group">
             {{#each values}}
-            <div class="list-group-item">
-                <u>{{type}}</u> average price:<br />
-                {{val}} <i>USD/tons</i>
+            <div class="list-group-item" style="padding:5px">
+                <i>Type:</i> {{type}}<br />
+                <i>Price per month:</i> {{val}} <i>USD/tons</i>
             </div>
             {{/each}}
             </div>
@@ -116,13 +116,13 @@
         <div class="row">
             <div class="col-xs-12 col-sm-6">
                 <h3 class="afo-title-gray">SELECT PRODUCT</h3>
-                <div id="product-s" class="afo-border afo-selector-list" style="height:135px">
+                <div id="product-s" class="afo-border afo-selector-list" style="height:208px">
                     <!-- FILL BY JS -->
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6">
                 <h3 class="afo-title-gray">SELECT COUNTRY</h3>
-                <div id="country-s" class="afo-border afo-selector-list" style="height:135px">
+                <div id="country-s" class="afo-border afo-selector-list" style="height:208px">
                     <!-- FILL BY JS -->
                 </div>
             </div>
@@ -162,25 +162,29 @@
                 <div class="tab-content" style="height:400px">
                     <div class="tab-pane active" id="tab_map">
                         <div class="col-xs-12">
-    <!--                         <h3 class="afo-title">Georeferenced data</h3> -->
-                            <div id="prices_retail_map" class="afo-simple-map" style="height:400px"></div>
+                            <div id="prices_retail_map" class="afo-simple-map" style="height:400px;position:relative">
+                            <!-- FILL BY JS -->
+                            </div>
                         </div>
                     </div>
                     <div class="tab-pane" id="tab_table">
                         <div id="prices_retail_grid" class="col-xs-12" style="font-size:12px">
-    <!--                         <h3 class="afo-title">Aggregated Data</h3> -->
+                            
                             <div id="table-result" style="height:400px">
-                                <!-- FILLED BY JS -->
+                            <!-- FILLED BY JS -->
                             </div>
-							<fieldset id="exportOlap" style="float:right;display:block">
-			 <button type="button" class="btn btn-default " id="downloadxls"> Download as XLS</button>
-			 <button type="button" class="btn btn-default" id="downloadcsv"> Download as CSV</button>
-			   <form id="xlsDataForm" action="http://fenixapps2.fao.org/fenix-olap-webs/go/ExportPOI2" method="POST">
-                 <input id="myJson" name="myJson" type="hidden" value="">
-                 <input id="myFlags" name="myFlags" type="hidden" value="{&quot;data&quot;:[{&quot;title&quot;:&quot;&quot;,&quot;label&quot;:&quot;Official data&quot;}]}">
-				   <input id="footer" name="footer" type="hidden" value="AFO">
-                </form>
-			</fieldset><br><br>
+
+                			<fieldset id="exportOlap" style="float:right;display:block">
+                			 <button type="button" class="btn btn-default " id="downloadxls"> Download as XLS</button>
+                			 <button type="button" class="btn btn-default" id="downloadcsv"> Download as CSV</button>
+                			   <form id="xlsDataForm" action="http://fenixapps2.fao.org/fenix-olap-webs/go/ExportPOI2" method="POST">
+                                 <input id="myJson" name="myJson" type="hidden" value="">
+                                 <input id="myFlags" name="myFlags" type="hidden" value="{&quot;data&quot;:[{&quot;title&quot;:&quot;&quot;,&quot;label&quot;:&quot;Official data&quot;}]}">
+                				   <input id="footer" name="footer" type="hidden" value="AFO">
+                                </form>
+                			</fieldset>
+                            <br /><br />
+                            
                         </div>          
                     </div>      
                 </div>

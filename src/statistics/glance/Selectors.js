@@ -22,7 +22,7 @@ define(['underscore','underscore-string',
         defaultValues = {
             DATA_SOURCE: 'faostat',
             N_P: 'p',
-            REGION: '649'
+            REGION: '650'
         },
         selection = {
         	COUNTRY: null
@@ -169,11 +169,9 @@ define(['underscore','underscore-string',
                     onChange: function (seldata) {
                         loadMapByRegion(seldata[0])
                     }
-                }).setData(regs);
+                }).setData(regs).setFirst({id:'650', text: 'COMESA'});
             }
         });
-
-console.log(self.mapCountries)
 
         self.mapCountries.attributionControl.setPrefix(Config.map_attribution);
 
@@ -215,7 +213,7 @@ console.log(self.mapCountries)
 
                 if (Array.isArray(res)) {
                     _.each(res, function (item, index) {
-                        $form.append(renderRadioBtn(item, index));
+                        $form.append( renderRadioBtn(item, index) );
                     });
                 }
 
@@ -300,7 +298,7 @@ console.log(self.mapCountries)
                     onChange: function (seldata) {
                         amplify.publish(ev.SELECT);
                     }
-                }).setData(data);
+                }).setData(data).setFirst({id:'3102100000', text: 'Urea'});
             }
         });
     };
@@ -311,7 +309,7 @@ console.log(self.mapCountries)
 
         if (Array.isArray(kind)) {
             _.each(kind, function (item, index) {
-                $form.append(renderRadioBtn(item, index));
+                $form.append( renderRadioBtn(item, index) );
             });
         }
 

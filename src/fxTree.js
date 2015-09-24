@@ -82,15 +82,29 @@ define(['jquery',
         this.$SelAll = this.$cnt.find(htmlIDs.selAll);
         this.$UnselAll = this.$cnt.find(htmlIDs.unselAll);
 
-        this.tree = this.$t.jstree({
+        this.treeConfig = {
             core: {
                 themes: { icons: false }
             },
-            plugins: ['search', 'wholerow', this.config.multiple ? 'checkbox' : ''],
+            plugins: ['search', 'wholerow'],
             search: {
                 show_only_matches: true
             }
-        });
+        };
+
+        if(this.config.multiple)
+            this.treeConfig.plugins.push('checkbox');
+        else
+            _.extend(this.treeConfig, {
+                core: {
+                    multiple: false 
+                },
+                ui: {
+                    select_multiple_modifier: false
+                }
+            });
+
+        this.tree = this.$t.jstree(this.treeConfig);
 
         if (!this.config.showTxtValRadio)
             this.showTxtValSelection(false);

@@ -186,8 +186,9 @@ require([
 								return "<span class=ordre>" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
 							},
 							"Indicator":function(mp){return "<span class=ordre>" + mp["FertCode"] + "</span>"+mp["Item"];}
+							,"Source":function(mp){return "AFO"}
 						},
-						rows: ["Area", "Indicator","Unit" ],
+						rows: ["Source","Area", "Indicator","Unit" ],
 						cols: ["Year","Month"],
 						vals: ["Value", "Flag"],
 						hiddenAttributes:["Month2","Unit","Item","Value","Flag","FertCode"],

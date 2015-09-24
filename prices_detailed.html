@@ -33,7 +33,7 @@
 <script id="resumeTmpl" type="text/x-handlebars-template">
     <ul id="afo-resume">
     {{#each items}}
-        <li><span>{{label}} </span><b>{{value}}</b></li>
+        {{#if value}}<li><span>{{label}} </span><b>{{value}}</b></li>{{/if}}
     {{/each}}
     </ul>
 </script>

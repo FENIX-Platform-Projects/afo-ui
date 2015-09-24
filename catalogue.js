@@ -138,6 +138,7 @@ require([
                         labelTxt: 'Country Name',
                         showTxtValRadio: true,
                         showValueInTextMode: true,
+                        showTextInValueMode: true,
                         onChange: function(seldata) {
 
 							var selected = _.map(seldata, function(val) {
@@ -204,6 +205,7 @@ require([
                         labelTxt: 'Crop Name',
                         showTxtValRadio: true,
                         showValueInTextMode: true,
+                        showTextInValueMode: true,
                         onChange: function(seldata) {
 
 							var selected = _.map(seldata, function(val) {

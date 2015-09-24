@@ -6,7 +6,8 @@
 </q>
 
 <q id="fertilizers_tree">  
-  SELECT fertilizer_category_code, fertilizer_code, fertilizer_category_label, fertilizer_label 
+  SELECT fertilizer_category_code, fertilizer_category_label, 
+    fertilizer_code, fertilizer_label 
   FROM fertilizers_category 
   JOIN codes_fertilizers ON (fertilizer = fertilizer_code) 
   JOIN codes_fertilizers_categories ON (fertilizer_category = fertilizer_category_code) 

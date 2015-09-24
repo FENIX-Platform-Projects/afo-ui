@@ -63,27 +63,25 @@ require([
 				},
 				success: function(data) {
 
-					var dataTree = [],
-						lastCatCode = '';
-
-					for(var i in data)
-						dataTree.push({
-							fertilizer_category_code: data[i][0],
-							fertilizer_code: data[i][1],
-							fertilizer_category_label: data[i][2],
-							fertilizer_label: data[i][3]
-						});
-
-					dataTree = _.groupBy(dataTree, 'fertilizer_category_code');
-
-					dataTree = _.map(dataTree, function(cat, catName) {
+					var tree = _.map(data, function(v) {
 						return {
-							id: cat[0].fertilizer_category_code,
-							text: cat[0].fertilizer_category_label,
-							children: _.map(cat, function(fert) {
+							cat_code: v[0],
+							cat_label: v[1],
+							code: v[2],
+							label: v[3]
+						};
+					});
+
+					tree = _.groupBy(tree, 'cat_code');
+
+					tree = _.map(tree, function(cat, catName) {
+						return {
+							id: cat[0].cat_code,
+							text: cat[0].cat_label,
+							children: _.map(cat, function(v) {
 								return {
-									id: fert.fertilizer_code,
-									text: fert.fertilizer_label
+									id: v.code,
+									text: v.label
 								};
 							})
 						};
@@ -98,7 +96,7 @@ require([
                         onChange: function (seldata) {
                         	initMapFamilies(seldata, fmLayer);
                         }
-                    }).setData(dataTree);
+                    }).setData(tree);
 				}
 			});
 		}

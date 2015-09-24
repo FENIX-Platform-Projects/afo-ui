@@ -62,9 +62,6 @@ require([
             showTxtValRadio: true            
         });        
 
-        /* ================================== SELECTORS */
-
-	    // Fertilizers
 		wdsClient.retrieve({
 			payload: {
 				query: Config.queries.prices_national_products
@@ -79,7 +76,6 @@ require([
 	        }
 	    });
 
-	    // Country
 		wdsClient.retrieve({
 			payload: {
 				query: Config.queries.prices_national_countries
@@ -94,10 +90,7 @@ require([
 	        }
 	    });
 
-        // Time
         var rangeMonths$ = $('#prices_rangeMonths');
-
-
         rangeMonths$.dateRangeSlider(Config.dateRangeSlider.prices_national);
 
         var minD = Config.dateRangeSlider.prices_national.bounds.min,

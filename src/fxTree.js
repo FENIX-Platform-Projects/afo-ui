@@ -104,6 +104,22 @@ define(['jquery',
         return this;
     };
 
+    fxTree.prototype.setFirst =  function(first) {
+                
+/*        var first = {id:'3102100000', text:'Urea'},
+            tree =_.map(data, function(d) {
+                return { id: d[0], text: d[1] };
+            }); */
+        var tree = this.data;
+
+        tree = _.without(tree, _.findWhere(tree, first));
+        tree = _.union([first], tree);
+
+        this.setData(tree);
+        return this;
+    };
+
+
     fxTree.prototype.getSelection = function (arg) {
         return this.$t.jstree(true).get_selected(arg);
     };    

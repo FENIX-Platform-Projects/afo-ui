@@ -255,15 +255,11 @@ require([
             },
             success: function (data) {
                 
-                var first = {id:'3102100000', text:'Urea'},
-                    tree =_.map(data, function(d) {
-                        return { id: d[0], text: d[1] };
-                    });
+                var tree = _.map(data, function(d) {
+                    return { id: d[0], text: d[1] };
+                });
 
-                tree = _.without(tree, _.findWhere(tree, first));
-                tree = _.union([first], tree);
-
-                treeProduct.setData(tree);
+                treeProduct.setData(tree).setFirst({id:'3102100000', text:'Urea'});
             }
         });
 

@@ -62,8 +62,8 @@ define(['underscore', 'underscore-string',
             mapzoomsCountries$ = $('#stats_map_countries').next('.map-zooms');
 
         var style = {
-                fill: true, color: '#68AC46', weight: 1, opacity: 1, fillOpacity: 0.4, fillColor: '#6AAC46'
-            },
+            fill: true, color: '#68AC46', weight: 1, opacity: 1, fillOpacity: 0.4, fillColor: '#6AAC46'
+        },
             styleHover = {
                 fill: true, color: '#6AAC46', weight: 1, opacity: 1, fillOpacity: 0.8, fillColor: '#6AAC46'
             },
@@ -73,20 +73,20 @@ define(['underscore', 'underscore-string',
 
         this.mapCountries = L.map('stats_map_countries', {
             zoom: 3,
-            minZoom: 2,            
+            minZoom: 2,
             zoomControl: false,
-            center: L.latLng(Config.map_center),            
+            center: L.latLng(Config.map_center),
             layers: L.tileLayer(Config.url_baselayer)
-        }).addControl( L.control.zoom({position: 'bottomright'}) );
+        }).addControl(L.control.zoom({ position: 'bottomright' }));
 
         function loadMapByRegion(regCode) {
 
             wdsClient.retrieve({
                 payload: {
                     query: Config.queries.countries_byregion,
-                    queryVars: {id: regCode }
+                    queryVars: { id: regCode }
                 },
-                success: function(resp) {
+                success: function (resp) {
 
                     listCountries$.empty();
                     for (var r in resp)
@@ -97,12 +97,12 @@ define(['underscore', 'underscore-string',
                     });
 
                     var sql = _template(self.config.queries.countries_geojson, {
-                            ids: idsCountries.join(',')
-                        });
+                        ids: idsCountries.join(',')
+                    });
 
                     var url = _template(self.config.url_spatialquery_enc, {
-                            sql: sql
-                        });
+                        sql: sql
+                    });
 
                     $.getJSON(url, function (data) {
 
@@ -113,25 +113,25 @@ define(['underscore', 'underscore-string',
                             style,
                             function (feature, layer) {
                                 layer
-                                .on("mouseover", function(e) {
-                                	$('#stats_selected_countries').text(feature.properties.prop2);
+                                .on("mouseover", function (e) {
+                                    $('#stats_selected_countries').text(feature.properties.prop2);
                                 })
                                 .on("click", function (e) {
 
-    								geojsonCountries.eachLayer(function (lay) {
-    									lay.setStyle(style);
-    									lay._options.selected = false;
-    								});
+                                    geojsonCountries.eachLayer(function (lay) {
+                                        lay.setStyle(style);
+                                        lay._options.selected = false;
+                                    });
 
-                           			e.target.setStyle(styleHover);
-                           			e.target._options.selected = true;
+                                    e.target.setStyle(styleHover);
+                                    e.target._options.selected = true;
 
                                     listCountries$.find("option:selected").removeAttr("selected");
                                     listCountries$.val(feature.properties.prop1);
-                                    
+
                                     selection.COUNTRY = [{
-                                    	code: feature.properties.prop1,
-                                    	text: feature.properties.prop2
+                                        code: feature.properties.prop1,
+                                        text: feature.properties.prop2
                                     }];
 
                                     // leave me as last row!
@@ -158,9 +158,9 @@ define(['underscore', 'underscore-string',
                 });
 
                 regs = _.map(regs, function (val) {
-                    return {id: val[0], text: val[1] };
+                    return { id: val[0], text: val[1] };
                 })
-                
+
                 self.regionTree = new fxTree(s.REGION, {
                     labelVal: 'Region Code',
                     labelTxt: 'Region Name',
@@ -170,7 +170,7 @@ define(['underscore', 'underscore-string',
                     onChange: function (seldata) {
                         loadMapByRegion(seldata[0])
                     }
-                }).setData(regs).setFirst({id:'650', text: 'COMESA'});
+                }).setData(regs).setFirst({ id: '650', text: 'COMESA' });
             }
         });
 
@@ -187,12 +187,12 @@ define(['underscore', 'underscore-string',
             e.preventDefault();
 
             selection.COUNTRY = [];
-            listCountries$.find("option:selected").map(function() {
+            listCountries$.find("option:selected").map(function () {
                 selection.COUNTRY.push({
-    				code: $(this).attr('value'),
-    				text: $(this).text()
+                    code: $(this).attr('value'),
+                    text: $(this).text()
                 });
-			});
+            });
 
             amplify.publish(ev.SELECT);
         });
@@ -209,12 +209,12 @@ define(['underscore', 'underscore-string',
             payload: {
                 query: Config.queries.data_sources
             },
-            success: function(res) {     
+            success: function (res) {
                 var $form = $('<form>');
 
                 if (Array.isArray(res)) {
                     _.each(res, function (item, index) {
-                        $form.append( renderRadioBtn(item, index) );
+                        $form.append(renderRadioBtn(item, index));
                     });
                 }
 
@@ -303,7 +303,7 @@ define(['underscore', 'underscore-string',
                     onChange: function (seldata) {
                         amplify.publish(ev.SELECT);
                     }
-                }).setData(data);
+                }).setData(data).setFirst({ id: '3102100000', text: 'Urea', n: "46", p: "0", k: '0' });
             }
         });
     };
@@ -314,7 +314,7 @@ define(['underscore', 'underscore-string',
 
         if (Array.isArray(kind)) {
             _.each(kind, function (item, index) {
-                $form.append( renderRadioBtn(item, index) );
+                $form.append(renderRadioBtn(item, index));
             });
         }
 
@@ -378,22 +378,22 @@ define(['underscore', 'underscore-string',
     };
 
     Selectors.prototype.processJsTree = function (data) {
-        return _.map(data, function(i){
-            return {code: i.id, text: i.text};
+        return _.map(data, function (i) {
+            return { code: i.id, text: i.text };
         });
     };
 
     Selectors.prototype.processRadioBtn = function ($btn) {
 
-        return [{code: $btn.val(), text: $("label[for='"+$btn.attr('id')+"']").html() }];
+        return [{ code: $btn.val(), text: $("label[for='" + $btn.attr('id') + "']").html() }];
     };
 
     Selectors.prototype.processCheckbox = function ($btn) {
 
         var checkboxValues = [];
 
-        $btn.each(function(index, elem) {
-            checkboxValues.push({ code: $(elem).val(), text: $("label[for='"+ $(elem).attr('id')+"']").html()});
+        $btn.each(function (index, elem) {
+            checkboxValues.push({ code: $(elem).val(), text: $("label[for='" + $(elem).attr('id') + "']").html() });
         });
 
         return checkboxValues;
@@ -403,9 +403,9 @@ define(['underscore', 'underscore-string',
 
         var SEL = {
             COUNTRY: selection.COUNTRY,
-            SOURCE: this.processCheckbox( $(s.DATA_SOURCES).find('input:checked') ),
-            KIND: this.processRadioBtn( $(s.N_P).find('input:checked') ),
-            PRODUCT: this.processJsTree( this.productTree.getSelection('full') )
+            SOURCE: this.processCheckbox($(s.DATA_SOURCES).find('input:checked')),
+            KIND: this.processRadioBtn($(s.N_P).find('input:checked')),
+            PRODUCT: this.processJsTree(this.productTree.getSelection('full'))
         };
         return SEL;
     };

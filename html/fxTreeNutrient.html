@@ -1,0 +1,30 @@
+﻿
+<div class="fxTree">
+    <div class="fxTreeRadios from-group">
+        <input type="radio" id="{{rTxtId}}" name="{{rGroupName}}" value="{{rModeText}}" checked />
+        <label for="{{rTxtId}}">{{{rTxtLabel}}}</label>
+        <input type="radio" id="{{rValId}}" name="{{rGroupName}}" value="{{rModeVal}}" />
+        <label for="{{rValId}}">{{{rValLabel}}}</label>
+        <input type="radio" id="{{rNutrientId}}" name="{{rGroupName}}" value="{{rModeNutrient}}" />
+        <label for="{{rNutrientId}}">{{{rNutrientLabel}}}</label>
+    </div>
+    <div class="from-group" id="fxTreeFind">
+        <input type="text" class="fxTreeSearch input form-control" placeholder="{{textPlaceholder}}" />
+    </div>
+    <div class="from-group" id="fxTreeSortNutrients" style="display:none">
+        <span class="col-xs-6">Sort by</span>
+        <button id="btnSortN" class="col-xs-2">N</button>
+        <button id="btnSortP" class="col-xs-2">P</button>
+        <button id="btnSortK" class="col-xs-2">K</button>
+        
+    </div>
+    {{#if multiple}}
+    <div id="fxTreeFindBtns" class="fxTreeSels btn-group pull-right">
+        <a class="btn fxTreeSelAll" href="#">{{textSelAll}}</a>
+        <a class="btn fxTreeUnselAll" href="#">{{textUnselAll}}</a>
+    </div>
+    {{/if}}
+    <div id="{{jsTreeId}}" class="fxTreeList">
+        <!-- FILL BY JS -->
+    </div>
+</div>

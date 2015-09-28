@@ -1,31 +1,32 @@
 /*global define*/
-define(['underscore','underscore-string',
+define(['underscore', 'underscore-string',
     'fx-common/js/WDSClient',
-    'src/fxTree',    
+    'src/fxTree',
+    'src/fxTreeNutrient',
     'geojson_decoder',
-    'config/services',    
+    'config/services',
     'amplify'
 ], function (_, _str,
     WDSClient,
-    fxTree,    
+    fxTree, fxTreeNutrient,
     geojsonDecoder,
     Config) {
 
     'use strict';
 
     var s = {
-            DATA_SOURCES: '#data-sources-s',
-            PRODUCT: '#product-s',
-            REGION: '#region-s',
-            N_P: '#n-p-s'
-        },
+        DATA_SOURCES: '#data-sources-s',
+        PRODUCT: '#product-s',
+        REGION: '#region-s',
+        N_P: '#n-p-s'
+    },
         defaultValues = {
             DATA_SOURCE: 'faostat',
             N_P: 'p',
             REGION: '650'
         },
         selection = {
-        	COUNTRY: null
+            COUNTRY: null
         },
         ev = {
             SELECT: 'afo.selector.select'
@@ -150,7 +151,7 @@ define(['underscore','underscore-string',
             payload: {
                 query: Config.queries.regions
             },
-            success: function(regs) {            
+            success: function (regs) {
 
                 regs = _.reject(regs, function (val) {
                     return val[0] === "696";    //remove all countries
@@ -259,7 +260,8 @@ define(['underscore','underscore-string',
 
         if (source !== 'cstat')
             payload = {
-                query: this.config.queries.product_by_source,
+                //query: this.config.queries.product_by_source,
+                query: this.config.queries.product_by_source_test,
                 queryVars: { SOURCE: source || defaultValues.DATA_SOURCE }
             };
         else
@@ -269,7 +271,7 @@ define(['underscore','underscore-string',
 
         wdsClient.retrieve({
             payload: payload,
-            success: function(res) {    
+            success: function (res) {
                 var data = [],
                     list;
 
@@ -285,12 +287,15 @@ define(['underscore','underscore-string',
                         data.push({
                             id: item[0],
                             text: item[1],
+                            n: item[2],
+                            p: item[3],
+                            k: item[4],
                             parent: '#'
                         });
                     });
                 }
 
-                self.productTree = new fxTree(s.PRODUCT, {
+                self.productTree = new fxTreeNutrient(s.PRODUCT, {
                     labelVal: 'HS Code',
                     labelTxt: 'Product Name',
                     showTxtValRadio: true,
@@ -298,7 +303,7 @@ define(['underscore','underscore-string',
                     onChange: function (seldata) {
                         amplify.publish(ev.SELECT);
                     }
-                }).setData(data).setFirst({id:'3102100000', text: 'Urea'});
+                }).setData(data);
             }
         });
     };

@@ -335,9 +335,7 @@ define(['jquery',
         this.$chkNutrient.off('change');
         this.$t.off('changed.jstree');
         this.$t.off('open_node.jstree');
-        this.$cnt.find('#btnSortN').off('click');
-        this.$cnt.find('#btnSortN').off('click');
-        this.$cnt.find('#btnSortN').off('click');
+        this.$sortNutrients.off('click','.fxTreeBtn');
     };
     fxTree.prototype.destroy = function () {
         this._unbindEvents();

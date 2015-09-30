@@ -3729,3 +3729,18 @@ thead {
   padding:5px;
   margin:0 10px 4px 0;
 }
+
+.jstree-anchor {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  height: 20px
+}
+
+.fxTreeCell {
+  display: inline-block;
+  width: 15%;
+  background-color: #F3FAEA;
+  margin: 2px;
+  padding: 2px
+}

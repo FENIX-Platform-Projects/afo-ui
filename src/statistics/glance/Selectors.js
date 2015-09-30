@@ -297,7 +297,8 @@ define(['underscore', 'underscore-string',
 
                 self.productTree = new fxTreeNutrient(s.PRODUCT, {
                     labelVal: 'HS Code',
-                    labelTxt: 'Product Name',
+                    labelTxt: 'Product',
+                    labelNutrient: 'Nutrient',
                     showTxtValRadio: true,
                     showValueInTextMode: true,
                     onChange: function (seldata) {

@@ -208,7 +208,10 @@ define(['jquery',
                 toRet.text += '<span class="fxTreeAddInfo"> (' + node.text + ')</span>';
         }
         else {
-            toRet.text = "N: " + node.n + " P: " + node.p + " K: " + node.k;
+            toRet.text = '<span class="fxTreeCell">N: ' + node.n + '</span>'+
+                         '<span class="fxTreeCell">P: ' + node.p + '</span>'+
+                         '<span class="fxTreeCell">K: ' + node.k + '</span>';
+                         
             toRet.text += ' - <span class="fxTreeAddInfo">' + node.text + '</span>';
         }
         return toRet;

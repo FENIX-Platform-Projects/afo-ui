@@ -162,11 +162,12 @@ define(['underscore', 'underscore-string',
                 })
 
                 self.regionTree = new fxTree(s.REGION, {
-                    labelVal: 'Region Code',
-                    labelTxt: 'Region Name',
+                    labelTxt: 'Name',                    
+                    labelVal: 'Code',
                     multiple: false,
                     showTxtValRadio: true,
                     showValueInTextMode: true,
+                    showTextInValueMode: true,
                     onChange: function (seldata) {
                         loadMapByRegion(seldata[0])
                     }

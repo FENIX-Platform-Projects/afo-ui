@@ -3733,25 +3733,27 @@ thead {
 .jstree-anchor {
   display: inline-block;
   width: 100%;
-  overflow: hidden;
-  height: 22px;
-  margin-bottom: 2px;
 }
 
 .fxTreeCell {
   display: inline-block;
-  width: 60px;
+  width: 40px;
   background-color: #F3FAEA;
   border: 1px solid #ccc;
   margin: 2px;
   padding: 2px;
   font-size: 12px;
+  text-align: center;
 }
 
 .fxTreeBtn {
   font-size: 12px;
   border: 1px solid #ccc;
-  width: 60px;
+  width: 40px;
   margin: 2px 1px 2px 0;
   padding: 2px;
+}
+
+.jstree-striped {
+  background: none;
 }

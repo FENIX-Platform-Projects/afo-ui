@@ -447,11 +447,6 @@ thead{
   margin:0 10px 4px 0;
 }
 
-.jstree-anchor {
-  display: inline-block;
-  width: 100%;
-}
-
 .fxTreeCell {
   display: inline-block;
   width: 40px;
@@ -470,7 +465,14 @@ thead{
   margin: 2px 1px 2px 0;
   padding: 2px;
 }
-
+/*.fxTreeBtn.asc {
+  content:'&#8593;'
+}
+.fxTreeBtn.desc {
+  content:'&#8595;'
+}
+*/
 .jstree-striped {
   background: none;
 }
+

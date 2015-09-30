@@ -33,7 +33,8 @@ define(['jquery',
         radiosContainer: '.fxTreeRadios',
         search: '.fxTreeSearch',
         selAll: '.fxTreeSelAll',
-        unselAll: '.fxTreeUnselAll'
+        unselAll: '.fxTreeUnselAll',
+        sortNutrients: '.fxTreeSortNutrients'
     };
 
     var _modeTxtVal = { text: 'text', value: 'val', nutrient: 'nutrient' };
@@ -87,6 +88,7 @@ define(['jquery',
         this.$t = this.$cnt.find('#' + compIDs.jsTreeId + id);
         this.$SelAll = this.$cnt.find(htmlIDs.selAll);
         this.$UnselAll = this.$cnt.find(htmlIDs.unselAll);
+        this.$sortNutrients = this.$cnt.find(htmlIDs.sortNutrients);
 
         this.tree = this.$t.jstree({
             core: {
@@ -236,9 +238,12 @@ define(['jquery',
             me._updateTreeData();
             me._changeSearchMode('nutrient');
         });
-        this.$cnt.find('#btnSortN').on('click', function (e) { me._sortByNutrient('n'); });
-        this.$cnt.find('#btnSortP').on('click', function (e) { me._sortByNutrient('p'); });
-        this.$cnt.find('#btnSortK').on('click', function (e) { me._sortByNutrient('k'); });
+
+        this.$sortNutrients.on('click','.fxTreeBtn', function(e) {
+            var v = $(this).data('value');
+            console.log(v)
+            me._sortByNutrient( v );
+        });
 
         this.$searchBox.on('keyup', function (e) {
             if (to) {
@@ -274,12 +279,12 @@ define(['jquery',
         if (mode == 'nutrient') {
             this.$cnt.find('#fxTreeFind').hide();
             this.$cnt.find('#fxTreeFindBtns').hide();
-            this.$cnt.find('#fxTreeSortNutrients').show();
+            this.$sortNutrients.show();
         }
         else {
             this.$cnt.find('#fxTreeFind').show();
             this.$cnt.find('#fxTreeFindBtns').show();
-            this.$cnt.find('#fxTreeSortNutrients').hide();
+            this.$sortNutrients.hide();
         }
     };
     fxTree.prototype._changeTxtValMode = function () {

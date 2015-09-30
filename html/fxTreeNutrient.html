@@ -11,11 +11,11 @@
     <div class="from-group" id="fxTreeFind">
         <input type="text" class="fxTreeSearch input form-control" placeholder="{{textPlaceholder}}" />
     </div>
-    <div class="from-group" id="fxTreeSortNutrients" style="display:none">
+    <div class="from-group fxTreeSortNutrients" style="display:none">
         <label style="width:48px;display:inline-block;text-align:center">sort by</label>
-        <button id="btnSortN" class="fxTreeBtn">N</button>
-        <button id="btnSortP" class="fxTreeBtn">P</button>
-        <button id="btnSortK" class="fxTreeBtn">K</button>
+        <button data-value="n" class="fxTreeBtn">N</button>
+        <button data-value="p" class="fxTreeBtn">P</button>
+        <button data-value="k" class="fxTreeBtn">K</button>
     </div>
     {{#if multiple}}
     <div id="fxTreeFindBtns" class="fxTreeSels btn-group pull-right">

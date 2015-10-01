@@ -314,7 +314,6 @@ define(['jquery',
         }
         else {
             this._sortByNutrient_node(this.data, n, this.sortedBy.inv);
-            
         }
         this.sortedBy.field = n;
         this._updateTreeData();

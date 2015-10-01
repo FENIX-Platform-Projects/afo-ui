@@ -227,14 +227,13 @@ define(['underscore', 'underscore-string',
             success: function (res) {
                 var $form = $('<form>');
 
-                if (Array.isArray(res)) {
+                if (_.isArray(res)) {
                     _.each(res, function (item, index) {
                         $form.append(renderRadioBtn(item, index));
                     });
                 }
 
-                $(s.DATA_SOURCES).html($form);
-                $(s.DATA_SOURCES).find('input[value="' + defaultValues.DATA_SOURCE + '"]').prop('checked', true);
+                $(s.DATA_SOURCES).html($form).find('input[value="' + defaultValues.DATA_SOURCE + '"]').prop('checked', true);
             }
         });
 
@@ -312,7 +311,6 @@ define(['underscore', 'underscore-string',
                 }
 
                 self.productTree.setData(data);
-                //self.productTree.setFirst(first);
             }
         });
     };
@@ -321,14 +319,13 @@ define(['underscore', 'underscore-string',
         var kind = [['n', 'Nutrient'], ['p', 'Product']],
             $form = $('<form>');
 
-        if (Array.isArray(kind)) {
+        if (_.isArray(kind)) {
             _.each(kind, function (item, index) {
                 $form.append(renderRadioBtn(item, index));
             });
         }
 
-        $(s.N_P).html($form);
-        $(s.N_P).find('input[value="' + defaultValues.N_P + '"]').prop('checked', true);
+        $(s.N_P).html($form).find('input[value="' + defaultValues.N_P + '"]').prop('checked', true);
 
         function renderRadioBtn(item, index) {
 
@@ -393,7 +390,6 @@ define(['underscore', 'underscore-string',
     };
 
     Selectors.prototype.processRadioBtn = function ($btn) {
-
         return [{ code: $btn.val(), text: $("label[for='" + $btn.attr('id') + "']").html() }];
     };
 
@@ -424,13 +420,7 @@ define(['underscore', 'underscore-string',
         var filter = this.getSelection(),
             valid = this._validateFilter(filter);
 
-        if (valid !== false) {
-            return filter;
-        } else {
-
-            this._showValidationErrors(valid);
-            return false;
-        }
+        return (valid !== false) ? filter : this._showValidationErrors(valid);
     };
 
     Selectors.prototype._showValidationErrors = function (errors) {

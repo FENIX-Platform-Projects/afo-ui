@@ -186,9 +186,9 @@ require([
 								return "<span class=ordre>" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
 							},
 							"Indicator":function(mp){return "<span class=ordre>" + mp["FertCode"] + "</span>"+mp["Item"];}
-							,"Source":function(mp){return "AFO"}
+							
 						},
-						rows: ["Source","Area", "Indicator","Unit" ],
+						rows: ["Area", "Indicator","Unit" ],
 						cols: ["Year","Month"],
 						vals: ["Value", "Flag"],
 						hiddenAttributes:["Month2","Unit","Item","Value","Flag","FertCode"],
@@ -197,28 +197,15 @@ require([
 						aggregatorDisplay: pivotAggregators,showUnit:false,
 						csvText:"AFO"
 					})
-/*
-					$("#pivot").pivotUI(data, {
-						derivedAttributes: {
-							"Month": function(mp){
-								return "<span class=\"ordre\">" +matchMonth[ mp["Month2"]] + "</span>"+mp["Month2"];
-							},"Indicator":function(mp){return "<span class=\"ordre\">" + mp["FertCode"] + "</span>"+mp["Item"]+" ("+mp["Unit"]+")";}
-						},
-						rows: ["Area", "Indicator", "Month"],
-						cols: ["Year"],
-						vals: ["Value", "Flag"],
-						hiddenAttributes:["Month2","Unit","Item"],
-						linkedAttributes:[]
-					},true);
-*/
+
 					$("#pivot_download").show();
 
 					$("#pivot_download").on('click', function(e) {
 
-						//pp1.exportExcel();
+						
 						pp1.exportCSV();
 						
-						//decolrowspanNEW();
+						
 					});
 				}
 			});

@@ -15,11 +15,11 @@ define(['underscore', 'underscore-string',
     'use strict';
 
     var s = {
-        DATA_SOURCES: '#data-sources-s',
-        PRODUCT: '#product-s',
-        REGION: '#region-s',
-        N_P: '#n-p-s'
-    },
+            DATA_SOURCES: '#data-sources-s',
+            PRODUCT: '#product-s',
+            REGION: '#region-s',
+            N_P: '#n-p-s'
+        },
         defaultValues = {
             DATA_SOURCE: 'faostat',
             N_P: 'p',
@@ -31,7 +31,6 @@ define(['underscore', 'underscore-string',
         ev = {
             SELECT: 'afo.selector.select'
         };
-
 
     var wdsClient = new WDSClient({
         datasource: Config.dbName,
@@ -46,11 +45,26 @@ define(['underscore', 'underscore-string',
 
     function Selectors() {
 
-        this.config = Config;
-        this._initMapSelector();
-        this._initDataSourceSelector();
-        this._initProductSelector();
-        this._initProductNutrientSelector();
+        var self = this;
+
+        self.config = Config;
+
+        self.productTree = new fxTreeNutrient(s.PRODUCT, {
+            labelVal: 'HS Code',
+            labelTxt: 'Product',
+            labelNutrient: 'Nutrient',
+            showTxtValRadio: true,
+            showValueInTextMode: true,
+            showTextInValueMode: true,
+            onChange: function (seldata) {
+                amplify.publish(ev.SELECT);
+            }
+        });
+
+        self._initMapSelector();
+        self._initDataSourceSelector();
+        self._initProductSelector();
+        self._initProductNutrientSelector();
     }
 
     Selectors.prototype._initMapSelector = function () {
@@ -247,7 +261,8 @@ define(['underscore', 'underscore-string',
 
             $radio.on('change', _.bind(function () {
                 amplify.publish(ev.SELECT);
-                self._initProductSelector($(s.DATA_SOURCES).find('input:checked').val())
+                self._initProductSelector($(s.DATA_SOURCES).find('input:checked').val());
+
             }));
 
             return $container;
@@ -284,28 +299,23 @@ define(['underscore', 'underscore-string',
                         return 0;
                     });
 
-                    _.each(list, function (item) {
-                        data.push({
+                    data = _.map(list, function (item) {
+                        return {
                             id: item[0],
                             text: item[1],
                             n: item[2],
                             p: item[3],
                             k: item[4],
                             parent: '#'
-                        });
+                        };
                     });
                 }
-
-                self.productTree = new fxTreeNutrient(s.PRODUCT, {
-                    labelVal: 'HS Code',
-                    labelTxt: 'Product',
-                    labelNutrient: 'Nutrient',
-                    showTxtValRadio: true,
-                    showValueInTextMode: true,
-                    onChange: function (seldata) {
-                        amplify.publish(ev.SELECT);
-                    }
-                }).setData(data).setFirst({ id: '3102100000', text: 'Urea', n: "46", p: "0", k: '0' });
+                
+                //var first = _.where(data, {id: '3102100000'});
+                //console.log('first', first);
+                
+                self.productTree.setData(data);
+                //self.productTree.setFirst(first);
             }
         });
     };

@@ -240,9 +240,17 @@ define(['jquery',
         });
 
         this.$sortNutrients.on('click','.fxTreeBtn', function(e) {
-            var v = $(this).data('value');
-            console.log(v)
-            me._sortByNutrient( v );
+            var val = $(this).data('value'),
+                inv = me._sortByNutrient( val );
+
+            console.log(val, inv);
+
+            $(this).siblings('.fxTreeBtn').each(function() {
+                $(this).find('i').attr('class','');
+            });
+            
+            $(this).find('i').attr('class',inv?'glyphicon glyphicon-arrow-down':'glyphicon glyphicon-arrow-up');
+
         });
 
         this.$searchBox.on('keyup', function (e) {
@@ -287,6 +295,7 @@ define(['jquery',
             this.$sortNutrients.hide();
         }
     };
+
     fxTree.prototype._changeTxtValMode = function () {
         this.sortedBy.field = "";
         this.sortedBy.inv = false;
@@ -297,7 +306,9 @@ define(['jquery',
         else if (this.$chkNutrient.is(':checked'))
             this.txtValMode = _modeTxtVal.nutrient;
     };
+
     fxTree.prototype._sortByNutrient = function (n) {
+        this.sortedBy.inv = !this.sortedBy.inv;
         if (!this.data)
             return;
         if (this.sortedBy.field == n) {
@@ -305,10 +316,14 @@ define(['jquery',
         }
         else {
             this._sortByNutrient_node(this.data, n, this.sortedBy.inv);
+            
         }
         this.sortedBy.field = n;
         this._updateTreeData();
+
+        return this.sortedBy.inv;
     };
+
     fxTree.prototype._sortByNutrient_node = function (arr, n, inverse) {
         if (!arr)
             return;

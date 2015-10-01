@@ -243,8 +243,6 @@ define(['jquery',
             var val = $(this).data('value'),
                 inv = me._sortByNutrient( val );
 
-            console.log(val, inv);
-
             $(this).siblings('.fxTreeBtn').each(function() {
                 $(this).find('i').attr('class','');
             });

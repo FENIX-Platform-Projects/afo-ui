@@ -310,10 +310,7 @@ define(['underscore', 'underscore-string',
                         };
                     });
                 }
-                
-                //var first = _.where(data, {id: '3102100000'});
-                //console.log('first', first);
-                
+
                 self.productTree.setData(data);
                 //self.productTree.setFirst(first);
             }

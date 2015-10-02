@@ -39,6 +39,13 @@ define(['jquery',
         "prices_international_link": "http://www.argusmedia.com/Events/Argus-Events/Europe/Fert-Euro/Home",
         "prices_international_chart": "images/prices/prices_international_chart_ago2015.png",
 
+        "eventCategories": {
+            "1":"AFO technical workshops",
+            "2":"AFO conferences &amp; events",
+            "3":"AFO partners events",
+            "4":"AFO partners corner"
+        },
+
         "map_attribution": "&copy; <a href='http://www.openstreetmap.org/copyright'>OSM contrib</a>",
         "map_marker": "images/marker-icon.png",
         "map_center": [7.188100, 22.236328],

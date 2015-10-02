@@ -321,22 +321,55 @@ define(['jquery',
         return this.sortedBy.inv;
     };
 
+    fxTree.prototype.naturalSort = function (ar, index) {
+        var L= ar.length, i, who, next, 
+            isi= typeof index== 'number', 
+            rx=  /(\.\d+)|(\d+(\.\d+)?)|([^\d.]+)|(\.(\D+|$))/g;
+        function nSort(aa, bb){
+            var a= aa[0], b= bb[0], a1, b1, i= 0, n, L= a.length;
+            while(i<L){
+                if(!b[i]) return 1;
+                a1= a[i];
+                b1= b[i++];
+                if(a1!== b1){
+                    n= a1-b1;
+                    if(!isNaN(n)) return n;
+                    return a1>b1? 1: -1;
+                }
+            }
+            return b[i]!= undefined? -1: 0;
+        }
+        for(i= 0; i<L; i++){
+            who= ar[i];
+            next= isi? ar[i][index] || '': who;
+            ar[i]= [String(next).toLowerCase().match(rx), who];
+        }
+        ar.sort(nSort);
+        for(i= 0; i<L; i++){
+            ar[i]= ar[i][1];
+        }
+    };
+    
     fxTree.prototype._sortByNutrient_node = function (arr, n, inverse) {
         if (!arr)
             return;
         if (arr.children)
             this._sortByNutrient_node(arr.children, n);
-        arr.sort(function (a, b) {
-            if (!b[n])
-                return 1;
-            if (!a[n])
-                return -1;
-            if (a[n] > b[n])
-                return 1;
-            if (a[n] < b[n])
-                return -1;
-            return 0;
-        });
+
+        if(typeof arr[0] === 'string')
+            this.naturalSort(arr);
+        else
+            arr.sort(function (a, b) {
+                if (!b[n])
+                    return 1;
+                if (!a[n])
+                    return -1;
+                if (a[n] > b[n])
+                    return 1;
+                if (a[n] < b[n])
+                    return -1;
+                return 0;
+            });
     };
 
 

@@ -203,7 +203,7 @@ require([
 					$("#pivot_download").on('click', function(e) {
 
 						
-						pp1.exportCSV();
+						pp1.exportExcel();
 						
 						
 					});

@@ -275,8 +275,7 @@ define(['underscore', 'underscore-string',
 
         if (source !== 'cstat')
             payload = {
-                //query: this.config.queries.product_by_source,
-                query: this.config.queries.product_by_source_test,
+                query: this.config.queries.product_by_source,
                 queryVars: { SOURCE: source || defaultValues.DATA_SOURCE }
             };
         else
@@ -290,25 +289,16 @@ define(['underscore', 'underscore-string',
                 var data = [],
                     list;
 
-                if (Array.isArray(res)) {
-
-                    list = res.sort(function (a, b) {
-                        if (a[1] < b[1]) return -1;
-                        if (a[1] > b[1]) return 1;
-                        return 0;
-                    });
-
-                    data = _.map(list, function (item) {
-                        return {
-                            id: item[0],
-                            text: item[1],
-                            n: item[2],
-                            p: item[3],
-                            k: item[4],
-                            parent: '#'
-                        };
-                    });
-                }
+                data = _.map(res, function (item) {
+                    return {
+                        id: item[0],
+                        text: item[1],
+                        n: item[2],
+                        p: item[3],
+                        k: item[4],
+                        parent: '#'
+                    };
+                });
 
                 self.productTree.setData(data);
             }

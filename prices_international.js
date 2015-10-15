@@ -15,13 +15,13 @@ require([
     });
 
 	require([
-	    'jquery', 'underscore', 'bootstrap', 'handlebars',
+	    'jquery', 'underscore', 'bootstrap', 'handlebars','moment',
 	    'config/services',
 	    'src/renderAuthMenu',
 	    'fx-common/js/WDSClient',
 	    'text!html/table.html',
         'jquery.rangeSlider',
-	], function($,_,bts,Handlebars,
+	], function($,_,bts,Handlebars,moment,
 		Config,
 		renderAuthMenu,
 		WDSClient,
@@ -34,7 +34,7 @@ require([
 			datasource: Config.dbName,
 			outputType: 'array'
 		});
-
+window.moment = moment
 		tableTmpl = Handlebars.compile(table);
 
 		var banner$ = $('#prices_international_banner'),
@@ -70,10 +70,11 @@ require([
 					year = cols.pop(),
 					month = cols.pop(),
 					months = _.map(cols, function(val) {
-						return formatMonth(val,true);
-					});
+						return formatMonth(val, true);
+					}),
+					lastmont = moment(_.last(cols),'YYYYMM').format('MMMM YYYY');
 
-				$('#market_date').text(_.last(months));
+				$('.market_date').text( lastmont );
 
 				var	headers = _.union(['Nutrient','Fertilizer'], months, [month, year]),
 					rows = _.map(data, function(val) {

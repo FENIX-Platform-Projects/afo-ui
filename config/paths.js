@@ -63,7 +63,7 @@ define(function() {
             'pivotRenderersFuncs':    "submodules/fenix-ui-olap/js/rend/function_rendererers",
             'pivotAggregatorsFuncs':  "submodules/fenix-ui-olap/js/rend/function_aggregators",
             'pivotConfig':            "config/pivotConfig",
-
+jqueryui:   "submodules/fenix-ui-olap/lib/jquery-ui-1.9.2.custom.min",
             'commons':                "src/commons",
             'compare':                "src/statistics/compare",
             'glance':                 "src/statistics/glance"
@@ -98,7 +98,7 @@ define(function() {
             ],
             "gt_msg": ['jquery'],
             "gt_msg_grid": ['jquery','gt_msg'],
-            "HPivot": ['jquery','jqueryui'],
+            //"HPivot": ['jquery','jqueryui'],
             "pivotRenderers": ['pivotRenderersFuncs'],
             "pivotAggregators": ['pivotAggregatorsFuncs','jquery']
         }

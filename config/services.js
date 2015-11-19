@@ -35,9 +35,9 @@ define(['jquery',
 
         "url_events_attachments": "//fenixrepo.fao.org/afo/events/attachments/",
 
-        "prices_international_banner": "images/prices/prices_international_banner_argus_fmb_europe.jpg",  
-        "prices_international_link": "http://www.argusmedia.com/Events/Argus-Events/Europe/Fert-Euro/Home",
-        "prices_international_chart": "images/prices/prices_international_chart_sep2015.png",
+        "prices_international_banner": "images/prices/prices_international_banner_argus_fmb_morocco.jpg",  
+        "prices_international_link": "http://www.argusmedia.com/Events/Argus-Events/Europe/Fert-Africa/Home?utm_medium=Partner&utm_source=ArgusWebinar&utm_campaign=Lon-Conf-FertAfrica16-MPifdc",
+        "prices_international_chart": "images/prices/prices_international_chart_oct2015.png",
 
         "eventCategories": {
             "1":"AFO technical workshops",

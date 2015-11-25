@@ -221,15 +221,6 @@ define(['underscore',
                 queryVars: v
             },
             success: _.bind(function(data) {
-                
-                console.log(data);
-
-/*                data = _.reject(data, function(d) {
-                    return d[0]=='ifa' && (d[2]=='Production' || d[2]=='Export');
-                });*/
-
-                console.log(data);
-
                 this.results.printOlap(data);
             }, this)
         });

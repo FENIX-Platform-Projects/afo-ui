@@ -40,10 +40,21 @@ define(['jquery',
         "prices_international_chart": "images/prices/prices_international_chart_oct2015.png",
 
         "eventCategories": {
-            "1":"AFO technical workshops",
-            "2":"AFO conferences &amp; events",
-            "3":"AFO partners events",
-            "4":"AFO partners corner"
+            "1": "AFO technical workshops",
+            "2": "AFO conferences &amp; events",
+            "3": "AFO partners events",
+            "4": "AFO partners corner"
+        },
+
+        "stats_compare_hidden_elements": {
+            "ifa": [
+                "prod",   //Production
+                "exp",    //Export
+                //"cons",   //Consumption
+                //"imp",    //Import
+                //"nfu",    //Non fertilizer use
+                //"prodCap" //Production Capacities
+            ]
         },
 
         "map_attribution": "&copy; <a href='http://www.openstreetmap.org/copyright'>OSM contrib</a>",

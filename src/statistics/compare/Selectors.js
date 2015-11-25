@@ -13,24 +13,26 @@ define([
     'use strict';
 
     var s = {
-        DATA_SOURCES: '#data-sources-s',
-        PRODUCT: '#product-s',
-        PRODUCT_SEARCH: '#product-search-s',
-        ELEMENT: '#element-s',
-        ELEMENT_SEARCH: '#element-search-s',
-        N_P: '#n-p-s',
-        COMPARE: '#compare-s',
-        COUNTRY: '#country-s',
-        COUNTRY_SEARCH: '#country-search-s',
-        SHOW_AS: '#show-s'
-    }, defaultValues = {
-        DATA_SOURCE: 'faostat',
-        COMPARE: 'COUNTRY',
-        N_P: 'p',
-        SHOW_AS: 'pivot'
-    }, ev = {
-        SELECT: 'afo.selector.select'
-    };
+            DATA_SOURCES: '#data-sources-s',
+            PRODUCT: '#product-s',
+            PRODUCT_SEARCH: '#product-search-s',
+            ELEMENT: '#element-s',
+            ELEMENT_SEARCH: '#element-search-s',
+            N_P: '#n-p-s',
+            COMPARE: '#compare-s',
+            COUNTRY: '#country-s',
+            COUNTRY_SEARCH: '#country-search-s',
+            SHOW_AS: '#show-s'
+        },
+        defaultValues = {
+            DATA_SOURCE: 'faostat',
+            COMPARE: 'COUNTRY',
+            N_P: 'p',
+            SHOW_AS: 'pivot'
+        },
+        ev = {
+            SELECT: 'afo.selector.select'
+        };
 
     var wdsClient = new WDSClient({
         datasource: Config.dbName,
@@ -83,6 +85,7 @@ define([
         });
 
         function createTree(data) {
+
             self.countriesTree = $(s.COUNTRY).jstree({
                 core: {
                     multiple: true,
@@ -161,7 +164,7 @@ define([
 
                 var checkboxValues = [];
                 $(s.DATA_SOURCES).find('input:checked').each(function(index, elem) {
-                    checkboxValues.push($(elem).val());
+                    checkboxValues.push( $(elem).val() );
                 });
 
                 self._initProductSelector(checkboxValues.join("','"));
@@ -227,52 +230,8 @@ define([
                         amplify.publish(ev.SELECT);
                     }
                 }).setData(data);
-                //createTree(data);
-                //initSearch();
             }
         });
-
-        function createTree(data) {
-
-/*            if ( $(s.PRODUCT).jstree(true) &&  $(s.PRODUCT).jstree(true).destroy){
-                $(s.PRODUCT).jstree(true).destroy()
-            }
-
-            self.productTree = $(s.PRODUCT).jstree({
-                core: {
-                    multiple: true,
-                    data: data,
-                    themes: {
-                        icons: false,
-                        stripes: true
-                    }
-                },
-                plugins: ['search', 'wholerow', 'checkbox', 'ui'],
-                search: {
-                    show_only_matches: true
-                },
-                ui: {
-                    initially_select: ['2814200000']
-                }
-            }).on('changed.jstree', function () {
-                amplify.publish(ev.SELECT);
-            });
-
-            $(s.PRODUCT).jstree(true).select_node('ul > li:first');*/
-        }
-
-        function initSearch() {
-            var to = false;
-            $(s.PRODUCT_SEARCH).keyup(function () {
-                if (to) {
-                    clearTimeout(to);
-                }
-                to = setTimeout(function () {
-                    var v = $(s.PRODUCT_SEARCH).val();
-                    $(s.PRODUCT).jstree(true).search(v);
-                }, 250);
-            });
-        }
     };
 
     Selectors.prototype._initElementSelector = function () {
@@ -296,10 +255,12 @@ define([
                     });
 
                     _.each(list, function (item) {
-                        data.push({
-                            id: item[0],
-                            text: item[1]
-                        });
+
+                        if(!_.contains(Config['stats_compare_hidden_elements']['ifa'], item[0]))
+                            data.push({
+                                id: item[0],
+                                text: item[1]
+                            });
                     });
 
                 }
@@ -311,6 +272,10 @@ define([
 
         function createTree(data) {
 
+            var isIfa = $(s.DATA_SOURCES).find('input[value="ifa"]').is(":checked");
+            
+            console.log('element createTree', isIfa, data);
+            
             self.elementTree = $(s.ELEMENT).jstree({
                 core: {
                     multiple: true,
@@ -422,7 +387,7 @@ define([
 
                     if ($dataSourceCountrySTAT.is(":checked")) {
                        $dataSourceCountrySTAT.prop('checked', false);
-                    }
+                    }                 
 
                     $dataSourceCountrySTAT.attr("disabled", true);
 
@@ -456,7 +421,6 @@ define([
 
         $(s.SHOW_AS).html($form);
 		
-        
 		$(s.SHOW_AS).find('input[value="' + defaultValues.SHOW_AS + '"]').prop('checked', true);
 
         function renderRadioBtn(item, index) {
@@ -479,8 +443,10 @@ define([
             }
 
             $radio.on('change', _.bind(function () {
-				if( $(s.SHOW_AS).find('input:checked').val()=="pivot"){document.getElementById("exportOlap").style.display="block";}
-				else{document.getElementById("exportOlap").style.display="none";}
+				if( $(s.SHOW_AS).find('input:checked').val()=="pivot")
+                    document.getElementById("exportOlap").style.display = "block";
+				else
+                    document.getElementById("exportOlap").style.display = "none";
                 amplify.publish(ev.SELECT);
             }));
 

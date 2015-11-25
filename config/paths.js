@@ -58,12 +58,12 @@ define(function() {
             'pivot':                  "submodules/fenix-ui-olap/js/pivot",
             'gt_msg':                 "submodules/fenix-ui-olap/lib/grid/gt_msg_en",
             'gt_msg_grid':            "submodules/fenix-ui-olap/lib/grid/gt_grid_all",
+            'jqueryui':               "submodules/fenix-ui-olap/lib/jquery-ui-1.9.2.custom.min",
             'pivotRenderers':         "submodules/fenix-ui-olap/js/rend/rendererers",
             'pivotAggregators':       "submodules/fenix-ui-olap/js/rend/aggregators",
             'pivotRenderersFuncs':    "submodules/fenix-ui-olap/js/rend/function_rendererers",
             'pivotAggregatorsFuncs':  "submodules/fenix-ui-olap/js/rend/function_aggregators",
             'pivotConfig':            "config/pivotConfig",
-jqueryui:   "submodules/fenix-ui-olap/lib/jquery-ui-1.9.2.custom.min",
             'commons':                "src/commons",
             'compare':                "src/statistics/compare",
             'glance':                 "src/statistics/glance"
@@ -96,6 +96,8 @@ jqueryui:   "submodules/fenix-ui-olap/lib/jquery-ui-1.9.2.custom.min",
                 'jquery.hoverIntent',
                 'jquery.i18n.properties'
             ],
+            //OLAP
+            'jqueryui': ['jquery'],
             "gt_msg": ['jquery'],
             "gt_msg_grid": ['jquery','gt_msg'],
             //"HPivot": ['jquery','jqueryui'],

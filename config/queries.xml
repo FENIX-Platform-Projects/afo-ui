@@ -199,12 +199,12 @@
     CASE WHEN um IS NULL THEN '' ELSE CAST( um AS character varying) END  AS Unit,
     '' AS Flag
     FROM (
-    SELECT element, country, fertilizer, year, value, um
-    FROM compare
-    WHERE data_source = '{SOURCE}'
-    AND fertilizer IN ({PRODUCT})
-    AND country IN ({COUNTRY})
-    AND n_p = '{KIND}'
+      SELECT element, country, fertilizer, year, value, um
+      FROM compare
+      WHERE data_source = '{SOURCE}'
+      AND fertilizer IN ({PRODUCT})
+      AND country IN ({COUNTRY})
+      AND n_p = '{KIND}'
     ) c
     RIGHT JOIN codes_elements ON element = element_code
     LEFT JOIN (SELECT DISTINCT country_code, country_label FROM codes_countries) AS cDist ON country = country_code
@@ -517,7 +517,8 @@
         CONCAT('', document_attachment_title),
         CONCAT('', document_tags),
         CONCAT('', publication_rating)
-    FROM publications
+    FROM publications 
+    ORDER BY posting_date DESC
   </q>
 
   <q id="events_reformat">

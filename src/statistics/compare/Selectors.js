@@ -255,12 +255,10 @@ define([
                     });
 
                     _.each(list, function (item) {
-
-                        if(!_.contains(Config['stats_compare_hidden_elements']['ifa'], item[0]))
-                            data.push({
-                                id: item[0],
-                                text: item[1]
-                            });
+                        data.push({
+                            id: item[0],
+                            text: item[1]
+                        });
                     });
 
                 }
@@ -272,10 +270,6 @@ define([
 
         function createTree(data) {
 
-            var isIfa = $(s.DATA_SOURCES).find('input[value="ifa"]').is(":checked");
-            
-            console.log('element createTree', isIfa, data);
-            
             self.elementTree = $(s.ELEMENT).jstree({
                 core: {
                     multiple: true,

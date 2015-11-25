@@ -220,11 +220,11 @@
     CASE WHEN um IS NULL THEN '' ELSE CAST( um AS character varying) END AS Unit,
     '' AS Flag
     FROM (
-    SELECT element, country, fertilizer, year, value, um
-    FROM country_stat
-    WHERE fertilizer IN ({PRODUCT})
-    AND country IN ({COUNTRY})
-    AND n_p = '{KIND}'
+      SELECT element, country, fertilizer, year, value, um
+      FROM country_stat
+      WHERE fertilizer IN ({PRODUCT})
+      AND country IN ({COUNTRY})
+      AND n_p = '{KIND}'
     ) c
     RIGHT JOIN codes_elements ON element = element_code
     LEFT JOIN (SELECT DISTINCT country_code, country_label FROM codes_countries) AS cDist ON country = country_code
@@ -360,9 +360,15 @@
   </q>
 
   <q id="compare_pivot">
-    SELECT cs.data_source_label, cc.country_label,ce.element_label, cf.fertilizer_label, d.year, d.value, d.um 
+    SELECT cs.data_source_label, 
+        cc.country_label,
+        ce.element_label, 
+        cf.fertilizer_label, 
+        d.year, 
+        d.value, 
+        d.um 
     FROM compare d
-    INNER JOIN countries_unique cc ON d.country=cc.country_code
+    INNER JOIN countries_unique cc ON d.country = cc.country_code
     INNER JOIN codes_fertilizers cf ON d.fertilizer = cf.fertilizer_code
     INNER JOIN codes_elements ce ON d.element = ce.element_code
     INNER JOIN codes_data_sources cs ON d.data_source = cs.data_source_code
@@ -371,7 +377,29 @@
       AND d.element IN ({ELEMENT})
       AND d.fertilizer IN ({PRODUCT})
       AND n_p IN ({KIND})
-      AND d.value IS NOT NULL
+      AND d.value IS NOT NULL 
+  </q>
+
+  <q id="compare_pivot_filter_ifa">
+    SELECT cs.data_source_label, 
+        cc.country_label,
+        ce.element_label,
+        cf.fertilizer_label, 
+        d.year, 
+        d.value, 
+        d.um 
+    FROM compare d
+    INNER JOIN countries_unique cc ON d.country = cc.country_code
+    INNER JOIN codes_fertilizers cf ON d.fertilizer = cf.fertilizer_code
+    INNER JOIN codes_elements ce ON d.element = ce.element_code
+    INNER JOIN codes_data_sources cs ON d.data_source = cs.data_source_code
+    WHERE d.data_source IN ({SOURCE})
+      AND d.country IN ({COUNTRY})
+      AND d.element IN ({ELEMENT})
+      AND d.fertilizer IN ({PRODUCT})
+      AND n_p IN ({KIND})
+      AND d.value IS NOT NULL 
+      AND ( d.data_source <> 'ifa' OR d.element NOT IN ('exp','prod') )  
   </q>
 
   <q id="compare_by_source">

@@ -48,10 +48,10 @@ define(function() {
             //PATCH!  remove after new wds server support retrieve in POST
             'fx-common/js/WDSClient': 'src/wdsFakeInterface',
 
-            //'fenix-map':              FX_CDN+"/fenix/fenix-ui-map/0.1.1/dist/fenix-ui-map.min",
-            //'fenix-map-config':       FX_CDN+"/fenix/fenix-ui-map/0.1.1/dist/fenix-ui-map-config",
-            'fenix-map':              "submodules/fenix-ui-map/dist/fenix-ui-map.src",
-            'fenix-map-config':       "submodules/fenix-ui-map/dist/fenix-ui-map-config",
+            'fenix-map':              FX_CDN+"/fenix/fenix-ui-map/0.1.1/dist/fenix-ui-map.min",
+            'fenix-map-config':       FX_CDN+"/fenix/fenix-ui-map/0.1.1/dist/fenix-ui-map-config",
+            //'fenix-map':              "submodules/fenix-ui-map/dist/fenix-ui-map.src",
+            //'fenix-map-config':       "submodules/fenix-ui-map/dist/fenix-ui-map-config",
 
             'fx-olap/nls':            "submodules/fenix-ui-olap/nls",
 

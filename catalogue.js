@@ -42,7 +42,6 @@ require([
 			outputType: 'array'
 		});
 
-
 		var accordionTmpl = Handlebars.compile(accordion);
 
 		var fmMap;
@@ -292,7 +291,7 @@ require([
 					opacities[ val[0] ]= 0.2;
 				
 				opacities[ val[0] ]= parseFloat( val[1].length * 0.18 ).toFixed(2);
-				opacities[ val[0] ]= Math.min(opacities[val[0]], 1);			
+				opacities[ val[0] ]= Math.min(opacities[val[0]], 1);
 			});
 			
 			var data = [];
@@ -326,11 +325,13 @@ require([
 		};
 
 		fmMap = new FM.Map('fertMap', {
-			plugins: {
+			plugins: {				
 				geosearch: false,
+				fullscreen: 'topright',
+				disclaimerfao: 'topright',				
 				mouseposition: false,
 				controlloading: true,
-				zoomControl: 'bottomright'
+				zoomControl: false//'bottomright'
 			},
 			guiController: {
 				overlay: true,
@@ -342,6 +343,7 @@ require([
 			},
 			usedefaultbaselayers: false
 		}, {
+			//legendControl: false,
 			zoomControl: false,
 			attributionControl: true
 		});

@@ -49,7 +49,9 @@
 		        <span class="afo-field-title field">Pictures</span><ul class="afo-category-list">
 		       {{#each attachments.PI}}
 			   <li>
-				   <img src="{{this.file_name}}" style="max-height:120px;width:auto" target="blank" />
+				   <a target="_blank" href="{{this.file_name}}">
+				      <img src="{{this.file_name}}" style="max-height:120px;width:auto" target="blank" />
+				   </a>
 				   <br />{{this.attachment_title}}
 			   </li>	
 			   {{/each}}

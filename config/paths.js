@@ -63,10 +63,12 @@ define(function() {
             'pivotAggregators':       "submodules/fenix-ui-olap/js/rend/aggregators",
             'pivotRenderersFuncs':    "submodules/fenix-ui-olap/js/rend/function_rendererers",
             'pivotAggregatorsFuncs':  "submodules/fenix-ui-olap/js/rend/function_aggregators",
-            'pivotConfig':            "config/pivotConfig",
+            'pivotConfig':            "config/pivotConfig",            
+
             'commons':                "src/commons",
             'compare':                "src/statistics/compare",
-            'glance':                 "src/statistics/glance"
+            'glance':                 "src/statistics/glance",
+            'afo_geo_countries':      "data/afo_countries.geoenc.json"
         },
         shim: {
             'jstree': ['jquery'],

@@ -5,12 +5,15 @@ define(['underscore', 'underscore-string',
     'src/fxTreeNutrient',
     'geojson_decoder',
     'config/services',
+    'text!afo_geo_countries',
     'amplify'
 ], function (_, _str,
     WDSClient,
-    fxTree, fxTreeNutrient,
+    fxTree,
+    fxTreeNutrient,
     geojsonDecoder,
-    Config) {
+    Config,
+    afo_geo_countries) {
 
     'use strict';
 
@@ -36,6 +39,8 @@ define(['underscore', 'underscore-string',
         datasource: Config.dbName,
         outputType: 'array'
     });
+
+    var afoGeoCountries = JSON.parse(afo_geo_countries);
 
     function _template(str, data) {
         return str.replace(/\{ *([\w_]+) *\}/g, function (str, key) {
@@ -76,8 +81,8 @@ define(['underscore', 'underscore-string',
             mapzoomsCountries$ = $('#stats_map_countries').next('.map-zooms');
 
         var style = {
-            fill: true, color: '#68AC46', weight: 1, opacity: 1, fillOpacity: 0.4, fillColor: '#6AAC46'
-        },
+                fill: true, color: '#68AC46', weight: 1, opacity: 1, fillOpacity: 0.4, fillColor: '#6AAC46'
+            },
             styleHover = {
                 fill: true, color: '#6AAC46', weight: 1, opacity: 1, fillOpacity: 0.8, fillColor: '#6AAC46'
             },
@@ -92,6 +97,62 @@ define(['underscore', 'underscore-string',
             center: L.latLng(Config.map_center),
             layers: L.tileLayer(Config.url_baselayer)
         }).addControl(L.control.zoom({ position: 'bottomright' }));
+
+        var geojsonCountries = L.featureGroup();
+        geojsonCountries.addTo(self.mapCountries);
+
+        function renderMapCountries(data) {
+
+            geojsonCountries.clearLayers();
+
+            geojsonDecoder.decodeToLayer(data,
+                geojsonCountries,
+                style,
+                function (feature, layer) {
+                    layer
+                    .on("mouseover", function (e) {
+                        $('#stats_selected_countries').text(feature.properties.prop2);
+                    })
+                    .on("click", function (e) {
+
+                        geojsonCountries.eachLayer(function (lay) {
+                            lay.setStyle(style);
+                            lay._options.selected = false;
+                        });
+
+                        e.target.setStyle(styleHover);
+                        e.target._options.selected = true;
+
+                        listCountries$.find("option:selected").removeAttr("selected");
+                        listCountries$.val(feature.properties.prop1);
+
+                        selection.COUNTRY = [{
+                            code: feature.properties.prop1,
+                            text: feature.properties.prop2
+                        }];
+                        
+                        amplify.publish(ev.SELECT);
+                    });
+                }
+            );
+
+            self.mapCountries.fitBounds( geojsonCountries.getBounds().pad(-0.8) );
+        }
+
+        function loadMapCountries(ids) {
+
+            var sql = _template(self.config.queries.countries_geojson, {
+                        ids: ids.join(',')
+                    });
+
+            var url = _template(self.config.url_spatialquery_enc, {
+                sql: sql
+            });
+
+            $.getJSON(url, function (data) {
+                renderMapCountries(data);
+            });
+        }
 
         function loadMapByRegion(regCode) {
 
@@ -110,53 +171,7 @@ define(['underscore', 'underscore-string',
                         return val[0];
                     });
 
-                    var sql = _template(self.config.queries.countries_geojson, {
-                        ids: idsCountries.join(',')
-                    });
-
-                    var url = _template(self.config.url_spatialquery_enc, {
-                        sql: sql
-                    });
-
-                    $.getJSON(url, function (data) {
-
-                        geojsonCountries.clearLayers();
-
-                        geojsonDecoder.decodeToLayer(data,
-                            geojsonCountries,
-                            style,
-                            function (feature, layer) {
-                                layer
-                                .on("mouseover", function (e) {
-                                    $('#stats_selected_countries').text(feature.properties.prop2);
-                                })
-                                .on("click", function (e) {
-
-                                    geojsonCountries.eachLayer(function (lay) {
-                                        lay.setStyle(style);
-                                        lay._options.selected = false;
-                                    });
-
-                                    e.target.setStyle(styleHover);
-                                    e.target._options.selected = true;
-
-                                    listCountries$.find("option:selected").removeAttr("selected");
-                                    listCountries$.val(feature.properties.prop1);
-
-                                    selection.COUNTRY = [{
-                                        code: feature.properties.prop1,
-                                        text: feature.properties.prop2
-                                    }];
-
-                                    // leave me as last row!
-                                    amplify.publish(ev.SELECT);
-                                });
-                            }
-                        );
-                        var bb = geojsonCountries.getBounds();
-                        self.mapCountries.fitBounds(bb.pad(-0.8));
-                        geojsonCountries.addTo(self.mapCountries);
-                    });
+                    loadMapCountries( idsCountries );
                 }
             });
         }
@@ -185,13 +200,17 @@ define(['underscore', 'underscore-string',
                     onChange: function (seldata) {
                         loadMapByRegion(seldata[0])
                     }
-                }).setData(regs).setFirst({ id: '650', text: 'COMESA' });
+                })
+                .setData(regs)
+                .setFirst({ id: '650', text: 'COMESA' });
             }
         });
 
-        self.mapCountries.attributionControl.setPrefix(Config.map_attribution);
+        setTimeout(function() {
+            renderMapCountries( afoGeoCountries );
+        }, 2000);
 
-        var geojsonCountries = L.featureGroup();
+        self.mapCountries.attributionControl.setPrefix(Config.map_attribution);
 
         mapzoomsCountries$.on('click', '.btn', function (e) {
             var z = parseInt($(this).data('zoom'));

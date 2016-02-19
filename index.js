@@ -28,6 +28,7 @@ require([
 
 		renderAuthMenu('home');
 
+
 		var mapLegendTmpl = Handlebars.compile( $('#home_maps_legend').html() );
 
 		var wdsClient = new WDSClient({

@@ -3754,3 +3754,6 @@ thead {
   background: none;
 }
 
+#fx-navbar-collapse {
+  background: url('../images/topmenu.png') no-repeat 35px 0;
+}

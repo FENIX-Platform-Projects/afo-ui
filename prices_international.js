@@ -34,7 +34,7 @@ require([
 			datasource: Config.dbName,
 			outputType: 'array'
 		});
-window.moment = moment
+
 		tableTmpl = Handlebars.compile(table);
 
 		var banner$ = $('#prices_international_banner'),

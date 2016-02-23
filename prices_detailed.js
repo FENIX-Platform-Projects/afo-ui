@@ -85,7 +85,7 @@ require([
            return yyyy + (mm[1]?mm:"0"+mm[0]); // padding
         }        
 
-        var defDates = Config.dateRangeSlider.prices_detaild.defaultValues,
+        var defDates = Config.dateRangeSlider.prices_local.defaultValues,
             defSelection = {
                 fertilizer_code: '3105300000',
                 fertilizer_name: '',
@@ -232,7 +232,7 @@ require([
             });
         }
 
-        rangeMonths$.dateRangeSlider(Config.dateRangeSlider.prices_detaild);
+        rangeMonths$.dateRangeSlider(Config.dateRangeSlider.prices_local);
 
 
         //Events
@@ -243,7 +243,7 @@ require([
         pricesRangeRadio$.on('click', function (e) {
 
             var val = parseInt($(this).val()),
-                max = moment(Config.dateRangeSlider.prices_detaild.bounds.max),
+                max = moment(Config.dateRangeSlider.prices_local.bounds.max),
                 min = max.subtract(val, 'months').toDate();
             rangeMonths$.dateRangeSlider('min', min);
         });

@@ -62,7 +62,7 @@ define(['jquery',
         "map_center": [7.188100, 22.236328],
 
         "dateRangeSlider": {
-            prices_national: {
+            "prices_national": {
                 defaultValues: {
                     min: new Date(2014, 2, 0),
                     max: new Date()
@@ -72,7 +72,7 @@ define(['jquery',
                     max: new Date()
                 }
             },
-            prices_detaild: {
+            "prices_local": {
                 defaultValues: {
                     min: new Date(2014, 7, 0),
                     max: new Date()

@@ -159,7 +159,10 @@ define(['underscore', 'underscore-string',
             wdsClient.retrieve({
                 payload: {
                     query: Config.queries.countries_byregion,
-                    queryVars: { id: regCode }
+                    queryVars: {
+                        id: regCode,
+                        source: $(s.DATA_SOURCES).find('input:checked').val()
+                    }
                 },
                 success: function (resp) {
 

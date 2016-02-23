@@ -65,6 +65,14 @@
     WHERE parent_code = '{id}'
   </q>
 
+  <q id="countries_byregion_filtered">
+    SELECT country_code, country_label
+    FROM codes_countries, compare c 
+    WHERE parent_code = '{id}' 
+      AND c.data_source = '{source}' 
+      AND c.value IS NOT NULL
+  </q>
+
   <q id="countries_geojson">
     SELECT ST_AsGeoJSON(geom), adm0_code, areanamee
     FROM spatial.gaul0_faostat_afo_4326
@@ -167,8 +175,8 @@
   <q id="prices_detailed_countries">
     SELECT country, country_label
     FROM (
-    SELECT distinct country
-    FROM prices_local
+      SELECT distinct country
+      FROM prices_local
     ) AS countries
     JOIN codes_countries ON country = country_code
     GROUP BY country, country_label
@@ -180,13 +188,14 @@
     STRING_AGG(period,'|') AS period,
     STRING_AGG(''||value,'|') AS value
     FROM (
-    SELECT *
-    FROM prices_international
-    WHERE period IN (
-    SELECT distinct period
-    FROM prices_international
-    ORDER BY period DESC
-    LIMIT 14) ORDER BY period, index
+      SELECT *
+      FROM prices_international
+      WHERE period IN (
+        SELECT distinct period
+        FROM prices_international
+        ORDER BY period DESC
+        LIMIT 14
+      ) ORDER BY period, index
     ) origin
     GROUP BY index, nutrient, fob
     ORDER BY index

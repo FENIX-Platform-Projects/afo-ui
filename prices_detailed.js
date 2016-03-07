@@ -41,14 +41,14 @@ require([
         var resumeTmpl = Handlebars.compile($('script#resumeTmpl').html()),
             popupTmpl = Handlebars.compile($('script#popupTmpl').html());
 
-        var radioMarketTypeAll$ = $('#marketTypeAll'),
-            radioMarketTypeOpen$ = $('#marketTypeOpen'),
+        var radioMarketTypeOpen$ = $('#marketTypeOpen'),
+            radioMarketTypeAll$ = $('#marketTypeAll'),
             radioMarketTypeSub$ = $('#marketTypeSub'),
             rangeMonths$ = $('#prices_rangeMonths'),
-            tableresult$ = $('#table-result'),
             afoResumeWrap$ = $('#afo-resume-wrap'),
-            pricesRangeRadio$ = $('input[name=prices_range_radio]'),
-            pricesTypeRadio$ = $('input[type=radio][name=mType_radio]');
+            tableresult$ = $('#table-result'),            
+            pricesTypeRadio$ = $('input[type=radio][name=mType_radio]'),
+            pricesRangeRadio$ = $('input[name=prices_range_radio]');            
 
         var treeProduct = new fxTree('#product-s', {
             labelVal: 'HS Code',
@@ -75,6 +75,11 @@ require([
 
         var pricesMap;
 
+        _.extend(FMCONFIG, {
+            BASEURL: 'submodules/fenix-ui-map',
+            BASEURL_LANG: 'submodules/fenix-ui-map/dist/i18n/'
+        });
+
         function formatMonth(date) {
             return [date.slice(0, 4), '/', date.slice(4)].join('')
         }
@@ -83,7 +88,7 @@ require([
            var yyyy = date.getFullYear().toString();
            var mm = (date.getMonth()+1).toString();
            return yyyy + (mm[1]?mm:"0"+mm[0]); // padding
-        }        
+        }
 
         var defDates = Config.dateRangeSlider.prices_local.defaultValues,
             defSelection = {
@@ -123,23 +128,41 @@ require([
             return toRet;
         }
 
-        pricesMap = L.map('prices_retail_map', {
-            zoom: 3,
+        pricesMap = new FM.Map('prices_retail_map', {
+            plugins: {
+                geosearch: false,
+                fullscreen: 'topright',
+                disclaimerfao: false,          
+                mouseposition: false,
+                controlloading: true,
+                zoomControl: false
+            },
+            guiController: {
+                overlay: true,
+                baselayer: false,
+                wmsLoader: true
+            }
+        }, {
+            //legendControl: false,
             zoomControl: false,
+            attributionControl: true,
+            //maxZoom: 3,
             scrollWheelZoom: false,
-            center: L.latLng(Config.map_center),            
-            layers: L.tileLayer(Config.url_baselayer)
-        }).addControl(L.control.zoom({ position: 'bottomright' }));
+            center: L.latLng(Config.map_center)
+        });
+        
+        pricesMap.map.attributionControl.setPrefix(Config.map_attribution);
 
-        var initBbox = pricesMap.getBounds();
+        pricesMap.createMap();
 
-        pricesMap.attributionControl.setPrefix(Config.map_attribution);
+        var initBbox = pricesMap.map.getBounds();
+
+        pricesMap.map.attributionControl.setPrefix(Config.map_attribution);
 
         var layerRetail = new L.MarkerClusterGroup({
             maxClusterRadius: 30,
             showCoverageOnHover: false
-        });
-        layerRetail.addTo(pricesMap);
+        }).addTo( pricesMap.map );
 
         function updateResume(selection) {
             if(!selection) {
@@ -223,11 +246,11 @@ require([
                         }) )
                         .addTo(layerRetail);
                     }
-                    
+
                     if(data.length>0)
-                        pricesMap.fitBounds(layerRetail.getBounds().pad(-1.2));
+                        pricesMap.map.fitBounds(layerRetail.getBounds());
                     else
-                        pricesMap.fitBounds(initBbox);
+                        pricesMap.map.fitBounds(initBbox);
                 }
             });
         }

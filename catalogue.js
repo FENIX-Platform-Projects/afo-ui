@@ -325,25 +325,21 @@ require([
 		};
 
 		fmMap = new FM.Map('fertMap', {
-			plugins: {				
+			plugins: {
 				geosearch: false,
 				fullscreen: 'topright',
-				disclaimerfao: 'topright',				
+				disclaimerfao: false,				
 				mouseposition: false,
 				controlloading: true,
-				zoomControl: false//'bottomright'
+				zoomControl: false
 			},
 			guiController: {
-				overlay: true,
+				overlay: false,
 				baselayer: false,
 				wmsLoader: true
 			},
-			gui: {
-				disclaimerfao: true
-			},
 			usedefaultbaselayers: false
 		}, {
-			//legendControl: false,
 			zoomControl: false,
 			attributionControl: true
 		});
@@ -352,7 +348,7 @@ require([
 
 		fmMap.createMap(0, 20, 3);
 
-		L.tileLayer(Config.url_baselayer).addTo(fmMap.map);
+		L.tileLayer(Config.url_baselayer).addTo( fmMap.map );
 
 		var fmLayer = new FM.layer({
 			urlWMS: Config.wmsUrl,
@@ -376,14 +372,14 @@ require([
 			}
 		});
 
-		fmMap.addLayer(fmLayer);
+		fmMap.addLayer( fmLayer );
 
 		$('#catalogue_tabs').find('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
         
 			switch($(e.target).attr('href'))
 			{
 				case '#families':
-					initListFamilies(fmLayer);
+					initListFamilies( fmLayer );
 					fmMap.map.invalidateSize();
 					$('#down_selection').hide();
 				break;
@@ -432,8 +428,9 @@ require([
 		        link.click();
 		        document.body.removeChild(link);
 			}
-		})
-		initListFamilies(fmLayer);
+		});
+
+		initListFamilies( fmLayer );
 
 	});
 

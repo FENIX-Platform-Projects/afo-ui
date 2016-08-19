@@ -89,8 +89,12 @@
 
   <q id="data_sources">
     SELECT * FROM codes_data_sources 
-    WHERE data_source_code <> 'ifa'
   </q>
+
+  <q id="data_sources_noifa">
+    SELECT * FROM codes_data_sources 
+    WHERE data_source_code <> 'ifa'
+  </q>  
 
   <q id="products">
     SELECT DISTINCT fertilizer_label, fertilizer_code

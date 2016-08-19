@@ -129,7 +129,7 @@ define([
 
         wdsClient.retrieve({
             payload: {
-                query: Config.queries.data_sources
+                query: Config.queries.data_sources_noifa
             },
             success: function(res) {   
                 var $form = $('<form>');

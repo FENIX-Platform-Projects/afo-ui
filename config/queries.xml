@@ -88,12 +88,13 @@
   </q>
 
   <q id="data_sources">
-    SELECT * FROM codes_data_sources
+    SELECT * FROM codes_data_sources 
+    WHERE data_source_code <> 'ifa'
   </q>
 
   <q id="products">
     SELECT DISTINCT fertilizer_label, fertilizer_code
-    FROM codes_fertilizers
+    FROM codes_fertilizers 
     ORDER BY fertilizer_label
   </q>
 
@@ -261,8 +262,8 @@
     RIGHT JOIN codes_elements ON element = element_code
     LEFT JOIN (SELECT DISTINCT country_code, country_label FROM codes_countries) AS cDist ON country = country_code
     WHERE element <> 'rimp'
-    AND element <> 'rexp'
-    AND value IS NOT NULL
+      AND element <> 'rexp'
+      AND value IS NOT NULL
     ORDER BY element ASC, year ASC
   </q>
 

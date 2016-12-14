@@ -30,6 +30,16 @@ require([
 
 		renderAuthMenu(true);
 
+		function formatMonth(date, str) {
+			var year = date.slice(0,4),
+				month = date.slice(4);
+			if(!!str) {
+				var mdate = (new Date(year,month-1)).toDateString().split(' ');
+				return mdate[1]+' '+mdate[3];
+			}
+			return [year, '/', month].join('');
+		}
+
 		var wdsClient = new WDSClient({
 			datasource: Config.dbName,
 			outputType: 'array'
@@ -47,18 +57,6 @@ require([
 		chart$.attr('src', Config.prices_international_chart );
 
 		table$.html('<big class="text-center">Loading data...<br /><br /></big>');
-
-		function formatMonth(date, str) {
-			var year = date.slice(0,4),
-				month = date.slice(4);
-
-			if(!!str) {
-				var mdate = (new Date(year,month-1)).toDateString().split(' ');
-				return mdate[1]+' '+mdate[3];
-			}
-
-			return [year, '/', month].join('');
-		}
 
 		wdsClient.retrieve({
 			payload: {

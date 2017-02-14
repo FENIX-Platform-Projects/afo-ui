@@ -71,7 +71,6 @@ require([
 						return formatMonth(val, true);
 					}),
 					lastmont = moment(_.last(cols),'YYYYMM').format('MMMM YYYY');
-
 				$('.market_date').text( lastmont );
 
 				var	headers = _.union(['Nutrient','Fertilizer'], months, [month, year]),

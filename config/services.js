@@ -37,7 +37,7 @@ define(['jquery',
 
         "prices_international_banner": "images/prices/prices_international_banner_argus_fmb_africa_fertilizer_2017.jpg",  
         "prices_international_link": "http://www.argusmedia.com/events/argus-events/europe/fert-africa/home/?utm_medium=Partner&utm_source=ArgusWebinar&utm_campaign=Lon-Conf-FertAfrica16-MPifdc",
-        "prices_international_chart": "images/prices/prices_international_chart_mar2017.png",
+        "prices_international_chart": "images/prices/prices_international_chart_apr2017.png",
 
         "eventCategories": {
             "1": "AFO technical workshops",
